@@ -1,0 +1,11 @@
+spring:
+  jpa:
+    database: POSTGRESQL
+    show-sql: true
+    ddl-auto: none
+  datasource:
+    platform: postgres
+    url: jdbc:postgresql://localhost:5432/superdraftfantasy
+    username: recall
+    password: recall
+    driverClassName: org.postgresql.Driver
