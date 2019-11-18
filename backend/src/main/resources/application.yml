@@ -6,6 +6,6 @@ spring:
   datasource:
     platform: postgres
     url: jdbc:postgresql://localhost:5432/superdraftfantasy
-    username: recall
-    password: recall
+    username: sdadmin
+    password: sdadmin
     driverClassName: org.postgresql.Driver
