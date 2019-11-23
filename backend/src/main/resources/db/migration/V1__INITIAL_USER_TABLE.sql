@@ -4,5 +4,5 @@ CREATE TABLE sd_user (
     first_name VARCHAR(255) NOT NULL,
     last_name VARCHAR(255) NOT NULL,
 
-    CONSTRAINT pk_manufacturer PRIMARY KEY(id)
+    CONSTRAINT pk_sd_user PRIMARY KEY(id)
 );
