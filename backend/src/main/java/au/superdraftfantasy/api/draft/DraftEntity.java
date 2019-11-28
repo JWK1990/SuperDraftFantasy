@@ -5,10 +5,11 @@ import java.util.Set;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotBlank;
 
-import org.hibernate.annotations.Entity;
+import javax.persistence.Entity;
 
 import au.superdraftfantasy.api.team.TeamEntity;
 import lombok.Data;
@@ -18,7 +19,8 @@ import lombok.Data;
 @Data
 public class DraftEntity {
 
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
 
     @NotBlank

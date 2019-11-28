@@ -1,8 +1,9 @@
 package au.superdraftfantasy.api.user;
 
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-@EnableJpaRepositories
-public class UserRepository {}
+public interface UserRepository extends CrudRepository<UserEntity, Long> {
+    boolean existsByUsername(String username);
+}
