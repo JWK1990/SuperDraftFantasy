@@ -11,9 +11,11 @@ import javax.validation.constraints.NotBlank;
 import org.hibernate.annotations.Entity;
 
 import au.superdraftfantasy.api.team.TeamEntity;
+import lombok.Data;
 
 
 @Entity
+@Data
 public class DraftEntity {
 
     @GeneratedValue(strategy = GenerationType.SEQUENCE)

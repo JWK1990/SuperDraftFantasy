@@ -7,9 +7,8 @@ public class UserService {
 
     UserRepository userRepository;
 
-
     Long createUser(UserEntity user) {
-        return user.getId();
+        return user.id;
     }
 
 }

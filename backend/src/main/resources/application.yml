@@ -9,3 +9,8 @@ spring:
     username: sdadmin
     password: sdadmin
     driverClassName: org.postgresql.Driver
+
+server:
+  port: 8080
+  servlet: 
+    contextPath: "/api-superdraftfantasy"

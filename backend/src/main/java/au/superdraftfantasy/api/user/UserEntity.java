@@ -7,8 +7,11 @@ import javax.validation.constraints.NotBlank;
 
 import org.hibernate.annotations.Entity;
 
+import lombok.Data;
+
 
 @Entity
+@Data
 public class UserEntity {
 
     @Id
@@ -23,12 +26,5 @@ public class UserEntity {
 
     @NotBlank
     String lastName;
-
-    /**
-     * @return the id
-     */
-    public Long getId() {
-        return id;
-    }
 
 }

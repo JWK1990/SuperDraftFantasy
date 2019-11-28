@@ -5,6 +5,7 @@ import java.util.Set;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
@@ -13,11 +14,13 @@ import javax.validation.constraints.NotBlank;
 import org.hibernate.annotations.Entity;
 
 import au.superdraftfantasy.api.user.UserEntity;
+import lombok.Data;
 import au.superdraftfantasy.api.draft.DraftEntity;
 import au.superdraftfantasy.api.team.TeamEntity;
 
 
 @Entity
+@Data
 public class TeamEntity {
 
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -39,7 +42,11 @@ public class TeamEntity {
     DraftEntity draft;
 
     @ManyToMany
-    @JoinTable
+    @JoinTable(
+        name = "team_player",
+        joinColumns = @JoinColumn(name = "team_id", referencedColumnName = "id"),
+        inverseJoinColumns = @JoinColumn(name = "player_id", referencedColumnName = "id")
+    )
     Set<TeamEntity> players;
 
 }

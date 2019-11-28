@@ -6,7 +6,10 @@ import javax.validation.constraints.NotBlank;
 
 import org.hibernate.annotations.Entity;
 
+import lombok.Data;
+
 @Entity
+@Data
 public class PlayerEntity {
 
     @GeneratedValue(strategy = GenerationType.SEQUENCE)

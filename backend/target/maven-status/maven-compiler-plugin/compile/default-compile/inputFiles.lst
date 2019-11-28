@@ -1,5 +1,5 @@
 /Users/josh/Documents/Coding/SuperDraftFantasy/backend/src/main/java/au/superdraftfantasy/api/player/PlayerEntity.java
-/Users/josh/Documents/Coding/SuperDraftFantasy/backend/src/main/java/au/superdraftfantasy/api/SwaggerConfig.java
+/Users/josh/Documents/Coding/SuperDraftFantasy/backend/src/main/java/au/superdraftfantasy/swagger/SwaggerConfig.java
 /Users/josh/Documents/Coding/SuperDraftFantasy/backend/src/main/java/au/superdraftfantasy/api/user/UserService.java
 /Users/josh/Documents/Coding/SuperDraftFantasy/backend/src/main/java/au/superdraftfantasy/api/user/UserEntity.java
 /Users/josh/Documents/Coding/SuperDraftFantasy/backend/src/main/java/au/superdraftfantasy/api/user/UserController.java
