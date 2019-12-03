@@ -1,8 +1,10 @@
 CREATE TABLE user_entity (
     id BIGSERIAL,
-    username VARCHAR(255) NOT NULL,
+    username VARCHAR(255) NOT NULL UNIQUE,
     first_name VARCHAR(255) NOT NULL,
     last_name VARCHAR(255) NOT NULL,
+    created_on TIMESTAMP NOT NULL,
+    updated_on TIMESTAMP NOT NULL,
 
     CONSTRAINT pk_user_entity PRIMARY KEY(id)
 );
@@ -13,7 +15,8 @@ CREATE TABLE draft_entity (
     num_of_teams INT NOT NULL,
     roster_type INT NOT NULL,
     budget INT NOT NULL,
-    created_on DATE NOT NULL,
+    created_on TIMESTAMP NOT NULL,
+    updated_on TIMESTAMP NOT NULL,
 
     CONSTRAINT pk_draft_entity PRIMARY KEY(id)
 );
@@ -22,13 +25,14 @@ CREATE TABLE team_entity (
     id BIGSERIAL,
     name VARCHAR(255) NOT NULL,
     budget INT NOT NULL,
+    user_id INT NOT NULL,
+    draft_id INT NOT NULL,
     created_on DATE NOT NULL,
-    user_entity INT NOT NULL,
-    draft_entity INT NOT NULL,
+    updated_on TIMESTAMP NOT NULL,
 
     CONSTRAINT pk_team_entity PRIMARY KEY(id),
-    CONSTRAINT fk_user_entity FOREIGN KEY (user_entity) REFERENCES user_entity(id) ON DELETE CASCADE ON UPDATE CASCADE,
-    CONSTRAINT fk_draft_entity FOREIGN KEY (draft_entity) REFERENCES draft_entity(id) ON DELETE CASCADE ON UPDATE CASCADE
+    CONSTRAINT fk_user_id FOREIGN KEY (user_id) REFERENCES user_entity(id) ON DELETE CASCADE ON UPDATE CASCADE,
+    CONSTRAINT fk_draft_id FOREIGN KEY (draft_id) REFERENCES draft_entity(id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE player_entity (

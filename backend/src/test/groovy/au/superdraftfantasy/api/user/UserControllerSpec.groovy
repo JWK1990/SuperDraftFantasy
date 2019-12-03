@@ -1,4 +1,4 @@
-package au.superdraftfantasy.api
+package au.superdraftfantasy.api.user
 
 import spock.lang.Specification
 

@@ -4,9 +4,10 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
-import au.superdraftfantasy.api.user.exception.UserAlreadyExistsException;
 
 @Service
 public class UserService {
@@ -21,12 +22,12 @@ public class UserService {
     }
 
 
-    public Long createUser(@NotBlank final UserEntity userEntity) throws UserAlreadyExistsException {
+    public Long createUser(@NotBlank final UserEntity userEntity) {
         
         final String username = userEntity.getUsername();
 
         if(userRepository.existsByUsername(username)) {
-            throw new UserAlreadyExistsException(username);
+            throw new ResponseStatusException(HttpStatus.CONFLICT, "Cannot create User. A user with the username '" + username + "' already exists.");
         }
 
         return userRepository.save(userEntity).getId();

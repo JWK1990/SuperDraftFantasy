@@ -2,14 +2,10 @@ package au.superdraftfantasy.api.user;
 
 import org.springframework.web.bind.annotation.RestController;
 
-import au.superdraftfantasy.api.user.exception.UserAlreadyExistsException;
-
 import java.text.ParseException;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -26,8 +22,7 @@ public class UserController {
     private ModelMapper modelMapper;
 
     @PostMapping(name = "createUser", path = "/create-user")
-    public Long createUser(@RequestBody final UserDTO userDTO)
-    throws UserAlreadyExistsException, ParseException {
+    public Long createUser(@RequestBody final UserDTO userDTO) throws ParseException {
         UserEntity userEntity = convertToEntity(userDTO);
         return userService.createUser(userEntity);
     }

@@ -17,15 +17,13 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class UserDTO {
 
-    Long id;
-    
     @NotBlank
-    String username;
+    private String username;
 
     @NotBlank
-    String firstName;
+    private String firstName;
 
     @NotBlank
-    String lastName;
+    private String lastName;
 
 }

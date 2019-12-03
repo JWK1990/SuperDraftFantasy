@@ -1,6 +1,5 @@
 package au.superdraftfantasy.api.team;
 
-import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.Set;
 
@@ -13,12 +12,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
-
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 
 import au.superdraftfantasy.api.user.UserEntity;
 import lombok.AllArgsConstructor;
@@ -28,15 +22,10 @@ import au.superdraftfantasy.api.draft.DraftEntity;
 import au.superdraftfantasy.api.team.TeamEntity;
 
 
-@Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class TeamEntity {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class TeamDTO {
 
     @NotBlank
     private String name;
@@ -44,13 +33,11 @@ public class TeamEntity {
     @NotNull
     private Long budget;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "user_id")
-    private UserEntity user;
+    @NotNull
+    private Long userId;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "draft_id")
-    private DraftEntity draft;
+    @NotNull
+    private Long draftId;
 
     /*
     @ManyToMany
@@ -62,9 +49,4 @@ public class TeamEntity {
     private Set<TeamEntity> players;
     */
 
-    @CreationTimestamp
-    private LocalDateTime createdOn;
-
-    @UpdateTimestamp
-    private LocalDateTime updatedOn;
 }
