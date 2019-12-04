@@ -1,25 +1,26 @@
-package au.superdraftfantasy.api.user;
+package au.superdraftfantasy.api.role;
 
 import java.time.LocalDateTime;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
-import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
-import au.superdraftfantasy.api.role.RoleEntity;
+import au.superdraftfantasy.api.draft.DraftEntity;
 import au.superdraftfantasy.api.team.TeamEntity;
+import au.superdraftfantasy.api.user.UserEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -29,30 +30,18 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserEntity {
+public class RoleEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
-    @NotBlank
-    private String username;
+    @Enumerated(EnumType.ORDINAL)
+    @Column(name = "role_name_id")
+    private RoleTypeEnum type;
 
-    @NotBlank
-    private String firstName;
-
-    @NotBlank
-    private String lastName;
-
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Set<TeamEntity> teams;
-
-    @ManyToMany
-    @JoinTable(
-        name = "user_role_join",
-        joinColumns = @JoinColumn(name = "user_id"),
-        inverseJoinColumns = @JoinColumn(name = "role_id"))
-    Set<RoleEntity> roles;
+    @ManyToMany(mappedBy = "roles")
+    private Set<UserEntity> users;
 
     @CreationTimestamp
     private LocalDateTime createdOn;
