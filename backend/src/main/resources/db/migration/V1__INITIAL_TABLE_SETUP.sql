@@ -3,6 +3,7 @@ CREATE TABLE user_entity (
     username VARCHAR(255) NOT NULL UNIQUE,
     first_name VARCHAR(255) NOT NULL,
     last_name VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
     created_on TIMESTAMP NOT NULL,
     updated_on TIMESTAMP NOT NULL,
 
@@ -13,7 +14,7 @@ CREATE TABLE draft_entity (
     id BIGSERIAL,
     name VARCHAR(255) NOT NULL,
     num_of_teams INT NOT NULL,
-    roster_type INT NOT NULL,
+    roster_type VARCHAR(255) NOT NULL,
     budget INT NOT NULL,
     created_on TIMESTAMP NOT NULL,
     updated_on TIMESTAMP NOT NULL,
@@ -27,7 +28,7 @@ CREATE TABLE team_entity (
     budget INT NOT NULL,
     user_id INT NOT NULL,
     draft_id INT NOT NULL,
-    created_on DATE NOT NULL,
+    created_on TIMESTAMP NOT NULL,
     updated_on TIMESTAMP NOT NULL,
 
     CONSTRAINT pk_team_entity PRIMARY KEY(id),

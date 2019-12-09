@@ -2,6 +2,7 @@ package au.superdraftfantasy.api.team;
 
 import org.springframework.web.bind.annotation.RestController;
 
+import au.superdraftfantasy.api.draft.DraftEntity;
 import au.superdraftfantasy.api.draft.DraftRepository;
 import au.superdraftfantasy.api.user.UserRepository;
 
@@ -39,10 +40,12 @@ public class TeamController {
     }
 
     private TeamEntity convertToEntity(TeamDTO teamDTO) throws ParseException {
-        modelMapper.getConfiguration().setAmbiguityIgnored(true);
+        DraftEntity draft = draftRepository.findById(teamDTO.getDraftId()).get();
+
         TeamEntity teamEntity = modelMapper.map(teamDTO, TeamEntity.class);
-        teamEntity.setUser(userRepository.findById(teamDTO.getUserId()).get());
-        teamEntity.setDraft(draftRepository.findById(teamDTO.getDraftId()).get());
+        teamEntity.setUser(userRepository.findById(1L).get());
+        teamEntity.setDraft(draft);
+        teamEntity.setBudget(draft.getBudget());
         return teamEntity;
     }
 

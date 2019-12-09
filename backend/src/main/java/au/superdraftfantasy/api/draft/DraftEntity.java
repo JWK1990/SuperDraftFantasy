@@ -41,7 +41,7 @@ public class DraftEntity {
     private Long numOfTeams;
 
     @NotNull
-    private Long rosterType;
+    private String rosterType;
 
     @NotNull
     private Long budget;

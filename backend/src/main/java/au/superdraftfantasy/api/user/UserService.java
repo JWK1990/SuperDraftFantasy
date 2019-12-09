@@ -25,9 +25,12 @@ public class UserService {
     public Long createUser(@NotBlank final UserEntity userEntity) {
         
         final String username = userEntity.getUsername();
+        final String email = userEntity.getEmail();
 
         if(userRepository.existsByUsername(username)) {
             throw new ResponseStatusException(HttpStatus.CONFLICT, "Cannot create User. A user with the username '" + username + "' already exists.");
+        } else if(userRepository.existsByEmail(email)) {
+            throw new ResponseStatusException(HttpStatus.CONFLICT, "Cannot create User. A user with the email '" + email + "' already exists.");
         }
 
         return userRepository.save(userEntity).getId();
