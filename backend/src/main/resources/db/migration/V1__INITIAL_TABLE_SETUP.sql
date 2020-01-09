@@ -22,6 +22,25 @@ CREATE TABLE draft_entity (
     CONSTRAINT pk_draft_entity PRIMARY KEY(id)
 );
 
+CREATE TABLE role_type_enum (
+    id BIGSERIAL PRIMARY KEY,
+    type varchar NOT NULL
+);
+
+CREATE TABLE role_entity (
+    id BIGSERIAL,
+    type_id INT NOT NULL,
+    user_id INT NOT NULL,
+    draft_id INT,
+    created_on TIMESTAMP NOT NULL,
+    updated_on TIMESTAMP NOT NULL,
+
+    CONSTRAINT pk_role_entity PRIMARY KEY(id),
+    CONSTRAINT fk_type_id FOREIGN KEY(type_id) REFERENCES role_type_enum(id),
+    CONSTRAINT fk_user_id FOREIGN KEY (user_id) REFERENCES user_entity(id) ON DELETE CASCADE ON UPDATE CASCADE,
+    CONSTRAINT fk_draft_id FOREIGN KEY (draft_id) REFERENCES draft_entity(id) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
 CREATE TABLE team_entity (
     id BIGSERIAL,
     name VARCHAR(255) NOT NULL,
@@ -36,14 +55,20 @@ CREATE TABLE team_entity (
     CONSTRAINT fk_draft_id FOREIGN KEY (draft_id) REFERENCES draft_entity(id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
+CREATE TABLE afl_teams_enum (
+    id BIGSERIAL PRIMARY KEY,
+    aflTeam varchar NOT NULL
+);
+
 CREATE TABLE player_entity (
     id BIGSERIAL,
     first_name VARCHAR(255) NOT NULL,
     last_name VARCHAR(255) NOT NULL,
-    football_team INT,
+    afl_team_id INT,
     average INT,
 
-    CONSTRAINT pk_player_entity PRIMARY KEY(id)
+    CONSTRAINT pk_player_entity PRIMARY KEY(id),
+    CONSTRAINT fk_afl_team_id FOREIGN KEY (afl_team_id) REFERENCES afl_teams_enum(id)
 );
 
 CREATE TABLE team_entity_player_entity (
