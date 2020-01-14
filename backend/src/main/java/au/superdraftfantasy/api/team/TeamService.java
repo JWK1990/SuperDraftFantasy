@@ -19,23 +19,24 @@ public class TeamService {
 
     private final TeamRepository teamRepository;
 
-    @Autowired
-    public TeamService(
-        @NotNull TeamRepository teamRepository
-    ) {
+    public TeamService(TeamRepository teamRepository) {
         this.teamRepository = teamRepository;
     }
 
+    public Long createTeam(@NotBlank final TeamEntity team) {
+        checkTeamValidity(team);
+        return teamRepository.save(team).getId();
+    }
 
-    public Long createTeam(@NotBlank final TeamEntity teamEntity) {
-        
-        final String teamName = teamEntity.getName();
+    private void checkTeamValidity(TeamEntity team) {
+        final String teamName = team.getName();
 
         if(teamRepository.existsByName(teamName)) {
-            throw new ResponseStatusException(HttpStatus.CONFLICT, "Cannot create Team. A team with the name '" + teamName + "' already exists.");
+            throw new ResponseStatusException(
+                    HttpStatus.CONFLICT,
+                    "Cannot create Team. A team with the name '" + teamName + "' already exists."
+            );
         }
-
-        return teamRepository.save(teamEntity).getId();
     }
 
 }

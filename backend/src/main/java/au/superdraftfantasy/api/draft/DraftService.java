@@ -22,33 +22,35 @@ public class DraftService {
     private final UserRepository userRepository;
     private final RoleRepository roleRepository;
 
-    @Autowired
-    public DraftService(
-        @NotNull DraftRepository draftRepository,
-        @NotNull UserRepository userRepository,
-        @NotNull RoleRepository roleRepository
-    ) {
+    public DraftService(DraftRepository draftRepository, UserRepository userRepository, RoleRepository roleRepository) {
         this.draftRepository = draftRepository;
         this.userRepository = userRepository;
         this.roleRepository = roleRepository;
     }
 
+    public Long createDraft(@NotBlank final DraftEntity draft) {
+        checkDraftValidity(draft);
+        Long draftId = draftRepository.save(draft).getId();
+        createCommissionerRole(draft);
 
-    public Long createDraft(@NotBlank final DraftEntity draftEntity) {
-        
-        final String draftName = draftEntity.getName();
+        return draftId;
+    }
+
+    private void checkDraftValidity(DraftEntity draft) {
+        final String draftName = draft.getName();
 
         if(draftRepository.existsByName(draftName)) {
-            throw new ResponseStatusException(HttpStatus.CONFLICT, "Cannot create Draft. A draft with the name '" + draftName + "' already exists.");
+            throw new ResponseStatusException(
+                    HttpStatus.CONFLICT,
+                    "Cannot create Draft. A draft with the name '" + draftName + "' already exists."
+            );
         }
-        
-        draftRepository.save(draftEntity).getId();
-        
-        UserEntity userEntity = userRepository.findById(1L).get();
-        RoleEntity roleEntity = new RoleEntity(null, RoleTypeEnum.COMMISSIONER, draftEntity, userEntity, null, null);
-        roleRepository.save(roleEntity);
+    }
 
-        return draftEntity.getId();
+    private void createCommissionerRole(@NotBlank DraftEntity draft) {
+        UserEntity userEntity = userRepository.findById(1L).get();
+        RoleEntity roleEntity = new RoleEntity(null, RoleTypeEnum.COMMISSIONER, draft, userEntity, null, null);
+        roleRepository.save(roleEntity);
     }
 
 }
