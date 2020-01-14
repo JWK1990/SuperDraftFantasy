@@ -1,11 +1,7 @@
 package au.superdraftfantasy.api.player;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
-
-import javax.persistence.Entity;
 
 import lombok.Data;
 
@@ -24,7 +20,8 @@ public class PlayerEntity {
     String lastName;
 
     @NotBlank
-    Long footballTeam;
+    @Enumerated(EnumType.ORDINAL)
+    AflTeamEnum aflTeam;
 
     @NotBlank
     Long average;

@@ -14,13 +14,9 @@ public class UserService {
 
     private final UserRepository userRepository;
 
-    @Autowired
-    public UserService(
-        @NotNull UserRepository userRepository
-    ) {
+    public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
-
 
     public Long createUser(@NotBlank final UserEntity userEntity) {
         

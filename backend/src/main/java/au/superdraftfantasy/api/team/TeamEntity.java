@@ -1,20 +1,16 @@
 package au.superdraftfantasy.api.team;
 
 import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
+import au.superdraftfantasy.api.player.PlayerEntity;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
-
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
 
 import au.superdraftfantasy.api.user.UserEntity;
 import lombok.AllArgsConstructor;
@@ -48,15 +44,8 @@ public class TeamEntity {
     @JoinColumn(name = "draft_id")
     private DraftEntity draft;
 
-    /*
     @ManyToMany
-    @JoinTable(
-        name = "team_player",
-        joinColumns = @JoinColumn(name = "team_id", referencedColumnName = "id"),
-        inverseJoinColumns = @JoinColumn(name = "player_id", referencedColumnName = "id")
-    )
-    private Set<TeamEntity> players;
-    */
+    private Set<PlayerEntity> players = new HashSet<>();
 
     @CreationTimestamp
     private LocalDateTime createdOn;
