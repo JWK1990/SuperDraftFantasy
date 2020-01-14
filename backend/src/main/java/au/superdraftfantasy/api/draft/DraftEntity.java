@@ -1,7 +1,9 @@
 package au.superdraftfantasy.api.draft;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.GeneratedValue;
@@ -12,6 +14,7 @@ import javax.persistence.OneToMany;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
+import au.superdraftfantasy.api.role.RoleEntity;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -46,12 +49,16 @@ public class DraftEntity {
     @NotNull
     private Long budget;
 
+    @OneToMany(mappedBy = "draft", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<RoleEntity> roles = new ArrayList<>();
+
     @CreationTimestamp
     private LocalDateTime createdOn;
 
     @UpdateTimestamp
     private LocalDateTime updatedOn;
 
+    // TODO - Move to RoleEntity.
     @OneToMany(mappedBy = "draft", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<TeamEntity> teams;
 

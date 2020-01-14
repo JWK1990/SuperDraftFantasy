@@ -33,13 +33,16 @@ public class TeamEntity {
     @NotBlank
     private String name;
 
+    // TODO rename to currentMoney or something.
     @NotNull
     private Long budget;
 
+    // Can remove link to User, can be linked to a Role potentially.
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "user_id")
     private UserEntity user;
 
+    // Isn't required anymore, can be resolved through the Role.
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "draft_id")
     private DraftEntity draft;

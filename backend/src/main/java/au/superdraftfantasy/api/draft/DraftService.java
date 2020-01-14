@@ -30,6 +30,7 @@ public class DraftService {
 
     public Long createDraft(@NotBlank final DraftEntity draft) {
         checkDraftValidity(draft);
+        draft.getRoles().add(new RoleEntity(null, RoleTypeEnum.COMMISSIONER, draft, userRepository.findById(1L).get(), null, null));
         Long draftId = draftRepository.save(draft).getId();
         createCommissionerRole(draft);
 

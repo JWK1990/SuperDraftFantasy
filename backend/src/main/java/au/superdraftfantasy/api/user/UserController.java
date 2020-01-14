@@ -13,13 +13,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 public class UserController {
 
     private final UserService userService;
+    private final ModelMapper modelMapper;
 
-    public UserController(UserService userService) {
+    public UserController(UserService userService, ModelMapper modelMapper) {
         this.userService = userService;
+        this.modelMapper = modelMapper;
     }
-
-    @Autowired
-    private ModelMapper modelMapper;
 
     @PostMapping(name = "createUser", path = "/create-user")
     public Long createUser(@RequestBody final UserDTO userDTO) throws ParseException {
