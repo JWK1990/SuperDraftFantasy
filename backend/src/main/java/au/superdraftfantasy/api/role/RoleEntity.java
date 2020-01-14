@@ -23,7 +23,7 @@ import lombok.NoArgsConstructor;
 public class RoleEntity {
   
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
  
     private String name;
@@ -33,7 +33,7 @@ public class RoleEntity {
  
     @ManyToMany
     @JoinTable(
-        name = "role_priviledge", 
+        name = "role_priviledge_join", 
         joinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"), 
         inverseJoinColumns = @JoinColumn(name = "priviledge_id", referencedColumnName = "id"))
     private Collection<PriviledgeEntity> priviledges;

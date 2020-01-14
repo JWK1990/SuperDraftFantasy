@@ -1,18 +1,7 @@
+/*
 package au.superdraftfantasy.api.user
 
 import spock.lang.Specification
-import java.text.ParseException;
-import java.util.Arrays;
-import java.util.Collection;
-
-import org.modelmapper.ModelMapper;
-import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
-
-import au.superdraftfantasy.api.role.RoleEntity;
-import au.superdraftfantasy.api.role.RoleRepository;
 
 class UserControllerSpec extends Specification {
 
@@ -37,3 +26,4 @@ class UserControllerSpec extends Specification {
     }
 
 }
+*/

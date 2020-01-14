@@ -1,3 +1,5 @@
+package au.superdraftfantasy.api.configuration.security;
+
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
@@ -53,9 +55,10 @@ public class InitialDataLoader implements
         RoleEntity adminRole = roleRepository.findByName("ROLE_ADMIN");
 
         UserEntity user = new UserEntity();
-        user.setFirstName("Test");
-        user.setLastName("Test");
-        user.setPassword(passwordEncoder.encode("test"));
+        user.setUsername("Username");
+        user.setFirstName("First Name"); 
+        user.setLastName("Second Name");
+        user.setPassword(passwordEncoder.encode("Password"));
         user.setEmail("test@test.com");
         user.setRoles(Arrays.asList(adminRole));
         user.setEnabled(true);

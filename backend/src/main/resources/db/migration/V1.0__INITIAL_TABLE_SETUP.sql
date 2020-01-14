@@ -1,13 +1,45 @@
 CREATE TABLE user_entity (
     id BIGSERIAL,
-    username VARCHAR(255) NOT NULL UNIQUE,
     first_name VARCHAR(255) NOT NULL,
     last_name VARCHAR(255) NOT NULL,
-    email VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    username VARCHAR(255) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    enabled BOOLEAN NOT NULL,
     created_on TIMESTAMP NOT NULL,
     updated_on TIMESTAMP NOT NULL,
 
     CONSTRAINT pk_user_entity PRIMARY KEY(id)
+);
+
+CREATE TABLE role_entity (
+    id BIGSERIAL,
+    name VARCHAR(255) NOT NULL,
+
+    CONSTRAINT pk_role_entity PRIMARY KEY(id)
+);
+
+CREATE TABLE priviledge_entity (
+    id BIGSERIAL,
+    name VARCHAR(255) NOT NULL,
+
+    CONSTRAINT pk_priviledge_entity PRIMARY KEY(id)
+);
+
+CREATE TABLE user_role_join (
+    user_id INT,
+    role_id INT,
+
+    CONSTRAINT fk_user_id FOREIGN KEY (user_id) REFERENCES user_entity(id),
+    CONSTRAINT fk_role_id FOREIGN KEY (role_id) REFERENCES role_entity(id)
+);
+
+CREATE TABLE role_priviledge_join (
+    role_id INT,
+    priviledge_id INT,
+
+    CONSTRAINT fk_role_id FOREIGN KEY (role_id) REFERENCES role_entity(id),
+    CONSTRAINT fk_priviledge_id FOREIGN KEY (priviledge_id) REFERENCES priviledge_entity(id)
 );
 
 CREATE TABLE draft_entity (

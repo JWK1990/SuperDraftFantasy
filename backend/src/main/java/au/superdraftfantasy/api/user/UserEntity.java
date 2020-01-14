@@ -12,6 +12,7 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -33,9 +34,6 @@ public class UserEntity {
     private Long id;
     
     @NotBlank
-    private String username;
-
-    @NotBlank
     private String firstName;
 
     @NotBlank
@@ -44,7 +42,14 @@ public class UserEntity {
     @Email
     private String email;
 
+    @NotBlank
+    private String username;
+
+    @NotBlank
     private String password;
+
+    @NotNull
+    private boolean enabled;
 
     @CreationTimestamp
     private LocalDateTime createdOn;
@@ -52,13 +57,9 @@ public class UserEntity {
     @UpdateTimestamp
     private LocalDateTime updatedOn;
 
-    private boolean enabled;
-
-    private boolean tokenExpired;
-
     @ManyToMany
     @JoinTable(
-        name = "user_role",
+        name = "user_role_join",
         joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
         inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id")) 
     private Collection<RoleEntity> roles;
