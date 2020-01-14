@@ -6,6 +6,7 @@ import java.util.Set;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 
+import au.superdraftfantasy.api.team.TeamEntity;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -38,6 +39,9 @@ public class RoleEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private UserEntity user;
+
+    @OneToOne(mappedBy = "role", cascade = CascadeType.ALL, orphanRemoval = true)
+    private TeamEntity team;
 
     @CreationTimestamp
     private LocalDateTime createdOn;

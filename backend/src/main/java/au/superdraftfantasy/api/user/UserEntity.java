@@ -44,12 +44,6 @@ public class UserEntity {
     @Email
     private String email;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Set<TeamEntity> teams;
-
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Set<RoleEntity> roles;
-
     @CreationTimestamp
     private LocalDateTime createdOn;
 

@@ -3,6 +3,7 @@ package au.superdraftfantasy.api.draft;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
+import au.superdraftfantasy.api.team.TeamEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -30,9 +31,8 @@ public class DraftService {
 
     public Long createDraft(@NotBlank final DraftEntity draft) {
         checkDraftValidity(draft);
-        draft.getRoles().add(new RoleEntity(null, RoleTypeEnum.COMMISSIONER, draft, userRepository.findById(1L).get(), null, null));
+        draft.getRoles().add(new RoleEntity(null, RoleTypeEnum.COMMISSIONER, draft, userRepository.findById(1L).get(), new TeamEntity(), null, null));
         Long draftId = draftRepository.save(draft).getId();
-        createCommissionerRole(draft);
 
         return draftId;
     }
@@ -46,12 +46,6 @@ public class DraftService {
                     "Cannot create Draft. A draft with the name '" + draftName + "' already exists."
             );
         }
-    }
-
-    private void createCommissionerRole(@NotBlank DraftEntity draft) {
-        UserEntity userEntity = userRepository.findById(1L).get();
-        RoleEntity roleEntity = new RoleEntity(null, RoleTypeEnum.COMMISSIONER, draft, userEntity, null, null);
-        roleRepository.save(roleEntity);
     }
 
 }

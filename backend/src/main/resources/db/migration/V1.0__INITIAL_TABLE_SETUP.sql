@@ -32,6 +32,7 @@ CREATE TABLE role_entity (
     type_id INT NOT NULL,
     user_id INT NOT NULL,
     draft_id INT,
+    team INT,
     created_on TIMESTAMP NOT NULL,
     updated_on TIMESTAMP NOT NULL,
 
@@ -45,15 +46,14 @@ CREATE TABLE team_entity (
     id BIGSERIAL,
     name VARCHAR(255) NOT NULL,
     budget INT NOT NULL,
-    user_id INT NOT NULL,
-    draft_id INT NOT NULL,
     created_on TIMESTAMP NOT NULL,
     updated_on TIMESTAMP NOT NULL,
 
-    CONSTRAINT pk_team_entity PRIMARY KEY(id),
-    CONSTRAINT fk_user_id FOREIGN KEY (user_id) REFERENCES user_entity(id) ON DELETE CASCADE ON UPDATE CASCADE,
-    CONSTRAINT fk_draft_id FOREIGN KEY (draft_id) REFERENCES draft_entity(id) ON DELETE CASCADE ON UPDATE CASCADE
+    CONSTRAINT pk_team_entity PRIMARY KEY(id)
 );
+
+ALTER TABLE role_entity
+    ADD CONSTRAINT fk_team FOREIGN KEY (team) REFERENCES team_entity(id) ON DELETE CASCADE ON UPDATE CASCADE;
 
 CREATE TABLE afl_teams_enum (
     id BIGSERIAL PRIMARY KEY,

@@ -58,8 +58,4 @@ public class DraftEntity {
     @UpdateTimestamp
     private LocalDateTime updatedOn;
 
-    // TODO - Move to RoleEntity.
-    @OneToMany(mappedBy = "draft", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Set<TeamEntity> teams;
-
 }

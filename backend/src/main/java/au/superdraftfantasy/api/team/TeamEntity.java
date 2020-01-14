@@ -9,6 +9,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 import au.superdraftfantasy.api.player.PlayerEntity;
+import au.superdraftfantasy.api.role.RoleEntity;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -27,7 +28,6 @@ import au.superdraftfantasy.api.team.TeamEntity;
 public class TeamEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @NotBlank
@@ -37,15 +37,9 @@ public class TeamEntity {
     @NotNull
     private Long budget;
 
-    // Can remove link to User, can be linked to a Role potentially.
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "user_id")
-    private UserEntity user;
-
-    // Isn't required anymore, can be resolved through the Role.
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "draft_id")
-    private DraftEntity draft;
+    @OneToOne(fetch = FetchType.LAZY)
+    @MapsId
+    private RoleEntity role;
 
     @ManyToMany
     private Set<PlayerEntity> players = new HashSet<>();
