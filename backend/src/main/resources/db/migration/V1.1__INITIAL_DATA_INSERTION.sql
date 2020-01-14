@@ -1,7 +1,6 @@
-INSERT INTO role_type_enum(id, type)
-VALUES  (0, 'ADMIN'),
-        (1, 'COACH'),
-        (2, 'COMMISSIONER');
+INSERT INTO coach_type_enum(id, type)
+VALUES  (0, 'COMMISSIONER'),
+        (1, 'MEMBER');
 
 /* Insert initial Afl Teams Data. */
 INSERT INTO afl_teams_enum(id, aflTeam)

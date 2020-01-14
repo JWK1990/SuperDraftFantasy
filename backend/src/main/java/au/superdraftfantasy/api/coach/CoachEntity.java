@@ -1,10 +1,8 @@
-package au.superdraftfantasy.api.role;
+package au.superdraftfantasy.api.coach;
 
 import java.time.LocalDateTime;
-import java.util.Set;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
 
 import au.superdraftfantasy.api.team.TeamEntity;
 import org.hibernate.annotations.CreationTimestamp;
@@ -21,8 +19,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "role_entity")
-public class RoleEntity {
+public class CoachEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,17 +27,17 @@ public class RoleEntity {
     
     @Enumerated(EnumType.ORDINAL)
     @Column(name = "type_id")
-    private RoleTypeEnum type;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "draft_id")
-    private DraftEntity draft;
+    private CoachTypeEnum type;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private UserEntity user;
 
-    @OneToOne(mappedBy = "role", cascade = CascadeType.ALL, orphanRemoval = true)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "draft_id")
+    private DraftEntity draft;
+
+    @OneToOne(mappedBy = "coach", cascade = CascadeType.ALL, orphanRemoval = true)
     private TeamEntity team;
 
     @CreationTimestamp

@@ -9,16 +9,13 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 import au.superdraftfantasy.api.player.PlayerEntity;
-import au.superdraftfantasy.api.role.RoleEntity;
+import au.superdraftfantasy.api.coach.CoachEntity;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
-import au.superdraftfantasy.api.user.UserEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import au.superdraftfantasy.api.draft.DraftEntity;
-import au.superdraftfantasy.api.team.TeamEntity;
 
 
 @Entity
@@ -39,7 +36,7 @@ public class TeamEntity {
 
     @OneToOne(fetch = FetchType.LAZY)
     @MapsId
-    private RoleEntity role;
+    private CoachEntity coach;
 
     @ManyToMany
     private Set<PlayerEntity> players = new HashSet<>();

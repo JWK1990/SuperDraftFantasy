@@ -1,19 +1,19 @@
 package au.superdraftfantasy.api.draft;
 
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 
 import au.superdraftfantasy.api.team.TeamEntity;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
-import au.superdraftfantasy.api.role.RoleEntity;
-import au.superdraftfantasy.api.role.RoleRepository;
-import au.superdraftfantasy.api.role.RoleTypeEnum;
-import au.superdraftfantasy.api.user.UserEntity;
+import au.superdraftfantasy.api.coach.CoachEntity;
+import au.superdraftfantasy.api.coach.CoachRepository;
+import au.superdraftfantasy.api.coach.CoachTypeEnum;
 import au.superdraftfantasy.api.user.UserRepository;
+
+import java.util.Arrays;
+import java.util.HashSet;
 
 
 @Service
@@ -21,20 +21,18 @@ public class DraftService {
 
     private final DraftRepository draftRepository;
     private final UserRepository userRepository;
-    private final RoleRepository roleRepository;
+    private final CoachRepository coachRepository;
 
-    public DraftService(DraftRepository draftRepository, UserRepository userRepository, RoleRepository roleRepository) {
+    public DraftService(DraftRepository draftRepository, UserRepository userRepository, CoachRepository coachRepository) {
         this.draftRepository = draftRepository;
         this.userRepository = userRepository;
-        this.roleRepository = roleRepository;
+        this.coachRepository = coachRepository;
     }
 
     public Long createDraft(@NotBlank final DraftEntity draft) {
         checkDraftValidity(draft);
-        draft.getRoles().add(new RoleEntity(null, RoleTypeEnum.COMMISSIONER, draft, userRepository.findById(1L).get(), new TeamEntity(), null, null));
-        Long draftId = draftRepository.save(draft).getId();
-
-        return draftId;
+        createCommissionersTeam(draft);
+        return draftRepository.save(draft).getId();
     }
 
     private void checkDraftValidity(DraftEntity draft) {
@@ -46,6 +44,13 @@ public class DraftService {
                     "Cannot create Draft. A draft with the name '" + draftName + "' already exists."
             );
         }
+    }
+
+    private void createCommissionersTeam(@NotBlank DraftEntity draft) {
+        CoachEntity coach = new CoachEntity(null, CoachTypeEnum.COMMISSIONER, userRepository.findById(1L).get(), draft, null, null, null);
+        TeamEntity team = new TeamEntity(null, "Default Name", draft.getBudget(), coach, new HashSet<>(),null, null);
+        coach.setTeam(team);
+        draft.getCoaches().add(coach);
     }
 
 }
