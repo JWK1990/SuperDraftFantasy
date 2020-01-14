@@ -1,17 +1,22 @@
 package au.superdraftfantasy.api.user;
 
 import java.time.LocalDateTime;
+import java.util.Collection;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
+import au.superdraftfantasy.api.role.RoleEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -39,10 +44,23 @@ public class UserEntity {
     @Email
     private String email;
 
+    private String password;
+
     @CreationTimestamp
     private LocalDateTime createdOn;
 
     @UpdateTimestamp
     private LocalDateTime updatedOn;
+
+    private boolean enabled;
+
+    private boolean tokenExpired;
+
+    @ManyToMany
+    @JoinTable(
+        name = "user_role",
+        joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
+        inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id")) 
+    private Collection<RoleEntity> roles;
 
 }
