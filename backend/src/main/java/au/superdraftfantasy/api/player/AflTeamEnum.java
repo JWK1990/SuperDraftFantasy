@@ -1,5 +1,6 @@
 package au.superdraftfantasy.api.player;
 
+// TODO Rename Team to Club to avoid confusion with SDTeam.
 public enum AflTeamEnum {
     ADELAIDE_CROWS,
     BRISBANE_LIONS,

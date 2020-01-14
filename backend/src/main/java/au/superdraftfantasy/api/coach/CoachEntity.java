@@ -1,23 +1,10 @@
-package au.superdraftfantasy.api.role;
+package au.superdraftfantasy.api.coach;
 
 import java.time.LocalDateTime;
-import java.util.Set;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.validation.constraints.NotBlank;
+import javax.persistence.*;
 
+import au.superdraftfantasy.api.team.TeamEntity;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -32,7 +19,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class RoleEntity {
+public class CoachEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -40,15 +27,18 @@ public class RoleEntity {
     
     @Enumerated(EnumType.ORDINAL)
     @Column(name = "type_id")
-    private RoleTypeEnum type;
+    private CoachTypeEnum type;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private UserEntity user;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "draft_id")
     private DraftEntity draft;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id")
-    private UserEntity user;
+    @OneToOne(mappedBy = "coach", cascade = CascadeType.ALL, orphanRemoval = true)
+    private TeamEntity team;
 
     @CreationTimestamp
     private LocalDateTime createdOn;

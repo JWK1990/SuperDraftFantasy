@@ -9,15 +9,13 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 import au.superdraftfantasy.api.player.PlayerEntity;
+import au.superdraftfantasy.api.coach.CoachEntity;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
-import au.superdraftfantasy.api.user.UserEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import au.superdraftfantasy.api.draft.DraftEntity;
-import au.superdraftfantasy.api.team.TeamEntity;
 
 
 @Entity
@@ -27,22 +25,18 @@ import au.superdraftfantasy.api.team.TeamEntity;
 public class TeamEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @NotBlank
     private String name;
 
+    // TODO rename to currentMoney or something.
     @NotNull
     private Long budget;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "user_id")
-    private UserEntity user;
-
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "draft_id")
-    private DraftEntity draft;
+    @OneToOne(fetch = FetchType.LAZY)
+    @MapsId
+    private CoachEntity coach;
 
     @ManyToMany
     private Set<PlayerEntity> players = new HashSet<>();

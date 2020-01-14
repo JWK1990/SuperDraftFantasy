@@ -22,12 +22,12 @@ CREATE TABLE draft_entity (
     CONSTRAINT pk_draft_entity PRIMARY KEY(id)
 );
 
-CREATE TABLE role_type_enum (
+CREATE TABLE coach_type_enum (
     id BIGSERIAL PRIMARY KEY,
     type varchar NOT NULL
 );
 
-CREATE TABLE role_entity (
+CREATE TABLE coach_entity (
     id BIGSERIAL,
     type_id INT NOT NULL,
     user_id INT NOT NULL,
@@ -35,24 +35,21 @@ CREATE TABLE role_entity (
     created_on TIMESTAMP NOT NULL,
     updated_on TIMESTAMP NOT NULL,
 
-    CONSTRAINT pk_role_entity PRIMARY KEY(id),
-    CONSTRAINT fk_type_id FOREIGN KEY(type_id) REFERENCES role_type_enum(id),
+    CONSTRAINT pk_coach_entity PRIMARY KEY(id),
+    CONSTRAINT fk_type_id FOREIGN KEY(type_id) REFERENCES coach_type_enum(id),
     CONSTRAINT fk_user_id FOREIGN KEY (user_id) REFERENCES user_entity(id) ON DELETE CASCADE ON UPDATE CASCADE,
     CONSTRAINT fk_draft_id FOREIGN KEY (draft_id) REFERENCES draft_entity(id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE team_entity (
-    id BIGSERIAL,
+    coach_id INT NOT NULL,
     name VARCHAR(255) NOT NULL,
     budget INT NOT NULL,
-    user_id INT NOT NULL,
-    draft_id INT NOT NULL,
     created_on TIMESTAMP NOT NULL,
     updated_on TIMESTAMP NOT NULL,
 
-    CONSTRAINT pk_team_entity PRIMARY KEY(id),
-    CONSTRAINT fk_user_id FOREIGN KEY (user_id) REFERENCES user_entity(id) ON DELETE CASCADE ON UPDATE CASCADE,
-    CONSTRAINT fk_draft_id FOREIGN KEY (draft_id) REFERENCES draft_entity(id) ON DELETE CASCADE ON UPDATE CASCADE
+    CONSTRAINT pk_team_entity PRIMARY KEY(coach_id),
+    CONSTRAINT fk_team_entity FOREIGN KEY (coach_id) REFERENCES coach_entity(id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE afl_teams_enum (
@@ -75,7 +72,7 @@ CREATE TABLE team_entity_player_entity (
     team_entity_id INT,
     player_entity_id INT,
 
-    CONSTRAINT fk_team_entity_id FOREIGN KEY (team_entity_id) REFERENCES team_entity(id),
+    CONSTRAINT fk_team_entity_id FOREIGN KEY (team_entity_id) REFERENCES team_entity(coach_id),
     CONSTRAINT fk_player_entity_id FOREIGN KEY (player_entity_id) REFERENCES player_entity(id)
 );
 
