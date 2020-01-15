@@ -11,12 +11,12 @@ CREATE TABLE user_entity (
 
 CREATE TABLE role_entity (
     id BIGSERIAL PRIMARY KEY,
-    name VARCHAR(255) NOT NULL
+    type VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE privilege_entity (
     id BIGSERIAL PRIMARY KEY,
-    name VARCHAR(255) NOT NULL
+    type VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE role_privilege_join (

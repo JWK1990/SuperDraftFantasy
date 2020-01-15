@@ -1,6 +1,6 @@
 INSERT INTO user_entity
 (id, username, first_name, last_name, email, password, created_on, updated_on)
-    VALUES(1, 'firstuser', 'First', 'User', 'firstuser@gmail.com', '$2y$12$VoqJDU38iEjet7xjryHF8OR5Jsf8B20T9SxPm2JieEh1BXpDq6Hb2', '2019-12-09 13:14:39.007', '2019-12-09 13:14:39.009');
+    VALUES(1, 'username', 'First', 'User', 'firstuser@gmail.com', '$2a$10$UvrXYodGPlzk6KAaXUuHn.Kgnc4luo.rNi/Z/bVqwmDUr3yDVsc3q', '2019-12-09 13:14:39.007', '2019-12-09 13:14:39.009');
 
 INSERT INTO user_role_join(user_id, role_id)
     VALUES(1, 1);
@@ -22,8 +22,11 @@ INSERT INTO team_entity_player_entity
     VALUES(1, 1);
 
 -- update the sequences
-SELECT setval('user_entity_id_seq', (SELECT max(id) FROM user_entity));
+SELECT setval('afl_teams_enum_id_seq', (SELECT max(id) FROM afl_teams_enum));
+SELECT setval('coach_entity_id_seq', (SELECT max(id) FROM coach_entity));
+SELECT setval('coach_type_enum_id_seq', (SELECT max(id) FROM coach_type_enum));
 SELECT setval('draft_entity_id_seq', (SELECT max(id) FROM draft_entity));
 SELECT setval('player_entity_id_seq', (SELECT max(id) FROM player_entity));
-SELECT setval('coach_type_enum_id_seq', (SELECT max(id) FROM coach_type_enum));
-SELECT setval('coach_entity_id_seq', (SELECT max(id) FROM coach_entity));
+SELECT setval('privilege_entity_id_seq', (SELECT max(id) FROM privilege_entity));
+SELECT setval('role_entity_id_seq', (SELECT max(id) FROM role_entity));
+SELECT setval('user_entity_id_seq', (SELECT max(id) FROM user_entity));

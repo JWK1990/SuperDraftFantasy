@@ -1,8 +1,8 @@
-INSERT INTO role_entity (id, name)
+INSERT INTO role_entity (id, type)
     VALUES  (1, 'ADMIN'),
             (2, 'USER');
 
-INSERT INTO privilege_entity (id, name)
+INSERT INTO privilege_entity (id, type)
     VALUES  (1, 'WRITE'),
             (2, 'READ');
 

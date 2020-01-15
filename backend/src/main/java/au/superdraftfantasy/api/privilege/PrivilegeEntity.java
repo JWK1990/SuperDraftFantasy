@@ -3,6 +3,8 @@ package au.superdraftfantasy.api.privilege;
 import java.util.Collection;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -23,7 +25,8 @@ public class PrivilegeEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String name;
+    @Enumerated(EnumType.STRING)
+    private PrivilegeTypeEnum type;
 
     @ManyToMany(mappedBy = "privileges")
     private Collection<RoleEntity> roles;

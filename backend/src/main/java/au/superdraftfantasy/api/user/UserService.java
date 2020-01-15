@@ -10,6 +10,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 import au.superdraftfantasy.api.role.RoleEntity;
 import au.superdraftfantasy.api.role.RoleRepository;
+import au.superdraftfantasy.api.role.RoleTypeEnum;
 
 
 @Service
@@ -47,7 +48,8 @@ public class UserService {
     }
 
     private void assignInitialRole(UserEntity user) {
-        RoleEntity userRole = roleRepository.findByName("USER").orElseThrow(() -> new RuntimeException("Role Not Found."));
+        RoleTypeEnum initialRoleType = RoleTypeEnum.USER;
+        RoleEntity userRole = roleRepository.findByType(initialRoleType).orElseThrow(() -> new RuntimeException("Role Not Found."));
         user.setRoles(Arrays.asList(userRole));
     }
 
