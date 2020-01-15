@@ -5,12 +5,15 @@ import java.util.HashSet;
 import javax.validation.constraints.NotBlank;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
 import au.superdraftfantasy.api.coach.CoachEntity;
 import au.superdraftfantasy.api.coach.CoachTypeEnum;
 import au.superdraftfantasy.api.team.TeamEntity;
+import au.superdraftfantasy.api.user.UserEntity;
 import au.superdraftfantasy.api.user.UserRepository;
 
 
@@ -43,10 +46,16 @@ public class DraftService {
     }
 
     private void createCommissionersTeam(@NotBlank DraftEntity draft) {
-        CoachEntity coach = new CoachEntity(null, CoachTypeEnum.COMMISSIONER, userRepository.findById(1L).get(), draft, null, null, null);
-        TeamEntity team = new TeamEntity(null, "Default Name", draft.getBudget(), coach, new HashSet<>(),null, null);
+        UserEntity user = getCurrentUser();
+        CoachEntity coach = new CoachEntity(null, CoachTypeEnum.COMMISSIONER, user, draft, null, null, null);
+        TeamEntity team = new TeamEntity(null, "Default Name", draft.getBudget(), coach, new HashSet<>(), null, null);
         coach.setTeam(team);
         draft.getCoaches().add(coach);
+    }
+
+    private UserEntity getCurrentUser() {
+        String username = SecurityContextHolder.getContext().getAuthentication().getName();
+        return userRepository.findByUsername(username).orElseThrow(() -> new UsernameNotFoundException(username));
     }
 
 }
