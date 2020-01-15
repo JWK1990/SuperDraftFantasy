@@ -11,6 +11,7 @@ import java.security.Key;
 import java.util.Date;
 
 import static au.superdraftfantasy.api.configuration.security.SecurityConstants.SECRET;
+import static au.superdraftfantasy.api.configuration.security.SecurityConstants.TOKEN_PREFIX;
 
 public class SecurityUtils {
     public static String createJWT(String id, String issuer, String subject, long ttlMillis) {
@@ -47,7 +48,7 @@ public class SecurityUtils {
         //This line will throw an exception if it is not a signed JWS (as expected)
         Claims claims = Jwts.parser()
                 .setSigningKey(DatatypeConverter.parseBase64Binary(SECRET))
-                .parseClaimsJws(jwt.replace("Bearer", "").trim()).getBody();
+                .parseClaimsJws(jwt.replace(TOKEN_PREFIX, "").trim()).getBody();
         return claims;
     }
 }
