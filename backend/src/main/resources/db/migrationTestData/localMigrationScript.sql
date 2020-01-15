@@ -1,6 +1,6 @@
 INSERT INTO user_entity
-(id, username, first_name, last_name, email, created_on, updated_on)
-    VALUES(1, 'firstuser', 'First', 'User', 'firstuser@gmail.com', '2019-12-09 13:14:39.007', '2019-12-09 13:14:39.009');
+(id, username, first_name, last_name, email, password, created_on, updated_on)
+    VALUES(1, 'firstuser', 'First', 'User', 'firstuser@gmail.com', '$2y$12$VoqJDU38iEjet7xjryHF8OR5Jsf8B20T9SxPm2JieEh1BXpDq6Hb2', '2019-12-09 13:14:39.007', '2019-12-09 13:14:39.009');
 
 INSERT INTO draft_entity
 (id, "name", num_of_teams, roster_type, budget, created_on, updated_on)

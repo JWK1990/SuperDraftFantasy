@@ -1,5 +1,6 @@
 package au.superdraftfantasy.api.draft;
 
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.text.ParseException;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 @RestController
+@RequestMapping(path = "/drafts")
 public class DraftController {
 
     private final DraftService draftService;
@@ -21,8 +23,8 @@ public class DraftController {
     @Autowired
     private ModelMapper modelMapper;
 
-    @PostMapping(name = "createDraft", path = "/create-draft")
-    public Long createUser(@RequestBody final DraftDTO draftDTO) throws ParseException {
+    @PostMapping(name = "createDraft")
+    public Long createDraft(@RequestBody final DraftDTO draftDTO) throws ParseException {
         DraftEntity userEntity = convertToEntity(draftDTO);
         return draftService.createDraft(userEntity);
     }

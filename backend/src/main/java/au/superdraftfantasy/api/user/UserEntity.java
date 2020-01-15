@@ -39,6 +39,9 @@ public class UserEntity {
     @Email
     private String email;
 
+    @NotBlank
+    private String password;
+
     @CreationTimestamp
     private LocalDateTime createdOn;
 

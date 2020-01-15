@@ -36,6 +36,17 @@
             <scope>test</scope>
         </dependency>
         <!-- Spring Dependencies End -->
+        <!-- Security dependencies Begin -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt</artifactId>
+            <version>0.9.1</version>
+        </dependency>
+        <!-- Security dependencies End-->
         <!-- Test Dependencies Begin -->
         <dependency>
             <groupId>org.spockframework</groupId>
