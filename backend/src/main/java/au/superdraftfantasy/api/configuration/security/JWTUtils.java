@@ -1,6 +1,7 @@
 package au.superdraftfantasy.api.configuration.security;
 
 import static au.superdraftfantasy.api.configuration.security.SecurityConstants.SECRET;
+import static au.superdraftfantasy.api.configuration.security.SecurityConstants.TOKEN_PREFIX;
 
 import java.security.Key;
 import java.util.Date;
@@ -14,6 +15,7 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 
 public class JWTUtils {
+
     public static String createJWT(String id, String issuer, String subject, long ttlMillis) {
         //The JWT signature algorithm we will be using to sign the token
         SignatureAlgorithm signatureAlgorithm = SignatureAlgorithm.HS256;
@@ -42,7 +44,8 @@ public class JWTUtils {
         //This line will throw an exception if it is not a signed JWS (as expected)
         Claims claims = Jwts.parser()
                 .setSigningKey(DatatypeConverter.parseBase64Binary(SECRET))
-                .parseClaimsJws(jwt).getBody();
+                .parseClaimsJws(jwt.replace(TOKEN_PREFIX, "").trim()).getBody();
         return claims;
     }
+    
 }
