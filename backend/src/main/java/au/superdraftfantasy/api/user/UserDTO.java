@@ -3,6 +3,7 @@ package au.superdraftfantasy.api.user;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.validator.constraints.Length;
 
 
 @Data
@@ -19,5 +20,8 @@ public class UserDTO {
     private String lastName;
 
     private String email;
+
+    @Length(min = 8, max = 32)
+    private String password;
 
 }

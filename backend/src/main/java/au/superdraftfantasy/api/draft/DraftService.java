@@ -1,19 +1,17 @@
 package au.superdraftfantasy.api.draft;
 
+import java.util.HashSet;
+
 import javax.validation.constraints.NotBlank;
 
-import au.superdraftfantasy.api.team.TeamEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
 import au.superdraftfantasy.api.coach.CoachEntity;
-import au.superdraftfantasy.api.coach.CoachRepository;
 import au.superdraftfantasy.api.coach.CoachTypeEnum;
+import au.superdraftfantasy.api.team.TeamEntity;
 import au.superdraftfantasy.api.user.UserRepository;
-
-import java.util.Arrays;
-import java.util.HashSet;
 
 
 @Service
@@ -21,12 +19,10 @@ public class DraftService {
 
     private final DraftRepository draftRepository;
     private final UserRepository userRepository;
-    private final CoachRepository coachRepository;
 
-    public DraftService(DraftRepository draftRepository, UserRepository userRepository, CoachRepository coachRepository) {
+    public DraftService(DraftRepository draftRepository, UserRepository userRepository) {
         this.draftRepository = draftRepository;
         this.userRepository = userRepository;
-        this.coachRepository = coachRepository;
     }
 
     public Long createDraft(@NotBlank final DraftEntity draft) {
