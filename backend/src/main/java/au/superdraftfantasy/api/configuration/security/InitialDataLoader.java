@@ -1,3 +1,4 @@
+/*
 package au.superdraftfantasy.api.configuration.security;
 
 import java.util.Arrays;
@@ -91,3 +92,4 @@ public class InitialDataLoader implements
         return role;
     }
 }
+*/

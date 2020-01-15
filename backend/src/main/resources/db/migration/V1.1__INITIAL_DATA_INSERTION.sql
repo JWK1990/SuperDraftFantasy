@@ -1,6 +1,21 @@
-INSERT INTO coach_type_enum(id, type)
-VALUES  (0, 'COMMISSIONER'),
-        (1, 'MEMBER');
+INSERT INTO user_entity(id, first_name, last_name, email, username, password, enabled, created_on, updated_on)
+    VALUES  (1, 'First', 'User', 'firstuser@gmail.com', 'firstuser', 'password', false, '2019-12-09 13:14:39.007', '2019-12-09 13:14:39.009');
+
+INSERT INTO role_entity(id, name)
+    VALUES  (1, 'ADMIN'),
+            (2, 'USER');
+
+INSERT INTO privilege_entity(id, name)
+    VALUES  (1, 'WRITE'),
+            (2, 'READ');
+
+INSERT INTO role_privilege_join(role_id, privilege_id)
+    VALUES  (1, 1),
+            (1, 2),
+            (2, 2);
+
+INSERT INTO user_role_join(user_id, role_id)
+    VALUES  (1, 1);
 
 /* Insert initial Afl Teams Data. */
 INSERT INTO afl_teams_enum(id, aflTeam)
