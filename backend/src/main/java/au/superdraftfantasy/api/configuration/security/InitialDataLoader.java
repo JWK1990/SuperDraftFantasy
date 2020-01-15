@@ -12,8 +12,8 @@ import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
-import au.superdraftfantasy.api.priviledge.PriviledgeEntity;
-import au.superdraftfantasy.api.priviledge.PriviledgeRepository;
+import au.superdraftfantasy.api.privilege.PrivilegeEntity;
+import au.superdraftfantasy.api.privilege.PrivilegeRepository;
 import au.superdraftfantasy.api.role.RoleEntity;
 import au.superdraftfantasy.api.role.RoleRepository;
 import au.superdraftfantasy.api.user.UserEntity;
@@ -32,7 +32,7 @@ public class InitialDataLoader implements
     private RoleRepository roleRepository;
   
     @Autowired
-    private PriviledgeRepository priviledgeRepository;
+    private PrivilegeRepository privilegeRepository;
   
     @Autowired
     private PasswordEncoder passwordEncoder;
@@ -45,12 +45,12 @@ public class InitialDataLoader implements
             return;
         }
 
-        PriviledgeEntity readPriviledge = createPriviledgeIfNotFound("READ_PRIVILEGE");
-        PriviledgeEntity writePriviledge = createPriviledgeIfNotFound("WRITE_PRIVILEGE");
-        List<PriviledgeEntity> adminPriviledges = Arrays.asList(readPriviledge, writePriviledge);   
+        PrivilegeEntity readPrivilege = createPrivilegeIfNotFound("READ_PRIVILEGE");
+        PrivilegeEntity writePrivilege = createPrivilegeIfNotFound("WRITE_PRIVILEGE");
+        List<PrivilegeEntity> adminPrivileges = Arrays.asList(readPrivilege, writePrivilege);
 
-        createRoleIfNotFound("ROLE_ADMIN", adminPriviledges);
-        createRoleIfNotFound("ROLE_USER", Arrays.asList(readPriviledge));
+        createRoleIfNotFound("ROLE_ADMIN", adminPrivileges);
+        createRoleIfNotFound("ROLE_USER", Arrays.asList(readPrivilege));
  
         RoleEntity adminRole = roleRepository.findByName("ROLE_ADMIN");
 
@@ -68,19 +68,19 @@ public class InitialDataLoader implements
     }
  
     @Transactional
-    private PriviledgeEntity createPriviledgeIfNotFound(String name) {
-        PriviledgeEntity priviledge = priviledgeRepository.findByName(name);
+    private PrivilegeEntity createPrivilegeIfNotFound(String name) {
+        PrivilegeEntity privilege = privilegeRepository.findByName(name);
 
-        if (priviledge == null) {
-            priviledge = new PriviledgeEntity(null, name, null);
-            priviledgeRepository.save(priviledge);
+        if (privilege == null) {
+            privilege = new PrivilegeEntity(null, name, null);
+            privilegeRepository.save(privilege);
         }
 
-        return priviledge;
+        return privilege;
     }
  
     @Transactional
-    private RoleEntity createRoleIfNotFound(String name, Collection<PriviledgeEntity> priviledges) {
+    private RoleEntity createRoleIfNotFound(String name, Collection<PrivilegeEntity> privileges) {
         RoleEntity role = roleRepository.findByName(name);
 
         if (role == null) {

@@ -1,4 +1,4 @@
-package au.superdraftfantasy.api.priviledge;
+package au.superdraftfantasy.api.privilege;
 
 import java.util.Collection;
 
@@ -17,7 +17,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class PriviledgeEntity {
+public class PrivilegeEntity {
   
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,6 +25,6 @@ public class PriviledgeEntity {
  
     private String name;
  
-    @ManyToMany(mappedBy = "priviledges")
+    @ManyToMany(mappedBy = "privileges")
     private Collection<RoleEntity> roles;
 }

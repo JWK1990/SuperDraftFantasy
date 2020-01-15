@@ -19,11 +19,11 @@ CREATE TABLE role_entity (
     CONSTRAINT pk_role_entity PRIMARY KEY(id)
 );
 
-CREATE TABLE priviledge_entity (
+CREATE TABLE privilege_entity (
     id BIGSERIAL,
     name VARCHAR(255) NOT NULL,
 
-    CONSTRAINT pk_priviledge_entity PRIMARY KEY(id)
+    CONSTRAINT pk_privilege_entity PRIMARY KEY(id)
 );
 
 CREATE TABLE user_role_join (
@@ -34,12 +34,12 @@ CREATE TABLE user_role_join (
     CONSTRAINT fk_role_id FOREIGN KEY (role_id) REFERENCES role_entity(id)
 );
 
-CREATE TABLE role_priviledge_join (
+CREATE TABLE role_privilege_join (
     role_id INT,
-    priviledge_id INT,
+    privilege_id INT,
 
     CONSTRAINT fk_role_id FOREIGN KEY (role_id) REFERENCES role_entity(id),
-    CONSTRAINT fk_priviledge_id FOREIGN KEY (priviledge_id) REFERENCES priviledge_entity(id)
+    CONSTRAINT fk_privilege_id FOREIGN KEY (privilege_id) REFERENCES privilege_entity(id)
 );
 
 CREATE TABLE draft_entity (

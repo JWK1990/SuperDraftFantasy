@@ -10,7 +10,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 
-import au.superdraftfantasy.api.priviledge.PriviledgeEntity;
+import au.superdraftfantasy.api.privilege.PrivilegeEntity;
 import au.superdraftfantasy.api.user.UserEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -33,8 +33,8 @@ public class RoleEntity {
  
     @ManyToMany
     @JoinTable(
-        name = "role_priviledge_join", 
+        name = "role_privilege_join",
         joinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"), 
-        inverseJoinColumns = @JoinColumn(name = "priviledge_id", referencedColumnName = "id"))
-    private Collection<PriviledgeEntity> priviledges;
+        inverseJoinColumns = @JoinColumn(name = "privilege_id", referencedColumnName = "id"))
+    private Collection<PrivilegeEntity> privileges;
 }

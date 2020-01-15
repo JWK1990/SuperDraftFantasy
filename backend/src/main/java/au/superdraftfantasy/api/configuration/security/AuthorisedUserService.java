@@ -17,7 +17,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import au.superdraftfantasy.api.priviledge.PriviledgeEntity;
+import au.superdraftfantasy.api.privilege.PrivilegeEntity;
 import au.superdraftfantasy.api.role.RoleEntity;
 import au.superdraftfantasy.api.role.RoleRepository;
 import au.superdraftfantasy.api.user.UserEntity;
@@ -56,12 +56,12 @@ public class AuthorisedUserService implements UserDetailsService {
     }
  
     private List<String> getPrivileges(Collection<RoleEntity> roles) {
-        List<PriviledgeEntity> priviledgeEntityList = new ArrayList<>();
+        List<PrivilegeEntity> privilegeEntityList = new ArrayList<>();
         for (RoleEntity role : roles) {
-            priviledgeEntityList.addAll(role.getPriviledges());
+            privilegeEntityList.addAll(role.getPrivileges());
         }
         List<String> privileges = new ArrayList<>();
-        for (PriviledgeEntity item : priviledgeEntityList) {
+        for (PrivilegeEntity item : privilegeEntityList) {
             privileges.add(item.getName());
         }
 
