@@ -1,6 +1,6 @@
 INSERT INTO user_entity
 (id, username, first_name, last_name, email, password, created_on, updated_on)
-    VALUES(1, 'username', 'First', 'User', 'firstuser@gmail.com', '$2a$10$UvrXYodGPlzk6KAaXUuHn.Kgnc4luo.rNi/Z/bVqwmDUr3yDVsc3q', '2019-12-09 13:14:39.007', '2019-12-09 13:14:39.009');
+    VALUES(1, 'admin', 'Admin', 'User', 'firstuser@gmail.com', '$2a$10$UvrXYodGPlzk6KAaXUuHn.Kgnc4luo.rNi/Z/bVqwmDUr3yDVsc3q', '2019-12-09 13:14:39.007', '2019-12-09 13:14:39.009');
 
 INSERT INTO user_role_join(user_id, role_id)
     VALUES(1, 1);
