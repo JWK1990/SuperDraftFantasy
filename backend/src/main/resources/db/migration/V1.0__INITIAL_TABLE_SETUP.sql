@@ -1,14 +1,38 @@
 CREATE TABLE user_entity (
-    id BIGSERIAL,
+    id BIGSERIAL PRIMARY KEY,
     username VARCHAR(255) NOT NULL UNIQUE,
     first_name VARCHAR(255) NOT NULL,
     last_name VARCHAR(255) NOT NULL,
     email VARCHAR(255) NOT NULL,
     password VARCHAR(255) NOT NULL,
     created_on TIMESTAMP NOT NULL,
-    updated_on TIMESTAMP NOT NULL,
+    updated_on TIMESTAMP NOT NULL
+);
 
-    CONSTRAINT pk_user_entity PRIMARY KEY(id)
+CREATE TABLE role_entity (
+    id BIGSERIAL PRIMARY KEY,
+    name VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE privilege_entity (
+    id BIGSERIAL PRIMARY KEY,
+    name VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE role_privilege_join (
+    role_id INT,
+    privilege_id INT,
+
+    CONSTRAINT fk_role_id FOREIGN KEY (role_id) REFERENCES role_entity(id),
+    CONSTRAINT fk_privilege_id FOREIGN KEY (privilege_id) REFERENCES privilege_entity(id)
+);
+
+CREATE TABLE user_role_join (
+    user_id INT,
+    role_id INT,
+
+    CONSTRAINT fk_user_id FOREIGN KEY (user_id) REFERENCES user_entity(id),
+    CONSTRAINT fk_role_id FOREIGN KEY (role_id) REFERENCES role_entity(id)
 );
 
 CREATE TABLE draft_entity (
