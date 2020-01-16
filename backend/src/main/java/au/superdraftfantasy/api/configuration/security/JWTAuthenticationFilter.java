@@ -27,6 +27,7 @@ import au.superdraftfantasy.api.user.UserEntity;
 
 
 public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
+
     private AuthenticationManager authenticationManager;
 
     public JWTAuthenticationFilter(AuthenticationManager authenticationManager) {

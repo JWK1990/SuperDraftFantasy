@@ -41,13 +41,13 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     }
 
     private List<String> getPrivileges(Collection<RoleEntity> roles) {
-        List<PrivilegeEntity> priviledgeEntityList = new ArrayList<>();
+        List<PrivilegeEntity> privilegeEntityList = new ArrayList<>();
         for (RoleEntity role : roles) {
-            priviledgeEntityList.addAll(role.getPrivileges());
+            privilegeEntityList.addAll(role.getPrivileges());
         }
 
         List<String> privileges = new ArrayList<>();
-        for (PrivilegeEntity item : priviledgeEntityList) {
+        for (PrivilegeEntity item : privilegeEntityList) {
             privileges.add(item.getType().toString());
         }
         return privileges;
