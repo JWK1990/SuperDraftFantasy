@@ -57,7 +57,7 @@ class UserControllerSpec extends Specification {
         when: "We execute the POST request"
         MockHttpServletResponse response = mockMvc.perform(postRequest).andReturn().response
 
-        then: "Except the created User's Id to be returned"
+        then: "The created User's Id should be returned"
         response.status == HttpStatus.OK.value()
         response.getContentAsString() == user.getId().toString()
     }

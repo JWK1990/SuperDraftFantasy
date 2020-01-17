@@ -320,4 +320,4 @@ MigrationBackup/
 # Other.
 .settings/org.eclipse.jdt.core.prefs
 .idea/
-./backend/backend.iml
+*.backend.iml
