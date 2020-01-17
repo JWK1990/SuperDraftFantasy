@@ -1,0 +1,25 @@
+spring:
+  flyway:
+    enabled: false
+#  jpa:
+#    database: POSTGRESQL
+#    show-sql: true
+#    ddl-auto: none
+#    properties:
+#      hibernate:
+#        temp:
+#          use_jdbc_metadata_defaults: false # Used to avoid boot up exception. See https://stackoverflow.com/questions/49110818/method-org-postgresql-jdbc-pgconnection-createclob-is-not-yet-implemented
+
+#  datasource:
+#    platform: postgres
+#    url: jdbc:postgresql://localhost:5432/superdraftfantasy
+#    username: sdadmin
+#    password: sdadmin
+#    driverClassName: org.postgresql.Driver
+
+logging:
+  level:
+    org:
+      springframework:
+        boot:
+          autoconfigure: ERROR
