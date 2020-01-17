@@ -1,6 +1,9 @@
-package au.superdraftfantasy.api.user
+package au.superdraftfantasy.api.draft
 
 import au.superdraftfantasy.api.TestData
+import au.superdraftfantasy.api.user.UserDTO
+import au.superdraftfantasy.api.user.UserEntity
+import au.superdraftfantasy.api.user.UserService
 import org.modelmapper.ModelMapper
 import org.spockframework.spring.SpringBean
 import org.springframework.beans.factory.annotation.Autowired
@@ -21,13 +24,10 @@ import org.springframework.http.MediaType
 class UserControllerSpec extends Specification {
 
     @SpringBean
-    UserService userService = Mock(UserService)
+    DraftService draftService = Mock(DraftService)
 
     @SpringBean
     ModelMapper modelMapper = Mock(ModelMapper)
-
-    @SpringBean
-    BCryptPasswordEncoder bCryptPasswordEncoder = Mock(BCryptPasswordEncoder)
 
     @Autowired
     private MockMvc mockMvc
@@ -63,3 +63,4 @@ class UserControllerSpec extends Specification {
     }
 
 }
+
