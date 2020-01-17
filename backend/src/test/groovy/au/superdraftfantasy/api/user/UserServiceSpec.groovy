@@ -29,8 +29,8 @@ class UserServiceSpec extends Specification {
         userService.createUser(user)
 
         then: "The User should be saved with an initial role"
-        user.getRoles().first().getType() == RoleTypeEnum.USER
         1 * userRepository.save(user) >> user
+        user.getRoles().first().getType() == RoleTypeEnum.USER
     }
 
     def "createUser should throw an Exception for an invalid User (duplicate username)" () {
@@ -46,7 +46,7 @@ class UserServiceSpec extends Specification {
         then: "An Exception should be thrown"
         ResponseStatusException exception = thrown(ResponseStatusException)
         exception.getStatus() == HttpStatus.CONFLICT
-        exception.getReason() == "Cannot create User. A user with the username '" + user.getUsername() + "' already exists."
+        exception.getReason() == "A user with the username '" + user.getUsername() + "' already exists."
     }
 
     def "createUser should throw an Exception for an invalid User (duplicate email)" () {
@@ -62,7 +62,7 @@ class UserServiceSpec extends Specification {
         then: "An Exception should be thrown"
         ResponseStatusException exception = thrown(ResponseStatusException)
         exception.getStatus() == HttpStatus.CONFLICT
-        exception.getReason() == "Cannot create User. A user with the email '" + user.getEmail() + "' already exists."
+        exception.getReason() == "A user with the email '" + user.getEmail() + "' already exists."
     }
 
     def "createUser should throw an Exception if initial Role Type doesn't exist" () {

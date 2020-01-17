@@ -30,7 +30,7 @@ class TestData {
 
     static class Draft {
         static DraftEntity create(Long id, String name) {
-            return new DraftEntity(id, name, 10, "DEFAULT", 300, Arrays.asList(), LocalDateTime.now(), LocalDateTime.now());
+            return new DraftEntity(id, name, 10, "DEFAULT", 300, new HashSet<CoachEntity>(), LocalDateTime.now(), LocalDateTime.now());
         }
         static DraftDTO createDto(Long id, String name) {
             return new DraftDTO(id, name, 10, "DEFAULT", 300);
