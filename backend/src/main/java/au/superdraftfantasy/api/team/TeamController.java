@@ -1,5 +1,6 @@
 package au.superdraftfantasy.api.team;
 
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import au.superdraftfantasy.api.draft.DraftEntity;
@@ -14,34 +15,33 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 @RestController
+@RequestMapping(path = "/teams")
 public class TeamController {
 
     private final TeamService teamService;
     private final UserRepository userRepository;
     private final DraftRepository draftRepository;
+    private final ModelMapper modelMapper;
 
     public TeamController(
-        TeamService teamService,
-        UserRepository userRepository,
-        DraftRepository draftRepository
-        ) {
+            TeamService teamService,
+            UserRepository userRepository,
+            DraftRepository draftRepository,
+            ModelMapper modelMapper) {
         this.teamService = teamService;
         this.userRepository = userRepository;
         this.draftRepository = draftRepository;
+        this.modelMapper = modelMapper;
     }
 
-    @Autowired
-    private ModelMapper modelMapper;
-
-    @PostMapping(name = "createTeam", path = "/create-team")
-    public Long createUser(@RequestBody final TeamDTO teamDTO) throws ParseException {
+    @PostMapping(name = "createTeam")
+    public Long createTeam(@RequestBody final TeamDTO teamDTO) {
         TeamEntity teamEntity = convertToEntity(teamDTO);
         return teamService.createTeam(teamEntity);
     }
 
-    private TeamEntity convertToEntity(TeamDTO teamDTO) throws ParseException {
+    private TeamEntity convertToEntity(TeamDTO teamDTO) {
         DraftEntity draft = draftRepository.findById(teamDTO.getDraftId()).get();
-
         TeamEntity teamEntity = modelMapper.map(teamDTO, TeamEntity.class);
         teamEntity.setBudget(draft.getBudget());
         return teamEntity;

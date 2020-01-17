@@ -49,7 +49,7 @@ public class UserService {
 
     private void assignInitialRole(UserEntity user) {
         RoleTypeEnum initialRoleType = RoleTypeEnum.USER;
-        RoleEntity userRole = roleRepository.findByType(initialRoleType).orElseThrow(() -> new RuntimeException("Role Not Found."));
+        RoleEntity userRole = roleRepository.findByType(initialRoleType).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Initial Role Type Not Found."));
         user.setRoles(Arrays.asList(userRole));
     }
 

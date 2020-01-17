@@ -1,24 +1,17 @@
 package au.superdraftfantasy.api.user
 
+import au.superdraftfantasy.api.RestSpecification
 import au.superdraftfantasy.api.TestData
 import org.modelmapper.ModelMapper
 import org.spockframework.spring.SpringBean
-import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc
-import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.http.HttpStatus
 import org.springframework.mock.web.MockHttpServletResponse
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
-import org.springframework.test.web.servlet.MockMvc
 import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders
-import org.springframework.web.context.WebApplicationContext
-import spock.lang.Specification
 import org.springframework.http.MediaType
 
-@SpringBootTest
-@AutoConfigureMockMvc
-class UserControllerSpec extends Specification {
+class UserControllerSpec extends RestSpecification {
 
     @SpringBean
     UserService userService = Mock(UserService)
@@ -28,12 +21,6 @@ class UserControllerSpec extends Specification {
 
     @SpringBean
     BCryptPasswordEncoder bCryptPasswordEncoder = Mock(BCryptPasswordEncoder)
-
-    @Autowired
-    private MockMvc mockMvc
-
-    @Autowired
-    private WebApplicationContext context
 
     def "Should create a User from a UserDTO and return the new User's Id"() {
         given: "A UserDTO in JSON format"
