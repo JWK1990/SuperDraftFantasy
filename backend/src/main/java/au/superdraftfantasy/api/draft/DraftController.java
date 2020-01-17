@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.RestController;
 import java.text.ParseException;
 
 import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -15,13 +14,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 public class DraftController {
 
     private final DraftService draftService;
+    private final ModelMapper modelMapper;
 
-    public DraftController(DraftService draftService) {
+    public DraftController(DraftService draftService, ModelMapper modelMapper) {
         this.draftService = draftService;
+        this.modelMapper = modelMapper;
     }
-
-    @Autowired
-    private ModelMapper modelMapper;
 
     @PostMapping(name = "createDraft")
     public Long createDraft(@RequestBody final DraftDTO draftDTO) throws ParseException {

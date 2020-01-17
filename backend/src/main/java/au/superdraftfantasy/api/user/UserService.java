@@ -35,21 +35,17 @@ public class UserService {
         final String email = user.getEmail();
 
         if(userRepository.existsByUsername(username)) {
-            throw new ResponseStatusException(
-                    HttpStatus.CONFLICT,
-                    "Cannot create User. A user with the username '" + username + "' already exists."
+            throw new ResponseStatusException(HttpStatus.CONFLICT,  "A user with the username '" + username + "' already exists."
             );
         } else if(userRepository.existsByEmail(email)) {
-            throw new ResponseStatusException(
-                    HttpStatus.CONFLICT,
-                    "Cannot create User. A user with the email '" + email + "' already exists."
+            throw new ResponseStatusException(HttpStatus.CONFLICT, "A user with the email '" + email + "' already exists."
             );
         }
     }
 
     private void assignInitialRole(UserEntity user) {
         RoleTypeEnum initialRoleType = RoleTypeEnum.USER;
-        RoleEntity userRole = roleRepository.findByType(initialRoleType).orElseThrow(() -> new RuntimeException("Role Not Found."));
+        RoleEntity userRole = roleRepository.findByType(initialRoleType).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Initial Role Type Not Found."));
         user.setRoles(Arrays.asList(userRole));
     }
 

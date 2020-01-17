@@ -1,5 +1,6 @@
 package au.superdraftfantasy.api.draft;
 
+import java.util.Arrays;
 import java.util.HashSet;
 
 import javax.validation.constraints.NotBlank;
@@ -38,24 +39,20 @@ public class DraftService {
         final String draftName = draft.getName();
 
         if(draftRepository.existsByName(draftName)) {
-            throw new ResponseStatusException(
-                    HttpStatus.CONFLICT,
-                    "Cannot create Draft. A draft with the name '" + draftName + "' already exists."
-            );
+            throw new ResponseStatusException(HttpStatus.CONFLICT, "A draft with the name '" + draftName + "' already exists.");
         }
     }
 
     private void createCommissionersTeam(@NotBlank DraftEntity draft) {
         UserEntity user = getCurrentUser();
-        CoachEntity coach = new CoachEntity(null, CoachTypeEnum.COMMISSIONER, user, draft, null, null, null);
-        TeamEntity team = new TeamEntity(null, "Default Name", draft.getBudget(), coach, new HashSet<>(), null, null);
-        coach.setTeam(team);
+        TeamEntity team = new TeamEntity(null, "Default Name", draft.getBudget(), null, new HashSet<>(), null, null);
+        CoachEntity coach = new CoachEntity(null, CoachTypeEnum.COMMISSIONER, user, draft, team, null, null);
         draft.getCoaches().add(coach);
     }
 
     private UserEntity getCurrentUser() {
         String username = SecurityContextHolder.getContext().getAuthentication().getName();
-        return userRepository.findByUsername(username).orElseThrow(() -> new UsernameNotFoundException(username));
+        return userRepository.findByUsername(username).orElseThrow(() -> new UsernameNotFoundException("User With Username '" + username + "' Not Found."));
     }
 
 }

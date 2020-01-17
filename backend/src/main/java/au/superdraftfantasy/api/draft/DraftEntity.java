@@ -2,7 +2,9 @@ package au.superdraftfantasy.api.draft;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -46,7 +48,7 @@ public class DraftEntity {
     private Long budget;
 
     @OneToMany(mappedBy = "draft", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<CoachEntity> coaches = new ArrayList<>();
+    private Set<CoachEntity> coaches = new HashSet<>();
 
     @CreationTimestamp
     private LocalDateTime createdOn;
