@@ -16,14 +16,4 @@ public class TeamDTO {
 
     private Long draftId;
 
-    /*
-    @ManyToMany
-    @JoinTable(
-        name = "team_player",
-        joinColumns = @JoinColumn(name = "team_id", referencedColumnName = "id"),
-        inverseJoinColumns = @JoinColumn(name = "player_id", referencedColumnName = "id")
-    )
-    private Set<TeamEntity> players;
-    */
-
 }

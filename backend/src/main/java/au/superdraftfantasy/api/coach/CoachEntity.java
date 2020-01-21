@@ -2,18 +2,9 @@ package au.superdraftfantasy.api.coach;
 
 import java.time.LocalDateTime;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 
+import lombok.EqualsAndHashCode;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -37,7 +28,7 @@ public class CoachEntity {
     
     @Enumerated(EnumType.ORDINAL)
     @JoinColumn(name = "type_id")
-    private CoachTypeEnum type;
+    private CoachTypeEnum typeId;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
@@ -47,7 +38,8 @@ public class CoachEntity {
     @JoinColumn(name = "draft_id")
     private DraftEntity draft;
 
-    @OneToOne(mappedBy = "coach", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+    @PrimaryKeyJoinColumn
     private TeamEntity team;
 
     @CreationTimestamp
