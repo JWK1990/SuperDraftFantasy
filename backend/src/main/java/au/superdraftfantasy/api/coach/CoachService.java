@@ -39,7 +39,6 @@ public class CoachService {
 
     private void checkForExistingCoach(CoachEntity coach) {
         Set<CoachEntity> existingCoaches = coach.getDraft().getCoaches();
-        // TODO - User is a Hibernate Proxy. Need to work out how to unproxy.
         Boolean coachAlreadyExists = existingCoaches.stream().anyMatch(existingCoach -> existingCoach.getUser() == coach.getUser());
         if(coachAlreadyExists) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Coach Already Exists In Draft.");
