@@ -23,5 +23,5 @@ steps:
 
 - task: PublishPipelineArtifact@1
   inputs:
-    targetPath: '$(Pipeline.Workspace)/backend/target/backend-*.jar'
+    targetPath: 'backend/target/backend-*.jar'
     publishLocation: 'pipeline'
