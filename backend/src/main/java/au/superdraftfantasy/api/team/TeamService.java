@@ -16,9 +16,13 @@ public class TeamService {
         this.teamRepository = teamRepository;
     }
 
-    public Long createTeam(@NotBlank final TeamEntity team) {
+    public Long draftPlayer(@NotBlank final TeamEntity team, Long playerId) {
         checkIfTeamAlreadyExists(team);
         return teamRepository.save(team).getId();
+    }
+
+    private void getPlayerDetails(Long playerId) {
+
     }
 
     private void checkIfTeamAlreadyExists(TeamEntity team) {

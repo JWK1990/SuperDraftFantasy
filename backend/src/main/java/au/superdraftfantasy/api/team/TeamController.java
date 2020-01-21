@@ -1,7 +1,6 @@
 package au.superdraftfantasy.api.team;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import au.superdraftfantasy.api.draft.DraftEntity;
 import au.superdraftfantasy.api.draft.DraftRepository;
@@ -11,8 +10,6 @@ import java.text.ParseException;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 
 @RestController
 @RequestMapping(path = "/teams")
@@ -34,10 +31,10 @@ public class TeamController {
         this.modelMapper = modelMapper;
     }
 
-    @PostMapping(name = "createTeam")
-    public Long createTeam(@RequestBody final TeamDTO teamDTO) {
+    @PostMapping(name = "draftPlayer", path = "/players/{playerID}/draft")
+    public Long draftPlayer(@PathVariable final Long playerID, @RequestBody final TeamDTO teamDTO) {
         TeamEntity teamEntity = convertToEntity(teamDTO);
-        return teamService.createTeam(teamEntity);
+        return teamService.draftPlayer(teamEntity, playerID);
     }
 
     private TeamEntity convertToEntity(TeamDTO teamDTO) {
