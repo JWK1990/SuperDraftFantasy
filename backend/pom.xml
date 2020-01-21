@@ -140,16 +140,36 @@
                     </includes>
                 </configuration>
             </plugin>
-            <!-- Fat Jar Plugin - To build a jar file that contains all of the required dependencies -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <version>2.3.2</version>
-                <configuration>
-                    <finalName>app</finalName>
-                </configuration>
-            </plugin>
         </plugins>
     </build>
+
+    <!-- Repository for fetching the artifacts from Azure -->
+    <repositories>
+        <repository>
+            <id>SuperDraftFantasy</id>
+            <url>https://pkgs.dev.azure.com/jwkumm/SuperDraftFantasy/_packaging/SuperDraftFantasy/maven/v1</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
+    <!-- Repository to push the artifacts to Azure -->
+    <distributionManagement>
+        <repository>
+            <id>SuperDraftFantasy</id>
+            <url>https://pkgs.dev.azure.com/jwkumm/SuperDraftFantasy/_packaging/SuperDraftFantasy/maven/v1</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </distributionManagement>
+
 
 </project>
