@@ -93,12 +93,12 @@ CREATE TABLE player_entity (
     CONSTRAINT fk_afl_team_id FOREIGN KEY (afl_team_id) REFERENCES afl_teams_enum(id)
 );
 
-CREATE TABLE team_entity_player_entity (
-    team_entity_id INT,
-    player_entity_id INT,
+CREATE TABLE team_player_join (
+    team_id INT,
+    player_id INT,
 
-    CONSTRAINT fk_team_entity_id FOREIGN KEY (team_entity_id) REFERENCES team_entity(coach_id),
-    CONSTRAINT fk_player_entity_id FOREIGN KEY (player_entity_id) REFERENCES player_entity(id)
+    CONSTRAINT fk_team_id FOREIGN KEY (team_id) REFERENCES team_entity(coach_id),
+    CONSTRAINT fk_player_id FOREIGN KEY (player_id) REFERENCES player_entity(id)
 );
 
 

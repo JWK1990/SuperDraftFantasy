@@ -43,6 +43,11 @@ public class TeamEntity {
     private CoachEntity coach;
 
     @ManyToMany
+    @JoinTable(
+            name = "team_player_join",
+            joinColumns = @JoinColumn(name = "team_id"),
+            inverseJoinColumns = @JoinColumn(name = "player_id")
+    )
     private Set<PlayerEntity> players = new HashSet<>();
 
     @CreationTimestamp
