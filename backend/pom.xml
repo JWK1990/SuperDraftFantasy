@@ -109,6 +109,7 @@
 
 
     <build>
+        <finalName>superdraftfantasy-backend</finalName>
         <plugins>
             <!-- SpringBoot Plugin - To enable boot with Maven -->
             <plugin>
