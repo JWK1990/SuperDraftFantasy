@@ -47,8 +47,8 @@ class DraftServiceSpec extends Specification {
         then: "The Draft should be saved with the current User as Commissioner"
         1 * draftRepository.save(draft) >> draft
         draft.getCoaches().size() == 1L
-        draft.getCoaches().first().getUser() == user
-        draft.getCoaches().first().getType() == CoachTypeEnum.COMMISSIONER
+        draft.getCoaches().first().user == user
+        draft.getCoaches().first().typeId == CoachTypeEnum.COMMISSIONER
     }
 
     def "createDraft should throw an Exception if the Draft Name is already taken" () {
