@@ -10,6 +10,7 @@ import javax.validation.constraints.NotNull;
 
 import au.superdraftfantasy.api.player.PlayerEntity;
 import au.superdraftfantasy.api.coach.CoachEntity;
+import lombok.EqualsAndHashCode;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 

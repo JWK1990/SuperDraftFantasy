@@ -41,8 +41,8 @@ public class TeamController {
     }
 
     private TeamEntity convertToEntity(TeamDTO teamDTO) {
-        DraftEntity draft = draftRepository.findById(teamDTO.getDraftId()).get();
         TeamEntity teamEntity = modelMapper.map(teamDTO, TeamEntity.class);
+        DraftEntity draft = draftRepository.findById(teamDTO.getDraftId()).get();
         teamEntity.setBudget(draft.getBudget());
         return teamEntity;
     }

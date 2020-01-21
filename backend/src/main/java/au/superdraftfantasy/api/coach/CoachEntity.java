@@ -14,6 +14,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
+import lombok.EqualsAndHashCode;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -37,7 +38,7 @@ public class CoachEntity {
     
     @Enumerated(EnumType.ORDINAL)
     @JoinColumn(name = "type_id")
-    private CoachTypeEnum type;
+    private CoachTypeEnum typeId;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
