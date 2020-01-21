@@ -26,6 +26,7 @@ import lombok.NoArgsConstructor;
 public class TeamEntity {
 
     @Id
+    @Column(name = "coach_id")
     private Long id;
 
     @NotBlank
@@ -35,8 +36,10 @@ public class TeamEntity {
     @NotNull
     private Long budget;
 
-    @OneToOne(fetch = FetchType.LAZY)
     @MapsId
+    @OneToOne(mappedBy = "team", fetch = FetchType.LAZY)
+    @JoinColumn(name = "coach_id")
+    @EqualsAndHashCode.Exclude
     private CoachEntity coach;
 
     @ManyToMany

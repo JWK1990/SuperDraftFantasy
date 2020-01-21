@@ -46,7 +46,7 @@ public class DraftService {
     private void createCommissionersTeam(@NotBlank DraftEntity draft) {
         UserEntity user = getCurrentUser();
         CoachEntity coach = new CoachEntity(null, CoachTypeEnum.COMMISSIONER, user, draft, new TeamEntity(null, "Default Name", draft.getBudget(), null, new HashSet<>(),null, null), null, null);
-        TeamEntity team = new TeamEntity(null, "Default Name", draft.getBudget(), null, new HashSet<>(),null, null);
+        TeamEntity team = new TeamEntity(null, "Default Name", draft.getBudget(), coach, new HashSet<>(),null, null);
         coach.setTeam(team);
         draft.getCoaches().add(coach);
     }
