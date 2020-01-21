@@ -25,13 +25,3 @@ steps:
   inputs:
     targetPath: 'backend/target/superdraftfantasy-backend.jar'
     publishLocation: 'pipeline'
-
-- task: Maven@3
-  inputs:
-    mavenOptions: '-Xmx3072m'
-    javaHomeOption: 'JDKVersion'
-    jdkVersionOption: '1.8'
-    mavenPomFile: "backend/pom.xml"
-    jdkArchitectureOption: 'x64'
-    publishJUnitResults: false
-    goals: 'deploy'
