@@ -1,8 +1,11 @@
 package au.superdraftfantasy.api
 
+import au.superdraftfantasy.api.coach.CoachDTO
 import au.superdraftfantasy.api.coach.CoachEntity
+import au.superdraftfantasy.api.coach.CoachTypeEnum
 import au.superdraftfantasy.api.draft.DraftDTO
 import au.superdraftfantasy.api.draft.DraftEntity
+import au.superdraftfantasy.api.player.AflTeamEnum
 import au.superdraftfantasy.api.player.PlayerEntity
 import au.superdraftfantasy.api.role.RoleEntity
 import au.superdraftfantasy.api.role.RoleTypeEnum
@@ -37,12 +40,30 @@ class TestData {
         }
     }
 
+    static class Coach {
+        static CoachEntity createCommissioner(Long id, UserEntity user, DraftEntity draft, TeamEntity team) {
+            return new CoachEntity(id, CoachTypeEnum.COMMISSIONER, user, draft, team, null, null)
+        }
+        static CoachEntity createMember(Long id, UserEntity user, DraftEntity draft, TeamEntity team) {
+            return new CoachEntity(id, CoachTypeEnum.MEMBER, user, draft, team, null, null)
+        }
+        static CoachDTO createDTO(Long draftId) {
+            return new CoachDTO(null, draftId)
+        }
+    }
+
     static class Team {
         static TeamEntity create(Long id, String name, CoachEntity coach) {
             return new TeamEntity(id, name, 300, coach, new HashSet<PlayerEntity>(), LocalDateTime.now(), LocalDateTime.now())
         }
         static TeamDTO createDto(Long id, String name, Long draftId) {
             return new TeamDTO(id, name, draftId)
+        }
+    }
+
+    static class Player {
+        static PlayerEntity create(Long id) {
+            return new PlayerEntity(id, "Cyril", "Rioli", AflTeamEnum.HAWTHORN_HAWKS, 100, null)
         }
     }
 
@@ -56,11 +77,11 @@ class TestData {
     }
 
     static class Role {
-        static RoleEntity createAdminRole() {
-            return new RoleEntity(1L, RoleTypeEnum.ADMIN, null, null)
+        static RoleEntity createAdminRole(Long id) {
+            return new RoleEntity(id, RoleTypeEnum.ADMIN, null, null)
         }
-        static RoleEntity createUserRole() {
-            return new RoleEntity(2L, RoleTypeEnum.USER, null, null)
+        static RoleEntity createUserRole(Long id) {
+            return new RoleEntity(id, RoleTypeEnum.USER, null, null)
         }
     }
 

@@ -4,12 +4,17 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 
 import au.superdraftfantasy.api.team.TeamEntity;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 import java.util.Set;
 
 @Entity
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class PlayerEntity {
 
     @Id
@@ -30,6 +35,7 @@ public class PlayerEntity {
     Long average;
 
     @ManyToMany(mappedBy = "players")
+    @EqualsAndHashCode.Exclude
     Set<TeamEntity> teams;
 
 }

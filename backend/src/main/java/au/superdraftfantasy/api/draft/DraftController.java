@@ -14,21 +14,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 public class DraftController {
 
     private final DraftService draftService;
-    private final ModelMapper modelMapper;
 
-    public DraftController(DraftService draftService, ModelMapper modelMapper) {
+    public DraftController(DraftService draftService) {
         this.draftService = draftService;
-        this.modelMapper = modelMapper;
     }
 
     @PostMapping(name = "createDraft")
-    public Long createDraft(@RequestBody final DraftDTO draftDTO) throws ParseException {
-        DraftEntity userEntity = convertToEntity(draftDTO);
-        return draftService.createDraft(userEntity);
-    }
-
-    private DraftEntity convertToEntity(DraftDTO draftDTO) throws ParseException {
-        return modelMapper.map(draftDTO, DraftEntity.class);
+    public Long createDraft(@RequestBody final DraftDTO draftDTO) {
+        return draftService.createDraft(draftDTO);
     }
 
 }
