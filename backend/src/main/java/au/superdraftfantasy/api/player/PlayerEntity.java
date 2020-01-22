@@ -5,6 +5,7 @@ import javax.validation.constraints.NotBlank;
 
 import au.superdraftfantasy.api.team.TeamEntity;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import java.util.Set;
 
@@ -30,6 +31,7 @@ public class PlayerEntity {
     Long average;
 
     @ManyToMany(mappedBy = "players")
+    @EqualsAndHashCode.Exclude
     Set<TeamEntity> teams;
 
 }
