@@ -1,8 +1,10 @@
 package au.superdraftfantasy.api
 
 import au.superdraftfantasy.api.coach.CoachEntity
+import au.superdraftfantasy.api.coach.CoachTypeEnum
 import au.superdraftfantasy.api.draft.DraftDTO
 import au.superdraftfantasy.api.draft.DraftEntity
+import au.superdraftfantasy.api.player.AflTeamEnum
 import au.superdraftfantasy.api.player.PlayerEntity
 import au.superdraftfantasy.api.role.RoleEntity
 import au.superdraftfantasy.api.role.RoleTypeEnum
@@ -37,12 +39,29 @@ class TestData {
         }
     }
 
+    static class Coach {
+        static CoachEntity createCommissioner(UserEntity user, DraftEntity draft, TeamEntity team) {
+            return new CoachEntity(1L, CoachTypeEnum.COMMISSIONER, user, draft, team, null, null)
+        }
+        static CoachEntity createMember(UserEntity user, DraftEntity draft, TeamEntity team) {
+            return new CoachEntity(2L, CoachTypeEnum.MEMBER, user, draft, team, null, null)
+        }
+
+        CoachEntity mockCommissioner = createCommissioner()
+    }
+
     static class Team {
         static TeamEntity create(Long id, String name, CoachEntity coach) {
             return new TeamEntity(id, name, 300, coach, new HashSet<PlayerEntity>(), LocalDateTime.now(), LocalDateTime.now())
         }
         static TeamDTO createDto(Long id, String name, Long draftId) {
             return new TeamDTO(id, name, draftId)
+        }
+    }
+
+    static class Player {
+        static PlayerEntity create(Long id) {
+            return new PlayerEntity(id, "Cyril", "Rioli", AflTeamEnum.HAWTHORN_HAWKS, 100, null)
         }
     }
 
@@ -53,6 +72,8 @@ class TestData {
         static UserDTO createDto(Long id, String username) {
             return new UserDTO(id, username, "First", "Last", "test.user@gmail.com", "password")
         }
+
+        public UserEntity testUser = create(1L, "testuser")
     }
 
     static class Role {

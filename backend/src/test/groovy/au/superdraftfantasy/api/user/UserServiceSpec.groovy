@@ -16,9 +16,14 @@ class UserServiceSpec extends Specification {
     @Subject
         UserService userService = new UserService(userRepository, roleRepository)
 
+    UserEntity user
+
+    def setup() {
+        user =  TestData.User.create(1L, "username")
+    }
+
     def "createUser should save a valid User and assign an initial Role" () {
         given: "A UserEntity"
-        UserEntity user = TestData.User.create(1L, "username")
 
         and: "Mocked Methods (for valid UserEntity)"
         1 * roleRepository.findByType(RoleTypeEnum.USER) >> Optional.of(TestData.Role.createUserRole())

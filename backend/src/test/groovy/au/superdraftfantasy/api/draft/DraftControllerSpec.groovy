@@ -31,18 +31,18 @@ class DraftControllerSpec extends RestSpecification {
         1 * draftService.createDraft(draft) >> draft.getId()
 
         and: "A POST request to the /drafts endpoint"
-        MockHttpServletRequestBuilder postRequest = MockMvcRequestBuilders
+        MockHttpServletRequestBuilder httpRequest = MockMvcRequestBuilders
                 .post("/drafts")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(draftDtoJson)
                 .header('Authorization', mockJwtToken)
 
         when: "We execute the POST request"
-        MockHttpServletResponse response = mockMvc.perform(postRequest).andReturn().response
+        MockHttpServletResponse httpResponse = mockMvc.perform(httpRequest).andReturn().response
 
         then: "The created Draft's Id should be returned"
-        response.status == HttpStatus.OK.value()
-        response.getContentAsString() == draft.getId().toString()
+        httpResponse.status == HttpStatus.OK.value()
+        httpResponse.getContentAsString() == draft.getId().toString()
     }
 
 }

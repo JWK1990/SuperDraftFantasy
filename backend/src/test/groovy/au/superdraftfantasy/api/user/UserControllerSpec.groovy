@@ -36,17 +36,17 @@ class UserControllerSpec extends RestSpecification {
         1 * userService.createUser(user) >> user.getId()
 
         and: "A POST request to the /users/sign-up endpoint"
-        MockHttpServletRequestBuilder postRequest = MockMvcRequestBuilders
+        MockHttpServletRequestBuilder httpRequest = MockMvcRequestBuilders
                 .post("/users/sign-up")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(userDtoJson)
 
         when: "We execute the POST request"
-        MockHttpServletResponse response = mockMvc.perform(postRequest).andReturn().response
+        MockHttpServletResponse httpResponse = mockMvc.perform(httpRequest).andReturn().response
 
         then: "The created User's Id should be returned"
-        response.status == HttpStatus.OK.value()
-        response.getContentAsString() == user.getId().toString()
+        httpResponse.status == HttpStatus.OK.value()
+        httpResponse.getContentAsString() == user.getId().toString()
     }
 
 }
