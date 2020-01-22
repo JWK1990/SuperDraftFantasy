@@ -6,12 +6,6 @@ import au.superdraftfantasy.api.draft.DraftEntity
 import au.superdraftfantasy.api.player.PlayerEntity
 import au.superdraftfantasy.api.player.PlayerRepository
 import au.superdraftfantasy.api.user.UserEntity
-import org.springframework.http.HttpStatus
-import org.springframework.security.core.Authentication
-import org.springframework.security.core.context.SecurityContext
-import org.springframework.security.core.context.SecurityContextHolder
-import org.springframework.security.core.userdetails.UsernameNotFoundException
-import org.springframework.web.server.ResponseStatusException
 import spock.lang.Specification
 import spock.lang.Subject
 
@@ -19,15 +13,6 @@ class TeamServiceSpec extends Specification {
 
     private PlayerRepository playerRepository = Mock(PlayerRepository)
     private TeamRepository teamRepository = Mock(TeamRepository)
-
-    private void mockAuthenticatedUser(UserEntity user) {
-        Authentication authentication = Mock(Authentication.class);
-        SecurityContext securityContext = Mock(SecurityContext.class);
-        securityContext.getAuthentication() >> authentication;
-        SecurityContextHolder.setContext(securityContext);
-        authentication.getPrincipal() >> user
-        authentication.getName() >> user.getUsername()
-    }
 
     @Subject
         TeamService teamService = new TeamService(teamRepository, playerRepository)
@@ -37,6 +22,7 @@ class TeamServiceSpec extends Specification {
     Long teamID = 1L
     Long playerID = 2L
 
+    // Setup full Team -> Coach -> Draft relationship.
     def setup() {
         UserEntity user = TestData.User.create(1L, "testuser")
         DraftEntity draft = TestData.Draft.create(1L, "Test Draft")
@@ -48,11 +34,11 @@ class TeamServiceSpec extends Specification {
     }
 
     def "addPlayer should add a valid Player to a valid Team" () {
-        given: "Mocked Methods (for valid UserEntity)"
+        given: "Mocked Methods (for valid Player and Team)"
         1 * playerRepository.findById(playerID) >> Optional.of(player)
         1 * teamRepository.findById(teamID) >> Optional.of(team)
 
-        when: "A call to the createUser method is made"
+        when: "A call to the addPlayer method is made"
         teamService.addPlayer(teamID, playerID)
 
         then: "The Team should be saved with the Player added"
