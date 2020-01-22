@@ -27,8 +27,6 @@ class TeamControllerSpec extends RestSpecification {
         MockHttpServletRequestBuilder httpRequest = MockMvcRequestBuilders
                 .put("/teams/" + teamID + "/players/add/" + playerID)
                 .contentType(MediaType.APPLICATION_JSON)
-                .header('teamID', teamID)
-                .header('playerID', playerID)
                 .header('Authorization', mockJwtToken)
 
         when: "We execute the PUT request"

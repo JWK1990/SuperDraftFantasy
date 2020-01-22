@@ -1,10 +1,12 @@
 package au.superdraftfantasy.api.coach;
 
+import au.superdraftfantasy.api.draft.DraftEntity;
 import au.superdraftfantasy.api.draft.DraftRepository;
 import au.superdraftfantasy.api.team.TeamEntity;
 import au.superdraftfantasy.api.user.UserEntity;
 import au.superdraftfantasy.api.user.UserRepository;
 import org.hibernate.Hibernate;
+import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -19,22 +21,37 @@ import java.util.Set;
 @Service
 public class CoachService {
 
+    private final ModelMapper modelMapper;
     private final CoachRepository coachRepository;
     private final DraftRepository draftRepository;
     private final UserRepository userRepository;
 
-    public CoachService(DraftRepository draftRepository, UserRepository userRepository, CoachRepository coachRepository) {
+    public CoachService(ModelMapper modelMapper, DraftRepository draftRepository, UserRepository userRepository, CoachRepository coachRepository) {
+        this.modelMapper = modelMapper;
+        this.coachRepository = coachRepository;
         this.draftRepository = draftRepository;
         this.userRepository = userRepository;
-        this.coachRepository = coachRepository;
     }
 
-    public Long createCoach(@NotBlank final CoachEntity coach) {
+    /**
+     * Create a CoachEntity from a provided CoachDTO.
+     * @param coachDTO
+     * @return
+     */
+    public Long createCoach(@NotBlank final CoachDTO coachDTO) {
+        CoachEntity coach = convertToEntity(coachDTO);
         setUser(coach);
         checkForExistingCoach(coach);
         setCoachType(coach);
         createTeam(coach);
         return coachRepository.save(coach).getId();
+    }
+
+    private CoachEntity convertToEntity(CoachDTO coachDTO) {
+        CoachEntity coach = modelMapper.map(coachDTO, CoachEntity.class);
+        DraftEntity draft = draftRepository.findById(coachDTO.getDraftId()).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Draft Not Found."));
+        coach.setDraft(draft);
+        return coach;
     }
 
     private void checkForExistingCoach(CoachEntity coach) {

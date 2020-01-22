@@ -1,5 +1,6 @@
 package au.superdraftfantasy.api
 
+import au.superdraftfantasy.api.coach.CoachDTO
 import au.superdraftfantasy.api.coach.CoachEntity
 import au.superdraftfantasy.api.coach.CoachTypeEnum
 import au.superdraftfantasy.api.draft.DraftDTO
@@ -45,6 +46,9 @@ class TestData {
         }
         static CoachEntity createMember(Long id, UserEntity user, DraftEntity draft, TeamEntity team) {
             return new CoachEntity(id, CoachTypeEnum.MEMBER, user, draft, team, null, null)
+        }
+        static CoachDTO createDTO(Long draftId) {
+            return new CoachDTO(null, draftId)
         }
     }
 
