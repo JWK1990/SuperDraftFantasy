@@ -5,6 +5,8 @@ import java.util.HashSet;
 
 import javax.validation.constraints.NotBlank;
 
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -21,23 +23,29 @@ import au.superdraftfantasy.api.user.UserRepository;
 @Service
 public class DraftService {
 
+    private final ModelMapper modelMapper;
     private final DraftRepository draftRepository;
     private final UserRepository userRepository;
 
-    public DraftService(DraftRepository draftRepository, UserRepository userRepository) {
+    public DraftService(ModelMapper modelMapper, DraftRepository draftRepository, UserRepository userRepository) {
+        this.modelMapper = modelMapper;
         this.draftRepository = draftRepository;
         this.userRepository = userRepository;
     }
 
-    public Long createDraft(@NotBlank final DraftEntity draft) {
+    public Long createDraft(@NotBlank final DraftDTO draftDto) {
+        DraftEntity draft = convertToEntity(draftDto);
         checkDraftValidity(draft);
         createCommissionersTeam(draft);
         return draftRepository.save(draft).getId();
     }
 
+    private DraftEntity convertToEntity(DraftDTO draftDto) {
+        return modelMapper.map(draftDto, DraftEntity.class);
+    }
+
     private void checkDraftValidity(DraftEntity draft) {
         final String draftName = draft.getName();
-
         if(draftRepository.existsByName(draftName)) {
             throw new ResponseStatusException(HttpStatus.CONFLICT, "A draft with the name '" + draftName + "' already exists.");
         }

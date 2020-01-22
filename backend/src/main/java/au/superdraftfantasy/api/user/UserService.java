@@ -1,10 +1,13 @@
 package au.superdraftfantasy.api.user;
 
 import java.util.Arrays;
+import java.util.List;
 
 import javax.validation.constraints.NotBlank;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -16,18 +19,35 @@ import au.superdraftfantasy.api.role.RoleTypeEnum;
 @Service
 public class UserService {
 
+    private final BCryptPasswordEncoder bCryptPasswordEncoder;
+    private final ModelMapper modelMapper;
     private final UserRepository userRepository;
     private final RoleRepository roleRepository;
 
-    public UserService(UserRepository userRepository, RoleRepository roleRepository) {
+    public UserService(BCryptPasswordEncoder bCryptPasswordEncoder, ModelMapper modelMapper, UserRepository userRepository, RoleRepository roleRepository) {
+        this.bCryptPasswordEncoder = bCryptPasswordEncoder;
+        this.modelMapper = modelMapper;
         this.userRepository = userRepository;
         this.roleRepository = roleRepository;
     }
 
-    public Long createUser(@NotBlank final UserEntity user) {
+    public Long createUser(@NotBlank final UserDTO userDto) {
+        UserEntity user = convertToEntity(userDto);
         checkUserValidity(user);
-        assignInitialRole(user);
         return userRepository.save(user).getId();
+    }
+
+    private UserEntity convertToEntity(UserDTO userDTO) {
+        userDTO.setPassword(bCryptPasswordEncoder.encode(userDTO.getPassword()));
+        UserEntity user = modelMapper.map(userDTO, UserEntity.class);
+        user.setRoles(getInitialRoles());
+        return user;
+    }
+
+    private List<RoleEntity> getInitialRoles() {
+        RoleTypeEnum initialRoleType = RoleTypeEnum.USER;
+        RoleEntity initialRole = roleRepository.findByType(initialRoleType).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Initial Role Type Not Found."));
+        return Arrays.asList(initialRole);
     }
 
     private void checkUserValidity(UserEntity user) {
@@ -41,12 +61,6 @@ public class UserService {
             throw new ResponseStatusException(HttpStatus.CONFLICT, "A user with the email '" + email + "' already exists."
             );
         }
-    }
-
-    private void assignInitialRole(UserEntity user) {
-        RoleTypeEnum initialRoleType = RoleTypeEnum.USER;
-        RoleEntity userRole = roleRepository.findByType(initialRoleType).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Initial Role Type Not Found."));
-        user.setRoles(Arrays.asList(userRole));
     }
 
 }
