@@ -22,7 +22,7 @@ class UserServiceSpec extends Specification {
         user =  TestData.User.create(1L, "username")
     }
 
-    def "createUser should save a valid User and assign an initial Role" () {
+    def "createUser should create a valid User and assign an initial Role" () {
         given: "A UserEntity"
 
         and: "Mocked Methods (for valid UserEntity)"

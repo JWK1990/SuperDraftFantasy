@@ -22,15 +22,15 @@ import java.util.Set;
 public class CoachService {
 
     private final ModelMapper modelMapper;
-    private final CoachRepository coachRepository;
     private final DraftRepository draftRepository;
     private final UserRepository userRepository;
+    private final CoachRepository coachRepository;
 
     public CoachService(ModelMapper modelMapper, DraftRepository draftRepository, UserRepository userRepository, CoachRepository coachRepository) {
         this.modelMapper = modelMapper;
-        this.coachRepository = coachRepository;
         this.draftRepository = draftRepository;
         this.userRepository = userRepository;
+        this.coachRepository = coachRepository;
     }
 
     /**
@@ -40,31 +40,18 @@ public class CoachService {
      */
     public Long createCoach(@NotBlank final CoachDTO coachDTO) {
         CoachEntity coach = convertToEntity(coachDTO);
-        setUser(coach);
         checkForExistingCoach(coach);
-        setCoachType(coach);
         createTeam(coach);
         return coachRepository.save(coach).getId();
     }
 
     private CoachEntity convertToEntity(CoachDTO coachDTO) {
         CoachEntity coach = modelMapper.map(coachDTO, CoachEntity.class);
-        DraftEntity draft = draftRepository.findById(coachDTO.getDraftId()).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Draft Not Found."));
+        DraftEntity draft = draftRepository.findById(coachDTO.getDraftId()).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Draft with ID '" + coachDTO.getDraftId() + "'Not Found."));
         coach.setDraft(draft);
+        coach.setUser(getCurrentUser());
+        coach.setTypeId(CoachTypeEnum.MEMBER);
         return coach;
-    }
-
-    private void checkForExistingCoach(CoachEntity coach) {
-        Set<CoachEntity> existingCoaches = coach.getDraft().getCoaches();
-        Boolean coachAlreadyExists = existingCoaches.stream().anyMatch(existingCoach -> existingCoach.getUser() == coach.getUser());
-        if(coachAlreadyExists) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Coach Already Exists In Draft.");
-        }
-    }
-
-    private void setUser(CoachEntity coach) {
-        UserEntity user = getCurrentUser();
-        coach.setUser(user);
     }
 
     private UserEntity getCurrentUser() {
@@ -72,8 +59,12 @@ public class CoachService {
         return userRepository.findByUsername(username).orElseThrow(() -> new UsernameNotFoundException("User With Username '" + username + "' Not Found."));
     }
 
-    private void setCoachType(CoachEntity coach) {
-        coach.setTypeId(CoachTypeEnum.MEMBER);
+    private void checkForExistingCoach(CoachEntity coach) {
+        Set<CoachEntity> existingCoaches = coach.getDraft().getCoaches();
+        Boolean coachAlreadyExists = existingCoaches.stream().anyMatch(existingCoach -> existingCoach.getUser().getId() == coach.getUser().getId());
+        if(coachAlreadyExists) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "User with ID '" + coach.getUser().getId() + "'Already Exists In Draft with ID '" + coach.getDraft().getId() + "'.");
+        }
     }
 
     private void createTeam(CoachEntity coach) {

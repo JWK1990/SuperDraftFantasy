@@ -30,7 +30,7 @@ class DraftServiceSpec extends Specification {
     @Subject
         DraftService draftService = new DraftService(draftRepository, userRepository)
 
-    def "createDraft should save a valid Draft with the current User as Commissioner" () {
+    def "createDraft should create a valid Draft with the current User as Commissioner" () {
         given: "A DraftEntity"
         DraftEntity draft = TestData.Draft.create(1L, "Test Draft 1")
 
