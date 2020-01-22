@@ -6,6 +6,8 @@ import au.superdraftfantasy.api.draft.DraftEntity
 import au.superdraftfantasy.api.player.PlayerEntity
 import au.superdraftfantasy.api.player.PlayerRepository
 import au.superdraftfantasy.api.user.UserEntity
+import org.springframework.http.HttpStatus
+import org.springframework.web.server.ResponseStatusException
 import spock.lang.Specification
 import spock.lang.Subject
 
@@ -17,26 +19,25 @@ class TeamServiceSpec extends Specification {
     @Subject
         TeamService teamService = new TeamService(teamRepository, playerRepository)
 
-    TeamEntity team
-    PlayerEntity player
-    Long teamID = 1L
-    Long playerID = 2L
-
-    // Setup full Team -> Coach -> Draft relationship.
-    def setup() {
-        UserEntity user = TestData.User.create(1L, "testuser")
-        DraftEntity draft = TestData.Draft.create(1L, "Test Draft")
-        CoachEntity coach = TestData.Coach.createCommissioner(user, draft, null)
-        draft.getCoaches().add(coach)
-        team = TestData.Team.create(teamID, "Test Team", coach)
+    def createTeamWithCoachAndDraft(Long id, DraftEntity draft) {
+        UserEntity user = TestData.User.create(id, "user" + id)
+        CoachEntity coach = TestData.Coach.createMember(id, user, draft, null)
+        TeamEntity team = TestData.Team.create(id, "Team " + id, coach)
         coach.setTeam(team)
-        player = TestData.Player.create(playerID)
+        draft.getCoaches().add(coach)
+        return team;
     }
+
+    DraftEntity draft = TestData.Draft.create(1L, "Test Draft")
+    Long teamID = 1L
+    TeamEntity team = createTeamWithCoachAndDraft(teamID, draft)
+    Long playerID = 2L
+    PlayerEntity player = TestData.Player.create(playerID)
 
     def "addPlayer should add a valid Player to a valid Team" () {
         given: "Mocked Methods (for valid Player and Team)"
-        1 * playerRepository.findById(playerID) >> Optional.of(player)
         1 * teamRepository.findById(teamID) >> Optional.of(team)
+        1 * playerRepository.findById(playerID) >> Optional.of(player)
 
         when: "A call to the addPlayer method is made"
         teamService.addPlayer(teamID, playerID)
@@ -48,41 +49,69 @@ class TeamServiceSpec extends Specification {
         playerList.first() == player
     }
 
-    /*
-    def "createDraft should throw an Exception if the Draft Name is already taken" () {
-        given: "A DraftEntity"
-        DraftEntity draft = TestData.Draft.create(1L, "Test Draft 1")
 
-        and: "Mocked Methods (for invalid Draft Name)"
-        1 * draftRepository.existsByName(draft.getName()) >> true
+    def "addPlayer should throw an Exception if the Team doesn't exist" () {
+        given: "Mocked Methods (for an invalid Team)"
+        1 * teamRepository.findById(teamID) >> Optional.empty()
+        0 * playerRepository.findById(playerID)
 
         when: "A call to the createUser method is made"
-        teamService.createDraft(draft)
+        teamService.addPlayer(teamID, playerID)
+
+        then: "An Exception should be thrown"
+        ResponseStatusException exception = thrown(ResponseStatusException)
+        exception.getStatus() == HttpStatus.NOT_FOUND
+        exception.getReason() == "Team with ID '" + teamID + "' Not Found."
+    }
+
+    def "addPlayer should throw an Exception if the Player has already been drafted by the drafting Team" () {
+        given: "A Team already containing the Player"
+        team.getPlayers().add(player)
+
+        and: "Mocked Methods"
+        1 * teamRepository.findById(teamID) >> Optional.of(team)
+        0 * playerRepository.findById(playerID)
+
+        when: "A call to the createUser method is made"
+        teamService.addPlayer(teamID, playerID)
 
         then: "An Exception should be thrown"
         ResponseStatusException exception = thrown(ResponseStatusException)
         exception.getStatus() == HttpStatus.CONFLICT
-        exception.getReason() == "A draft with the name '" + draft.getName() + "' already exists."
+        exception.getReason() == "Player with ID '" + playerID + "' is already drafted by Team with ID '" + teamID + "'."
     }
 
-    def "createDraft should throw an Exception if the current User is not matched in the DB" () {
-        given: "A DraftEntity"
-        DraftEntity draft = TestData.Draft.create(1L, "Test Draft 1")
+    def "addPlayer should throw an Exception if the Player has already been drafted by another Team" () {
+        given: "Another Team in the same Draft already containing the Player"
+        Long secondTeamID = 2L
+        TeamEntity secondTeam = createTeamWithCoachAndDraft(secondTeamID, draft)
+        secondTeam.getPlayers().add(player)
 
-        and: "A current User"
-        UserEntity user = TestData.User.create(1L, "username")
-        mockAuthenticatedUser(user)
-
-        and: "Mocked Methods (for valid UserEntity)"
-        1 * userRepository.findByUsername(user.getUsername()) >> Optional.empty()
+        and: "Mocked Methods"
+        1 * teamRepository.findById(teamID) >> Optional.of(team)
+        0 * playerRepository.findById(playerID)
 
         when: "A call to the createUser method is made"
-        teamService.createDraft(draft)
+        teamService.addPlayer(teamID, playerID)
 
         then: "An Exception should be thrown"
-        UsernameNotFoundException exception = thrown(UsernameNotFoundException)
-        exception.getMessage() == "User With Username '" + user.getUsername() + "' Not Found."
+        ResponseStatusException exception = thrown(ResponseStatusException)
+        exception.getStatus() == HttpStatus.CONFLICT
+        exception.getReason() == "Player with ID '" + playerID + "' is already drafted by Team with ID '" + secondTeamID + "'."
     }
-    */
+
+    def "addPlayer should throw an Exception if the Player doesn't exist" () {
+        given: "Mocked Methods (for an invalid Player)"
+        1 * teamRepository.findById(teamID) >> Optional.of(team)
+        1 * playerRepository.findById(playerID) >> Optional.empty()
+
+        when: "A call to the createUser method is made"
+        teamService.addPlayer(teamID, playerID)
+
+        then: "An Exception should be thrown"
+        ResponseStatusException exception = thrown(ResponseStatusException)
+        exception.getStatus() == HttpStatus.NOT_FOUND
+        exception.getReason() == "Player with ID '" + playerID + "' Not Found."
+    }
 
 }

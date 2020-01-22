@@ -13,7 +13,7 @@ class TeamControllerSpec extends RestSpecification {
     @SpringBean
     TeamService teamService = Mock(TeamService)
 
-    def "Should add a Player to a Team"() {
+    def "PUT /teams{teamID}/players/add/{playerID} should add a Player to a Team"() {
         given: "A TeamID"
         Long teamID = 1L
 

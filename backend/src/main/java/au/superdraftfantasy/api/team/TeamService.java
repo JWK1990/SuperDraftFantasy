@@ -24,25 +24,25 @@ public class TeamService {
     }
 
     public Long addPlayer(@NotBlank final Long teamID, Long playerID) {
-        TeamEntity team = teamRepository.findById(teamID).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Team Not Found."));
+        TeamEntity team = teamRepository.findById(teamID).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Team with ID '" + teamID + "' Not Found."));
         checkIfPlayerAlreadyDrafted(team, playerID);
         addPlayerToTeam(team, playerID);
         return teamRepository.save(team).getId();
     }
 
-    private void addPlayerToTeam(TeamEntity team, Long playerId) {
-        PlayerEntity player =  playerRepository.findById(playerId).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Player Not Found."));
+    private void addPlayerToTeam(TeamEntity team, Long playerID) {
+        PlayerEntity player =  playerRepository.findById(playerID).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Player with ID '" + playerID + "' Not Found."));
         team.getPlayers().add(player);
     }
 
-    private void checkIfPlayerAlreadyDrafted(TeamEntity team, Long playerId) {
+    private void checkIfPlayerAlreadyDrafted(TeamEntity team, Long playerID) {
         Set<CoachEntity> coachList = team.getCoach().getDraft().getCoaches();
 
         coachList.stream().forEach(coach -> {
-            Boolean playerAlreadyDrafted = coach.getTeam().getPlayers().stream().anyMatch(player -> player.getId() == playerId);
+            Set<PlayerEntity> playerList = coach.getTeam().getPlayers();
+            Boolean playerAlreadyDrafted = playerList.stream().anyMatch(player -> player.getId() == playerID);
             if(playerAlreadyDrafted) {
-                throw new ResponseStatusException(HttpStatus.CONFLICT, "Player with ID '" + playerId + "' is already drafted."
-                );
+                throw new ResponseStatusException(HttpStatus.CONFLICT, "Player with ID '" + playerID + "' is already drafted by Team with ID '" + coach.getTeam().getId() + "'.");
             }
         });
     }

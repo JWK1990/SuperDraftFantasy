@@ -40,14 +40,12 @@ class TestData {
     }
 
     static class Coach {
-        static CoachEntity createCommissioner(UserEntity user, DraftEntity draft, TeamEntity team) {
-            return new CoachEntity(1L, CoachTypeEnum.COMMISSIONER, user, draft, team, null, null)
+        static CoachEntity createCommissioner(Long id, UserEntity user, DraftEntity draft, TeamEntity team) {
+            return new CoachEntity(id, CoachTypeEnum.COMMISSIONER, user, draft, team, null, null)
         }
-        static CoachEntity createMember(UserEntity user, DraftEntity draft, TeamEntity team) {
-            return new CoachEntity(2L, CoachTypeEnum.MEMBER, user, draft, team, null, null)
+        static CoachEntity createMember(Long id, UserEntity user, DraftEntity draft, TeamEntity team) {
+            return new CoachEntity(id, CoachTypeEnum.MEMBER, user, draft, team, null, null)
         }
-
-        CoachEntity mockCommissioner = createCommissioner()
     }
 
     static class Team {
@@ -72,16 +70,14 @@ class TestData {
         static UserDTO createDto(Long id, String username) {
             return new UserDTO(id, username, "First", "Last", "test.user@gmail.com", "password")
         }
-
-        public UserEntity testUser = create(1L, "testuser")
     }
 
     static class Role {
-        static RoleEntity createAdminRole() {
-            return new RoleEntity(1L, RoleTypeEnum.ADMIN, null, null)
+        static RoleEntity createAdminRole(Long id) {
+            return new RoleEntity(id, RoleTypeEnum.ADMIN, null, null)
         }
-        static RoleEntity createUserRole() {
-            return new RoleEntity(2L, RoleTypeEnum.USER, null, null)
+        static RoleEntity createUserRole(Long id) {
+            return new RoleEntity(id, RoleTypeEnum.USER, null, null)
         }
     }
 

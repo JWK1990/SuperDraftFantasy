@@ -18,7 +18,7 @@ class DraftControllerSpec extends RestSpecification {
     @SpringBean
     ModelMapper modelMapper = Mock(ModelMapper)
 
-    def "Should create a Draft from a DraftDTO and return the new Draft's Id"() {
+    def "POST /drafts should create a Draft from a DraftDTO and return the new Draft's ID"() {
         given: "A DraftDTO in JSON format"
         DraftDTO draftDto = TestData.Draft.createDto(1L, "Test Draft")
         String draftDtoJson = TestData.mapObjectToJson(draftDto)
