@@ -22,7 +22,7 @@ class UserControllerSpec extends RestSpecification {
     @SpringBean
     BCryptPasswordEncoder bCryptPasswordEncoder = Mock(BCryptPasswordEncoder)
 
-    def "Should create a User from a UserDTO and return the new User's Id"() {
+    def "POST /users/sign-up should create a User from a UserDTO and return the new User's Id"() {
         given: "A UserDTO in JSON format"
         UserDTO userDto = TestData.User.createDto(1L, "testuser1")
         String userDtoJson = TestData.mapObjectToJson(userDto)
