@@ -34,7 +34,7 @@ class DraftServiceSpec extends Specification {
         DraftService draftService = new DraftService(modelMapper, draftRepository, userRepository)
 
     Long draftID = 1L
-    DraftDTO draftDto = TestData.Draft.createDto(draftID, "Test Draft 1")
+    DraftWriteDto draftDto = TestData.Draft.createDto(draftID, "Test Draft 1")
     DraftEntity draft = TestData.mapObjectToClass(draftDto, DraftEntity.class)
     UserEntity user = TestData.User.create(1L, "username")
 

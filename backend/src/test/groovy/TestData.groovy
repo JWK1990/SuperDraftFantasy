@@ -3,7 +3,7 @@ package au.superdraftfantasy.api
 import au.superdraftfantasy.api.coach.CoachDTO
 import au.superdraftfantasy.api.coach.CoachEntity
 import au.superdraftfantasy.api.coach.CoachTypeEnum
-import au.superdraftfantasy.api.draft.DraftDTO
+import au.superdraftfantasy.api.draft.DraftWriteDto
 import au.superdraftfantasy.api.draft.DraftEntity
 import au.superdraftfantasy.api.player.AflTeamEnum
 import au.superdraftfantasy.api.player.PlayerEntity
@@ -35,8 +35,8 @@ class TestData {
         static DraftEntity create(Long id, String name) {
             return new DraftEntity(id, name, 10, "DEFAULT", 300, new HashSet<CoachEntity>(), LocalDateTime.now(), LocalDateTime.now());
         }
-        static DraftDTO createDto(Long id, String name) {
-            return new DraftDTO(id, name, 10, "DEFAULT", 300);
+        static DraftWriteDto createDto(Long id, String name) {
+            return new DraftWriteDto(id, name, 10, "DEFAULT", 300);
         }
     }
 
