@@ -45,11 +45,14 @@ INSERT INTO position_entity (id, type)
 
 /* Insert initial Player Data. */
 INSERT INTO player_entity(id, first_name, last_name, afl_team_id, average)
-    VALUES (1, 'Cyril', 'Rioli', 9, 100);
+    VALUES (1, 'Cyril', 'Rioli', 9, 100),
+           (2, 'Jarryd', 'Roughead', 9, 100);
+
 
 /* Insert initial Player Positions. */
 INSERT INTO player_position_join(player_id, position_id)
-    VALUES (1, 4);
+    VALUES (1, 4),
+           (2, 4);
 
 
 
