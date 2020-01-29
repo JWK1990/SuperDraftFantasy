@@ -4,7 +4,6 @@ import au.superdraftfantasy.api.coach.CoachReadDto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 import java.util.Set;
 
 @Data
@@ -23,6 +22,5 @@ public class DraftReadDto {
     private Long budget;
 
     private Set<CoachReadDto> coaches;
-
 
 }

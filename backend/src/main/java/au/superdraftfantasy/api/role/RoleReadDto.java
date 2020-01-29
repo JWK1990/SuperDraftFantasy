@@ -11,8 +11,6 @@ import java.util.Collection;
 @AllArgsConstructor
 public class RoleReadDto {
 
-    private Long id;
-
     private RoleTypeEnum type;
 
     private Collection<PrivilegeReadDto> privileges;

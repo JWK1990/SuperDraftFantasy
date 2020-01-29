@@ -82,6 +82,11 @@ CREATE TABLE afl_teams_enum (
     aflTeam varchar NOT NULL
 );
 
+CREATE TABLE position_entity (
+    id BIGSERIAL PRIMARY KEY,
+    type varchar NOT NULL
+);
+
 CREATE TABLE player_entity (
     id BIGSERIAL,
     first_name VARCHAR(255) NOT NULL,
@@ -91,6 +96,14 @@ CREATE TABLE player_entity (
 
     CONSTRAINT pk_player_entity PRIMARY KEY(id),
     CONSTRAINT fk_afl_team_id FOREIGN KEY (afl_team_id) REFERENCES afl_teams_enum(id)
+);
+
+CREATE TABLE player_position_join (
+    player_id INT,
+    position_id INT,
+
+    CONSTRAINT fk_player_id FOREIGN KEY (player_id) REFERENCES player_entity(id),
+    CONSTRAINT fk_position_id FOREIGN KEY (position_id) REFERENCES position_entity(id)
 );
 
 CREATE TABLE team_player_join (
