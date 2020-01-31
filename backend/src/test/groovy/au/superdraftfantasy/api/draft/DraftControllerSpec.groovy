@@ -14,9 +14,31 @@ class DraftControllerSpec extends RestSpecification {
     @SpringBean
     DraftService draftService = Mock(DraftService)
 
+    def "GET /drafts/{draftID} should return a DraftReadDto for the given draftID"() {
+        given: "A draftID and a DraftReadDto"
+        Long draftID = 1L;
+        DraftReadDto draftReadDto = TestData.Draft.createDraftReadDto(1L, "Test Draft")
+
+        and: "Mocked Methods"
+        1 * draftService.findDraft(draftID) >> draftReadDto
+
+        and: "A GET request to the /drafts/{draftID} endpoint"
+        MockHttpServletRequestBuilder httpRequest = MockMvcRequestBuilders
+                .get("/drafts/" + draftID)
+                .contentType(MediaType.APPLICATION_JSON)
+                .header('Authorization', mockJwtToken)
+
+        when: "We execute the GET request"
+        MockHttpServletResponse httpResponse = mockMvc.perform(httpRequest).andReturn().response
+
+        then: "The DraftReadDto returned by the draftService should be returned"
+        httpResponse.status == HttpStatus.OK.value()
+        httpResponse.getContentAsString() == TestData.mapObjectToJson(draftReadDto)
+    }
+
     def "POST /drafts should create a Draft from a DraftDTO and return the new Draft's ID"() {
         given: "A DraftDTO in JSON format"
-        DraftWriteDto draftDto = TestData.Draft.createDto(1L, "Test Draft")
+        DraftWriteDto draftDto = TestData.Draft.createDraftWriteDto(1L, "Test Draft")
         String draftDtoJson = TestData.mapObjectToJson(draftDto)
 
         and: "A mocked ID for the created Draft"
@@ -35,7 +57,7 @@ class DraftControllerSpec extends RestSpecification {
         when: "We execute the POST request"
         MockHttpServletResponse httpResponse = mockMvc.perform(httpRequest).andReturn().response
 
-        then: "The created Draft's Id should be returned"
+        then: "The created Draft's Id returned by the draftService should be returned"
         httpResponse.status == HttpStatus.OK.value()
         httpResponse.getContentAsString() == draftID.toString()
     }
