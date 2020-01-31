@@ -51,15 +51,16 @@ class CoachServiceSpec extends Specification {
         1 * userRepository.findByUsername(user.getUsername()) >> Optional.of(user)
 
         when: "A call to the createCoach method is made"
-        coachService.createCoach(coachDto)
+        Long response = coachService.createCoach(coachDto)
 
-        then: "The Coach should be saved with the correct details"
+        then: "The Coach should be saved with the correct details and the Coach ID returned"
         1 * coachRepository.save(coach) >> coach
         coach.draft == draft
         coach.typeId == CoachTypeEnum.MEMBER
         coach.user == user
         coach.team.budget == draft.getBudget()
         coach.team.name == user.getUsername() + "'s Team"
+        response == coach.getId()
     }
 
     def "createCoach should throw an Exception if the Draft doesn't exist" () {

@@ -36,9 +36,23 @@ INSERT INTO afl_teams_enum(id, aflTeam)
             (16, 'WEST_COAST_EAGLES'),
             (17, 'WESTERN_BULLDOGS');
 
+/* Insert initial Position Data. */
+INSERT INTO position_entity (id, type)
+    VALUES  (1, 'DEFENDER'),
+            (2, 'MIDFIELDER'),
+            (3, 'RUCK'),
+            (4, 'FORWARD');
+
 /* Insert initial Player Data. */
 INSERT INTO player_entity(id, first_name, last_name, afl_team_id, average)
-    VALUES (1, 'Cyril', 'Rioli', 9, 100);
+    VALUES (1, 'Cyril', 'Rioli', 9, 100),
+           (2, 'Jarryd', 'Roughead', 9, 100);
+
+
+/* Insert initial Player Positions. */
+INSERT INTO player_position_join(player_id, position_id)
+    VALUES (1, 4),
+           (2, 4);
 
 
 

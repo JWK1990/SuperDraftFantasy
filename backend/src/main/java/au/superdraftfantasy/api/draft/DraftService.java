@@ -1,12 +1,10 @@
 package au.superdraftfantasy.api.draft;
 
-import java.util.Arrays;
 import java.util.HashSet;
 
 import javax.validation.constraints.NotBlank;
 
 import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -33,15 +31,31 @@ public class DraftService {
         this.userRepository = userRepository;
     }
 
-    public Long createDraft(@NotBlank final DraftDTO draftDto) {
-        DraftEntity draft = convertToEntity(draftDto);
+    /**
+     * create a DraftEntity from a given DraftDTO.
+     * @param draftWriteDto
+     * @return
+     */
+    public Long createDraft(@NotBlank final DraftWriteDto draftWriteDto) {
+        DraftEntity draft = convertToEntity(draftWriteDto);
         checkDraftValidity(draft);
         createCommissionersTeam(draft);
         return draftRepository.save(draft).getId();
     }
 
-    private DraftEntity convertToEntity(DraftDTO draftDto) {
-        return modelMapper.map(draftDto, DraftEntity.class);
+    /**
+     * get a DraftEntity from a given draftID.
+     * @param draftID
+     * @return
+     */
+    public DraftReadDto findDraft(@NotBlank final Long draftID) {
+        DraftEntity draft = draftRepository.findById(draftID).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Draft with ID '" + draftID + "' not found."));
+        DraftReadDto draftReadDto = modelMapper.map(draft, DraftReadDto.class);
+        return draftReadDto;
+    }
+
+    private DraftEntity convertToEntity(DraftWriteDto draftWriteDto) {
+        return modelMapper.map(draftWriteDto, DraftEntity.class);
     }
 
     private void checkDraftValidity(DraftEntity draft) {

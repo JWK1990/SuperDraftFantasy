@@ -1,14 +1,15 @@
 package au.superdraftfantasy.api.draft;
 
+import au.superdraftfantasy.api.coach.CoachReadDto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
+import java.util.Set;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class DraftDTO {
+public class DraftReadDto {
 
     private Long id;
 
@@ -19,5 +20,7 @@ public class DraftDTO {
     private String rosterType;
 
     private Long budget;
+
+    private Set<CoachReadDto> coaches;
 
 }

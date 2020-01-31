@@ -4,8 +4,8 @@ spring:
 
   datasource:
     url: jdbc:h2:mem:entities;DB_CLOSE_DELAY=-1;MODE=PostgreSQL;DATABASE_TO_LOWER=TRUE
-    username: recall
-    password: recall
+    username: sdadmin
+    password: sdadmin
     driver-class-name: org.h2.Driver
     initialization-mode: always
 

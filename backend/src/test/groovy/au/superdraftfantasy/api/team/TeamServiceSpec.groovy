@@ -40,13 +40,14 @@ class TeamServiceSpec extends Specification {
         1 * playerRepository.findById(playerID) >> Optional.of(player)
 
         when: "A call to the addPlayer method is made"
-        teamService.addPlayer(teamID, playerID)
+        Long response = teamService.addPlayer(teamID, playerID)
 
-        then: "The Team should be saved with the Player added"
+        then: "The Team should be saved with the Player added and the Team ID returned"
         1 * teamRepository.save(team) >> team
         Set<PlayerEntity> playerList = team.getPlayers()
         playerList.size() == 1L
         playerList.first() == player
+        response == team.getId()
     }
 
 
