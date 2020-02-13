@@ -84,12 +84,13 @@ class DraftServiceSpec extends Specification {
         when: "A call to the createDraft method is made"
         Long response = draftService.createDraft(draftWriteDto)
 
-        then: "The Draft should be saved with the current User as Commissioner and the Draft ID returned"
+        then: "The Draft should be saved with the current User as Commissioner and the status IN_SETUP and the Draft ID returned"
         1 * draftRepository.save(draft) >> draft
         Set<CoachEntity> coaches = draft.getCoaches()
         coaches.size() == 1L
         coaches.first().user == user
         coaches.first().type == CoachTypeEnum.COMMISSIONER
+        draft.getStatus() == DraftStatusEnum.IN_SETUP
         response == draft.getId()
     }
 

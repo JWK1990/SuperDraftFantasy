@@ -21,6 +21,8 @@ public class DraftReadDto {
 
     private RosterReadDto roster;
 
+    private DraftStatusEnum status;
+
     private Long budget;
 
     private Set<CoachReadDto> coaches;

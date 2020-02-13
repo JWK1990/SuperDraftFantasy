@@ -15,6 +15,12 @@ INSERT INTO roster_entity(id, type, defenders, midfielders, rucks, forwards, ben
     VALUES (1, '57154', 5, 7, 1, 5, 4),
            (2, '22222', 2, 2, 2, 2, 2);
 
+INSERT INTO draft_status_enum(id, status)
+    VALUES (0, 'IN_SETUP'),
+           (1, 'READY'),
+           (2, 'IN_PROGRESS'),
+           (3, 'COMPLETE');
+
 INSERT INTO coach_type_enum(id, type)
     VALUES  (0, 'COMMISSIONER'),
             (1, 'MEMBER');

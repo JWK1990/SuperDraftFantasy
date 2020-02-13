@@ -54,7 +54,6 @@ class TeamServiceSpec extends Specification {
         response == team.getId()
     }
 
-
     def "addPlayer should throw an Exception if the Team doesn't exist" () {
         given: "Mocked Methods (for an invalid Team)"
         1 * teamRepository.findById(teamID) >> Optional.empty()

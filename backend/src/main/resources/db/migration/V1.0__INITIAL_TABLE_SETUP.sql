@@ -45,17 +45,24 @@ CREATE TABLE roster_entity (
     bench INT
 );
 
+CREATE TABLE draft_status_enum (
+    id BIGSERIAL PRIMARY KEY,
+    status varchar NOT NULL
+);
+
 CREATE TABLE draft_entity (
     id BIGSERIAL,
     name VARCHAR(255) NOT NULL,
     num_of_teams INT NOT NULL,
     roster_id INT NOT NULL,
     budget INT NOT NULL,
+    status_id INT NOT NULL,
     created_on TIMESTAMP NOT NULL,
     updated_on TIMESTAMP NOT NULL,
 
     CONSTRAINT pk_draft_entity PRIMARY KEY(id),
-    CONSTRAINT fk_roster_id FOREIGN KEY(roster_id) REFERENCES roster_entity(id)
+    CONSTRAINT fk_roster_id FOREIGN KEY(roster_id) REFERENCES roster_entity(id),
+    CONSTRAINT fk_status_id FOREIGN KEY(status_id) REFERENCES draft_status_enum(id)
 );
 
 CREATE TABLE coach_type_enum (

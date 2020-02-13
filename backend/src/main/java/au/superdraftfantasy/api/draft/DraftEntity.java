@@ -48,6 +48,11 @@ public class DraftEntity {
     @EqualsAndHashCode.Exclude
     private Set<CoachEntity> coaches = new HashSet<>();
 
+    @NotNull
+    @Enumerated(EnumType.ORDINAL)
+    @Column(name = "status_id")
+    private DraftStatusEnum status;
+
     @CreationTimestamp
     private LocalDateTime createdOn;
 

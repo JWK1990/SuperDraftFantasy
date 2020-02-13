@@ -59,6 +59,7 @@ public class DraftService {
         DraftEntity draft = modelMapper.map(draftWriteDto, DraftEntity.class);
         RosterEntity roster = rosterRepository.findByType(draftWriteDto.getRosterType()).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "RosterType '" + draftWriteDto.getRosterType() + "' not found."));
         draft.setRoster(roster);
+        draft.setStatus(DraftStatusEnum.IN_SETUP);
         return draft;
     }
 
