@@ -38,8 +38,10 @@ class CoachServiceSpec extends Specification {
     Long draftID = 1L;
     RosterEntity roster = TestData.Roster.create(1L, "11111", 1, 1, 1, 1, 1);
     DraftEntity draft = TestData.Draft.create(draftID, "Test Draft", roster)
+
     CoachDTO coachDto = TestData.Coach.createDTO(draftID)
     CoachEntity coach = TestData.mapObjectToClass(coachDto, CoachEntity.class)
+
     UserEntity user = TestData.User.create(1L, "testuser")
 
     def setup() {
@@ -92,6 +94,28 @@ class CoachServiceSpec extends Specification {
         then: "An Exception should be thrown"
         UsernameNotFoundException exception = thrown(UsernameNotFoundException)
         exception.getMessage() == "User With Username '" + user.getUsername() + "' Not Found."
+    }
+
+    def "createCoach should throw an Exception if the Draft is already full" () {
+        given: "A Draft that is already full"
+        draft.setNumOfTeams(2L)
+        CoachEntity existingCoach1 = TestData.Coach.createMember(2L, null, null, null);
+        CoachEntity existingCoach2 = TestData.Coach.createMember(3L, null, null, null);
+        Set<CoachEntity> existingCoachList = Arrays.asList(existingCoach1, existingCoach2)
+        draft.getCoaches().addAll(existingCoachList)
+
+        and: "Mocked Methods"
+        1 * modelMapper.map(coachDto, CoachEntity.class) >> coach
+        1 * draftRepository.findById(coachDto.getDraftId()) >> Optional.of(draft)
+        1 * userRepository.findByUsername(user.getUsername()) >> Optional.of(user)
+
+        when: "A call to the createUser method is made"
+        coachService.createCoach(coachDto)
+
+        then: "An Exception should be thrown"
+        ResponseStatusException exception = thrown(ResponseStatusException)
+        exception.getStatus() == HttpStatus.BAD_REQUEST
+        exception.getReason() == "The Draft is already full."
     }
 
     def "createCoach should throw an Exception if the Current User has already joined the Draft" () {

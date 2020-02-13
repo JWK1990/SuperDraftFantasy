@@ -39,6 +39,7 @@ public class CoachService {
      */
     public Long createCoach(@NotBlank final CoachDTO coachDTO) {
         CoachEntity coach = convertToEntity(coachDTO);
+        checkForSpaceInDraft(coach);
         checkForExistingCoach(coach);
         createTeam(coach);
         return coachRepository.save(coach).getId();
@@ -56,6 +57,14 @@ public class CoachService {
     private UserEntity getCurrentUser() {
         String username = SecurityContextHolder.getContext().getAuthentication().getName();
         return userRepository.findByUsername(username).orElseThrow(() -> new UsernameNotFoundException("User With Username '" + username + "' Not Found."));
+    }
+
+    private void checkForSpaceInDraft(CoachEntity coach) {
+        Long maxNumOfTeams = coach.getDraft().getNumOfTeams();
+        Integer currentNumOfTeams = coach.getDraft().getCoaches().size();
+        if(currentNumOfTeams >= maxNumOfTeams) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "The Draft is already full.");
+        }
     }
 
     private void checkForExistingCoach(CoachEntity coach) {
