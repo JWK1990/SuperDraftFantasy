@@ -2,7 +2,7 @@ package au.superdraftfantasy.api.draft
 
 import au.superdraftfantasy.api.RestSpecification
 import au.superdraftfantasy.api.TestData
-import au.superdraftfantasy.api.roster.RosterEntity
+import au.superdraftfantasy.api.roster.RosterReadDto
 import org.spockframework.spring.SpringBean
 import org.springframework.http.HttpStatus
 import org.springframework.http.MediaType
@@ -18,8 +18,8 @@ class DraftControllerSpec extends RestSpecification {
     def "GET /drafts/{draftID} should return a DraftReadDto for the given draftID"() {
         given: "A draftID and a DraftReadDto"
         Long draftID = 1L;
-        RosterEntity roster = TestData.Roster.create(1L, "11111", 1, 1, 1, 1, 1)
-        DraftReadDto draftReadDto = TestData.Draft.createDraftReadDto(1L, "Test Draft", roster)
+        RosterReadDto rosterReadDto = TestData.Roster.createRosterReadDto(1L, "11111", 1, 1, 1, 1, 1)
+        DraftReadDto draftReadDto = TestData.Draft.createDraftReadDto(1L, "Test Draft", rosterReadDto)
 
         and: "Mocked Methods"
         1 * draftService.readDraft(draftID) >> draftReadDto
@@ -40,14 +40,14 @@ class DraftControllerSpec extends RestSpecification {
 
     def "POST /drafts should create a Draft from a DraftDTO and return the new Draft's ID"() {
         given: "A DraftDTO in JSON format"
-        DraftWriteDto draftDto = TestData.Draft.createDraftWriteDto(1L, "Test Draft")
-        String draftDtoJson = TestData.mapObjectToJson(draftDto)
+        DraftWriteDto draftWriteDto = TestData.Draft.createDraftWriteDto(1L, "Test Draft")
+        String draftDtoJson = TestData.mapObjectToJson(draftWriteDto)
 
         and: "A mocked ID for the created Draft"
         Long draftID = 1L
 
         and: "Mocked Methods"
-        1 * draftService.createDraft(draftDto) >> draftID
+        1 * draftService.createDraft(draftWriteDto) >> draftID
 
         and: "A POST request to the /drafts endpoint"
         MockHttpServletRequestBuilder httpRequest = MockMvcRequestBuilders
