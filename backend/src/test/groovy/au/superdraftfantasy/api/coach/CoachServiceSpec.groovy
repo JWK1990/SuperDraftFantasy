@@ -3,6 +3,7 @@ package au.superdraftfantasy.api.coach
 import au.superdraftfantasy.api.TestData
 import au.superdraftfantasy.api.draft.DraftEntity
 import au.superdraftfantasy.api.draft.DraftRepository
+import au.superdraftfantasy.api.roster.RosterEntity
 import au.superdraftfantasy.api.user.UserEntity
 import au.superdraftfantasy.api.user.UserRepository
 import org.modelmapper.ModelMapper
@@ -35,7 +36,8 @@ class CoachServiceSpec extends Specification {
     }
 
     Long draftID = 1L;
-    DraftEntity draft = TestData.Draft.create(draftID, "Test Draft")
+    RosterEntity roster = TestData.Roster.create(1L, "11111", 1, 1, 1, 1, 1);
+    DraftEntity draft = TestData.Draft.create(draftID, "Test Draft", roster)
     CoachDTO coachDto = TestData.Coach.createDTO(draftID)
     CoachEntity coach = TestData.mapObjectToClass(coachDto, CoachEntity.class)
     UserEntity user = TestData.User.create(1L, "testuser")

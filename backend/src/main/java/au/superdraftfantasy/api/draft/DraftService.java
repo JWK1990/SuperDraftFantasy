@@ -57,7 +57,7 @@ public class DraftService {
 
     private DraftEntity convertToEntity(DraftWriteDto draftWriteDto) {
         DraftEntity draft = modelMapper.map(draftWriteDto, DraftEntity.class);
-        RosterEntity roster = rosterRepository.findByType(draftWriteDto.getRosterType()).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "RosterType '" + draftWriteDto.getRosterType() +"' not found."));
+        RosterEntity roster = rosterRepository.findByType(draftWriteDto.getRosterType()).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "RosterType '" + draftWriteDto.getRosterType() + "' not found."));
         draft.setRoster(roster);
         return draft;
     }

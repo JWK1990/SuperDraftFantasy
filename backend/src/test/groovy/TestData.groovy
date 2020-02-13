@@ -10,6 +10,7 @@ import au.superdraftfantasy.api.player.AflTeamEnum
 import au.superdraftfantasy.api.player.PlayerEntity
 import au.superdraftfantasy.api.role.RoleEntity
 import au.superdraftfantasy.api.role.RoleTypeEnum
+import au.superdraftfantasy.api.roster.RosterEntity
 import au.superdraftfantasy.api.team.TeamDTO
 import au.superdraftfantasy.api.team.TeamEntity
 import au.superdraftfantasy.api.user.UserDTO
@@ -33,15 +34,21 @@ class TestData {
     }
 
     static class Draft {
-        static DraftEntity create(Long id, String name) {
-            return new DraftEntity(id, name, 10, "DEFAULT", 300, new HashSet<CoachEntity>(), LocalDateTime.now(), LocalDateTime.now());
+        static DraftEntity create(Long id, String name, RosterEntity roster) {
+            return new DraftEntity(id, name, 10, roster, 300, new HashSet<CoachEntity>(), LocalDateTime.now(), LocalDateTime.now());
         }
         static DraftWriteDto createDraftWriteDto(Long id, String name) {
-            return new DraftWriteDto(id, name, 10, "DEFAULT", 300);
+            return new DraftWriteDto(id, name, 10, "TEST-ROSTER", 300);
         }
 
-        static DraftReadDto createDraftReadDto(Long id, String name) {
-            return new DraftReadDto(id, name, 10, "DEFAULT", 300, null);
+        static DraftReadDto createDraftReadDto(Long id, String name, RosterEntity roster) {
+            return new DraftReadDto(id, name, 10, roster, 300, null)
+        }
+    }
+
+    static class Roster {
+        static RosterEntity create(Long id, String type, Long d, Long m, Long r, Long f, Long b) {
+            return new RosterEntity(id, type, d, m, r, f, b, null)
         }
     }
 

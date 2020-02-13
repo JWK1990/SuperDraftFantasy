@@ -2,6 +2,7 @@ package au.superdraftfantasy.api.draft
 
 import au.superdraftfantasy.api.RestSpecification
 import au.superdraftfantasy.api.TestData
+import au.superdraftfantasy.api.roster.RosterEntity
 import org.spockframework.spring.SpringBean
 import org.springframework.http.HttpStatus
 import org.springframework.http.MediaType
@@ -17,7 +18,8 @@ class DraftControllerSpec extends RestSpecification {
     def "GET /drafts/{draftID} should return a DraftReadDto for the given draftID"() {
         given: "A draftID and a DraftReadDto"
         Long draftID = 1L;
-        DraftReadDto draftReadDto = TestData.Draft.createDraftReadDto(1L, "Test Draft")
+        RosterEntity roster = TestData.Roster.create(1L, "11111", 1, 1, 1, 1, 1)
+        DraftReadDto draftReadDto = TestData.Draft.createDraftReadDto(1L, "Test Draft", roster)
 
         and: "Mocked Methods"
         1 * draftService.readDraft(draftID) >> draftReadDto
