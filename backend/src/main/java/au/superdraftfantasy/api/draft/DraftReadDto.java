@@ -1,6 +1,7 @@
 package au.superdraftfantasy.api.draft;
 
 import au.superdraftfantasy.api.coach.CoachReadDto;
+import au.superdraftfantasy.api.roster.RosterEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,7 +18,7 @@ public class DraftReadDto {
 
     private Long numOfTeams;
 
-    private String rosterType;
+    private RosterEntity roster;
 
     private Long budget;
 

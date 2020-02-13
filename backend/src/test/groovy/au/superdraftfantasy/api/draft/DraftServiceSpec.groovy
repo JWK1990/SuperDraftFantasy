@@ -49,7 +49,7 @@ class DraftServiceSpec extends Specification {
         1 * modelMapper.map(draftEntity, DraftReadDto.class) >> draftReadDto
 
         when: "A call to the createDraft method is made"
-        DraftReadDto response = draftService.findDraft(draftID)
+        DraftReadDto response = draftService.readDraft(draftID)
 
         then: "The correct DraftReadDto should be returned"
         response == draftReadDto
@@ -61,7 +61,7 @@ class DraftServiceSpec extends Specification {
         0 * modelMapper.map(draftEntity, DraftReadDto.class)
 
         when: "A call to the createDraft method is made"
-        draftService.findDraft(draftID)
+        draftService.readDraft(draftID)
 
         then: "An Exception should be thrown"
         ResponseStatusException exception = thrown(ResponseStatusException)
@@ -84,7 +84,7 @@ class DraftServiceSpec extends Specification {
         Set<CoachEntity> coaches = draftEntity.getCoaches()
         coaches.size() == 1L
         coaches.first().user == user
-        coaches.first().typeId == CoachTypeEnum.COMMISSIONER
+        coaches.first().type == CoachTypeEnum.COMMISSIONER
         response == draftEntity.getId()
     }
 

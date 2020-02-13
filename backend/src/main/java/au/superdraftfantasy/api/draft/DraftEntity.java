@@ -6,20 +6,15 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 import au.superdraftfantasy.api.coach.CoachEntity;
+import au.superdraftfantasy.api.roster.RosterEntity;
 import lombok.EqualsAndHashCode;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
-
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -42,8 +37,9 @@ public class DraftEntity {
     @NotNull
     private Long numOfTeams;
 
-    @NotNull
-    private String rosterType;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "roster_id")
+    private RosterEntity roster;
 
     @NotNull
     private Long budget;

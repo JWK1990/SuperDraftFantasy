@@ -1,7 +1,6 @@
 package au.superdraftfantasy.api.role;
 
 import java.util.Collection;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -13,7 +12,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-
 import au.superdraftfantasy.api.privilege.PrivilegeEntity;
 import au.superdraftfantasy.api.user.UserEntity;
 import lombok.AllArgsConstructor;

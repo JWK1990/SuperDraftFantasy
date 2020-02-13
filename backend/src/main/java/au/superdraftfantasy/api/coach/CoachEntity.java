@@ -27,8 +27,8 @@ public class CoachEntity {
     private Long id;
     
     @Enumerated(EnumType.ORDINAL)
-    @JoinColumn(name = "type_id")
-    private CoachTypeEnum typeId;
+    @Column(name = "type_id")
+    private CoachTypeEnum type;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")

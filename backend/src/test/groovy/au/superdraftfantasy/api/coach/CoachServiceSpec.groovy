@@ -56,7 +56,7 @@ class CoachServiceSpec extends Specification {
         then: "The Coach should be saved with the correct details and the Coach ID returned"
         1 * coachRepository.save(coach) >> coach
         coach.draft == draft
-        coach.typeId == CoachTypeEnum.MEMBER
+        coach.type == CoachTypeEnum.MEMBER
         coach.user == user
         coach.team.budget == draft.getBudget()
         coach.team.name == user.getUsername() + "'s Team"

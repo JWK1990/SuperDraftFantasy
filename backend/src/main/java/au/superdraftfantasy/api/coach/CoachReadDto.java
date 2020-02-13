@@ -13,7 +13,7 @@ public class CoachReadDto {
 
     private Long id;
 
-    private CoachTypeEnum typeId;
+    private CoachTypeEnum type;
 
     private UserReadDto user;
 

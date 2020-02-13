@@ -20,7 +20,7 @@ class DraftControllerSpec extends RestSpecification {
         DraftReadDto draftReadDto = TestData.Draft.createDraftReadDto(1L, "Test Draft")
 
         and: "Mocked Methods"
-        1 * draftService.findDraft(draftID) >> draftReadDto
+        1 * draftService.readDraft(draftID) >> draftReadDto
 
         and: "A GET request to the /drafts/{draftID} endpoint"
         MockHttpServletRequestBuilder httpRequest = MockMvcRequestBuilders
