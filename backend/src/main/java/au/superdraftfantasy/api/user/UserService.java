@@ -33,11 +33,11 @@ public class UserService {
 
     /**
      * Create a User and return the generated ID.
-     * @param userDto
+     * @param userWriteDto
      * @return
      */
-    public Long createUser(@NotBlank final UserDTO userDto) {
-        UserEntity user = convertToEntity(userDto);
+    public Long createUser(@NotBlank final UserWriteDto userWriteDto) {
+        UserEntity user = convertToEntity(userWriteDto);
         checkUserValidity(user);
         return userRepository.save(user).getId();
     }
@@ -47,9 +47,9 @@ public class UserService {
         return modelMapper.map(user, UserReadDto.class);
     }
 
-    private UserEntity convertToEntity(UserDTO userDTO) {
-        userDTO.setPassword(bCryptPasswordEncoder.encode(userDTO.getPassword()));
-        UserEntity user = modelMapper.map(userDTO, UserEntity.class);
+    private UserEntity convertToEntity(UserWriteDto userWriteDto) {
+        userWriteDto.setPassword(bCryptPasswordEncoder.encode(userWriteDto.getPassword()));
+        UserEntity user = modelMapper.map(userWriteDto, UserEntity.class);
         user.setRoles(getInitialRoles());
         return user;
     }

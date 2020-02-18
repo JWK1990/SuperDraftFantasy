@@ -9,7 +9,7 @@ import org.hibernate.validator.constraints.Length;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserDTO {
+public class UserWriteDto {
 
     private Long id;
 
