@@ -1,16 +1,15 @@
 package au.superdraftfantasy.api.draft;
 
 import java.util.HashSet;
-
 import javax.validation.constraints.NotBlank;
-
+import au.superdraftfantasy.api.roster.RosterEntity;
+import au.superdraftfantasy.api.roster.RosterRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
-
 import au.superdraftfantasy.api.coach.CoachEntity;
 import au.superdraftfantasy.api.coach.CoachTypeEnum;
 import au.superdraftfantasy.api.team.TeamEntity;
@@ -24,11 +23,13 @@ public class DraftService {
     private final ModelMapper modelMapper;
     private final DraftRepository draftRepository;
     private final UserRepository userRepository;
+    private final RosterRepository rosterRepository;
 
-    public DraftService(ModelMapper modelMapper, DraftRepository draftRepository, UserRepository userRepository) {
+    public DraftService(ModelMapper modelMapper, DraftRepository draftRepository, UserRepository userRepository, RosterRepository rosterRepository) {
         this.modelMapper = modelMapper;
         this.draftRepository = draftRepository;
         this.userRepository = userRepository;
+        this.rosterRepository = rosterRepository;
     }
 
     /**
@@ -44,18 +45,22 @@ public class DraftService {
     }
 
     /**
-     * get a DraftEntity from a given draftID.
+     * read a DraftEntity from a given draftID.
      * @param draftID
      * @return
      */
-    public DraftReadDto findDraft(@NotBlank final Long draftID) {
+    public DraftReadDto getDraft(@NotBlank final Long draftID) {
         DraftEntity draft = draftRepository.findById(draftID).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Draft with ID '" + draftID + "' not found."));
         DraftReadDto draftReadDto = modelMapper.map(draft, DraftReadDto.class);
         return draftReadDto;
     }
 
     private DraftEntity convertToEntity(DraftWriteDto draftWriteDto) {
-        return modelMapper.map(draftWriteDto, DraftEntity.class);
+        DraftEntity draft = modelMapper.map(draftWriteDto, DraftEntity.class);
+        RosterEntity roster = rosterRepository.findByType(draftWriteDto.getRosterType()).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "RosterType '" + draftWriteDto.getRosterType() + "' not found."));
+        draft.setRoster(roster);
+        draft.setStatus(DraftStatusEnum.IN_SETUP);
+        return draft;
     }
 
     private void checkDraftValidity(DraftEntity draft) {
@@ -67,7 +72,7 @@ public class DraftService {
 
     private void createCommissionersTeam(@NotBlank DraftEntity draft) {
         UserEntity user = getCurrentUser();
-        CoachEntity coach = new CoachEntity(null, CoachTypeEnum.COMMISSIONER, user, draft, new TeamEntity(null, "Default Name", draft.getBudget(), null, new HashSet<>(),null, null), null, null);
+        CoachEntity coach = new CoachEntity(null, CoachTypeEnum.COMMISSIONER, user, draft, null, null, null);
         TeamEntity team = new TeamEntity(null, "Default Name", draft.getBudget(), coach, new HashSet<>(),null, null);
         coach.setTeam(team);
         draft.getCoaches().add(coach);

@@ -16,7 +16,7 @@ class UserControllerSpec extends RestSpecification {
 
     def "POST /users/sign-up should create a User from a UserDTO and return the new User's Id"() {
         given: "A UserDTO in JSON format"
-        UserDTO userDto = TestData.User.createDto(1L, "testuser1")
+        UserWriteDto userDto = TestData.User.createWriteDto(1L, "testuser1")
         String userDtoJson = TestData.mapObjectToJson(userDto)
 
         and: "A mocked ID for the created User"

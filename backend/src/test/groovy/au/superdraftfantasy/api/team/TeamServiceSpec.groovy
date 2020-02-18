@@ -5,6 +5,7 @@ import au.superdraftfantasy.api.coach.CoachEntity
 import au.superdraftfantasy.api.draft.DraftEntity
 import au.superdraftfantasy.api.player.PlayerEntity
 import au.superdraftfantasy.api.player.PlayerRepository
+import au.superdraftfantasy.api.roster.RosterEntity
 import au.superdraftfantasy.api.user.UserEntity
 import org.springframework.http.HttpStatus
 import org.springframework.web.server.ResponseStatusException
@@ -28,9 +29,12 @@ class TeamServiceSpec extends Specification {
         return team;
     }
 
-    DraftEntity draft = TestData.Draft.create(1L, "Test Draft")
+    RosterEntity roster = TestData.Roster.create(1L, "11111", 1, 1, 1, 1, 1)
+    DraftEntity draft = TestData.Draft.create(1L, "Test Draft", roster)
+
     Long teamID = 1L
     TeamEntity team = createTeamWithCoachAndDraft(teamID, draft)
+
     Long playerID = 2L
     PlayerEntity player = TestData.Player.create(playerID)
 
@@ -49,7 +53,6 @@ class TeamServiceSpec extends Specification {
         playerList.first() == player
         response == team.getId()
     }
-
 
     def "addPlayer should throw an Exception if the Team doesn't exist" () {
         given: "Mocked Methods (for an invalid Team)"

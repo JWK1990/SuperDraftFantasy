@@ -1,9 +1,20 @@
-INSERT INTO user_entity
-(id, username, first_name, last_name, email, password, created_on, updated_on)
-    VALUES(1, 'admin', 'Admin', 'User', 'firstuser@gmail.com', '$2a$10$UvrXYodGPlzk6KAaXUuHn.Kgnc4luo.rNi/Z/bVqwmDUr3yDVsc3q', '2019-12-09 13:14:39.007', '2019-12-09 13:14:39.009');
+-- INSERT ADMIN.
+INSERT INTO public.user_entity
+(id, username, first_name, last_name, email, "password", created_on, updated_on)
+VALUES(1, 'admin', 'First', 'Last', 'testadmin@gmail.com', '$2a$10$0Zr2QEdN44IT6BKPxZRfVOxt7I9otBF1M6sJtP12s.Dk5VjW14doa', '2020-02-13 04:13:26.453', '2020-02-13 04:13:26.456');
 
-INSERT INTO user_role_join(user_id, role_id)
-    VALUES(1, 1);
+INSERT INTO public.user_role_join
+(user_id, role_id)
+VALUES(1, 1);
+
+-- INSERT USER.
+INSERT INTO public.user_entity
+(id, username, first_name, last_name, email, "password", created_on, updated_on)
+VALUES(2, 'user', 'First', 'Last', 'user@gmail.com', '$2a$10$0Zr2QEdN44IT6BKPxZRfVOxt7I9otBF1M6sJtP12s.Dk5VjW14doa', '2020-02-13 04:13:26.453', '2020-02-13 04:13:26.456');
+
+INSERT INTO public.user_role_join
+(user_id, role_id)
+VALUES(2, 2);
 
 INSERT INTO draft_entity
 (id, "name", num_of_teams, roster_type, budget, created_on, updated_on)

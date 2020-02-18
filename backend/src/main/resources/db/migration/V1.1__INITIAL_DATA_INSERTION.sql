@@ -1,8 +1,8 @@
-INSERT INTO role_entity (id, type)
+INSERT INTO role_entity(id, type)
     VALUES  (1, 'ADMIN'),
             (2, 'USER');
 
-INSERT INTO privilege_entity (id, type)
+INSERT INTO privilege_entity(id, type)
     VALUES  (1, 'WRITE'),
             (2, 'READ');
 
@@ -10,6 +10,16 @@ INSERT INTO role_privilege_join(role_id, privilege_id)
     VALUES  (1, 1),
             (1, 2),
             (2, 2);
+
+INSERT INTO roster_entity(id, type, defenders, midfielders, rucks, forwards, bench)
+    VALUES (1, '57154', 5, 7, 1, 5, 4),
+           (2, '22222', 2, 2, 2, 2, 2);
+
+INSERT INTO draft_status_enum(id, status)
+    VALUES (0, 'IN_SETUP'),
+           (1, 'READY'),
+           (2, 'IN_PROGRESS'),
+           (3, 'COMPLETE');
 
 INSERT INTO coach_type_enum(id, type)
     VALUES  (0, 'COMMISSIONER'),

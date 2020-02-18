@@ -12,14 +12,14 @@ public class DraftController {
         this.draftService = draftService;
     }
 
-    @GetMapping(name = "getDraft", path = "{draftID}")
-    public DraftReadDto getDraft(@PathVariable final Long draftID) {
-        return draftService.findDraft(draftID);
-    }
-
     @PostMapping(name = "createDraft")
     public Long createDraft(@RequestBody final DraftWriteDto draftWriteDto) {
         return draftService.createDraft(draftWriteDto);
+    }
+
+    @GetMapping(name = "getDraft", path = "{draftID}")
+    public DraftReadDto getDraft(@PathVariable final Long draftID) {
+        return draftService.getDraft(draftID);
     }
 
 }

@@ -5,7 +5,6 @@ import au.superdraftfantasy.api.draft.DraftRepository;
 import au.superdraftfantasy.api.team.TeamEntity;
 import au.superdraftfantasy.api.user.UserEntity;
 import au.superdraftfantasy.api.user.UserRepository;
-import org.hibernate.Hibernate;
 import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -40,6 +39,7 @@ public class CoachService {
      */
     public Long createCoach(@NotBlank final CoachDTO coachDTO) {
         CoachEntity coach = convertToEntity(coachDTO);
+        checkForSpaceInDraft(coach);
         checkForExistingCoach(coach);
         createTeam(coach);
         return coachRepository.save(coach).getId();
@@ -50,13 +50,21 @@ public class CoachService {
         DraftEntity draft = draftRepository.findById(coachDTO.getDraftId()).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Draft with ID '" + coachDTO.getDraftId() + "'Not Found."));
         coach.setDraft(draft);
         coach.setUser(getCurrentUser());
-        coach.setTypeId(CoachTypeEnum.MEMBER);
+        coach.setType(CoachTypeEnum.MEMBER);
         return coach;
     }
 
     private UserEntity getCurrentUser() {
         String username = SecurityContextHolder.getContext().getAuthentication().getName();
         return userRepository.findByUsername(username).orElseThrow(() -> new UsernameNotFoundException("User With Username '" + username + "' Not Found."));
+    }
+
+    private void checkForSpaceInDraft(CoachEntity coach) {
+        Long maxNumOfTeams = coach.getDraft().getNumOfTeams();
+        Integer currentNumOfTeams = coach.getDraft().getCoaches().size();
+        if(currentNumOfTeams >= maxNumOfTeams) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "The Draft is already full.");
+        }
     }
 
     private void checkForExistingCoach(CoachEntity coach) {

@@ -35,16 +35,34 @@ CREATE TABLE user_role_join (
     CONSTRAINT fk_role_id FOREIGN KEY (role_id) REFERENCES role_entity(id)
 );
 
+CREATE TABLE roster_entity (
+    id INT PRIMARY KEY,
+    type VARCHAR(255) NOT NULL,
+    defenders INT,
+    midfielders INT,
+    rucks INT,
+    forwards INT,
+    bench INT
+);
+
+CREATE TABLE draft_status_enum (
+    id BIGSERIAL PRIMARY KEY,
+    status varchar NOT NULL
+);
+
 CREATE TABLE draft_entity (
     id BIGSERIAL,
     name VARCHAR(255) NOT NULL,
     num_of_teams INT NOT NULL,
-    roster_type VARCHAR(255) NOT NULL,
+    roster_id INT NOT NULL,
     budget INT NOT NULL,
+    status_id INT NOT NULL,
     created_on TIMESTAMP NOT NULL,
     updated_on TIMESTAMP NOT NULL,
 
-    CONSTRAINT pk_draft_entity PRIMARY KEY(id)
+    CONSTRAINT pk_draft_entity PRIMARY KEY(id),
+    CONSTRAINT fk_roster_id FOREIGN KEY(roster_id) REFERENCES roster_entity(id),
+    CONSTRAINT fk_status_id FOREIGN KEY(status_id) REFERENCES draft_status_enum(id)
 );
 
 CREATE TABLE coach_type_enum (
@@ -62,8 +80,8 @@ CREATE TABLE coach_entity (
 
     CONSTRAINT pk_coach_entity PRIMARY KEY(id),
     CONSTRAINT fk_type_id FOREIGN KEY(type_id) REFERENCES coach_type_enum(id),
-    CONSTRAINT fk_user_id FOREIGN KEY (user_id) REFERENCES user_entity(id) ON DELETE CASCADE ON UPDATE CASCADE,
-    CONSTRAINT fk_draft_id FOREIGN KEY (draft_id) REFERENCES draft_entity(id) ON DELETE CASCADE ON UPDATE CASCADE
+    CONSTRAINT fk_user_id FOREIGN KEY(user_id) REFERENCES user_entity(id) ON DELETE CASCADE ON UPDATE CASCADE,
+    CONSTRAINT fk_draft_id FOREIGN KEY(draft_id) REFERENCES draft_entity(id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE team_entity (

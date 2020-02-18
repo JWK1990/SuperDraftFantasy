@@ -1,13 +1,6 @@
 package au.superdraftfantasy.api.user;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-
-import org.modelmapper.ModelMapper;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
@@ -22,8 +15,13 @@ public class UserController {
     }
 
     @PostMapping(name = "createUser", path = "/sign-up")
-    public Long createUser(@RequestBody @Valid final UserDTO userDTO) {
-        return userService.createUser(userDTO);
+    public Long createUser(@RequestBody @Valid final UserWriteDto userWriteDto) {
+        return userService.createUser(userWriteDto);
+    }
+
+    @GetMapping(name = "getUser", path = "{username}")
+    public UserReadDto getUser(@PathVariable final String username) {
+        return userService.getUser(username);
     }
 
 }
