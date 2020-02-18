@@ -17,11 +17,9 @@ public class DraftController {
         return draftService.createDraft(draftWriteDto);
     }
 
-    @GetMapping(name = "readDraft", path = "{draftID}")
-    public DraftReadDto readDraft(@PathVariable final Long draftID) {
-        return draftService.readDraft(draftID);
+    @GetMapping(name = "getDraft", path = "{draftID}")
+    public DraftReadDto getDraft(@PathVariable final Long draftID) {
+        return draftService.getDraft(draftID);
     }
-
-
 
 }

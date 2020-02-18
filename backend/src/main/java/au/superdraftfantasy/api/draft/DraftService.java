@@ -49,7 +49,7 @@ public class DraftService {
      * @param draftID
      * @return
      */
-    public DraftReadDto readDraft(@NotBlank final Long draftID) {
+    public DraftReadDto getDraft(@NotBlank final Long draftID) {
         DraftEntity draft = draftRepository.findById(draftID).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Draft with ID '" + draftID + "' not found."));
         DraftReadDto draftReadDto = modelMapper.map(draft, DraftReadDto.class);
         return draftReadDto;

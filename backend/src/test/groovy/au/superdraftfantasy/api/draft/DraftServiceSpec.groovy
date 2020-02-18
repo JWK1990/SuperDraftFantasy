@@ -53,7 +53,7 @@ class DraftServiceSpec extends Specification {
         1 * modelMapper.map(draft, DraftReadDto.class) >> draftReadDto
 
         when: "A call to the createDraft method is made"
-        DraftReadDto response = draftService.readDraft(draftID)
+        DraftReadDto response = draftService.getDraft(draftID)
 
         then: "The correct DraftReadDto should be returned"
         response == draftReadDto
@@ -65,7 +65,7 @@ class DraftServiceSpec extends Specification {
         0 * modelMapper.map(draft, DraftReadDto.class)
 
         when: "A call to the createDraft method is made"
-        draftService.readDraft(draftID)
+        draftService.getDraft(draftID)
 
         then: "An Exception should be thrown"
         ResponseStatusException exception = thrown(ResponseStatusException)

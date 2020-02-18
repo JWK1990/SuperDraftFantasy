@@ -31,10 +31,20 @@ public class UserService {
         this.roleRepository = roleRepository;
     }
 
+    /**
+     * Create a User and return the generated ID.
+     * @param userDto
+     * @return
+     */
     public Long createUser(@NotBlank final UserDTO userDto) {
         UserEntity user = convertToEntity(userDto);
         checkUserValidity(user);
         return userRepository.save(user).getId();
+    }
+
+    public UserReadDto getUser(@NotBlank final String username) {
+        UserEntity user = userRepository.findByUsername(username).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found."));
+        return modelMapper.map(user, UserReadDto.class);
     }
 
     private UserEntity convertToEntity(UserDTO userDTO) {
