@@ -105,6 +105,23 @@
             <version>2.3.2</version>
         </dependency>
         <!-- ModelMapper Dependencies End -->
+        <!-- Websockets Dependencies Start -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-websocket</artifactId>
+            <version>5.2.3.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-messaging</artifactId>
+            <version>5.2.3.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-messaging</artifactId>
+            <version>${spring-security.version}</version>
+        </dependency>
+        <!-- Websockets Dependencies End -->
     </dependencies>
 
 
