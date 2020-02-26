@@ -1,10 +1,14 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import WebSocket from "./Bidding/WebSocket";
 
 function App() {
   return (
     <div className="App">
+
+      <WebSocket />
+
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
