@@ -12,6 +12,8 @@ import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.context.annotation.Bean;
 
+import java.util.Arrays;
+
 import static au.superdraftfantasy.api.configuration.security.SecurityConstants.SIGN_UP_URL;
 
 @EnableWebSecurity
@@ -33,6 +35,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.cors().and().csrf().disable().authorizeRequests()
                 .antMatchers(HttpMethod.POST, SIGN_UP_URL).permitAll()
+                .antMatchers("/superdraftfantasy-websocket/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .addFilter(new JWTAuthenticationFilter(authenticationManager()))
@@ -53,8 +56,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
   @Bean
   CorsConfigurationSource corsConfigurationSource() {
-    final UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-    source.registerCorsConfiguration("/**", new CorsConfiguration().applyPermitDefaultValues());
-    return source;
+      CorsConfiguration configuration = new CorsConfiguration().applyPermitDefaultValues();
+      // TODO: May need to update to SuperDraftFantasy URL.
+      configuration.setAllowedOrigins(Arrays.asList("http://localhost:3000", "http://superdraftfantasy.com"));
+      configuration.setAllowCredentials(true);
+
+      final UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+      source.registerCorsConfiguration("/**", configuration);
+      return source;
   }
 }
