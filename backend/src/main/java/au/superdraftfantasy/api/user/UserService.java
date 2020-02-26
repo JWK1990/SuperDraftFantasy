@@ -36,10 +36,11 @@ public class UserService {
      * @param userWriteDto
      * @return
      */
-    public Long createUser(@NotBlank final UserWriteDto userWriteDto) {
+    public UserReadDto createUser(@NotBlank final UserWriteDto userWriteDto) {
         UserEntity user = convertToEntity(userWriteDto);
         checkUserValidity(user);
-        return userRepository.save(user).getId();
+        userRepository.save(user);
+        return modelMapper.map(user, UserReadDto.class);
     }
 
     public UserReadDto getUser(@NotBlank final String username) {
