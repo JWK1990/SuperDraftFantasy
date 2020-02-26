@@ -14,29 +14,31 @@ class UserControllerSpec extends RestSpecification {
     @SpringBean
     UserService userService = Mock(UserService)
 
-    def "POST /users/sign-up should create a User from a UserDTO and return the new User's Id"() {
-        given: "A UserDTO in JSON format"
-        UserWriteDto userDto = TestData.User.createWriteDto(1L, "testuser1")
-        String userDtoJson = TestData.mapObjectToJson(userDto)
+    def "POST /users/sign-up should create a User from a UserDTO and return the new UserReadDto"() {
+        given: "A UserWriteDto in JSON format"
+        UserWriteDto userWriteDto = TestData.User.createWriteDto(1L, "testuser1")
+        String userWriteDtoJson = TestData.mapObjectToJson(userWriteDto)
 
         and: "A mocked ID for the created User"
         Long userID = 1L
 
+        and: "A UserReadDto"
+        UserReadDto userReadDto = TestData.User.createReadDto(1L, "testuser1")
+
         and: "Mocked Methods"
-        1 * userService.createUser(userDto) >> userID
+        1 * userService.createUser(userWriteDto) >> userReadDto
 
         and: "A POST request to the /users/sign-up endpoint"
         MockHttpServletRequestBuilder httpRequest = MockMvcRequestBuilders
                 .post("/users/sign-up")
                 .contentType(MediaType.APPLICATION_JSON)
-                .content(userDtoJson)
+                .content(userWriteDtoJson)
 
         when: "We execute the POST request"
         MockHttpServletResponse httpResponse = mockMvc.perform(httpRequest).andReturn().response
 
-        then: "The created User's Id should be returned"
+        then: "The created UserReadDto should be returned"
         httpResponse.status == HttpStatus.OK.value()
-        httpResponse.getContentAsString() == userID.toString()
     }
 
 }
