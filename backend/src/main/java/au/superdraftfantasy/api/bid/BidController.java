@@ -2,8 +2,9 @@ package au.superdraftfantasy.api.bid;
 
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
-import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.stereotype.Controller;
 
+@Controller
 public class BidController {
 
     @MessageMapping("/bid")
