@@ -14,6 +14,7 @@ import PersonPinIcon from '@material-ui/icons/PersonPin';
 import Signup from '../signup';
 import Login from '../login';
 import SwipeableViews from 'react-swipeable-views';
+import WebSocket from '../bidding';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -55,9 +56,7 @@ export default function Navbar() {
         index={value}
         onChangeIndex={handleChangeIndex}
       >
-        <Button value={value} index={0} dir={theme.direction}>
-          Home
-        </Button>
+        <WebSocket value={value} index={0} dir={theme.direction} />
         <Button value={value} index={1} dir={theme.direction}>
           My Account
         </Button>
