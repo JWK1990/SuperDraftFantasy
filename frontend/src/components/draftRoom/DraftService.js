@@ -13,7 +13,6 @@ class DraftService {
         };
     }
 
-
     getDraft(draftId) {
         return axios.get(baseUrl + "/drafts/" + draftId, this.config);
     }

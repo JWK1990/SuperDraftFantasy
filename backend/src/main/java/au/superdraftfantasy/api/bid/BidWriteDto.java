@@ -1,5 +1,6 @@
 package au.superdraftfantasy.api.bid;
 
+import au.superdraftfantasy.api.player.PlayerReadDto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -7,10 +8,12 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class BidEntity {
+public class BidWriteDto {
 
-    private String bidder;
+    private Long teamId;
 
-    private Long bid;
+    private Long bidPrice;
+
+    private Long additionalTime;
 
 }
