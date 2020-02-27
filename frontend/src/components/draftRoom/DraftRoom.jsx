@@ -16,9 +16,15 @@ class DraftRoom extends React.Component {
             currentCoachId: '',
             draftDetails: '',
             players: [],
-            block: '',
+            block: {
+                player: '',
+                team: '',
+                bidPrice: '',
+                endTime: ''
+            },
             stompClient: '',
             errorText: '',
+            timeRemaining: '',
         };
         this.getDraft = this.getDraft.bind(this);
     }
@@ -55,7 +61,6 @@ class DraftRoom extends React.Component {
 
     sendBid = () => {
         if (stompClient) {
-            console.log(this.state);
             const bidDetails = {
                 teamId: this.state.currentCoachId,
                 bidPrice: this.state.block.bidPrice + 1,
@@ -74,6 +79,10 @@ class DraftRoom extends React.Component {
             endTime: addToBlockDetails.endTime
         };
         this.setState({block: block});
+        console.log('EndTime:', new Date(this.state.block.endTime));
+        console.log(Date.now());
+        this.interval = setInterval(() => this.setState({
+            timeRemaining: Math.round((new Date(this.state.block.endTime).getTime() - Date.now())/1000)}), 1000);
     };
 
     getPlayerDetails = (playerId) => {
@@ -151,6 +160,7 @@ class DraftRoom extends React.Component {
                 </div>
                 <DraftRoomBlock block={this.state.block} sendBid={this.sendBid} sendAddToBlock={this.sendAddToBlock}/>
                 <DraftRoomPlayers players={this.state.players}/>
+                <p>Timer: {this.state.timeRemaining} </p>
             </div>
         )
     }
