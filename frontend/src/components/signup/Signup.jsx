@@ -9,7 +9,6 @@ import Box from '@material-ui/core/Box';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
-import SignupService from './SignupService';
 import AuthService from '../login/AuthService';
 
 class Signup extends React.Component {
@@ -42,6 +41,7 @@ class Signup extends React.Component {
         if(res.status === 200) {
           console.log("User Signed Up.");
           AuthService.setToken(res.headers.authorization);
+          AuthService.setCurrentUser(user.username);
         } else {
           console.log(res);
           this.setState({errorText: res.data.message});

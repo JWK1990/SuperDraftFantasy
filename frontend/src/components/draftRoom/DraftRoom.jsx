@@ -4,6 +4,7 @@ import DraftRoomPlayers from "./players/Players";
 import DraftRoomBlock from "./block/Block";
 import * as Stomp from 'stompjs';
 import * as SockJS from 'sockjs-client';
+import AuthService from '../login/AuthService';
 
 let stompClient = null;
 
@@ -12,7 +13,7 @@ class DraftRoom extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            currentUser: '',
+            currentCoachId: '',
             draftDetails: '',
             players: [],
             block: '',
@@ -24,6 +25,8 @@ class DraftRoom extends React.Component {
 
     componentDidMount() {
         this.connect();
+        this.getDraft();
+        this.getPlayers();
     }
 
     connect = () => {
@@ -42,7 +45,7 @@ class DraftRoom extends React.Component {
         if (stompClient) {
             const addToBlockDetails = {
                 playerId: 1,
-                teamId: 1,
+                teamId: this.state.currentCoachId,
                 bidPrice: 100,
                 additionalTime: 20,
             };
@@ -52,8 +55,9 @@ class DraftRoom extends React.Component {
 
     sendBid = () => {
         if (stompClient) {
+            console.log(this.state);
             const bidDetails = {
-                teamId: 1,
+                teamId: this.state.currentCoachId,
                 bidPrice: this.state.block.bidPrice + 1,
                 additionalTime: 10
             };
@@ -104,15 +108,14 @@ class DraftRoom extends React.Component {
         console.log("Disconnected");
     };
 
-
     getDraft = () => {
         DraftService.getDraft(1)
             .then(response => {
                 if(response.status === 200) {
                     console.log("Draft Received.");
                     this.setState({draftDetails: response.data})
+                    this.setCurrentCoachId(response.data);
                 } else {
-                    console.log(response);
                     this.setState({errorText: response.data.message});
                 }
             })
@@ -125,11 +128,8 @@ class DraftRoom extends React.Component {
         DraftService.getPlayers()
             .then(response => {
                 if(response.status === 200) {
-                    console.log("Players Received.");
                     this.setState({players: response.data})
-                    console.log(this.state);
                 } else {
-                    console.log(response);
                     this.setState({errorText: response.data.message});
                 }
             })
@@ -138,14 +138,17 @@ class DraftRoom extends React.Component {
             });
     };
 
+    setCurrentCoachId = () => {
+        const coachId = this.state.draftDetails.coaches.find(coach => coach.user.username === AuthService.getCurrentUser()).id;
+        this.setState({currentCoachId: coachId});
+    };
+
     render() {
         return (
             <div>
-                <button onClick={this.getDraft} />
                 <div>
                     <p>Draft Details: {this.state.draftDetails.name}</p>
                 </div>
-                <button onClick={this.getPlayers} />
                 <DraftRoomBlock block={this.state.block} sendBid={this.sendBid} sendAddToBlock={this.sendAddToBlock}/>
                 <DraftRoomPlayers players={this.state.players}/>
             </div>

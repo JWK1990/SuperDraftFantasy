@@ -11,7 +11,7 @@ import java.util.Date;
 @AllArgsConstructor
 public class AddToBlockReadDto {
 
-    private Long player;
+    private Long playerId;
 
     private Long teamId;
 

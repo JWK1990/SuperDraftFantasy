@@ -44,10 +44,11 @@ function DraftRoomBlock(props) {
             <div className={classes.details}>
                 <CardContent className={classes.content}>
                     <Typography component="h5" variant="h5">
-                        <p>{props.block ? props.block.playerId : "TBA"} </p>
+                        <p>{props.block ? props.block.player.firstName : "TBA"} </p>
                     </Typography>
                     <Typography variant="subtitle1" color="textSecondary">
                         <p>{props.block ? props.block.teamId : "TBA"} </p>
+                        <p>{props.block ? props.block.bidPrice : "TBA"} </p>
                     </Typography>
                 </CardContent>
                 <div className={classes.controls}>
