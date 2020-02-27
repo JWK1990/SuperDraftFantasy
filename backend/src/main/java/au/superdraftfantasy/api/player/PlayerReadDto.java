@@ -21,6 +21,6 @@ public class PlayerReadDto {
 
     Long average;
 
-    Collection<PositionReadDto> positions;
+    String position;
 
 }

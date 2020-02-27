@@ -1,24 +1,9 @@
 package au.superdraftfantasy.api.player;
 
-import au.superdraftfantasy.api.coach.CoachEntity;
-import au.superdraftfantasy.api.coach.CoachTypeEnum;
-import au.superdraftfantasy.api.draft.*;
-import au.superdraftfantasy.api.roster.RosterEntity;
-import au.superdraftfantasy.api.roster.RosterRepository;
-import au.superdraftfantasy.api.team.TeamEntity;
-import au.superdraftfantasy.api.user.UserEntity;
-import au.superdraftfantasy.api.user.UserRepository;
+import au.superdraftfantasy.api.position.PositionEntity;
 import org.modelmapper.ModelMapper;
-import org.springframework.http.HttpStatus;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-import org.springframework.web.server.ResponseStatusException;
-
-import javax.validation.constraints.NotBlank;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
+import java.util.*;
 
 @Service
 public class PlayerService {
@@ -45,7 +30,17 @@ public class PlayerService {
     }
 
     private PlayerReadDto convertToReadDto(PlayerEntity playerEntity) {
-        return modelMapper.map(playerEntity, PlayerReadDto.class);
+        PlayerReadDto playerReadDto = modelMapper.map(playerEntity, PlayerReadDto.class);
+        playerReadDto.setPosition(convertPositionsToString(playerEntity.getPositions()));
+        return playerReadDto;
+    }
+
+    private String convertPositionsToString(Collection<PositionEntity> positions) {
+        StringJoiner joiner = new StringJoiner("-");
+        positions.stream().forEach((position) -> {
+            joiner.add(position.getType().toString());
+        });
+        return joiner.toString();
     }
 
 }

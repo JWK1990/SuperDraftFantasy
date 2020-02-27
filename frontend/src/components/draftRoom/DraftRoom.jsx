@@ -1,5 +1,6 @@
 import React from "react";
 import DraftService from "./DraftService";
+import DraftRoomPlayers from "./players/Players";
 
 class DraftRoom extends React.Component {
 
@@ -31,11 +32,12 @@ class DraftRoom extends React.Component {
     };
 
     getPlayers = () => {
-        DraftService.getPlayers(1)
+        DraftService.getPlayers()
             .then(response => {
                 if(response.status === 200) {
                     console.log("Players Received.");
                     this.setState({players: response.data})
+                    console.log(this.state);
                 } else {
                     console.log(response);
                     this.setState({errorText: response.data.message});
@@ -57,6 +59,7 @@ class DraftRoom extends React.Component {
                 <div>
                     <p>Players: {this.state.players[0] ? this.state.players[0].firstName : 'No Players Yet'}</p>
                 </div>
+                <DraftRoomPlayers players={this.state.players}/>
             </div>
         )
     }
