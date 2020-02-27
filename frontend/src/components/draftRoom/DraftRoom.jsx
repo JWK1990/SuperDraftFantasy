@@ -20,11 +20,11 @@ class DraftRoom extends React.Component {
                 player: '',
                 team: '',
                 bidPrice: '',
-                endTime: ''
+                onTheBlockTimeRemaining: '',
+                bidTimeRemaining: '',
             },
             stompClient: '',
             errorText: '',
-            timeRemaining: '',
         };
         this.getDraft = this.getDraft.bind(this);
     }
@@ -72,17 +72,35 @@ class DraftRoom extends React.Component {
 
     onAddToBlockReceived = (payload) => {
         const addToBlockDetails = JSON.parse(payload.body);
-        const block = {
-            player: this.getPlayerDetails(addToBlockDetails.playerId),
-            team: this.getTeamDetails(addToBlockDetails.teamId),
-            bidPrice: addToBlockDetails.bidPrice,
-            endTime: addToBlockDetails.endTime
-        };
-        this.setState({block: block});
-        console.log('EndTime:', new Date(this.state.block.endTime));
-        console.log(Date.now());
-        this.interval = setInterval(() => this.setState({
-            timeRemaining: Math.round((new Date(this.state.block.endTime).getTime() - Date.now())/1000)}), 1000);
+        this.setState(prevState => ({
+            ...prevState,
+            block: {
+                player: this.getPlayerDetails(addToBlockDetails.playerId),
+                team: this.getTeamDetails(addToBlockDetails.teamId),
+                bidPrice: addToBlockDetails.bidPrice,
+            }
+        }));
+        this.setAddToBlockTimer(addToBlockDetails.endTime);
+    };
+
+    setBidTimer = (endTime) => {
+        this.bidTimerInterval = setInterval(() => this.setState(prevState => ({
+            ...prevState,
+            block: {
+                ...prevState.block,
+                bidTimeRemaining: Math.round((new Date(endTime).getTime() - Date.now())/1000)
+            }
+        })), 1000);
+    };
+
+    setAddToBlockTimer = (endTime) => {
+        this.addToBlockTimerInterval = setInterval(() => this.setState(prevState => ({
+            ...prevState,
+            block: {
+                ...prevState.block,
+                addToBlockTimeRemaining: Math.round((new Date(endTime).getTime() - Date.now())/1000)
+            }
+        })), 1000);
     };
 
     getPlayerDetails = (playerId) => {
@@ -95,13 +113,16 @@ class DraftRoom extends React.Component {
 
     onBidReceived = (payload) => {
         const bidDetails = JSON.parse(payload.body);
-        const block = {
-            player: this.state.block.player,
-            teamId: bidDetails.teamId,
-            bidPrice: bidDetails.bidPrice,
-            endTime: bidDetails.endTime
-        }
-        this.setState({block: block});
+        this.setState(prevState => ({
+            ...prevState,
+            block: {
+                player: this.state.block.player,
+                teamId: bidDetails.teamId,
+                bidPrice: bidDetails.bidPrice,
+                timeRemaining: 'Pending'
+            }
+        }));
+        this.setBidTimer(this.bidTimer, bidDetails.endTime);
     };
 
     onError = (error) => {
@@ -121,7 +142,6 @@ class DraftRoom extends React.Component {
         DraftService.getDraft(1)
             .then(response => {
                 if(response.status === 200) {
-                    console.log("Draft Received.");
                     this.setState({draftDetails: response.data})
                     this.setCurrentCoachId(response.data);
                 } else {
@@ -160,7 +180,8 @@ class DraftRoom extends React.Component {
                 </div>
                 <DraftRoomBlock block={this.state.block} sendBid={this.sendBid} sendAddToBlock={this.sendAddToBlock}/>
                 <DraftRoomPlayers players={this.state.players}/>
-                <p>Timer: {this.state.timeRemaining} </p>
+                <p>Add To Block Timer: {this.state.block.addToBlockTimeRemaining} </p>
+                <p>Bid Timer: {this.state.block.bidTimeRemaining} </p>
             </div>
         )
     }
