@@ -35,6 +35,7 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
     }
 
     // TODO - Add tests for JWT Security.
+    // The below handles requests to /login as part of Spring Security (see https://auth0.com/blog/implementing-jwt-authentication-on-spring-boot/).
     @Override
     public Authentication attemptAuthentication(HttpServletRequest req,
                                                 HttpServletResponse res) throws AuthenticationException {

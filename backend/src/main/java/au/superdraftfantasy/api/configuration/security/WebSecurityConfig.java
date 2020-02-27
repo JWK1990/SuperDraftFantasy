@@ -1,5 +1,10 @@
 package au.superdraftfantasy.api.configuration.security;
 
+import static au.superdraftfantasy.api.configuration.security.SecurityConstants.SIGN_UP_URL;
+
+import java.util.Arrays;
+
+import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -10,11 +15,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
-import org.springframework.context.annotation.Bean;
-
-import java.util.Arrays;
-
-import static au.superdraftfantasy.api.configuration.security.SecurityConstants.SIGN_UP_URL;
 
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
@@ -56,13 +56,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
   @Bean
   CorsConfigurationSource corsConfigurationSource() {
-      CorsConfiguration configuration = new CorsConfiguration().applyPermitDefaultValues();
+      CorsConfiguration corsConfiguration = new CorsConfiguration().applyPermitDefaultValues();
       // TODO: May need to update to SuperDraftFantasy URL.
-      configuration.setAllowedOrigins(Arrays.asList("http://localhost:3000", "http://superdraftfantasy.com"));
-      configuration.setAllowCredentials(true);
+      corsConfiguration.setAllowedOrigins(Arrays.asList("http://localhost:3000", "http://superdraftfantasy.com"));
+      corsConfiguration.setAllowCredentials(true);
+      corsConfiguration.addExposedHeader("Authorization");
 
       final UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-      source.registerCorsConfiguration("/**", configuration);
+      source.registerCorsConfiguration("/**", corsConfiguration);
       return source;
   }
 }

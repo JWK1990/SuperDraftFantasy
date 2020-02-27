@@ -33,14 +33,16 @@ class UserServiceSpec extends Specification {
         1 * roleRepository.findByType(RoleTypeEnum.USER) >> Optional.of(TestData.Role.createUserRole())
         1 * userRepository.existsByUsername(user.getUsername()) >> false
         1 * userRepository.existsByEmail(user.getEmail()) >> false
+        1 * modelMapper.map(user, UserReadDto.class) >> userReadDto
+
 
         when: "A call to the createUser method is made"
-        Long response = userService.createUser(userWriteDto)
+        UserReadDto response = userService.createUser(userWriteDto)
 
         then: "The User should be saved with an initial role and the User ID returned"
         1 * userRepository.save(user) >> user
         user.getRoles().first().getType() == RoleTypeEnum.USER
-        response == user.getId()
+        response == userReadDto
     }
 
     def "createUser should throw an Exception if initial Role Type doesn't exist" () {

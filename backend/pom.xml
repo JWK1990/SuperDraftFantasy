@@ -121,7 +121,6 @@
         <!-- ModelMapper Dependencies End -->
     </dependencies>
 
-
     <build>
         <finalName>superdraftfantasy-backend</finalName>
         <plugins>
