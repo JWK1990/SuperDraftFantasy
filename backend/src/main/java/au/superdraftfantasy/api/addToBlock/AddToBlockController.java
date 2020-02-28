@@ -17,9 +17,13 @@ public class AddToBlockController {
     }
 
     @MessageMapping("/addToBlock")
-    @SendTo("/bidding/addsToBlock")
+    @SendTo("/bidding/adds")
     public AddToBlockReadDto addToBlock(AddToBlockWriteDto addToBlockWriteDto) throws Exception {
         AddToBlockReadDto addToBlockReadDto = modelMapper.map(addToBlockWriteDto, AddToBlockReadDto.class);
+        // TODO: Calculate next best available player if playerId is blank.
+        if(addToBlockWriteDto.getPlayerId() == null) {
+            addToBlockReadDto.setPlayerId(2L);
+        }
         // TODO: Could take the calculation of additionalTime to the BE, but figured it's quicker to use the value from draftDetails in the FE.
         Date now = new Date();
         Date endTime = new Date(now.getTime() + addToBlockWriteDto.getAdditionalTime() * 1000);

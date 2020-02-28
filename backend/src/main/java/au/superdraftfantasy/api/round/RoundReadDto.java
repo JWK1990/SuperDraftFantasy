@@ -11,11 +11,7 @@ import java.util.Date;
 @AllArgsConstructor
 public class RoundReadDto {
 
-    private Long playerId;
-
     private Long teamId;
-
-    private Long bidPrice;
 
     private Date endTime;
 

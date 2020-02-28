@@ -22,8 +22,7 @@ public class RoundController {
     @SendTo("/bidding/rounds")
     public RoundReadDto startNextRound(RoundWriteDto roundWriteDto) throws Exception {
         // TODO: Calculate current team on the block.
-        // TODO: Calculate top available player for current team.
-        RoundReadDto roundReadDto = new RoundReadDto(1L, 1L, 1L, null);
+        RoundReadDto roundReadDto = new RoundReadDto(1L, null);
         Date now = new Date();
         Date endTime = new Date(now.getTime() + roundWriteDto.getAdditionalTime() * 1000);
         roundReadDto.setEndTime(endTime);

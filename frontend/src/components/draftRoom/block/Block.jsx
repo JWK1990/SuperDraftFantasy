@@ -49,7 +49,6 @@ function DraftRoomBlock(props) {
                     <Typography variant="subtitle1" color="textSecondary">
                         <p>{props.block ? props.block.teamId : "TBA"} </p>
                         <p>{props.block ? props.block.bidPrice : "TBA"} </p>
-                        <p>{props.block ? props.block.timeRemaining : "TBA"} </p>
                     </Typography>
                 </CardContent>
                 <div className={classes.controls}>

@@ -42,7 +42,8 @@ class DraftRoom extends React.Component {
     };
 
     onConnected = () => {
-        stompClient.subscribe('/bidding/addsToBlock', this.onAddToBlockReceived);
+        stompClient.subscribe('/bidding/rounds', this.onStartNextRoundReceived);
+        stompClient.subscribe('/bidding/adds', this.onAddToBlockReceived);
         stompClient.subscribe('/bidding/bids', this.onBidReceived);
         this.setState({stompClient: stompClient});
     };
@@ -84,13 +85,13 @@ class DraftRoom extends React.Component {
         this.setState(prevState => ({
             ...prevState,
             block: {
-                player: this.getPlayerDetails(startNextRoundDetails.playerId),
+                player: '',
                 team: this.getTeamDetails(startNextRoundDetails.teamId),
-                bidPrice: startNextRoundDetails.bidPrice,
+                bidPrice: '',
             }
         }));
         console.log('Start Next Round: ', this.state.block);
-        this.setBidTimer(startNextRoundDetails.endTime);
+        this.setAddToBlockTimer(startNextRoundDetails.endTime);
     };
 
     onAddToBlockReceived = (payload) => {
@@ -119,7 +120,6 @@ class DraftRoom extends React.Component {
                 ...prevState.block,
                 teamId: bidDetails.teamId,
                 bidPrice: bidDetails.bidPrice,
-                timeRemaining: 'Pending'
             }
         }));
         this.setBidTimer(bidDetails.endTime);
@@ -137,6 +137,7 @@ class DraftRoom extends React.Component {
             }));
             if(this.state.block.addToBlockTimeRemaining <= 0) {
                 clearInterval(this.addToBlockTimerInterval);
+                this.sendAddToBlock(null, null);
                 console.log('Add Player To Block');
             }
         }, 1000);
