@@ -1,12 +1,14 @@
 import React from "react";
 import MaterialTable from "material-table";
 import Container from "@material-ui/core/Container";
+import DraftRoomPlayersSelected from "./selected/Selected";
 
 function DraftRoomPlayers(props) {
         return (
             <Container component="main" maxWidth="xl">
                 <div style={{ maxWidth: "100%" }}>
                     <MaterialTable
+                        title="Players"
                         columns={[
                             { title: "ID", field: "id", type: "numeric", searchable: false },
                             { title: "Name", field: "firstName" },
@@ -15,7 +17,13 @@ function DraftRoomPlayers(props) {
                             { title: "Position", field: "position", searchable: false },
                         ]}
                         data={props.players}
-                        title="Players"
+                        detailPanel={rowData => {
+                            return (
+                                <DraftRoomPlayersSelected selected={rowData} sendAddToBlock={props.sendAddToBlock}/>
+                            )
+                        }}
+                        onRowClick={(event, rowData, togglePanel) => togglePanel()}
+                        options={{detailPanelType: "single"}}
                     />
                 </div>
             </Container>

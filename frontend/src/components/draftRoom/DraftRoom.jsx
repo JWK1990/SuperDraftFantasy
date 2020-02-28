@@ -47,13 +47,20 @@ class DraftRoom extends React.Component {
         this.setState({stompClient: stompClient});
     };
 
-    sendAddToBlock = () => {
+    sendStartNextRound = () => {
+        // TODO: Add condition to check if Draft is still active.
+        if (stompClient) {
+            stompClient.send("/app/startNextRound", {}, JSON.stringify({additionalTime: 20}));
+        }
+    }
+
+    sendAddToBlock = (selectedPlayerId, initialBid) => {
         if (stompClient) {
             const addToBlockDetails = {
-                playerId: 1,
+                playerId: selectedPlayerId,
                 teamId: this.state.currentCoachId,
-                bidPrice: 100,
-                additionalTime: 20,
+                bidPrice: initialBid,
+                additionalTime: 10,
             };
             stompClient.send("/app/addToBlock", {}, JSON.stringify(addToBlockDetails));
         }
@@ -70,7 +77,25 @@ class DraftRoom extends React.Component {
         }
     };
 
+    onStartNextRoundReceived = (payload) => {
+        clearInterval(this.addToBlockTimerInterval);
+        clearInterval(this.bidTimerInterval);
+        const startNextRoundDetails = JSON.parse(payload.body);
+        this.setState(prevState => ({
+            ...prevState,
+            block: {
+                player: this.getPlayerDetails(startNextRoundDetails.playerId),
+                team: this.getTeamDetails(startNextRoundDetails.teamId),
+                bidPrice: startNextRoundDetails.bidPrice,
+            }
+        }));
+        console.log('Start Next Round: ', this.state.block);
+        this.setBidTimer(startNextRoundDetails.endTime);
+    };
+
     onAddToBlockReceived = (payload) => {
+        clearInterval(this.addToBlockTimerInterval);
+        clearInterval(this.bidTimerInterval);
         const addToBlockDetails = JSON.parse(payload.body);
         this.setState(prevState => ({
             ...prevState,
@@ -80,27 +105,60 @@ class DraftRoom extends React.Component {
                 bidPrice: addToBlockDetails.bidPrice,
             }
         }));
-        this.setAddToBlockTimer(addToBlockDetails.endTime);
+        console.log('Add To Block: ', this.state.block);
+        this.setBidTimer(addToBlockDetails.endTime);
     };
 
-    setBidTimer = (endTime) => {
-        this.bidTimerInterval = setInterval(() => this.setState(prevState => ({
+    onBidReceived = (payload) => {
+        clearInterval(this.addToBlockTimerInterval);
+        clearInterval(this.bidTimerInterval);
+        const bidDetails = JSON.parse(payload.body);
+        this.setState(prevState => ({
             ...prevState,
             block: {
                 ...prevState.block,
-                bidTimeRemaining: Math.round((new Date(endTime).getTime() - Date.now())/1000)
+                teamId: bidDetails.teamId,
+                bidPrice: bidDetails.bidPrice,
+                timeRemaining: 'Pending'
             }
-        })), 1000);
+        }));
+        this.setBidTimer(bidDetails.endTime);
     };
 
     setAddToBlockTimer = (endTime) => {
-        this.addToBlockTimerInterval = setInterval(() => this.setState(prevState => ({
-            ...prevState,
-            block: {
-                ...prevState.block,
-                addToBlockTimeRemaining: Math.round((new Date(endTime).getTime() - Date.now())/1000)
+        this.addToBlockTimerInterval = setInterval(() => {
+            this.setState(prevState => ({
+                ...prevState,
+                block: {
+                    ...prevState.block,
+                    addToBlockTimeRemaining: Math.round((new Date(endTime).getTime() - Date.now())/1000),
+                    bidTimeRemaining: '',
+                }
+            }));
+            if(this.state.block.addToBlockTimeRemaining <= 0) {
+                clearInterval(this.addToBlockTimerInterval);
+                console.log('Add Player To Block');
             }
-        })), 1000);
+        }, 1000);
+    };
+
+    setBidTimer = (endTime) => {
+        this.bidTimerInterval = setInterval(() => {
+            this.setState(prevState => ({
+                ...prevState,
+                block: {
+                    ...prevState.block,
+                    addToBlockTimeRemaining: '',
+                    bidTimeRemaining: Math.round((new Date(endTime).getTime() - Date.now())/1000)
+                }
+            }));
+            if(this.state.block.bidTimeRemaining <= 0) {
+                clearInterval(this.bidTimerInterval);
+                this.draftPlayer(this.state.block.team.id, this.state.block.player.id);
+                this.sendStartNextRound();
+                console.log('Draft Player');
+            }
+        }, 1000);
     };
 
     getPlayerDetails = (playerId) => {
@@ -109,20 +167,6 @@ class DraftRoom extends React.Component {
 
     getTeamDetails = (teamId) => {
         return this.state.draftDetails.coaches.find(coach => coach.id === teamId);
-    };
-
-    onBidReceived = (payload) => {
-        const bidDetails = JSON.parse(payload.body);
-        this.setState(prevState => ({
-            ...prevState,
-            block: {
-                player: this.state.block.player,
-                teamId: bidDetails.teamId,
-                bidPrice: bidDetails.bidPrice,
-                timeRemaining: 'Pending'
-            }
-        }));
-        this.setBidTimer(this.bidTimer, bidDetails.endTime);
     };
 
     onError = (error) => {
@@ -167,6 +211,21 @@ class DraftRoom extends React.Component {
             });
     };
 
+    draftPlayer = (teamId, playerId) => {
+        console.log(teamId);
+        DraftService.draftPlayer(teamId, playerId)
+            .then(response => {
+                if(response.status === 200) {
+                    console.log('Player Drafted: ', response);
+                } else {
+                    this.setState({errorText: response.data.message});
+                }
+            })
+            .catch(error => {
+                console.log(error);
+            });
+    };
+
     setCurrentCoachId = () => {
         const coachId = this.state.draftDetails.coaches.find(coach => coach.user.username === AuthService.getCurrentUser()).id;
         this.setState({currentCoachId: coachId});
@@ -178,10 +237,8 @@ class DraftRoom extends React.Component {
                 <div>
                     <p>Draft Details: {this.state.draftDetails.name}</p>
                 </div>
-                <DraftRoomBlock block={this.state.block} sendBid={this.sendBid} sendAddToBlock={this.sendAddToBlock}/>
-                <DraftRoomPlayers players={this.state.players}/>
-                <p>Add To Block Timer: {this.state.block.addToBlockTimeRemaining} </p>
-                <p>Bid Timer: {this.state.block.bidTimeRemaining} </p>
+                <DraftRoomBlock block={this.state.block} sendBid={this.sendBid}/>
+                <DraftRoomPlayers players={this.state.players} sendAddToBlock={this.sendAddToBlock}/>
             </div>
         )
     }

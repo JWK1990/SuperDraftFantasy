@@ -59,9 +59,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
       CorsConfiguration corsConfiguration = new CorsConfiguration().applyPermitDefaultValues();
       // TODO: May need to update to SuperDraftFantasy URL.
       corsConfiguration.setAllowedOrigins(Arrays.asList("http://localhost:3000", "http://superdraftfantasy.com"));
+      corsConfiguration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"));
+      corsConfiguration.setAllowedHeaders(Arrays.asList("authorization", "content-type", "x-auth-token"));
       corsConfiguration.setAllowCredentials(true);
-      corsConfiguration.addExposedHeader("Authorization");
-
+      corsConfiguration.setExposedHeaders(Arrays.asList("Authorization"));
       final UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
       source.registerCorsConfiguration("/**", corsConfiguration);
       return source;

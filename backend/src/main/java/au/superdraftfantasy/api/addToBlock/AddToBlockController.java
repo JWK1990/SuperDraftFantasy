@@ -20,6 +20,7 @@ public class AddToBlockController {
     @SendTo("/bidding/addsToBlock")
     public AddToBlockReadDto addToBlock(AddToBlockWriteDto addToBlockWriteDto) throws Exception {
         AddToBlockReadDto addToBlockReadDto = modelMapper.map(addToBlockWriteDto, AddToBlockReadDto.class);
+        // TODO: Could take the calculation of additionalTime to the BE, but figured it's quicker to use the value from draftDetails in the FE.
         Date now = new Date();
         Date endTime = new Date(now.getTime() + addToBlockWriteDto.getAdditionalTime() * 1000);
         addToBlockReadDto.setEndTime(endTime);

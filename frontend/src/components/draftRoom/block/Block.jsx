@@ -53,7 +53,7 @@ function DraftRoomBlock(props) {
                     </Typography>
                 </CardContent>
                 <div className={classes.controls}>
-                    <IconButton aria-label="previous" onClick={() => props.sendAddToBlock()} >
+                    <IconButton aria-label="previous" >
                         {theme.direction === 'rtl' ? <SkipNextIcon /> : <SkipPreviousIcon />}
                     </IconButton>
                     <IconButton aria-label="play/pause">
@@ -69,6 +69,8 @@ function DraftRoomBlock(props) {
                 image="frontend/src/images/logo.svg"
                 title="Player Picture"
             />
+            <p>Add To Block Timer: {props.block.addToBlockTimeRemaining} </p>
+            <p>Bid Timer: {props.block.bidTimeRemaining} </p>
         </Container>
     );
 }

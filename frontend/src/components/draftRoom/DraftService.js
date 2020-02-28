@@ -21,6 +21,10 @@ class DraftService {
         return axios.get(baseUrl + "/players", this.config);
     }
 
+    draftPlayer(teamId, playerId) {
+        return axios.put(baseUrl + "/teams/" + teamId + "/players/add/" + playerId, {}, this.config);
+    }
+
 }
 
 export default new DraftService();
