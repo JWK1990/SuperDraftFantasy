@@ -38,14 +38,14 @@ class TestData {
 
     static class Draft {
         static DraftEntity create(Long id, String name, RosterEntity roster) {
-            return new DraftEntity(id, name, 10, roster, 300, new HashSet<CoachEntity>(), DraftStatusEnum.IN_SETUP, LocalDateTime.now(), LocalDateTime.now());
+            return new DraftEntity(id, name, 10, roster, 300, 10, 10, new HashSet<CoachEntity>(), DraftStatusEnum.IN_SETUP, LocalDateTime.now(), LocalDateTime.now());
         }
         static DraftWriteDto createDraftWriteDto(Long id, String name) {
-            return new DraftWriteDto(id, name, 10, "TEST-ROSTER", 300);
+            return new DraftWriteDto(id, name, 10, "TEST-ROSTER", 300, 10, 10);
         }
 
         static DraftReadDto createDraftReadDto(Long id, String name, RosterReadDto rosterReadDto) {
-            return new DraftReadDto(id, name, 10, rosterReadDto, DraftStatusEnum.IN_SETUP, 300, null)
+            return new DraftReadDto(id, name, 10, rosterReadDto, DraftStatusEnum.IN_SETUP, 300, 10, 10, null)
         }
     }
 

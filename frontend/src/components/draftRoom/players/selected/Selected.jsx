@@ -10,7 +10,6 @@ import FormControl from "@material-ui/core/FormControl";
 import withStyles from "@material-ui/core/styles/withStyles";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 
-
 const BootstrapInput = withStyles(theme => ({
     root: {
         'label + &': {

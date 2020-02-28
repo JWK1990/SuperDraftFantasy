@@ -1,7 +1,6 @@
 package au.superdraftfantasy.api.draft;
 
 import au.superdraftfantasy.api.coach.CoachReadDto;
-import au.superdraftfantasy.api.roster.RosterEntity;
 import au.superdraftfantasy.api.roster.RosterReadDto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -24,6 +23,10 @@ public class DraftReadDto {
     private DraftStatusEnum status;
 
     private Long budget;
+
+    private Long onTheBlockTimer;
+
+    private Long bidTimer;
 
     private Set<CoachReadDto> coaches;
 

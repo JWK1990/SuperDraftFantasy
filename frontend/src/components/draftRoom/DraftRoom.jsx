@@ -118,11 +118,12 @@ class DraftRoom extends React.Component {
             ...prevState,
             block: {
                 ...prevState.block,
-                teamId: bidDetails.teamId,
+                team: this.getTeamDetails(bidDetails.teamId),
                 bidPrice: bidDetails.bidPrice,
             }
         }));
         this.setBidTimer(bidDetails.endTime);
+        console.log('Block: ', this.state.block);
     };
 
     setAddToBlockTimer = (endTime) => {
@@ -184,7 +185,7 @@ class DraftRoom extends React.Component {
     };
 
     getDraft = () => {
-        DraftService.getDraft(1)
+        DraftService.getDraft(2)
             .then(response => {
                 if(response.status === 200) {
                     this.setState({draftDetails: response.data})
@@ -213,7 +214,6 @@ class DraftRoom extends React.Component {
     };
 
     draftPlayer = (teamId, playerId) => {
-        console.log(teamId);
         DraftService.draftPlayer(teamId, playerId)
             .then(response => {
                 if(response.status === 200) {
