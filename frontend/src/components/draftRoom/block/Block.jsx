@@ -55,8 +55,8 @@ function DraftRoomBlock(props) {
                     <IconButton aria-label="previous" >
                         {theme.direction === 'rtl' ? <SkipNextIcon /> : <SkipPreviousIcon />}
                     </IconButton>
-                    <IconButton aria-label="play/pause">
-                        <PlayArrowIcon className={classes.playIcon} onClick={() => props.sendBid()} />
+                    <IconButton aria-label="play/pause" onClick={() => props.sendBid()}>
+                        <PlayArrowIcon className={classes.playIcon} />
                     </IconButton>
                     <IconButton aria-label="next">
                         {theme.direction === 'rtl' ? <SkipPreviousIcon /> : <SkipNextIcon />}
