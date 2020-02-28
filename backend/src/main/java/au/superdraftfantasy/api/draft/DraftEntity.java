@@ -15,7 +15,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
 @Entity
 @Data
 @AllArgsConstructor
@@ -38,6 +37,12 @@ public class DraftEntity {
 
     @NotNull
     private Long budget;
+
+    @NotNull
+    private Long onTheBlockTimer;
+
+    @NotNull
+    private Long bidTimer;
 
     @OneToMany(mappedBy = "draft", cascade = CascadeType.ALL, orphanRemoval = true)
     @EqualsAndHashCode.Exclude

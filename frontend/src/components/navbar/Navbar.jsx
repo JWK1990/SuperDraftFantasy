@@ -1,12 +1,6 @@
 import React from 'react';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
-import IconButton from '@material-ui/core/IconButton';
-import NavbarDrawer from './drawer/Drawer';
-import { Link } from 'react-router-dom';
 import Paper from '@material-ui/core/Paper';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
@@ -15,6 +9,7 @@ import Signup from '../signup';
 import Login from '../login';
 import SwipeableViews from 'react-swipeable-views';
 import WebSocket from '../bidding';
+import DraftRoom from "../draftRoom";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -60,11 +55,9 @@ export default function Navbar() {
         <Button value={value} index={1} dir={theme.direction}>
           My Account
         </Button>
-        <Button value={value} index={2} dir={theme.direction}>
-          My Drafts
-        </Button>
-        <Signup value={value} index={2} dir={theme.direction} />
-        <Login value={value} index={1} dir={theme.direction} />
+        <DraftRoom value={value} index={2} dir={theme.direction} />
+        <Signup value={value} index={3} dir={theme.direction} />
+        <Login value={value} index={4} dir={theme.direction} />
       </SwipeableViews>
     </Paper>
   );

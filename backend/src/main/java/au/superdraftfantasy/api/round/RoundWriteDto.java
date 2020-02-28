@@ -1,16 +1,16 @@
-package au.superdraftfantasy.api.bid;
+package au.superdraftfantasy.api.round;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Date;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class BidEntity {
+public class RoundWriteDto {
 
-    private String bidder;
-
-    private Long bid;
+    private Long additionalTime;
 
 }

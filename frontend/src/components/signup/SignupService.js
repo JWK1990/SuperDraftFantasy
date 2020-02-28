@@ -1,12 +1,5 @@
 const baseUrl = process.env.REACT_APP_API_URL + '/api-superdraftfantasy/users';
 
-/**
- * Parses the JSON returned by a network request
- *
- * @param  {object} response A response from a network request
- *
- * @return {object}          The parsed JSON, status from the response
- */
 function parseJSON(response) {
     return new Promise((resolve) => response.json()
       .then((json) => resolve({
@@ -16,14 +9,6 @@ function parseJSON(response) {
       })));
   }
 
-/**
- * Requests a URL, returning a promise
- *
- * @param  {string} requestUrl       The URL we want to request
- * @param  {object} [options] The options we want to pass to "fetch"
- *
- * @return {Promise}           The request promise
- */
 function request(requestUrl, options) {
     return new Promise((resolve, reject) => {
       fetch(baseUrl + requestUrl, options)
@@ -54,8 +39,6 @@ const SignupService = {
         return request('/sign-up', options);
     }
 
-
 }
-
 
 export default SignupService;

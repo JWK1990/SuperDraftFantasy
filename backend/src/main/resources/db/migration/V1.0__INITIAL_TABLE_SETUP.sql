@@ -56,6 +56,8 @@ CREATE TABLE draft_entity (
     num_of_teams INT NOT NULL,
     roster_id INT NOT NULL,
     budget INT NOT NULL,
+    on_the_block_timer INT NOT NULL,
+    bid_timer INT NOT NULL,
     status_id INT NOT NULL,
     created_on TIMESTAMP NOT NULL,
     updated_on TIMESTAMP NOT NULL,

@@ -13,21 +13,21 @@ class AuthService {
     }
 
     setToken(token) {
-        return localStorage.setItem("token", JSON.stringify(token));
+        localStorage.setItem("token", JSON.stringify(token));
     }
     
     getToken(){
         return JSON.parse(localStorage.getItem("token"));
     }
 
-    getAuthHeader() {
-       return {headers: {Authorization: 'Bearer ' + this.getToken().token }};
+    setCurrentUser(currentUser) {
+        localStorage.setItem("currentUser", JSON.stringify(currentUser));
     }
 
-    logOut() {
-        localStorage.removeItem("token");
-        return axios.post(baseUrl + 'logout', {}, this.getAuthHeader());
+    getCurrentUser(){
+        return JSON.parse(localStorage.getItem("currentUser"));
     }
+
 }
 
 export default new AuthService();

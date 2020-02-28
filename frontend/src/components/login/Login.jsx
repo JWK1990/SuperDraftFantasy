@@ -35,6 +35,7 @@ class Login extends React.Component {
       if(res.status === 200) {
         console.log("User Logged In.");
         AuthService.setToken(res.headers.authorization);
+        AuthService.setCurrentUser(credentials.username);
       } else {
         console.log(res);
         this.setState({errorText: res.data.message});
