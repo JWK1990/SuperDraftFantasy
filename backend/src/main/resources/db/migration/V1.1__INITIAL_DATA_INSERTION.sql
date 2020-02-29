@@ -56,8 +56,15 @@ INSERT INTO position_entity (id, type)
 /* Insert initial Player Data. */
 INSERT INTO player_entity(id, first_name, last_name, afl_team_id, average)
     VALUES (1, 'Cyril', 'Rioli', 9, 100),
-           (2, 'Jarryd', 'Roughead', 9, 100);
-
+           (2, 'Jarryd', 'Roughead', 9, 100),
+           (3, 'Jaeger', 'O''Meara', 9, 100),
+           (4, 'Tom', 'Mitchell', 9, 100),
+           (5, 'Ben', 'Stratton', 9, 100),
+           (6, 'Isaac', 'Smith', 9, 100),
+           (7, 'James', 'Worpel', 9, 100),
+           (8, 'Sam', 'Frost', 9, 100),
+           (9, 'Jonathon', 'Patton', 9, 100),
+           (10, 'Luke', 'Breust', 9, 100);
 
 /* Insert initial Player Positions. */
 INSERT INTO player_position_join(player_id, position_id)

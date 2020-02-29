@@ -1,13 +1,11 @@
 package au.superdraftfantasy.api.round;
 
-import au.superdraftfantasy.api.bid.BidReadDto;
-import au.superdraftfantasy.api.bid.BidWriteDto;
+import java.util.Date;
+
 import org.modelmapper.ModelMapper;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.stereotype.Controller;
-
-import java.util.Date;
 
 @Controller
 public class RoundController {
@@ -21,12 +19,10 @@ public class RoundController {
     @MessageMapping("/startNextRound")
     @SendTo("/bidding/rounds")
     public RoundReadDto startNextRound(RoundWriteDto roundWriteDto) throws Exception {
-        // TODO: Calculate current team on the block.
-        RoundReadDto roundReadDto = new RoundReadDto(1L, null);
         Date now = new Date();
         Date endTime = new Date(now.getTime() + roundWriteDto.getAdditionalTime() * 1000);
-        roundReadDto.setEndTime(endTime);
-        return roundReadDto;
+        return new RoundReadDto(1L, endTime);
+
     }
 
 }

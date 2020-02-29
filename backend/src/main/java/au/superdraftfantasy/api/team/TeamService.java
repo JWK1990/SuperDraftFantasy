@@ -1,15 +1,17 @@
 package au.superdraftfantasy.api.team;
 
+import java.util.List;
+import java.util.Set;
+
 import javax.validation.constraints.NotBlank;
 
-import au.superdraftfantasy.api.coach.CoachEntity;
-import au.superdraftfantasy.api.player.PlayerEntity;
-import au.superdraftfantasy.api.player.PlayerRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
-import java.util.Set;
+import au.superdraftfantasy.api.coach.CoachEntity;
+import au.superdraftfantasy.api.player.PlayerEntity;
+import au.superdraftfantasy.api.player.PlayerRepository;
 
 
 @Service
@@ -36,8 +38,7 @@ public class TeamService {
     }
 
     private void checkIfPlayerAlreadyDrafted(TeamEntity team, Long playerID) {
-        Set<CoachEntity> coachList = team.getCoach().getDraft().getCoaches();
-
+        List<CoachEntity> coachList = team.getCoach().getDraft().getCoaches();
         coachList.stream().forEach(coach -> {
             Set<PlayerEntity> playerList = coach.getTeam().getPlayers();
             Boolean playerAlreadyDrafted = playerList.stream().anyMatch(player -> player.getId() == playerID);

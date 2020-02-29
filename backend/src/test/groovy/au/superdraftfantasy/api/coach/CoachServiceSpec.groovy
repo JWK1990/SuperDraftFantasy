@@ -101,7 +101,7 @@ class CoachServiceSpec extends Specification {
         draft.setNumOfTeams(2L)
         CoachEntity existingCoach1 = TestData.Coach.createMember(2L, null, null, null);
         CoachEntity existingCoach2 = TestData.Coach.createMember(3L, null, null, null);
-        Set<CoachEntity> existingCoachList = Arrays.asList(existingCoach1, existingCoach2)
+        List<CoachEntity> existingCoachList = Arrays.asList(existingCoach1, existingCoach2)
         draft.getCoaches().addAll(existingCoachList)
 
         and: "Mocked Methods"

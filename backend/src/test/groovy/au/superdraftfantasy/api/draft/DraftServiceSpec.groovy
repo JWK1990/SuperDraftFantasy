@@ -86,7 +86,7 @@ class DraftServiceSpec extends Specification {
 
         then: "The Draft should be saved with the current User as Commissioner and the status IN_SETUP and the Draft ID returned"
         1 * draftRepository.save(draft) >> draft
-        Set<CoachEntity> coaches = draft.getCoaches()
+        List<CoachEntity> coaches = draft.getCoaches()
         coaches.size() == 1L
         coaches.first().user == user
         coaches.first().type == CoachTypeEnum.COMMISSIONER

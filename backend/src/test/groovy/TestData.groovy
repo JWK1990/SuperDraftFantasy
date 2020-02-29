@@ -38,7 +38,7 @@ class TestData {
 
     static class Draft {
         static DraftEntity create(Long id, String name, RosterEntity roster) {
-            return new DraftEntity(id, name, 10, roster, 300, 10, 10, new HashSet<CoachEntity>(), DraftStatusEnum.IN_SETUP, LocalDateTime.now(), LocalDateTime.now());
+            return new DraftEntity(id, name, 10, roster, 300, 10, 10, new ArrayList<CoachEntity>(), DraftStatusEnum.IN_SETUP, LocalDateTime.now(), LocalDateTime.now());
         }
         static DraftWriteDto createDraftWriteDto(Long id, String name) {
             return new DraftWriteDto(id, name, 10, "TEST-ROSTER", 300, 10, 10);
