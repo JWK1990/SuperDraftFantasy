@@ -16,7 +16,7 @@ class CoachControllerSpec extends RestSpecification {
 
     def "POST /coaches should create a Coach and add them to a Draft"() {
         given: "A CoachDTO"
-        CoachDTO coachDto = TestData.Coach.createDTO(1L)
+        CoachDTO coachDto = TestData.Coach.createWriteDto(1L)
         String coachDtoJson = TestData.mapObjectToJson(coachDto)
 
         and: "A mocked ID for the created Coach"

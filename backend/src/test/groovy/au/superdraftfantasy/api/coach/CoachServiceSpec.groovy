@@ -37,9 +37,9 @@ class CoachServiceSpec extends Specification {
 
     Long draftID = 1L;
     RosterEntity roster = TestData.Roster.create(1L, "11111", 1, 1, 1, 1, 1);
-    DraftEntity draft = TestData.Draft.create(draftID, "Test Draft", roster)
+    DraftEntity draft = TestData.Draft.create(draftID, "Test Draft", roster, new ArrayList<CoachEntity>())
 
-    CoachDTO coachDto = TestData.Coach.createDTO(draftID)
+    CoachDTO coachDto = TestData.Coach.createWriteDto(draftID)
     CoachEntity coach = TestData.mapObjectToClass(coachDto, CoachEntity.class)
 
     UserEntity user = TestData.User.create(1L, "testuser")

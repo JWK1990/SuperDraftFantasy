@@ -2,9 +2,11 @@ package au.superdraftfantasy.api.draft
 
 import au.superdraftfantasy.api.TestData
 import au.superdraftfantasy.api.coach.CoachEntity
+import au.superdraftfantasy.api.coach.CoachReadDto
 import au.superdraftfantasy.api.coach.CoachTypeEnum
 import au.superdraftfantasy.api.roster.RosterEntity
 import au.superdraftfantasy.api.roster.RosterRepository
+import au.superdraftfantasy.api.team.TeamEntity
 import au.superdraftfantasy.api.user.UserEntity
 import au.superdraftfantasy.api.user.UserRepository
 import org.modelmapper.ModelMapper
@@ -37,11 +39,14 @@ class DraftServiceSpec extends Specification {
         DraftService draftService = new DraftService(modelMapper, draftRepository, userRepository, rosterRepository)
 
     Long draftID = 1L
-    RosterEntity roster = TestData.Roster.create(1L, "11111", 1, 1, 1, 1, 1)
-    DraftWriteDto draftWriteDto = TestData.Draft.createDraftWriteDto(draftID, "Test Draft 1")
-    DraftEntity draft = TestData.mapObjectToClass(draftWriteDto, DraftEntity.class)
-    DraftReadDto draftReadDto = TestData.mapObjectToClass(draft, DraftReadDto.class)
+    String draftName = "Test Draft 1"
     UserEntity user = TestData.User.create(1L, "username")
+    TeamEntity team = TestData.Team.create(1l, "Test Team 1", null)
+    CoachEntity coach = TestData.Coach.createCommissioner(1L, user, null, team)
+    RosterEntity roster = TestData.Roster.create(1L, "11111", 1, 1, 1, 1, 1)
+    DraftWriteDto draftWriteDto = TestData.Draft.createDraftWriteDto(draftID, draftName)
+    DraftEntity draft = TestData.Draft.create(draftID, draftName, null, new ArrayList<CoachEntity>())
+    DraftReadDto draftReadDto = TestData.mapObjectToClass(draft, DraftReadDto.class)
 
     def setup() {
         mockAuthenticatedUser(user)
@@ -49,6 +54,7 @@ class DraftServiceSpec extends Specification {
 
     def "findDraft should return a DraftReadDto if given a valid draftID" () {
         given: "Mocked Methods (for a valid draftID)"
+        draftReadDto.getCoaches().add(TestData.mapObjectToClass(coach, CoachReadDto.class))
         1 * draftRepository.findById(draftID) >> Optional.of(draft)
         1 * modelMapper.map(draft, DraftReadDto.class) >> draftReadDto
 

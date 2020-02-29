@@ -2,6 +2,7 @@ package au.superdraftfantasy.api
 
 import au.superdraftfantasy.api.coach.CoachDTO
 import au.superdraftfantasy.api.coach.CoachEntity
+import au.superdraftfantasy.api.coach.CoachReadDto
 import au.superdraftfantasy.api.coach.CoachTypeEnum
 import au.superdraftfantasy.api.draft.DraftReadDto
 import au.superdraftfantasy.api.draft.DraftStatusEnum
@@ -9,12 +10,14 @@ import au.superdraftfantasy.api.draft.DraftWriteDto
 import au.superdraftfantasy.api.draft.DraftEntity
 import au.superdraftfantasy.api.player.AflTeamEnum
 import au.superdraftfantasy.api.player.PlayerEntity
+import au.superdraftfantasy.api.player.PlayerReadDto
 import au.superdraftfantasy.api.role.RoleEntity
 import au.superdraftfantasy.api.role.RoleTypeEnum
 import au.superdraftfantasy.api.roster.RosterEntity
 import au.superdraftfantasy.api.roster.RosterReadDto
 import au.superdraftfantasy.api.team.TeamDTO
 import au.superdraftfantasy.api.team.TeamEntity
+import au.superdraftfantasy.api.team.TeamReadDto
 import au.superdraftfantasy.api.user.UserReadDto
 import au.superdraftfantasy.api.user.UserWriteDto
 import au.superdraftfantasy.api.user.UserEntity
@@ -37,15 +40,15 @@ class TestData {
     }
 
     static class Draft {
-        static DraftEntity create(Long id, String name, RosterEntity roster) {
-            return new DraftEntity(id, name, 10, roster, 300, 10, 10, new ArrayList<CoachEntity>(), DraftStatusEnum.IN_SETUP, LocalDateTime.now(), LocalDateTime.now());
+        static DraftEntity create(Long id, String name, RosterEntity roster, List<CoachEntity> coaches) {
+            return new DraftEntity(id, name, 10, roster, 300, 10, 10, coaches, DraftStatusEnum.IN_SETUP, LocalDateTime.now(), LocalDateTime.now());
         }
         static DraftWriteDto createDraftWriteDto(Long id, String name) {
             return new DraftWriteDto(id, name, 10, "TEST-ROSTER", 300, 10, 10);
         }
 
-        static DraftReadDto createDraftReadDto(Long id, String name, RosterReadDto rosterReadDto) {
-            return new DraftReadDto(id, name, 10, rosterReadDto, DraftStatusEnum.IN_SETUP, 300, 10, 10, null)
+        static DraftReadDto createDraftReadDto(Long id, String name, RosterReadDto rosterReadDto, List<CoachEntity> coaches) {
+            return new DraftReadDto(id, name, 10, rosterReadDto, DraftStatusEnum.IN_SETUP, 300, 10, 10, coaches, 1L)
         }
     }
 
@@ -66,8 +69,11 @@ class TestData {
         static CoachEntity createMember(Long id, UserEntity user, DraftEntity draft, TeamEntity team) {
             return new CoachEntity(id, CoachTypeEnum.MEMBER, user, draft, team, null, null)
         }
-        static CoachDTO createDTO(Long draftId) {
+        static CoachDTO createWriteDto(Long draftId) {
             return new CoachDTO(null, draftId)
+        }
+        static CoachReadDto createReadDto(Long id, UserReadDto userReadDto, TeamReadDto teamReadDto) {
+            return new CoachReadDto(id, CoachTypeEnum.COMMISSIONER, userReadDto, teamReadDto)
         }
     }
 
@@ -75,8 +81,11 @@ class TestData {
         static TeamEntity create(Long id, String name, CoachEntity coach) {
             return new TeamEntity(id, name, 300, coach, new HashSet<PlayerEntity>(), LocalDateTime.now(), LocalDateTime.now())
         }
-        static TeamDTO createDto(Long id, String name, Long draftId) {
+        static TeamDTO createWriteDto(Long id, String name, Long draftId) {
             return new TeamDTO(id, name, draftId)
+        }
+        static TeamReadDto createReadDto(Long id, String name) {
+            return new TeamReadDto(id, name, 300, new HashSet<PlayerReadDto>())
         }
     }
 

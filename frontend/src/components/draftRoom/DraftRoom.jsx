@@ -56,6 +56,7 @@ class DraftRoom extends React.Component {
     componentDidMount() {
         this.connect();
         this.getDraft();
+        this.getDraft();
         this.getPlayers();
     }
 
@@ -110,6 +111,7 @@ class DraftRoom extends React.Component {
         this.setState(prevState => ({
             ...prevState,
             block: {
+                ...prevState.block,
                 player: '',
                 team: this.getTeamDetails(startNextRoundDetails.teamId),
                 bidPrice: '',
@@ -144,6 +146,7 @@ class DraftRoom extends React.Component {
         this.setState(prevState => ({
             ...prevState,
             block: {
+                ...prevState.block,
                 player: this.getPlayerDetails(addToBlockDetails.playerId),
                 bidder: this.getTeamDetails(addToBlockDetails.teamId),
                 bidPrice: addToBlockDetails.bidPrice,
