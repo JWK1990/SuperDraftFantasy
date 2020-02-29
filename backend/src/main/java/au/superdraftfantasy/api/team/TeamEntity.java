@@ -1,8 +1,8 @@
 package au.superdraftfantasy.api.team;
 
 import java.time.LocalDateTime;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -48,7 +48,7 @@ public class TeamEntity {
             joinColumns = @JoinColumn(name = "team_id"),
             inverseJoinColumns = @JoinColumn(name = "player_id")
     )
-    private Set<PlayerEntity> players = new HashSet<>();
+    private List<PlayerEntity> players = new ArrayList<PlayerEntity>();
 
     @CreationTimestamp
     private LocalDateTime createdOn;

@@ -4,16 +4,11 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class TeamDTO {
+public class TeamAddPlayerDto {
 
-    private Long id;
-
-    private String name;
-
-    private Long draftId;
+    private Long salePrice;
 
 }

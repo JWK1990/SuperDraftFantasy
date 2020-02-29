@@ -15,7 +15,7 @@ import au.superdraftfantasy.api.role.RoleEntity
 import au.superdraftfantasy.api.role.RoleTypeEnum
 import au.superdraftfantasy.api.roster.RosterEntity
 import au.superdraftfantasy.api.roster.RosterReadDto
-import au.superdraftfantasy.api.team.TeamDTO
+import au.superdraftfantasy.api.team.TeamAddPlayerDto
 import au.superdraftfantasy.api.team.TeamEntity
 import au.superdraftfantasy.api.team.TeamReadDto
 import au.superdraftfantasy.api.user.UserReadDto
@@ -79,13 +79,13 @@ class TestData {
 
     static class Team {
         static TeamEntity create(Long id, String name, CoachEntity coach) {
-            return new TeamEntity(id, name, 300, coach, new HashSet<PlayerEntity>(), LocalDateTime.now(), LocalDateTime.now())
+            return new TeamEntity(id, name, 300L, coach, new ArrayList<PlayerEntity>(), LocalDateTime.now(), LocalDateTime.now())
         }
-        static TeamDTO createWriteDto(Long id, String name, Long draftId) {
-            return new TeamDTO(id, name, draftId)
+        static TeamAddPlayerDto createTeamAddPlayerDto(Long salePrice) {
+            return new TeamAddPlayerDto(salePrice)
         }
         static TeamReadDto createReadDto(Long id, String name) {
-            return new TeamReadDto(id, name, 300, new HashSet<PlayerReadDto>())
+            return new TeamReadDto(id, name, 300L, new ArrayList<PlayerReadDto>())
         }
     }
 

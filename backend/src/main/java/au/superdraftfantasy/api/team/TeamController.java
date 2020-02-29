@@ -1,5 +1,6 @@
 package au.superdraftfantasy.api.team;
 
+import au.superdraftfantasy.api.draft.DraftWriteDto;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -13,8 +14,8 @@ public class TeamController {
     }
 
     @PutMapping(name = "addPlayer", path = "{teamID}/players/add/{playerID}")
-    public Long draftPlayer(@PathVariable final Long teamID, @PathVariable final Long playerID) {
-        return teamService.addPlayer(teamID, playerID);
+    public TeamReadDto addPlayer(@PathVariable final Long teamID, @PathVariable final Long playerID, @RequestBody final TeamAddPlayerDto teamAddPlayerDto) {
+        return teamService.addPlayer(teamID, playerID, teamAddPlayerDto.getSalePrice());
     }
 
 }

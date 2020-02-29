@@ -4,6 +4,8 @@ import au.superdraftfantasy.api.player.PlayerReadDto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
 import java.util.Set;
 
 
@@ -18,6 +20,6 @@ public class TeamReadDto {
 
     private Long budget;
 
-    private Set<PlayerReadDto> players;
+    private List<PlayerReadDto> players;
 
 }
