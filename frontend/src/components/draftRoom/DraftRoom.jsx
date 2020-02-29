@@ -56,7 +56,6 @@ class DraftRoom extends React.Component {
     componentDidMount() {
         this.connect();
         this.getDraft();
-        this.getDraft();
         this.getPlayers();
     }
 
@@ -125,11 +124,8 @@ class DraftRoom extends React.Component {
         const coaches = this.state.coaches;
         let draftedPlayerCount = 0;
         coaches.forEach(coach => draftedPlayerCount += coach.team.players.length);
-        console.log('Drafted Player Count: ', draftedPlayerCount);
         let currentRound = Math.floor(draftedPlayerCount/coaches.length);
-        console.log("Current Round: ", currentRound);
         let currentIndex = Math.ceil(draftedPlayerCount - (currentRound * coaches.length));
-        console.log("Current Index: ", currentIndex);
         this.setState(prevState => ({
             ...prevState,
             block: {
@@ -199,7 +195,7 @@ class DraftRoom extends React.Component {
             }));
             if(this.state.block.bidTimeRemaining <= 0) {
                 clearInterval(this.bidTimerInterval);
-                this.draftPlayer(this.state.block.bidder.id, this.state.block.player.id);
+                this.draftPlayer(this.state.block.bidder.id, this.state.block.player.id, this.state.block.bidPrice);
             }
         }, 1000);
     };
@@ -225,7 +221,7 @@ class DraftRoom extends React.Component {
     };
 
     getDraft = () => {
-        DraftService.getDraft(2)
+        DraftService.getDraft(3)
             .then(response => {
                 if(response.status === 200) {
                     this.setDraftDetails(response.data);
@@ -290,11 +286,11 @@ class DraftRoom extends React.Component {
             });
     };
 
-    draftPlayer = (teamId, playerId) => {
-        DraftService.draftPlayer(teamId, playerId)
+    draftPlayer = (teamId, playerId, salePrice) => {
+        DraftService.draftPlayer(teamId, playerId, salePrice)
             .then(response => {
                 if(response.status === 200) {
-                    this.addPlayerToTeam(teamId);
+                    this.updateCoaches(response.data);
                     this.sendStartNextRound();
                 } else {
                     this.setState({errorText: response.data.message});
@@ -305,10 +301,10 @@ class DraftRoom extends React.Component {
             });
     };
 
-    addPlayerToTeam = (teamId) => {
+    updateCoaches = (updatedTeam) => {
         let updatedCoaches = this.state.coaches;
-        const indexOfWinningCoach = updatedCoaches.findIndex(coach => coach.team.id == teamId);
-        updatedCoaches[indexOfWinningCoach].team.players.push(this.state.block.player);
+        const indexOfWinningCoach = updatedCoaches.findIndex(coach => coach.team.id == updatedTeam.id);
+        updatedCoaches[indexOfWinningCoach].team = updatedTeam;
         this.setState({coaches: updatedCoaches});
     };
 

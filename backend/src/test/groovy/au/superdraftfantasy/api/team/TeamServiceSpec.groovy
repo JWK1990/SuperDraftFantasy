@@ -7,6 +7,7 @@ import au.superdraftfantasy.api.player.PlayerEntity
 import au.superdraftfantasy.api.player.PlayerRepository
 import au.superdraftfantasy.api.roster.RosterEntity
 import au.superdraftfantasy.api.user.UserEntity
+import org.modelmapper.ModelMapper
 import org.springframework.http.HttpStatus
 import org.springframework.web.server.ResponseStatusException
 import spock.lang.Specification
@@ -14,11 +15,12 @@ import spock.lang.Subject
 
 class TeamServiceSpec extends Specification {
 
+    private ModelMapper modelMapper = Mock(ModelMapper)
     private PlayerRepository playerRepository = Mock(PlayerRepository)
     private TeamRepository teamRepository = Mock(TeamRepository)
 
     @Subject
-        TeamService teamService = new TeamService(teamRepository, playerRepository)
+        TeamService teamService = new TeamService(modelMapper, teamRepository, playerRepository)
 
     def createTeamWithCoachAndDraft(Long id, DraftEntity draft) {
         UserEntity user = TestData.User.create(id, "user" + id)
@@ -34,24 +36,27 @@ class TeamServiceSpec extends Specification {
 
     Long teamID = 1L
     TeamEntity team = createTeamWithCoachAndDraft(teamID, draft)
+    TeamReadDto teamReadDto = TestData.mapObjectToClass(team, TeamReadDto.class)
 
     Long playerID = 2L
     PlayerEntity player = TestData.Player.create(playerID)
+    Long salePrice = 1L
 
     def "addPlayer should add a valid Player to a valid Team" () {
         given: "Mocked Methods (for valid Player and Team)"
         1 * teamRepository.findById(teamID) >> Optional.of(team)
         1 * playerRepository.findById(playerID) >> Optional.of(player)
+        1 * modelMapper.map(team, TeamReadDto.class) >> teamReadDto
 
         when: "A call to the addPlayer method is made"
-        Long response = teamService.addPlayer(teamID, playerID)
+        TeamReadDto response = teamService.addPlayer(teamID, playerID, salePrice)
 
-        then: "The Team should be saved with the Player added and the Team ID returned"
+        then: "The Team should be saved with the Player added and the TeamReadDto returned"
         1 * teamRepository.save(team) >> team
         Set<PlayerEntity> playerList = team.getPlayers()
         playerList.size() == 1L
         playerList.first() == player
-        response == team.getId()
+        response == teamReadDto
     }
 
     def "addPlayer should throw an Exception if the Team doesn't exist" () {
@@ -60,7 +65,7 @@ class TeamServiceSpec extends Specification {
         0 * playerRepository.findById(playerID)
 
         when: "A call to the createUser method is made"
-        teamService.addPlayer(teamID, playerID)
+        teamService.addPlayer(teamID, playerID, salePrice)
 
         then: "An Exception should be thrown"
         ResponseStatusException exception = thrown(ResponseStatusException)
@@ -77,7 +82,7 @@ class TeamServiceSpec extends Specification {
         0 * playerRepository.findById(playerID)
 
         when: "A call to the createUser method is made"
-        teamService.addPlayer(teamID, playerID)
+        teamService.addPlayer(teamID, playerID, salePrice)
 
         then: "An Exception should be thrown"
         ResponseStatusException exception = thrown(ResponseStatusException)
@@ -96,7 +101,7 @@ class TeamServiceSpec extends Specification {
         0 * playerRepository.findById(playerID)
 
         when: "A call to the createUser method is made"
-        teamService.addPlayer(teamID, playerID)
+        teamService.addPlayer(teamID, playerID, salePrice)
 
         then: "An Exception should be thrown"
         ResponseStatusException exception = thrown(ResponseStatusException)
@@ -110,7 +115,7 @@ class TeamServiceSpec extends Specification {
         1 * playerRepository.findById(playerID) >> Optional.empty()
 
         when: "A call to the createUser method is made"
-        teamService.addPlayer(teamID, playerID)
+        teamService.addPlayer(teamID, playerID, salePrice)
 
         then: "An Exception should be thrown"
         ResponseStatusException exception = thrown(ResponseStatusException)

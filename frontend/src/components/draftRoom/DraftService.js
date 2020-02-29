@@ -21,8 +21,8 @@ class DraftService {
         return axios.get(baseUrl + "/players", this.config);
     }
 
-    draftPlayer(teamId, playerId) {
-        return axios.put(baseUrl + "/teams/" + teamId + "/players/add/" + playerId, {}, this.config);
+    draftPlayer(teamId, playerId, salePrice) {
+        return axios.put(baseUrl + "/teams/" + teamId + "/players/add/" + playerId, {salePrice: salePrice}, this.config);
     }
 
 }
