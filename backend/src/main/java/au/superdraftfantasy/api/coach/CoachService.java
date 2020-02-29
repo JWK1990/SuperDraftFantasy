@@ -1,10 +1,10 @@
 package au.superdraftfantasy.api.coach;
 
-import au.superdraftfantasy.api.draft.DraftEntity;
-import au.superdraftfantasy.api.draft.DraftRepository;
-import au.superdraftfantasy.api.team.TeamEntity;
-import au.superdraftfantasy.api.user.UserEntity;
-import au.superdraftfantasy.api.user.UserRepository;
+import java.util.HashSet;
+import java.util.List;
+
+import javax.validation.constraints.NotBlank;
+
 import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -12,9 +12,11 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
-import javax.validation.constraints.NotBlank;
-import java.util.HashSet;
-import java.util.Set;
+import au.superdraftfantasy.api.draft.DraftEntity;
+import au.superdraftfantasy.api.draft.DraftRepository;
+import au.superdraftfantasy.api.team.TeamEntity;
+import au.superdraftfantasy.api.user.UserEntity;
+import au.superdraftfantasy.api.user.UserRepository;
 
 
 @Service
@@ -68,7 +70,7 @@ public class CoachService {
     }
 
     private void checkForExistingCoach(CoachEntity coach) {
-        Set<CoachEntity> existingCoaches = coach.getDraft().getCoaches();
+        List<CoachEntity> existingCoaches = coach.getDraft().getCoaches();
         Boolean coachAlreadyExists = existingCoaches.stream().anyMatch(existingCoach -> existingCoach.getUser().getId() == coach.getUser().getId());
         if(coachAlreadyExists) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "User with ID '" + coach.getUser().getId() + "'Already Exists In Draft with ID '" + coach.getDraft().getId() + "'.");

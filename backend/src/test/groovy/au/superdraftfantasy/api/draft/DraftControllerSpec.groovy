@@ -19,7 +19,7 @@ class DraftControllerSpec extends RestSpecification {
         given: "A draftID and a DraftReadDto"
         Long draftID = 1L;
         RosterReadDto rosterReadDto = TestData.Roster.createRosterReadDto(1L, "11111", 1, 1, 1, 1, 1)
-        DraftReadDto draftReadDto = TestData.Draft.createDraftReadDto(1L, "Test Draft", rosterReadDto)
+        DraftReadDto draftReadDto = TestData.Draft.createDraftReadDto(1L, "Test Draft", rosterReadDto, null)
 
         and: "Mocked Methods"
         1 * draftService.getDraft(draftID) >> draftReadDto

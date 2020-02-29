@@ -30,7 +30,7 @@ class TeamServiceSpec extends Specification {
     }
 
     RosterEntity roster = TestData.Roster.create(1L, "11111", 1, 1, 1, 1, 1)
-    DraftEntity draft = TestData.Draft.create(1L, "Test Draft", roster)
+    DraftEntity draft = TestData.Draft.create(1L, "Test Draft", roster, new ArrayList<CoachEntity>())
 
     Long teamID = 1L
     TeamEntity team = createTeamWithCoachAndDraft(teamID, draft)

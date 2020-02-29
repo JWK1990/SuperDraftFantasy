@@ -1,17 +1,22 @@
 package au.superdraftfantasy.api.draft;
 
-import java.util.HashSet;
+import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
+
 import javax.validation.constraints.NotBlank;
-import au.superdraftfantasy.api.roster.RosterEntity;
-import au.superdraftfantasy.api.roster.RosterRepository;
+
 import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
+
 import au.superdraftfantasy.api.coach.CoachEntity;
+import au.superdraftfantasy.api.coach.CoachReadDto;
 import au.superdraftfantasy.api.coach.CoachTypeEnum;
+import au.superdraftfantasy.api.roster.RosterEntity;
+import au.superdraftfantasy.api.roster.RosterRepository;
 import au.superdraftfantasy.api.team.TeamEntity;
 import au.superdraftfantasy.api.user.UserEntity;
 import au.superdraftfantasy.api.user.UserRepository;
@@ -52,7 +57,21 @@ public class DraftService {
     public DraftReadDto getDraft(@NotBlank final Long draftID) {
         DraftEntity draft = draftRepository.findById(draftID).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Draft with ID '" + draftID + "' not found."));
         DraftReadDto draftReadDto = modelMapper.map(draft, DraftReadDto.class);
+        setOnTheBlockCoachId(draftReadDto);
         return draftReadDto;
+    }
+
+    private void setOnTheBlockCoachId(DraftReadDto draftReadDto) {
+        Integer currentIndex = 0;
+        AtomicInteger draftedPlayerCount = new AtomicInteger(0);
+        List<CoachReadDto> coachesList = draftReadDto.getCoaches();
+        coachesList.stream().forEach(coach -> draftedPlayerCount.addAndGet(coach.getTeam().getPlayers().size()));
+        if(draftedPlayerCount.get() > 0) {
+            Integer currentRound = (int) Math.floor(draftedPlayerCount.get()/coachesList.size());
+            currentIndex = (int) Math.ceil(draftedPlayerCount.get() - (currentRound * coachesList.size()));
+        }
+        Long onTheBlockCoachId = coachesList.get(currentIndex).getId();
+        draftReadDto.setOnTheBlockCoachId(onTheBlockCoachId);
     }
 
     private DraftEntity convertToEntity(DraftWriteDto draftWriteDto) {
@@ -73,7 +92,7 @@ public class DraftService {
     private void createCommissionersTeam(@NotBlank DraftEntity draft) {
         UserEntity user = getCurrentUser();
         CoachEntity coach = new CoachEntity(null, CoachTypeEnum.COMMISSIONER, user, draft, null, null, null);
-        TeamEntity team = new TeamEntity(null, "Default Name", draft.getBudget(), coach, new HashSet<>(),null, null);
+        TeamEntity team = new TeamEntity(null, "Default Name", draft.getBudget(), coach, null, null, null);
         coach.setTeam(team);
         draft.getCoaches().add(coach);
     }
