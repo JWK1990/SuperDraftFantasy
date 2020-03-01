@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import { defaultCipherList } from 'constants';
+import { nominalTypeHack } from 'prop-types';
 
-const roster = {id: 2, type: "22222", DEF: 1, MID: 3, RUC: 1, FWD: 1, BENCH: 4};
+const roster = {id: 2, type: "22222", DEF: 5, MID: 5, RUC: 5, FWD: 5, BENCH: 4};
 const playerList = [
     {id: 1, name: "Josh Gibson", position: "DEF"},
     {id: 2, name: "Sam Mitchell", position: "MID"},
@@ -13,52 +14,20 @@ const playerList = [
 ];
 
 // fake data generator
-const getItems = (count, offset = 0, position) =>
-    Array.from({ length: count }, (v, k) => k).map(k => ({
-        id: `item-${k + offset}`,
-        content: {name: `TBA`, position: `${position}`}
-    })
-);
-
-const setPositionSlots = (position, offset, slots, currentPlayers) => {
-    const playerList = [];
-    for(let i=0; i < slots; i++) {
-        if(currentPlayers[i]) {
-            playerList.push({id: `item-${offset + i}`, content: currentPlayers[i]});
-        } else {
-            playerList.push({id: `item-${offset + i}`, content: {name: "TBA", position: position}})
-        }
-    }
-    return playerList;
+const getItems = (count, offset = 0, position) => {
+    return Array.from({ length: count }, (v, k) => k).map(k => {
+        const id = k + offset;
+        return createEmptySlot(id, position)
+    });
 };
 
-const addToAvailableSlot = (currentPlayers, playerToBeAdded) => {
-    const position = playerToBeAdded.position;
-    const primaryPosition = position.slice(0, 3);
-    const secondaryPosition = position.length > 3 ? position.slice(4, 7) : null;
+const createEmptySlot = (id, position) => {
+    return {id: `${id}`, content: {vacant: true, position: `${position}`, player: null}};
+}
 
-    let availablePosition = "BENCH";
-    let availableSlot = currentPlayers["BENCH"].findIndex(slot => slot.content.name == "TBA");
-
-    const primaryPositionSlot = currentPlayers[primaryPosition].findIndex(slot => slot.content.name == "TBA");
-
-    if(primaryPositionSlot > -1) {
-        availablePosition = primaryPosition;
-        availableSlot = primaryPositionSlot;
-    } else if(secondaryPosition) {
-        const secondaryPositionSlot = currentPlayers[secondaryPosition].findIndex(slot => slot.content.name == "TBA");
-        if(secondaryPositionSlot > -1) {
-            availablePosition = secondaryPosition;
-            availableSlot = secondaryPositionSlot;
-        }
-    }
-
-    console.log("Available Position: ", availablePosition);
-    console.log("Available Slot: ", availableSlot);
-    console.log("Current Value: ", currentPlayers[availablePosition][availableSlot]);
-
-    currentPlayers[availablePosition][availableSlot] = {id: `${currentPlayers[availablePosition][availableSlot].id}`, content: playerToBeAdded};
-};
+const createFilledSlot = (id, position, player) => {
+    return {id: `${id}`, content: {vacant: false, position: `${position}`, player: player}};
+}
 
 const getInitialPositionState = (playerList) => {
     let initialState = {
@@ -76,30 +45,32 @@ const getInitialPositionState = (playerList) => {
 
     console.log(initialState);
     return initialState;
-
-/*
-        let offset = 0;
-        initialState.defs = setPositionSlots('DEF', offset, roster.defenders, playerList.def);
-        offset += roster.defenders;
-        initialState.mids = setPositionSlots('MID', offset, roster.midfielders, playerList.mid);
-        offset += roster.midfielder;
-        initialState.rucs = setPositionSlots('RUC', offset, roster.rucks, playerList.ruc);
-        offset += roster.rucks;
-        initialState.fwds = setPositionSlots('FWD', 15, roster.forwards, playerList.fwd);
-        offset += roster.forwards;
-        initialState.bench = setPositionSlots('BEN', 20, roster.bench, playerList.bench);
-        console.log(initialState);
-        return initialState;
-*/
 };
 
-// a little function to help us with reordering the result
-const reorder = (list, startIndex, endIndex) => {
-    const result = Array.from(list);
-    const [removed] = result.splice(startIndex, 1);
-    result.splice(endIndex, 0, removed);
+const addToAvailableSlot = (currentPlayers, playerToBeAdded) => {
+    const position = playerToBeAdded.position;
+    const primaryPosition = position.slice(0, 3);
+    const secondaryPosition = position.length > 3 ? position.slice(4, 7) : null;
 
-    return result;
+    let availablePosition = "BENCH";
+    let availableSlot = currentPlayers["BENCH"].findIndex(slot => slot.content.vacant);
+
+    const primaryPositionSlot = currentPlayers[primaryPosition].findIndex(slot => slot.content.vacant);
+
+    if(primaryPositionSlot > -1) {
+        availablePosition = primaryPosition;
+        availableSlot = primaryPositionSlot;
+    } else if(secondaryPosition) {
+        const secondaryPositionSlot = currentPlayers[secondaryPosition].findIndex(slot => slot.content.vacant);
+        if(secondaryPositionSlot > -1) {
+            availablePosition = secondaryPosition;
+            availableSlot = secondaryPositionSlot;
+        }
+    }
+
+    const currentSlotData = currentPlayers[availablePosition][availableSlot];
+    currentPlayers[availablePosition][availableSlot] = createFilledSlot(currentSlotData.id, currentSlotData.content.position, playerToBeAdded);
+    
 };
 
 /**
@@ -109,7 +80,11 @@ const move = (source, destination, droppableSource, droppableDestination) => {
     const sourceClone = Array.from(source);
     const destClone = Array.from(destination);
     const [removed] = sourceClone.splice(droppableSource.index, 1);
-    destClone.splice(droppableDestination.index, 0, removed);
+    const firstAvailableSlotIndex = destClone.findIndex(slot => slot.content.vacant);
+    const firstAvailableSlot = destClone[firstAvailableSlotIndex];
+
+    sourceClone.push(createEmptySlot(removed.id, removed.content.position));
+    destClone[firstAvailableSlotIndex] = createFilledSlot(firstAvailableSlot.id, firstAvailableSlot.content.position, removed.content.player);
 
     const result = {};
     result[droppableSource.droppableId] = sourceClone;
@@ -122,6 +97,7 @@ const grid = 8;
 const getItemStyle = (isDragging, draggableStyle) => ({
     // some basic styles to make the items look a bit nicer
     userSelect: 'none',
+    position: 'static',
     padding: grid * 2,
     margin: `0 0 ${grid}px 0`,
 
@@ -132,16 +108,51 @@ const getItemStyle = (isDragging, draggableStyle) => ({
     ...draggableStyle
 });
 
+
+function getStyle(style, snapshot) {
+    if (!snapshot.isDragging) {
+        return {
+            userSelect: 'none',
+            position: 'static',
+            padding: grid * 2,
+            margin: `0 0 ${grid}px 0`,
+            background: snapshot.isDragging ? 'lightgreen' : 'grey',
+        }
+    };
+
+    if (!snapshot.isDropAnimating) {
+        return {
+            ...style,
+            userSelect: 'none',
+            position: 'static',
+            padding: grid * 2,
+            margin: `0 0 ${grid}px 0`,
+            background: snapshot.isDragging ? 'lightgreen' : 'grey',
+        }
+    }
+  
+    return {
+      ...style,
+      userSelect: 'none',
+      position: 'static',
+      padding: grid * 2,
+      margin: `0 0 ${grid}px 0`,
+      background: snapshot.isDragging ? 'lightgreen' : 'grey',
+      // cannot be 0, but make it super tiny
+      transitionDuration: `0.001s`
+    };
+  }
+
 const getListStyle = isDraggingOver => ({
     background: isDraggingOver ? 'lightblue' : 'lightgrey',
     padding: grid,
-    width: 250
+    width: 250,
+    transform: 'none',
 });
 
 class MyTeam extends Component {
 
     state = getInitialPositionState(playerList);
-
 
     /**
      * A semi-generic way to handle multiple lists. Matches
@@ -158,49 +169,40 @@ class MyTeam extends Component {
 
     getList = id => this.state[this.droppableList[id]];
 
-    isDragDisabled = (draggableItemName) => {
-        return draggableItemName == "TBA";
+    isDragDisabled = (isDraggableVacant) => {
+        return isDraggableVacant;
     }
 
     isDropDisabled = (dropPosition) => {
-        const validDropPosition = (this.state.draggedPlayerPosition.includes(dropPosition) || dropPosition == "BENCH");
-        return !validDropPosition;
+        return !(this.state.draggedPlayerPosition.includes(dropPosition) || dropPosition == "BENCH");
     };
 
     onDragStart = start => {
-        const list = this.getList(start.source.droppableId)
-        const index = start.source.index;
-        this.setState({draggedPlayerPosition: list[index].content.position})
-        console.log(this.state.draggedPlayerPosition);
-    }
+        console.log(start)
 
-    onDragUpdate = update => {
-        this.setState({validDropArea: update.combine != null})
-        console.log(this.state.validDropArea);
+        const list = this.getList(start.source.droppableId)
+        console.log(list)
+
+        const index = start.source.index;
+        console.log(index)
+
+        this.setState({draggedPlayerPosition: list[index].content.player.position})
+        console.log(this.state.draggedPlayerPosition)
     }
 
     onDragEnd = result => {
         const { source, destination } = result;
 
-        // dropped outside the list
-        if (!destination && !result.combine) {
-            console.log("No Destination Or Combine");
+        // Dropped outside the list.
+        if (!destination) {
             return;
         }
-
-        if(result.combine) {
-            console.log("Combine");
-            this.updateAvailableSlots(result);
-        } else if (source.droppableId === destination.droppableId) {
-            console.log("Re-Order");
-            const result = reorder(
-                this.getList(source.droppableId),
-                source.index,
-                destination.index
-            );
-            this.setState({[this.droppableList[source.droppableId]]: result})
-        } else {
-            console.log("Move");
+        // Re-Ordered.
+        else if (source.droppableId === destination.droppableId) {
+            return;
+        }
+        // Moved to another list.
+        else {
             const result = move(
                 this.getList(source.droppableId),
                 this.getList(destination.droppableId),
@@ -210,34 +212,14 @@ class MyTeam extends Component {
             this.setState({[this.droppableList[source.droppableId]]: result[source.droppableId]})
             this.setState({[this.droppableList[destination.droppableId]]: result[destination.droppableId]})
         }
-
     };
-
-    updateAvailableSlots = (result) => {
-        const destinationPosition = this.droppableList[result.combine.droppableId];
-        const destinationList = this.state[destinationPosition];
-        const destinationSlot = destinationList.findIndex(slot => slot.id == result.combine.draggableId);
-
-        const sourcePosition = this.droppableList[result.source.droppableId];
-        const sourceList = this.state[sourcePosition];
-        const sourceSlot = sourceList.findIndex(slot => slot.id == result.draggableId);
-
-        destinationList[destinationSlot] = {id: `${destinationList[destinationSlot].id}`, content: this.state[sourcePosition][sourceSlot].content};
-        sourceList[sourceSlot] = {id: `${sourceList[sourceSlot].id}`, content: {name: "TBA", position: sourcePosition}};
-
-        this.setState[destinationList] = destinationList;
-        this.setState[sourceList] = sourceList;
-
-        console.log(this.state);
-
-    }
 
     // Normally you would want to split things out into separate components.
     // But in this example everything is just done in one place for simplicity
     render() {
         return (
-            <DragDropContext onDragStart={this.onDragStart} onDragUpdate={this.onDragUpdate} onDragEnd={this.onDragEnd}>
-                <Droppable droppableId="droppableDefs" isDropDisabled={this.isDropDisabled("DEF")} isCombineEnabled={true}>
+            <DragDropContext onDragStart={this.onDragStart} onDragEnd={this.onDragEnd}>
+                <Droppable droppableId="droppableDefs" isDropDisabled={this.isDropDisabled("DEF")}>
                     {(provided, snapshot) => (
                         <div
                             ref={provided.innerRef}
@@ -247,26 +229,25 @@ class MyTeam extends Component {
                                     key={item.id}
                                     draggableId={item.id}
                                     index={index}
-                                    isDragDisabled={this.isDragDisabled(item.content.name)}>
+                                    isDragDisabled={this.isDragDisabled(item.content.vacant)}>
                                     {(provided, snapshot) => (
                                         <div
                                             ref={provided.innerRef}
                                             {...provided.draggableProps}
                                             {...provided.dragHandleProps}
-                                            style={getItemStyle(
-                                                snapshot.isDragging,
-                                                provided.draggableProps.style
-                                            )}>
-                                            {item.content.name}
+                                            style={getStyle(provided.draggableProps.style, snapshot)}>
+                                            {item.content.player ? item.content.player.name : ""}
                                         </div>
                                     )}
                                 </Draggable>
                             ))}
-                            {provided.placeholder}
+                            <span style={{display: "none"}}>
+                                {provided.placeholder}
+                            </span>
                         </div>
                     )}
                 </Droppable>
-                <Droppable droppableId="droppableMids" isDropDisabled={this.isDropDisabled("MID")} isCombineEnabled={true}>
+                <Droppable droppableId="droppableMids" isDropDisabled={this.isDropDisabled("MID")}>
                     {(provided, snapshot) => (
                         <div
                             ref={provided.innerRef}
@@ -276,26 +257,25 @@ class MyTeam extends Component {
                                     key={item.id}
                                     draggableId={item.id}
                                     index={index}
-                                    isDragDisabled={this.isDragDisabled(item.content.name)}>
+                                    isDragDisabled={this.isDragDisabled(item.content.vacant)}>
                                     {(provided, snapshot) => (
                                         <div
                                             ref={provided.innerRef}
                                             {...provided.draggableProps}
                                             {...provided.dragHandleProps}
-                                            style={getItemStyle(
-                                                snapshot.isDragging,
-                                                provided.draggableProps.style
-                                            )}>
-                                            {item.content.name}
+                                            style={getStyle(provided.draggableProps.style, snapshot)}>
+                                            {item.content.player ? item.content.player.name : ""}
                                         </div>
                                     )}
                                 </Draggable>
                             ))}
-                            {provided.placeholder}
+                            <span style={{display: "none"}}>
+                                {provided.placeholder}
+                            </span>
                         </div>
                     )}
                 </Droppable>
-                <Droppable droppableId="droppableRucs" isDropDisabled={this.isDropDisabled("RUC")} isCombineEnabled={true}>
+                <Droppable droppableId="droppableRucs" isDropDisabled={this.isDropDisabled("RUC")}>
                     {(provided, snapshot) => (
                         <div
                             ref={provided.innerRef}
@@ -305,26 +285,25 @@ class MyTeam extends Component {
                                     key={item.id}
                                     draggableId={item.id}
                                     index={index}
-                                    isDragDisabled={this.isDragDisabled(item.content.name)}>
+                                    isDragDisabled={this.isDragDisabled(item.content.vacant)}>
                                     {(provided, snapshot) => (
                                         <div
                                             ref={provided.innerRef}
                                             {...provided.draggableProps}
                                             {...provided.dragHandleProps}
-                                            style={getItemStyle(
-                                                snapshot.isDragging,
-                                                provided.draggableProps.style
-                                            )}>
-                                            {item.content.name}
+                                            style={getStyle(provided.draggableProps.style, snapshot)}>
+                                            {item.content.player ? item.content.player.name : ""}
                                         </div>
                                     )}
                                 </Draggable>
                             ))}
-                            {provided.placeholder}
+                            <span style={{display: "none"}}>
+                                {provided.placeholder}
+                            </span>
                         </div>
                     )}
                 </Droppable>
-                <Droppable droppableId="droppableFwds" isDropDisabled={this.isDropDisabled("FWD")} isCombineEnabled={true}>
+                <Droppable droppableId="droppableFwds" isDropDisabled={this.isDropDisabled("FWD")}>
                     {(provided, snapshot) => (
                         <div
                             ref={provided.innerRef}
@@ -334,26 +313,25 @@ class MyTeam extends Component {
                                     key={item.id}
                                     draggableId={item.id}
                                     index={index}
-                                    isDragDisabled={this.isDragDisabled(item.content.name)}>
+                                    isDragDisabled={this.isDragDisabled(item.content.vacant)}>
                                     {(provided, snapshot) => (
                                         <div
                                             ref={provided.innerRef}
                                             {...provided.draggableProps}
                                             {...provided.dragHandleProps}
-                                            style={getItemStyle(
-                                                snapshot.isDragging,
-                                                provided.draggableProps.style
-                                            )}>
-                                            {item.content.name}
+                                            style={getStyle(provided.draggableProps.style, snapshot)}>
+                                            {item.content.player ? item.content.player.name : ""}
                                         </div>
                                     )}
                                 </Draggable>
                             ))}
-                            {provided.placeholder}
+                            <span style={{display: "none"}}>
+                                {provided.placeholder}
+                            </span>
                         </div>
                     )}
                 </Droppable>
-                <Droppable droppableId="droppableBench" isDropDisabled={this.isDropDisabled('BENCH')} isCombineEnabled={true}>
+                <Droppable droppableId="droppableBench" isDropDisabled={this.isDropDisabled('BENCH')}>
                     {(provided, snapshot) => (
                         <div
                             ref={provided.innerRef}
@@ -363,22 +341,21 @@ class MyTeam extends Component {
                                     key={item.id}
                                     draggableId={item.id}
                                     index={index}
-                                    isDragDisabled={this.isDragDisabled(item.content.name)}>
+                                    isDragDisabled={this.isDragDisabled(item.content.vacant)}>
                                     {(provided, snapshot) => (
                                         <div
                                             ref={provided.innerRef}
                                             {...provided.draggableProps}
                                             {...provided.dragHandleProps}
-                                            style={getItemStyle(
-                                                snapshot.isDragging,
-                                                provided.draggableProps.style
-                                            )}>
-                                            {item.content.name}
+                                            style={getStyle(provided.draggableProps.style, snapshot)}>
+                                            {item.content.player ? item.content.player.name : ""}
                                         </div>
                                     )}
                                 </Draggable>
                             ))}
-                            {provided.placeholder}
+                            <span style={{display: "none"}}>
+                                {provided.placeholder}
+                            </span>
                         </div>
                     )}
                 </Droppable>
