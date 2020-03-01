@@ -76,7 +76,7 @@ public class DraftService {
             List<PlayerEntity> playerList = coachList.get(i).getTeam().getPlayers();
             List<PlayerReadDto> playerReadDtoList = coachReadDtoList.get(i).getTeam().getPlayers();
             for(int j = 0; j < playerReadDtoList.size(); j++) {
-                playerReadDtoList.get(i).setPosition(PlayerService.convertPositionsToString(playerList.get(i).getPositions()));
+                playerReadDtoList.get(j).setPosition(PlayerService.convertPositionsToString(playerList.get(j).getPositions()));
             }
         }
     }
