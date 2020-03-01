@@ -158,10 +158,13 @@ class MyTeam extends Component {
 
     getList = id => this.state[this.droppableList[id]];
 
+    isDragDisabled = (draggableItemName) => {
+        return draggableItemName == "TBA";
+    }
+
     isDropDisabled = (dropPosition) => {
-        const validDropPosition = this.state.draggedPlayerPosition.includes(dropPosition) || dropPosition == "BENCH";
-        const slotAvailable = this.state[dropPosition].length < roster[dropPosition];
-        return !validDropPosition || !slotAvailable;
+        const validDropPosition = (this.state.draggedPlayerPosition.includes(dropPosition) || dropPosition == "BENCH");
+        return !validDropPosition;
     };
 
     onDragStart = start => {
@@ -172,18 +175,24 @@ class MyTeam extends Component {
     }
 
     onDragUpdate = update => {
-        console.log("Update");
+        this.setState({validDropArea: update.combine != null})
+        console.log(this.state.validDropArea);
     }
 
     onDragEnd = result => {
         const { source, destination } = result;
 
         // dropped outside the list
-        if (!destination) {
+        if (!destination && !result.combine) {
+            console.log("No Destination Or Combine");
             return;
         }
 
-        if (source.droppableId === destination.droppableId) {
+        if(result.combine) {
+            console.log("Combine");
+            this.updateAvailableSlots(result);
+        } else if (source.droppableId === destination.droppableId) {
+            console.log("Re-Order");
             const result = reorder(
                 this.getList(source.droppableId),
                 source.index,
@@ -191,6 +200,7 @@ class MyTeam extends Component {
             );
             this.setState({[this.droppableList[source.droppableId]]: result})
         } else {
+            console.log("Move");
             const result = move(
                 this.getList(source.droppableId),
                 this.getList(destination.droppableId),
@@ -200,14 +210,34 @@ class MyTeam extends Component {
             this.setState({[this.droppableList[source.droppableId]]: result[source.droppableId]})
             this.setState({[this.droppableList[destination.droppableId]]: result[destination.droppableId]})
         }
+
     };
+
+    updateAvailableSlots = (result) => {
+        const destinationPosition = this.droppableList[result.combine.droppableId];
+        const destinationList = this.state[destinationPosition];
+        const destinationSlot = destinationList.findIndex(slot => slot.id == result.combine.draggableId);
+
+        const sourcePosition = this.droppableList[result.source.droppableId];
+        const sourceList = this.state[sourcePosition];
+        const sourceSlot = sourceList.findIndex(slot => slot.id == result.draggableId);
+
+        destinationList[destinationSlot] = {id: `${destinationList[destinationSlot].id}`, content: this.state[sourcePosition][sourceSlot].content};
+        sourceList[sourceSlot] = {id: `${sourceList[sourceSlot].id}`, content: {name: "TBA", position: sourcePosition}};
+
+        this.setState[destinationList] = destinationList;
+        this.setState[sourceList] = sourceList;
+
+        console.log(this.state);
+
+    }
 
     // Normally you would want to split things out into separate components.
     // But in this example everything is just done in one place for simplicity
     render() {
         return (
             <DragDropContext onDragStart={this.onDragStart} onDragUpdate={this.onDragUpdate} onDragEnd={this.onDragEnd}>
-                <Droppable droppableId="droppableDefs" isDropDisabled={this.isDropDisabled("DEF")}>
+                <Droppable droppableId="droppableDefs" isDropDisabled={this.isDropDisabled("DEF")} isCombineEnabled={true}>
                     {(provided, snapshot) => (
                         <div
                             ref={provided.innerRef}
@@ -216,7 +246,8 @@ class MyTeam extends Component {
                                 <Draggable
                                     key={item.id}
                                     draggableId={item.id}
-                                    index={index}>
+                                    index={index}
+                                    isDragDisabled={this.isDragDisabled(item.content.name)}>
                                     {(provided, snapshot) => (
                                         <div
                                             ref={provided.innerRef}
@@ -235,7 +266,7 @@ class MyTeam extends Component {
                         </div>
                     )}
                 </Droppable>
-                <Droppable droppableId="droppableMids" isDropDisabled={this.isDropDisabled("MID")}>
+                <Droppable droppableId="droppableMids" isDropDisabled={this.isDropDisabled("MID")} isCombineEnabled={true}>
                     {(provided, snapshot) => (
                         <div
                             ref={provided.innerRef}
@@ -244,7 +275,8 @@ class MyTeam extends Component {
                                 <Draggable
                                     key={item.id}
                                     draggableId={item.id}
-                                    index={index}>
+                                    index={index}
+                                    isDragDisabled={this.isDragDisabled(item.content.name)}>
                                     {(provided, snapshot) => (
                                         <div
                                             ref={provided.innerRef}
@@ -263,7 +295,7 @@ class MyTeam extends Component {
                         </div>
                     )}
                 </Droppable>
-                <Droppable droppableId="droppableRucs" isDropDisabled={this.isDropDisabled("RUC")}>
+                <Droppable droppableId="droppableRucs" isDropDisabled={this.isDropDisabled("RUC")} isCombineEnabled={true}>
                     {(provided, snapshot) => (
                         <div
                             ref={provided.innerRef}
@@ -272,7 +304,8 @@ class MyTeam extends Component {
                                 <Draggable
                                     key={item.id}
                                     draggableId={item.id}
-                                    index={index}>
+                                    index={index}
+                                    isDragDisabled={this.isDragDisabled(item.content.name)}>
                                     {(provided, snapshot) => (
                                         <div
                                             ref={provided.innerRef}
@@ -291,7 +324,7 @@ class MyTeam extends Component {
                         </div>
                     )}
                 </Droppable>
-                <Droppable droppableId="droppableFwds" isDropDisabled={this.isDropDisabled("FWD")}>
+                <Droppable droppableId="droppableFwds" isDropDisabled={this.isDropDisabled("FWD")} isCombineEnabled={true}>
                     {(provided, snapshot) => (
                         <div
                             ref={provided.innerRef}
@@ -300,7 +333,8 @@ class MyTeam extends Component {
                                 <Draggable
                                     key={item.id}
                                     draggableId={item.id}
-                                    index={index}>
+                                    index={index}
+                                    isDragDisabled={this.isDragDisabled(item.content.name)}>
                                     {(provided, snapshot) => (
                                         <div
                                             ref={provided.innerRef}
@@ -319,7 +353,7 @@ class MyTeam extends Component {
                         </div>
                     )}
                 </Droppable>
-                <Droppable droppableId="droppableBench" isDropDisabled={this.isDropDisabled('BENCH')}>
+                <Droppable droppableId="droppableBench" isDropDisabled={this.isDropDisabled('BENCH')} isCombineEnabled={true}>
                     {(provided, snapshot) => (
                         <div
                             ref={provided.innerRef}
@@ -328,7 +362,8 @@ class MyTeam extends Component {
                                 <Draggable
                                     key={item.id}
                                     draggableId={item.id}
-                                    index={index}>
+                                    index={index}
+                                    isDragDisabled={this.isDragDisabled(item.content.name)}>
                                     {(provided, snapshot) => (
                                         <div
                                             ref={provided.innerRef}
