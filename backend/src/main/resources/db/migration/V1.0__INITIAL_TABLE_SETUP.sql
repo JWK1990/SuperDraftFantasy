@@ -38,11 +38,11 @@ CREATE TABLE user_role_join (
 CREATE TABLE roster_entity (
     id INT PRIMARY KEY,
     type VARCHAR(255) NOT NULL,
-    defenders INT,
-    midfielders INT,
-    rucks INT,
-    forwards INT,
-    bench INT
+    DEF INT,
+    MID INT,
+    RUC INT,
+    FWD INT,
+    BENCH INT
 );
 
 CREATE TABLE draft_status_enum (

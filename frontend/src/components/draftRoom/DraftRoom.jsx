@@ -229,7 +229,7 @@ class DraftRoom extends React.Component {
     };
 
     getDraft = () => {
-        DraftService.getDraft(3)
+        DraftService.getDraft(1)
             .then(response => {
                 if(response.status === 200) {
                     this.setDraftDetails(response.data);
@@ -324,7 +324,6 @@ class DraftRoom extends React.Component {
 
 
     render() {
-        console.log("First Coach: ", this.state.coaches[0]);
         return (
             <div>
                 <div>
@@ -333,7 +332,7 @@ class DraftRoom extends React.Component {
                 </div>
                 <DraftRoomBlock block={this.state.block} sendBid={this.sendBid}/>
                 <DraftRoomPlayers players={this.state.players} sendAddToBlock={this.sendAddToBlock}/>
-                <MyTeam playerList={this.state.coaches[0] ? this.state.coaches[0].team.players : []}/>
+                <MyTeam playerList={this.state.coaches[1] ? this.state.coaches[1].team.players : []}/>
             </div>
         )
     }

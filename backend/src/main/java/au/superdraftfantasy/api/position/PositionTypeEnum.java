@@ -1,8 +1,8 @@
 package au.superdraftfantasy.api.position;
 
 public enum PositionTypeEnum {
-    DEFENDER,
-    FORWARD,
-    RUCK,
-    MIDFIELDER,
+    DEF,
+    MID,
+    RUC,
+    FWD,
 }

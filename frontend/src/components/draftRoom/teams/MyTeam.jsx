@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
+import { defaultCipherList } from 'constants';
 
-const roster = {id: 2, type: "22222", defenders: 2, midfielders: 3, rucks: 1, forwards: 2, bench: 4};
-const playerList = {
-        def: [{name: "Josh Gibson", position: "DEF"}],
-        mid: [{name: "Sam Mitchell", position: "MID"}],
-        ruc: [{name: "Max Bailey", position: "RUC"}],
-        fwd: [{name: "Cyril Rioli", position: "FWD"}],
-        bench: [{name: "Jarryd Roughead", position: "BEN"}],
-    };
+const roster = {id: 2, type: "22222", DEF: 1, MID: 3, RUC: 1, FWD: 1, BENCH: 4};
+const playerList = [
+    {id: 1, name: "Josh Gibson", position: "DEF"},
+    {id: 2, name: "Sam Mitchell", position: "MID"},
+    {id: 3, name: "Max Bailey", position: "RUC"},
+    {id: 4, name: "Cyril Rioli", position: "FWD"},
+    {id: 5, name: "Jarryd Roughead", position: "DEF-FWD"},
+];
 
 // fake data generator
 const getItems = (count, offset = 0, position) =>
@@ -19,7 +20,7 @@ const getItems = (count, offset = 0, position) =>
     })
 );
 
-const getPositionList = (position, offset, slots, currentPlayers) => {
+const setPositionSlots = (position, offset, slots, currentPlayers) => {
     const playerList = [];
     for(let i=0; i < slots; i++) {
         if(currentPlayers[i]) {
@@ -31,27 +32,52 @@ const getPositionList = (position, offset, slots, currentPlayers) => {
     return playerList;
 };
 
-const getInitialPositionState = (playerList) => {
-        let offset = 0;
-        let initialState = {
-            defs: '',
-            mids: '',
-            rucs: '',
-            fwds: '',
-            bench: '',
-        }
+const getAvailableSlot = (currentPlayers, playerToBeAdded) => {
+    const position = playerToBeAdded.position;
+    const primaryPosition = position.slice(0, 3);
+    const secondaryPosition = position.length > 3 ? position.slice(4, 7) : null;
 
-        initialState.defs = getPositionList('DEF', offset, roster.defenders, playerList.def);
+    if(currentPlayers[primaryPosition].length < roster.DEF) {
+        return primaryPosition;
+    } else if(secondaryPosition && currentPlayers[secondaryPosition].length < roster.FWD) {
+        return secondaryPosition;
+    } else {
+        return "BENCH";
+    }
+};
+
+const getInitialPositionState = (playerList) => {
+    let initialState = {
+        DEF: [],
+        MID: [],
+        RUC: [],
+        FWD: [],
+        BENCH: [],
+        draggedPlayerPosition: '',
+    }
+
+    playerList.forEach(player => {
+        const availableSlot = getAvailableSlot(initialState, player);
+        initialState[availableSlot].push({id: `${player.id}`, content: player});
+    });
+
+    console.log(initialState);
+    return initialState;
+
+/*
+        let offset = 0;
+        initialState.defs = setPositionSlots('DEF', offset, roster.defenders, playerList.def);
         offset += roster.defenders;
-        initialState.mids = getPositionList('MID', offset, roster.midfielders, playerList.mid);
+        initialState.mids = setPositionSlots('MID', offset, roster.midfielders, playerList.mid);
         offset += roster.midfielder;
-        initialState.rucs = getPositionList('RUC', offset, roster.rucks, playerList.ruc);
+        initialState.rucs = setPositionSlots('RUC', offset, roster.rucks, playerList.ruc);
         offset += roster.rucks;
-        initialState.fwds = getPositionList('FWD', 15, roster.forwards, playerList.fwd);
+        initialState.fwds = setPositionSlots('FWD', 15, roster.forwards, playerList.fwd);
         offset += roster.forwards;
-        initialState.bench = getPositionList('BEN', 20, roster.bench, playerList.bench);
+        initialState.bench = setPositionSlots('BEN', 20, roster.bench, playerList.bench);
         console.log(initialState);
         return initialState;
+*/
 };
 
 // a little function to help us with reordering the result
@@ -69,17 +95,12 @@ const reorder = (list, startIndex, endIndex) => {
 const move = (source, destination, droppableSource, droppableDestination) => {
     const sourceClone = Array.from(source);
     const destClone = Array.from(destination);
-    console.log('Source: ', sourceClone)
-    console.log('Dest: ', destClone)
     const [removed] = sourceClone.splice(droppableSource.index, 1);
-        console.log('Removed: ', removed)
-
     destClone.splice(droppableDestination.index, 0, removed);
 
     const result = {};
     result[droppableSource.droppableId] = sourceClone;
     result[droppableDestination.droppableId] = destClone;
-    console.log("Result: ", result);
     return result;
 };
 
@@ -115,14 +136,20 @@ class MyTeam extends Component {
      * source arrays stored in the state.
      */
     droppableList = {
-        droppableDefs: 'defs',
-        droppableMids: 'mids',
-        droppableRucs: 'rucs',
-        droppableFwds: 'fwds',
-        droppableBench: 'bench',
+        droppableDefs: 'DEF',
+        droppableMids: 'MID',
+        droppableRucs: 'RUC',
+        droppableFwds: 'FWD',
+        droppableBench: 'BENCH',
     };
 
     getList = id => this.state[this.droppableList[id]];
+
+    isDropDisabled = (dropPosition) => {
+        const validDropPosition = this.state.draggedPlayerPosition.includes(dropPosition) || dropPosition == "BENCH";
+        const slotAvailable = this.state[dropPosition].length < roster[dropPosition];
+        return !validDropPosition || !slotAvailable;
+    };
 
     onDragStart = start => {
         const list = this.getList(start.source.droppableId)
@@ -165,15 +192,14 @@ class MyTeam extends Component {
     // Normally you would want to split things out into separate components.
     // But in this example everything is just done in one place for simplicity
     render() {
-        console.log(this.props.playerList);
         return (
             <DragDropContext onDragStart={this.onDragStart} onDragUpdate={this.onDragUpdate} onDragEnd={this.onDragEnd}>
-                <Droppable droppableId="droppableDefs" isDropDisabled={this.state.draggedPlayerPosition != 'DEF'}>
+                <Droppable droppableId="droppableDefs" isDropDisabled={this.isDropDisabled("DEF")}>
                     {(provided, snapshot) => (
                         <div
                             ref={provided.innerRef}
                             style={getListStyle(snapshot.isDraggingOver)}>
-                            {this.state.defs.map((item, index) => (
+                            {this.state.DEF.map((item, index) => (
                                 <Draggable
                                     key={item.id}
                                     draggableId={item.id}
@@ -196,12 +222,12 @@ class MyTeam extends Component {
                         </div>
                     )}
                 </Droppable>
-                <Droppable droppableId="droppableMids" isDropDisabled={this.state.draggedPlayerPosition != 'MID'}>
+                <Droppable droppableId="droppableMids" isDropDisabled={this.isDropDisabled("MID")}>
                     {(provided, snapshot) => (
                         <div
                             ref={provided.innerRef}
                             style={getListStyle(snapshot.isDraggingOver)}>
-                            {this.state.mids.map((item, index) => (
+                            {this.state.MID.map((item, index) => (
                                 <Draggable
                                     key={item.id}
                                     draggableId={item.id}
@@ -224,12 +250,12 @@ class MyTeam extends Component {
                         </div>
                     )}
                 </Droppable>
-                <Droppable droppableId="droppableRucs" isDropDisabled={this.state.draggedPlayerPosition != 'RUC'}>
+                <Droppable droppableId="droppableRucs" isDropDisabled={this.isDropDisabled("RUC")}>
                     {(provided, snapshot) => (
                         <div
                             ref={provided.innerRef}
                             style={getListStyle(snapshot.isDraggingOver)}>
-                            {this.state.rucs.map((item, index) => (
+                            {this.state.RUC.map((item, index) => (
                                 <Draggable
                                     key={item.id}
                                     draggableId={item.id}
@@ -252,12 +278,12 @@ class MyTeam extends Component {
                         </div>
                     )}
                 </Droppable>
-                <Droppable droppableId="droppableFwds" isDropDisabled={this.state.draggedPlayerPosition != 'FWD'}>
+                <Droppable droppableId="droppableFwds" isDropDisabled={this.isDropDisabled("FWD")}>
                     {(provided, snapshot) => (
                         <div
                             ref={provided.innerRef}
                             style={getListStyle(snapshot.isDraggingOver)}>
-                            {this.state.fwds.map((item, index) => (
+                            {this.state.FWD.map((item, index) => (
                                 <Draggable
                                     key={item.id}
                                     draggableId={item.id}
@@ -280,12 +306,12 @@ class MyTeam extends Component {
                         </div>
                     )}
                 </Droppable>
-                <Droppable droppableId="droppableBench">
+                <Droppable droppableId="droppableBench" isDropDisabled={this.isDropDisabled('BENCH')}>
                     {(provided, snapshot) => (
                         <div
                             ref={provided.innerRef}
                             style={getListStyle(snapshot.isDraggingOver)}>
-                            {this.state.bench.map((item, index) => (
+                            {this.state.BENCH.map((item, index) => (
                                 <Draggable
                                     key={item.id}
                                     draggableId={item.id}
