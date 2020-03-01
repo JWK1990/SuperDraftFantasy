@@ -16,7 +16,7 @@ const playerList = [
 const getItems = (count, offset = 0, position) =>
     Array.from({ length: count }, (v, k) => k).map(k => ({
         id: `item-${k + offset}`,
-        content: {name: `test-${k + offset}`, position: `${position}`}
+        content: {name: `TBA`, position: `${position}`}
     })
 );
 
@@ -32,33 +32,46 @@ const setPositionSlots = (position, offset, slots, currentPlayers) => {
     return playerList;
 };
 
-const getAvailableSlot = (currentPlayers, playerToBeAdded) => {
+const addToAvailableSlot = (currentPlayers, playerToBeAdded) => {
     const position = playerToBeAdded.position;
     const primaryPosition = position.slice(0, 3);
     const secondaryPosition = position.length > 3 ? position.slice(4, 7) : null;
 
-    if(currentPlayers[primaryPosition].length < roster.DEF) {
-        return primaryPosition;
-    } else if(secondaryPosition && currentPlayers[secondaryPosition].length < roster.FWD) {
-        return secondaryPosition;
-    } else {
-        return "BENCH";
+    let availablePosition = "BENCH";
+    let availableSlot = currentPlayers["BENCH"].findIndex(slot => slot.content.name == "TBA");
+
+    const primaryPositionSlot = currentPlayers[primaryPosition].findIndex(slot => slot.content.name == "TBA");
+
+    if(primaryPositionSlot > -1) {
+        availablePosition = primaryPosition;
+        availableSlot = primaryPositionSlot;
+    } else if(secondaryPosition) {
+        const secondaryPositionSlot = currentPlayers[secondaryPosition].findIndex(slot => slot.content.name == "TBA");
+        if(secondaryPositionSlot > -1) {
+            availablePosition = secondaryPosition;
+            availableSlot = secondaryPositionSlot;
+        }
     }
+
+    console.log("Available Position: ", availablePosition);
+    console.log("Available Slot: ", availableSlot);
+    console.log("Current Value: ", currentPlayers[availablePosition][availableSlot]);
+
+    currentPlayers[availablePosition][availableSlot] = {id: `${currentPlayers[availablePosition][availableSlot].id}`, content: playerToBeAdded};
 };
 
 const getInitialPositionState = (playerList) => {
     let initialState = {
-        DEF: [],
-        MID: [],
-        RUC: [],
-        FWD: [],
-        BENCH: [],
+        DEF: getItems(roster.DEF, 0, "DEF"),
+        MID: getItems(roster.MID, roster.DEF, "MID"),
+        RUC: getItems(roster.RUC, roster.DEF + roster.MID, "RUC"),
+        FWD: getItems(roster.FWD, roster.DEF + roster.MID + roster.RUC, "FWD"),
+        BENCH: getItems(roster.BENCH, roster.DEF + roster.MID + roster.RUC + roster.FWD, "BENCH"),
         draggedPlayerPosition: '',
     }
 
     playerList.forEach(player => {
-        const availableSlot = getAvailableSlot(initialState, player);
-        initialState[availableSlot].push({id: `${player.id}`, content: player});
+        addToAvailableSlot(initialState, player);
     });
 
     console.log(initialState);
