@@ -4,12 +4,12 @@ import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 
 const roster = {id: 2, type: "22222", defenders: 2, midfielders: 3, rucks: 1, forwards: 2, bench: 4};
 const playerList = {
-    def: [{name: "Josh Gibson", position: "DEF"}],
-    mid: [{name: "Sam Mitchell", position: "MID"}],
-    ruc: [{name: "Max Bailey", position: "RUC"}],
-    fwd: [{name: "Cyril Rioli", position: "FWD"}],
-    bench: [{name: "Jarryd Roughead", position: "BEN"}],
-};
+        def: [{name: "Josh Gibson", position: "DEF"}],
+        mid: [{name: "Sam Mitchell", position: "MID"}],
+        ruc: [{name: "Max Bailey", position: "RUC"}],
+        fwd: [{name: "Cyril Rioli", position: "FWD"}],
+        bench: [{name: "Jarryd Roughead", position: "BEN"}],
+    };
 
 // fake data generator
 const getItems = (count, offset = 0, position) =>
@@ -31,7 +31,7 @@ const getPositionList = (position, offset, slots, currentPlayers) => {
     return playerList;
 };
 
-const getInitialPositionState = () => {
+const getInitialPositionState = (playerList) => {
         let offset = 0;
         let initialState = {
             defs: '',
@@ -106,7 +106,7 @@ const getListStyle = isDraggingOver => ({
 
 class MyTeam extends Component {
 
-    state = getInitialPositionState();
+    state = getInitialPositionState(playerList);
 
 
     /**
@@ -165,6 +165,7 @@ class MyTeam extends Component {
     // Normally you would want to split things out into separate components.
     // But in this example everything is just done in one place for simplicity
     render() {
+        console.log(this.props.playerList);
         return (
             <DragDropContext onDragStart={this.onDragStart} onDragUpdate={this.onDragUpdate} onDragEnd={this.onDragEnd}>
                 <Droppable droppableId="droppableDefs" isDropDisabled={this.state.draggedPlayerPosition != 'DEF'}>

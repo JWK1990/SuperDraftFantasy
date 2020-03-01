@@ -2,6 +2,7 @@ import React from "react";
 import DraftService from "./DraftService";
 import DraftRoomPlayers from "./players/Players";
 import DraftRoomBlock from "./block/Block";
+import MyTeam from "./teams/MyTeam";
 import * as Stomp from 'stompjs';
 import * as SockJS from 'sockjs-client';
 import AuthService from '../login/AuthService';
@@ -27,7 +28,14 @@ class DraftRoom extends React.Component {
         userId: '',
         username: '',
         commissioner: '',
-        team: '',
+        team: this.initialTeam,
+    }
+
+    initialTeam = {
+        id: '',
+        name: '',
+        budget: '',
+        players: [],
     }
 
     initialBlock = {
@@ -313,7 +321,10 @@ class DraftRoom extends React.Component {
         this.setState({currentCoachId: coachId});
     };
 
+
+
     render() {
+        console.log("First Coach: ", this.state.coaches[0]);
         return (
             <div>
                 <div>
@@ -322,6 +333,7 @@ class DraftRoom extends React.Component {
                 </div>
                 <DraftRoomBlock block={this.state.block} sendBid={this.sendBid}/>
                 <DraftRoomPlayers players={this.state.players} sendAddToBlock={this.sendAddToBlock}/>
+                <MyTeam playerList={this.state.coaches[0] ? this.state.coaches[0].team.players : []}/>
             </div>
         )
     }

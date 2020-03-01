@@ -53,7 +53,7 @@ export default function Navbar() {
         onChangeIndex={handleChangeIndex}
       >
         <WebSocket value={value} index={0} dir={theme.direction} />
-        <MyTeam value={value} index={1} dir={theme.direction} />
+        <Signup value={value} index={1} dir={theme.direction} />
         <DraftRoom value={value} index={2} dir={theme.direction} />
         <Signup value={value} index={3} dir={theme.direction} />
         <Login value={value} index={4} dir={theme.direction} />
