@@ -50,7 +50,7 @@ const getInitialPositionState = () => {
         initialState.fwds = getPositionList('FWD', 15, roster.forwards, playerList.fwd);
         offset += roster.forwards;
         initialState.bench = getPositionList('BEN', 20, roster.bench, playerList.bench);
-
+        console.log(initialState);
         return initialState;
 };
 
@@ -165,7 +165,6 @@ class MyTeam extends Component {
     // Normally you would want to split things out into separate components.
     // But in this example everything is just done in one place for simplicity
     render() {
-        console.log(this.state)
         return (
             <DragDropContext onDragStart={this.onDragStart} onDragUpdate={this.onDragUpdate} onDragEnd={this.onDragEnd}>
                 <Droppable droppableId="droppableDefs" isDropDisabled={this.state.draggedPlayerPosition != 'DEF'}>
