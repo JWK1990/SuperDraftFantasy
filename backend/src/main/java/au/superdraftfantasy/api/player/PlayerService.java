@@ -31,16 +31,7 @@ public class PlayerService {
 
     private PlayerReadDto convertToReadDto(PlayerEntity playerEntity) {
         PlayerReadDto playerReadDto = modelMapper.map(playerEntity, PlayerReadDto.class);
-        playerReadDto.setPosition(convertPositionsToString(playerEntity.getPositions()));
         return playerReadDto;
-    }
-
-    public static String convertPositionsToString(Collection<PositionEntity> positions) {
-        StringJoiner joiner = new StringJoiner("-");
-        positions.stream().forEach((position) -> {
-            joiner.add(position.getType().toString());
-        });
-        return joiner.toString();
     }
 
 }

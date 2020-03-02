@@ -3,6 +3,7 @@ package au.superdraftfantasy.api.team;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -10,6 +11,7 @@ import javax.validation.constraints.NotNull;
 
 import au.superdraftfantasy.api.player.PlayerEntity;
 import au.superdraftfantasy.api.coach.CoachEntity;
+import au.superdraftfantasy.api.teamPlayerJoin.TeamPlayerJoinEntity;
 import lombok.EqualsAndHashCode;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -42,13 +44,9 @@ public class TeamEntity {
     @EqualsAndHashCode.Exclude
     private CoachEntity coach;
 
-    @ManyToMany
-    @JoinTable(
-            name = "team_player_join",
-            joinColumns = @JoinColumn(name = "team_id"),
-            inverseJoinColumns = @JoinColumn(name = "player_id")
-    )
-    private List<PlayerEntity> players = new ArrayList<PlayerEntity>();
+    @OneToMany(mappedBy="team")
+    @EqualsAndHashCode.Exclude
+    private Set<TeamPlayerJoinEntity> teamPlayerJoins;
 
     @CreationTimestamp
     private LocalDateTime createdOn;

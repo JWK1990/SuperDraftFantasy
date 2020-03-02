@@ -126,9 +126,11 @@ CREATE TABLE player_position_join (
     CONSTRAINT fk_position_id FOREIGN KEY (position_id) REFERENCES position_entity(id)
 );
 
-CREATE TABLE team_player_join (
+CREATE TABLE team_player_join_entity (
+    id BIGSERIAL,
     team_id INT,
     player_id INT,
+    my_team_position VARCHAR(255),
 
     CONSTRAINT fk_team_id FOREIGN KEY (team_id) REFERENCES team_entity(coach_id),
     CONSTRAINT fk_player_id FOREIGN KEY (player_id) REFERENCES player_entity(id)
