@@ -168,12 +168,16 @@ class MyTeam extends Component {
     }
 
     isDropDisabled = (dropPosition) => {
-        const isValidPrimaryDrop = dropPosition.includes(this.state.draggedPrimaryPosition);
-        const isValidSecondaryDrop = dropPosition.includes(this.state.draggedSecondaryPosition);
-        const isBenchSlotVacant = this.state.playerList.BENCH.findIndex(slot => slot.content.vacant) > -1;
-        const isValidBenchDrop = dropPosition == "BENCH" && isBenchSlotVacant;
+        const isDropPositionVacant = this.state.playerList[dropPosition].findIndex(slot => slot.content.vacant) > -1;
+        const isDropPositionValid = dropPosition == "BENCH"
+                                    || dropPosition.includes(this.state.draggedPrimaryPosition)
+                                    || dropPosition.includes(this.state.draggedSecondaryPosition);
+        
+        if(!isDropPositionVacant || !isDropPositionValid) {
+            return true;
+        }
 
-        return !(isValidPrimaryDrop || isValidSecondaryDrop || isValidBenchDrop);
+        return false;
     };
 
     onDragStart = start => {
