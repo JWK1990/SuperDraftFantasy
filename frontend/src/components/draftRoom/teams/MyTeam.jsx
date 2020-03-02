@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 
-const roster = {id: 2, type: "22222", DEF: 5, MID: 5, RUC: 5, FWD: 5, BENCH: 4};
 
 // fake data generator
 const getItems = (count, offset = 0, position) => {
@@ -19,13 +18,13 @@ const createFilledSlot = (id, position, player) => {
     return {id: `${id}`, content: {vacant: false, position: `${position}`, player: player}};
 }
 
-const getInitialState = (playerList) => {
+const getInitialState = (roster, playerList) => {
     let initialState = {
-        DEF: getItems(roster.DEF, 0, "DEF"),
-        MID: getItems(roster.MID, roster.DEF, "MID"),
-        RUC: getItems(roster.RUC, roster.DEF + roster.MID, "RUC"),
-        FWD: getItems(roster.FWD, roster.DEF + roster.MID + roster.RUC, "FWD"),
-        BENCH: getItems(roster.BENCH, roster.DEF + roster.MID + roster.RUC + roster.FWD, "BENCH"),
+        DEF: getItems(roster.def, 0, "DEF"),
+        MID: getItems(roster.mid, roster.def, "MID"),
+        RUC: getItems(roster.ruc, roster.def + roster.mid, "RUC"),
+        FWD: getItems(roster.fwd, roster.def + roster.mid + roster.ruc, "FWD"),
+        BENCH: getItems(roster.bench, roster.def + roster.mid + roster.ruc + roster.fwd, "BENCH"),
         draggedPlayerPosition: '',
     }
 
@@ -136,7 +135,8 @@ class MyTeam extends Component {
 
     componentWillMount() {
         console.log("Initial State Set.");
-        this.setState(getInitialState(this.props.playerList));
+        console.log(this.props.roster);
+        this.setState(getInitialState(this.props.roster, this.props.playerList));
     }
 
     componentWillUpdate(nextProps) {

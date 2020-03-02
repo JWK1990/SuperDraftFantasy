@@ -13,13 +13,13 @@ public class RosterReadDto {
 
     private String type;
 
-    private Long defenders;
+    private Long def;
 
-    private Long midfielders;
+    private Long mid;
 
-    private Long rucks;
+    private Long ruc;
 
-    private Long forwards;
+    private Long fwd;
 
     private Long bench;
 

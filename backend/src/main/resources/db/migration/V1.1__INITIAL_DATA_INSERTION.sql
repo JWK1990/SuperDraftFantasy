@@ -11,7 +11,7 @@ INSERT INTO role_privilege_join(role_id, privilege_id)
             (1, 2),
             (2, 2);
 
-INSERT INTO roster_entity(id, type, DEF, MID, RUC, FWD, BENCH)
+INSERT INTO roster_entity(id, type, def, mid, ruc, fwd, bench)
     VALUES (1, '57154', 5, 7, 1, 5, 4),
            (2, '22222', 2, 2, 2, 2, 2);
 

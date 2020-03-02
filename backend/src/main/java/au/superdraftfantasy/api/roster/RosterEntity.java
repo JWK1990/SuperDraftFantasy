@@ -23,15 +23,15 @@ public class RosterEntity {
 
     private String type;
 
-    private Long DEF;
+    private Long def;
 
-    private Long MID;
+    private Long mid;
 
-    private Long RUC;
+    private Long ruc;
 
-    private Long FWD;
+    private Long fwd;
 
-    private Long BENCH;
+    private Long bench;
 
     @OneToMany(mappedBy = "roster")
     @EqualsAndHashCode.Exclude
