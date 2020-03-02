@@ -43,9 +43,8 @@ const getInitialState = (roster, playerList) => {
 };
 
 const addToAvailableSlot = (currentPlayers, playerToBeAdded) => {
-    const position = playerToBeAdded.position;
-    const primaryPosition = position.slice(0, 3);
-    const secondaryPosition = position.length > 3 ? position.slice(4, 7) : null;
+    const primaryPosition = playerToBeAdded.primaryPosition;
+    const secondaryPosition = playerToBeAdded.secondaryPosition;
 
     let availablePosition = "BENCH";
     let availableSlot = currentPlayers["BENCH"].findIndex(slot => slot.content.vacant);

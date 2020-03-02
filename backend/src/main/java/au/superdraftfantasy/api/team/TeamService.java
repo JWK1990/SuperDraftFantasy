@@ -3,6 +3,7 @@ package au.superdraftfantasy.api.team;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import javax.validation.constraints.NotBlank;
 
@@ -61,11 +62,7 @@ public class TeamService {
     }
 
     public static List<PlayerEntity> getPlayers(Set<TeamPlayerJoinEntity> teamPlayerJoins) {
-        List<PlayerEntity> playerList = Arrays.asList();
-        teamPlayerJoins.stream().forEach(teamPlayerJoin -> {
-            playerList.add(teamPlayerJoin.getPlayer());
-        });
-        return playerList;
+        return teamPlayerJoins.stream().map(teamPlayerJoin -> teamPlayerJoin.getPlayer()).collect(Collectors.toList());
     }
 
 }
