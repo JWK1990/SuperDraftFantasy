@@ -5,6 +5,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 import javax.validation.constraints.NotBlank;
 
+import au.superdraftfantasy.api.helperFunctions.HelperFunctions;
+import au.superdraftfantasy.api.team.TeamService;
 import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -64,28 +66,15 @@ public class DraftService {
 
     private DraftReadDto mapToDraftReadDto(DraftEntity draft) {
         DraftReadDto draftReadDto = modelMapper.map(draft, DraftReadDto.class);
-        setPlayerPositions(draft, draftReadDto);
-        setOnTheBlockCoachId(draftReadDto); 
+        setOnTheBlockCoachId(draftReadDto);
         return draftReadDto;
-    }
-
-    private void setPlayerPositions(DraftEntity draft, DraftReadDto draftReadDto) {
-        List<CoachEntity> coachList = draft.getCoaches();
-        List<CoachReadDto> coachReadDtoList = draftReadDto.getCoaches();
-        for(int i = 0; i < coachReadDtoList.size(); i++) {
-            List<PlayerEntity> playerList = coachList.get(i).getTeam().getPlayers();
-            List<PlayerReadDto> playerReadDtoList = coachReadDtoList.get(i).getTeam().getPlayers();
-            for(int j = 0; j < playerReadDtoList.size(); j++) {
-                playerReadDtoList.get(j).setPosition(PlayerService.convertPositionsToString(playerList.get(j).getPositions()));
-            }
-        }
     }
 
     private void setOnTheBlockCoachId(DraftReadDto draftReadDto) {
         Integer currentIndex = 0;
         AtomicInteger draftedPlayerCount = new AtomicInteger(0);
         List<CoachReadDto> coachesList = draftReadDto.getCoaches();
-        coachesList.stream().forEach(coach -> draftedPlayerCount.addAndGet(coach.getTeam().getPlayers().size()));
+        coachesList.stream().forEach(coach -> draftedPlayerCount.addAndGet(coach.getTeam().getTeamPlayerJoins().size()));
         if(draftedPlayerCount.get() > 0) {
             Integer currentRound = (int) Math.floor(draftedPlayerCount.get()/coachesList.size());
             currentIndex = (int) Math.ceil(draftedPlayerCount.get() - (currentRound * coachesList.size()));
@@ -93,6 +82,8 @@ public class DraftService {
         Long onTheBlockCoachId = coachesList.get(currentIndex).getId();
         draftReadDto.setOnTheBlockCoachId(onTheBlockCoachId);
     }
+
+
 
     private DraftEntity convertToEntity(DraftWriteDto draftWriteDto) {
         DraftEntity draft = modelMapper.map(draftWriteDto, DraftEntity.class);

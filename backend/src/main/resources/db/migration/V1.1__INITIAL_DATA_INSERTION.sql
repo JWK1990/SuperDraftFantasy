@@ -49,9 +49,15 @@ INSERT INTO afl_teams_enum(id, aflTeam)
 /* Insert initial Position Data. */
 INSERT INTO position_entity (id, type)
     VALUES  (1, 'DEF'),
-            (2, 'MID'),
+            (2, 'FWD'),
             (3, 'RUC'),
-            (4, 'FWD');
+            (4, 'MID'),
+            (5, 'DEFFWD'),
+            (6, 'DEFRUC'),
+            (7, 'DEFMID'),
+            (8, 'FWDRUC'),
+            (9, 'FWDMID'),
+            (10, 'RUCMID');
 
 /* Insert initial Player Data. */
 INSERT INTO player_entity(id, first_name, last_name, afl_team_id, average)
@@ -69,7 +75,18 @@ INSERT INTO player_entity(id, first_name, last_name, afl_team_id, average)
 /* Insert initial Player Positions. */
 INSERT INTO player_position_join(player_id, position_id)
     VALUES (1, 4),
-           (2, 4);
+           (2, 3),
+           (2, 4),
+           (3, 2),
+           (4, 2),
+           (5, 1),
+           (6, 2),
+           (7, 2),
+           (8, 1),
+           (9, 3),
+           (9, 4),
+           (10, 2),
+           (10, 4);
 
 
 

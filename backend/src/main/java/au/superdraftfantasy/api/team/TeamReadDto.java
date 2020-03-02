@@ -1,12 +1,15 @@
 package au.superdraftfantasy.api.team;
 
+import au.superdraftfantasy.api.teamPlayerJoin.TeamPlayerJoinReadDto;
 import au.superdraftfantasy.api.player.PlayerReadDto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import java.util.List;
 import java.util.Set;
+import java.util.List;
+import java.util.stream.Collectors;
 
 
 @Data
@@ -20,6 +23,13 @@ public class TeamReadDto {
 
     private Long budget;
 
+    @JsonIgnore
+    private Set<TeamPlayerJoinReadDto> teamPlayerJoins;
+
     private List<PlayerReadDto> players;
+
+    public List<PlayerReadDto> getPlayers() {
+        return this.teamPlayerJoins.stream().map(teamPlayerJoin -> teamPlayerJoin.getPlayer()).collect(Collectors.toList());
+    }
 
 }

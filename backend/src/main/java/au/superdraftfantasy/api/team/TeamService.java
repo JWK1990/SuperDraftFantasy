@@ -1,8 +1,14 @@
 package au.superdraftfantasy.api.team;
 
+import java.util.Arrays;
 import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 import javax.validation.constraints.NotBlank;
+
+import au.superdraftfantasy.api.teamPlayerJoin.TeamPlayerJoinEntity;
+import au.superdraftfantasy.api.teamPlayerJoin.TeamPlayerJoinRepository;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
@@ -11,9 +17,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 import au.superdraftfantasy.api.coach.CoachEntity;
 import au.superdraftfantasy.api.player.PlayerEntity;
-import au.superdraftfantasy.api.player.PlayerReadDto;
 import au.superdraftfantasy.api.player.PlayerRepository;
-import au.superdraftfantasy.api.player.PlayerService;
 
 
 @Service
@@ -22,11 +26,13 @@ public class TeamService {
     private final ModelMapper modelMapper;
     private final TeamRepository teamRepository;
     private final PlayerRepository playerRepository;
+    private final TeamPlayerJoinRepository teamPlayerJoinRepository;
 
-    public TeamService(ModelMapper modelMapper, TeamRepository teamRepository, PlayerRepository playerRepository) {
+    public TeamService(ModelMapper modelMapper, TeamRepository teamRepository, PlayerRepository playerRepository, TeamPlayerJoinRepository teamPlayerJoinRepository) {
+        this.modelMapper = modelMapper;
         this.teamRepository = teamRepository;
         this.playerRepository = playerRepository;
-        this.modelMapper = modelMapper;
+        this.teamPlayerJoinRepository = teamPlayerJoinRepository;
     }
 
     public TeamReadDto addPlayer(@NotBlank final Long teamID, Long playerID, Long salePrice) {
@@ -34,19 +40,20 @@ public class TeamService {
         checkIfPlayerAlreadyDrafted(team, playerID);
         addPlayerToTeam(team, playerID);
         team.setBudget(team.getBudget() - salePrice);
-        TeamEntity updatedTeam = teamRepository.save(team);
-        return mapToTeamReadDto(updatedTeam);
+        teamRepository.save(team);
+        return modelMapper.map(team, TeamReadDto.class);
     }
 
     private void addPlayerToTeam(TeamEntity team, Long playerID) {
         PlayerEntity player =  playerRepository.findById(playerID).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Player with ID '" + playerID + "' Not Found."));
-        team.getPlayers().add(player);
+        TeamPlayerJoinEntity teamPlayerJoin = new TeamPlayerJoinEntity(null, team, player, "DEF");
+        teamPlayerJoinRepository.save(teamPlayerJoin);       
     }
 
     private void checkIfPlayerAlreadyDrafted(TeamEntity team, Long playerID) {
         List<CoachEntity> coachList = team.getCoach().getDraft().getCoaches();
         coachList.stream().forEach(coach -> {
-            List<PlayerEntity> playerList = coach.getTeam().getPlayers();
+            List<PlayerEntity> playerList = getPlayers(coach.getTeam().getTeamPlayerJoins());
             Boolean playerAlreadyDrafted = playerList.stream().anyMatch(player -> player.getId() == playerID);
             if(playerAlreadyDrafted) {
                 throw new ResponseStatusException(HttpStatus.CONFLICT, "Player with ID '" + playerID + "' is already drafted by Team with ID '" + coach.getTeam().getId() + "'.");
@@ -54,15 +61,8 @@ public class TeamService {
         });
     }
 
-    // TODO: Should update so that we handle the mapping of player.positions to playerReadDto.position within the DTO mapping. At the moment, it's repeated in the PlayerService, TeamService and DraftService.
-    private TeamReadDto mapToTeamReadDto(TeamEntity team) {
-        TeamReadDto teamReadDto = modelMapper.map(team, TeamReadDto.class);
-        List<PlayerEntity> playerList = team.getPlayers();
-        List<PlayerReadDto> updatedPlayerList = teamReadDto.getPlayers();
-        for(int i = 0; i < updatedPlayerList.size(); i++) {
-            updatedPlayerList.get(i).setPosition(PlayerService.convertPositionsToString(playerList.get(i).getPositions()));
-        }
-        return teamReadDto;
+    public static List<PlayerEntity> getPlayers(Set<TeamPlayerJoinEntity> teamPlayerJoins) {
+        return teamPlayerJoins.stream().map(teamPlayerJoin -> teamPlayerJoin.getPlayer()).collect(Collectors.toList());
     }
 
 }

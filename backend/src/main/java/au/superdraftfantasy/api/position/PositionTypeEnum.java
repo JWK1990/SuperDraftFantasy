@@ -2,7 +2,13 @@ package au.superdraftfantasy.api.position;
 
 public enum PositionTypeEnum {
     DEF,
-    MID,
-    RUC,
     FWD,
+    RUC,
+    MID,
+    DEFFWD,
+    DEFRUC,
+    DEFMID,
+    FWDRUC,
+    FWDMID,
+    RUCMID,
 }
