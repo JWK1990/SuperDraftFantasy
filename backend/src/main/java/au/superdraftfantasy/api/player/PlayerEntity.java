@@ -1,6 +1,17 @@
 package au.superdraftfantasy.api.player;
 
-import javax.persistence.*;
+import java.util.Collection;
+import java.util.Set;
+
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.validation.constraints.NotBlank;
 
 import au.superdraftfantasy.api.position.PositionEntity;
@@ -9,9 +20,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-
-import java.util.Collection;
-import java.util.Set;
 
 @Entity
 @Data

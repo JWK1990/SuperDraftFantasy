@@ -11,7 +11,7 @@ INSERT INTO role_privilege_join(role_id, privilege_id)
             (1, 2),
             (2, 2);
 
-INSERT INTO roster_entity(id, type, defenders, midfielders, rucks, forwards, bench)
+INSERT INTO roster_entity(id, type, def, mid, ruc, fwd, bench)
     VALUES (1, '57154', 5, 7, 1, 5, 4),
            (2, '22222', 2, 2, 2, 2, 2);
 
@@ -48,10 +48,10 @@ INSERT INTO afl_teams_enum(id, aflTeam)
 
 /* Insert initial Position Data. */
 INSERT INTO position_entity (id, type)
-    VALUES  (1, 'DEFENDER'),
-            (2, 'MIDFIELDER'),
-            (3, 'RUCK'),
-            (4, 'FORWARD');
+    VALUES  (1, 'DEF'),
+            (2, 'MID'),
+            (3, 'RUC'),
+            (4, 'FWD');
 
 /* Insert initial Player Data. */
 INSERT INTO player_entity(id, first_name, last_name, afl_team_id, average)

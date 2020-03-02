@@ -1,12 +1,13 @@
 package au.superdraftfantasy.api.position;
 
-import au.superdraftfantasy.api.player.PlayerEntity;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.Id;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import javax.persistence.*;
-import java.util.Collection;
 
 @Entity
 @Data
@@ -19,8 +20,5 @@ public class PositionEntity {
 
     @Enumerated(EnumType.STRING)
     private PositionTypeEnum type;
-
-    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "positions", cascade = CascadeType.ALL)
-    private Collection<PlayerEntity> players;
 
 }

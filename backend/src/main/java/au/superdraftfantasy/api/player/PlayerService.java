@@ -35,7 +35,7 @@ public class PlayerService {
         return playerReadDto;
     }
 
-    private String convertPositionsToString(Collection<PositionEntity> positions) {
+    public static String convertPositionsToString(Collection<PositionEntity> positions) {
         StringJoiner joiner = new StringJoiner("-");
         positions.stream().forEach((position) -> {
             joiner.add(position.getType().toString());

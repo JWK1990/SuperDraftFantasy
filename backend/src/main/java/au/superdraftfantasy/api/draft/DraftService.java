@@ -15,6 +15,9 @@ import org.springframework.web.server.ResponseStatusException;
 import au.superdraftfantasy.api.coach.CoachEntity;
 import au.superdraftfantasy.api.coach.CoachReadDto;
 import au.superdraftfantasy.api.coach.CoachTypeEnum;
+import au.superdraftfantasy.api.player.PlayerEntity;
+import au.superdraftfantasy.api.player.PlayerReadDto;
+import au.superdraftfantasy.api.player.PlayerService;
 import au.superdraftfantasy.api.roster.RosterEntity;
 import au.superdraftfantasy.api.roster.RosterRepository;
 import au.superdraftfantasy.api.team.TeamEntity;
@@ -56,9 +59,26 @@ public class DraftService {
      */
     public DraftReadDto getDraft(@NotBlank final Long draftID) {
         DraftEntity draft = draftRepository.findById(draftID).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Draft with ID '" + draftID + "' not found."));
+        return mapToDraftReadDto(draft);
+    }
+
+    private DraftReadDto mapToDraftReadDto(DraftEntity draft) {
         DraftReadDto draftReadDto = modelMapper.map(draft, DraftReadDto.class);
-        setOnTheBlockCoachId(draftReadDto);
+        setPlayerPositions(draft, draftReadDto);
+        setOnTheBlockCoachId(draftReadDto); 
         return draftReadDto;
+    }
+
+    private void setPlayerPositions(DraftEntity draft, DraftReadDto draftReadDto) {
+        List<CoachEntity> coachList = draft.getCoaches();
+        List<CoachReadDto> coachReadDtoList = draftReadDto.getCoaches();
+        for(int i = 0; i < coachReadDtoList.size(); i++) {
+            List<PlayerEntity> playerList = coachList.get(i).getTeam().getPlayers();
+            List<PlayerReadDto> playerReadDtoList = coachReadDtoList.get(i).getTeam().getPlayers();
+            for(int j = 0; j < playerReadDtoList.size(); j++) {
+                playerReadDtoList.get(j).setPosition(PlayerService.convertPositionsToString(playerList.get(j).getPositions()));
+            }
+        }
     }
 
     private void setOnTheBlockCoachId(DraftReadDto draftReadDto) {

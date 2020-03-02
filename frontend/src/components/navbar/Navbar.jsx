@@ -10,6 +10,7 @@ import Login from '../login';
 import SwipeableViews from 'react-swipeable-views';
 import WebSocket from '../bidding';
 import DraftRoom from "../draftRoom";
+import MyTeam from "../draftRoom/teams/MyTeam"
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -52,9 +53,7 @@ export default function Navbar() {
         onChangeIndex={handleChangeIndex}
       >
         <WebSocket value={value} index={0} dir={theme.direction} />
-        <Button value={value} index={1} dir={theme.direction}>
-          My Account
-        </Button>
+        <Signup value={value} index={1} dir={theme.direction} />
         <DraftRoom value={value} index={2} dir={theme.direction} />
         <Signup value={value} index={3} dir={theme.direction} />
         <Login value={value} index={4} dir={theme.direction} />

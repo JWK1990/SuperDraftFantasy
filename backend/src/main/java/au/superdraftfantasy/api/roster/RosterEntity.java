@@ -1,12 +1,16 @@
 package au.superdraftfantasy.api.roster;
 
+import java.util.Set;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
 import au.superdraftfantasy.api.draft.DraftEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-import javax.persistence.*;
-import java.util.Set;
 
 @Entity
 @Data
@@ -19,13 +23,13 @@ public class RosterEntity {
 
     private String type;
 
-    private Long defenders;
+    private Long def;
 
-    private Long midfielders;
+    private Long mid;
 
-    private Long rucks;
+    private Long ruc;
 
-    private Long forwards;
+    private Long fwd;
 
     private Long bench;
 
