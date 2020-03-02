@@ -69,7 +69,18 @@ INSERT INTO player_entity(id, first_name, last_name, afl_team_id, average)
 /* Insert initial Player Positions. */
 INSERT INTO player_position_join(player_id, position_id)
     VALUES (1, 4),
-           (2, 4);
+           (2, 3),
+           (2, 4),
+           (3, 2),
+           (4, 2),
+           (5, 1),
+           (6, 2),
+           (7, 2),
+           (8, 1),
+           (9, 3),
+           (9, 4),
+           (10, 2),
+           (10, 4);
 
 
 

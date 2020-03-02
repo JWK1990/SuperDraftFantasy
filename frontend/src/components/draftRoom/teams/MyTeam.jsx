@@ -11,7 +11,7 @@ const getItems = (count, offset = 0, position) => {
 };
 
 const createEmptySlot = (id, position) => {
-    return {id: `${id}`, content: {vacant: true, position: `${position}`, player: {name: "TBA"}}};
+    return {id: `${id}`, content: {vacant: true, position: `${position}`, player: null}};
 }
 
 const createFilledSlot = (id, position, player) => {
@@ -20,17 +20,19 @@ const createFilledSlot = (id, position, player) => {
 
 const getInitialState = (roster, playerList) => {
     let initialState = {
-        DEF: getItems(roster.def, 0, "DEF"),
-        MID: getItems(roster.mid, roster.def, "MID"),
-        RUC: getItems(roster.ruc, roster.def + roster.mid, "RUC"),
-        FWD: getItems(roster.fwd, roster.def + roster.mid + roster.ruc, "FWD"),
-        BENCH: getItems(roster.bench, roster.def + roster.mid + roster.ruc + roster.fwd, "BENCH"),
+        playerList: {
+            DEF: getItems(roster.def, 0, "DEF"),
+            MID: getItems(roster.mid, roster.def, "MID"),
+            RUC: getItems(roster.ruc, roster.def + roster.mid, "RUC"),
+            FWD: getItems(roster.fwd, roster.def + roster.mid + roster.ruc, "FWD"),
+            BENCH: getItems(roster.bench, roster.def + roster.mid + roster.ruc + roster.fwd, "BENCH")
+        },
         draggedPlayerPosition: '',
     }
 
     playerList.forEach(player => {
         console.log(player);
-        addToAvailableSlot(initialState, player);
+        addToAvailableSlot(initialState.playerList, player);
     });
 
     return initialState;
@@ -134,16 +136,14 @@ class MyTeam extends Component {
     }
 
     componentWillMount() {
-        console.log("Initial State Set.");
-        console.log(this.props.roster);
         this.setState(getInitialState(this.props.roster, this.props.playerList));
     }
 
     componentWillUpdate(nextProps) {
-        console.log("Add Player.");
-        const newPlayerReceived = nextProps.playerList != this.props.playerList;
+        const newPlayerReceived = nextProps.playerList.length != this.props.playerList.length;
         if(newPlayerReceived) {
-            addToAvailableSlot(this.state, nextProps.playerList[nextProps.playerList.length-1]);
+            console.log("Add Player.");
+            addToAvailableSlot(this.state.playerList, nextProps.playerList[nextProps.playerList.length-1]);
         }
     }
 
@@ -160,18 +160,22 @@ class MyTeam extends Component {
         droppableBench: 'BENCH',
     };
 
-    getList = id => this.state[this.droppableList[id]];
+    getPositionList = id => this.state.playerList[this.droppableList[id]];
 
     isDragDisabled = (isDraggableVacant) => {
         return isDraggableVacant;
     }
 
     isDropDisabled = (dropPosition) => {
-        return !(this.state.draggedPlayerPosition.includes(dropPosition) || dropPosition == "BENCH");
+        const dropOnFieldValid = this.state.draggedPlayerPosition.includes(dropPosition);
+        const benchSpotAvailable = this.state.playerList.BENCH.findIndex(slot => slot.content.vacant) > -1;
+        const dropOnBenchValid = dropPosition == "BENCH" && benchSpotAvailable;
+
+        return !(dropOnFieldValid || dropOnBenchValid);
     };
 
     onDragStart = start => {
-        const draggedSlot = this.getList(start.source.droppableId)[start.source.index];
+        const draggedSlot = this.getPositionList(start.source.droppableId)[start.source.index];
         this.setState({draggedPlayerPosition: draggedSlot.content.player.position});
     }
 
@@ -188,18 +192,28 @@ class MyTeam extends Component {
         // Moved to another list.
         else {
             const result = move(
-                this.getList(source.droppableId),
-                this.getList(destination.droppableId),
+                this.getPositionList(source.droppableId),
+                this.getPositionList(destination.droppableId),
                 source,
                 destination
             );
-            this.setState({[this.droppableList[source.droppableId]]: result[source.droppableId]})
-            this.setState({[this.droppableList[destination.droppableId]]: result[destination.droppableId]})
+
+            const sourcePosition = this.droppableList[source.droppableId];
+            const destinationPosition = this.droppableList[destination.droppableId];
+
+            this.setState(prevState => ({
+                ...prevState,
+                playerList: {
+                    ...prevState.playerList,
+                    [sourcePosition]: result[source.droppableId],
+                    [destinationPosition]: result[destination.droppableId]
+                }
+            }));
         }
     };
 
     render() {
-        console.log(this.props.playerList);
+        console.log(this.state);
         return (
             <DragDropContext onDragStart={this.onDragStart} onDragEnd={this.onDragEnd}>
                 <Droppable droppableId="droppableDefs" isDropDisabled={this.isDropDisabled("DEF")}>
@@ -207,7 +221,7 @@ class MyTeam extends Component {
                         <div
                             ref={provided.innerRef}
                             style={getListStyle(snapshot.isDraggingOver)}>
-                            {this.state.DEF.map((item, index) => (
+                            {this.state.playerList.DEF.map((item, index) => (
                                 <Draggable
                                     key={item.id}
                                     draggableId={item.id}
@@ -235,7 +249,7 @@ class MyTeam extends Component {
                         <div
                             ref={provided.innerRef}
                             style={getListStyle(snapshot.isDraggingOver)}>
-                            {this.state.MID.map((item, index) => (
+                            {this.state.playerList.MID.map((item, index) => (
                                 <Draggable
                                     key={item.id}
                                     draggableId={item.id}
@@ -263,7 +277,7 @@ class MyTeam extends Component {
                         <div
                             ref={provided.innerRef}
                             style={getListStyle(snapshot.isDraggingOver)}>
-                            {this.state.RUC.map((item, index) => (
+                            {this.state.playerList.RUC.map((item, index) => (
                                 <Draggable
                                     key={item.id}
                                     draggableId={item.id}
@@ -291,7 +305,7 @@ class MyTeam extends Component {
                         <div
                             ref={provided.innerRef}
                             style={getListStyle(snapshot.isDraggingOver)}>
-                            {this.state.FWD.map((item, index) => (
+                            {this.state.playerList.FWD.map((item, index) => (
                                 <Draggable
                                     key={item.id}
                                     draggableId={item.id}
@@ -319,7 +333,7 @@ class MyTeam extends Component {
                         <div
                             ref={provided.innerRef}
                             style={getListStyle(snapshot.isDraggingOver)}>
-                            {this.state.BENCH.map((item, index) => (
+                            {this.state.playerList.BENCH.map((item, index) => (
                                 <Draggable
                                     key={item.id}
                                     draggableId={item.id}
