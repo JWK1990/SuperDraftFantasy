@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
+import DraftService from "../DraftService";
 
 
 // fake data generator
@@ -15,7 +16,9 @@ const createEmptySlot = (id, position) => {
 }
 
 const createFilledSlot = (id, position, player) => {
-    return {id: `${id}`, content: {vacant: false, position: `${position}`, player: player}};
+    let updatedPlayer = player;
+    updatedPlayer.myTeamPosition = position;
+    return {id: `${id}`, content: {vacant: false, position: `${position}`, player: updatedPlayer}};
 }
 
 const getInitialState = (roster, playerList) => {
@@ -28,6 +31,7 @@ const getInitialState = (roster, playerList) => {
             BENCH: getItems(roster.bench, roster.def + roster.mid + roster.ruc + roster.fwd, "BENCH")
         },
         draggedPlayerPosition: '',
+        errorText: '',
     }
 
     playerList.forEach(player => {
@@ -209,7 +213,44 @@ class MyTeam extends Component {
                     [destinationPosition]: result[destination.droppableId]
                 }
             }));
+            this.saveMyTeamLayout(this.getMyTeamLayout(this.state.playerList));
         }
+    };
+
+    saveMyTeamLayout = (myTeamLayout) => {
+        console.log(myTeamLayout);
+        /*
+        DraftService.saveMyTeamLayout(myTeamLayout)
+            .then(response => {
+                if(response.status === 200) {
+                    console.log('MyTeam Layout Saved');
+                } else {
+                    this.setState({errorText: response.data.message});
+                }
+            })
+            .catch(error => {
+                console.log(error);
+            });
+           */
+    }
+
+    getMyTeamLayout = (playerList) => {
+        const myTeamLayout = [];
+        for(let position in playerList) {
+            if (Object.prototype.hasOwnProperty.call(playerList, position)) {
+                for(let i=0; i < playerList[position].length; i++) {
+                    const currentSlot = playerList[position][i];
+                    if(!currentSlot.content.vacant) {
+                        myTeamLayout.push(currentSlot.content.player);
+                        console.log('Loop: ', i);
+                    } else {
+                        console.log('Stopped On Loop: ', i);
+                        break;
+                    }
+                }
+            }
+        }
+        return myTeamLayout;
     };
 
     render() {

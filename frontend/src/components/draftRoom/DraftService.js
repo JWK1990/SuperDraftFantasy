@@ -25,6 +25,10 @@ class DraftService {
         return axios.put(baseUrl + "/teams/" + teamId + "/players/add/" + playerId, {salePrice: salePrice}, this.config);
     }
 
+    saveMyTeamLayout(teamId, myTeamLayout) {
+        return axios.put(baseUrl + "/teams/" + teamId + "/players/myTeamLayout", myTeamLayout, this.config);
+    }
+
 }
 
 export default new DraftService();
