@@ -1,17 +1,7 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
-import { defaultCipherList } from 'constants';
-import { nominalTypeHack } from 'prop-types';
 
 const roster = {id: 2, type: "22222", DEF: 5, MID: 5, RUC: 5, FWD: 5, BENCH: 4};
-const playerList = [
-    {id: 1, name: "Josh Gibson", position: "DEF"},
-    {id: 2, name: "Sam Mitchell", position: "MID"},
-    {id: 3, name: "Max Bailey", position: "RUC"},
-    {id: 4, name: "Cyril Rioli", position: "FWD"},
-    {id: 5, name: "Jarryd Roughead", position: "DEF-FWD"},
-];
 
 // fake data generator
 const getItems = (count, offset = 0, position) => {
@@ -22,14 +12,14 @@ const getItems = (count, offset = 0, position) => {
 };
 
 const createEmptySlot = (id, position) => {
-    return {id: `${id}`, content: {vacant: true, position: `${position}`, player: null}};
+    return {id: `${id}`, content: {vacant: true, position: `${position}`, player: {name: "TBA"}}};
 }
 
 const createFilledSlot = (id, position, player) => {
     return {id: `${id}`, content: {vacant: false, position: `${position}`, player: player}};
 }
 
-const getInitialPositionState = (playerList) => {
+const getInitialState = (playerList) => {
     let initialState = {
         DEF: getItems(roster.DEF, 0, "DEF"),
         MID: getItems(roster.MID, roster.DEF, "MID"),
@@ -40,10 +30,10 @@ const getInitialPositionState = (playerList) => {
     }
 
     playerList.forEach(player => {
+        console.log(player);
         addToAvailableSlot(initialState, player);
     });
 
-    console.log(initialState);
     return initialState;
 };
 
@@ -70,7 +60,6 @@ const addToAvailableSlot = (currentPlayers, playerToBeAdded) => {
 
     const currentSlotData = currentPlayers[availablePosition][availableSlot];
     currentPlayers[availablePosition][availableSlot] = createFilledSlot(currentSlotData.id, currentSlotData.content.position, playerToBeAdded);
-    
 };
 
 /**
@@ -89,25 +78,11 @@ const move = (source, destination, droppableSource, droppableDestination) => {
     const result = {};
     result[droppableSource.droppableId] = sourceClone;
     result[droppableDestination.droppableId] = destClone;
+    console.log(result);
     return result;
 };
 
 const grid = 8;
-
-const getItemStyle = (isDragging, draggableStyle) => ({
-    // some basic styles to make the items look a bit nicer
-    userSelect: 'none',
-    position: 'static',
-    padding: grid * 2,
-    margin: `0 0 ${grid}px 0`,
-
-    // change background colour if dragging
-    background: isDragging ? 'lightgreen' : 'grey',
-
-    // styles we need to apply on draggables
-    ...draggableStyle
-});
-
 
 function getStyle(style, snapshot) {
     if (!snapshot.isDragging) {
@@ -152,7 +127,25 @@ const getListStyle = isDraggingOver => ({
 
 class MyTeam extends Component {
 
-    state = getInitialPositionState(playerList);
+    shouldComponentUpdate(nextProps, nextState) {
+        const playerListChange = nextProps.playerList != this.props.playerList;
+        const stateChange = nextState != this.state;
+        console.log("Should Component Update: ", playerListChange || stateChange);
+        return playerListChange || stateChange;
+    }
+
+    componentWillMount() {
+        console.log("Initial State Set.");
+        this.setState(getInitialState(this.props.playerList));
+    }
+
+    componentWillUpdate(nextProps) {
+        console.log("Add Player.");
+        const newPlayerReceived = nextProps.playerList != this.props.playerList;
+        if(newPlayerReceived) {
+            addToAvailableSlot(this.state, nextProps.playerList[nextProps.playerList.length-1]);
+        }
+    }
 
     /**
      * A semi-generic way to handle multiple lists. Matches
@@ -178,21 +171,12 @@ class MyTeam extends Component {
     };
 
     onDragStart = start => {
-        console.log(start)
-
-        const list = this.getList(start.source.droppableId)
-        console.log(list)
-
-        const index = start.source.index;
-        console.log(index)
-
-        this.setState({draggedPlayerPosition: list[index].content.player.position})
-        console.log(this.state.draggedPlayerPosition)
+        const draggedSlot = this.getList(start.source.droppableId)[start.source.index];
+        this.setState({draggedPlayerPosition: draggedSlot.content.player.position});
     }
 
     onDragEnd = result => {
         const { source, destination } = result;
-
         // Dropped outside the list.
         if (!destination) {
             return;
@@ -214,9 +198,8 @@ class MyTeam extends Component {
         }
     };
 
-    // Normally you would want to split things out into separate components.
-    // But in this example everything is just done in one place for simplicity
     render() {
+        console.log(this.props.playerList);
         return (
             <DragDropContext onDragStart={this.onDragStart} onDragEnd={this.onDragEnd}>
                 <Droppable droppableId="droppableDefs" isDropDisabled={this.isDropDisabled("DEF")}>
@@ -236,7 +219,7 @@ class MyTeam extends Component {
                                             {...provided.draggableProps}
                                             {...provided.dragHandleProps}
                                             style={getStyle(provided.draggableProps.style, snapshot)}>
-                                            {item.content.player ? item.content.player.name : ""}
+                                            {item.content.player ? item.content.player.firstName : ""}
                                         </div>
                                     )}
                                 </Draggable>
@@ -264,7 +247,7 @@ class MyTeam extends Component {
                                             {...provided.draggableProps}
                                             {...provided.dragHandleProps}
                                             style={getStyle(provided.draggableProps.style, snapshot)}>
-                                            {item.content.player ? item.content.player.name : ""}
+                                            {item.content.player ? item.content.player.firstName : ""}
                                         </div>
                                     )}
                                 </Draggable>
@@ -292,7 +275,7 @@ class MyTeam extends Component {
                                             {...provided.draggableProps}
                                             {...provided.dragHandleProps}
                                             style={getStyle(provided.draggableProps.style, snapshot)}>
-                                            {item.content.player ? item.content.player.name : ""}
+                                            {item.content.player ? item.content.player.firstName : ""}
                                         </div>
                                     )}
                                 </Draggable>
@@ -320,7 +303,7 @@ class MyTeam extends Component {
                                             {...provided.draggableProps}
                                             {...provided.dragHandleProps}
                                             style={getStyle(provided.draggableProps.style, snapshot)}>
-                                            {item.content.player ? item.content.player.name : ""}
+                                            {item.content.player ? item.content.player.firstName : ""}
                                         </div>
                                     )}
                                 </Draggable>
@@ -348,7 +331,7 @@ class MyTeam extends Component {
                                             {...provided.draggableProps}
                                             {...provided.dragHandleProps}
                                             style={getStyle(provided.draggableProps.style, snapshot)}>
-                                            {item.content.player ? item.content.player.name : ""}
+                                            {item.content.player ? item.content.player.firstName : ""}
                                         </div>
                                     )}
                                 </Draggable>

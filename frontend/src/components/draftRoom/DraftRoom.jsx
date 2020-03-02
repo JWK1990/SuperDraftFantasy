@@ -6,6 +6,7 @@ import MyTeam from "./teams/MyTeam";
 import * as Stomp from 'stompjs';
 import * as SockJS from 'sockjs-client';
 import AuthService from '../login/AuthService';
+import { appendFileSync } from "fs";
 
 let stompClient = null;
 
@@ -50,13 +51,14 @@ class DraftRoom extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            currentCoachId: '',
+            currentCoach: '',
             draftDetails: this.initialDraftDetails,
             coaches: this.initialCoaches,
             players: [],
             block: this.initialBlock,
             stompClient: '',
             errorText: '',
+            isDataLoaded: false,
         };
         this.getDraft = this.getDraft.bind(this);
     }
@@ -92,7 +94,7 @@ class DraftRoom extends React.Component {
         if (stompClient) {
             const addToBlockDetails = {
                 playerId: selectedPlayerId,
-                teamId: this.state.currentCoachId,
+                teamId: this.state.currentCoach.id,
                 bidPrice: initialBid,
                 additionalTime: this.state.draftDetails.bidTimer,
             };
@@ -103,7 +105,7 @@ class DraftRoom extends React.Component {
     sendBid = () => {
         if (stompClient) {
             const bidDetails = {
-                teamId: this.state.currentCoachId,
+                teamId: this.state.currentCoach.id,
                 bidPrice: this.state.block.bidPrice + 1,
                 additionalTime: this.state.draftDetails.bidTimer
             };
@@ -235,7 +237,8 @@ class DraftRoom extends React.Component {
                     this.setDraftDetails(response.data);
                     this.setCoaches(response.data.coaches);
                     this.setBlock(response.data.onTheBlockCoachId);
-                    this.setCurrentCoachId(response.data);
+                    this.setCurrentCoach(response.data);
+                    this.setState({isDataLoaded: true});
                 } else {
                     this.setState({errorText: response.data.message});
                 }
@@ -316,14 +319,16 @@ class DraftRoom extends React.Component {
         this.setState({coaches: updatedCoaches});
     };
 
-    setCurrentCoachId = () => {
-        const coachId = this.state.coaches.find(coach => coach.username === AuthService.getCurrentUser()).id;
-        this.setState({currentCoachId: coachId});
+    setCurrentCoach = () => {
+        const currentCoach = this.state.coaches.find(coach => coach.username === AuthService.getCurrentUser());
+        this.setState({currentCoach: currentCoach});
     };
 
-
-
     render() {
+        if (!this.state.isDataLoaded) {
+            return <div />
+        }
+
         return (
             <div>
                 <div>
@@ -332,7 +337,7 @@ class DraftRoom extends React.Component {
                 </div>
                 <DraftRoomBlock block={this.state.block} sendBid={this.sendBid}/>
                 <DraftRoomPlayers players={this.state.players} sendAddToBlock={this.sendAddToBlock}/>
-                <MyTeam playerList={this.state.coaches[1] ? this.state.coaches[1].team.players : []}/>
+                <MyTeam playerList={this.state.currentCoach.team.players}/>
             </div>
         )
     }
