@@ -1,23 +1,28 @@
 package au.superdraftfantasy.api.team;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
-import javax.persistence.*;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.MapsId;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
-import au.superdraftfantasy.api.player.PlayerEntity;
-import au.superdraftfantasy.api.coach.CoachEntity;
-import au.superdraftfantasy.api.teamPlayerJoin.TeamPlayerJoinEntity;
-import lombok.EqualsAndHashCode;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
+import au.superdraftfantasy.api.coach.CoachEntity;
+import au.superdraftfantasy.api.teamPlayerJoin.TeamPlayerJoinEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 
@@ -44,9 +49,8 @@ public class TeamEntity {
     @EqualsAndHashCode.Exclude
     private CoachEntity coach;
 
-    @OneToMany(mappedBy="team")
-    @EqualsAndHashCode.Exclude
-    private Set<TeamPlayerJoinEntity> teamPlayerJoins;
+    @OneToMany(mappedBy="team", cascade = CascadeType.ALL)
+    private List<TeamPlayerJoinEntity> teamPlayerJoins;
 
     @CreationTimestamp
     private LocalDateTime createdOn;

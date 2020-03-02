@@ -5,8 +5,6 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 import javax.validation.constraints.NotBlank;
 
-import au.superdraftfantasy.api.helperFunctions.HelperFunctions;
-import au.superdraftfantasy.api.team.TeamService;
 import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -17,9 +15,6 @@ import org.springframework.web.server.ResponseStatusException;
 import au.superdraftfantasy.api.coach.CoachEntity;
 import au.superdraftfantasy.api.coach.CoachReadDto;
 import au.superdraftfantasy.api.coach.CoachTypeEnum;
-import au.superdraftfantasy.api.player.PlayerEntity;
-import au.superdraftfantasy.api.player.PlayerReadDto;
-import au.superdraftfantasy.api.player.PlayerService;
 import au.superdraftfantasy.api.roster.RosterEntity;
 import au.superdraftfantasy.api.roster.RosterRepository;
 import au.superdraftfantasy.api.team.TeamEntity;
@@ -82,8 +77,6 @@ public class DraftService {
         Long onTheBlockCoachId = coachesList.get(currentIndex).getId();
         draftReadDto.setOnTheBlockCoachId(onTheBlockCoachId);
     }
-
-
 
     private DraftEntity convertToEntity(DraftWriteDto draftWriteDto) {
         DraftEntity draft = modelMapper.map(draftWriteDto, DraftEntity.class);

@@ -1,12 +1,10 @@
 package au.superdraftfantasy.api.coach;
 
-import java.util.ArrayList;
-import java.util.HashSet;
+import java.util.Arrays;
 import java.util.List;
 
 import javax.validation.constraints.NotBlank;
 
-import au.superdraftfantasy.api.teamPlayerJoin.TeamPlayerJoinEntity;
 import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -82,7 +80,7 @@ public class CoachService {
     private void createTeam(CoachEntity coach) {
         String defaultTeamName = generateDefaultTeamName(coach);
         Long initialBudget = coach.getDraft().getBudget();
-        TeamEntity team = new TeamEntity(null, defaultTeamName, initialBudget, coach, new HashSet<TeamPlayerJoinEntity>(), null, null);
+        TeamEntity team = new TeamEntity(null, defaultTeamName, initialBudget, coach, Arrays.asList(), null, null);
         coach.setTeam(team);
     }
 

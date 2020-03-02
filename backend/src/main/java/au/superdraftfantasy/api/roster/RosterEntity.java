@@ -1,15 +1,10 @@
 package au.superdraftfantasy.api.roster;
 
-import java.util.Set;
-
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 
-import au.superdraftfantasy.api.draft.DraftEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 @Entity
@@ -32,9 +27,5 @@ public class RosterEntity {
     private Long fwd;
 
     private Long bench;
-
-    @OneToMany(mappedBy = "roster")
-    @EqualsAndHashCode.Exclude
-    private Set<DraftEntity> drafts;
 
 }

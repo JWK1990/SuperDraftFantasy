@@ -1,18 +1,23 @@
 package au.superdraftfantasy.api.player;
 
-import java.util.Collection;
-import java.util.Set;
 import java.util.List;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.NotBlank;
 
 import au.superdraftfantasy.api.position.PositionEntity;
-import au.superdraftfantasy.api.team.TeamEntity;
 import au.superdraftfantasy.api.teamPlayerJoin.TeamPlayerJoinEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 @Entity
@@ -47,7 +52,6 @@ public class PlayerEntity {
 
     // Follows example here - https://stackoverflow.com/questions/5127129/mapping-many-to-many-association-table-with-extra-columns.
     @OneToMany(mappedBy = "player")
-    @EqualsAndHashCode.Exclude
-    private Set<TeamPlayerJoinEntity> teamPlayerJoins;
+    private List<TeamPlayerJoinEntity> teamPlayerJoins;
 
 }

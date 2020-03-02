@@ -1,14 +1,9 @@
 package au.superdraftfantasy.api.team;
 
-import java.util.Arrays;
 import java.util.List;
-import java.util.Set;
 import java.util.stream.Collectors;
 
 import javax.validation.constraints.NotBlank;
-
-import au.superdraftfantasy.api.teamPlayerJoin.TeamPlayerJoinEntity;
-import au.superdraftfantasy.api.teamPlayerJoin.TeamPlayerJoinRepository;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
@@ -18,6 +13,8 @@ import org.springframework.web.server.ResponseStatusException;
 import au.superdraftfantasy.api.coach.CoachEntity;
 import au.superdraftfantasy.api.player.PlayerEntity;
 import au.superdraftfantasy.api.player.PlayerRepository;
+import au.superdraftfantasy.api.teamPlayerJoin.TeamPlayerJoinEntity;
+import au.superdraftfantasy.api.teamPlayerJoin.TeamPlayerJoinRepository;
 
 
 @Service
@@ -46,8 +43,9 @@ public class TeamService {
 
     private void addPlayerToTeam(TeamEntity team, Long playerID) {
         PlayerEntity player =  playerRepository.findById(playerID).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Player with ID '" + playerID + "' Not Found."));
-        TeamPlayerJoinEntity teamPlayerJoin = new TeamPlayerJoinEntity(null, team, player, "DEF");
-        teamPlayerJoinRepository.save(teamPlayerJoin);       
+        TeamPlayerJoinEntity teamPlayerJoin = new TeamPlayerJoinEntity(null, null, player, "DEF");
+        teamPlayerJoin.setTeam(team);
+        team.getTeamPlayerJoins().add(teamPlayerJoin);
     }
 
     private void checkIfPlayerAlreadyDrafted(TeamEntity team, Long playerID) {
@@ -61,7 +59,7 @@ public class TeamService {
         });
     }
 
-    public static List<PlayerEntity> getPlayers(Set<TeamPlayerJoinEntity> teamPlayerJoins) {
+    public static List<PlayerEntity> getPlayers(List<TeamPlayerJoinEntity> teamPlayerJoins) {
         return teamPlayerJoins.stream().map(teamPlayerJoin -> teamPlayerJoin.getPlayer()).collect(Collectors.toList());
     }
 

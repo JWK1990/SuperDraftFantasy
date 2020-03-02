@@ -30,12 +30,13 @@ const getInitialState = (roster, playerList) => {
             FWD: getItems(roster.fwd, roster.def + roster.mid + roster.ruc, "FWD"),
             BENCH: getItems(roster.bench, roster.def + roster.mid + roster.ruc + roster.fwd, "BENCH")
         },
-        draggedPlayerPosition: '',
+        draggedPrimaryPosition: '',
+        draggedSecondaryPosition: '',
         errorText: '',
     }
 
     playerList.forEach(player => {
-        console.log(player);
+
         addToAvailableSlot(initialState.playerList, player);
     });
 
@@ -82,7 +83,6 @@ const move = (source, destination, droppableSource, droppableDestination) => {
     const result = {};
     result[droppableSource.droppableId] = sourceClone;
     result[droppableDestination.droppableId] = destClone;
-    console.log(result);
     return result;
 };
 
@@ -134,7 +134,6 @@ class MyTeam extends Component {
     shouldComponentUpdate(nextProps, nextState) {
         const playerListChange = nextProps.playerList != this.props.playerList;
         const stateChange = nextState != this.state;
-        console.log("Should Component Update: ", playerListChange || stateChange);
         return playerListChange || stateChange;
     }
 
@@ -145,7 +144,6 @@ class MyTeam extends Component {
     componentWillUpdate(nextProps) {
         const newPlayerReceived = nextProps.playerList.length != this.props.playerList.length;
         if(newPlayerReceived) {
-            console.log("Add Player.");
             addToAvailableSlot(this.state.playerList, nextProps.playerList[nextProps.playerList.length-1]);
         }
     }
@@ -170,16 +168,18 @@ class MyTeam extends Component {
     }
 
     isDropDisabled = (dropPosition) => {
-        const dropOnFieldValid = this.state.draggedPlayerPosition.includes(dropPosition);
-        const benchSpotAvailable = this.state.playerList.BENCH.findIndex(slot => slot.content.vacant) > -1;
-        const dropOnBenchValid = dropPosition == "BENCH" && benchSpotAvailable;
+        const isValidPrimaryDrop = dropPosition.includes(this.state.draggedPrimaryPosition);
+        const isValidSecondaryDrop = dropPosition.includes(this.state.draggedSecondaryPosition);
+        const isBenchSlotVacant = this.state.playerList.BENCH.findIndex(slot => slot.content.vacant) > -1;
+        const isValidBenchDrop = dropPosition == "BENCH" && isBenchSlotVacant;
 
-        return !(dropOnFieldValid || dropOnBenchValid);
+        return !(isValidPrimaryDrop || isValidSecondaryDrop || isValidBenchDrop);
     };
 
     onDragStart = start => {
         const draggedSlot = this.getPositionList(start.source.droppableId)[start.source.index];
-        this.setState({draggedPlayerPosition: draggedSlot.content.player.position});
+        this.setState({draggedPrimaryPosition: draggedSlot.content.player.primaryPosition});
+        this.setState({draggedSecondaryPosition: draggedSlot.content.player.secondaryPosition});
     }
 
     onDragEnd = result => {
@@ -217,7 +217,6 @@ class MyTeam extends Component {
     };
 
     saveMyTeamLayout = (myTeamLayout) => {
-        console.log(myTeamLayout);
         /*
         DraftService.saveMyTeamLayout(myTeamLayout)
             .then(response => {
@@ -241,9 +240,7 @@ class MyTeam extends Component {
                     const currentSlot = playerList[position][i];
                     if(!currentSlot.content.vacant) {
                         myTeamLayout.push(currentSlot.content.player);
-                        console.log('Loop: ', i);
                     } else {
-                        console.log('Stopped On Loop: ', i);
                         break;
                     }
                 }
@@ -253,7 +250,6 @@ class MyTeam extends Component {
     };
 
     render() {
-        console.log(this.state);
         return (
             <DragDropContext onDragStart={this.onDragStart} onDragEnd={this.onDragEnd}>
                 <Droppable droppableId="droppableDefs" isDropDisabled={this.isDropDisabled("DEF")}>
