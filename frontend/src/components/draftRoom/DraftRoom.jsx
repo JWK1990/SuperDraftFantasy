@@ -198,7 +198,7 @@ class DraftRoom extends React.Component {
             }));
             if(this.state.block.addToBlockTimeRemaining <= 0) {
                 clearInterval(this.addToBlockTimerInterval);
-                this.sendAddToBlock(null, null);
+                this.sendAddToBlock(this.state.bestAvailablePlayerId, 1);
             }
         }, 1000);
     };
@@ -375,7 +375,7 @@ class DraftRoom extends React.Component {
             const secondarySlotAvailable = player.secondaryPosition ? this.state.vacantPositions[player.secondaryPosition] : false;
             return benchSlotAvailable || primarySlotAvailable || secondarySlotAvailable;
         }).id;
-        
+
         this.setState({bestAvailablePlayerId: updatedBestAvailablePlayerId});
     }
     
