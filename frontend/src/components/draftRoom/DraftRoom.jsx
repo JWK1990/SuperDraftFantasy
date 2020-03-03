@@ -334,21 +334,31 @@ class DraftRoom extends React.Component {
     };
 
     getCurrentCoachesPlayers = () => {
-
         return this.state.coaches[0].team.players;
     }
 
     setVacantPositions = (playerList) => {
-        const vacantPostionKeys = Object.keys(this.state.vacantPositions);
-        for(let i=0; i < vacantPostionKeys.length; i++) {
-            const currentPositionList = playerList[vacantPostionKeys[i]];
+        const vacantPositionKeys = Object.keys(this.state.vacantPositions);
+        for(let i=0; i < vacantPositionKeys.length; i++) {
+            const currentPosition = vacantPositionKeys[i];
+            const currentPositionList = playerList[currentPosition];
             if(currentPositionList.findIndex(slot => slot.content.vacant) > -1) {
-                this.state.vacantPositions[vacantPostionKeys[i]] = true;
+                this.updateVacantPosition(currentPosition, true);
             } else {
-                this.state.vacantPositions[vacantPostionKeys[i]] = false;
+                this.updateVacantPosition(currentPosition, false);
             }
         }
     };
+
+    updateVacantPosition = (vacantPosition, vacant) => {
+        this.setState(prevState => ({
+            ...prevState,
+            vacantPositions: {
+                ...prevState.vacantPositions,
+                [vacantPosition]: vacant,
+            }
+        }))
+    }
     
     render() {
         if (!this.state.isDataLoaded) {
@@ -364,12 +374,12 @@ class DraftRoom extends React.Component {
                 <DraftRoomBlock
                     block={this.state.block}
                     sendBid={this.sendBid}
-                    vacantPositions={this.vacantPositions}
+                    vacantPositions={this.state.vacantPositions}
                 />
                 <DraftRoomPlayers
                     players={this.state.players}
                     sendAddToBlock={this.sendAddToBlock}
-                    vacantPositions={this.vacantPositions}
+                    vacantPositions={this.state.vacantPositions}
                 />
                 <MyTeam 
                     playerList={this.state.coaches[4].team.players}
