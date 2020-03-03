@@ -46,6 +46,7 @@ class DraftRoom extends React.Component {
         bidPrice: '',
         onTheBlockTimeRemaining: '',
         bidTimeRemaining: '',
+        isBidDisabled: true,
     }
 
     initialVacantPositions = {
@@ -65,6 +66,7 @@ class DraftRoom extends React.Component {
             players: [],
             block: this.initialBlock,
             vacantPositions: this.initialVacantPositions,
+            bestAvailablePlayerId: 1,
             stompClient: '',
             errorText: '',
             isDataLoaded: false,
@@ -158,13 +160,15 @@ class DraftRoom extends React.Component {
         clearInterval(this.addToBlockTimerInterval);
         clearInterval(this.bidTimerInterval);
         const addToBlockDetails = JSON.parse(payload.body);
+        const playerDetails = this.getPlayerDetails(addToBlockDetails.playerId);
         this.setState(prevState => ({
             ...prevState,
             block: {
                 ...prevState.block,
-                player: this.getPlayerDetails(addToBlockDetails.playerId),
+                player: playerDetails,
                 bidder: this.getTeamDetails(addToBlockDetails.teamId),
                 bidPrice: addToBlockDetails.bidPrice,
+                isBidDisabled: !this.isSlotAvailableForPlayer(playerDetails),
             }
         }));
         this.setBidTimer(addToBlockDetails.endTime);
@@ -174,12 +178,14 @@ class DraftRoom extends React.Component {
         clearInterval(this.addToBlockTimerInterval);
         clearInterval(this.bidTimerInterval);
         const bidDetails = JSON.parse(payload.body);
+        const playerDetails = this.state.block.player;
         this.setState(prevState => ({
             ...prevState,
             block: {
                 ...prevState.block,
                 bidder: this.getTeamDetails(bidDetails.teamId),
                 bidPrice: bidDetails.bidPrice,
+                isBidDisabled: !this.isSlotAvailableForPlayer(playerDetails),
             }
         }));
         this.setBidTimer(bidDetails.endTime);
@@ -197,7 +203,7 @@ class DraftRoom extends React.Component {
             }));
             if(this.state.block.addToBlockTimeRemaining <= 0) {
                 clearInterval(this.addToBlockTimerInterval);
-                this.sendAddToBlock(null, null);
+                this.sendAddToBlock(this.state.bestAvailablePlayerId, 1);
             }
         }, 1000);
     };
@@ -290,6 +296,7 @@ class DraftRoom extends React.Component {
         let updatedBlock = this.state.block;
         updatedBlock.onTheBlockCoach = onTheBlockCoach;
         this.setState({block: updatedBlock});
+        console.log('Block Set: ', updatedBlock);
     }
 
     getPlayers = () => {
@@ -334,20 +341,60 @@ class DraftRoom extends React.Component {
     };
 
     getCurrentCoachesPlayers = () => {
-
         return this.state.coaches[0].team.players;
     }
 
     setVacantPositions = (playerList) => {
-        const vacantPostionKeys = Object.keys(this.state.vacantPositions);
-        for(let i=0; i < vacantPostionKeys.length; i++) {
-            const currentPositionList = playerList[vacantPostionKeys[i]];
+        const vacantPositionKeys = Object.keys(this.state.vacantPositions);
+        const updatedVacantPositions = this.state.vacantPositions;
+        for(let i=0; i < vacantPositionKeys.length; i++) {
+            const currentPosition = vacantPositionKeys[i];
+            const currentPositionList = playerList[currentPosition];
             if(currentPositionList.findIndex(slot => slot.content.vacant) > -1) {
-                this.state.vacantPositions[vacantPostionKeys[i]] = true;
+                updatedVacantPositions[currentPosition] = true;
+                this.updateVacantPosition(currentPosition, true);
             } else {
-                this.state.vacantPositions[vacantPostionKeys[i]] = false;
+                updatedVacantPositions[currentPosition] = false;
+                this.updateVacantPosition(currentPosition, false);
             }
         }
+        this.setState({updatedVacantPositions}, () => {
+            this.setIsBidDisabled();
+            this.setBestAvailablePlayerId();
+        });
+
+    };
+
+    updateVacantPosition = (vacantPosition, vacant) => {
+        this.setState(prevState => ({
+            ...prevState,
+            vacantPositions: {
+                ...prevState.vacantPositions,
+                [vacantPosition]: vacant,
+            }
+        }))
+    }
+
+    setBestAvailablePlayerId = () => {
+        const updatedBestAvailablePlayerId = this.state.players.find(player => {
+            return this.isSlotAvailableForPlayer(player);
+        }).id;
+
+        this.setState({bestAvailablePlayerId: updatedBestAvailablePlayerId});
+    }
+
+    setIsBidDisabled = () => {
+        let currentBlock = this.state.block;
+        currentBlock.isBidDisabled = !this.isSlotAvailableForPlayer(currentBlock.player);
+        this.setState({currentBlock});
+    }
+
+
+    isSlotAvailableForPlayer = (player) => {
+        const benchSlotAvailable = this.state.vacantPositions["BENCH"];
+        const primarySlotAvailable = this.state.vacantPositions[player.primaryPosition];
+        const secondarySlotAvailable = player.secondaryPosition ? this.state.vacantPositions[player.secondaryPosition] : false;
+        return benchSlotAvailable || primarySlotAvailable || secondarySlotAvailable;
     };
     
     render() {
@@ -364,12 +411,12 @@ class DraftRoom extends React.Component {
                 <DraftRoomBlock
                     block={this.state.block}
                     sendBid={this.sendBid}
-                    vacantPositions={this.vacantPositions}
+                    vacantPositions={this.state.vacantPositions}
                 />
                 <DraftRoomPlayers
                     players={this.state.players}
                     sendAddToBlock={this.sendAddToBlock}
-                    vacantPositions={this.vacantPositions}
+                    vacantPositions={this.state.vacantPositions}
                 />
                 <MyTeam 
                     playerList={this.state.coaches[4].team.players}

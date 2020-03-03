@@ -74,6 +74,7 @@ function DraftRoomPlayersSelected(props) {
                         value={initialBid}
                         onChange={handleChange}
                         input={<BootstrapInput />}
+                        disabled={props.isAddToBlockDisabled}
                     >
                         <MenuItem value={1}>$1</MenuItem>
                         <MenuItem value={10}>$10</MenuItem>
@@ -81,7 +82,11 @@ function DraftRoomPlayersSelected(props) {
                         <MenuItem value={30}>$30</MenuItem>
                     </Select>
                 </FormControl>
-                <IconButton aria-label="previous" onClick={() => props.sendAddToBlock(props.selected.id, initialBid)} >
+                <IconButton
+                    aria-label="previous"
+                    onClick={() => props.sendAddToBlock(props.selected.id, initialBid)}
+                    disabled= {props.isAddToBlockDisabled}
+                >
                     <SkipNextIcon />
                 </IconButton>
             </div>
