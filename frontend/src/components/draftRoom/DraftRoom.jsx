@@ -46,6 +46,7 @@ class DraftRoom extends React.Component {
         bidPrice: '',
         onTheBlockTimeRemaining: '',
         bidTimeRemaining: '',
+        isBidDisabled: true,
     }
 
     initialVacantPositions = {
@@ -159,13 +160,15 @@ class DraftRoom extends React.Component {
         clearInterval(this.addToBlockTimerInterval);
         clearInterval(this.bidTimerInterval);
         const addToBlockDetails = JSON.parse(payload.body);
+        const playerDetails = this.getPlayerDetails(addToBlockDetails.playerId);
         this.setState(prevState => ({
             ...prevState,
             block: {
                 ...prevState.block,
-                player: this.getPlayerDetails(addToBlockDetails.playerId),
+                player: playerDetails,
                 bidder: this.getTeamDetails(addToBlockDetails.teamId),
                 bidPrice: addToBlockDetails.bidPrice,
+                isBidDisabled: !this.isSlotAvailableForPlayer(playerDetails),
             }
         }));
         this.setBidTimer(addToBlockDetails.endTime);
@@ -175,12 +178,14 @@ class DraftRoom extends React.Component {
         clearInterval(this.addToBlockTimerInterval);
         clearInterval(this.bidTimerInterval);
         const bidDetails = JSON.parse(payload.body);
+        const playerDetails = this.state.block.player;
         this.setState(prevState => ({
             ...prevState,
             block: {
                 ...prevState.block,
                 bidder: this.getTeamDetails(bidDetails.teamId),
                 bidPrice: bidDetails.bidPrice,
+                isBidDisabled: !this.isSlotAvailableForPlayer(playerDetails),
             }
         }));
         this.setBidTimer(bidDetails.endTime);
@@ -291,6 +296,7 @@ class DraftRoom extends React.Component {
         let updatedBlock = this.state.block;
         updatedBlock.onTheBlockCoach = onTheBlockCoach;
         this.setState({block: updatedBlock});
+        console.log('Block Set: ', updatedBlock);
     }
 
     getPlayers = () => {
@@ -353,6 +359,7 @@ class DraftRoom extends React.Component {
             }
         }
         this.setState({updatedVacantPositions}, () => {
+            this.setIsBidDisabled();
             this.setBestAvailablePlayerId();
         });
 
@@ -370,14 +377,25 @@ class DraftRoom extends React.Component {
 
     setBestAvailablePlayerId = () => {
         const updatedBestAvailablePlayerId = this.state.players.find(player => {
-            const benchSlotAvailable = this.state.vacantPositions["BENCH"];
-            const primarySlotAvailable = this.state.vacantPositions[player.primaryPosition];
-            const secondarySlotAvailable = player.secondaryPosition ? this.state.vacantPositions[player.secondaryPosition] : false;
-            return benchSlotAvailable || primarySlotAvailable || secondarySlotAvailable;
+            return this.isSlotAvailableForPlayer(player);
         }).id;
 
         this.setState({bestAvailablePlayerId: updatedBestAvailablePlayerId});
     }
+
+    setIsBidDisabled = () => {
+        let currentBlock = this.state.block;
+        currentBlock.isBidDisabled = !this.isSlotAvailableForPlayer(currentBlock.player);
+        this.setState({currentBlock});
+    }
+
+
+    isSlotAvailableForPlayer = (player) => {
+        const benchSlotAvailable = this.state.vacantPositions["BENCH"];
+        const primarySlotAvailable = this.state.vacantPositions[player.primaryPosition];
+        const secondarySlotAvailable = player.secondaryPosition ? this.state.vacantPositions[player.secondaryPosition] : false;
+        return benchSlotAvailable || primarySlotAvailable || secondarySlotAvailable;
+    };
     
     render() {
         if (!this.state.isDataLoaded) {

@@ -53,7 +53,7 @@ class DraftRoomPlayers extends Component {
                                     <DraftRoomPlayersSelected
                                         selected={rowData}
                                         sendAddToBlock={this.props.sendAddToBlock}
-                                        isAddToBlockDisabled = {this.getIsAddToBlockDisabled(this.state.selectedPlayer)}
+                                        isAddToBlockDisabled = {false}
                                     />
                                 )
                             }}
