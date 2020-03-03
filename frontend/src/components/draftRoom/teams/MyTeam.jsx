@@ -31,11 +31,17 @@ const getInitialState = (roster, playerList) => {
         },
         draggedPrimaryPosition: '',
         draggedSecondaryPosition: '',
+        vacantPositions: {
+            DEF: true,
+            MID: true,
+            RUC: true,
+            FWD: true,
+            BENCH: true,
+        },
         errorText: '',
     }
 
     playerList.forEach(player => {
-        console.log("Player: ", player);
         const myTeamPositon = player.myTeamPosition;
         if(myTeamPositon) {
             const relevantPositionList = initialState.playerList[myTeamPositon];
@@ -165,6 +171,24 @@ class MyTeam extends Component {
         }
     }
 
+    setVacantPositions = (playerList) => {
+        const vacantPostionKeys = Object.keys(this.state.vacantPositions);
+        console.log(vacantPostionKeys);
+        for(let i=0; i < vacantPostionKeys.length; i++) {
+            const currentPositionList = this.state.playerList[vacantPostionKeys[i]];
+            console.log(currentPositionList);
+
+            if(currentPositionList.findIndex(slot => slot.content.vacant) > -1) {
+                console.log("true");
+                this.state.vacantPositions[vacantPostionKeys[i]] = true;
+
+            } else {
+                console.log("false");
+                this.state.vacantPositions[vacantPostionKeys[i]] = false;
+            }
+        }
+    };
+
     /**
      * A semi-generic way to handle multiple lists. Matches
      * the IDs of the droppable container to the names of the
@@ -231,7 +255,6 @@ class MyTeam extends Component {
                     [destinationPosition]: result[destination.droppableId]
                 }
             }));
-
             this.saveMyTeamLayout(this.props.teamId, result.updatedPlayerId, destinationPosition);
         }
     };
@@ -240,8 +263,7 @@ class MyTeam extends Component {
         DraftService.saveMyTeamLayout(teamId, playerId, position)
             .then(response => {
                 if(response.status === 200) {
-                    console.log(response.data);
-                    console.log('MyTeam Layout Saved');
+                    this.setVacantPositions(this.state.playerList);
                 } else {
                     this.setState({errorText: response.data.message});
                 }
