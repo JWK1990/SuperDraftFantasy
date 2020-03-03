@@ -256,7 +256,7 @@ class DraftRoom extends React.Component {
         this.setCurrentCoach(draftData.data);
 
         const playersList = playerData.data;
-        this.setPlayerAvailability(playersList, this.state.coaches);
+        this.setPlayersAvailability(playersList, this.state.coaches);
         this.setState({players: playersList})
 
         this.setState({isDataLoaded: true});
@@ -317,7 +317,7 @@ class DraftRoom extends React.Component {
             .then(response => {
                 if(response.status === 200) {
                     const playersList = response.data;
-                    this.setPlayerAvailability(playersList, this.state.coaches);
+                    this.setPlayersAvailability(playersList, this.state.coaches);
                     this.setState({players: playersList})
                 } else {
                     this.setState({errorText: response.data.message});
@@ -333,6 +333,7 @@ class DraftRoom extends React.Component {
             .then(response => {
                 if(response.status === 200) {
                     this.updateCoaches(response.data);
+                    this.updatePlayerAvailability(playerId);
                     this.sendStartNextRound();
                 } else {
                     this.setState({errorText: response.data.message});
@@ -411,7 +412,7 @@ class DraftRoom extends React.Component {
         return benchSlotAvailable || primarySlotAvailable || secondarySlotAvailable;
     };
 
-    setPlayerAvailability = (playerList, coachList) => {        
+    setPlayersAvailability = (playerList, coachList) => {        
         playerList.forEach(player => {
             player.isAvailable = true;
             for(let i= 0; i < coachList.length; i++) {
@@ -424,6 +425,12 @@ class DraftRoom extends React.Component {
         });
         return playerList;
     };
+
+    updatePlayerAvailability = (playerId) => {
+        let playerToUpdate = this.state.players.find(player => player.id == playerId);
+        playerToUpdate.isAvailable = false;
+        this.setState({playerToUpdate});
+    }
     
     render() {
         if (!this.state.isDataLoaded) {
