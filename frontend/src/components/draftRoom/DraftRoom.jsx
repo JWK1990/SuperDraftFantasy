@@ -342,7 +342,7 @@ class DraftRoom extends React.Component {
                 </div>
                 <DraftRoomBlock block={this.state.block} sendBid={this.sendBid}/>
                 <DraftRoomPlayers players={this.state.players} sendAddToBlock={this.sendAddToBlock}/>
-                <MyTeam playerList={this.state.coaches[4].team.players} roster={this.state.draftDetails.roster}/>
+                <MyTeam playerList={this.state.coaches[4].team.players} roster={this.state.draftDetails.roster} teamId={this.state.currentCoach.id}/>
             </div>
         )
     }

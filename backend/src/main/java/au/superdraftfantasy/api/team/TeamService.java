@@ -14,7 +14,6 @@ import au.superdraftfantasy.api.coach.CoachEntity;
 import au.superdraftfantasy.api.player.PlayerEntity;
 import au.superdraftfantasy.api.player.PlayerRepository;
 import au.superdraftfantasy.api.teamPlayerJoin.TeamPlayerJoinEntity;
-import au.superdraftfantasy.api.teamPlayerJoin.TeamPlayerJoinRepository;
 
 
 @Service
@@ -23,13 +22,11 @@ public class TeamService {
     private final ModelMapper modelMapper;
     private final TeamRepository teamRepository;
     private final PlayerRepository playerRepository;
-    private final TeamPlayerJoinRepository teamPlayerJoinRepository;
 
-    public TeamService(ModelMapper modelMapper, TeamRepository teamRepository, PlayerRepository playerRepository, TeamPlayerJoinRepository teamPlayerJoinRepository) {
+    public TeamService(ModelMapper modelMapper, TeamRepository teamRepository, PlayerRepository playerRepository) {
         this.modelMapper = modelMapper;
         this.teamRepository = teamRepository;
         this.playerRepository = playerRepository;
-        this.teamPlayerJoinRepository = teamPlayerJoinRepository;
     }
 
     public TeamReadDto addPlayer(@NotBlank final Long teamID, Long playerID, Long salePrice) {
@@ -41,10 +38,24 @@ public class TeamService {
         return modelMapper.map(team, TeamReadDto.class);
     }
 
+    public String updateMyTeamPosition(final Long teamID, Long playerId, String myTeamPosition) {
+        TeamEntity team = teamRepository.findById(teamID)
+                            .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Team with ID '" + teamID + "' Not Found."));
+        
+        TeamPlayerJoinEntity teamPlayerJoinToUpdate = team.getTeamPlayerJoins()
+                                                        .stream().filter(teamPlayerJoin -> teamPlayerJoin.getPlayer().getId() == playerId)
+                                                        .findFirst().orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "TeamPlayerJoinEntity not found"));
+
+        teamPlayerJoinToUpdate.setMyTeamPosition(myTeamPosition);
+
+        teamRepository.save(team);
+        
+        return myTeamPosition;
+    }
+
     private void addPlayerToTeam(TeamEntity team, Long playerID) {
         PlayerEntity player =  playerRepository.findById(playerID).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Player with ID '" + playerID + "' Not Found."));
-        TeamPlayerJoinEntity teamPlayerJoin = new TeamPlayerJoinEntity(null, null, player, "DEF");
-        teamPlayerJoin.setTeam(team);
+        TeamPlayerJoinEntity teamPlayerJoin = new TeamPlayerJoinEntity(null, team, player, null);
         team.getTeamPlayerJoins().add(teamPlayerJoin);
     }
 
