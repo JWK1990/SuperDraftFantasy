@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
-import DraftService from "../DraftService";
-
+import DraftService from '../DraftService';
 
 // fake data generator
-const getItems = (count, offset = 0, position) => {
+const getSlots = (count, offset = 0, position) => {
     return Array.from({ length: count }, (v, k) => k).map(k => {
         const id = k + offset;
         return createEmptySlot(id, position)
@@ -24,11 +23,11 @@ const createFilledSlot = (id, position, player) => {
 const getInitialState = (roster, playerList) => {
     let initialState = {
         playerList: {
-            DEF: getItems(roster.def, 0, "DEF"),
-            MID: getItems(roster.mid, roster.def, "MID"),
-            RUC: getItems(roster.ruc, roster.def + roster.mid, "RUC"),
-            FWD: getItems(roster.fwd, roster.def + roster.mid + roster.ruc, "FWD"),
-            BENCH: getItems(roster.bench, roster.def + roster.mid + roster.ruc + roster.fwd, "BENCH")
+            DEF: getSlots(roster.def, 0, "DEF"),
+            MID: getSlots(roster.mid, roster.def, "MID"),
+            RUC: getSlots(roster.ruc, roster.def + roster.mid, "RUC"),
+            FWD: getSlots(roster.fwd, roster.def + roster.mid + roster.ruc, "FWD"),
+            BENCH: getSlots(roster.bench, roster.def + roster.mid + roster.ruc + roster.fwd, "BENCH")
         },
         draggedPrimaryPosition: '',
         draggedSecondaryPosition: '',
@@ -36,8 +35,15 @@ const getInitialState = (roster, playerList) => {
     }
 
     playerList.forEach(player => {
-
-        addToAvailableSlot(initialState.playerList, player);
+        const myTeamPositon = player.myTeamPosition;
+        if(myTeamPositon) {
+            const relevantPositionList = initialState.playerList[myTeamPositon];
+            const firstVacantSlot = relevantPositionList.findIndex(slot => slot.content.vacant);
+            const currentSlotData = relevantPositionList[firstVacantSlot];
+            relevantPositionList[firstVacantSlot] = createFilledSlot(currentSlotData.id, currentSlotData.content.position, player);
+        } else {
+            addToAvailableSlot(initialState.playerList, player);
+        }
     });
 
     return initialState;
@@ -64,7 +70,14 @@ const addToAvailableSlot = (currentPlayers, playerToBeAdded) => {
     }
 
     const currentSlotData = currentPlayers[availablePosition][availableSlot];
-    currentPlayers[availablePosition][availableSlot] = createFilledSlot(currentSlotData.id, currentSlotData.content.position, playerToBeAdded);
+    const updatedSlotData = createFilledSlot(currentSlotData.id, currentSlotData.content.position, playerToBeAdded);
+    currentPlayers[availablePosition][availableSlot] = updatedSlotData;
+    
+    const result = {};
+    result["playerId"] = updatedSlotData.content.player.id;
+    result["myTeamPosition"] = updatedSlotData.content.position;
+
+    return result;
 };
 
 /**
@@ -83,6 +96,7 @@ const move = (source, destination, droppableSource, droppableDestination) => {
     const result = {};
     result[droppableSource.droppableId] = sourceClone;
     result[droppableDestination.droppableId] = destClone;
+    result["updatedPlayerId"] = removed.content.player.id;
     return result;
 };
 
@@ -141,10 +155,16 @@ class MyTeam extends Component {
         this.setState(getInitialState(this.props.roster, this.props.playerList));
     }
 
+    componentDidMount() {
+        this.props.setVacantPositions(this.state.playerList);
+    }
+
     componentWillUpdate(nextProps) {
         const newPlayerReceived = nextProps.playerList.length != this.props.playerList.length;
         if(newPlayerReceived) {
-            addToAvailableSlot(this.state.playerList, nextProps.playerList[nextProps.playerList.length-1]);
+            const playerToBeAdded = nextProps.playerList[nextProps.playerList.length -1];
+            const result = addToAvailableSlot(this.state.playerList, playerToBeAdded);
+            this.saveMyTeamLayout(this.props.teamId, result.playerId, result.myTeamPosition);
         }
     }
 
@@ -168,12 +188,14 @@ class MyTeam extends Component {
     }
 
     isDropDisabled = (dropPosition) => {
-        const isValidPrimaryDrop = dropPosition.includes(this.state.draggedPrimaryPosition);
-        const isValidSecondaryDrop = dropPosition.includes(this.state.draggedSecondaryPosition);
-        const isBenchSlotVacant = this.state.playerList.BENCH.findIndex(slot => slot.content.vacant) > -1;
-        const isValidBenchDrop = dropPosition == "BENCH" && isBenchSlotVacant;
-
-        return !(isValidPrimaryDrop || isValidSecondaryDrop || isValidBenchDrop);
+        const isDropPositionVacant = this.state.playerList[dropPosition].findIndex(slot => slot.content.vacant) > -1;
+        const isDropPositionValid = dropPosition == "BENCH"
+                                    || dropPosition.includes(this.state.draggedPrimaryPosition)
+                                    || dropPosition.includes(this.state.draggedSecondaryPosition);
+        if(!isDropPositionVacant || !isDropPositionValid) {
+            return true;
+        }
+        return false;
     };
 
     onDragStart = start => {
@@ -212,16 +234,15 @@ class MyTeam extends Component {
                     [destinationPosition]: result[destination.droppableId]
                 }
             }));
-            this.saveMyTeamLayout(this.getMyTeamLayout(this.state.playerList));
+            this.saveMyTeamLayout(this.props.teamId, result.updatedPlayerId, destinationPosition);
         }
     };
 
-    saveMyTeamLayout = (myTeamLayout) => {
-        /*
-        DraftService.saveMyTeamLayout(myTeamLayout)
+    saveMyTeamLayout = (teamId, playerId, position) => {
+        DraftService.saveMyTeamLayout(teamId, playerId, position)
             .then(response => {
                 if(response.status === 200) {
-                    console.log('MyTeam Layout Saved');
+                    this.props.setVacantPositions(this.state.playerList);
                 } else {
                     this.setState({errorText: response.data.message});
                 }
@@ -229,25 +250,7 @@ class MyTeam extends Component {
             .catch(error => {
                 console.log(error);
             });
-           */
     }
-
-    getMyTeamLayout = (playerList) => {
-        const myTeamLayout = [];
-        for(let position in playerList) {
-            if (Object.prototype.hasOwnProperty.call(playerList, position)) {
-                for(let i=0; i < playerList[position].length; i++) {
-                    const currentSlot = playerList[position][i];
-                    if(!currentSlot.content.vacant) {
-                        myTeamLayout.push(currentSlot.content.player);
-                    } else {
-                        break;
-                    }
-                }
-            }
-        }
-        return myTeamLayout;
-    };
 
     render() {
         return (

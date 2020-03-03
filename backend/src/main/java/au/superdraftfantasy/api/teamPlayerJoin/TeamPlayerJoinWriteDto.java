@@ -1,4 +1,4 @@
-package au.superdraftfantasy.api.team;
+package au.superdraftfantasy.api.teamPlayerJoin;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,9 +7,11 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class TeamAddPlayerDto {
+public class TeamPlayerJoinWriteDto {
 
-    private Long salePrice;
+    private Long teamId;
+
+    private Long playerId;
 
     private String myTeamPosition;
 
