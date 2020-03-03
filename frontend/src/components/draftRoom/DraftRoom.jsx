@@ -361,8 +361,16 @@ class DraftRoom extends React.Component {
                     <p>Draft Details: {this.state.draftDetails.name}</p>
                     <p>Current OTB Coach: {this.state.block.onTheBlockCoach}</p>
                 </div>
-                <DraftRoomBlock block={this.state.block} sendBid={this.sendBid}/>
-                <DraftRoomPlayers players={this.state.players} sendAddToBlock={this.sendAddToBlock}/>
+                <DraftRoomBlock
+                    block={this.state.block}
+                    sendBid={this.sendBid}
+                    vacantPositions={this.vacantPositions}
+                />
+                <DraftRoomPlayers
+                    players={this.state.players}
+                    sendAddToBlock={this.sendAddToBlock}
+                    vacantPositions={this.vacantPositions}
+                />
                 <MyTeam 
                     playerList={this.state.coaches[4].team.players}
                     roster={this.state.draftDetails.roster}
