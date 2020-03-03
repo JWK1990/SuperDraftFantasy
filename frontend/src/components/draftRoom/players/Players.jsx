@@ -36,7 +36,8 @@ class DraftRoomPlayers extends Component {
                                 { title: "Name", field: "firstName" },
                                 { title: "Team", field: "aflTeamId", searchable: false},
                                 { title: "Average", field: "average", type: "numeric", searchable: false },
-                                { title: "Position", field: "primaryPosition", searchable: false },
+                                { title: "Position1", field: "primaryPosition", searchable: false },
+                                { title: "Position2", field: "secondaryPosition", searchable: false },
                             ]}
                             data={this.props.players}
                             actions={[

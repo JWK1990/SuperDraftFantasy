@@ -65,6 +65,7 @@ class DraftRoom extends React.Component {
             players: [],
             block: this.initialBlock,
             vacantPositions: this.initialVacantPositions,
+            bestAvailablePlayerId: 1,
             stompClient: '',
             errorText: '',
             isDataLoaded: false,
@@ -339,15 +340,22 @@ class DraftRoom extends React.Component {
 
     setVacantPositions = (playerList) => {
         const vacantPositionKeys = Object.keys(this.state.vacantPositions);
+        const updatedVacantPositions = this.state.vacantPositions;
         for(let i=0; i < vacantPositionKeys.length; i++) {
             const currentPosition = vacantPositionKeys[i];
             const currentPositionList = playerList[currentPosition];
             if(currentPositionList.findIndex(slot => slot.content.vacant) > -1) {
+                updatedVacantPositions[currentPosition] = true;
                 this.updateVacantPosition(currentPosition, true);
             } else {
+                updatedVacantPositions[currentPosition] = false;
                 this.updateVacantPosition(currentPosition, false);
             }
         }
+        this.setState({updatedVacantPositions}, () => {
+            this.setBestAvailablePlayerId();
+        });
+
     };
 
     updateVacantPosition = (vacantPosition, vacant) => {
@@ -358,6 +366,17 @@ class DraftRoom extends React.Component {
                 [vacantPosition]: vacant,
             }
         }))
+    }
+
+    setBestAvailablePlayerId = () => {
+        const updatedBestAvailablePlayerId = this.state.players.find(player => {
+            const benchSlotAvailable = this.state.vacantPositions["BENCH"];
+            const primarySlotAvailable = this.state.vacantPositions[player.primaryPosition];
+            const secondarySlotAvailable = player.secondaryPosition ? this.state.vacantPositions[player.secondaryPosition] : false;
+            return benchSlotAvailable || primarySlotAvailable || secondarySlotAvailable;
+        }).id;
+        
+        this.setState({bestAvailablePlayerId: updatedBestAvailablePlayerId});
     }
     
     render() {
