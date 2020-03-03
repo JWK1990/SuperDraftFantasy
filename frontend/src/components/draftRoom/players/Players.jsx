@@ -12,9 +12,12 @@ class DraftRoomPlayers extends Component {
             };
         }
 
-
         getIsAddToBlockDisabled = (player) => {
-            return !this.props.vacantPositions[player.primaryPosition] && !this.props.vacantPositions[player.secondaryPosition]
+            const benchSlotVacant = this.props.vacantPositions["BENCH"];
+            const primarySlotVacant = this.props.vacantPositions[player.primaryPosition];
+            const secondarySlotVacant = this.props.vacantPositions[player.secondaryPosition];
+
+            return !benchSlotVacant && !primarySlotVacant && !secondarySlotVacant;
         }
 
         toggleAndSetSelected = (togglePanel, rowData) => {
