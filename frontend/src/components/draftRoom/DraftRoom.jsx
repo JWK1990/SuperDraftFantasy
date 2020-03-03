@@ -48,6 +48,14 @@ class DraftRoom extends React.Component {
         bidTimeRemaining: '',
     }
 
+    initialVacantPositions = {
+        DEF: true,
+        MID: true,
+        RUC: true,
+        FWD: true,
+        BENCH: true,
+    }
+
     constructor(props) {
         super(props);
         this.state = {
@@ -56,6 +64,7 @@ class DraftRoom extends React.Component {
             coaches: this.initialCoaches,
             players: [],
             block: this.initialBlock,
+            vacantPositions: this.initialVacantPositions,
             stompClient: '',
             errorText: '',
             isDataLoaded: false,
@@ -328,6 +337,18 @@ class DraftRoom extends React.Component {
 
         return this.state.coaches[0].team.players;
     }
+
+    setVacantPositions = (playerList) => {
+        const vacantPostionKeys = Object.keys(this.state.vacantPositions);
+        for(let i=0; i < vacantPostionKeys.length; i++) {
+            const currentPositionList = playerList[vacantPostionKeys[i]];
+            if(currentPositionList.findIndex(slot => slot.content.vacant) > -1) {
+                this.state.vacantPositions[vacantPostionKeys[i]] = true;
+            } else {
+                this.state.vacantPositions[vacantPostionKeys[i]] = false;
+            }
+        }
+    };
     
     render() {
         if (!this.state.isDataLoaded) {
@@ -342,7 +363,12 @@ class DraftRoom extends React.Component {
                 </div>
                 <DraftRoomBlock block={this.state.block} sendBid={this.sendBid}/>
                 <DraftRoomPlayers players={this.state.players} sendAddToBlock={this.sendAddToBlock}/>
-                <MyTeam playerList={this.state.coaches[4].team.players} roster={this.state.draftDetails.roster} teamId={this.state.currentCoach.id}/>
+                <MyTeam 
+                    playerList={this.state.coaches[4].team.players}
+                    roster={this.state.draftDetails.roster}
+                    teamId={this.state.currentCoach.id}
+                    setVacantPositions={this.setVacantPositions}
+                />
             </div>
         )
     }
