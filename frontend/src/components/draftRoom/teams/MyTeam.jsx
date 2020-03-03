@@ -155,6 +155,10 @@ class MyTeam extends Component {
         this.setState(getInitialState(this.props.roster, this.props.playerList));
     }
 
+    componentDidMount() {
+        this.props.setVacantPositions(this.state.playerList);
+    }
+
     componentWillUpdate(nextProps) {
         const newPlayerReceived = nextProps.playerList.length != this.props.playerList.length;
         if(newPlayerReceived) {
@@ -247,23 +251,6 @@ class MyTeam extends Component {
                 console.log(error);
             });
     }
-
-    getMyTeamLayout = (playerList) => {
-        const myTeamLayout = [];
-        for(let position in playerList) {
-            if (Object.prototype.hasOwnProperty.call(playerList, position)) {
-                for(let i=0; i < playerList[position].length; i++) {
-                    const currentSlot = playerList[position][i];
-                    if(!currentSlot.content.vacant) {
-                        myTeamLayout.push(currentSlot.content.player);
-                    } else {
-                        break;
-                    }
-                }
-            }
-        }
-        return myTeamLayout;
-    };
 
     render() {
         return (
