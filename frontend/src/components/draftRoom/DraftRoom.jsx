@@ -310,7 +310,7 @@ class DraftRoom extends React.Component {
         updatedBlock.onTheBlockCoach = onTheBlockCoach;
         this.setState({block: updatedBlock});
         console.log('Block Set: ', updatedBlock);
-        console.log('Change to test Production Build Pipeline.');
+        console.log('Change to test Production Build Pipeline 2.');
     }
 
     getPlayers = () => {
