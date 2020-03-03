@@ -74,10 +74,14 @@ class DraftRoom extends React.Component {
         this.getDraft = this.getDraft.bind(this);
     }
 
-    componentDidMount() {
+    async componentDidMount() {
+
         this.connect();
-        this.getDraft();
-        this.getPlayers();
+
+        const draftDetails = await DraftService.getDraft(1);
+        const playerDetails = await DraftService.getPlayers();
+
+        this.setInitialState(draftDetails, playerDetails);
     }
 
     connect = () => {
@@ -245,15 +249,24 @@ class DraftRoom extends React.Component {
         }
     };
 
+    setInitialState = (draftData, playerData) => {
+        this.setDraftDetails(draftData.data);
+        this.setCoaches(draftData.data.coaches);
+        this.setBlock(draftData.data.onTheBlockCoachId);
+        this.setCurrentCoach(draftData.data);
+
+        const playersList = playerData.data;
+        this.setPlayerAvailability(playersList, this.state.coaches);
+        this.setState({players: playersList})
+
+        this.setState({isDataLoaded: true});
+    }
+
     getDraft = () => {
         DraftService.getDraft(1)
             .then(response => {
                 if(response.status === 200) {
-                    this.setDraftDetails(response.data);
-                    this.setCoaches(response.data.coaches);
-                    this.setBlock(response.data.onTheBlockCoachId);
-                    this.setCurrentCoach(response.data);
-                    this.setState({isDataLoaded: true});
+
                 } else {
                     this.setState({errorText: response.data.message});
                 }
@@ -303,7 +316,9 @@ class DraftRoom extends React.Component {
         DraftService.getPlayers()
             .then(response => {
                 if(response.status === 200) {
-                    this.setState({players: response.data})
+                    const playersList = response.data;
+                    this.setPlayerAvailability(playersList, this.state.coaches);
+                    this.setState({players: playersList})
                 } else {
                     this.setState({errorText: response.data.message});
                 }
@@ -377,7 +392,7 @@ class DraftRoom extends React.Component {
 
     setBestAvailablePlayerId = () => {
         const updatedBestAvailablePlayerId = this.state.players.find(player => {
-            return this.isSlotAvailableForPlayer(player);
+            return player.isAvailable && this.isSlotAvailableForPlayer(player);
         }).id;
 
         this.setState({bestAvailablePlayerId: updatedBestAvailablePlayerId});
@@ -389,12 +404,25 @@ class DraftRoom extends React.Component {
         this.setState({currentBlock});
     }
 
-
     isSlotAvailableForPlayer = (player) => {
         const benchSlotAvailable = this.state.vacantPositions["BENCH"];
         const primarySlotAvailable = this.state.vacantPositions[player.primaryPosition];
         const secondarySlotAvailable = player.secondaryPosition ? this.state.vacantPositions[player.secondaryPosition] : false;
         return benchSlotAvailable || primarySlotAvailable || secondarySlotAvailable;
+    };
+
+    setPlayerAvailability = (playerList, coachList) => {        
+        playerList.forEach(player => {
+            player.isAvailable = true;
+            for(let i= 0; i < coachList.length; i++) {
+                const isDrafted = coachList[i].team.players.findIndex(draftedPlayer => draftedPlayer.id == player.id) > -1;
+                if(isDrafted) {
+                    player.isAvailable = false;
+                    break;
+                }
+            }
+        });
+        return playerList;
     };
     
     render() {

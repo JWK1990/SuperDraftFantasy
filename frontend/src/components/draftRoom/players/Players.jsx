@@ -17,12 +17,16 @@ class DraftRoomPlayers extends Component {
             const primarySlotVacant = this.props.vacantPositions[player.primaryPosition];
             const secondarySlotVacant = this.props.vacantPositions[player.secondaryPosition];
 
-            return !benchSlotVacant && !primarySlotVacant && !secondarySlotVacant;
+            return !player.isAvailable || (!benchSlotVacant && !primarySlotVacant && !secondarySlotVacant);
         }
 
         toggleAndSetSelected = (togglePanel, rowData) => {
             togglePanel();
-            this.setState({selectedPlayer: rowData});
+            if(this.state.selectedPlayer == rowData) {
+                this.setState({selectedPlayer: ''});
+            } else {
+                this.setState({selectedPlayer: rowData});
+            }
         }
 
         render() {
@@ -53,12 +57,17 @@ class DraftRoomPlayers extends Component {
                                     <DraftRoomPlayersSelected
                                         selected={rowData}
                                         sendAddToBlock={this.props.sendAddToBlock}
-                                        isAddToBlockDisabled = {false}
+                                        isAddToBlockDisabled = {this.getIsAddToBlockDisabled(this.state.selectedPlayer)}
                                     />
                                 )
                             }}
                             onRowClick={(event, rowData, togglePanel) => this.toggleAndSetSelected(togglePanel, rowData)}
-                            options={{detailPanelType: "single"}}
+                            options={{
+                                detailPanelType: "single",
+                                rowStyle: rowData => ({
+                                    backgroundColor: rowData.id == this.state.selectedPlayer.id ? '#0000FF' : !rowData.isAvailable ? '#EEE' : '#FFFFFF'
+                                })
+                            }}
                         />
                     </div>
                 </Container>
