@@ -119,7 +119,7 @@
     <!-- ModelMapper Dependencies End --> 
   </dependencies>  
   <build> 
-    <finalName>superdraftfantasy</finalName>
+    <finalName>superdraftfantasy-backend</finalName>
     <plugins> 
       <!-- SpringBoot Plugin - To enable boot with Maven -->  
       <plugin> 
