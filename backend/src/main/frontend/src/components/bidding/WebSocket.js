@@ -15,7 +15,7 @@ class WebSocket extends React.Component {
     }
 
     connect = () => {
-        const sockJS = new SockJS("http://localhost:8080/api-superdraftfantasy/superdraftfantasy-websocket");
+        const sockJS = new SockJS("http://localhost:8080/websocket");
         stompClient = Stomp.over(sockJS);
         stompClient.connect({}, this.onConnected, this.onError);
     };

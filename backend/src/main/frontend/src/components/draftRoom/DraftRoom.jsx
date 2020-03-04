@@ -85,7 +85,7 @@ class DraftRoom extends React.Component {
     }
 
     connect = () => {
-        const sockJS = new SockJS("http://localhost:8080/api-superdraftfantasy/superdraftfantasy-websocket");
+        const sockJS = new SockJS("http://localhost:8080/websocket");
         stompClient = Stomp.over(sockJS);
         stompClient.debug = null;
         stompClient.connect({}, this.onConnected, this.onError);
@@ -309,8 +309,6 @@ class DraftRoom extends React.Component {
         let updatedBlock = this.state.block;
         updatedBlock.onTheBlockCoach = onTheBlockCoach;
         this.setState({block: updatedBlock});
-        console.log('Block Set: ', updatedBlock);
-        console.log('Change to test Production Build Pipeline 2.');
     }
 
     getPlayers = () => {
@@ -353,7 +351,7 @@ class DraftRoom extends React.Component {
     };
 
     setCurrentCoach = () => {
-        const currentCoach = this.state.coaches.find(coach => coach.username === AuthService.getCurrentUser());
+        const currentCoach = this.state.coaches.find(coach => coach.username == AuthService.getCurrentUser());
         this.setState({currentCoach: currentCoach});
     };
 
@@ -457,7 +455,7 @@ class DraftRoom extends React.Component {
                 <MyTeam 
                     playerList={this.state.coaches[4].team.players}
                     roster={this.state.draftDetails.roster}
-                    teamId={this.state.currentCoach.id}
+                    teamId={this.state.currentCoach ? this.state.currentCoach.id : null}
                     setVacantPositions={this.setVacantPositions}
                 />
             </div>

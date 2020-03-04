@@ -1,7 +1,7 @@
 import axios from 'axios';
 import AuthService from "../login/AuthService";
 
-const baseUrl = process.env.REACT_APP_API_URL + '/api-superdraftfantasy';
+const baseUrl = process.env.REACT_APP_API_URL;
 
 class DraftService {
 
