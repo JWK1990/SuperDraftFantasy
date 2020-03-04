@@ -1,0 +1,30 @@
+app.message: This is the property file for the ${spring.application.name} specific to PROD Environment.
+
+spring:
+  flyway:
+    locations: classpath:/db/migration,classpath:/db/afterMigrate
+  jpa:
+    database: POSTGRESQL
+    show-sql: true
+    ddl-auto: none
+    properties:
+      hibernate:
+        temp:
+          use_jdbc_metadata_defaults: false # Used to avoid boot up exception. See https://stackoverflow.com/questions/49110818/method-org-postgresql-jdbc-pgconnection-createclob-is-not-yet-implemented
+
+  datasource:
+    platform: postgres
+    url: jdbc:postgresql://superdraftfantasy.cvl5kjlcuelp.ap-southeast-2.rds.amazonaws.com:5432/superdraftfantasy
+    username: sdadmin
+    password: sdadmin123
+    driverClassName: org.postgresql.Driver
+
+server:
+  port: 8080
+
+logging:
+  level:
+    org:
+      springframework:
+        boot:
+          autoconfigure: ERROR
