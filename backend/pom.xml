@@ -119,7 +119,7 @@
     <!-- ModelMapper Dependencies End --> 
   </dependencies>  
   <build> 
-    <finalName>superdraftfantasy-backend</finalName>  
+    <finalName>superdraftfantasy</finalName>
     <plugins> 
       <!-- SpringBoot Plugin - To enable boot with Maven -->  
       <plugin> 
@@ -160,7 +160,7 @@
           <schemaVersion>V2</schemaVersion>
           <resourceGroup>superdraftfantasy</resourceGroup>
           <appName>superdraftfantasy</appName>
-          <pricingTier>F</pricingTier>
+          <pricingTier>F1</pricingTier>
           <region>australiasoutheast</region>
           <appSettings>
             <property>
