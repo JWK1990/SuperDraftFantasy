@@ -23,5 +23,5 @@ steps:
 
 - task: PublishPipelineArtifact@1
   inputs:
-    targetPath: 'backend/target/superdraftfantasy-backend.jar'
+    targetPath: 'backend/target/app.jar'
     publishLocation: 'pipeline'
