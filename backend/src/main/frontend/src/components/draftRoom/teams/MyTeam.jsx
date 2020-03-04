@@ -156,7 +156,6 @@ class MyTeam extends Component {
     }
 
     componentDidMount() {
-        console.log(this.state.playerList);
         this.props.setVacantPositions(this.state.playerList);
     }
 

@@ -18,7 +18,9 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
 
     @Override
     public void registerStompEndpoints(StompEndpointRegistry registry) {
-        registry.addEndpoint("/superdraftfantasy-websocket").setAllowedOrigins("http://localhost:3000").withSockJS();
+        registry.addEndpoint("/websocket")
+                .setAllowedOrigins("http://localhost:3000", "http://localhost:8080", "http://superdraftfantasy.azurewebsites.net", "http://superdraftfantasy.com")
+                .withSockJS();
     }
 
 }
