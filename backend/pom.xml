@@ -126,7 +126,7 @@
         <groupId>org.springframework.boot</groupId>  
         <artifactId>spring-boot-maven-plugin</artifactId> 
       </plugin>  
-      <!-- Groovy Test Plugin - To enable running of tests with Groovy -->  
+      <!-- Groovy Test Plugin - To enable running of tests with Groovy. -->
       <plugin> 
         <groupId>org.codehaus.gmavenplus</groupId>  
         <artifactId>gmavenplus-plugin</artifactId>  
