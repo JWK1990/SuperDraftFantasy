@@ -21,12 +21,18 @@
   <profiles>
     <profile>
       <id>dev</id>
+      <properties>
+        <activatedProperties>dev</activatedProperties>
+      </properties>
       <activation>
         <activeByDefault>true</activeByDefault>
       </activation>
     </profile>
     <profile>
       <id>prod</id>
+      <properties>
+        <activatedProperties>prod</activatedProperties>
+      </properties>
     </profile>
   </profiles>
   <dependencies> 
@@ -162,41 +168,6 @@
           <skipTests>true</skipTests> 
         </configuration> 
       </plugin>
-      <!-- Azure Web App Plugin Start for deploying a Production Build to Azure Web App (May not be needed as we do this via a Azure DevOps Pipeline. -->
-      <plugin> 
-        <groupId>com.microsoft.azure</groupId>  
-        <artifactId>azure-webapp-maven-plugin</artifactId>  
-        <version>1.9.0</version>  
-        <configuration>
-          <schemaVersion>V2</schemaVersion>
-          <resourceGroup>superdraftfantasy</resourceGroup>
-          <appName>superdraftfantasy</appName>
-          <pricingTier>F1</pricingTier>
-          <region>australiasoutheast</region>
-          <appSettings>
-            <property>
-              <name>JAVA_OPTS</name>
-              <value>-Dserver.port=80</value>
-            </property>
-          </appSettings>
-          <runtime>
-            <os>linux</os>
-            <javaVersion>java11</javaVersion>
-            <webContainer>java11</webContainer>
-          </runtime>
-          <deployment>
-            <resources>
-              <resource>
-                <directory>${project.basedir}/target</directory>
-                <includes>
-                  <include>*.jar</include>
-                </includes>
-              </resource>
-            </resources>
-          </deployment>
-        </configuration>
-      </plugin>
-      <!-- Azure Web App Plugin End. -->
       <!-- Frontend Maven Plugin Start for building the FE as part of the BE Build. -->
       <!-- See guide here https://medium.com/@itzgeoff/including-react-in-your-spring-boot-maven-build-ae3b8f8826e -->
       <plugin>
