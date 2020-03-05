@@ -454,7 +454,7 @@ class DraftRoom extends React.Component {
                     vacantPositions={this.state.vacantPositions}
                 />
                 <MyTeam 
-                    playerList={this.state.coaches[4].team.players}
+                    playerList={this.state.coaches[0].team.players}
                     roster={this.state.draftDetails.roster}
                     teamId={this.state.currentCoach ? this.state.currentCoach.id : null}
                     setVacantPositions={this.setVacantPositions}
