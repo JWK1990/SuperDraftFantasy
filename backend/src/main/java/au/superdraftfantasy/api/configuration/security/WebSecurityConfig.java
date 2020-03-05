@@ -67,7 +67,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 "http://localhost:8080",
                 "http://localhost:80",
                 "http://superdraftfantasy.azurewebsites.net",
-                "https://superdraftfantasy.azurewebsites.net"
+                "https://superdraftfantasy.azurewebsites.net",
+                "http://superdraftfantasy.com",
+                "https://superdraftfantasy.com"
         ));
         corsConfiguration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"));
         corsConfiguration.setAllowedHeaders(Arrays.asList("authorization", "content-type", "x-auth-token"));
