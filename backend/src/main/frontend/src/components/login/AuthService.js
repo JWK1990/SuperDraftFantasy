@@ -1,6 +1,7 @@
 import axios from 'axios';
+import ConfigurationHelper from '../utilities/ConfigurationHelper.js';
 
-const baseUrl = process.env.REACT_APP_API_URL;
+const baseUrl = ConfigurationHelper.getBaseUrl();
 
 class AuthService {
 

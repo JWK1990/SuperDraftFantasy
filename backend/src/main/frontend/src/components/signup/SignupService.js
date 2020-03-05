@@ -1,4 +1,6 @@
-const baseUrl = process.env.REACT_APP_API_URL + '/users';
+import ConfigurationHelper from '../utilities/ConfigurationHelper.js';
+
+const baseUrl = ConfigurationHelper.getBaseUrl();
 
 function parseJSON(response) {
     return new Promise((resolve) => response.json()

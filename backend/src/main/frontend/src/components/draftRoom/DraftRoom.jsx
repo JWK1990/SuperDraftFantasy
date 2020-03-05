@@ -7,6 +7,7 @@ import * as Stomp from 'stompjs';
 import * as SockJS from 'sockjs-client';
 import AuthService from '../login/AuthService';
 import { appendFileSync } from "fs";
+import ConfigurationHelper from '../utilities/ConfigurationHelper.js';
 
 let stompClient = null;
 
@@ -85,7 +86,7 @@ class DraftRoom extends React.Component {
     }
 
     connect = () => {
-        const sockJS = new SockJS(process.env.REACT_APP_API_URL + "/websocket");
+        const sockJS = new SockJS(ConfigurationHelper.getWebsocketUrl());
         stompClient = Stomp.over(sockJS);
         stompClient.debug = null;
         stompClient.connect({}, this.onConnected, this.onError);
