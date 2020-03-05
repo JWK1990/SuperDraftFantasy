@@ -1,4 +1,4 @@
-const baseUrl = '/users';
+const baseUrl = process.env.REACT_APP_API_URL + '/users';
 
 function parseJSON(response) {
     return new Promise((resolve) => response.json()

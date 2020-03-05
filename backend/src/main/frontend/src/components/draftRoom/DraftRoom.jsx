@@ -85,7 +85,7 @@ class DraftRoom extends React.Component {
     }
 
     connect = () => {
-        const sockJS = new SockJS("http://localhost:8080/websocket");
+        const sockJS = new SockJS(process.env.REACT_APP_API_URL + "/websocket");
         stompClient = Stomp.over(sockJS);
         stompClient.debug = null;
         stompClient.connect({}, this.onConnected, this.onError);
