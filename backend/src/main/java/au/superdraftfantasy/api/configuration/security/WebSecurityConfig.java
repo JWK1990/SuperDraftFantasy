@@ -35,6 +35,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.cors().and().csrf().disable().authorizeRequests()
                 .antMatchers(HttpMethod.POST, SIGN_UP_URL).permitAll()
+                // TODO: Remove the below 3 lines when we get Spring Security working again.
+                .antMatchers(HttpMethod.GET).permitAll()
+                .antMatchers(HttpMethod.POST).permitAll()
+                .antMatchers(HttpMethod.PUT).permitAll()
                 .antMatchers("/websocket/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
@@ -54,23 +58,23 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         auth.userDetailsService(userDetailsService).passwordEncoder(bCryptPasswordEncoder);
     }
 
-  @Bean
-  CorsConfigurationSource corsConfigurationSource() {
-      CorsConfiguration corsConfiguration = new CorsConfiguration().applyPermitDefaultValues();
-      // TODO: May need to update to SuperDraftFantasy URL.
-      corsConfiguration.setAllowedOrigins(Arrays.asList(
-              "http://localhost:3000",
-              "http://localhost:8080",
-              "http://localhost:80",
-              "http://superdraftfantasy.azurewebsites.net",
-              "https://superdraftfantasy.azurewebsites.net"
-      ));
-      corsConfiguration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"));
-      corsConfiguration.setAllowedHeaders(Arrays.asList("authorization", "content-type", "x-auth-token"));
-      corsConfiguration.setAllowCredentials(true);
-      corsConfiguration.setExposedHeaders(Arrays.asList("Authorization"));
-      final UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-      source.registerCorsConfiguration("/**", corsConfiguration);
-      return source;
-  }
+    @Bean
+    CorsConfigurationSource corsConfigurationSource() {
+        CorsConfiguration corsConfiguration = new CorsConfiguration().applyPermitDefaultValues();
+        // TODO: May need to update to SuperDraftFantasy URL.
+        corsConfiguration.setAllowedOrigins(Arrays.asList(
+                "http://localhost:3000",
+                "http://localhost:8080",
+                "http://localhost:80",
+                "http://superdraftfantasy.azurewebsites.net",
+                "https://superdraftfantasy.azurewebsites.net"
+        ));
+        corsConfiguration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"));
+        corsConfiguration.setAllowedHeaders(Arrays.asList("authorization", "content-type", "x-auth-token"));
+        corsConfiguration.setAllowCredentials(true);
+        corsConfiguration.setExposedHeaders(Arrays.asList("Authorization"));
+        final UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        source.registerCorsConfiguration("/**", corsConfiguration);
+        return source;
+    }
 }
