@@ -34,10 +34,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.cors().and().csrf().disable().authorizeRequests()
-                .antMatchers(HttpMethod.GET, SIGN_UP_URL).permitAll()
+                .antMatchers(HttpMethod.POST, SIGN_UP_URL).permitAll()
                 .antMatchers("/websocket/**").permitAll()
-                // TODO: Set the below matcher to match the Login and Signup Routes (currently they're both on the Home Route).
-                .antMatchers(HttpMethod.GET).permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .addFilter(new JWTAuthenticationFilter(authenticationManager()))
@@ -60,7 +58,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
   CorsConfigurationSource corsConfigurationSource() {
       CorsConfiguration corsConfiguration = new CorsConfiguration().applyPermitDefaultValues();
       // TODO: May need to update to SuperDraftFantasy URL.
-      corsConfiguration.setAllowedOrigins(Arrays.asList("http://localhost:3000", "http://localhost:8080", "http://superdraftfantasy.azurewebsites.net", "http://superdraftfantasy.com"));
+      corsConfiguration.setAllowedOrigins(Arrays.asList(
+              "http://localhost:3000",
+              "http://localhost:8080",
+              "http://localhost:80",
+              "http://superdraftfantasy.azurewebsites.net",
+              "https://superdraftfantasy.azurewebsites.net"
+      ));
       corsConfiguration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"));
       corsConfiguration.setAllowedHeaders(Arrays.asList("authorization", "content-type", "x-auth-token"));
       corsConfiguration.setAllowCredentials(true);

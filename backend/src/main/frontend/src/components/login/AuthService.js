@@ -1,15 +1,13 @@
 import axios from 'axios';
 
-const baseUrl = process.env.REACT_APP_API_URL;
-
 class AuthService {
 
     signup(user) {
-        return axios.post(baseUrl + "/users/sign-up", user);
+        return axios.post("/users/sign-up", user);
     }
 
     login(credentials){
-        return axios.post(baseUrl + "/login", credentials);
+        return axios.post("/login", credentials);
     }
 
     setToken(token) {
