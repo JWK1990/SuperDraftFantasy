@@ -141,6 +141,7 @@ class DraftRoom extends React.Component {
                 player: '',
                 team: this.getTeamDetails(startNextRoundDetails.teamId),
                 bidPrice: '',
+                isBidDisabled: true,
             }
         }));
         this.setOnTheBlockCoach();
@@ -166,15 +167,17 @@ class DraftRoom extends React.Component {
         clearInterval(this.addToBlockTimerInterval);
         clearInterval(this.bidTimerInterval);
         const addToBlockDetails = JSON.parse(payload.body);
-        const playerDetails = this.getPlayerDetails(addToBlockDetails.playerId);
+        const player = this.getPlayerDetails(addToBlockDetails.playerId);
+        const bidPrice = addToBlockDetails.bidPrice;
+        console.log("Add to block bidDisabled: ", this.getIsBidDisabled(bidPrice, player));    
         this.setState(prevState => ({
             ...prevState,
             block: {
                 ...prevState.block,
-                player: playerDetails,
+                player: player,
                 bidder: this.getTeamDetails(addToBlockDetails.teamId),
-                bidPrice: addToBlockDetails.bidPrice,
-                isBidDisabled: !this.isSlotAvailableForPlayer(playerDetails),
+                bidPrice: bidPrice,
+                isBidDisabled: this.getIsBidDisabled(bidPrice, player),
             }
         }));
         this.setBidTimer(addToBlockDetails.endTime);
@@ -184,14 +187,16 @@ class DraftRoom extends React.Component {
         clearInterval(this.addToBlockTimerInterval);
         clearInterval(this.bidTimerInterval);
         const bidDetails = JSON.parse(payload.body);
-        const playerDetails = this.state.block.player;
+        const player = this.state.block.player;
+        const bidPrice = bidDetails.bidPrice;
+        console.log("On bid recevied is bid disabled: ", !this.getIsBudgetAvailableForPlayer(bidPrice))
         this.setState(prevState => ({
             ...prevState,
             block: {
                 ...prevState.block,
                 bidder: this.getTeamDetails(bidDetails.teamId),
-                bidPrice: bidDetails.bidPrice,
-                isBidDisabled: !this.isSlotAvailableForPlayer(playerDetails),
+                bidPrice: bidPrice,
+                isBidDisabled: this.getIsBidDisabled(bidPrice, player),
             }
         }));
         this.setBidTimer(bidDetails.endTime);
@@ -315,18 +320,9 @@ class DraftRoom extends React.Component {
     }
 
     getMaxBid = (team) => {
-        let maxBid = team.budget;
-        if(team.players.length > 0) {
-            const roster = this.state.draftDetails.roster;
-            const numOfPlayersRequired = roster.def + roster.mid + roster.ruc + roster.fwd + roster.bench;
-            console.log(numOfPlayersRequired)
-            const numOfPlayersDrafted = team.players.length;
-            console.log(numOfPlayersDrafted)
-            const budget = team.budget;
-            console.log(numOfPlayersDrafted)
-            maxBid = budget - (numOfPlayersRequired - numOfPlayersDrafted -1);
-        }
-        return maxBid;
+        const numOfPlayersRequired = this.getNumOfSlotsPerTeam();
+        const numOfPlayersDrafted = team.players.length;
+        return team.budget - (numOfPlayersRequired - numOfPlayersDrafted -1);
     }
 
     setMaxBids = () => {
@@ -388,6 +384,24 @@ class DraftRoom extends React.Component {
         return this.state.coaches.find(coach => coach.id == currentCoachId).team.players;
     }
 
+    getCurrentCoachPlayerCount = () => {
+        const currentCoachId = this.state.currentCoachId;
+        return this.state.coaches.find(coach => coach.id == currentCoachId).team.players.length;
+    }
+
+    getCurrentCoachMaxBid = () => {
+        const currentCoachId = this.state.currentCoachId;
+        return this.state.coaches.find(coach => coach.id == currentCoachId).team.maxBid;
+    }
+
+    getNumOfSlotsPerTeam = () => {
+        const roster = this.state.draftDetails.roster;
+        return roster.def + roster.mid + roster.ruc + roster.fwd + roster.bench;
+    }
+
+    // 1. Sets/Updates the current coach's vacantPositions state.
+    // 2. Sets/Updates the isBidDisabled state.
+    // 3. Updates the bestAvailablePlayerId state.
     setVacantPositions = (playerList) => {
         const vacantPositionKeys = Object.keys(this.state.vacantPositions);
         const updatedVacantPositions = this.state.vacantPositions;
@@ -403,10 +417,9 @@ class DraftRoom extends React.Component {
             }
         }
         this.setState({updatedVacantPositions}, () => {
-            this.setIsBidDisabled();
+            this.setState({isBidDisabled: this.getIsBidDisabled()});
             this.setBestAvailablePlayerId();
         });
-
     };
 
     updateVacantPosition = (vacantPosition, vacant) => {
@@ -421,23 +434,46 @@ class DraftRoom extends React.Component {
 
     setBestAvailablePlayerId = () => {
         const updatedBestAvailablePlayerId = this.state.players.find(player => {
-            return player.isAvailable && this.isSlotAvailableForPlayer(player);
+            return player.isAvailable && this.getIsSlotAvailableForPlayer(player);
         }).id;
 
         this.setState({bestAvailablePlayerId: updatedBestAvailablePlayerId});
     }
 
-    setIsBidDisabled = () => {
-        let currentBlock = this.state.block;
-        currentBlock.isBidDisabled = !this.isSlotAvailableForPlayer(currentBlock.player);
-        this.setState({currentBlock});
+    getIsBidDisabled = (bidPrice, player) => {
+        console.log("Coach Max Bid: ", this.getCurrentCoachMaxBid());
+        console.log("Draft Budget: ", this.state.draftDetails.budget);
+        console.log("Bid Price: ", bidPrice);
+        console.log("Player: ", player);
+        if(bidPrice && player) {
+            return !this.getIsBudgetAvailableForPlayer(bidPrice) || !this.getIsSlotAvailableForPlayer(player);
+        }
+        return true;
     }
 
-    isSlotAvailableForPlayer = (player) => {
+    getIsBudgetAvailableForPlayer = (bidPrice) => {
+        if(this.getIsTeamFull()) {
+            return false;
+        }
+        const currentCoachMaxBid = this.getCurrentCoachMaxBid();
+        const nextBidPrice = bidPrice + 1;
+        return currentCoachMaxBid >= nextBidPrice;
+    }
+
+    getIsSlotAvailableForPlayer = (player) => {
+        if(this.getIsTeamFull()) {
+            return false;
+        }
         const benchSlotAvailable = this.state.vacantPositions["BENCH"];
         const primarySlotAvailable = this.state.vacantPositions[player.primaryPosition];
         const secondarySlotAvailable = player.secondaryPosition ? this.state.vacantPositions[player.secondaryPosition] : false;
         return benchSlotAvailable || primarySlotAvailable || secondarySlotAvailable;
+    };
+
+    getIsTeamFull = () => {
+        const currentCoachPlayerCount = this.getCurrentCoachPlayerCount();
+        const numOfSlotsPerTeam = this.getNumOfSlotsPerTeam();
+        return currentCoachPlayerCount >= numOfSlotsPerTeam;
     };
 
     setPlayersAvailability = (playerList, coachList) => {        
