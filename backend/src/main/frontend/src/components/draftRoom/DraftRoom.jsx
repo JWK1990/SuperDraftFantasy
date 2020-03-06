@@ -61,7 +61,7 @@ class DraftRoom extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            currentCoach: '',
+            currentCoachId: '',
             draftDetails: this.initialDraftDetails,
             coaches: this.initialCoaches,
             players: [],
@@ -110,7 +110,7 @@ class DraftRoom extends React.Component {
         if (stompClient) {
             const addToBlockDetails = {
                 playerId: selectedPlayerId,
-                teamId: this.state.currentCoach.id,
+                teamId: this.state.currentCoachId,
                 bidPrice: initialBid,
                 additionalTime: this.state.draftDetails.bidTimer,
             };
@@ -121,7 +121,7 @@ class DraftRoom extends React.Component {
     sendBid = () => {
         if (stompClient) {
             const bidDetails = {
-                teamId: this.state.currentCoach.id,
+                teamId: this.state.currentCoachId,
                 bidPrice: this.state.block.bidPrice + 1,
                 additionalTime: this.state.draftDetails.bidTimer
             };
@@ -352,12 +352,13 @@ class DraftRoom extends React.Component {
     };
 
     setCurrentCoach = () => {
-        const currentCoach = this.state.coaches.find(coach => coach.username == AuthService.getCurrentUser());
-        this.setState({currentCoach: currentCoach});
+        const currentCoachId = this.state.coaches.find(coach => coach.username == AuthService.getCurrentUser()).id;
+        this.setState({currentCoachId: currentCoachId});
     };
 
-    getCurrentCoachesPlayers = () => {
-        return this.state.coaches[0].team.players;
+    getCurrentCoachPlayers = () => {
+        const currentCoachId = this.state.currentCoachId;
+        return this.state.coaches.find(coach => coach.id == currentCoachId).team.players;
     }
 
     setVacantPositions = (playerList) => {
@@ -454,9 +455,9 @@ class DraftRoom extends React.Component {
                     vacantPositions={this.state.vacantPositions}
                 />
                 <MyTeam 
-                    playerList={this.state.coaches[0].team.players}
+                    playerList={this.getCurrentCoachPlayers()}
                     roster={this.state.draftDetails.roster}
-                    teamId={this.state.currentCoach ? this.state.currentCoach.id : null}
+                    teamId={this.state.currentCoachId}
                     setVacantPositions={this.setVacantPositions}
                 />
             </div>
