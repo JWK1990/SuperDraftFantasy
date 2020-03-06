@@ -433,6 +433,9 @@ class DraftRoom extends React.Component {
     }
 
     setBestAvailablePlayerId = () => {
+        if(this.getIsTeamFull()){
+            return;
+        }
         const updatedBestAvailablePlayerId = this.state.players.find(player => {
             return player.isAvailable && this.getIsSlotAvailableForPlayer(player);
         }).id;
