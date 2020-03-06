@@ -214,7 +214,9 @@ class DraftRoom extends React.Component {
             }));
             if(this.state.block.addToBlockTimeRemaining <= 0) {
                 clearInterval(this.addToBlockTimerInterval);
-                this.sendAddToBlock(this.state.bestAvailablePlayerId, 1);
+                if(this.state.currentCoachId == this.state.block.onTheBlockCoach) {
+                    this.sendAddToBlock(this.state.bestAvailablePlayerId, 1);
+                }
             }
         }, 1000);
     };
