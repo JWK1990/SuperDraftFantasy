@@ -317,9 +317,13 @@ class DraftRoom extends React.Component {
     getMaxBid = (team) => {
         let maxBid = team.budget;
         if(team.players.length > 0) {
-            const numOfPlayersRequired = this.state.draftDetails.roster;
+            const roster = this.state.draftDetails.roster;
+            const numOfPlayersRequired = roster.def + roster.mid + roster.ruc + roster.fwd + roster.bench;
+            console.log(numOfPlayersRequired)
             const numOfPlayersDrafted = team.players.length;
+            console.log(numOfPlayersDrafted)
             const budget = team.budget;
+            console.log(numOfPlayersDrafted)
             maxBid = budget - (numOfPlayersRequired - numOfPlayersDrafted -1);
         }
         return maxBid;
