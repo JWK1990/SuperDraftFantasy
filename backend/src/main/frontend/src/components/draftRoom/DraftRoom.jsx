@@ -38,6 +38,7 @@ class DraftRoom extends React.Component {
         name: '',
         budget: '',
         players: [],
+        maxBid: '',
     }
 
     initialBlock = {
@@ -294,6 +295,7 @@ class DraftRoom extends React.Component {
     setCoaches = (coachList) => {
         let coachDetails = [];
         coachList.forEach(coach => {
+            coach.team.maxBid = this.getMaxBid(coach.team);
             const coachToAdd = {
                 id: coach.id,
                 userId: coach.user.id,
@@ -310,6 +312,26 @@ class DraftRoom extends React.Component {
         let updatedBlock = this.state.block;
         updatedBlock.onTheBlockCoach = onTheBlockCoach;
         this.setState({block: updatedBlock});
+    }
+
+    getMaxBid = (team) => {
+        let maxBid = team.budget;
+        if(team.players.length > 0) {
+            const numOfPlayersRequired = this.state.draftDetails.roster;
+            const numOfPlayersDrafted = team.players.length;
+            const budget = team.budget;
+            maxBid = budget - (numOfPlayersRequired - numOfPlayersDrafted -1);
+        }
+        return maxBid;
+    }
+
+    setMaxBids = () => {
+        const updatedCoachList = this.state.coaches; 
+        updatedCoachList.forEach(coach => {
+            const team = coach.team;
+            team.maxBid = this.getMaxBid(team);
+        })
+        this.setState({coaches: updatedCoachList});
     }
 
     getPlayers = () => {
@@ -347,6 +369,7 @@ class DraftRoom extends React.Component {
     updateCoaches = (updatedTeam) => {
         let updatedCoaches = this.state.coaches;
         const indexOfWinningCoach = updatedCoaches.findIndex(coach => coach.team.id == updatedTeam.id);
+        updatedTeam.maxBid = this.getMaxBid(updatedTeam);
         updatedCoaches[indexOfWinningCoach].team = updatedTeam;
         this.setState({coaches: updatedCoaches});
     };
