@@ -20,7 +20,7 @@ spring:
     driverClassName: org.postgresql.Driver
 
 server:
-  port: 80
+  port: 8080
 
 logging:
   level:
