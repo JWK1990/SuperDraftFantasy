@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
-import DraftService from '../DraftService';
+import DraftService from '../../../services/DraftService';
 
 // fake data generator
 const getSlots = (count, offset = 0, position) => {

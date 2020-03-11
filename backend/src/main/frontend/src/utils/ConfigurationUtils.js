@@ -1,4 +1,4 @@
-class ConfigurationHelper {
+class ConfigurationUtils {
 
     getBaseUrl() {
         return process.env.NODE_ENV === 'production' ? "" : "http://localhost:8080";
@@ -10,4 +10,4 @@ class ConfigurationHelper {
 
 }
 
-export default new ConfigurationHelper();
+export default new ConfigurationUtils();
