@@ -7,6 +7,8 @@ import * as Stomp from 'stompjs';
 import * as SockJS from 'sockjs-client';
 import AuthService from '../../services/AuthService';
 import ConfigurationHelper from '../../utils/ConfigurationUtils.js';
+import { getDraft } from '../../store/actions/DraftActions';
+import { connect } from 'react-redux';
 
 let stompClient = null;
 
@@ -532,5 +534,6 @@ class DraftRoom extends React.Component {
     }
 
 };
+
 
 export default DraftRoom;
