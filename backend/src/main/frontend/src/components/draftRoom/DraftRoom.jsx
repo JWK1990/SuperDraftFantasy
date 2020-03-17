@@ -1,13 +1,14 @@
 import React from "react";
-import DraftService from "./DraftService";
+import DraftService from "../../services/DraftService";
 import DraftRoomPlayers from "./players/Players";
 import DraftRoomBlock from "./block/Block";
 import MyTeam from "./teams/MyTeam";
 import * as Stomp from 'stompjs';
 import * as SockJS from 'sockjs-client';
-import AuthService from '../login/AuthService';
-import { appendFileSync } from "fs";
-import ConfigurationHelper from '../utilities/ConfigurationHelper.js';
+import AuthService from '../../services/AuthService';
+import ConfigurationHelper from '../../utils/ConfigurationUtils.js';
+import { getDraft } from '../../store/actions/DraftActions';
+import { connect } from 'react-redux';
 
 let stompClient = null;
 
@@ -533,5 +534,6 @@ class DraftRoom extends React.Component {
     }
 
 };
+
 
 export default DraftRoom;

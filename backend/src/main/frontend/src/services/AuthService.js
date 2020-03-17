@@ -1,5 +1,5 @@
 import axios from 'axios';
-import ConfigurationHelper from '../utilities/ConfigurationHelper.js';
+import ConfigurationHelper from '../utils/ConfigurationUtils.js';
 
 const baseUrl = ConfigurationHelper.getBaseUrl();
 

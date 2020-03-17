@@ -9,7 +9,9 @@ import Box from '@material-ui/core/Box';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
-import AuthService from './AuthService';
+import AuthService from '../../services/AuthService';
+import {setUserAction} from "../../store/actions";
+import {connect} from "react-redux";
 
 class Login extends React.Component {
 
@@ -23,6 +25,10 @@ class Login extends React.Component {
       this.loginUser = this.loginUser.bind(this);
   }
 
+  setUser = (user) => {
+    this.props.setUser(user);
+  }
+
   loginUser = (e) => {
     e.preventDefault();
     let credentials = {
@@ -33,7 +39,8 @@ class Login extends React.Component {
     AuthService.login(credentials)
     .then(res => {
       if(res.status === 200) {
-        console.log("User Logged In.");
+        console.log("User Logged In.", res.data);
+        this.setUser(res.data);
         AuthService.setToken(res.headers.authorization);
         AuthService.setCurrentUser(credentials.username);
       } else {
@@ -115,4 +122,14 @@ class Login extends React.Component {
   }
 };
 
-export default Login;
+const mapStateToProps = state => {
+  return {
+    user: state.user
+  };
+};
+
+const mapDispatchToProps = dispatch => ({
+  setUser: (user) => dispatch(setUserAction(user))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

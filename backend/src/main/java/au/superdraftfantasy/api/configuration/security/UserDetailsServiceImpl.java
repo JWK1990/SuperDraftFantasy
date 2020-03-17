@@ -33,7 +33,18 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         UserEntity applicationUser = userRepository.findByUsername(username).orElseThrow(() -> new UsernameNotFoundException(username));
         Collection<? extends GrantedAuthority> authorities = getAuthorities(applicationUser.getRoles());
-        return new User(applicationUser.getUsername(), applicationUser.getPassword(), authorities);
+
+        AuthenticatedUserEntity authenticatedUser = new AuthenticatedUserEntity(
+                applicationUser.getUsername(),
+                applicationUser.getPassword(),
+                authorities,
+                applicationUser.getId(),
+                applicationUser.getFirstName(),
+                applicationUser.getLastName(),
+                applicationUser.getEmail()
+        );
+
+        return authenticatedUser;
     }
 
     private Collection<? extends GrantedAuthority> getAuthorities(Collection<RoleEntity> roles) {

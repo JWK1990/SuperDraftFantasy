@@ -6,6 +6,7 @@ import static au.superdraftfantasy.api.configuration.security.SecurityConstants.
 import static au.superdraftfantasy.api.configuration.security.SecurityConstants.TOKEN_PREFIX;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.UUID;
 
@@ -60,11 +61,23 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
                                             FilterChain chain,
                                             Authentication auth) throws IOException, ServletException {
 
+                                
+        ObjectMapper objectMapper = new ObjectMapper();
+        String authenticatedUserString = objectMapper.writeValueAsString(auth.getPrincipal());
+
+        PrintWriter printWriter = res.getWriter();
+
         String token = JWTUtils
                 .createJWT(UUID.randomUUID().toString(), // TODO check the issuer
                         DEFAULT_ISSUER,
                         ((User) auth.getPrincipal()).getUsername(),
                         EXPIRATION_TIME);
+
         res.addHeader(HEADER_STRING, TOKEN_PREFIX + token);
+        res.setContentType("application/json");
+        res.setCharacterEncoding("UTF-8");
+        printWriter.print(authenticatedUserString);
+        printWriter.flush();
+
     }
 }

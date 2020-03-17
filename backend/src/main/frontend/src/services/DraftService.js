@@ -1,6 +1,6 @@
 import axios from 'axios';
-import AuthService from "../login/AuthService";
-import ConfigurationHelper from '../utilities/ConfigurationHelper.js';
+import AuthService from "./AuthService";
+import ConfigurationHelper from '../utils/ConfigurationUtils.js';
 
 const baseUrl = ConfigurationHelper.getBaseUrl();
 
