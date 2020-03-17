@@ -39,7 +39,7 @@ class Login extends React.Component {
     AuthService.login(credentials)
     .then(res => {
       if(res.status === 200) {
-        console.log("User Logged In.");
+        console.log("User Logged In.", res.data);
         this.setUser(res.data);
         AuthService.setToken(res.headers.authorization);
         AuthService.setCurrentUser(credentials.username);
@@ -129,7 +129,7 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  setUser: () => dispatch(setUserAction())
+  setUser: (user) => dispatch(setUserAction(user))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);
