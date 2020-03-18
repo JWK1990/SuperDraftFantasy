@@ -1,27 +1,20 @@
 package au.superdraftfantasy.api.role;
 
-import java.util.Collection;
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import au.superdraftfantasy.api.privilege.PrivilegeEntity;
 import au.superdraftfantasy.api.user.UserEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+
+import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@EqualsAndHashCode(exclude={"users", "privileges"})
 public class RoleEntity {
 
     @Id
@@ -32,13 +25,13 @@ public class RoleEntity {
     private RoleTypeEnum type;
 
     @ManyToMany(fetch = FetchType.LAZY, mappedBy = "roles", cascade = CascadeType.ALL)
-    private Collection<UserEntity> users;
+    private Set<UserEntity> users;
 
     @ManyToMany
     @JoinTable(
             name = "role_privilege_join",
             joinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "privilege_id", referencedColumnName = "id"))
-    private Collection<PrivilegeEntity> privileges;
+    private Set<PrivilegeEntity> privileges;
 
 }

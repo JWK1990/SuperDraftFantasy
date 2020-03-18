@@ -1,17 +1,5 @@
 package au.superdraftfantasy.api.draft;
 
-import java.util.List;
-import java.util.concurrent.atomic.AtomicInteger;
-
-import javax.validation.constraints.NotBlank;
-
-import org.modelmapper.ModelMapper;
-import org.springframework.http.HttpStatus;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.stereotype.Service;
-import org.springframework.web.server.ResponseStatusException;
-
 import au.superdraftfantasy.api.coach.CoachEntity;
 import au.superdraftfantasy.api.coach.CoachReadDto;
 import au.superdraftfantasy.api.coach.CoachTypeEnum;
@@ -20,6 +8,16 @@ import au.superdraftfantasy.api.roster.RosterRepository;
 import au.superdraftfantasy.api.team.TeamEntity;
 import au.superdraftfantasy.api.user.UserEntity;
 import au.superdraftfantasy.api.user.UserRepository;
+import org.modelmapper.ModelMapper;
+import org.springframework.http.HttpStatus;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
+
+import javax.validation.constraints.NotBlank;
+import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
 
 
 @Service

@@ -1,22 +1,8 @@
 package au.superdraftfantasy.api.configuration.security;
 
-import static au.superdraftfantasy.api.configuration.security.SecurityConstants.DEFAULT_ISSUER;
-import static au.superdraftfantasy.api.configuration.security.SecurityConstants.EXPIRATION_TIME;
-import static au.superdraftfantasy.api.configuration.security.SecurityConstants.HEADER_STRING;
-import static au.superdraftfantasy.api.configuration.security.SecurityConstants.TOKEN_PREFIX;
-
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.UUID;
-
-import javax.servlet.FilterChain;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
+import au.superdraftfantasy.api.user.UserEntity;
 import com.fasterxml.jackson.databind.ObjectMapper;
-
+import org.modelmapper.ModelMapper;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -24,15 +10,33 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-import au.superdraftfantasy.api.user.UserEntity;
+import javax.servlet.FilterChain;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.UUID;
+
+import static au.superdraftfantasy.api.configuration.security.SecurityConstants.*;
 
 
 public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
 
     private AuthenticationManager authenticationManager;
+    private final ObjectMapper objectMapper;
+    private final ModelMapper modelMapper;
 
-    public JWTAuthenticationFilter(AuthenticationManager authenticationManager) {
+
+    public JWTAuthenticationFilter(
+            AuthenticationManager authenticationManager,
+            ObjectMapper objectMapper,
+            ModelMapper modelMapper
+    ) {
         this.authenticationManager = authenticationManager;
+        this.objectMapper = objectMapper;
+        this.modelMapper = modelMapper;
     }
 
     // TODO - Add tests for JWT Security.
@@ -41,7 +45,7 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
     public Authentication attemptAuthentication(HttpServletRequest req,
                                                 HttpServletResponse res) throws AuthenticationException {
         try {
-            UserEntity creds = new ObjectMapper()
+            UserEntity creds = objectMapper
                     .readValue(req.getInputStream(), UserEntity.class);
 
             return authenticationManager.authenticate(
@@ -62,8 +66,8 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
                                             Authentication auth) throws IOException, ServletException {
 
                                 
-        ObjectMapper objectMapper = new ObjectMapper();
-        String authenticatedUserString = objectMapper.writeValueAsString(auth.getPrincipal());
+        AuthenticatedUserReadDto authenticatedUserReadDto = modelMapper.map(auth.getPrincipal(), AuthenticatedUserReadDto.class);
+        String authenticatedUserString = objectMapper.writeValueAsString(authenticatedUserReadDto);
 
         PrintWriter printWriter = res.getWriter();
 
@@ -78,6 +82,5 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
         res.setCharacterEncoding("UTF-8");
         printWriter.print(authenticatedUserString);
         printWriter.flush();
-
     }
 }
