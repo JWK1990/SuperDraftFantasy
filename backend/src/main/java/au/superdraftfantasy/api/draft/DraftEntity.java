@@ -2,6 +2,7 @@ package au.superdraftfantasy.api.draft;
 
 import au.superdraftfantasy.api.coach.CoachEntity;
 import au.superdraftfantasy.api.roster.RosterEntity;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -31,7 +32,7 @@ public class DraftEntity {
     @NotNull
     private Long numOfTeams;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "roster_id")
     private RosterEntity roster;
 
@@ -45,6 +46,7 @@ public class DraftEntity {
     private Long bidTimer;
 
     @OneToMany(mappedBy = "draft", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference(value="draft-coach")
     private List<CoachEntity> coaches = new ArrayList<CoachEntity>();
 
     @NotNull
