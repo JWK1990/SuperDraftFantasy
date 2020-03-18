@@ -1,19 +1,18 @@
 package au.superdraftfantasy.api.user;
 
-import java.util.Arrays;
-import java.util.List;
-
-import javax.validation.constraints.NotBlank;
-
+import au.superdraftfantasy.api.role.RoleEntity;
+import au.superdraftfantasy.api.role.RoleRepository;
+import au.superdraftfantasy.api.role.RoleTypeEnum;
 import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
-import au.superdraftfantasy.api.role.RoleEntity;
-import au.superdraftfantasy.api.role.RoleRepository;
-import au.superdraftfantasy.api.role.RoleTypeEnum;
+import javax.validation.constraints.NotBlank;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 
 @Service
@@ -55,10 +54,10 @@ public class UserService {
         return user;
     }
 
-    private List<RoleEntity> getInitialRoles() {
+    private Set<RoleEntity> getInitialRoles() {
         RoleTypeEnum initialRoleType = RoleTypeEnum.USER;
         RoleEntity initialRole = roleRepository.findByType(initialRoleType).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Initial Role Type Not Found."));
-        return Arrays.asList(initialRole);
+        return new HashSet <>(Arrays.asList(initialRole));
     }
 
     private void checkUserValidity(UserEntity user) {

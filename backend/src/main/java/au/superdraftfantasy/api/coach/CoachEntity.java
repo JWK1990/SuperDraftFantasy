@@ -38,7 +38,7 @@ public class CoachEntity {
     @JoinColumn(name = "draft_id")
     private DraftEntity draft;
 
-    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     @PrimaryKeyJoinColumn
     private TeamEntity team;
 

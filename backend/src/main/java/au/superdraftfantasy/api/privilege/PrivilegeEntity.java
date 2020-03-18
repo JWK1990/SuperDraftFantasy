@@ -1,21 +1,12 @@
 package au.superdraftfantasy.api.privilege;
 
-import java.util.Collection;
-
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-
 import au.superdraftfantasy.api.role.RoleEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Data
@@ -31,6 +22,6 @@ public class PrivilegeEntity {
     private PrivilegeTypeEnum type;
 
     @ManyToMany(fetch = FetchType.LAZY, mappedBy = "privileges", cascade = CascadeType.ALL)
-    private Collection<RoleEntity> roles;
+    private Set<RoleEntity> roles;
 
 }
