@@ -12,52 +12,45 @@ import Container from '@material-ui/core/Container';
 import AuthService from '../../services/AuthService';
 import {setUserAction} from "../../store/actions";
 import {connect} from "react-redux";
+import {userActions} from "../../store/actions/UserActions";
 
 class Login extends React.Component {
 
   constructor(props) {
       super(props);
+
+      // reset login state.
+      this.props.logout();
+
       this.state ={
           username: '',
           password: '',
-          errorText: '',
+          submitted: false,
       }
-      this.loginUser = this.loginUser.bind(this);
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  setUser = (user) => {
-    this.props.setUser(user);
+  handleChange(e) {
+    const { name, value } = e.target;
+    this.setState({ [name]: value });
   }
 
-  loginUser = (e) => {
+  handleSubmit(e) {
     e.preventDefault();
-    let credentials = {
-      username: this.state.username,
-      password: this.state.password,
-    };
 
-    AuthService.login(credentials)
-    .then(res => {
-      if(res.status === 200) {
-        console.log("User Logged In.", res.data);
-        this.setUser(res.data);
-        AuthService.setToken(res.headers.authorization);
-        AuthService.setCurrentUser(credentials.username);
-      } else {
-        console.log(res);
-        this.setState({errorText: res.data.message});
-      }
-    })
-    .catch(error => {
-      console.log(error);
-    });
-  }
-
-  onChange = (e) => {
-    this.setState({ [e.target.name]: e.target.value });
+    this.setState({ submitted: true });
+    const { username, password } = this.state;
+    if (username && password) {
+      this.props.login(username, password);
+    }
   }
 
   render() {
+    const { loggingIn } = this.props;
+    const { username, password, submitted } = this.state;
+
     return (
       <Container component="main" maxWidth="xs">
         <CssBaseline />
@@ -78,8 +71,8 @@ class Login extends React.Component {
                   variant="outlined"
                   required
                   fullWidth
-                  value={this.state.username}
-                  onChange={this.onChange}
+                  value={username}
+                  onChange={this.handleChange}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -92,8 +85,8 @@ class Login extends React.Component {
                   autoComplete="current-password"
                   required
                   fullWidth
-                  value={this.state.password}
-                  onChange={this.onChange}
+                  value={password}
+                  onChange={this.handleChange}
                 />
               </Grid>
             </Grid>
@@ -103,7 +96,7 @@ class Login extends React.Component {
               color="primary"
               className="submit"
               fullWidth
-              onClick={this.loginUser}
+              onClick={this.handleSubmit}
             >
               Sign Up
             </Button>
@@ -122,14 +115,15 @@ class Login extends React.Component {
   }
 };
 
-const mapStateToProps = state => {
-  return {
-    user: state.user
-  };
+function mapState(state) {
+  const { loggingIn } = state.authentication;
+  return { loggingIn };
+}
+
+const actionCreators = {
+  login: userActions.login,
+  logout: userActions.logout
 };
 
-const mapDispatchToProps = dispatch => ({
-  setUser: (user) => dispatch(setUserAction(user))
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(Login);
+const connectedLoginPage = connect(mapState, actionCreators)(Login);
+export { connectedLoginPage as Login };

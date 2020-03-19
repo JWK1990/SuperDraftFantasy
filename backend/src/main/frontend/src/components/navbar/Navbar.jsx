@@ -7,6 +7,7 @@ import Signup from '../signup';
 import Login from '../login';
 import SwipeableViews from 'react-swipeable-views';
 import {Link} from "react-router-dom";
+import LoginContainer from "../login/LoginContainer";
 
 const useStyles = makeStyles(theme => ({
   root: {

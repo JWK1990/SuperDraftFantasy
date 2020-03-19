@@ -1,4 +1,4 @@
-import ConfigurationHelper from '../utils/ConfigurationUtils.js';
+import ConfigurationHelper from '../helpers/ConfigHelper.js';
 
 const baseUrl = ConfigurationHelper.getBaseUrl();
 

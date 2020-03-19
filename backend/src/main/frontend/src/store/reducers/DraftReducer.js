@@ -1,10 +1,7 @@
 import {GET_DRAFT} from "../actions";
+import { initialDraftRoomState } from "../InitialState";
 
-const initialState = {
-    draftId: undefined,
-};
-
-export function draftReducer(state = initialState, action) {
+export function draftReducer(state = initialDraftRoomState, action) {
     switch(action.type) {
 
         case GET_DRAFT:
