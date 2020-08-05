@@ -22,7 +22,7 @@ class DraftRoomPlayers extends Component {
 
         toggleAndSetSelected = (togglePanel, rowData) => {
             togglePanel();
-            if(this.state.selectedPlayer == rowData) {
+            if(this.state.selectedPlayer === rowData) {
                 this.setState({selectedPlayer: ''});
             } else {
                 this.setState({selectedPlayer: rowData});
@@ -65,7 +65,7 @@ class DraftRoomPlayers extends Component {
                             options={{
                                 detailPanelType: "single",
                                 rowStyle: rowData => ({
-                                    backgroundColor: rowData.id == this.state.selectedPlayer.id ? '#0000FF' : !rowData.isAvailable ? '#EEE' : '#FFFFFF'
+                                    backgroundColor: rowData.id === this.state.selectedPlayer.id ? '#0000FF' : !rowData.isAvailable ? '#EEE' : '#FFFFFF'
                                 })
                             }}
                         />

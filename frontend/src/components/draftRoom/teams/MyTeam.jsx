@@ -146,8 +146,8 @@ const getListStyle = isDraggingOver => ({
 class MyTeam extends Component {
 
     shouldComponentUpdate(nextProps, nextState) {
-        const playerListChange = nextProps.playerList != this.props.playerList;
-        const stateChange = nextState != this.state;
+        const playerListChange = nextProps.playerList !== this.props.playerList;
+        const stateChange = nextState !== this.state;
         return playerListChange || stateChange;
     }
 
@@ -160,7 +160,7 @@ class MyTeam extends Component {
     }
 
     componentWillUpdate(nextProps) {
-        const newPlayerReceived = nextProps.playerList.length != this.props.playerList.length;
+        const newPlayerReceived = nextProps.playerList.length !== this.props.playerList.length;
         if(newPlayerReceived) {
             const playerToBeAdded = nextProps.playerList[nextProps.playerList.length -1];
             const result = addToAvailableSlot(this.state.playerList, playerToBeAdded);
@@ -189,7 +189,7 @@ class MyTeam extends Component {
 
     isDropDisabled = (dropPosition) => {
         const isDropPositionVacant = this.state.playerList[dropPosition].findIndex(slot => slot.content.vacant) > -1;
-        const isDropPositionValid = dropPosition == "BENCH"
+        const isDropPositionValid = dropPosition === "BENCH"
                                     || dropPosition.includes(this.state.draggedPrimaryPosition)
                                     || dropPosition.includes(this.state.draggedSecondaryPosition);
         if(!isDropPositionVacant || !isDropPositionValid) {
