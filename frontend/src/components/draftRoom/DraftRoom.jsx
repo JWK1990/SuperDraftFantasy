@@ -7,6 +7,8 @@ import * as Stomp from 'stompjs';
 import * as SockJS from 'sockjs-client';
 import AuthService from '../../services/AuthService';
 import ConfigurationHelper from '../../utils/ConfigurationUtils.js';
+import {loadDraftAction} from "../../store/actions";
+import {connect} from "react-redux";
 
 let stompClient = null;
 
@@ -75,9 +77,16 @@ class DraftRoom extends React.Component {
         this.getDraft = this.getDraft.bind(this);
     }
 
+    loadDraft = (draftId) => {
+        this.props.loadDraft(draftId);
+    }
+
     async componentDidMount() {
 
         this.connect();
+
+        // TODO: Replace with draftId.
+        this.loadDraft(5);
 
         const draftDetails = await DraftService.getDraft(5);
         const playerDetails = await DraftService.getPlayers();
@@ -533,5 +542,14 @@ class DraftRoom extends React.Component {
 
 };
 
+const mapStateToProps = state => {
+    return {
+        draft: state.draft
+    };
+};
 
-export default DraftRoom;
+const mapDispatchToProps = dispatch => ({
+    loadDraft: (draftId) => dispatch(loadDraftAction(draftId))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(DraftRoom);

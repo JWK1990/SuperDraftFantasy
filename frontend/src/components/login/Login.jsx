@@ -9,48 +9,28 @@ import Box from '@material-ui/core/Box';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
-import AuthService from '../../services/AuthService';
-import {setUserAction} from "../../store/actions";
 import {connect} from "react-redux";
+import {loginAction} from "../../store/actions";
 
 class Login extends React.Component {
 
   constructor(props) {
       super(props);
-      this.state ={
+      this.state = {
           username: '',
           password: '',
           errorText: '',
       }
-      this.loginUser = this.loginUser.bind(this);
+      this.login = this.login.bind(this);
   }
 
-  setUser = (user) => {
-    this.props.setUser(user);
-  }
-
-  loginUser = (e) => {
+  login = (e) => {
     e.preventDefault();
     let credentials = {
       username: this.state.username,
       password: this.state.password,
     };
-
-    AuthService.login(credentials)
-    .then(res => {
-      if(res.status === 200) {
-        console.log("User Logged In.", res.data);
-        this.setUser(res.data);
-        AuthService.setToken(res.headers.authorization);
-        AuthService.setCurrentUser(credentials.username);
-      } else {
-        console.log(res);
-        this.setState({errorText: res.data.message});
-      }
-    })
-    .catch(error => {
-      console.log(error);
-    });
+    this.props.login(credentials);
   }
 
   onChange = (e) => {
@@ -103,7 +83,7 @@ class Login extends React.Component {
               color="primary"
               className="submit"
               fullWidth
-              onClick={this.loginUser}
+              onClick={this.login}
             >
               Sign Up
             </Button>
@@ -129,7 +109,7 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  setUser: (user) => dispatch(setUserAction(user))
+  login: (credentials) => dispatch(loginAction(credentials))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);

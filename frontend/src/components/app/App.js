@@ -26,7 +26,7 @@ export default function BasicExample() {
                         <Link to="/">Home</Link>
                     </li>
                     <li>
-                        <Link to="/draftRoom">About</Link>
+                        <Link to="/draftRoom">Draft Room</Link>
                     </li>
                 </ul>
 
