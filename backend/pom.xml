@@ -170,6 +170,7 @@
       </plugin>
       <!-- Frontend Maven Plugin Start for building the FE as part of the BE Build. -->
       <!-- See guide here https://medium.com/@itzgeoff/including-react-in-your-spring-boot-maven-build-ae3b8f8826e -->
+      <!--
       <plugin>
         <groupId>com.github.eirslett</groupId>
         <artifactId>frontend-maven-plugin</artifactId>
@@ -208,8 +209,10 @@
           </execution>
         </executions>
       </plugin>
+      -->
       <!-- Frontend Maven Plugin End. -->
       <!-- Maven Resources Plugin Start to output the Frontend Build to the required location. -->
+      <!--
       <plugin>
         <artifactId>maven-resources-plugin</artifactId>
         <version>3.0.1</version>
@@ -232,6 +235,7 @@
           </execution>
         </executions>
       </plugin>
+      -->
       <!-- Maven Resources Plugin End. -->
     </plugins>
   </build>

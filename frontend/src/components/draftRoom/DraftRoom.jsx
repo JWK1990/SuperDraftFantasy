@@ -7,8 +7,6 @@ import * as Stomp from 'stompjs';
 import * as SockJS from 'sockjs-client';
 import AuthService from '../../services/AuthService';
 import ConfigurationHelper from '../../utils/ConfigurationUtils.js';
-import { getDraft } from '../../store/actions/DraftActions';
-import { connect } from 'react-redux';
 
 let stompClient = null;
 
@@ -81,7 +79,7 @@ class DraftRoom extends React.Component {
 
         this.connect();
 
-        const draftDetails = await DraftService.getDraft(1);
+        const draftDetails = await DraftService.getDraft(5);
         const playerDetails = await DraftService.getPlayers();
 
         this.setInitialState(draftDetails, playerDetails);
@@ -215,7 +213,7 @@ class DraftRoom extends React.Component {
             }));
             if(this.state.block.addToBlockTimeRemaining <= 0) {
                 clearInterval(this.addToBlockTimerInterval);
-                if(this.state.currentCoachId == this.state.block.onTheBlockCoach) {
+                if(this.state.currentCoachId === this.state.block.onTheBlockCoach) {
                     this.sendAddToBlock(this.state.bestAvailablePlayerId, 1);
                 }
             }
@@ -371,30 +369,30 @@ class DraftRoom extends React.Component {
 
     updateCoaches = (updatedTeam) => {
         let updatedCoaches = this.state.coaches;
-        const indexOfWinningCoach = updatedCoaches.findIndex(coach => coach.team.id == updatedTeam.id);
+        const indexOfWinningCoach = updatedCoaches.findIndex(coach => coach.team.id === updatedTeam.id);
         updatedTeam.maxBid = this.getMaxBid(updatedTeam);
         updatedCoaches[indexOfWinningCoach].team = updatedTeam;
         this.setState({coaches: updatedCoaches});
     };
 
     setCurrentCoach = () => {
-        const currentCoachId = this.state.coaches.find(coach => coach.username == AuthService.getCurrentUser()).id;
+        const currentCoachId = this.state.coaches.find(coach => coach.username === AuthService.getCurrentUser()).id;
         this.setState({currentCoachId: currentCoachId});
     };
 
     getCurrentCoachPlayers = () => {
         const currentCoachId = this.state.currentCoachId;
-        return this.state.coaches.find(coach => coach.id == currentCoachId).team.players;
+        return this.state.coaches.find(coach => coach.id === currentCoachId).team.players;
     }
 
     getCurrentCoachPlayerCount = () => {
         const currentCoachId = this.state.currentCoachId;
-        return this.state.coaches.find(coach => coach.id == currentCoachId).team.players.length;
+        return this.state.coaches.find(coach => coach.id === currentCoachId).team.players.length;
     }
 
     getCurrentCoachMaxBid = () => {
         const currentCoachId = this.state.currentCoachId;
-        return this.state.coaches.find(coach => coach.id == currentCoachId).team.maxBid;
+        return this.state.coaches.find(coach => coach.id === currentCoachId).team.maxBid;
     }
 
     getNumOfSlotsPerTeam = () => {
@@ -486,7 +484,7 @@ class DraftRoom extends React.Component {
         playerList.forEach(player => {
             player.isAvailable = true;
             for(let i= 0; i < coachList.length; i++) {
-                const isDrafted = coachList[i].team.players.findIndex(draftedPlayer => draftedPlayer.id == player.id) > -1;
+                const isDrafted = coachList[i].team.players.findIndex(draftedPlayer => draftedPlayer.id === player.id) > -1;
                 if(isDrafted) {
                     player.isAvailable = false;
                     break;
@@ -497,7 +495,7 @@ class DraftRoom extends React.Component {
     };
 
     updatePlayerAvailability = (playerId) => {
-        let playerToUpdate = this.state.players.find(player => player.id == playerId);
+        let playerToUpdate = this.state.players.find(player => player.id === playerId);
         playerToUpdate.isAvailable = false;
         this.setState({playerToUpdate});
     }
