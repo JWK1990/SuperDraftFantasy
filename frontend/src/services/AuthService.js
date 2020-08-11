@@ -5,6 +5,11 @@ const baseUrl = ConfigurationHelper.getBaseUrl();
 
 class AuthService {
 
+    constructor() {
+        axios.defaults.baseURL = ConfigurationHelper.getBaseUrl();
+        axios.defaults.headers.common['Authorization'] = this.getToken();
+    }
+
     signup(user) {
         return axios.post(baseUrl + "/users/sign-up", user);
     }
@@ -13,8 +18,8 @@ class AuthService {
         return axios.post(baseUrl + "/login", credentials);
     }
 
-    getUser(username) {
-        return axios.get(baseUrl + "/users/" + username);
+    getAuthenticatedUser() {
+        return axios.get(baseUrl + "/users/me");
     }
 
     setToken(token) {
@@ -23,14 +28,6 @@ class AuthService {
     
     getToken(){
         return JSON.parse(localStorage.getItem("token"));
-    }
-
-    setCurrentUser(currentUser) {
-        localStorage.setItem("currentUser", JSON.stringify(currentUser));
-    }
-
-    getCurrentUser(){
-        return JSON.parse(localStorage.getItem("currentUser"));
     }
 
 }

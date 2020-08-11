@@ -1,13 +1,10 @@
-import React, {Component} from "react";
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Link
-} from "react-router-dom";
+import React from "react";
+import {BrowserRouter as Router, Link, Route, Switch} from "react-router-dom";
 import Navbar from "../navbar";
 import DraftRoom from "../draftRoom";
 import AuthService from "../../services/AuthService";
+import {getCurrentUserAction} from "../../store/actions";
+import {connect} from "react-redux";
 
 // This site has 3 pages, all of which are rendered
 // dynamically in the browser (not server rendered).
@@ -18,11 +15,16 @@ import AuthService from "../../services/AuthService";
 // making sure things like the back button and bookmarks
 // work properly.
 
-class App extends Component {
+class App extends React.Component {
+
+    constructor(props) {
+        super(props);
+    }
 
     componentDidMount() {
-        AuthService.getUser('Test123')
-            .then(res => console.log(res));
+        if(AuthService.getToken()) {
+            this.props.getCurrentUser();
+        }
     }
 
     render() {
@@ -61,4 +63,14 @@ class App extends Component {
     };
 }
 
-export default App;
+const mapStateToProps = state => {
+    return {
+        user: state.user
+    };
+};
+
+const mapDispatchToProps = dispatch => ({
+    getCurrentUser: () => dispatch(getCurrentUserAction())
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

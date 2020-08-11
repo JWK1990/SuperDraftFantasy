@@ -385,7 +385,7 @@ class DraftRoom extends React.Component {
     };
 
     setCurrentCoach = () => {
-        const currentCoachId = this.state.coaches.find(coach => coach.username === AuthService.getCurrentUser()).id;
+        const currentCoachId = this.state.coaches.find(coach => coach.username === AuthService.getAuthenticatedUser()).id;
         this.setState({currentCoachId: currentCoachId});
     };
 

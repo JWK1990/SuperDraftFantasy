@@ -2,7 +2,6 @@ package au.superdraftfantasy.api.user;
 
 import au.superdraftfantasy.api.configuration.security.AuthenticatedUserReadDto;
 import au.superdraftfantasy.api.configuration.security.JWTUtils;
-import org.modelmapper.ModelMapper;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,7 +17,7 @@ public class UserController {
 
     private final UserService userService;
 
-    public UserController(UserService userService, ModelMapper modelMapper) {
+    public UserController(UserService userService) {
         this.userService = userService;
     }
 
