@@ -11,7 +11,6 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import javax.servlet.FilterChain;
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -52,7 +51,8 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
                     new UsernamePasswordAuthenticationToken(
                             creds.getUsername(),
                             creds.getPassword(),
-                            new ArrayList<>())
+                            new ArrayList<>()
+                    )
             );
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -63,19 +63,19 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
     protected void successfulAuthentication(HttpServletRequest req,
                                             HttpServletResponse res,
                                             FilterChain chain,
-                                            Authentication auth) throws IOException, ServletException {
+                                            Authentication auth) throws IOException {
 
-                                
         AuthenticatedUserReadDto authenticatedUserReadDto = modelMapper.map(auth.getPrincipal(), AuthenticatedUserReadDto.class);
         String authenticatedUserString = objectMapper.writeValueAsString(authenticatedUserReadDto);
 
         PrintWriter printWriter = res.getWriter();
 
-        String token = JWTUtils
-                .createJWT(UUID.randomUUID().toString(), // TODO check the issuer
-                        DEFAULT_ISSUER,
-                        ((User) auth.getPrincipal()).getUsername(),
-                        EXPIRATION_TIME);
+        String token = JWTUtils.createJWT(
+                UUID.randomUUID().toString(), // TODO check the issuer
+                DEFAULT_ISSUER,
+                ((User) auth.getPrincipal()).getUsername(),
+                EXPIRATION_TIME
+        );
 
         res.addHeader(HEADER_STRING, TOKEN_PREFIX + token);
         res.setContentType("application/json");

@@ -102,7 +102,7 @@ class UserServiceSpec extends Specification {
         1 * modelMapper.map(user, UserReadDto.class) >> userReadDto
 
         when: "A call to the getUser method is made"
-        UserReadDto response = userService.getUser(username)
+        UserReadDto response = userService.getCurrentUser(username)
 
         then: "The UserEntity found by the Repository should be returned as a UserReadDto"
         response == userReadDto
@@ -114,7 +114,7 @@ class UserServiceSpec extends Specification {
         0 * modelMapper.map(user, UserReadDto.class)
 
         when: "A call to the getUser method is made"
-        userService.getUser(username)
+        userService.getCurrentUser(username)
 
         then: "An Exception should be thrown"
         ResponseStatusException exception = thrown(ResponseStatusException)

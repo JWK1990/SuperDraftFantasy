@@ -13,6 +13,10 @@ class AuthService {
         return axios.post(baseUrl + "/login", credentials);
     }
 
+    getUser(username) {
+        return axios.get(baseUrl + "/users/" + username);
+    }
+
     setToken(token) {
         localStorage.setItem("token", JSON.stringify(token));
     }

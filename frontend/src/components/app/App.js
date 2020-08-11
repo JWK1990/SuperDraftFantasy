@@ -1,4 +1,4 @@
-import React from "react";
+import React, {Component} from "react";
 import {
     BrowserRouter as Router,
     Switch,
@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 import Navbar from "../navbar";
 import DraftRoom from "../draftRoom";
+import AuthService from "../../services/AuthService";
 
 // This site has 3 pages, all of which are rendered
 // dynamically in the browser (not server rendered).
@@ -17,37 +18,47 @@ import DraftRoom from "../draftRoom";
 // making sure things like the back button and bookmarks
 // work properly.
 
-export default function BasicExample() {
-    return (
-        <Router>
-            <div>
-                <ul>
-                    <li>
-                        <Link to="/">Home</Link>
-                    </li>
-                    <li>
-                        <Link to="/draftRoom">Draft Room</Link>
-                    </li>
-                </ul>
+class App extends Component {
 
-                <hr />
+    componentDidMount() {
+        AuthService.getUser('Test123')
+            .then(res => console.log(res));
+    }
 
-        {/*
-          A <Switch> looks through all its children <Route>
-          elements and renders the first one whose path
-          matches the current URL. Use a <Switch> any time
-          you have multiple routes, but you want only one
-          of them to render at a time
-        */}
-                <Switch>
-                    <Route exact path="/">
-                        <Navbar />
-                    </Route>
-                    <Route path="/draftRoom">
-                        <DraftRoom />
-                    </Route>
-                </Switch>
-            </div>
-        </Router>
-    );
+    render() {
+        return (
+            <Router>
+                <div>
+                    <ul>
+                        <li>
+                            <Link to="/">Home</Link>
+                        </li>
+                        <li>
+                            <Link to="/draftRoom">Draft Room</Link>
+                        </li>
+                    </ul>
+
+                    <hr/>
+
+                    {/*
+              A <Switch> looks through all its children <Route>
+              elements and renders the first one whose path
+              matches the current URL. Use a <Switch> any time
+              you have multiple routes, but you want only one
+              of them to render at a time
+            */}
+                    <Switch>
+                        <Route exact path="/">
+                            <Navbar/>
+                        </Route>
+                        <Route path="/draftRoom">
+                            <DraftRoom/>
+                        </Route>
+                    </Switch>
+                </div>
+            </Router>
+        )
+    };
 }
+
+export default App;
