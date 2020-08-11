@@ -5,6 +5,8 @@ import DraftRoom from "../draftRoom";
 import AuthService from "../../services/AuthService";
 import {getCurrentUserAction} from "../../store/actions";
 import {connect} from "react-redux";
+import axios from "axios";
+import ConfigurationHelper from "../../utils/ConfigurationUtils";
 
 // This site has 3 pages, all of which are rendered
 // dynamically in the browser (not server rendered).
@@ -19,6 +21,9 @@ class App extends React.Component {
 
     constructor(props) {
         super(props);
+        // Define axios defaults to attach baseURL and Authorization Header to all requests.
+        axios.defaults.baseURL = ConfigurationHelper.getBaseUrl();
+        axios.defaults.headers.common['Authorization'] = AuthService.getToken();
     }
 
     componentDidMount() {
