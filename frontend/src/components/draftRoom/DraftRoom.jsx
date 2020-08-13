@@ -5,7 +5,6 @@ import DraftRoomBlock from "./block/Block";
 import MyTeam from "./teams/MyTeam";
 import * as Stomp from 'stompjs';
 import * as SockJS from 'sockjs-client';
-import AuthService from '../../services/AuthService';
 import ConfigurationHelper from '../../utils/ConfigurationUtils.js';
 import {loadDraftAction} from "../../store/actions";
 import {connect} from "react-redux";
@@ -13,26 +12,6 @@ import {connect} from "react-redux";
 let stompClient = null;
 
 class DraftRoom extends React.Component {
-
-    initialDraftDetails = {
-        id: '',
-        name: '',
-        numOfTeam: '',
-        roster: '',
-        status: '',
-        budget: '',
-        onTheBlockTimer: '',
-        bidTimer: '',
-        onTheBlockCoachId: '',
-    }
-
-    initialCoaches = {
-        teamId: '',
-        userId: '',
-        username: '',
-        commissioner: '',
-        team: this.initialTeam,
-    }
 
     initialTeam = {
         id: '',
@@ -64,8 +43,6 @@ class DraftRoom extends React.Component {
         super(props);
         this.state = {
             currentCoachId: '',
-            draftDetails: this.initialDraftDetails,
-            coaches: this.initialCoaches,
             players: [],
             block: this.initialBlock,
             vacantPositions: this.initialVacantPositions,
@@ -81,17 +58,18 @@ class DraftRoom extends React.Component {
         this.props.loadDraft(draftId);
     }
 
-    async componentDidMount() {
-
+    componentDidMount() {
         this.connect();
-
         // TODO: Replace with draftId.
         this.loadDraft(5);
+    }
 
-        const draftDetails = await DraftService.getDraft(5);
-        const playerDetails = await DraftService.getPlayers();
-
-        this.setInitialState(draftDetails, playerDetails);
+    async componentDidUpdate(prevProps) {
+        if(this.props.draft !== prevProps.draft) {
+            console.log("New Draft Props.");
+            const playerDetails = await DraftService.getPlayers();
+            this.setInitialState(this.props.draft, playerDetails);
+        }
     }
 
     connect = () => {
@@ -111,7 +89,7 @@ class DraftRoom extends React.Component {
     sendStartNextRound = () => {
         // TODO: Add condition to check if Draft is still active.
         if (stompClient) {
-            stompClient.send("/app/startNextRound", {}, JSON.stringify({additionalTime: this.state.draftDetails.onTheBlockTimer}));
+            stompClient.send("/app/startNextRound", {}, JSON.stringify({additionalTime: this.props.draft.onTheBlockTimer}));
         }
     }
 
@@ -121,7 +99,7 @@ class DraftRoom extends React.Component {
                 playerId: selectedPlayerId,
                 teamId: this.state.currentCoachId,
                 bidPrice: initialBid,
-                additionalTime: this.state.draftDetails.bidTimer,
+                additionalTime: this.props.draft.bidTimer,
             };
             stompClient.send("/app/addToBlock", {}, JSON.stringify(addToBlockDetails));
         }
@@ -132,7 +110,7 @@ class DraftRoom extends React.Component {
             const bidDetails = {
                 teamId: this.state.currentCoachId,
                 bidPrice: this.state.block.bidPrice + 1,
-                additionalTime: this.state.draftDetails.bidTimer
+                additionalTime: this.props.draft.bidTimer
             };
             stompClient.send("/app/bid", {}, JSON.stringify(bidDetails));
         }
@@ -157,7 +135,7 @@ class DraftRoom extends React.Component {
     };
 
     setOnTheBlockCoach = () => {
-        const coaches = this.state.coaches;
+        const coaches = this.props.draft.coaches;
         let draftedPlayerCount = 0;
         coaches.forEach(coach => draftedPlayerCount += coach.team.players.length);
         let currentRound = Math.floor(draftedPlayerCount/coaches.length);
@@ -251,7 +229,7 @@ class DraftRoom extends React.Component {
     };
 
     getTeamDetails = (teamId) => {
-        return this.state.coaches.find(coach => coach.team.id === teamId);
+        return this.props.draft.coaches.find(coach => coach.team.id === teamId);
     };
 
     onError = (error) => {
@@ -266,14 +244,12 @@ class DraftRoom extends React.Component {
         }
     };
 
-    setInitialState = (draftData, playerData) => {
-        this.setDraftDetails(draftData.data);
-        this.setCoaches(draftData.data.coaches);
-        this.setBlock(draftData.data.onTheBlockCoachId);
-        this.setCurrentCoach(draftData.data);
+    setInitialState = (draft, playerData) => {
+        this.setBlock(draft.onTheBlockCoachId);
+        this.setCurrentCoach(draft);
 
         const playersList = playerData.data;
-        this.setPlayersAvailability(playersList, this.state.coaches);
+        this.setPlayersAvailability(playersList, this.props.draft.coaches);
         this.setState({players: playersList})
 
         this.setState({isDataLoaded: true});
@@ -293,36 +269,6 @@ class DraftRoom extends React.Component {
             });
     };
 
-    setDraftDetails = (draft) => {
-        const draftDetails = {
-            id: draft.id,
-            name: draft.name,
-            numOfTeams: draft.numOfTeams,
-            roster: draft.roster,
-            status: draft.status,
-            budget: draft.budget,
-            onTheBlockTimer: draft.onTheBlockTimer,
-            bidTimer: draft.bidTimer,
-        }
-        this.setState({draftDetails: draftDetails});
-    }
-
-    setCoaches = (coachList) => {
-        let coachDetails = [];
-        coachList.forEach(coach => {
-            coach.team.maxBid = this.getMaxBid(coach.team);
-            const coachToAdd = {
-                id: coach.id,
-                userId: coach.user.id,
-                username: coach.user.username,
-                commissioner: coach.type === "COMMISSIONER",
-                team: coach.team,
-            }
-            coachDetails.push(coachToAdd);
-        });
-        this.setState({coaches: coachDetails});
-    }
-
     setBlock = (onTheBlockCoach) => {
         let updatedBlock = this.state.block;
         updatedBlock.onTheBlockCoach = onTheBlockCoach;
@@ -336,7 +282,7 @@ class DraftRoom extends React.Component {
     }
 
     setMaxBids = () => {
-        const updatedCoachList = this.state.coaches; 
+        const updatedCoachList = this.props.draft.coaches;
         updatedCoachList.forEach(coach => {
             const team = coach.team;
             team.maxBid = this.getMaxBid(team);
@@ -349,7 +295,7 @@ class DraftRoom extends React.Component {
             .then(response => {
                 if(response.status === 200) {
                     const playersList = response.data;
-                    this.setPlayersAvailability(playersList, this.state.coaches);
+                    this.setPlayersAvailability(playersList, this.props.draft.coaches);
                     this.setState({players: playersList})
                 } else {
                     this.setState({errorText: response.data.message});
@@ -377,35 +323,36 @@ class DraftRoom extends React.Component {
     };
 
     updateCoaches = (updatedTeam) => {
-        let updatedCoaches = this.state.coaches;
+        let updatedCoaches = this.props.draft.coaches;
         const indexOfWinningCoach = updatedCoaches.findIndex(coach => coach.team.id === updatedTeam.id);
         updatedTeam.maxBid = this.getMaxBid(updatedTeam);
         updatedCoaches[indexOfWinningCoach].team = updatedTeam;
         this.setState({coaches: updatedCoaches});
     };
 
-    setCurrentCoach = () => {
-        const currentCoachId = this.state.coaches.find(coach => coach.username === AuthService.getAuthenticatedUser()).id;
+    setCurrentCoach = (draft) => {
+        console.log(draft.coaches);
+        const currentCoachId = draft.coaches.find(coach => coach.user.username === this.props.user.username).id;
         this.setState({currentCoachId: currentCoachId});
     };
 
     getCurrentCoachPlayers = () => {
         const currentCoachId = this.state.currentCoachId;
-        return this.state.coaches.find(coach => coach.id === currentCoachId).team.players;
+        return this.props.draft.coaches.find(coach => coach.id === currentCoachId).team.players;
     }
 
     getCurrentCoachPlayerCount = () => {
         const currentCoachId = this.state.currentCoachId;
-        return this.state.coaches.find(coach => coach.id === currentCoachId).team.players.length;
+        return this.props.draft.coaches.find(coach => coach.id === currentCoachId).team.players.length;
     }
 
     getCurrentCoachMaxBid = () => {
         const currentCoachId = this.state.currentCoachId;
-        return this.state.coaches.find(coach => coach.id === currentCoachId).team.maxBid;
+        return this.props.draft.coaches.find(coach => coach.id === currentCoachId).team.maxBid;
     }
 
     getNumOfSlotsPerTeam = () => {
-        const roster = this.state.draftDetails.roster;
+        const roster = this.props.draft.roster;
         return roster.def + roster.mid + roster.ruc + roster.fwd + roster.bench;
     }
 
@@ -455,7 +402,7 @@ class DraftRoom extends React.Component {
 
     getIsBidDisabled = (bidPrice, player) => {
         console.log("Coach Max Bid: ", this.getCurrentCoachMaxBid());
-        console.log("Draft Budget: ", this.state.draftDetails.budget);
+        console.log("Draft Budget: ", this.props.draft.budget);
         console.log("Bid Price: ", bidPrice);
         console.log("Player: ", player);
         if(bidPrice && player) {
@@ -517,7 +464,7 @@ class DraftRoom extends React.Component {
         return (
             <div>
                 <div>
-                    <p>Draft Details: {this.state.draftDetails.name}</p>
+                    <p>Draft Details: {this.props.draft.name}</p>
                     <p>Current OTB Coach: {this.state.block.onTheBlockCoach}</p>
                 </div>
                 <DraftRoomBlock
@@ -532,7 +479,7 @@ class DraftRoom extends React.Component {
                 />
                 <MyTeam 
                     playerList={this.getCurrentCoachPlayers()}
-                    roster={this.state.draftDetails.roster}
+                    roster={this.props.draft.roster}
                     teamId={this.state.currentCoachId}
                     setVacantPositions={this.setVacantPositions}
                 />
@@ -544,7 +491,8 @@ class DraftRoom extends React.Component {
 
 const mapStateToProps = state => {
     return {
-        draft: state.draft
+        user: state.user.data,
+        draft: state.draft.data
     };
 };
 

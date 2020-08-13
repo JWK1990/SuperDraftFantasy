@@ -9,7 +9,7 @@ import {
 const initialState = {
     loading: false,
     error: null,
-    user: null,
+    data: null,
 };
 
 export function userReducer(state = initialState, action) {
@@ -28,7 +28,7 @@ export function userReducer(state = initialState, action) {
                 ...state,
                 loading: false,
                 error: null,
-                user: action.payload
+                data: action.payload
             };
 
         case LOGIN_FAILURE:
