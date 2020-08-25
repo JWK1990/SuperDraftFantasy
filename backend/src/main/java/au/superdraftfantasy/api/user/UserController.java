@@ -33,7 +33,6 @@ public class UserController {
     @ResponseBody
     public AuthenticatedUserReadDto getCurrentUser(Authentication authentication) {
         return userService.getCurrentUser(authentication);
-
     }
 
 }

@@ -1,12 +1,12 @@
 package au.superdraftfantasy.api.draft;
 
-import java.util.List;
-
-import au.superdraftfantasy.api.coach.CoachReadDto;
 import au.superdraftfantasy.api.roster.RosterReadDto;
+import au.superdraftfantasy.api.team.TeamReadDto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -29,7 +29,7 @@ public class DraftReadDto {
 
     private Long bidTimer;
 
-    private List<CoachReadDto> coaches;
+    private List<TeamReadDto> teams;
 
     private Long onTheBlockCoachId;
 

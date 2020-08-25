@@ -1,33 +1,39 @@
 import DraftService from "../../services/DraftService";
 
-export const LOAD_DRAFT_STARTED = 'LOAD_DRAFT_STARTED';
-export const LOAD_DRAFT_SUCCESS = 'LOAD_DRAFT_SUCCESS';
-export const LOAD_DRAFT_FAILURE = 'LOAD_DRAFT_FAILURE';
+export const GET_DRAFT_STARTED = 'GET_DRAFT_STARTED';
+export const GET_DRAFT_SUCCESS = 'GET_DRAFT_SUCCESS';
+export const GET_DRAFT_FAILURE = 'GET_DRAFT_FAILURE';
+export const UPDATE_TEAM = 'UPDATE_TEAM';
 
-export const loadDraftAction = (draftId) => {
+export const getDraftAction = (draftId) => {
     return dispatch => {
-        dispatch(loadDraftStartedAction());
+        dispatch(getDraftStartedAction());
 
         DraftService.getDraft(draftId)
             .then(res => {
-                dispatch(loadDraftSuccessAction(res.data))
+                dispatch(getDraftSuccessAction(res.data))
             })
             .catch(err => {
-                dispatch(loadDraftFailureAction(err.message))
+                dispatch(getDraftFailureAction(err.message))
             })
     }
 }
 
-export const loadDraftStartedAction = () => ({
-    type: LOAD_DRAFT_STARTED
+export const getDraftStartedAction = () => ({
+    type: GET_DRAFT_STARTED
 });
 
-export const loadDraftSuccessAction = draft => ({
-    type: LOAD_DRAFT_SUCCESS,
+export const getDraftSuccessAction = draft => ({
+    type: GET_DRAFT_SUCCESS,
     payload: draft
 });
 
-export const loadDraftFailureAction = error => ({
-    type: LOAD_DRAFT_FAILURE,
+export const getDraftFailureAction = error => ({
+    type: GET_DRAFT_FAILURE,
     payload: error
 });
+
+export const updateTeamAction = team => ({
+    type: UPDATE_TEAM,
+    payload: team
+})

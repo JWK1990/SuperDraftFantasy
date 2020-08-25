@@ -67,34 +67,26 @@ CREATE TABLE draft_entity (
     CONSTRAINT fk_status_id FOREIGN KEY(status_id) REFERENCES draft_status_enum(id)
 );
 
-CREATE TABLE coach_type_enum (
+CREATE TABLE team_type_enum (
     id BIGSERIAL PRIMARY KEY,
     type varchar NOT NULL
 );
 
-CREATE TABLE coach_entity (
+CREATE TABLE team_entity (
     id BIGSERIAL,
+    name VARCHAR(255) NOT NULL,
     type_id INT NOT NULL,
+    budget INT NOT NULL,
+    on_the_block BOOLEAN NOT NULL DEFAULT FALSE,
     user_id INT NOT NULL,
     draft_id INT,
     created_on TIMESTAMP NOT NULL,
     updated_on TIMESTAMP NOT NULL,
 
-    CONSTRAINT pk_coach_entity PRIMARY KEY(id),
-    CONSTRAINT fk_type_id FOREIGN KEY(type_id) REFERENCES coach_type_enum(id),
+    CONSTRAINT pk_team_entity PRIMARY KEY(id),
+    CONSTRAINT fk_type_id FOREIGN KEY(type_id) REFERENCES team_type_enum(id),
     CONSTRAINT fk_user_id FOREIGN KEY(user_id) REFERENCES user_entity(id) ON DELETE CASCADE ON UPDATE CASCADE,
     CONSTRAINT fk_draft_id FOREIGN KEY(draft_id) REFERENCES draft_entity(id) ON DELETE CASCADE ON UPDATE CASCADE
-);
-
-CREATE TABLE team_entity (
-    coach_id INT NOT NULL,
-    name VARCHAR(255) NOT NULL,
-    budget INT NOT NULL,
-    created_on TIMESTAMP NOT NULL,
-    updated_on TIMESTAMP NOT NULL,
-
-    CONSTRAINT pk_team_entity PRIMARY KEY(coach_id),
-    CONSTRAINT fk_team_entity FOREIGN KEY (coach_id) REFERENCES coach_entity(id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE afl_teams_enum (
@@ -130,9 +122,10 @@ CREATE TABLE team_player_join_entity (
     id BIGSERIAL,
     team_id INT,
     player_id INT,
+    price INT,
     my_team_position VARCHAR(255),
 
-    CONSTRAINT fk_team_id FOREIGN KEY (team_id) REFERENCES team_entity(coach_id),
+    CONSTRAINT fk_team_id FOREIGN KEY (team_id) REFERENCES team_entity(id),
     CONSTRAINT fk_player_id FOREIGN KEY (player_id) REFERENCES player_entity(id)
 );
 

@@ -1,12 +1,11 @@
 package au.superdraftfantasy.api.teamPlayerJoin;
 
-import java.util.Optional;
-
+import au.superdraftfantasy.api.team.TeamEntity;
+import au.superdraftfantasy.api.player.PlayerEntity;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import au.superdraftfantasy.api.player.PlayerEntity;
-import au.superdraftfantasy.api.team.TeamEntity;
+import java.util.Optional;
 
 @Repository
 public interface TeamPlayerJoinRepository extends CrudRepository<TeamPlayerJoinEntity, Long> {

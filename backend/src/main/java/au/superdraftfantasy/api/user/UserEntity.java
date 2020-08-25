@@ -1,6 +1,6 @@
 package au.superdraftfantasy.api.user;
 
-import au.superdraftfantasy.api.coach.CoachEntity;
+import au.superdraftfantasy.api.team.TeamEntity;
 import au.superdraftfantasy.api.role.RoleEntity;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
@@ -56,6 +56,6 @@ public class UserEntity {
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference(value="user-coach")
-    private List<CoachEntity> coaches;
+    private List<TeamEntity> coaches;
 
 }

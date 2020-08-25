@@ -6,8 +6,8 @@ class DraftService {
         return axios.get("/drafts/" + draftId);
     }
 
-    getPlayers() {
-        return axios.get("/players");
+    getPlayersByDraft(draftId) {
+        return axios.get("/players/draft/" + draftId);
     }
 
     draftPlayer(teamId, playerId, salePrice) {

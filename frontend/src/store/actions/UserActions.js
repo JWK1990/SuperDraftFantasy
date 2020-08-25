@@ -1,5 +1,39 @@
 import AuthService from "../../services/AuthService";
 
+/* SIGN_UP Actions. */
+export const SIGN_UP_STARTED = 'SIGN_UP_STARTED';
+export const SIGN_UP_SUCCESS = 'SIGN_UP_SUCCESS';
+export const SIGN_UP_FAILURE = 'SIGN_UP_FAILURE';
+
+export const signUpAction = (user) => {
+    return dispatch => {
+        dispatch(signUpStartedAction());
+
+        AuthService.signUp(user)
+            .then(res => {
+                dispatch(signUpSuccessAction(res.data));
+                AuthService.setToken(res.headers.authorization);
+            })
+            .catch(err => {
+                dispatch(signUpFailureAction(err.message));
+            })
+    }
+}
+
+export const signUpStartedAction = () => ({
+    type: SIGN_UP_STARTED
+});
+
+export const signUpSuccessAction = user => ({
+    type: SIGN_UP_SUCCESS,
+    payload: user
+});
+
+export const signUpFailureAction = error => ({
+    type: SIGN_UP_FAILURE,
+    payload: error
+});
+
 /* LOGIN Actions. */
 export const LOGIN_STARTED = 'LOGIN_STARTED';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';

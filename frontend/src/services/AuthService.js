@@ -2,7 +2,7 @@ import axios from 'axios';
 
 class AuthService {
 
-    signup(user) {
+    signUp(user) {
         return axios.post("/users/sign-up", user);
     }
 

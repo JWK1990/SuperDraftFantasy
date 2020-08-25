@@ -1,12 +1,12 @@
 package au.superdraftfantasy.api.draft
 
 import au.superdraftfantasy.api.TestData
-import au.superdraftfantasy.api.coach.CoachEntity
-import au.superdraftfantasy.api.coach.CoachReadDto
-import au.superdraftfantasy.api.coach.CoachTypeEnum
+import au.superdraftfantasy.api.team.TeamEntity
+import au.superdraftfantasy.api.team.TeamReadDto
+import au.superdraftfantasy.api.team.TeamTypeEnum
 import au.superdraftfantasy.api.roster.RosterEntity
 import au.superdraftfantasy.api.roster.RosterRepository
-import au.superdraftfantasy.api.team.TeamEntity
+
 import au.superdraftfantasy.api.user.UserEntity
 import au.superdraftfantasy.api.user.UserRepository
 import org.modelmapper.ModelMapper
@@ -41,11 +41,10 @@ class DraftServiceSpec extends Specification {
     Long draftID = 1L
     String draftName = "Test Draft 1"
     UserEntity user = TestData.User.create(1L, "username")
-    TeamEntity team = TestData.Team.create(1l, "Test Team 1", null)
-    CoachEntity coach = TestData.Coach.createCommissioner(1L, user, null, team)
+    TeamEntity team = TestData.Team.createCommissioner(1L, user, null)
     RosterEntity roster = TestData.Roster.create(1L, "11111", 1, 1, 1, 1, 1)
     DraftWriteDto draftWriteDto = TestData.Draft.createDraftWriteDto(draftID, draftName)
-    DraftEntity draft = TestData.Draft.create(draftID, draftName, null, new ArrayList<CoachEntity>())
+    DraftEntity draft = TestData.Draft.create(draftID, draftName, null, new ArrayList<TeamEntity>())
     DraftReadDto draftReadDto = TestData.mapObjectToClass(draft, DraftReadDto.class)
 
     def setup() {
@@ -54,7 +53,7 @@ class DraftServiceSpec extends Specification {
 
     def "findDraft should return a DraftReadDto if given a valid draftID" () {
         given: "Mocked Methods (for a valid draftID)"
-        draftReadDto.getCoaches().add(TestData.mapObjectToClass(coach, CoachReadDto.class))
+        draftReadDto.getTeams().add(TestData.mapObjectToClass(team, TeamReadDto.class))
         1 * draftRepository.findById(draftID) >> Optional.of(draft)
         1 * modelMapper.map(draft, DraftReadDto.class) >> draftReadDto
 
@@ -92,10 +91,10 @@ class DraftServiceSpec extends Specification {
 
         then: "The Draft should be saved with the current User as Commissioner and the status IN_SETUP and the Draft ID returned"
         1 * draftRepository.save(draft) >> draft
-        List<CoachEntity> coaches = draft.getCoaches()
+        List<TeamEntity> coaches = draft.getTeams()
         coaches.size() == 1L
         coaches.first().user == user
-        coaches.first().type == CoachTypeEnum.COMMISSIONER
+        coaches.first().type == TeamTypeEnum.COMMISSIONER
         draft.getStatus() == DraftStatusEnum.IN_SETUP
         response == draft.getId()
     }

@@ -17,7 +17,7 @@ class DraftRoomPlayers extends Component {
             const primarySlotVacant = this.props.vacantPositions[player.primaryPosition];
             const secondarySlotVacant = this.props.vacantPositions[player.secondaryPosition];
 
-            return !player.isAvailable || (!benchSlotVacant && !primarySlotVacant && !secondarySlotVacant);
+            return !player.available || (!benchSlotVacant && !primarySlotVacant && !secondarySlotVacant);
         }
 
         toggleAndSetSelected = (togglePanel, rowData) => {
@@ -65,7 +65,7 @@ class DraftRoomPlayers extends Component {
                             options={{
                                 detailPanelType: "single",
                                 rowStyle: rowData => ({
-                                    backgroundColor: rowData.id === this.state.selectedPlayer.id ? '#0000FF' : !rowData.isAvailable ? '#EEE' : '#FFFFFF'
+                                    backgroundColor: rowData.id === this.state.selectedPlayer.id ? '#0000FF' : !rowData.available ? '#EEE' : '#FFFFFF'
                                 })
                             }}
                         />
