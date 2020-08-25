@@ -1,23 +1,20 @@
 package au.superdraftfantasy.api.configuration.security;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-
-import javax.transaction.Transactional;
-
+import au.superdraftfantasy.api.privilege.PrivilegeEntity;
+import au.superdraftfantasy.api.role.RoleEntity;
+import au.superdraftfantasy.api.user.UserEntity;
+import au.superdraftfantasy.api.user.UserRepository;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import au.superdraftfantasy.api.privilege.PrivilegeEntity;
-import au.superdraftfantasy.api.role.RoleEntity;
-import au.superdraftfantasy.api.user.UserEntity;
-import au.superdraftfantasy.api.user.UserRepository;
+import javax.transaction.Transactional;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
@@ -34,7 +31,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         UserEntity applicationUser = userRepository.findByUsername(username).orElseThrow(() -> new UsernameNotFoundException(username));
         Collection<? extends GrantedAuthority> authorities = getAuthorities(applicationUser.getRoles());
 
-        AuthenticatedUserEntity authenticatedUser = new AuthenticatedUserEntity(
+        return new AuthenticatedUserEntity(
                 applicationUser.getUsername(),
                 applicationUser.getPassword(),
                 authorities,
@@ -44,7 +41,6 @@ public class UserDetailsServiceImpl implements UserDetailsService {
                 applicationUser.getEmail()
         );
 
-        return authenticatedUser;
     }
 
     private Collection<? extends GrantedAuthority> getAuthorities(Collection<RoleEntity> roles) {

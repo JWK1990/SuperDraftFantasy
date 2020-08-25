@@ -9,19 +9,21 @@ import Box from '@material-ui/core/Box';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
-import AuthService from '../../services/AuthService';
+import {signUpAction} from "../../store/actions";
+import {userErrorSelector, userSelector} from "../../store/selectors/UserSelectors";
+import {connect} from "react-redux";
+
 
 class Signup extends React.Component {
 
   constructor(props) {
       super(props);
-      this.state ={
+      this.state = {
           firstName: '',
           lastName: '',
           username: '',
           email: '',
-          password: '',
-          errorText: '',
+          password: ''
       }
       this.saveUser = this.saveUser.bind(this);
   }
@@ -35,22 +37,7 @@ class Signup extends React.Component {
         email: this.state.email,
         password: this.state.password,
       };
-
-      AuthService.signup(user)
-      .then(res => {
-        if(res.status === 200) {
-          console.log("User Signed Up.");
-          AuthService.setToken(res.headers.authorization);
-          AuthService.setCurrentUser(user.username);
-        } else {
-          console.log(res);
-          this.setState({errorText: res.data.message});
-        }
-      })
-      .catch(error => {
-        console.log(error);
-      });
-
+      this.props.signUp(user);
   }
 
   onChange = (e) => {
@@ -81,8 +68,8 @@ class Signup extends React.Component {
                   autoFocus
                   value={this.state.firstName}
                   onChange={this.onChange}
-                  error={this.state.errorText.length === 0 ? false : true }
-                  helperText={this.state.errorText}
+                  error={this.props.error != null}
+                  helperText={this.props.error}
                 />
               </Grid>
               <Grid item xs={12} sm={6}>
@@ -162,4 +149,15 @@ class Signup extends React.Component {
   }
 };
 
-export default Signup;
+const mapStateToProps = state => {
+    return {
+        user: userSelector(state),
+        error: userErrorSelector(state)
+    };
+};
+
+const mapDispatchToProps = dispatch => ({
+    signUp: (user) => dispatch(signUpAction(user))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Signup);

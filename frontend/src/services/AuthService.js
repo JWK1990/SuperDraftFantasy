@@ -1,16 +1,17 @@
 import axios from 'axios';
-import ConfigurationHelper from '../utils/ConfigurationUtils.js';
-
-const baseUrl = ConfigurationHelper.getBaseUrl();
 
 class AuthService {
 
-    signup(user) {
-        return axios.post(baseUrl + "/users/sign-up", user);
+    signUp(user) {
+        return axios.post("/users/sign-up", user);
     }
 
     login(credentials){
-        return axios.post(baseUrl + "/login", credentials);
+        return axios.post("/login", credentials);
+    }
+
+    getAuthenticatedUser() {
+        return axios.get("/users/me");
     }
 
     setToken(token) {
@@ -19,14 +20,6 @@ class AuthService {
     
     getToken(){
         return JSON.parse(localStorage.getItem("token"));
-    }
-
-    setCurrentUser(currentUser) {
-        localStorage.setItem("currentUser", JSON.stringify(currentUser));
-    }
-
-    getCurrentUser(){
-        return JSON.parse(localStorage.getItem("currentUser"));
     }
 
 }

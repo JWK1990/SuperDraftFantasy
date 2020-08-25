@@ -12,6 +12,38 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders
 class TeamControllerSpec extends RestSpecification {
 
     @SpringBean
+    TeamService coachService = Mock(TeamService)
+
+    def "POST /coaches should create a Coach and add them to a Draft"() {
+        given: "A CoachDTO"
+        TeamWriteDto coachDto = TestData.Team.createWriteDto(1L)
+        String coachDtoJson = TestData.mapObjectToJson(coachDto)
+
+        and: "A mocked ID for the created Coach"
+        Long coachID = 1L
+
+        and: "Mocked Methods"
+        1 * coachService.createTeam(coachDto) >> coachID
+
+        and: "A POST request to the /coaches endpoint"
+        MockHttpServletRequestBuilder httpRequest = MockMvcRequestBuilders
+                .post("/coaches")
+                .header('Authorization', mockJwtToken)
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(coachDtoJson)
+
+        when: "We execute the POST request"
+        MockHttpServletResponse httpResponse = mockMvc.perform(httpRequest).andReturn().response
+
+        then: "The created Coach's ID should be returned"
+        httpResponse.status == HttpStatus.OK.value()
+        httpResponse.getContentAsString() == coachID.toString()
+    }
+
+}
+
+/*
+    @SpringBean
     TeamService teamService = Mock(TeamService)
 
     def "PUT /teams{teamID}/players/add/{playerID} should add a Player to a Team"() {
@@ -44,5 +76,4 @@ class TeamControllerSpec extends RestSpecification {
         httpResponse.status == HttpStatus.OK.value()
         httpResponse.getContentAsString() == TestData.mapObjectToJson(teamReadDto)
     }
-
-}
+ */

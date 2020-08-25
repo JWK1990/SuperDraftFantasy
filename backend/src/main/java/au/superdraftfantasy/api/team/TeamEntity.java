@@ -1,13 +1,12 @@
 package au.superdraftfantasy.api.team;
 
-import au.superdraftfantasy.api.coach.CoachEntity;
+import au.superdraftfantasy.api.draft.DraftEntity;
 import au.superdraftfantasy.api.teamPlayerJoin.TeamPlayerJoinEntity;
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import au.superdraftfantasy.api.user.UserEntity;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -21,38 +20,45 @@ import java.util.List;
 
 @Entity
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
-@JsonIdentityInfo(
-        generator = ObjectIdGenerators.PropertyGenerator.class,
-        property = "id"
-)
+@AllArgsConstructor
 public class TeamEntity {
 
     @Id
-    @Column(name = "coach_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @NotBlank
     private String name;
 
-    // TODO rename to currentMoney or something.
+    @Enumerated(EnumType.ORDINAL)
+    @Column(name = "type_id")
+    private TeamTypeEnum type;
+
     @NotNull
     private Long budget;
 
-    @MapsId
-    @OneToOne(mappedBy = "team", fetch = FetchType.LAZY)
-    @JoinColumn(name = "coach_id")
-    @EqualsAndHashCode.Exclude
-    private CoachEntity coach;
+    @NotNull
+    private boolean onTheBlock;
 
     @OneToMany(mappedBy="team", cascade = CascadeType.ALL)
     @JsonManagedReference(value="team-teamPlayerJoin")
     private List<TeamPlayerJoinEntity> teamPlayerJoins;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    @JsonBackReference(value="user-coach")
+    private UserEntity user;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "draft_id")
+    @JsonBackReference(value="draft-team")
+    private DraftEntity draft;
 
     @CreationTimestamp
     private LocalDateTime createdOn;
 
     @UpdateTimestamp
     private LocalDateTime updatedOn;
+
 }

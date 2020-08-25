@@ -1,14 +1,12 @@
 package au.superdraftfantasy.api.player;
 
+import au.superdraftfantasy.api.position.PositionEntity;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import java.util.Collection;
+
 import java.util.List;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
-import au.superdraftfantasy.api.position.PositionEntity;
 
 
 @Data
@@ -32,8 +30,6 @@ public class PlayerReadDto {
     String primaryPosition;
 
     String secondaryPosition;
-
-    String myTeamPosition;
 
     public String getPrimaryPosition() {
         return this.positions.get(0).getType().toString();

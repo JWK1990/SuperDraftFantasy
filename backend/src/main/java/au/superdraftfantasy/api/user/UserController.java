@@ -1,22 +1,15 @@
 package au.superdraftfantasy.api.user;
 
-import static au.superdraftfantasy.api.configuration.security.SecurityConstants.DEFAULT_ISSUER;
-import static au.superdraftfantasy.api.configuration.security.SecurityConstants.EXPIRATION_TIME;
-import static au.superdraftfantasy.api.configuration.security.SecurityConstants.TOKEN_PREFIX;
-
-import java.util.UUID;
+import au.superdraftfantasy.api.configuration.security.AuthenticatedUserReadDto;
+import au.superdraftfantasy.api.configuration.security.JWTUtils;
+import org.springframework.security.core.Authentication;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
+import java.util.UUID;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
-import au.superdraftfantasy.api.configuration.security.JWTUtils;
+import static au.superdraftfantasy.api.configuration.security.SecurityConstants.*;
 
 @RestController
 @RequestMapping("/users")
@@ -36,9 +29,10 @@ public class UserController {
         return userReadDto;
     }
 
-    @GetMapping(name = "getUser", path = "{username}")
-    public UserReadDto getUser(@PathVariable final String username) {
-        return userService.getUser(username);
+    @GetMapping(name = "getCurrentUser", path="/me")
+    @ResponseBody
+    public AuthenticatedUserReadDto getCurrentUser(Authentication authentication) {
+        return userService.getCurrentUser(authentication);
     }
 
 }

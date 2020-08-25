@@ -1,6 +1,6 @@
 package au.superdraftfantasy.api.draft;
 
-import au.superdraftfantasy.api.coach.CoachEntity;
+import au.superdraftfantasy.api.team.TeamEntity;
 import au.superdraftfantasy.api.roster.RosterEntity;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
@@ -46,8 +46,8 @@ public class DraftEntity {
     private Long bidTimer;
 
     @OneToMany(mappedBy = "draft", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JsonManagedReference(value="draft-coach")
-    private List<CoachEntity> coaches = new ArrayList<CoachEntity>();
+    @JsonManagedReference(value="draft-team")
+    private List<TeamEntity> teams = new ArrayList<>();
 
     @NotNull
     @Enumerated(EnumType.ORDINAL)

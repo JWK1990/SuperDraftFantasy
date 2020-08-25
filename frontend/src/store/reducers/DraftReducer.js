@@ -1,36 +1,45 @@
-import {LOAD_DRAFT_FAILURE, LOAD_DRAFT_STARTED, LOAD_DRAFT_SUCCESS} from "../actions";
+import {GET_DRAFT_FAILURE, GET_DRAFT_STARTED, GET_DRAFT_SUCCESS, UPDATE_TEAM} from "../actions";
+import {initialDraftState} from "../state/DraftState";
 
-const initialState = {
-    loading: false,
-    error: null,
-    draft: null,
-};
-
-export function draftReducer(state = initialState, action) {
+export function draftReducer(state = initialDraftState, action) {
     switch(action.type) {
 
-        case LOAD_DRAFT_STARTED:
+        case GET_DRAFT_STARTED:
             return {
                 ...state,
                 loading: true
             };
 
-        case LOAD_DRAFT_SUCCESS:
+        case GET_DRAFT_SUCCESS:
             return {
                 ...state,
                 loading: false,
                 error: null,
-                draft: action.payload
+                data: action.payload
             };
 
-        case LOAD_DRAFT_FAILURE:
+        case GET_DRAFT_FAILURE:
             return {
                 ...state,
                 loading: false,
                 error: action.payload
             };
 
+        case UPDATE_TEAM:
+            const teamId = action.payload.id;
+            return {
+                ...state,
+                loading: false,
+                error: null,
+                data: {
+                    ...state.data,
+                    teams: state.data.teams.map((team) => (
+                        team.id === teamId ? action.payload : team
+                    ))
+                }
+            }
+
         default:
             return state;
-    };
+    }
 }

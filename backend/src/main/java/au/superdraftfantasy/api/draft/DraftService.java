@@ -1,11 +1,9 @@
 package au.superdraftfantasy.api.draft;
 
-import au.superdraftfantasy.api.coach.CoachEntity;
-import au.superdraftfantasy.api.coach.CoachReadDto;
-import au.superdraftfantasy.api.coach.CoachTypeEnum;
+import au.superdraftfantasy.api.team.TeamEntity;
+import au.superdraftfantasy.api.team.TeamTypeEnum;
 import au.superdraftfantasy.api.roster.RosterEntity;
 import au.superdraftfantasy.api.roster.RosterRepository;
-import au.superdraftfantasy.api.team.TeamEntity;
 import au.superdraftfantasy.api.user.UserEntity;
 import au.superdraftfantasy.api.user.UserRepository;
 import org.modelmapper.ModelMapper;
@@ -16,8 +14,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
 import javax.validation.constraints.NotBlank;
-import java.util.List;
-import java.util.concurrent.atomic.AtomicInteger;
+import java.util.Arrays;
 
 
 @Service
@@ -58,22 +55,7 @@ public class DraftService {
     }
 
     private DraftReadDto mapToDraftReadDto(DraftEntity draft) {
-        DraftReadDto draftReadDto = modelMapper.map(draft, DraftReadDto.class);
-        setOnTheBlockCoachId(draftReadDto);
-        return draftReadDto;
-    }
-
-    private void setOnTheBlockCoachId(DraftReadDto draftReadDto) {
-        Integer currentIndex = 0;
-        AtomicInteger draftedPlayerCount = new AtomicInteger(0);
-        List<CoachReadDto> coachesList = draftReadDto.getCoaches();
-        coachesList.stream().forEach(coach -> draftedPlayerCount.addAndGet(coach.getTeam().getTeamPlayerJoins().size()));
-        if(draftedPlayerCount.get() > 0) {
-            Integer currentRound = (int) Math.floor(draftedPlayerCount.get()/coachesList.size());
-            currentIndex = (int) Math.ceil(draftedPlayerCount.get() - (currentRound * coachesList.size()));
-        }
-        Long onTheBlockCoachId = coachesList.get(currentIndex).getId();
-        draftReadDto.setOnTheBlockCoachId(onTheBlockCoachId);
+        return modelMapper.map(draft, DraftReadDto.class);
     }
 
     private DraftEntity convertToEntity(DraftWriteDto draftWriteDto) {
@@ -93,10 +75,19 @@ public class DraftService {
 
     private void createCommissionersTeam(@NotBlank DraftEntity draft) {
         UserEntity user = getCurrentUser();
-        CoachEntity coach = new CoachEntity(null, CoachTypeEnum.COMMISSIONER, user, draft, null, null, null);
-        TeamEntity team = new TeamEntity(null, "Default Name", draft.getBudget(), coach, null, null, null);
-        coach.setTeam(team);
-        draft.getCoaches().add(coach);
+        TeamEntity team = new TeamEntity(
+                null,
+                "Default Name",
+                TeamTypeEnum.COMMISSIONER,
+                draft.getBudget(),
+                false,
+                Arrays.asList(),
+                user,
+                draft,
+                null,
+                null
+        );
+        draft.getTeams().add(team);
     }
 
     private UserEntity getCurrentUser() {

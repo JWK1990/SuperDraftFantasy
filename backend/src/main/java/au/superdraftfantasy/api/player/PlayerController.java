@@ -19,4 +19,9 @@ public class PlayerController {
         return playerService.getAllPlayers();
     }
 
+    @GetMapping(name = "getPlayersByDraft", path = "/draft/{draftId}")
+    public List<PlayerInDraftReadDto> getPlayersByDraft(@PathVariable Long draftId) {
+        return playerService.getPlayersByDraft(draftId);
+    }
+
 }

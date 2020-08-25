@@ -1,9 +1,11 @@
 package au.superdraftfantasy.api;
 
+import au.superdraftfantasy.api.futuresScheduler.FuturesScheduler;
 import org.modelmapper.ModelMapper;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @SpringBootApplication
@@ -25,5 +27,9 @@ public class Application {
         return new BCryptPasswordEncoder();
     }
 
+    @Bean
+    public FuturesScheduler futuresScheduler(SimpMessagingTemplate simpMessagingTemplate) {
+        return new FuturesScheduler(simpMessagingTemplate);
+    }
 
 }

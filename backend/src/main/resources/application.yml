@@ -5,13 +5,13 @@ spring:
     locations: classpath:/db/migration,classpath:/db/afterMigrate,classpath:/db/migrationTestData
   jpa:
     database: POSTGRESQL
-    show-sql: true
+    show-sql: false
     ddl-auto: none
     properties:
       hibernate:
         temp:
           use_jdbc_metadata_defaults: false # Used to avoid boot up exception. See https://stackoverflow.com/questions/49110818/method-org-postgresql-jdbc-pgconnection-createclob-is-not-yet-implemented
-
+        show_sql: false
   datasource:
     platform: postgres
     url: jdbc:postgresql://localhost:5432/superdraftfantasy
@@ -28,3 +28,5 @@ logging:
       springframework:
         boot:
           autoconfigure: ERROR
+      hibernate:
+        SQL: DEBUG

@@ -1,10 +1,12 @@
 package au.superdraftfantasy.api.user;
 
+import au.superdraftfantasy.api.configuration.security.AuthenticatedUserReadDto;
 import au.superdraftfantasy.api.role.RoleEntity;
 import au.superdraftfantasy.api.role.RoleRepository;
 import au.superdraftfantasy.api.role.RoleTypeEnum;
 import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
@@ -42,9 +44,11 @@ public class UserService {
         return modelMapper.map(user, UserReadDto.class);
     }
 
-    public UserReadDto getUser(@NotBlank final String username) {
-        UserEntity user = userRepository.findByUsername(username).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found."));
-        return modelMapper.map(user, UserReadDto.class);
+    public AuthenticatedUserReadDto getCurrentUser(Authentication authentication) {
+        return modelMapper.map(
+                authentication.getPrincipal(),
+                AuthenticatedUserReadDto.class
+        );
     }
 
     private UserEntity convertToEntity(UserWriteDto userWriteDto) {

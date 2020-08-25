@@ -21,7 +21,7 @@ INSERT INTO draft_status_enum(id, status)
            (2, 'IN_PROGRESS'),
            (3, 'COMPLETE');
 
-INSERT INTO coach_type_enum(id, type)
+INSERT INTO team_type_enum(id, type)
     VALUES  (0, 'COMMISSIONER'),
             (1, 'MEMBER');
 

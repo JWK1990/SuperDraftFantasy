@@ -20,18 +20,18 @@ import static au.superdraftfantasy.api.configuration.security.SecurityConstants.
 
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
-    private UserDetailsServiceImpl userDetailsService;
-    private BCryptPasswordEncoder bCryptPasswordEncoder;
-    private ObjectMapper objectMapper;
-    private ModelMapper modelMapper;
+    private final UserDetailsServiceImpl userDetailsServiceImpl;
+    private final BCryptPasswordEncoder bCryptPasswordEncoder;
+    private final ObjectMapper objectMapper;
+    private final ModelMapper modelMapper;
 
     public WebSecurityConfig(
-            UserDetailsServiceImpl userDetailsService,
+            UserDetailsServiceImpl userDetailsServiceImpl,
             BCryptPasswordEncoder bCryptPasswordEncoder,
             ObjectMapper objectMapper,
             ModelMapper modelMapper
     ) {
-        this.userDetailsService = userDetailsService;
+        this.userDetailsServiceImpl = userDetailsServiceImpl;
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
         this.objectMapper = objectMapper;
         this.modelMapper = modelMapper;
@@ -46,15 +46,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.cors().and().csrf().disable().authorizeRequests()
                 .antMatchers(HttpMethod.POST, SIGN_UP_URL).permitAll()
-                // TODO: Remove the below 3 lines when we get Spring Security working again.
-                .antMatchers(HttpMethod.GET).permitAll()
-                .antMatchers(HttpMethod.POST).permitAll()
-                .antMatchers(HttpMethod.PUT).permitAll()
                 .antMatchers("/websocket/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .addFilter(new JWTAuthenticationFilter(authenticationManager(), objectMapper, modelMapper))
-                .addFilter(new JWTAuthorizationFilter(authenticationManager()))
+                .addFilter(new JWTAuthorizationFilter(authenticationManager(), userDetailsServiceImpl))
                 // this disables session creation on Spring Security
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
     }
@@ -66,7 +62,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
      */
     @Override
     public void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(userDetailsService).passwordEncoder(bCryptPasswordEncoder);
+        auth.userDetailsService(userDetailsServiceImpl).passwordEncoder(bCryptPasswordEncoder);
     }
 
     @Bean
