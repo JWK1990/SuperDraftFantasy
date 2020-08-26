@@ -1,23 +1,16 @@
 package au.superdraftfantasy.api.block;
 
-import au.superdraftfantasy.api.draft.DraftEntity;
-import au.superdraftfantasy.api.draft.DraftRepository;
+import au.superdraftfantasy.api.draft.DraftService;
 import au.superdraftfantasy.api.futuresScheduler.FuturesScheduler;
 import au.superdraftfantasy.api.futuresScheduler.ScheduledFutureEnum;
-import au.superdraftfantasy.api.player.PlayerInDraftReadDto;
 import au.superdraftfantasy.api.player.PlayerService;
-import au.superdraftfantasy.api.team.TeamEntity;
 import au.superdraftfantasy.api.team.TeamReadDto;
 import au.superdraftfantasy.api.team.TeamService;
 import org.modelmapper.ModelMapper;
-import org.springframework.http.HttpStatus;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Service;
-import org.springframework.web.server.ResponseStatusException;
 
 import java.time.LocalDateTime;
-import java.util.List;
-import java.util.concurrent.atomic.AtomicInteger;
 
 @Service
 public class BlockService {
@@ -26,23 +19,23 @@ public class BlockService {
     FuturesScheduler futuresScheduler;
     TeamService teamService;
     SimpMessagingTemplate simpMessagingTemplate;
-    DraftRepository draftRepository;
     PlayerService playerService;
+    DraftService draftService;
 
     public BlockService(
             ModelMapper modelMapper,
             FuturesScheduler futuresScheduler,
             TeamService teamService,
             SimpMessagingTemplate simpMessagingTemplate,
-            DraftRepository draftRepository,
-            PlayerService playerService
+            PlayerService playerService,
+            DraftService draftService
     ) {
         this.modelMapper = modelMapper;
         this.futuresScheduler = futuresScheduler;
         this.teamService = teamService;
         this.simpMessagingTemplate = simpMessagingTemplate;
-        this.draftRepository = draftRepository;
         this.playerService = playerService;
+        this.draftService = draftService;
     }
 
     /**
@@ -53,7 +46,6 @@ public class BlockService {
      */
     public BlockDto processBlockEvent(BlockDto blockDto) {
         System.out.println("Process Manual AddToBlock Or Bid.");
-
         // Stop AutoAddToBlock or AutoDraftPlayer.
         futuresScheduler.stopScheduledFutures(blockDto.getDraftId());
 
@@ -75,32 +67,35 @@ public class BlockService {
         System.out.println("AutoDraftAndStartNextRound");
         TeamReadDto teamReadDto = teamService.addPlayerToTeam(blockDto);
         this.simpMessagingTemplate.convertAndSend("/draft/teams", teamReadDto);
-        startNextRound(blockDto.getDraftId());
+        autoStartNextRound(blockDto);
     }
 
-    public void startNextRound(Long draftId) {
-        Long teamId = 8L;
-        Long playerId = getBestAvailablePlayer(draftId);
-        LocalDateTime endTime = LocalDateTime.now().plusSeconds(10L);
-        Long onTheBlockTimer = 10L;
-        Long bidTimer = 5L;
+    private void autoStartNextRound(BlockDto blockDto) {
+        Long onTheBlockTeamId = draftService.updateOnTheBlockCoach(blockDto.getDraftId());
+        blockDto.setTeamId(onTheBlockTeamId);
 
-        // TODO: Calculate onTheBlockCoachId.
-        BlockDto updatedBlock = new BlockDto(draftId, playerId, teamId, null, 1L, onTheBlockTimer, bidTimer, endTime);
+        Long bestAvailablePlayerId = playerService.getBestAvailablePlayer(blockDto.getDraftId());
+        blockDto.setPlayerId(bestAvailablePlayerId);
+
+        LocalDateTime endTime = LocalDateTime.now().plusSeconds(blockDto.getOnTheBlockTimer());
+        blockDto.setEndTime(endTime);
+
+        blockDto.setPrice(1L);
 
         // Start automated AddToBlock.
         futuresScheduler.startScheduledFuture(
                 ScheduledFutureEnum.AUTO_ADD_TO_BLOCK,
-                updatedBlock,
+                blockDto,
                 endTime,
                 this::autoAddToBlock
         );
 
-        this.simpMessagingTemplate.convertAndSend("/draft/rounds", updatedBlock);
+        this.simpMessagingTemplate.convertAndSend("/draft/rounds", blockDto);
     }
 
     private void autoAddToBlock(BlockDto blockDto) {
         System.out.println("Run AutoAddToBlock" + blockDto);
+
         // Broadcast AddToBlock to start bidding in FE.
         LocalDateTime endTime = LocalDateTime.now().plusSeconds(blockDto.getBidTimer());
         blockDto.setEndTime(endTime);
@@ -115,24 +110,6 @@ public class BlockService {
         );
     }
 
-    private Long getOnTheBlockCoachId(DraftEntity draft) {
-        int currentIndex = 0;
-        AtomicInteger draftedPlayerCount = new AtomicInteger(0);
-        List<TeamEntity> teamList = draft.getTeams();
-        teamList.forEach(coach -> draftedPlayerCount.addAndGet(coach.getTeamPlayerJoins().size()));
-        if (draftedPlayerCount.get() > 0) {
-            int currentRound = (int) Math.floor(draftedPlayerCount.get() / teamList.size());
-            currentIndex = (int) Math.ceil(draftedPlayerCount.get() - (currentRound * teamList.size()));
-        }
-        return teamList.get(currentIndex).getId();
-    }
 
-    private Long getBestAvailablePlayer(Long draftId) {
-        List<PlayerInDraftReadDto> playerList = playerService.getPlayersByDraft(draftId);
-        PlayerInDraftReadDto bestAvailablePlayer = playerList.stream().filter(PlayerInDraftReadDto::isAvailable)
-                .findFirst()
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Could not fetch best available Player."));
-        return bestAvailablePlayer.getId();
-    }
 
 }

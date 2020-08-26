@@ -67,6 +67,14 @@ public class PlayerService {
         return playerInDraftReadDtoList;
     }
 
+    @Transactional
+    public Long getBestAvailablePlayer(Long draftId) {
+        List<PlayerInDraftReadDto> playerList = getPlayersByDraft(draftId);
+        PlayerInDraftReadDto bestAvailablePlayer = playerList.stream().filter(PlayerInDraftReadDto::isAvailable)
+                .findFirst()
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Could not fetch best available Player."));
+        return bestAvailablePlayer.getId();
+    }
 
     private PlayerReadDto convertToPlayerReadDto(PlayerEntity playerEntity) {
         PlayerReadDto playerReadDto = modelMapper.map(playerEntity, PlayerReadDto.class);

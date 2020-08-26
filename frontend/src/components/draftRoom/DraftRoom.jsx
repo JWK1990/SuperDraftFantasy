@@ -18,7 +18,7 @@ let stompClient = null;
 class DraftRoom extends React.Component {
 
     // TODO: Update to draftId.
-    draftId = 8;
+    draftId = 10;
 
     initialBlock = {
         player: '',
@@ -95,7 +95,8 @@ class DraftRoom extends React.Component {
                 playerId: selectedPlayerId,
                 teamId: this.props.currentTeam.id,
                 price: initialBid,
-                bidTimer: this.props.draft.bidTimer,
+                onTheBlockTimer: this.props.draft.onTheBlockTimer,
+                bidTimer: this.props.draft.bidTimer
             };
             stompClient.send("/app/addToBlock", {}, JSON.stringify(addToBlockDetails));
             console.log('Add To Block Sent: ', addToBlockDetails);
@@ -108,7 +109,8 @@ class DraftRoom extends React.Component {
                 draftId: this.props.draft.id,
                 teamId: this.props.currentTeam.id,
                 price: this.state.block.price + 1,
-                onTheBlockTimer: this.props.draft.bidTimer
+                onTheBlockTimer: this.props.draft.onTheBlockTimer,
+                bidTimer: this.props.draft.bidTimer,
             };
             stompClient.send("/app/bid", {}, JSON.stringify(bidDetails));
             console.log('Bid Send: ', bidDetails);

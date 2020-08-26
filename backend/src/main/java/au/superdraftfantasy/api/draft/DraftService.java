@@ -1,9 +1,9 @@
 package au.superdraftfantasy.api.draft;
 
-import au.superdraftfantasy.api.team.TeamEntity;
-import au.superdraftfantasy.api.team.TeamTypeEnum;
 import au.superdraftfantasy.api.roster.RosterEntity;
 import au.superdraftfantasy.api.roster.RosterRepository;
+import au.superdraftfantasy.api.team.TeamEntity;
+import au.superdraftfantasy.api.team.TeamTypeEnum;
 import au.superdraftfantasy.api.user.UserEntity;
 import au.superdraftfantasy.api.user.UserRepository;
 import org.modelmapper.ModelMapper;
@@ -11,10 +11,12 @@ import org.springframework.http.HttpStatus;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
 
 import javax.validation.constraints.NotBlank;
 import java.util.Arrays;
+import java.util.List;
 
 
 @Service
@@ -52,6 +54,34 @@ public class DraftService {
     public DraftReadDto getDraft(@NotBlank final Long draftID) {
         DraftEntity draft = draftRepository.findById(draftID).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Draft with ID '" + draftID + "' not found."));
         return mapToDraftReadDto(draft);
+    }
+
+    @Transactional
+    public Long updateOnTheBlockCoach(Long draftId) {
+        DraftEntity draft = draftRepository.findById(draftId)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Draft with ID '" + draftId + "' not found."));
+        List<TeamEntity> teamList = draft.getTeams();
+
+        int onTheBlockIndex = getOnTheBlockIndex(teamList);
+        TeamEntity onTheBlockTeam = teamList.get(onTheBlockIndex);
+
+        teamList.forEach(team -> team.setOnTheBlock(false));
+        onTheBlockTeam.setOnTheBlock(true);
+
+        draftRepository.save(draft);
+        return onTheBlockTeam.getId();
+    }
+
+    private int getOnTheBlockIndex(List<TeamEntity> teamList) {
+        int onTheBlockIndex = 0;
+        int draftedPlayerCount = teamList.stream()
+                .mapToInt(team -> team.getTeamPlayerJoins().size())
+                .sum();
+        if (draftedPlayerCount > 0) {
+            int currentRound = draftedPlayerCount / teamList.size();
+            onTheBlockIndex = (int) Math.ceil(draftedPlayerCount - (currentRound * teamList.size()));
+        }
+        return onTheBlockIndex;
     }
 
     private DraftReadDto mapToDraftReadDto(DraftEntity draft) {

@@ -51,10 +51,10 @@ public class TeamService {
      * @return
      */
     public Long createTeam(@NotBlank final TeamWriteDto teamWriteDto) {
-        TeamEntity coach = convertTeamWriteDtoToEntity(teamWriteDto);
-        checkForSpaceInDraft(coach);
-        checkForExistingCoach(coach);
-        return teamRepository.save(coach).getId();
+        TeamEntity team = convertTeamWriteDtoToEntity(teamWriteDto);
+        checkForSpaceInDraft(team);
+        checkForExistingCoach(team);
+        return teamRepository.save(team).getId();
     }
 
     /**
@@ -94,7 +94,6 @@ public class TeamService {
 
         return myTeamPosition;
     }
-
 
     private TeamEntity convertTeamWriteDtoToEntity(TeamWriteDto teamWriteDto) {
         TeamEntity coach = modelMapper.map(teamWriteDto, TeamEntity.class);
