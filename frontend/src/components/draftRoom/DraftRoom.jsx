@@ -18,7 +18,7 @@ let stompClient = null;
 class DraftRoom extends React.Component {
 
     // TODO: Update to draftId.
-    draftId = 10;
+    draftId = 12;
 
     initialBlock = {
         player: '',
@@ -107,6 +107,7 @@ class DraftRoom extends React.Component {
         if (stompClient) {
             const bidDetails = {
                 draftId: this.props.draft.id,
+                playerId: this.state.block.player.id,
                 teamId: this.props.currentTeam.id,
                 price: this.state.block.price + 1,
                 onTheBlockTimer: this.props.draft.onTheBlockTimer,

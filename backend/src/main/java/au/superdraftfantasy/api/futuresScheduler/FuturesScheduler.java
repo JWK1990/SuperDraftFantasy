@@ -1,19 +1,12 @@
 package au.superdraftfantasy.api.futuresScheduler;
 
 import au.superdraftfantasy.api.block.BlockDto;
-import org.springframework.messaging.simp.SimpMessagingTemplate;
 
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.concurrent.*;
 
 public class FuturesScheduler {
-
-    private final SimpMessagingTemplate simpMessagingTemplate;
-
-    public FuturesScheduler(SimpMessagingTemplate simpMessagingTemplate) {
-        this.simpMessagingTemplate = simpMessagingTemplate;
-    }
 
     private static final ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
     static ConcurrentMap<String, ScheduledFuture<?>> futures = new ConcurrentHashMap<>();
@@ -24,21 +17,19 @@ public class FuturesScheduler {
             LocalDateTime endTime,
             ScheduledFutureInterface scheduledFutureInterface
     ) {
-        String key = getKey(type, readDto.getDraftId());
+        String key = getKey(readDto.getDraftId(), type);
         long delayInMilliseconds = Duration.between(LocalDateTime.now(), endTime).toMillis();
-        System.out.println("Delay " + delayInMilliseconds);
         ScheduledFuture<?> future = scheduler.schedule(
                 () -> scheduledFutureInterface.createScheduledFuture(readDto),
                 delayInMilliseconds,
                 TimeUnit.MILLISECONDS
         );
         futures.put(key, future);
-        System.out.println(type + " Future Started.");
     }
 
     public void stopScheduledFutures(final Long draftId) {
-        String addToBlockKey = getKey(ScheduledFutureEnum.AUTO_ADD_TO_BLOCK, draftId);
-        String draftPlayerKey = getKey(ScheduledFutureEnum.AUTO_ADD_TO_BLOCK, draftId);
+        String addToBlockKey = getKey(draftId, ScheduledFutureEnum.AUTO_ADD_TO_BLOCK);
+        String draftPlayerKey = getKey(draftId, ScheduledFutureEnum.AUTO_DRAFT_PLAYER);
         ScheduledFuture<?> addToBlockFuture =  futures.get(addToBlockKey);
         ScheduledFuture<?> draftPlayerFuture =  futures.get(draftPlayerKey);
         if(addToBlockFuture != null) {
@@ -51,17 +42,8 @@ public class FuturesScheduler {
         }
     }
 
-    private String getKey(ScheduledFutureEnum type, Long draftId) {
-        return type.name() + " - DraftId: " + draftId;
-    }
-
-    private void autoAddToBlock(BlockDto blockDto) {
-        System.out.println("Auto Add To Block: " + blockDto);
-        simpMessagingTemplate.convertAndSend("/draft/addToBlocks", blockDto);
-    }
-
-    private void autoDraftPlayer() {
-
+    private String getKey(Long draftId, ScheduledFutureEnum type) {
+                return "DraftId: " + draftId + " - " + type.name();
     }
 
 }
