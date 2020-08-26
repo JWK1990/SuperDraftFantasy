@@ -1,5 +1,4 @@
 import React from "react";
-import DraftService from "../../services/DraftService";
 import DraftRoomPlayers from "./players/Players";
 import DraftRoomBlock from "./block/Block";
 import MyTeam from "./teams/MyTeam";
@@ -81,13 +80,6 @@ class DraftRoom extends React.Component {
         this.setState({stompClient: stompClient});
     };
 
-    sendStartNextRound = () => {
-        // TODO: Add condition to check if Draft is still active.
-        if (stompClient) {
-            stompClient.send("/app/startNextRound", {}, JSON.stringify({onTheBlockTimer: this.props.draft.onTheBlockTimer}));
-        }
-    }
-
     sendAddToBlock = (selectedPlayerId, initialBid) => {
         if (stompClient) {
             const addToBlockDetails = {
@@ -128,7 +120,7 @@ class DraftRoom extends React.Component {
             block: {
                 ...prevState.block,
                 player: '',
-                team: this.getTeamDetails(startNextRoundDetails.teamId),
+                team: this.getTeamDetailsById(startNextRoundDetails.teamId),
                 price: '',
                 isBidDisabled: true,
             }
@@ -143,13 +135,13 @@ class DraftRoom extends React.Component {
         clearInterval(this.addToBlockTimerInterval);
         clearInterval(this.bidTimerInterval);
         const addToBlockDetails = JSON.parse(payload.body);
-        const player = this.getPlayerDetails(addToBlockDetails.playerId);
+        const player = this.getPlayerDetailsById(addToBlockDetails.playerId);
         this.setState(prevState => ({
             ...prevState,
             block: {
                 ...prevState.block,
                 player: player,
-                bidder: this.getTeamDetails(addToBlockDetails.teamId),
+                bidder: this.getTeamDetailsById(addToBlockDetails.teamId),
                 price: addToBlockDetails.price,
                 isBidDisabled: this.getIsBidDisabled(addToBlockDetails.price, player),
             }
@@ -167,7 +159,7 @@ class DraftRoom extends React.Component {
             ...prevState,
             block: {
                 ...prevState.block,
-                bidder: this.getTeamDetails(bidDetails.teamId),
+                bidder: this.getTeamDetailsById(bidDetails.teamId),
                 price: price,
                 isBidDisabled: this.getIsBidDisabled(price, player),
             }
@@ -217,14 +209,6 @@ class DraftRoom extends React.Component {
         }, 1000);
     };
 
-    getPlayerDetails = (playerId) => {
-        return this.props.players.find(player => player.id === playerId);
-    };
-
-    getTeamDetails = (teamId) => {
-        return this.props.draft.teams.find(team => team.id === teamId);
-    };
-
     onError = (error) => {
         this.setState({
             error: 'Could not connect you to the Draft Room Server. Please refresh this page and try again!'
@@ -237,35 +221,12 @@ class DraftRoom extends React.Component {
         }
     };
 
-    getMaxBid = (team) => {
-        const numOfPlayersRequired = this.getNumOfSlotsPerTeam();
-        const numOfPlayersDrafted = team.players.length;
-        return team.budget - (numOfPlayersRequired - numOfPlayersDrafted - 1);
-    }
-
-    // TODO: Move to BE.
-    draftPlayer = (teamId, playerId, salePrice) => {
-        DraftService.draftPlayer(teamId, playerId, salePrice)
-            .then(response => {
-                if(response.status === 200) {
-                    this.updateTeams(response.data);
-                    this.updatePlayerAvailability(playerId);
-                    this.sendStartNextRound();
-                } else {
-                    this.setState({errorText: response.data.message});
-                }
-            })
-            .catch(error => {
-                console.log(error);
-            });
+    getPlayerDetailsById = (playerId) => {
+        return this.props.players.find(player => player.id === playerId);
     };
 
-    updateTeams = (updatedTeam) => {
-        let updatedTeams = this.props.draft.teams;
-        const indexOfWinningTeam = updatedTeams.findIndex(team => team.id === updatedTeam.id);
-        updatedTeam.maxBid = this.getMaxBid(updatedTeam);
-        updatedTeams[indexOfWinningTeam].team = updatedTeam;
-        this.setState({teams: updatedTeams});
+    getTeamDetailsById = (teamId) => {
+        return this.props.draft.teams.find(team => team.id === teamId);
     };
 
     getCurrentCoachPlayers = () => {
@@ -361,12 +322,6 @@ class DraftRoom extends React.Component {
         return currentTeamPlayerCount >= numOfSlotsPerTeam;
     };
 
-    updatePlayerAvailability = (playerId) => {
-        let playerToUpdate = this.props.players.find(player => player.id === playerId);
-        playerToUpdate.isAvailable = false;
-        this.setState({playerToUpdate});
-    }
-
     render() {
         if (!this.state.isDraftDataLoaded || !this.state.isPlayerDataLoaded) {
             return <div />
@@ -412,7 +367,6 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => ({
     getDraft: (draftId) => dispatch(getDraftAction(draftId)),
-    // TODO: Replace with draftId.
     getPlayers: (draftId) => dispatch(getPlayersByDraftAction(draftId)),
     updateTeam: (team) => dispatch(updateTeamAction(team))
 });

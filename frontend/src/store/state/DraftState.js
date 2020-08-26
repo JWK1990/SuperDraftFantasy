@@ -17,6 +17,7 @@ const initialTeams = [
         name: null,
         type: null,
         budget: null,
+        maxBid: null,
         onTheBlock: null,
         players: initialPlayersState,
         user: initialUserState

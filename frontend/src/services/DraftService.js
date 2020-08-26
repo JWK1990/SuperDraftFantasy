@@ -10,10 +10,6 @@ class DraftService {
         return axios.get("/players/draft/" + draftId);
     }
 
-    draftPlayer(teamId, playerId, salePrice) {
-        return axios.put("/teams/" + teamId + "/players/add/" + playerId, {salePrice: salePrice});
-    }
-
     saveMyTeamLayout(teamId, playerId, position) {
         return axios.put("/teams/" + teamId + "/players/" + playerId + "/myTeamPosition/" + position, {});
     }
