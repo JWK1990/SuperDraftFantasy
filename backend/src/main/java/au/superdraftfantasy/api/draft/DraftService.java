@@ -110,7 +110,7 @@ public class DraftService {
                 "Default Name",
                 TeamTypeEnum.COMMISSIONER,
                 draft.getBudget(),
-                false,
+                true,
                 Arrays.asList(),
                 user,
                 draft,

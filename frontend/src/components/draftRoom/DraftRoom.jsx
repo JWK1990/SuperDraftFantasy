@@ -17,7 +17,7 @@ let stompClient = null;
 class DraftRoom extends React.Component {
 
     // TODO: Update to draftId.
-    draftId = 12;
+    draftId = 4;
 
     initialBlock = {
         player: '',
@@ -73,12 +73,34 @@ class DraftRoom extends React.Component {
     };
 
     onConnected = () => {
-        stompClient.subscribe('/draft/rounds', this.onStartNextRoundReceived);
-        stompClient.subscribe('/draft/addToBlocks', this.onAddToBlockReceived);
-        stompClient.subscribe('/draft/bids', this.onBidReceived);
-        stompClient.subscribe('/draft/teams', this.onTeamReceived);
+        stompClient.subscribe('/draft/rounds', this.receiveStartNextRound);
+        stompClient.subscribe('/draft/stopDrafts', this.receiveStopDraft);
+        stompClient.subscribe('/draft/addToBlocks', this.receiveAddToBlock);
+        stompClient.subscribe('/draft/bids', this.receiveBid);
+        stompClient.subscribe('/draft/teams', this.receiveTeam);
         this.setState({stompClient: stompClient});
     };
+
+    sendStartDraft = () => {
+        if(stompClient) {
+            const startDraftDetails = {
+                draftId: this.props.draft.id,
+                playerId: null,
+                teamId: null,
+                price: 1,
+                onTheBlockTimer: this.props.draft.onTheBlockTimer,
+                bidTimer: this.props.draft.bidTimer
+            };
+            stompClient.send("/app/startDraft", {}, JSON.stringify(startDraftDetails));
+        }
+    }
+
+    sendStopDraft = () => {
+        if(stompClient) {
+            console.log('Send Stop Draft.');
+            stompClient.send("/app/stopDraft", {}, this.props.draft.id);
+        }
+    }
 
     sendAddToBlock = (selectedPlayerId, initialBid) => {
         if (stompClient) {
@@ -110,7 +132,7 @@ class DraftRoom extends React.Component {
         }
     };
 
-    onStartNextRoundReceived = (payload) => {
+    receiveStartNextRound = (payload) => {
         console.log('Start Next Round Received: ', payload);
         clearInterval(this.addToBlockTimerInterval);
         clearInterval(this.bidTimerInterval);
@@ -128,9 +150,21 @@ class DraftRoom extends React.Component {
         this.setAddToBlockTimer(startNextRoundDetails.endTime);
     };
 
+    receiveStopDraft = () => {
+        console.log('StopDraft Received.');
+        clearInterval(this.addToBlockTimerInterval);
+        clearInterval(this.bidTimerInterval);
+        this.setState(prevState => ({
+            ...prevState,
+            block: {
+                ...prevState.block,
+                addToBlockTimeRemaining: '',
+                bidTimeRemaining: '',
+            }
+        }));
+    }
 
-
-    onAddToBlockReceived = (payload) => {
+    receiveAddToBlock = (payload) => {
         console.log('AddToBlock Received ', payload);
         clearInterval(this.addToBlockTimerInterval);
         clearInterval(this.bidTimerInterval);
@@ -149,7 +183,7 @@ class DraftRoom extends React.Component {
         this.setBidTimer(addToBlockDetails.endTime);
     };
 
-    onBidReceived = (payload) => {
+    receiveBid = (payload) => {
         clearInterval(this.addToBlockTimerInterval);
         clearInterval(this.bidTimerInterval);
         const bidDetails = JSON.parse(payload.body);
@@ -167,7 +201,7 @@ class DraftRoom extends React.Component {
         this.setBidTimer(bidDetails.endTime);
     };
 
-    onTeamReceived = (payload) => {
+    receiveTeam = (payload) => {
         const team = JSON.parse(payload.body);
         console.log('Team Received: ', team)
         this.props.updateTeam(team);
@@ -331,11 +365,13 @@ class DraftRoom extends React.Component {
             <div>
                 <div>
                     <p>Draft Details: {this.props.draft.name}</p>
-                    <p>Current OTB Coach: {this.props.onTheBlockCoach ? this.props.onTheBlockCoach.team.name : "TBA"}</p>
+                    <p>Current OTB Coach: {this.props.onTheBlockTeam ? this.props.onTheBlockTeam.name : "TBA"}</p>
                 </div>
                 <DraftRoomBlock
                     block={this.state.block}
                     sendBid={this.sendBid}
+                    sendStartDraft={this.sendStartDraft}
+                    sendStopDraft={this.sendStopDraft}
                     vacantPositions={this.state.vacantPositions}
                 />
                 <DraftRoomPlayers

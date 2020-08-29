@@ -15,6 +15,18 @@ public class BlockController {
         this.blockService = blockService;
     }
 
+    @MessageMapping("/startDraft")
+    @SendTo("/draft/startDrafts")
+    public BlockDto startDraft(BlockDto blockDto) {
+        return blockService.startNextRound(blockDto);
+    }
+
+    @MessageMapping("/stopDraft")
+    @SendTo("/draft/stopDrafts")
+    public Long stopDraft(Long draftId) {
+        return blockService.stopDraft(draftId);
+    }
+
     @MessageMapping("/addToBlock")
     @SendTo("/draft/addToBlocks")
     public BlockDto addToBlock(BlockDto blockDto) {

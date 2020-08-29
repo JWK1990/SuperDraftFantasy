@@ -51,10 +51,16 @@ function DraftRoomBlock(props) {
                         <p>{props.block ? props.block.bidPrice : "TBA"} </p>
                     </Typography>
                 </CardContent>
+
                 <div className={classes.controls}>
-                    <IconButton aria-label="previous" >
+
+                    <IconButton
+                        aria-label="previous"
+                        onClick={() => props.sendStopDraft()}
+                    >
                         {theme.direction === 'rtl' ? <SkipNextIcon /> : <SkipPreviousIcon />}
                     </IconButton>
+
                     <IconButton
                         aria-label="play/pause"
                         onClick={() => props.sendBid()}
@@ -62,10 +68,16 @@ function DraftRoomBlock(props) {
                     >
                         <PlayArrowIcon className={classes.playIcon} />
                     </IconButton>
-                    <IconButton aria-label="next">
+
+                    <IconButton
+                        aria-label="next"
+                        onClick={() => props.sendStartDraft()}
+                    >
                         {theme.direction === 'rtl' ? <SkipPreviousIcon /> : <SkipNextIcon />}
                     </IconButton>
+
                 </div>
+
             </div>
             <CardMedia
                 className={classes.cover}
