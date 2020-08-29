@@ -38,6 +38,37 @@ public class BlockService {
         this.draftService = draftService;
     }
 
+    public BlockDto startNextRound(BlockDto blockDto) {
+        Long onTheBlockTeamId = draftService.updateOnTheBlockCoach(blockDto.getDraftId());
+        blockDto.setTeamId(onTheBlockTeamId);
+
+        Long bestAvailablePlayerId = playerService.getBestAvailablePlayer(blockDto.getDraftId());
+        blockDto.setPlayerId(bestAvailablePlayerId);
+
+        LocalDateTime endTime = LocalDateTime.now().plusSeconds(blockDto.getOnTheBlockTimer());
+        blockDto.setEndTime(endTime);
+
+        blockDto.setPrice(1L);
+
+        // Start automated AddToBlock.
+        futuresScheduler.startScheduledFuture(
+                ScheduledFutureEnum.AUTO_ADD_TO_BLOCK,
+                blockDto,
+                endTime,
+                this::autoAddToBlock
+        );
+
+        this.simpMessagingTemplate.convertAndSend("/draft/rounds", blockDto);
+        return blockDto;
+    }
+
+    public Long stopDraft(Long draftId) {
+        System.out.println("Draft Stopped.");
+        // Stop AutoAddToBlock or AutoDraftPlayer.
+        futuresScheduler.stopScheduledFutures(draftId);
+        return draftId;
+    }
+
     /**
      * Called when a User manually adds a Player to the Block or places a Bid.
      *
@@ -67,30 +98,7 @@ public class BlockService {
         System.out.println("AutoDraftAndStartNextRound");
         TeamReadDto teamReadDto = teamService.addPlayerToTeam(blockDto);
         this.simpMessagingTemplate.convertAndSend("/draft/teams", teamReadDto);
-        autoStartNextRound(blockDto);
-    }
-
-    private void autoStartNextRound(BlockDto blockDto) {
-        Long onTheBlockTeamId = draftService.updateOnTheBlockCoach(blockDto.getDraftId());
-        blockDto.setTeamId(onTheBlockTeamId);
-
-        Long bestAvailablePlayerId = playerService.getBestAvailablePlayer(blockDto.getDraftId());
-        blockDto.setPlayerId(bestAvailablePlayerId);
-
-        LocalDateTime endTime = LocalDateTime.now().plusSeconds(blockDto.getOnTheBlockTimer());
-        blockDto.setEndTime(endTime);
-
-        blockDto.setPrice(1L);
-
-        // Start automated AddToBlock.
-        futuresScheduler.startScheduledFuture(
-                ScheduledFutureEnum.AUTO_ADD_TO_BLOCK,
-                blockDto,
-                endTime,
-                this::autoAddToBlock
-        );
-
-        this.simpMessagingTemplate.convertAndSend("/draft/rounds", blockDto);
+        startNextRound(blockDto);
     }
 
     private void autoAddToBlock(BlockDto blockDto) {

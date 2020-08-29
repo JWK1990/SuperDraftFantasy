@@ -77,7 +77,7 @@ CREATE TABLE team_entity (
     name VARCHAR(255) NOT NULL,
     type_id INT NOT NULL,
     budget INT NOT NULL,
-    on_the_block BOOLEAN NOT NULL DEFAULT FALSE,
+    on_the_block BOOLEAN NOT NULL,
     user_id INT NOT NULL,
     draft_id INT,
     created_on TIMESTAMP NOT NULL,
