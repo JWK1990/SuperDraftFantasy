@@ -17,7 +17,7 @@ let stompClient = null;
 class DraftRoom extends React.Component {
 
     // TODO: Update to draftId.
-    draftId = 4;
+    draftId = 9;
 
     initialBlock = {
         player: '',
@@ -28,19 +28,10 @@ class DraftRoom extends React.Component {
         isBidDisabled: true,
     }
 
-    initialVacantPositions = {
-        DEF: true,
-        MID: true,
-        RUC: true,
-        FWD: true,
-        BENCH: true,
-    }
-
     constructor(props) {
         super(props);
         this.state = {
             block: this.initialBlock,
-            vacantPositions: this.initialVacantPositions,
             bestAvailablePlayerId: 1,
             stompClient: '',
             errorText: '',
@@ -70,6 +61,18 @@ class DraftRoom extends React.Component {
         stompClient = Stomp.over(sockJS);
         stompClient.debug = null;
         stompClient.connect({}, this.onConnected, this.onError);
+    };
+
+    onError = (error) => {
+        this.setState({
+            error: 'Could not connect you to the Draft Room Server. Please refresh this page and try again!'
+        })
+    };
+
+    disconnect = () => {
+        if (stompClient !== null) {
+            stompClient.disconnect();
+        }
     };
 
     onConnected = () => {
@@ -243,18 +246,6 @@ class DraftRoom extends React.Component {
         }, 1000);
     };
 
-    onError = (error) => {
-        this.setState({
-            error: 'Could not connect you to the Draft Room Server. Please refresh this page and try again!'
-        })
-    };
-
-    disconnect = () => {
-        if (stompClient !== null) {
-            stompClient.disconnect();
-        }
-    };
-
     getPlayerDetailsById = (playerId) => {
         return this.props.players.find(player => player.id === playerId);
     };
@@ -263,12 +254,8 @@ class DraftRoom extends React.Component {
         return this.props.draft.teams.find(team => team.id === teamId);
     };
 
-    getCurrentCoachPlayers = () => {
-        return this.props.currentTeam.players;
-    }
-
     getCurrentTeamPlayerCount = () => {
-        return this.props.currentTeam.players.length;
+        return this.props.currentTeam.teamPlayerJoins.length;
     }
 
     getCurrentCoachMaxBid = () => {
@@ -278,50 +265,6 @@ class DraftRoom extends React.Component {
     getNumOfSlotsPerTeam = () => {
         const roster = this.props.draft.roster;
         return roster.def + roster.mid + roster.ruc + roster.fwd + roster.bench;
-    }
-
-    // 1. Sets/Updates the current team's vacantPositions state.
-    // 2. Sets/Updates the isBidDisabled state.
-    // 3. Updates the bestAvailablePlayerId state.
-    setVacantPositions = (playerList) => {
-        const vacantPositionKeys = Object.keys(this.state.vacantPositions);
-        const updatedVacantPositions = this.state.vacantPositions;
-        for(let i=0; i < vacantPositionKeys.length; i++) {
-            const currentPosition = vacantPositionKeys[i];
-            const currentPositionList = playerList[currentPosition];
-            if(currentPositionList.findIndex(slot => slot.content.vacant) > -1) {
-                updatedVacantPositions[currentPosition] = true;
-                this.updateVacantPosition(currentPosition, true);
-            } else {
-                updatedVacantPositions[currentPosition] = false;
-                this.updateVacantPosition(currentPosition, false);
-            }
-        }
-        this.setState({updatedVacantPositions}, () => {
-            this.setState({isBidDisabled: this.getIsBidDisabled()});
-            this.setBestAvailablePlayerId();
-        });
-    };
-
-    updateVacantPosition = (vacantPosition, vacant) => {
-        this.setState(prevState => ({
-            ...prevState,
-            vacantPositions: {
-                ...prevState.vacantPositions,
-                [vacantPosition]: vacant,
-            }
-        }))
-    }
-
-    setBestAvailablePlayerId = () => {
-        if(this.getIsTeamFull()){
-            return;
-        }
-        const updatedBestAvailablePlayerId = this.props.players.find(player => {
-            return player.available && this.getIsSlotAvailableForPlayer(player);
-        }).id;
-
-        this.setState({bestAvailablePlayerId: updatedBestAvailablePlayerId});
     }
 
     getIsBidDisabled = (price, player) => {
@@ -344,10 +287,11 @@ class DraftRoom extends React.Component {
         if(this.getIsTeamFull()) {
             return false;
         }
-        const benchSlotAvailable = this.state.vacantPositions["BENCH"];
-        const primarySlotAvailable = this.state.vacantPositions[player.primaryPosition];
-        const secondarySlotAvailable = player.secondaryPosition ? this.state.vacantPositions[player.secondaryPosition] : false;
-        return benchSlotAvailable || primarySlotAvailable || secondarySlotAvailable;
+        // const benchSlotAvailable = this.state.vacantPositions["BENCH"];
+        // const primarySlotAvailable = this.state.vacantPositions[player.primaryPosition];
+        // const secondarySlotAvailable = player.secondaryPosition ? this.state.vacantPositions[player.secondaryPosition] : false;
+        // return benchSlotAvailable || primarySlotAvailable || secondarySlotAvailable;
+        return true;
     };
 
     getIsTeamFull = () => {
@@ -372,18 +316,14 @@ class DraftRoom extends React.Component {
                     sendBid={this.sendBid}
                     sendStartDraft={this.sendStartDraft}
                     sendStopDraft={this.sendStopDraft}
-                    vacantPositions={this.state.vacantPositions}
                 />
                 <DraftRoomPlayers
                     players={this.props.players}
                     sendAddToBlock={this.sendAddToBlock}
-                    vacantPositions={this.state.vacantPositions}
                 />
                 <MyTeam 
-                    playerList={this.getCurrentCoachPlayers()}
                     roster={this.props.draft.roster}
-                    teamId={this.props.currentTeam.id}
-                    setVacantPositions={this.setVacantPositions}
+                    currentTeam={this.props.currentTeam}
                 />
             </div>
         )

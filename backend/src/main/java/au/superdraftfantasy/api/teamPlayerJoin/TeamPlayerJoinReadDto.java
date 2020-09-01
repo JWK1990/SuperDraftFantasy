@@ -12,6 +12,8 @@ public class TeamPlayerJoinReadDto {
 
     private PlayerReadDto player;
 
+    private Long price;
+
     private String myTeamPosition;
 
 }
