@@ -22,29 +22,24 @@ const createSlots = (count, offset, position) => {
 };
 
 const createEmptySlot = (id, position) => {
-    return {id: `${id}`, content: {vacant: true, position: `${position}`, player: null}};
+    return {id: `${id}`, content: {vacant: true, position: `${position}`, player: null, price: null}};
 }
 
 const fillSlots = (myTeamList, teamPlayerJoinList) => {
     teamPlayerJoinList.forEach(teamPlayerJoin => {
-        addPlayerToVacantSlot(myTeamList, teamPlayerJoin);
+        addPlayerToFirstVacantSlot(myTeamList, teamPlayerJoin);
     })
     return myTeamList;
 }
 
-const addPlayerToVacantSlot = (myTeamList, teamPlayerJoin) => {
+const addPlayerToFirstVacantSlot = (myTeamList, teamPlayerJoin) => {
     if(teamPlayerJoin.myTeamPosition != null) {
         const relevantPositionList = myTeamList[teamPlayerJoin.myTeamPosition];
         const firstVacantSlot = relevantPositionList.find(slot => slot.content.vacant);
         firstVacantSlot.content.vacant = false;
         firstVacantSlot.content.player = teamPlayerJoin.player;
+        firstVacantSlot.content.price = teamPlayerJoin.price;
     }
-}
-
-const createFilledSlot = (id, position, player) => {
-    let updatedPlayer = player;
-    updatedPlayer.myTeamPosition = position;
-    return {id: `${id}`, content: {vacant: false, position: `${position}`, player: updatedPlayer}};
 }
 
 /**
@@ -54,16 +49,17 @@ const move = (source, destination, droppableSource, droppableDestination) => {
     const sourceClone = Array.from(source);
     const destClone = Array.from(destination);
     const [removed] = sourceClone.splice(droppableSource.index, 1);
-    const firstAvailableSlotIndex = destClone.findIndex(slot => slot.content.vacant);
-    const firstAvailableSlot = destClone[firstAvailableSlotIndex];
 
     sourceClone.push(createEmptySlot(removed.id, removed.content.position));
-    destClone[firstAvailableSlotIndex] = createFilledSlot(firstAvailableSlot.id, firstAvailableSlot.content.position, removed.content.player);
+
+    const firstAvailableSlot = destClone.find(slot => slot.content.vacant);
+    firstAvailableSlot.content.vacant = false;
+    firstAvailableSlot.content.player = removed.content.player;
+    firstAvailableSlot.content.price = removed.content.price;
 
     const result = {};
     result[droppableSource.droppableId] = sourceClone;
     result[droppableDestination.droppableId] = destClone;
-    result["updatedPlayerId"] = removed.content.player.id;
     return result;
 };
 
@@ -136,7 +132,7 @@ class MyTeam extends React.Component {
         const newPlayerReceived = nextProps.currentTeam.teamPlayerJoins.length !== this.props.currentTeam.teamPlayerJoins.length;
         if(newPlayerReceived) {
             const playerToBeAdded = nextProps.currentTeam.teamPlayerJoins[nextProps.currentTeam.teamPlayerJoins.length -1];
-            addPlayerToVacantSlot(this.state.myTeamList, playerToBeAdded);
+            addPlayerToFirstVacantSlot(this.state.myTeamList, playerToBeAdded);
         }
     }
 
