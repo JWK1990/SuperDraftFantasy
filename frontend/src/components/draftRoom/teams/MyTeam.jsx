@@ -1,12 +1,23 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import DraftService from '../../../services/DraftService';
 
-// fake data generator
-const getSlots = (count, offset = 0, position) => {
+const getInitialMyTeamList = (roster, teamPlayerJoinList) => {
+    const initialMyTeamList = {
+            DEF: createSlots(roster.def, 0, "DEF"),
+            MID: createSlots(roster.mid, roster.def, "MID"),
+            RUC: createSlots(roster.ruc, roster.def + roster.mid, "RUC"),
+            FWD: createSlots(roster.fwd, roster.def + roster.mid + roster.ruc, "FWD"),
+            BENCH: createSlots(roster.bench, roster.def + roster.mid + roster.ruc + roster.fwd, "BENCH")
+    };
+    fillSlots(initialMyTeamList, teamPlayerJoinList)
+    return initialMyTeamList;
+};
+
+const createSlots = (count, offset, position) => {
     return Array.from({ length: count }, (v, k) => k).map(k => {
         const id = k + offset;
-        return createEmptySlot(id, position)
+        return createEmptySlot(id, position);
     });
 };
 
@@ -14,71 +25,27 @@ const createEmptySlot = (id, position) => {
     return {id: `${id}`, content: {vacant: true, position: `${position}`, player: null}};
 }
 
+const fillSlots = (myTeamList, teamPlayerJoinList) => {
+    teamPlayerJoinList.forEach(teamPlayerJoin => {
+        addPlayerToVacantSlot(myTeamList, teamPlayerJoin);
+    })
+    return myTeamList;
+}
+
+const addPlayerToVacantSlot = (myTeamList, teamPlayerJoin) => {
+    if(teamPlayerJoin.myTeamPosition != null) {
+        const relevantPositionList = myTeamList[teamPlayerJoin.myTeamPosition];
+        const firstVacantSlot = relevantPositionList.find(slot => slot.content.vacant);
+        firstVacantSlot.content.vacant = false;
+        firstVacantSlot.content.player = teamPlayerJoin.player;
+    }
+}
+
 const createFilledSlot = (id, position, player) => {
     let updatedPlayer = player;
     updatedPlayer.myTeamPosition = position;
     return {id: `${id}`, content: {vacant: false, position: `${position}`, player: updatedPlayer}};
 }
-
-const getInitialState = (roster, playerList) => {
-    let initialState = {
-        playerList: {
-            DEF: getSlots(roster.def, 0, "DEF"),
-            MID: getSlots(roster.mid, roster.def, "MID"),
-            RUC: getSlots(roster.ruc, roster.def + roster.mid, "RUC"),
-            FWD: getSlots(roster.fwd, roster.def + roster.mid + roster.ruc, "FWD"),
-            BENCH: getSlots(roster.bench, roster.def + roster.mid + roster.ruc + roster.fwd, "BENCH")
-        },
-        draggedPrimaryPosition: '',
-        draggedSecondaryPosition: '',
-        errorText: '',
-    }
-
-    playerList.forEach(player => {
-        const myTeamPositon = player.myTeamPosition;
-        if(myTeamPositon) {
-            const relevantPositionList = initialState.playerList[myTeamPositon];
-            const firstVacantSlot = relevantPositionList.findIndex(slot => slot.content.vacant);
-            const currentSlotData = relevantPositionList[firstVacantSlot];
-            relevantPositionList[firstVacantSlot] = createFilledSlot(currentSlotData.id, currentSlotData.content.position, player);
-        } else {
-            addToAvailableSlot(initialState.playerList, player);
-        }
-    });
-
-    return initialState;
-};
-
-const addToAvailableSlot = (currentPlayers, playerToBeAdded) => {
-    const primaryPosition = playerToBeAdded.primaryPosition;
-    const secondaryPosition = playerToBeAdded.secondaryPosition;
-
-    let availablePosition = "BENCH";
-    let availableSlot = currentPlayers["BENCH"].findIndex(slot => slot.content.vacant);
-
-    const primaryPositionSlot = currentPlayers[primaryPosition].findIndex(slot => slot.content.vacant);
-
-    if(primaryPositionSlot > -1) {
-        availablePosition = primaryPosition;
-        availableSlot = primaryPositionSlot;
-    } else if(secondaryPosition) {
-        const secondaryPositionSlot = currentPlayers[secondaryPosition].findIndex(slot => slot.content.vacant);
-        if(secondaryPositionSlot > -1) {
-            availablePosition = secondaryPosition;
-            availableSlot = secondaryPositionSlot;
-        }
-    }
-
-    const currentSlotData = currentPlayers[availablePosition][availableSlot];
-    const updatedSlotData = createFilledSlot(currentSlotData.id, currentSlotData.content.position, playerToBeAdded);
-    currentPlayers[availablePosition][availableSlot] = updatedSlotData;
-    
-    const result = {};
-    result["playerId"] = updatedSlotData.content.player.id;
-    result["myTeamPosition"] = updatedSlotData.content.position;
-
-    return result;
-};
 
 /**
  * Moves an item from one list to another list.
@@ -143,28 +110,33 @@ const getListStyle = isDraggingOver => ({
     transform: 'none',
 });
 
-class MyTeam extends Component {
+class MyTeam extends React.Component {
 
-    shouldComponentUpdate(nextProps, nextState) {
-        const playerListChange = nextProps.playerList !== this.props.playerList;
-        const stateChange = nextState !== this.state;
-        return playerListChange || stateChange;
+    constructor(props) {
+        super(props);
+        this.state = {
+            myTeamList: {
+                DEF: [],
+                MID: [],
+                RUC: [],
+                FWD: [],
+                BENCH: []
+            },
+            draggedPrimaryPosition: '',
+            draggedSecondaryPosition: '',
+            errorText: '',
+        };
     }
 
     componentWillMount() {
-        this.setState(getInitialState(this.props.roster, this.props.playerList));
-    }
-
-    componentDidMount() {
-        this.props.setVacantPositions(this.state.playerList);
+        this.setState({myTeamList: getInitialMyTeamList(this.props.roster, this.props.currentTeam.teamPlayerJoins)});
     }
 
     componentWillUpdate(nextProps) {
-        const newPlayerReceived = nextProps.playerList.length !== this.props.playerList.length;
+        const newPlayerReceived = nextProps.currentTeam.teamPlayerJoins.length !== this.props.currentTeam.teamPlayerJoins.length;
         if(newPlayerReceived) {
-            const playerToBeAdded = nextProps.playerList[nextProps.playerList.length -1];
-            const result = addToAvailableSlot(this.state.playerList, playerToBeAdded);
-            this.saveMyTeamLayout(this.props.teamId, result.playerId, result.myTeamPosition);
+            const playerToBeAdded = nextProps.currentTeam.teamPlayerJoins[nextProps.currentTeam.teamPlayerJoins.length -1];
+            addPlayerToVacantSlot(this.state.myTeamList, playerToBeAdded);
         }
     }
 
@@ -181,14 +153,14 @@ class MyTeam extends Component {
         droppableBench: 'BENCH',
     };
 
-    getPositionList = id => this.state.playerList[this.droppableList[id]];
+    getPositionList = id => this.state.myTeamList[this.droppableList[id]];
 
     isDragDisabled = (isDraggableVacant) => {
         return isDraggableVacant;
     }
 
     isDropDisabled = (dropPosition) => {
-        const isDropPositionVacant = this.state.playerList[dropPosition].findIndex(slot => slot.content.vacant) > -1;
+        const isDropPositionVacant = this.state.myTeamList[dropPosition].findIndex(slot => slot.content.vacant) > -1;
         const isDropPositionValid = dropPosition === "BENCH"
                                     || dropPosition.includes(this.state.draggedPrimaryPosition)
                                     || dropPosition.includes(this.state.draggedSecondaryPosition);
@@ -216,40 +188,41 @@ class MyTeam extends Component {
         }
         // Moved to another list.
         else {
-            const result = move(
-                this.getPositionList(source.droppableId),
-                this.getPositionList(destination.droppableId),
-                source,
-                destination
-            );
-
-            const sourcePosition = this.droppableList[source.droppableId];
+            // TODO: Add spinner to relevant slot when loading.
+            const sourcePositionList = this.getPositionList(source.droppableId);
+            const playerId = sourcePositionList[source.index].content.player.id;
             const destinationPosition = this.droppableList[destination.droppableId];
 
-            this.setState(prevState => ({
-                ...prevState,
-                playerList: {
-                    ...prevState.playerList,
-                    [sourcePosition]: result[source.droppableId],
-                    [destinationPosition]: result[destination.droppableId]
-                }
-            }));
-            this.saveMyTeamLayout(this.props.teamId, result.updatedPlayerId, destinationPosition);
+            DraftService.saveMyTeamLayout(this.props.currentTeam.id, playerId, destinationPosition)
+                .then(response => {
+                    if(response.status === 200) {
+                        this.movePlayerAndUpdateState(sourcePositionList, destination, source, destinationPosition);
+                    } else {
+                        this.setState({errorText: response.data.message});
+                    }
+                })
+                .catch(error => {
+                    console.log(error);
+                });
         }
     };
 
-    saveMyTeamLayout = (teamId, playerId, position) => {
-        DraftService.saveMyTeamLayout(teamId, playerId, position)
-            .then(response => {
-                if(response.status === 200) {
-                    this.props.setVacantPositions(this.state.playerList);
-                } else {
-                    this.setState({errorText: response.data.message});
-                }
-            })
-            .catch(error => {
-                console.log(error);
-            });
+    movePlayerAndUpdateState(sourcePositionList, destination, source, destinationPosition) {
+        const result = move(
+            sourcePositionList,
+            this.getPositionList(destination.droppableId),
+            source,
+            destination
+        );
+        const sourcePosition = this.droppableList[source.droppableId];
+        this.setState(prevState => ({
+            ...prevState,
+            myTeamList: {
+                ...prevState.myTeamList,
+                [sourcePosition]: result[source.droppableId],
+                [destinationPosition]: result[destination.droppableId]
+            }
+        }));
     }
 
     render() {
@@ -260,7 +233,7 @@ class MyTeam extends Component {
                         <div
                             ref={provided.innerRef}
                             style={getListStyle(snapshot.isDraggingOver)}>
-                            {this.state.playerList.DEF.map((item, index) => (
+                            {this.state.myTeamList.DEF.map((item, index) => (
                                 <Draggable
                                     key={item.id}
                                     draggableId={item.id}
@@ -288,7 +261,7 @@ class MyTeam extends Component {
                         <div
                             ref={provided.innerRef}
                             style={getListStyle(snapshot.isDraggingOver)}>
-                            {this.state.playerList.MID.map((item, index) => (
+                            {this.state.myTeamList.MID.map((item, index) => (
                                 <Draggable
                                     key={item.id}
                                     draggableId={item.id}
@@ -316,7 +289,7 @@ class MyTeam extends Component {
                         <div
                             ref={provided.innerRef}
                             style={getListStyle(snapshot.isDraggingOver)}>
-                            {this.state.playerList.RUC.map((item, index) => (
+                            {this.state.myTeamList.RUC.map((item, index) => (
                                 <Draggable
                                     key={item.id}
                                     draggableId={item.id}
@@ -344,7 +317,7 @@ class MyTeam extends Component {
                         <div
                             ref={provided.innerRef}
                             style={getListStyle(snapshot.isDraggingOver)}>
-                            {this.state.playerList.FWD.map((item, index) => (
+                            {this.state.myTeamList.FWD.map((item, index) => (
                                 <Draggable
                                     key={item.id}
                                     draggableId={item.id}
@@ -372,7 +345,7 @@ class MyTeam extends Component {
                         <div
                             ref={provided.innerRef}
                             style={getListStyle(snapshot.isDraggingOver)}>
-                            {this.state.playerList.BENCH.map((item, index) => (
+                            {this.state.myTeamList.BENCH.map((item, index) => (
                                 <Draggable
                                     key={item.id}
                                     draggableId={item.id}

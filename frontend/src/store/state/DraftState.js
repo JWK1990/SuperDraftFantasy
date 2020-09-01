@@ -1,5 +1,4 @@
 import {initialUserState} from "./UserState";
-import {initialPlayersState} from "./PlayersState";
 
 const initialRoster = {
     id: null,
@@ -11,6 +10,14 @@ const initialRoster = {
     bench: null
 }
 
+const initialTeamPlayerJoinsState = [
+    {
+        player: null,
+        price: null,
+        myTeamPosition: null
+    }
+]
+
 const initialTeams = [
     {
         id: null,
@@ -19,7 +26,7 @@ const initialTeams = [
         budget: null,
         maxBid: null,
         onTheBlock: null,
-        players: initialPlayersState,
+        teamPlayerJoins: initialTeamPlayerJoinsState,
         user: initialUserState
     }
 ]

@@ -135,7 +135,9 @@ public class TeamService {
 
     private void addPlayerToTeam(TeamEntity team, Long playerID, Long price) {
         PlayerEntity player =  playerRepository.findById(playerID).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Player with ID '" + playerID + "' Not Found."));
-        TeamPlayerJoinEntity teamPlayerJoin = new TeamPlayerJoinEntity(null, team, player, price, null);
+        // TODO: Update to calculate correct MyTeamPosition rather than just taking the first position.
+        String defaultMyTeamPosition = player.getPositions().stream().findFirst().get().getType().toString();
+        TeamPlayerJoinEntity teamPlayerJoin = new TeamPlayerJoinEntity(null, team, player, price, defaultMyTeamPosition);
         team.getTeamPlayerJoins().add(teamPlayerJoin);
     }
 
