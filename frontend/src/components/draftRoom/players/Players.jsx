@@ -1,9 +1,9 @@
-import React, {Component} from "react";
+import React from "react";
 import MaterialTable from "material-table";
 import Container from "@material-ui/core/Container";
 import DraftRoomPlayersSelected from "./selected/Selected";
 
-class DraftRoomPlayers extends Component {
+class DraftRoomPlayers extends React.Component {
 
         constructor(props) {
             super(props);
@@ -11,6 +11,21 @@ class DraftRoomPlayers extends Component {
                 selectedPlayer: '',
             };
         }
+
+        sendAddToBlock = (selectedPlayerId, initialBid) => {
+            if (this.props.stompClient) {
+                const addToBlockDetails = {
+                    draftId: this.props.draft.id,
+                    playerId: selectedPlayerId,
+                    teamId: this.props.currentTeamId,
+                    price: initialBid,
+                    onTheBlockTimer: this.props.draft.onTheBlockTimer,
+                    bidTimer: this.props.draft.bidTimer
+                };
+                this.props.stompClient.send("/app/addToBlock", {}, JSON.stringify(addToBlockDetails));
+                console.log('Add To Block Sent: ', addToBlockDetails);
+            }
+        };
 
         getIsAddToBlockDisabled = (player) => {
             // const benchSlotVacant = this.props.vacantPositions["BENCH"];
@@ -56,7 +71,7 @@ class DraftRoomPlayers extends Component {
                                 return (
                                     <DraftRoomPlayersSelected
                                         selected={rowData}
-                                        sendAddToBlock={this.props.sendAddToBlock}
+                                        sendAddToBlock={this.sendAddToBlock}
                                         isAddToBlockDisabled = {this.getIsAddToBlockDisabled(this.state.selectedPlayer)}
                                     />
                                 )
