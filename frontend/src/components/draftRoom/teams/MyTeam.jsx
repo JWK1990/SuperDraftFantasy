@@ -241,7 +241,9 @@ class MyTeam extends React.Component {
                                             {...provided.draggableProps}
                                             {...provided.dragHandleProps}
                                             style={getStyle(provided.draggableProps.style, snapshot)}>
-                                            {item.content.player ? item.content.player.firstName : ""}
+                                            {item.content.player
+                                                ? item.content.player.firstName + item.content.player.price
+                                                : ""}
                                         </div>
                                     )}
                                 </Draggable>
@@ -269,7 +271,9 @@ class MyTeam extends React.Component {
                                             {...provided.draggableProps}
                                             {...provided.dragHandleProps}
                                             style={getStyle(provided.draggableProps.style, snapshot)}>
-                                            {item.content.player ? item.content.player.firstName : ""}
+                                            {item.content.player
+                                                ? item.content.player.firstName + " ($" + item.content.price + ")"
+                                                : ""}
                                         </div>
                                     )}
                                 </Draggable>
@@ -297,7 +301,9 @@ class MyTeam extends React.Component {
                                             {...provided.draggableProps}
                                             {...provided.dragHandleProps}
                                             style={getStyle(provided.draggableProps.style, snapshot)}>
-                                            {item.content.player ? item.content.player.firstName : ""}
+                                            {item.content.player
+                                                ? item.content.player.firstName + " ($" + item.content.price + ")"
+                                                : ""}
                                         </div>
                                     )}
                                 </Draggable>
@@ -325,7 +331,10 @@ class MyTeam extends React.Component {
                                             {...provided.draggableProps}
                                             {...provided.dragHandleProps}
                                             style={getStyle(provided.draggableProps.style, snapshot)}>
-                                            {item.content.player ? item.content.player.firstName : ""}
+                                            {item.content.player
+                                                ? item.content.player.firstName + " ($" + item.content.price + ")"
+                                                : ""
+                                            }
                                         </div>
                                     )}
                                 </Draggable>
@@ -353,7 +362,9 @@ class MyTeam extends React.Component {
                                             {...provided.draggableProps}
                                             {...provided.dragHandleProps}
                                             style={getStyle(provided.draggableProps.style, snapshot)}>
-                                            {item.content.player ? item.content.player.firstName : ""}
+                                            {item.content.player
+                                                ? item.content.player.firstName + " ($" + item.content.price + ")"
+                                                : ""}
                                         </div>
                                     )}
                                 </Draggable>
