@@ -1,4 +1,4 @@
-import {GET_DRAFT_FAILURE, GET_DRAFT_STARTED, GET_DRAFT_SUCCESS, UPDATE_TEAM} from "../actions";
+import {GET_DRAFT_FAILURE, GET_DRAFT_STARTED, GET_DRAFT_SUCCESS, UPDATE_TEAM, REORDER_TEAM_LIST} from "../actions";
 import {initialDraftState} from "../state/DraftState";
 
 export function draftReducer(state = initialDraftState, action) {
@@ -36,6 +36,17 @@ export function draftReducer(state = initialDraftState, action) {
                     teams: state.data.teams.map((team) => (
                         team.id === teamId ? action.payload : team
                     ))
+                }
+            }
+
+        case REORDER_TEAM_LIST:
+            return {
+                ...state,
+                loading: false,
+                error: null,
+                data: {
+                    ...state.data,
+                    teams: action.payload
                 }
             }
 

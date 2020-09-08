@@ -4,6 +4,7 @@ export const GET_DRAFT_STARTED = 'GET_DRAFT_STARTED';
 export const GET_DRAFT_SUCCESS = 'GET_DRAFT_SUCCESS';
 export const GET_DRAFT_FAILURE = 'GET_DRAFT_FAILURE';
 export const UPDATE_TEAM = 'UPDATE_TEAM';
+export const REORDER_TEAM_LIST = 'REORDER_TEAM_LIST';
 
 export const getDraftAction = (draftId) => {
     return dispatch => {
@@ -36,4 +37,9 @@ export const getDraftFailureAction = error => ({
 export const updateTeamAction = team => ({
     type: UPDATE_TEAM,
     payload: team
+})
+
+export const reorderTeamListAction = teamList => ({
+    type: REORDER_TEAM_LIST,
+    payload: teamList
 })

@@ -31,3 +31,4 @@ logging:
           autoconfigure: ERROR
       hibernate:
         SQL: DEBUG
+#        type: TRACE

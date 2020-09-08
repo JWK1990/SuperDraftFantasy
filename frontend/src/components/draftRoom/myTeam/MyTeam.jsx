@@ -228,7 +228,8 @@ class MyTeam extends React.Component {
                     {(provided, snapshot) => (
                         <div
                             ref={provided.innerRef}
-                            style={getListStyle(snapshot.isDraggingOver)}>
+                            style={getListStyle(snapshot.isDraggingOver)}
+                        >
                             {this.state.myTeamList.DEF.map((item, index) => (
                                 <Draggable
                                     key={item.id}
@@ -240,7 +241,8 @@ class MyTeam extends React.Component {
                                             ref={provided.innerRef}
                                             {...provided.draggableProps}
                                             {...provided.dragHandleProps}
-                                            style={getStyle(provided.draggableProps.style, snapshot)}>
+                                            style={getStyle(provided.draggableProps.style, snapshot)}
+                                        >
                                             {item.content.player
                                                 ? item.content.player.firstName + item.content.player.price
                                                 : ""}
