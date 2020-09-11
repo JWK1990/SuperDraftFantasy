@@ -11,13 +11,13 @@ import org.springframework.http.HttpStatus;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
 
+import javax.transaction.Transactional;
 import javax.validation.constraints.NotBlank;
 import java.util.Arrays;
 import java.util.List;
-
+import java.util.stream.Collectors;
 
 @Service
 public class DraftService {
@@ -52,7 +52,8 @@ public class DraftService {
      * @return
      */
     public DraftReadDto getDraft(@NotBlank final Long draftID) {
-        DraftEntity draft = draftRepository.findById(draftID).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Draft with ID '" + draftID + "' not found."));
+        DraftEntity draft = draftRepository.findById(draftID)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Draft with ID '" + draftID + "' not found."));
         return mapToDraftReadDto(draft);
     }
 
@@ -70,6 +71,28 @@ public class DraftService {
 
         draftRepository.save(draft);
         return onTheBlockTeam.getId();
+    }
+
+    @Transactional
+    public List<Long> reorderTeamList(DraftReorderTeamsDto draftReorderTeamsDto) {
+        DraftEntity draft = draftRepository.findById(draftReorderTeamsDto.getDraftId())
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Draft with ID '" + draftReorderTeamsDto.getDraftId() + "' not found."));
+
+        List<Long> orderedTeamIdList = draftReorderTeamsDto.getTeamIdList();
+        draft.getTeams().forEach(team -> {
+            Long currentOrderIndex = team.getOrderIndex();
+            Long updatedOrderIndex = (long) orderedTeamIdList.indexOf(team.getId());
+            if(!currentOrderIndex.equals(updatedOrderIndex)) {
+                team.setOrderIndex(updatedOrderIndex);
+            }
+        });
+
+        DraftEntity updatedDraft = draftRepository.save(draft);
+        return updatedDraft.getTeams()
+                .stream()
+                .sorted((team1, team2) -> (int) (team1.getOrderIndex() - team2.getOrderIndex()))
+                .map(TeamEntity::getId)
+                .collect(Collectors.toList());
     }
 
     private int getOnTheBlockIndex(List<TeamEntity> teamList) {
@@ -111,6 +134,7 @@ public class DraftService {
                 TeamTypeEnum.COMMISSIONER,
                 draft.getBudget(),
                 true,
+                0L,
                 Arrays.asList(),
                 user,
                 draft,

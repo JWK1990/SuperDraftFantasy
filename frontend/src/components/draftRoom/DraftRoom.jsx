@@ -1,7 +1,7 @@
 import React from "react";
 import DraftRoomPlayers from "./players/Players";
 import DraftRoomBlock from "./block/Block";
-import MyTeam from "./teams/MyTeam";
+import MyTeam from "./myTeam/MyTeam";
 import * as Stomp from 'stompjs';
 import * as SockJS from 'sockjs-client';
 import ConfigurationHelper from '../../utils/ConfigurationUtils.js';
@@ -11,13 +11,14 @@ import {userSelector} from "../../store/selectors/UserSelectors"
 import {currentTeamSelector, draftSelector, onTheBlockTeamSelector} from "../../store/selectors/DraftSelectors"
 import {getPlayersByDraftAction} from "../../store/actions/PlayerActions";
 import {playersSelector} from "../../store/selectors/PlayersSelectors";
+import DraftRoomTeams from "./teams/Teams";
 
 let stompClient = null;
 
 class DraftRoom extends React.Component {
 
     // TODO: Update to draftId.
-    draftId = 11;
+    draftId = 1;
 
     constructor(props) {
         super(props);
@@ -101,11 +102,17 @@ class DraftRoom extends React.Component {
                     roster={this.props.draft.roster}
                     currentTeam={this.props.currentTeam}
                 />
+                <DraftRoomTeams
+                    stompClient={this.state.stompClient}
+                    teams={this.props.draft.teams}
+                    draftId={this.props.draft.id}
+                    draftStatus={this.props.draft.status}
+                />
             </div>
         )
     }
 
-};
+}
 
 const mapStateToProps = state => {
     return {

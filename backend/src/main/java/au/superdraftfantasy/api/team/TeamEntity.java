@@ -41,6 +41,9 @@ public class TeamEntity {
     @NotNull
     private boolean onTheBlock;
 
+    @NotNull
+    private Long orderIndex;
+
     @OneToMany(mappedBy="team", cascade = CascadeType.ALL)
     @JsonManagedReference(value="team-teamPlayerJoin")
     private List<TeamPlayerJoinEntity> teamPlayerJoins;

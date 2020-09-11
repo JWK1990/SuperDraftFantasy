@@ -28,6 +28,8 @@ public class TeamReadDto {
 
     private boolean onTheBlock;
 
+    private Long orderIndex;
+
     private List<TeamPlayerJoinReadDto> teamPlayerJoins;
 
     private UserReadDto user;

@@ -96,16 +96,20 @@ public class TeamService {
     }
 
     private TeamEntity convertTeamWriteDtoToEntity(TeamWriteDto teamWriteDto) {
-        TeamEntity coach = modelMapper.map(teamWriteDto, TeamEntity.class);
         DraftEntity draft = draftRepository.findById(teamWriteDto.getDraftId()).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Draft with ID '" + teamWriteDto.getDraftId() + "'Not Found."));
-        coach.setDraft(draft);
-        coach.setUser(getCurrentUser());
-        coach.setType(TeamTypeEnum.MEMBER);
-        coach.setBudget(draft.getBudget());
-        coach.setOnTheBlock(false);
-        coach.setName(generateDefaultTeamName(coach.getUser().getUsername()));
-        coach.setTeamPlayerJoins(Collections.emptyList());
-        return coach;
+        return new TeamEntity(
+                null,
+                generateDefaultTeamName(getCurrentUser().getUsername()),
+                TeamTypeEnum.MEMBER,
+                draft.getBudget(),
+                false,
+                (long) draft.getTeams().size(),
+                Collections.emptyList(),
+                getCurrentUser(),
+                draft,
+                null,
+                null
+        );
     }
 
     private UserEntity getCurrentUser() {
