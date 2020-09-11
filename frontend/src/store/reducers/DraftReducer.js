@@ -46,7 +46,11 @@ export function draftReducer(state = initialDraftState, action) {
                 error: null,
                 data: {
                     ...state.data,
-                    teams: action.payload
+                    teams: state.data.teams.map((team) => (
+                        team.orderIndex === action.payload.indexOf(team.id)
+                            ? team
+                            : {...team, orderIndex: action.payload.indexOf(team.id)}
+                    ))
                 }
             }
 

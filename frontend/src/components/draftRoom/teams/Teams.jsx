@@ -3,11 +3,14 @@ import {DragDropContext, Draggable, Droppable} from "react-beautiful-dnd";
 import {reorderTeamListAction} from "../../../store/actions";
 import {connect} from "react-redux";
 
-const getSortableTeamList = teamList =>
-    Array.from({ length: teamList.length }, (v, k) => k).map(k => ({
-        id: `item-${k}`,
+const getSortableTeamList = teamList => {
+    teamList.sort((teamA, teamB) => teamA.orderIndex - teamB.orderIndex);
+    return Array.from({ length: teamList.length }, (v, k) => k).map(k => ({
+        id: `item-${teamList[k].orderIndex}`,
         content: {id: teamList[k].id, name: teamList[k].name}
     }));
+}
+
 
 // a little function to help us with reordering the result
 const reorder = (list, startIndex, endIndex) => {
@@ -53,6 +56,19 @@ class DraftRoomTeams extends React.Component {
         this.props.stompClient.subscribe('/draft/reorderTeamLists', this.receiveReorderTeamList);
     }
 
+    sendReorderTeamList = (reorderedTeamIdList) => {
+        console.log('Test');
+        const reorderTeamListDto = {draftId: this.props.draftId, teamIdList: reorderedTeamIdList};
+        this.props.stompClient.send("/app/reorderTeamList", {}, JSON.stringify(reorderTeamListDto));
+    }
+
+    receiveReorderTeamList = (payload) => {
+        console.log('Payload Received: ', payload);
+        const updatedSortedTeamIdList = JSON.parse(payload.body);
+        this.props.updateTeamOrder(updatedSortedTeamIdList);
+        this.setState({sortableTeamList: getSortableTeamList(this.props.teams)});
+    }
+
     onDragEnd(result) {
         // dropped outside the list
         if (!result.destination) {
@@ -67,19 +83,6 @@ class DraftRoomTeams extends React.Component {
 
         const reorderedTeamIdList = reorderedSortableTeamList.map(sortableTeam => sortableTeam.content.id);
         this.sendReorderTeamList(reorderedTeamIdList);
-    }
-
-    sendReorderTeamList = (reorderedTeamIdList) => {
-        console.log('Test');
-        const reorderTeamListDto = {draftId: this.props.draftId, teamIdList: reorderedTeamIdList};
-        this.props.stompClient.send("/app/reorderTeamList", {}, JSON.stringify(reorderTeamListDto));
-    }
-
-    receiveReorderTeamList = (payload) => {
-        console.log('Payload Received: ', payload);
-        const updatedTeamList = JSON.parse(payload.body);
-        this.props.updateTeamOrder(updatedTeamList);
-        this.setState({sortableTeamList: getSortableTeamList(updatedTeamList)});
     }
 
     // Normally you would want to split things out into separate components.

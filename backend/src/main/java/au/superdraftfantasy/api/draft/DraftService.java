@@ -3,7 +3,6 @@ package au.superdraftfantasy.api.draft;
 import au.superdraftfantasy.api.roster.RosterEntity;
 import au.superdraftfantasy.api.roster.RosterRepository;
 import au.superdraftfantasy.api.team.TeamEntity;
-import au.superdraftfantasy.api.team.TeamReadDto;
 import au.superdraftfantasy.api.team.TeamTypeEnum;
 import au.superdraftfantasy.api.user.UserEntity;
 import au.superdraftfantasy.api.user.UserRepository;
@@ -75,7 +74,7 @@ public class DraftService {
     }
 
     @Transactional
-    public List<TeamReadDto> reorderTeamList(DraftReorderTeamsDto draftReorderTeamsDto) {
+    public List<Long> reorderTeamList(DraftReorderTeamsDto draftReorderTeamsDto) {
         DraftEntity draft = draftRepository.findById(draftReorderTeamsDto.getDraftId())
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Draft with ID '" + draftReorderTeamsDto.getDraftId() + "' not found."));
 
@@ -92,7 +91,7 @@ public class DraftService {
         return updatedDraft.getTeams()
                 .stream()
                 .sorted((team1, team2) -> (int) (team1.getOrderIndex() - team2.getOrderIndex()))
-                .map(team -> modelMapper.map(team, TeamReadDto.class))
+                .map(TeamEntity::getId)
                 .collect(Collectors.toList());
     }
 

@@ -1,6 +1,5 @@
 package au.superdraftfantasy.api.draft;
 
-import au.superdraftfantasy.api.team.TeamReadDto;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.web.bind.annotation.*;
@@ -29,7 +28,7 @@ public class DraftController {
 
     @MessageMapping("/reorderTeamList")
     @SendTo("/draft/reorderTeamLists")
-    public List<TeamReadDto> reorderTeamList(DraftReorderTeamsDto draftReorderTeamsDto) {
+    public List<Long> reorderTeamList(DraftReorderTeamsDto draftReorderTeamsDto) {
         return draftService.reorderTeamList(draftReorderTeamsDto);
     }
 
