@@ -54,6 +54,7 @@ class DraftRoom extends React.Component {
     };
 
     onConnected = () => {
+        stompClient.subscribe('/draft/teams', this.receiveTeam);
         this.setState({stompClient: stompClient});
     };
 

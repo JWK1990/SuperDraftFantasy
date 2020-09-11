@@ -56,7 +56,6 @@ class DraftRoomBlock extends React.Component {
         this.props.stompClient.subscribe('/draft/stopDrafts', this.receiveStopDraft);
         this.props.stompClient.subscribe('/draft/addToBlocks', this.receiveAddToBlock);
         this.props.stompClient.subscribe('/draft/bids', this.receiveBid);
-        this.props.stompClient.subscribe('/draft/teams', this.receiveTeam);
     }
 
     sendStartDraft = () => {
