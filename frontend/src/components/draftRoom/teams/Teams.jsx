@@ -2,6 +2,7 @@ import React from "react";
 import {DragDropContext, Draggable, Droppable} from "react-beautiful-dnd";
 import {reorderTeamListAction} from "../../../store/actions";
 import {connect} from "react-redux";
+import {DraftStatusEnum} from "../../../models/DraftStatusEnum";
 
 const getSortableTeamList = teamList => {
     teamList.sort((teamA, teamB) => teamA.orderIndex - teamB.orderIndex);
@@ -85,6 +86,10 @@ class DraftRoomTeams extends React.Component {
         this.sendReorderTeamList(reorderedTeamIdList);
     }
 
+    isReorderDisabled() {
+        return this.props.draftStatus !== DraftStatusEnum.READY;
+    }
+
     // Normally you would want to split things out into separate components.
     // But in this example everything is just done in one place for simplicity
     render() {
@@ -98,7 +103,12 @@ class DraftRoomTeams extends React.Component {
                             style={getListStyle(snapshot.isDraggingOver)}
                         >
                             {this.state.sortableTeamList.map((item, index) => (
-                                <Draggable key={item.id} draggableId={item.id} index={index}>
+                                <Draggable
+                                    key={item.id}
+                                    draggableId={item.id}
+                                    index={index}
+                                    isDragDisabled={this.isReorderDisabled()}
+                                >
                                     {(provided, snapshot) => (
                                         <div
                                             ref={provided.innerRef}

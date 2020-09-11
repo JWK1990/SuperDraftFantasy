@@ -106,6 +106,7 @@ class DraftRoom extends React.Component {
                     stompClient={this.state.stompClient}
                     teams={this.props.draft.teams}
                     draftId={this.props.draft.id}
+                    draftStatus={this.props.draft.status}
                 />
             </div>
         )
