@@ -18,7 +18,7 @@ let stompClient = null;
 class DraftRoom extends React.Component {
 
     // TODO: Update to draftId.
-    draftId = 1;
+    draftId = 2;
 
     constructor(props) {
         super(props);

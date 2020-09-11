@@ -58,13 +58,12 @@ class DraftRoomTeams extends React.Component {
     }
 
     sendReorderTeamList = (reorderedTeamIdList) => {
-        console.log('Test');
         const reorderTeamListDto = {draftId: this.props.draftId, teamIdList: reorderedTeamIdList};
         this.props.stompClient.send("/app/reorderTeamList", {}, JSON.stringify(reorderTeamListDto));
     }
 
     receiveReorderTeamList = (payload) => {
-        console.log('Payload Received: ', payload);
+        console.log('ReorderTeamList Received: ', payload);
         const updatedSortedTeamIdList = JSON.parse(payload.body);
         this.props.updateTeamOrder(updatedSortedTeamIdList);
         this.setState({sortableTeamList: getSortableTeamList(this.props.teams)});
@@ -72,7 +71,7 @@ class DraftRoomTeams extends React.Component {
 
     onDragEnd(result) {
         // dropped outside the list
-        if (!result.destination) {
+        if (!result.destination || result.source.index === result.destination.index) {
             return;
         }
 
