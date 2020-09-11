@@ -3,6 +3,7 @@ package au.superdraftfantasy.api.team;
 import au.superdraftfantasy.api.block.BlockDto;
 import au.superdraftfantasy.api.draft.DraftEntity;
 import au.superdraftfantasy.api.draft.DraftRepository;
+import au.superdraftfantasy.api.draft.DraftStatusEnum;
 import au.superdraftfantasy.api.player.PlayerEntity;
 import au.superdraftfantasy.api.player.PlayerRepository;
 import au.superdraftfantasy.api.teamPlayerJoin.TeamPlayerJoinEntity;
@@ -50,11 +51,24 @@ public class TeamService {
      * @param teamWriteDto
      * @return
      */
+    @Transactional
     public Long createTeam(@NotBlank final TeamWriteDto teamWriteDto) {
-        TeamEntity team = convertTeamWriteDtoToEntity(teamWriteDto);
-        checkForSpaceInDraft(team);
-        checkForExistingCoach(team);
-        return teamRepository.save(team).getId();
+        DraftEntity draft = draftRepository.findById(teamWriteDto.getDraftId())
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Draft with ID '" + teamWriteDto.getDraftId() + "'Not Found."));
+        UserEntity currentUser = getCurrentUser();
+        checkForSpaceInDraft(draft);
+        checkForExistingTeam(draft, currentUser.getId());
+        TeamEntity team = createNewTeam(draft, currentUser);
+        addTeamToDraftAndUpdateStatusIfRequired(draft, team);
+        draftRepository.save(draft);
+        return team.getId();
+    }
+
+    private void addTeamToDraftAndUpdateStatusIfRequired(DraftEntity draft, TeamEntity team) {
+        draft.getTeams().add(team);
+        if(draft.getTeams().size() == draft.getNumOfTeams()) {
+            draft.setStatus(DraftStatusEnum.READY);
+        }
     }
 
     /**
@@ -95,8 +109,7 @@ public class TeamService {
         return myTeamPosition;
     }
 
-    private TeamEntity convertTeamWriteDtoToEntity(TeamWriteDto teamWriteDto) {
-        DraftEntity draft = draftRepository.findById(teamWriteDto.getDraftId()).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Draft with ID '" + teamWriteDto.getDraftId() + "'Not Found."));
+    private TeamEntity createNewTeam(DraftEntity draft, UserEntity currentUser) {
         return new TeamEntity(
                 null,
                 generateDefaultTeamName(getCurrentUser().getUsername()),
@@ -105,11 +118,15 @@ public class TeamService {
                 false,
                 (long) draft.getTeams().size(),
                 Collections.emptyList(),
-                getCurrentUser(),
+                currentUser,
                 draft,
                 null,
                 null
         );
+    }
+
+    private String generateDefaultTeamName(String username) {
+        return username + "'s Team";
     }
 
     private UserEntity getCurrentUser() {
@@ -117,24 +134,25 @@ public class TeamService {
         return userRepository.findByUsername(username).orElseThrow(() -> new UsernameNotFoundException("User With Username '" + username + "' Not Found."));
     }
 
-    private void checkForSpaceInDraft(TeamEntity coach) {
-        Long maxNumOfTeams = coach.getDraft().getNumOfTeams();
-        Integer currentNumOfTeams = coach.getDraft().getTeams().size();
+    private void checkForSpaceInDraft(DraftEntity draft) {
+        Long maxNumOfTeams = draft.getNumOfTeams();
+        Integer currentNumOfTeams = draft.getTeams().size();
         if(currentNumOfTeams >= maxNumOfTeams) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "The Draft is already full.");
         }
     }
 
-    private void checkForExistingCoach(TeamEntity coach) {
-        List<TeamEntity> existingCoaches = coach.getDraft().getTeams();
-        boolean coachAlreadyExists = existingCoaches.stream().anyMatch(existingCoach -> existingCoach.getUser().getId() == coach.getUser().getId());
+    private void checkForExistingTeam(DraftEntity draft, Long currentUserId) {
+        List<TeamEntity> existingCoaches = draft.getTeams();
+        boolean coachAlreadyExists = existingCoaches.stream()
+                .anyMatch(existingCoach -> existingCoach.getUser().getId() == currentUserId);
         if(coachAlreadyExists) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "User with ID '" + coach.getUser().getId() + "'Already Exists In Draft with ID '" + coach.getDraft().getId() + "'.");
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "User with ID '" + currentUserId + "' Already Exists In Draft.");
         }
     }
 
-    private String generateDefaultTeamName(String username) {
-        return username + "'s Team";
+    private void updateDraftStatusIfRequired(DraftEntity draft) {
+
     }
 
     private void addPlayerToTeam(TeamEntity team, Long playerID, Long price) {

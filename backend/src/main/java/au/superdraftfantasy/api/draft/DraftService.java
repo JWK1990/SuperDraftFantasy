@@ -84,6 +84,7 @@ public class DraftService {
             Long updatedOrderIndex = (long) orderedTeamIdList.indexOf(team.getId());
             if(!currentOrderIndex.equals(updatedOrderIndex)) {
                 team.setOrderIndex(updatedOrderIndex);
+                team.setOnTheBlock(updatedOrderIndex == 0);
             }
         });
 
