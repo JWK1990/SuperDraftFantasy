@@ -17,6 +17,7 @@ import javax.transaction.Transactional;
 import javax.validation.constraints.NotBlank;
 import java.util.Arrays;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 
 @Service
@@ -58,15 +59,16 @@ public class DraftService {
     }
 
     @Transactional
-    public Long updateOnTheBlockCoach(Long draftId) {
+    public Long updateOnTheBlockTeam(Long draftId) {
         DraftEntity draft = draftRepository.findById(draftId)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Draft with ID '" + draftId + "' not found."));
         List<TeamEntity> teamList = draft.getTeams();
 
-        int onTheBlockIndex = getOnTheBlockIndex(teamList);
-        TeamEntity onTheBlockTeam = teamList.get(onTheBlockIndex);
+        int onTheBlockOrderIndex = getOnTheBlockOrderIndex(teamList);
 
         teamList.forEach(team -> team.setOnTheBlock(false));
+        TeamEntity onTheBlockTeam = teamList.stream().filter(team -> team.getOrderIndex() == onTheBlockOrderIndex).findFirst()
+                .orElseThrow(() -> new NoSuchElementException("The OnTheBlock Team could not be determined."));
         onTheBlockTeam.setOnTheBlock(true);
 
         draftRepository.save(draft);
@@ -96,7 +98,7 @@ public class DraftService {
                 .collect(Collectors.toList());
     }
 
-    private int getOnTheBlockIndex(List<TeamEntity> teamList) {
+    private int getOnTheBlockOrderIndex(List<TeamEntity> teamList) {
         int onTheBlockIndex = 0;
         int draftedPlayerCount = teamList.stream()
                 .mapToInt(team -> team.getTeamPlayerJoins().size())
