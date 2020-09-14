@@ -39,7 +39,7 @@ public class BlockService {
     }
 
     public BlockDto startNextRound(BlockDto blockDto) {
-        Long onTheBlockTeamId = draftService.updateOnTheBlockCoach(blockDto.getDraftId());
+        Long onTheBlockTeamId = draftService.updateOnTheBlockTeam(blockDto.getDraftId());
         blockDto.setTeamId(onTheBlockTeamId);
 
         Long bestAvailablePlayerId = playerService.getBestAvailablePlayer(blockDto.getDraftId());
