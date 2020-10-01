@@ -3,6 +3,7 @@ import {draftReducer, userReducer} from './reducers';
 import thunk from "redux-thunk";
 import {composeWithDevTools} from "redux-devtools-extension";
 import {playersReducer} from "./reducers/PlayersReducer";
+import {webSocketReducer} from "./reducers/WebSocketReducer";
 
 export default function configureStore(preloadedState) {
     const middlewares = [thunk]
@@ -16,6 +17,7 @@ export default function configureStore(preloadedState) {
             user: userReducer,
             players: playersReducer,
             draft: draftReducer,
+            webSocket: webSocketReducer
         }
     );
 
