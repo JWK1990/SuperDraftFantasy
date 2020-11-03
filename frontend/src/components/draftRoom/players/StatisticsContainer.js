@@ -48,7 +48,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function FullWidthTabs() {
+export default function StatisticsContainer() {
     const classes = useStyles();
     const theme = useTheme();
     const [value, setValue] = React.useState(0);

@@ -26,7 +26,8 @@ export function webSocketReducer(state = initialWebSocketState, action) {
             return {
                 ...state,
                 loading: false,
-                error: action.payload
+                error: action.payload,
+                data: null
             };
 
         default:
