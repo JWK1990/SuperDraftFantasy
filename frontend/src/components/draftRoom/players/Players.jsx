@@ -2,6 +2,10 @@ import React from "react";
 import MaterialTable from "material-table";
 import Container from "@material-ui/core/Container";
 import DraftRoomPlayersSelected from "./selected/Selected";
+import {playersSelector} from "../../../store/selectors/PlayersSelectors";
+import {currentTeamSelector, draftSelector} from "../../../store/selectors/DraftSelectors";
+import {stompClientSelector} from "../../../store/selectors/WebSocketSelectors";
+import {connect} from "react-redux";
 
 class DraftRoomPlayers extends React.Component {
 
@@ -90,4 +94,13 @@ class DraftRoomPlayers extends React.Component {
         }
 }
 
-export default DraftRoomPlayers;
+const mapStateToProps = state => {
+    return {
+        stompClient: stompClientSelector(state),
+        players: playersSelector(state),
+        draft: draftSelector(state),
+        currentTeam: currentTeamSelector(state)
+    };
+};
+
+export default connect(mapStateToProps)(DraftRoomPlayers);
