@@ -103,6 +103,4 @@ const mapStateToProps = state => {
     };
 };
 
-
-
-export default connect(DraftRoomPlayers);
+export default connect(mapStateToProps)(DraftRoomPlayers);

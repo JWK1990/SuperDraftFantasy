@@ -9,6 +9,7 @@ import {playersSelector} from "../../store/selectors/PlayersSelectors";
 import DraftRoomTeams from "./teams/Teams";
 import Grid from "@material-ui/core/Grid";
 import {stompClientSelector} from "../../store/selectors/WebSocketSelectors";
+import StatisticsContainer from "./players/StatisticsContainer";
 
 // let stompClient = null;
 
@@ -96,12 +97,12 @@ class DraftRoom extends React.Component {
                         />
                     </Grid>
                     <Grid item xs={8}>
-                        {/*<StatisticsContainer*/}
-                        {/*    stompClient={this.props.stompClient}*/}
-                        {/*    players={this.props.players}*/}
-                        {/*    draft={this.props.draft}*/}
-                        {/*    currentTeamId={this.props.currentTeam.id}*/}
-                        {/*/>*/}
+                        <StatisticsContainer
+                            stompClient={this.props.stompClient}
+                            players={this.props.players}
+                            draft={this.props.draft}
+                            currentTeamId={this.props.currentTeam.id}
+                        />
                     </Grid>
                     <Grid item xs={2}>
                         <MyTeam
