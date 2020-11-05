@@ -2,6 +2,7 @@ package au.superdraftfantasy.api.draft;
 
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -24,6 +25,11 @@ public class DraftController {
     @GetMapping(name = "getDraft", path = "{draftID}")
     public DraftReadDto getDraft(@PathVariable final Long draftID) {
         return draftService.getDraft(draftID);
+    }
+
+    @GetMapping(name = "getMyDrafts", path = "/myDrafts")
+    public List<DraftReadDto> getMyDrafts(Authentication authentication) {
+        return draftService.getMyDrafts(authentication);
     }
 
     @MessageMapping("/reorderTeamList")

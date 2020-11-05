@@ -8,6 +8,7 @@ import au.superdraftfantasy.api.user.UserEntity;
 import au.superdraftfantasy.api.user.UserRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
@@ -56,6 +57,15 @@ public class DraftService {
         DraftEntity draft = draftRepository.findById(draftID)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Draft with ID '" + draftID + "' not found."));
         return mapToDraftReadDto(draft);
+    }
+
+    public List<DraftReadDto> getMyDrafts(@NotBlank final Authentication authentication) {
+        String username = authentication.getName();
+        List<DraftEntity> drafts = draftRepository.findDistinctByTeams_User_Username(username);
+        List<DraftReadDto> draftReadDtos = drafts.stream()
+                .map(draft -> modelMapper.map(draft, DraftReadDto.class))
+                .collect(Collectors.toList());
+        return draftReadDtos;
     }
 
     @Transactional

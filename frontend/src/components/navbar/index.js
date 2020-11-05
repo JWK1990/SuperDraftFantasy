@@ -1,3 +1,3 @@
-import Navbar from './Navbar';
+import AuthenticatedNavbar from './AuthenticatedNavbar';
 
-export default Navbar;
+export default AuthenticatedNavbar;

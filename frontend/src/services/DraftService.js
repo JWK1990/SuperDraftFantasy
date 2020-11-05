@@ -3,8 +3,11 @@ import axios from 'axios';
 class DraftService {
 
     getDraft(draftId) {
-        console.log("Auth: ", axios.defaults.headers.common['Authorization']);
         return axios.get("/drafts/" + draftId);
+    }
+
+    getMyDrafts() {
+        return axios.get("/drafts/myDrafts");
     }
 
     getPlayersByDraft(draftId) {

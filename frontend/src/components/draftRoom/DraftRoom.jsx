@@ -10,13 +10,14 @@ import DraftRoomTeams from "./teams/Teams";
 import Grid from "@material-ui/core/Grid";
 import {stompClientSelector} from "../../store/selectors/WebSocketSelectors";
 import StatisticsContainer from "./players/StatisticsContainer";
+import ConfigurationUtils from "../../utils/ConfigurationUtils";
 
 // let stompClient = null;
 
 class DraftRoom extends React.Component {
 
     // TODO: Update to draftId.
-    draftId = 5;
+    draftId = ConfigurationUtils.getUrlParam("id");
 
     constructor(props) {
         super(props);
@@ -33,6 +34,7 @@ class DraftRoom extends React.Component {
         // TODO: Replace with draftId.
         this.props.getDraft(this.draftId);
         this.props.getPlayers(this.draftId);
+        console.log(this.props.location);
     }
 
     async componentDidUpdate(prevProps) {

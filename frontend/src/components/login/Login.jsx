@@ -45,7 +45,7 @@ class Login extends React.Component {
   render() {
 
     if(AuthService.getToken()) {
-      return <Redirect to="/draftRoom"></Redirect>
+      //return <Redirect to="/draftRoom"></Redirect>
     }
 
     return (
