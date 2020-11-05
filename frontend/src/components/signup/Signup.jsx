@@ -12,7 +12,8 @@ import Container from '@material-ui/core/Container';
 import {signUpAction} from "../../store/actions";
 import {userErrorSelector, userSelector} from "../../store/selectors/UserSelectors";
 import {connect} from "react-redux";
-
+import {Redirect} from 'react-router-dom';
+import AuthService from "../../services/AuthService";
 
 class Signup extends React.Component {
 
@@ -45,6 +46,11 @@ class Signup extends React.Component {
   }
 
   render() {
+
+    if(AuthService.getToken()) {
+      return <Redirect to="/draftRoom"></Redirect>
+    }
+
     return (
       <Container component="main" maxWidth="xs">
         <CssBaseline />

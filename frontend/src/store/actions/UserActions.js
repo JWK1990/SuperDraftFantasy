@@ -45,8 +45,8 @@ export const loginAction = (credentials) => {
 
         AuthService.login(credentials)
             .then(res => {
-                dispatch(loginSuccessAction(res.data));
                 AuthService.setToken(res.headers.authorization);
+                dispatch(loginSuccessAction(res.data));
             })
             .catch(err => {
                 dispatch(loginFailureAction(err.message));
@@ -98,6 +98,36 @@ export const getCurrentUserSuccessAction = user => ({
 
 export const getCurrentUserFailureAction = error => ({
     type: GET_CURRENT_USER_FAILURE,
+    payload: error
+});
+
+/* LOGOUT Actions. */
+export const LOGOUT_STARTED = 'LOGOUT_STARTED';
+export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS';
+export const LOGOUT_FAILURE = 'LOGOUT_FAILURE';
+
+export const logoutAction = () => {
+    return dispatch => {
+        dispatch(logoutStartedAction());
+        AuthService.removeToken();
+        if(!AuthService.getToken()) {
+            dispatch(logoutSuccessAction())
+        } else {
+            dispatch(logoutFailureAction("Token not successfully removed"))
+        }
+    }
+}
+
+export const logoutStartedAction = () => ({
+    type: LOGOUT_STARTED
+});
+
+export const logoutSuccessAction = () => ({
+    type: LOGOUT_SUCCESS
+});
+
+export const logoutFailureAction = error => ({
+    type: LOGOUT_FAILURE,
     payload: error
 });
 

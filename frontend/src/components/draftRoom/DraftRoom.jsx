@@ -16,7 +16,7 @@ import StatisticsContainer from "./players/StatisticsContainer";
 class DraftRoom extends React.Component {
 
     // TODO: Update to draftId.
-    draftId = 3;
+    draftId = 5;
 
     constructor(props) {
         super(props);
@@ -62,9 +62,6 @@ class DraftRoom extends React.Component {
     };
 
     render() {
-
-        console.log("P: ", this.props.stompClient);
-
         if (!this.state.isStompClientConnected || !this.state.isDraftDataLoaded || !this.state.isPlayerDataLoaded) {
             return <div />
         }

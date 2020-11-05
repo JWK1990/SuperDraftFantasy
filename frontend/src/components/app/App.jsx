@@ -7,6 +7,9 @@ import {getCurrentUserAction} from "../../store/actions";
 import {connect} from "react-redux";
 import axios from "axios";
 import ConfigurationHelper from "../../utils/ConfigurationUtils";
+import {userSelector} from "../../store/selectors/UserSelectors";
+import PrivateRoute from "../../routing/PrivateRoute";
+import Logout from "../logout/Logout";
 
 // This site has 3 pages, all of which are rendered
 // dynamically in the browser (not server rendered).
@@ -23,7 +26,19 @@ class App extends React.Component {
         super(props);
         // Define axios defaults to attach baseURL and Authorization Header to all requests.
         axios.defaults.baseURL = ConfigurationHelper.getBaseUrl();
-        axios.defaults.headers.common['Authorization'] = AuthService.getToken();
+        // Define axios interceptor to add Token to Authorization Header.
+        axios.interceptors.request.use(
+            config => {
+                if (!config.headers.Authorization) {
+                    const token = AuthService.getToken();
+                    if (token) {
+                        config.headers.Authorization = token;
+                    }
+                }
+                return config;
+            },
+            error => Promise.reject(error)
+        );
     }
 
     componentDidMount() {
@@ -33,6 +48,7 @@ class App extends React.Component {
     }
 
     render() {
+        let loggedIn = AuthService.getToken() !== null;
         return (
             <Router>
                 <div>
@@ -42,6 +58,9 @@ class App extends React.Component {
                         </li>
                         <li>
                             <Link to="/draftRoom">Draft Room</Link>
+                        </li>
+                        <li hidden={!loggedIn}>
+                            <Link to="/logout">Logout</Link>
                         </li>
                     </ul>
 
@@ -55,12 +74,9 @@ class App extends React.Component {
               of them to render at a time
             */}
                     <Switch>
-                        <Route exact path="/">
-                            <Navbar/>
-                        </Route>
-                        <Route path="/draftRoom">
-                            <DraftRoom/>
-                        </Route>
+                        <Route exact path="/" component={Navbar} />
+                        <PrivateRoute exact path="/draftRoom" component={DraftRoom} />
+                        <PrivateRoute exact path="/logout" component={Logout} />
                     </Switch>
                 </div>
             </Router>
@@ -70,7 +86,7 @@ class App extends React.Component {
 
 const mapStateToProps = state => {
     return {
-        user: state.user
+        user: userSelector(state)
     };
 };
 

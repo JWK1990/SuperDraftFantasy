@@ -11,6 +11,9 @@ import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import {connect} from "react-redux";
 import {loginAction} from "../../store/actions";
+import {Redirect} from "react-router-dom";
+import {userSelector} from "../../store/selectors/UserSelectors";
+import AuthService from "../../services/AuthService";
 
 class Login extends React.Component {
 
@@ -40,6 +43,11 @@ class Login extends React.Component {
   }
 
   render() {
+
+    if(AuthService.getToken()) {
+      return <Redirect to="/draftRoom"></Redirect>
+    }
+
     return (
       <Container component="main" maxWidth="xs">
         <CssBaseline />
@@ -106,7 +114,7 @@ class Login extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    user: state.user
+    user: userSelector(state),
   };
 };
 
