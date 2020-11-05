@@ -1,12 +1,11 @@
 import React from 'react';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
+import {makeStyles, useTheme} from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
-import Signup from '../signup';
-import Login from '../login';
 import SwipeableViews from 'react-swipeable-views';
-import {Link} from "react-router-dom";
+import AuthService from "../../services/AuthService";
+import MyDrafts from "../myDrafts/MyDrafts";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -14,7 +13,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function Navbar() {
+export default function AuthenticatedNavbar() {
   const classes = useStyles();
   const theme = useTheme();
 
@@ -28,6 +27,8 @@ export default function Navbar() {
     setValue(index);
   };
 
+  const isLoggedIn = AuthService.getToken() != null;
+    console.log(isLoggedIn);
   return (
     <Paper className={classes.root}>
       <Tabs
@@ -37,17 +38,18 @@ export default function Navbar() {
         textColor="primary"
         centered
       >
-        <Tab label="Sign Up" />
-        <Tab icon="Login" />
-        <Tab label="My Drafts" component={Link} to="/draftRoom" />
+          <Tab label="MyDrafts"/>
+        {/*<Tab label="My Drafts"*/}
+        {/*     component={Link}*/}
+        {/*     to="/draftRoom"*/}
+        {/*/>*/}
       </Tabs>
       <SwipeableViews
         axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
         index={value}
         onChangeIndex={handleChangeIndex}
       >
-        <Signup value={value} index={0} dir={theme.direction} />
-        <Login value={value} index={1} dir={theme.direction} />
+          <MyDrafts value={value} index={0} dir={theme.direction} />
       </SwipeableViews>
     </Paper>
   );

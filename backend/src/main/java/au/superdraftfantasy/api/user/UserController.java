@@ -22,7 +22,10 @@ public class UserController {
     }
 
     @PostMapping(name = "createUser", path = "/sign-up")
-    public UserReadDto createUser(@RequestBody @Valid final UserWriteDto userWriteDto, HttpServletResponse response) {
+    public UserReadDto createUser(
+            @RequestBody @Valid final UserWriteDto userWriteDto,
+            HttpServletResponse response
+    ) {
         UserReadDto userReadDto = userService.createUser(userWriteDto);
         String jwtToken = TOKEN_PREFIX + JWTUtils.createJWT(UUID.randomUUID().toString(), DEFAULT_ISSUER, userReadDto.getUsername(), EXPIRATION_TIME);
         response.addHeader("Authorization", jwtToken);
