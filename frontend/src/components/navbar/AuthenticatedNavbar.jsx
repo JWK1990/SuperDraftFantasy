@@ -1,12 +1,9 @@
 import React from 'react';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
+import {makeStyles, useTheme} from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
-import Signup from '../signup';
-import Login from '../login';
 import SwipeableViews from 'react-swipeable-views';
-import {Link} from "react-router-dom";
 import AuthService from "../../services/AuthService";
 import MyDrafts from "../myDrafts/MyDrafts";
 
