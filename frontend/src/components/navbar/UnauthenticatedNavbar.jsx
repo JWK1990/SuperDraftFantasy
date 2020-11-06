@@ -7,6 +7,7 @@ import Signup from '../signup';
 import Login from '../login';
 import SwipeableViews from 'react-swipeable-views';
 import AuthService from "../../services/AuthService";
+import Form from "../form/Form";
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -45,6 +46,9 @@ export default function UnauthenticatedNavbar() {
                 <Tab icon="Login"
                      style={{display: isLoggedIn ? "none" : "block"}}
                 />
+                <Tab icon="Form"
+                     style={{display: isLoggedIn ? "none" : "block"}}
+                />
             </Tabs>
             <SwipeableViews
                 axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
@@ -53,6 +57,7 @@ export default function UnauthenticatedNavbar() {
             >
                 <Signup value={value} index={0} dir={theme.direction} />
                 <Login value={value} index={1} dir={theme.direction} />
+                <Form value={value} index={2} dir={theme.direction} />
             </SwipeableViews>
         </Paper>
     );
