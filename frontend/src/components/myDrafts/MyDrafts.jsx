@@ -17,7 +17,6 @@ class MyDrafts extends React.Component {
     }
 
     componentDidMount() {
-        console.log("Did Mount");
         this.props.getDrafts();
     }
 

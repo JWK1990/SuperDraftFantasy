@@ -43,25 +43,36 @@ class Form extends React.Component {
             && (value === "" || !value);
     }
 
-    onChange = (e, value, id) => {
-        console.log(e.target.value, "V: ", value);
+    onTextAreaChange = (e, id) => {
         let formDetails = {...this.state.formDetails};
         let updatedFieldIndex = formDetails.fields.findIndex(
             field => field.properties.id === id
         );
-        const updatedValue = e.target.value ? e.target.value : value;
 
-        const isError = this.getIsError(formDetails.fields[updatedFieldIndex], updatedValue);
+        const isError = this.getIsError(formDetails.fields[updatedFieldIndex], e.target.value);
         formDetails.fields[updatedFieldIndex].properties = {
             ...formDetails.fields[updatedFieldIndex].properties,
-            value: updatedValue,
+            value: e.target.value,
             error: isError,
             helperText: isError ? formDetails.fields[updatedFieldIndex].properties.label + " is required." : ""
         }
 
         formDetails.isValidForSubmit = this.getIsValidForSubmit();
         this.setState({formDetails});
-        console.log("Form Details: ", formDetails);
+    }
+
+    onSliderChange = (e, value, id) => {
+        let formDetails = {...this.state.formDetails};
+        let updatedFieldIndex = formDetails.fields.findIndex(
+            field => field.properties.id === id
+        );
+
+        formDetails.fields[updatedFieldIndex].properties = {
+            ...formDetails.fields[updatedFieldIndex].properties,
+            value: value,
+        }
+
+        this.setState({formDetails});
     }
 
     render() {
@@ -71,8 +82,12 @@ class Form extends React.Component {
             if(FieldComponentType === TextField) {
                 field.properties['variant'] = "outlined";
                 field.properties['fullWidth'] = true;
+                field.properties['onChange'] = (e, value) => this.onTextAreaChange(e, field.properties.id);
             }
-            fields.push(
+            if(FieldComponentType === Slider) {
+                field.properties['onChange'] = (e, value, id) => this.onSliderChange(e, value, field.properties.id);
+            }
+            return fields.push(
                 <Grid item xs={field.width} key={field.properties.id}>
 
                     {/* Add Header if Slider. */}
@@ -86,8 +101,6 @@ class Form extends React.Component {
                     {/* Add Component. */}
                     <FieldComponentType
                         {...field.properties}
-                        onChange={(e, value) =>
-                            this.onChange(e, value, field.properties.id)}
                     >
                         {/* Add Options if Select. */}
                         {field.properties.options ?

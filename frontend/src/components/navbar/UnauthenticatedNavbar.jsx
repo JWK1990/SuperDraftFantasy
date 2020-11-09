@@ -6,8 +6,6 @@ import Tab from '@material-ui/core/Tab';
 import Signup from '../signup';
 import Login from '../login';
 import SwipeableViews from 'react-swipeable-views';
-import AuthService from "../../services/AuthService";
-import Form from "../form/Form";
 
 const useStyles = makeStyles(theme => ({
     root: {
