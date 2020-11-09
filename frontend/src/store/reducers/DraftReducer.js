@@ -9,7 +9,7 @@ import {
     GET_MY_DRAFTS_SUCCESS,
     CREATE_DRAFT_STARTED,
     CREATE_DRAFT_FAILURE,
-    CREATE_DRAFT_SUCCESS
+    CREATE_DRAFT_SUCCESS, JOIN_DRAFT_STARTED, JOIN_DRAFT_SUCCESS, JOIN_DRAFT_FAILURE
 } from "../actions";
 import {initialDraftState} from "../state/DraftState";
 
@@ -18,6 +18,7 @@ export function draftReducer(state = initialDraftState, action) {
 
         case CREATE_DRAFT_STARTED:
         case GET_DRAFT_STARTED:
+        case JOIN_DRAFT_STARTED:
         case GET_MY_DRAFTS_STARTED:
             return {
                 ...state,
@@ -25,6 +26,7 @@ export function draftReducer(state = initialDraftState, action) {
             };
 
         case CREATE_DRAFT_SUCCESS:
+        case JOIN_DRAFT_SUCCESS:
             return {
                 ...state,
                 loading: false,
@@ -41,6 +43,7 @@ export function draftReducer(state = initialDraftState, action) {
 
         case CREATE_DRAFT_FAILURE:
         case GET_DRAFT_FAILURE:
+        case JOIN_DRAFT_FAILURE:
         case GET_MY_DRAFTS_FAILURE:
             return {
                 ...state,

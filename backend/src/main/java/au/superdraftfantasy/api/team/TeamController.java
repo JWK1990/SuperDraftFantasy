@@ -1,6 +1,9 @@
 package au.superdraftfantasy.api.team;
 
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping(path = "/teams")
@@ -10,11 +13,6 @@ public class TeamController {
 
     public TeamController(TeamService teamService) {
         this.teamService = teamService;
-    }
-
-    @PostMapping(name = "createTeam")
-    public Long createTeam(@RequestBody final TeamWriteDto teamWriteDto) {
-        return teamService.createTeam(teamWriteDto);
     }
 
     @PutMapping(name = "updateMyTeamPosition", path = "{teamID}/players/{playerID}/myTeamPosition/{myTeamPosition}")

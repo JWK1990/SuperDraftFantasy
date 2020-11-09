@@ -3,6 +3,7 @@ package au.superdraftfantasy.api.team
 import au.superdraftfantasy.api.TestData
 import au.superdraftfantasy.api.draft.DraftEntity
 import au.superdraftfantasy.api.draft.DraftRepository
+import au.superdraftfantasy.api.draft.DraftJoinWriteDto
 import au.superdraftfantasy.api.roster.RosterEntity
 import au.superdraftfantasy.api.user.UserEntity
 import au.superdraftfantasy.api.user.UserRepository
@@ -39,7 +40,7 @@ class TeamServiceSpec extends Specification {
     RosterEntity roster = TestData.Roster.create(1L, "11111", 1, 1, 1, 1, 1);
     DraftEntity draft = TestData.Draft.create(draftID, "Test Draft", roster, new ArrayList<TeamEntity>())
 
-    TeamWriteDto teamDto = TestData.Team.createWriteDto(draftID)
+    DraftJoinWriteDto teamDto = TestData.Team.createWriteDto(draftID)
     TeamEntity team = TestData.mapObjectToClass(teamDto, TeamEntity.class)
 
     UserEntity user = TestData.User.create(1L, "testuser")

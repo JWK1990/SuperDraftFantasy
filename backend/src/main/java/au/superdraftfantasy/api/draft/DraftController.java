@@ -18,13 +18,25 @@ public class DraftController {
     }
 
     @PostMapping(name = "createDraft")
-    public Long createDraft(@RequestBody final DraftWriteDto draftWriteDto) {
-        return draftService.createDraft(draftWriteDto);
+    public Long createDraft(
+            @RequestBody final DraftWriteDto draftWriteDto,
+            Authentication authentication
+    ) {
+        return draftService.createDraft(draftWriteDto, authentication);
     }
 
     @GetMapping(name = "getDraft", path = "{draftID}")
     public DraftReadDto getDraft(@PathVariable final Long draftID) {
         return draftService.getDraft(draftID);
+    }
+
+    @PutMapping(name = "joinDraft", path="/{draftID}/join")
+    public Long joinDraft(
+            @PathVariable final Long draftID,
+            @RequestBody final DraftJoinWriteDto writeDto,
+            Authentication authentication
+    ) {
+        return draftService.joinDraft(draftID, writeDto, authentication);
     }
 
     @GetMapping(name = "getMyDrafts", path = "/myDrafts")
