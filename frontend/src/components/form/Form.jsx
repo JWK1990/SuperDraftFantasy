@@ -9,92 +9,100 @@ import Box from '@material-ui/core/Box';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
-import {connect} from "react-redux";
-import {loginAction} from "../../store/actions";
-import {Redirect} from "react-router-dom";
-import {userSelector} from "../../store/selectors/UserSelectors";
-import AuthService from "../../services/AuthService";
-import {MenuItem} from "@material-ui/core";
+import {MenuItem, Slider} from "@material-ui/core";
 
 class Form extends React.Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            title: "Login",
-            submitText: "Login",
-            additionalText: "Already have an account? Sign in.",
-            additionalTextLink: "/draftRoom",
-            fields: [
-                {
-                    id: "string",
-                    label: "String",
-                    required: true,
-                    select: false,
-                    options: null,
-                    value: "",
-                    error: false,
-                    helperText: ""
-                },
-                {
-                    id: "select",
-                    label: "Select",
-                    required: true,
-                    select: true,
-                    options: [
-                        {key: "none", value: ""},
-                        {key: "one", value: "1"},
-                        {key: "two", value: "2"},
-                    ],
-                    value: "",
-                    error: false,
-                    helperText: ""
-                },
-            ],
-            isValidForSubmit: false,
+            formDetails: this.props.formDetails,
+            onSubmit: this.props.onSubmit,
         }
-        this.login = this.login.bind(this);
+
     }
 
-    login = (e) => {
+    onSubmit = (e) => {
         e.preventDefault();
-        if(this.state.isValidForSubmit) {
-            let credentials = {
-                username: this.state.username,
-                password: this.state.password,
-            };
-            this.props.login(credentials);
-        }
+        this.state.onSubmit();
     }
 
     getIsValidForSubmit = () => {
         let isValid = true;
-        this.state.fields.forEach(field => {
-            if(field.required && (field.value === "" || !field.value)) {
+        this.state.formDetails.fields.forEach(field => {
+            if(this.getIsError(field, field.properties.value)) {
                 return isValid = false;
             }
         })
         return isValid;
     }
 
-    onChange = (e) => {
-        let updatedFields = this.state.fields;
-        let updatedFieldIndex = updatedFields.findIndex(field => field.id === e.target.name);
-        const isError = updatedFields[updatedFieldIndex].required && (e.target.value === "" || !e.target.value);
-        updatedFields[updatedFieldIndex] = {
-            ...updatedFields[updatedFieldIndex],
-            value: e.target.value,
+    getIsError = (field, value) => {
+        return field.componentType === TextField
+            && field.properties.required
+            && (value === "" || !value);
+    }
+
+    onChange = (e, value, id) => {
+        console.log(e.target.value, "V: ", value);
+        let formDetails = {...this.state.formDetails};
+        let updatedFieldIndex = formDetails.fields.findIndex(
+            field => field.properties.id === id
+        );
+        const updatedValue = e.target.value ? e.target.value : value;
+
+        const isError = this.getIsError(formDetails.fields[updatedFieldIndex], updatedValue);
+        formDetails.fields[updatedFieldIndex].properties = {
+            ...formDetails.fields[updatedFieldIndex].properties,
+            value: updatedValue,
             error: isError,
-            helperText: isError ? updatedFields[updatedFieldIndex].label + " is required." : ""
+            helperText: isError ? formDetails.fields[updatedFieldIndex].properties.label + " is required." : ""
         }
-        this.setState({fields: updatedFields});
-        this.setState({isValidForSubmit: this.getIsValidForSubmit()})
+
+        formDetails.isValidForSubmit = this.getIsValidForSubmit();
+        this.setState({formDetails});
+        console.log("Form Details: ", formDetails);
     }
 
     render() {
-        if(AuthService.getToken()) {
-            //return <Redirect to="/draftRoom"></Redirect>
-        }
+        const fields = [];
+        this.state.formDetails.fields.map((field) => {
+            let FieldComponentType = field.componentType;
+            if(FieldComponentType === TextField) {
+                field.properties['variant'] = "outlined";
+                field.properties['fullWidth'] = true;
+            }
+            fields.push(
+                <Grid item xs={field.width} key={field.properties.id}>
+
+                    {/* Add Header if Slider. */}
+                    {FieldComponentType === Slider ?
+                        <Typography id={field.properties.id + "-header"} gutterBottom>
+                            {field.properties.label}
+                        </Typography>
+                        : ""
+                    }
+
+                    {/* Add Component. */}
+                    <FieldComponentType
+                        {...field.properties}
+                        onChange={(e, value) =>
+                            this.onChange(e, value, field.properties.id)}
+                    >
+                        {/* Add Options if Select. */}
+                        {field.properties.options ?
+                            field.properties.options.map(option => {
+                                return <MenuItem key={option.key} value={option.value}>
+                                    {option.value}
+                                </MenuItem>
+                            })
+                            : null
+                        }
+
+                    </FieldComponentType>
+                </Grid>
+            )
+        })
 
         return (
             <Container component="main" maxWidth="xs">
@@ -104,35 +112,11 @@ class Form extends React.Component {
                         <LockOutlinedIcon />
                     </Avatar>
                     <Typography component="h1" variant="h5">
-                        {this.state.title}
+                        {this.state.formDetails.title}
                     </Typography>
                     <form className="form">
                         <Grid container spacing={2}>
-                            {this.state.fields.map((item) => (
-                                <Grid item xs={12} key={item.id}>
-                                    <TextField
-                                        name={item.id}
-                                        id={item.id}
-                                        label={item.label}
-                                        required={item.required}
-                                        value={item.value}
-                                        select={item.select}
-                                        variant="outlined"
-                                        fullWidth
-                                        onChange={this.onChange}
-                                        error={item.error}
-                                        helperText={item.helperText}
-                                    >
-                                        {item.options ?
-                                            item.options.map(option => {
-                                                return <MenuItem key={option.key} value={option.value}>
-                                                    {option.value}
-                                                </MenuItem>
-                                            })
-                                        : null}
-                                    </TextField>
-                                </Grid>
-                            ))}
+                            {fields}
                         </Grid>
                         <Button
                             type="submit"
@@ -140,34 +124,24 @@ class Form extends React.Component {
                             color="primary"
                             className="submit"
                             fullWidth
-                            onClick={this.login}
-                            disabled={!this.state.isValidForSubmit}
+                            onClick={this.onSubmit}
+                            disabled={!this.state.formDetails.isValidForSubmit}
                         >
-                            {this.state.submitText}
+                            {this.state.formDetails.submitText}
                         </Button>
                         <Grid container justify="flex-end">
                             <Grid item>
-                                <Link href={this.state.additionalTextLink} variant="body2">
-                                    {this.state.additionalText}
+                                <Link href={this.state.formDetails.additionalTextLink} variant="body2">
+                                    {this.state.formDetails.additionalText}
                                 </Link>
                             </Grid>
                         </Grid>
                     </form>
                 </div>
-                <Box mt={5}></Box>
+                <Box mt={5}/>
             </Container>
         );
     }
-};
+}
 
-const mapStateToProps = state => {
-    return {
-        user: userSelector(state),
-    };
-};
-
-const mapDispatchToProps = dispatch => ({
-    login: (credentials) => dispatch(loginAction(credentials))
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(Form);
+export default Form;

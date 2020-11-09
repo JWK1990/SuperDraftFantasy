@@ -1,5 +1,5 @@
 import {applyMiddleware, combineReducers, createStore} from 'redux';
-import {draftReducer, userReducer} from './reducers';
+import {draftReducer, navigationReducer, userReducer} from './reducers';
 import thunk from "redux-thunk";
 import {composeWithDevTools} from "redux-devtools-extension";
 import {playersReducer} from "./reducers/PlayersReducer";
@@ -17,7 +17,8 @@ export default function configureStore(preloadedState) {
             user: userReducer,
             players: playersReducer,
             draft: draftReducer,
-            webSocket: webSocketReducer
+            webSocket: webSocketReducer,
+            navigation: navigationReducer,
         }
     );
 

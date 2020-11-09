@@ -29,8 +29,6 @@ export default function UnauthenticatedNavbar() {
         setValue(index);
     };
 
-    const isLoggedIn = AuthService.getToken() != null;
-    console.log(isLoggedIn);
     return (
         <Paper className={classes.root}>
             <Tabs
@@ -40,15 +38,8 @@ export default function UnauthenticatedNavbar() {
                 textColor="primary"
                 centered
             >
-                <Tab label="Sign Up"
-                     style={{display: isLoggedIn ? "none" : "block"}}
-                />
-                <Tab icon="Login"
-                     style={{display: isLoggedIn ? "none" : "block"}}
-                />
-                <Tab icon="Form"
-                     style={{display: isLoggedIn ? "none" : "block"}}
-                />
+                <Tab label="Sign Up"/>
+                <Tab icon="Login"/>
             </Tabs>
             <SwipeableViews
                 axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
@@ -57,7 +48,6 @@ export default function UnauthenticatedNavbar() {
             >
                 <Signup value={value} index={0} dir={theme.direction} />
                 <Login value={value} index={1} dir={theme.direction} />
-                <Form value={value} index={2} dir={theme.direction} />
             </SwipeableViews>
         </Paper>
     );

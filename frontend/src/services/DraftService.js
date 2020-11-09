@@ -2,6 +2,10 @@ import axios from 'axios';
 
 class DraftService {
 
+    createDraft(draft) {
+        return axios.post("/drafts", draft);
+    }
+
     getDraft(draftId) {
         return axios.get("/drafts/" + draftId);
     }
