@@ -17,7 +17,7 @@ class MyDrafts extends React.Component {
     }
 
     componentDidMount() {
-        this.props.getMyDrafts();
+        this.props.getDrafts();
     }
 
     toggleAndSetSelected = (togglePanel, rowData) => {
@@ -85,7 +85,7 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => ({
-    getMyDrafts: () => dispatch(getMyDraftsAction()),
+    getDrafts: () => dispatch(getMyDraftsAction()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(MyDrafts);

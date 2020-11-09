@@ -11,8 +11,8 @@ export const signUpAction = (user) => {
 
         AuthService.signUp(user)
             .then(res => {
-                dispatch(signUpSuccessAction(res.data));
                 AuthService.setToken(res.headers.authorization);
+                dispatch(signUpSuccessAction(res.data));
             })
             .catch(err => {
                 dispatch(signUpFailureAction(err.message));

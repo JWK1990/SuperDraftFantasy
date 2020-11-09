@@ -34,7 +34,6 @@ class DraftRoom extends React.Component {
         // TODO: Replace with draftId.
         this.props.getDraft(this.draftId);
         this.props.getPlayers(this.draftId);
-        console.log(this.props.location);
     }
 
     async componentDidUpdate(prevProps) {
@@ -71,7 +70,6 @@ class DraftRoom extends React.Component {
         return (
             <div>
                 <Grid container>
-
                     <Grid item xs={2}>
                         <div>
                             <p>Draft Details: {this.props.draft.name}</p>
@@ -86,7 +84,6 @@ class DraftRoom extends React.Component {
                             currentTeam={this.props.currentTeam}
                         />
                     </Grid>
-
                     <Grid item xs={2}>
                         <DraftRoomTeams
                             stompClient={this.props.stompClient}
@@ -109,7 +106,6 @@ class DraftRoom extends React.Component {
                             currentTeam={this.props.currentTeam}
                         />
                     </Grid>
-
                 </Grid>
             </div>
         )

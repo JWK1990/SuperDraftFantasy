@@ -4,19 +4,32 @@ import {
     GET_DRAFT_SUCCESS,
     UPDATE_TEAM,
     REORDER_TEAM_LIST,
-    GET_MY_DRAFTS_STARTED, GET_MY_DRAFTS_FAILURE, GET_MY_DRAFTS_SUCCESS
+    GET_MY_DRAFTS_STARTED,
+    GET_MY_DRAFTS_FAILURE,
+    GET_MY_DRAFTS_SUCCESS,
+    CREATE_DRAFT_STARTED,
+    CREATE_DRAFT_FAILURE,
+    CREATE_DRAFT_SUCCESS
 } from "../actions";
 import {initialDraftState} from "../state/DraftState";
 
 export function draftReducer(state = initialDraftState, action) {
     switch(action.type) {
 
+        case CREATE_DRAFT_STARTED:
         case GET_DRAFT_STARTED:
         case GET_MY_DRAFTS_STARTED:
             return {
                 ...state,
                 loading: true
             };
+
+        case CREATE_DRAFT_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                error: null
+            }
 
         case GET_DRAFT_SUCCESS:
             return {
@@ -26,6 +39,7 @@ export function draftReducer(state = initialDraftState, action) {
                 data: action.payload
             };
 
+        case CREATE_DRAFT_FAILURE:
         case GET_DRAFT_FAILURE:
         case GET_MY_DRAFTS_FAILURE:
             return {
