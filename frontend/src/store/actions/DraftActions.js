@@ -2,19 +2,11 @@ import DraftService from "../../services/DraftService";
 import {changeCurrentTabAction} from "./NavigationActions";
 import NavigationUtils from "../../utils/NavigationUtils";
 
+// CREATE DRAFT.
 export const CREATE_DRAFT_STARTED = 'CREATE_DRAFT_STARTED';
 export const CREATE_DRAFT_SUCCESS = 'CREATE_DRAFT_SUCCESS';
 export const CREATE_DRAFT_FAILURE = 'CREATE_DRAFT_FAILURE';
-export const GET_DRAFT_STARTED = 'GET_DRAFT_STARTED';
-export const GET_DRAFT_SUCCESS = 'GET_DRAFT_SUCCESS';
-export const GET_DRAFT_FAILURE = 'GET_DRAFT_FAILURE';
-export const GET_MY_DRAFTS_STARTED = 'GET_MY_DRAFTS_STARTED';
-export const GET_MY_DRAFTS_SUCCESS = 'GET_MY_DRAFTS_SUCCESS';
-export const GET_MY_DRAFTS_FAILURE = 'GET_MY_DRAFTS_FAILURE';
-export const UPDATE_TEAM = 'UPDATE_TEAM';
-export const REORDER_TEAM_LIST = 'REORDER_TEAM_LIST';
 
-// CREATE DRAFT.
 export const createDraftAction = (draft) => {
     return dispatch => {
         dispatch(createDraftStartedAction());
@@ -47,6 +39,10 @@ export const createDraftFailureAction = error => ({
 });
 
 // GET DRAFT.
+export const GET_DRAFT_STARTED = 'GET_DRAFT_STARTED';
+export const GET_DRAFT_SUCCESS = 'GET_DRAFT_SUCCESS';
+export const GET_DRAFT_FAILURE = 'GET_DRAFT_FAILURE';
+
 export const getDraftAction = (draftId) => {
     return dispatch => {
         dispatch(getDraftStartedAction());
@@ -75,7 +71,48 @@ export const getDraftFailureAction = error => ({
     payload: error
 });
 
+// JOIN DRAFT.
+export const JOIN_DRAFT_STARTED = 'JOIN_DRAFT_STARTED';
+export const JOIN_DRAFT_SUCCESS = 'JOIN_DRAFT_SUCCESS';
+export const JOIN_DRAFT_FAILURE = 'JOIN_DRAFT_FAILURE';
+
+export const joinDraftAction = (draftId, joinDraftWriteDto) => {
+    return dispatch => {
+        dispatch(joinDraftStartedAction());
+
+        DraftService.joinDraft(draftId, joinDraftWriteDto)
+            .then(res => {
+                dispatch(joinDraftSuccessAction(res.data))
+                dispatch(getMyDraftsAction());
+                dispatch(changeCurrentTabAction(
+                    NavigationUtils.navigationTabs.authenticatedNavbar.myDrafts
+                ));
+            })
+            .catch(err => {
+                dispatch(joinDraftFailureAction(err.message))
+            })
+    }
+}
+
+export const joinDraftStartedAction = () => ({
+    type: JOIN_DRAFT_STARTED
+});
+
+export const joinDraftSuccessAction = draft => ({
+    type: JOIN_DRAFT_SUCCESS,
+    payload: draft
+});
+
+export const joinDraftFailureAction = error => ({
+    type: JOIN_DRAFT_FAILURE,
+    payload: error
+});
+
 // GET MY DRAFTS.
+export const GET_MY_DRAFTS_STARTED = 'GET_MY_DRAFTS_STARTED';
+export const GET_MY_DRAFTS_SUCCESS = 'GET_MY_DRAFTS_SUCCESS';
+export const GET_MY_DRAFTS_FAILURE = 'GET_MY_DRAFTS_FAILURE';
+
 export const getMyDraftsAction = () => {
     return dispatch => {
         dispatch(getMyDraftsStartedAction());
@@ -105,12 +142,16 @@ export const getMyDraftsFailureAction = error => ({
 });
 
 // UPDATE TEAM.
+export const UPDATE_TEAM = 'UPDATE_TEAM';
+
 export const updateTeamAction = team => ({
     type: UPDATE_TEAM,
     payload: team
 })
 
 // REORDER TEAM LIST.
+export const REORDER_TEAM_LIST = 'REORDER_TEAM_LIST';
+
 export const reorderTeamListAction = teamList => ({
     type: REORDER_TEAM_LIST,
     payload: teamList

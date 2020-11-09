@@ -37,7 +37,17 @@ class CreateDraft extends React.Component {
                 componentType: TextField,
                 properties: {
                     id: "name",
-                    label: "Name",
+                    label: "Draft Name",
+                    required: true,
+                    value: "",
+                },
+                width: 12,
+            },
+            {
+                componentType: TextField,
+                properties: {
+                    id: "teamName",
+                    label: "Your Team Name",
                     required: true,
                     value: "",
                 },
@@ -119,6 +129,7 @@ class CreateDraft extends React.Component {
     createDraft = () => {
         const draft = {
             name: FormUtils.getFieldValue(this.formDetails.fields, "name"),
+            teamName: FormUtils.getFieldValue(this.formDetails.fields, "teamName"),
             numOfTeams: FormUtils.getFieldValue(this.formDetails.fields, "numOfTeams"),
             rosterType: FormUtils.getFieldValue(this.formDetails.fields, "rosterType"),
             budget: FormUtils.getFieldValue(this.formDetails.fields, "budget"),

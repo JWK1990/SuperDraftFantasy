@@ -1,4 +1,4 @@
-package au.superdraftfantasy.api.team;
+package au.superdraftfantasy.api.draft;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -8,11 +8,9 @@ import javax.validation.constraints.NotNull;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class TeamWriteDto {
-
-    private Long id;
+public class DraftJoinWriteDto {
 
     @NotNull
-    private Long draftId;
+    private String teamName;
 
 }

@@ -2,6 +2,7 @@ package au.superdraftfantasy.api.team
 
 import au.superdraftfantasy.api.RestSpecification
 import au.superdraftfantasy.api.TestData
+import au.superdraftfantasy.api.draft.DraftJoinWriteDto
 import org.spockframework.spring.SpringBean
 import org.springframework.http.HttpStatus
 import org.springframework.http.MediaType
@@ -16,7 +17,7 @@ class TeamControllerSpec extends RestSpecification {
 
     def "POST /coaches should create a Coach and add them to a Draft"() {
         given: "A CoachDTO"
-        TeamWriteDto coachDto = TestData.Team.createWriteDto(1L)
+        DraftJoinWriteDto coachDto = TestData.Team.createWriteDto(1L)
         String coachDtoJson = TestData.mapObjectToJson(coachDto)
 
         and: "A mocked ID for the created Coach"

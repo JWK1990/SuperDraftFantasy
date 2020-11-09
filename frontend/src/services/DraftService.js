@@ -10,6 +10,10 @@ class DraftService {
         return axios.get("/drafts/" + draftId);
     }
 
+    joinDraft(draftId, draftJoinWriteDto) {
+        return axios.put("/drafts/" + draftId + "/join", draftJoinWriteDto);
+    }
+
     getMyDrafts() {
         return axios.get("/drafts/myDrafts");
     }

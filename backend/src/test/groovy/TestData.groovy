@@ -1,6 +1,6 @@
 package au.superdraftfantasy.api
 
-import au.superdraftfantasy.api.team.TeamWriteDto
+import au.superdraftfantasy.api.draft.DraftJoinWriteDto
 import au.superdraftfantasy.api.team.TeamEntity
 import au.superdraftfantasy.api.team.TeamReadDto
 import au.superdraftfantasy.api.team.TeamTypeEnum
@@ -65,8 +65,8 @@ class TestData {
         static TeamEntity createMember(Long id, UserEntity user, DraftEntity draft) {
             return new TeamEntity(id, "TestMemberTeam", TeamTypeEnum.MEMBER, 100L, false, Arrays.asList(), user, draft, null, null)
         }
-        static TeamWriteDto createWriteDto(Long draftId) {
-            return new TeamWriteDto(null, draftId)
+        static DraftJoinWriteDto createWriteDto(Long draftId) {
+            return new DraftJoinWriteDto(null, draftId)
         }
         static TeamReadDto createReadDto(Long id, UserReadDto userReadDto) {
             return new TeamReadDto()

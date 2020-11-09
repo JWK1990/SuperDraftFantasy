@@ -9,6 +9,7 @@ import withStyles from "@material-ui/core/styles/withStyles";
 import {currentTabSelector} from "../../store/selectors/NavigationSelectors";
 import {changeCurrentTabAction} from "../../store/actions/NavigationActions";
 import {connect} from "react-redux";
+import JoinDraft from "../joinDraft/JoinDraft";
 
 const styles = theme => ({
   root: {
@@ -25,7 +26,7 @@ class AuthenticatedNavbar extends React.Component {
         }
     }
 
-    tabs = ["Create Draft", "My Drafts"];
+    tabs = ["Create Draft", "Join Draft", "My Drafts"];
 
     componentDidMount() {
         this.props.changeCurrentTab(this.tabs[this.state.currentIndex]);
@@ -66,6 +67,7 @@ class AuthenticatedNavbar extends React.Component {
                     centered
                 >
                     <Tab label="Create Draft"/>
+                    <Tab label="Join Draft"/>
                     <Tab label="My Drafts"/>
                 </Tabs>
                 <SwipeableViews
@@ -74,7 +76,8 @@ class AuthenticatedNavbar extends React.Component {
                     onChangeIndex={this.handleChangeIndex}
                 >
                     <CreateDraft value={this.state.currentIndex} index={0} dir={classes.direction}/>
-                    <MyDrafts value={this.state.currentIndex} index={1} dir={classes.direction}/>
+                    <JoinDraft value={this.state.currentIndex} index={1} dir={classes.direction}/>
+                    <MyDrafts value={this.state.currentIndex} index={2} dir={classes.direction}/>
                 </SwipeableViews>
             </Paper>
         );

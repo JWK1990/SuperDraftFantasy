@@ -9,14 +9,13 @@ import au.superdraftfantasy.api.user.UserRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
 import javax.transaction.Transactional;
 import javax.validation.constraints.NotBlank;
-import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
@@ -29,7 +28,12 @@ public class DraftService {
     private final UserRepository userRepository;
     private final RosterRepository rosterRepository;
 
-    public DraftService(ModelMapper modelMapper, DraftRepository draftRepository, UserRepository userRepository, RosterRepository rosterRepository) {
+    public DraftService(
+            ModelMapper modelMapper,
+            DraftRepository draftRepository,
+            UserRepository userRepository,
+            RosterRepository rosterRepository
+    ) {
         this.modelMapper = modelMapper;
         this.draftRepository = draftRepository;
         this.userRepository = userRepository;
@@ -38,13 +42,18 @@ public class DraftService {
 
     /**
      * create a DraftEntity from a given DraftDTO.
-     * @param draftWriteDto
+     * @param writeDto
      * @return
      */
-    public Long createDraft(@NotBlank final DraftWriteDto draftWriteDto) {
-        DraftEntity draft = convertToEntity(draftWriteDto);
+    public Long createDraft(
+            @NotBlank final DraftWriteDto writeDto,
+            @NotBlank final Authentication authentication
+    ) {
+        DraftEntity draft = convertToEntity(writeDto);
         checkDraftValidity(draft);
-        createCommissionersTeam(draft);
+        UserEntity user = getCurrentUser(authentication);
+        TeamEntity commissionersTeam = createTeam(draft, user, true, writeDto.getTeamName());
+        draft.getTeams().add(commissionersTeam);
         return draftRepository.save(draft).getId();
     }
 
@@ -59,13 +68,35 @@ public class DraftService {
         return mapToDraftReadDto(draft);
     }
 
+    /**
+     * Create a Team for the current User and add it to a DraftEntity from a given draftID.
+     * @param writeDto
+     * @param authentication
+     * @return
+     */
+    @Transactional
+    public Long joinDraft(
+            @NotBlank final Long draftId,
+            @NotBlank final DraftJoinWriteDto writeDto,
+            @NotBlank final Authentication authentication
+    ) {
+        DraftEntity draft = draftRepository.findById(draftId)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Draft with ID '" + draftId + "' not found."));
+        UserEntity currentUser = getCurrentUser(authentication);
+        checkForSpaceInDraft(draft);
+        checkForExistingTeam(draft, currentUser.getId());
+        TeamEntity team = createTeam(draft, currentUser, false, writeDto.getTeamName());
+        addTeamToDraftAndUpdateStatusIfRequired(draft, team);
+        draftRepository.save(draft);
+        return team.getId();
+    }
+
     public List<DraftReadDto> getMyDrafts(@NotBlank final Authentication authentication) {
         String username = authentication.getName();
         List<DraftEntity> drafts = draftRepository.findDistinctByTeams_User_Username(username);
-        List<DraftReadDto> draftReadDtos = drafts.stream()
+        return drafts.stream()
                 .map(draft -> modelMapper.map(draft, DraftReadDto.class))
                 .collect(Collectors.toList());
-        return draftReadDtos;
     }
 
     @Transactional
@@ -108,6 +139,57 @@ public class DraftService {
                 .collect(Collectors.toList());
     }
 
+    private void addTeamToDraftAndUpdateStatusIfRequired(DraftEntity draft, TeamEntity team) {
+        draft.getTeams().add(team);
+        if(draft.getTeams().size() == draft.getNumOfTeams()) {
+            draft.setStatus(DraftStatusEnum.READY);
+        }
+    }
+
+    private TeamEntity createTeam(
+            @NotBlank DraftEntity draft,
+            @NotBlank UserEntity user,
+            @NotBlank boolean isCommissioner,
+            @NotBlank String teamName
+    ) {
+        return new TeamEntity(
+                null,
+                teamName,
+                isCommissioner ? TeamTypeEnum.COMMISSIONER : TeamTypeEnum.MEMBER,
+                draft.getBudget(),
+                isCommissioner,
+                (long) draft.getTeams().size(),
+                Collections.emptyList(),
+                user,
+                draft,
+                null,
+                null
+        );
+    }
+
+
+    private UserEntity getCurrentUser(Authentication authentication) {
+        String username = authentication.getName();
+        return userRepository.findByUsername(username).orElseThrow(() -> new UsernameNotFoundException("User With Username '" + username + "' Not Found."));
+    }
+
+    private void checkForSpaceInDraft(DraftEntity draft) {
+        Long maxNumOfTeams = draft.getNumOfTeams();
+        int currentNumOfTeams = draft.getTeams().size();
+        if(currentNumOfTeams >= maxNumOfTeams) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "The Draft is already full.");
+        }
+    }
+
+    private void checkForExistingTeam(DraftEntity draft, Long currentUserId) {
+        List<TeamEntity> existingCoaches = draft.getTeams();
+        boolean coachAlreadyExists = existingCoaches.stream()
+                .anyMatch(existingCoach -> existingCoach.getUser().getId().equals(currentUserId));
+        if(coachAlreadyExists) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "User with ID '" + currentUserId + "' already exists in Draft.");
+        }
+    }
+
     private int getOnTheBlockOrderIndex(List<TeamEntity> teamList) {
         int onTheBlockIndex = 0;
         int draftedPlayerCount = teamList.stream()
@@ -137,29 +219,6 @@ public class DraftService {
         if(draftRepository.existsByName(draftName)) {
             throw new ResponseStatusException(HttpStatus.CONFLICT, "A draft with the name '" + draftName + "' already exists.");
         }
-    }
-
-    private void createCommissionersTeam(@NotBlank DraftEntity draft) {
-        UserEntity user = getCurrentUser();
-        TeamEntity team = new TeamEntity(
-                null,
-                "Default Name",
-                TeamTypeEnum.COMMISSIONER,
-                draft.getBudget(),
-                true,
-                0L,
-                Arrays.asList(),
-                user,
-                draft,
-                null,
-                null
-        );
-        draft.getTeams().add(team);
-    }
-
-    private UserEntity getCurrentUser() {
-        String username = SecurityContextHolder.getContext().getAuthentication().getName();
-        return userRepository.findByUsername(username).orElseThrow(() -> new UsernameNotFoundException("User With Username '" + username + "' Not Found."));
     }
 
 }
