@@ -11,4 +11,5 @@ export const initialUserState = {
     loading: false,
     error: null,
     data: initialUserData,
+    authenticated: null,
 };

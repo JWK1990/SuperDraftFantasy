@@ -3,7 +3,7 @@ import AuthService from "../../services/AuthService";
 import axios from "axios";
 import ConfigurationHelper from "../../utils/ConfigurationUtils";
 import Routes from "../../routing/Routes";
-import {userSelector} from "../../store/selectors/UserSelectors";
+import {userAuthenticatedSelector} from "../../store/selectors/UserSelectors";
 import {getCurrentUserAction} from "../../store/actions";
 import {connect} from "react-redux";
 
@@ -44,13 +44,18 @@ class App extends React.Component {
     }
 
     render() {
-        return <Routes/>;
+        // The if condition ensures that the page isn't loaded until the isAuthenticated state is fetched.
+        // Could maybe handle this with the loading property in the future.
+        if(this.props.isAuthenticated != null) {
+            return <Routes isAuthenticated={this.props.isAuthenticated}/>;
+        }
+        return <div></div>
     }
 }
 
 const mapStateToProps = state => {
     return {
-        user: userSelector(state)
+        isAuthenticated: userAuthenticatedSelector(state)
     };
 };
 

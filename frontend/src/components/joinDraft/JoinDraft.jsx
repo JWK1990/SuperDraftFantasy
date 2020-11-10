@@ -38,7 +38,7 @@ class JoinDraft extends React.Component {
             {
                 componentType: TextField,
                 properties: {
-                    id: "teamName",
+                    id: "teamName-join",
                     label: "Team Name",
                     required: true,
                     value: "",
@@ -51,7 +51,7 @@ class JoinDraft extends React.Component {
     joinDraft = () => {
         const draftId = FormUtils.getFieldValue(this.formDetails.fields, "draftId");
         const joinDraftWriteDto = {
-            teamName: FormUtils.getFieldValue(this.formDetails.fields, "teamName"),
+            teamName: FormUtils.getFieldValue(this.formDetails.fields, "teamName-join"),
         }
         this.props.joinDraft(draftId, joinDraftWriteDto);
     }

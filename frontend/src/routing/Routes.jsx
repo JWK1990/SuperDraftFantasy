@@ -1,4 +1,3 @@
-import AuthService from "../services/AuthService";
 import {BrowserRouter as Router, Link, Route, Switch} from "react-router-dom";
 import AuthenticatedNavbar from "../components/navbar";
 import PrivateRoute from "./PrivateRoute";
@@ -9,7 +8,6 @@ import UnauthenticatedNavbar from "../components/navbar/UnauthenticatedNavbar";
 
 class Routes extends React.Component {
     render() {
-        const isLoggedIn = AuthService.getToken() !== null;
         return (
             <Router>
                 <div>
@@ -17,10 +15,10 @@ class Routes extends React.Component {
                         <li>
                             <Link to="/">Home</Link>
                         </li>
-                        <li hidden={!isLoggedIn}>
+                        <li hidden={!this.props.isAuthenticated}>
                             <Link to="/draftRoom">Draft Room</Link>
                         </li>
-                        <li hidden={!isLoggedIn}>
+                        <li hidden={!this.props.isAuthenticated}>
                             <Link to="/logout">Logout</Link>
                         </li>
                     </ul>
@@ -35,9 +33,9 @@ class Routes extends React.Component {
                   of them to render at a time
                 */}
                     <Switch>
-                        <Route exact path="/" component={isLoggedIn ? AuthenticatedNavbar : UnauthenticatedNavbar} />
-                        <PrivateRoute path="/draftRoom" component={DraftRoom} />
-                        <PrivateRoute exact path="/logout" component={Logout} />
+                        <Route exact path="/" component={this.props.isAuthenticated ? AuthenticatedNavbar : UnauthenticatedNavbar} />
+                        <PrivateRoute isAuthenticated={this.props.isAuthenticated} path="/draftRoom" component={DraftRoom} />
+                        <PrivateRoute exact isAuthenticated={this.props.isAuthenticated} path="/logout" component={Logout} />
                     </Switch>
                 </div>
             </Router>
