@@ -24,7 +24,8 @@ export function userReducer(state = initialUserState, action) {
                 ...state,
                 loading: false,
                 error: null,
-                data: action.payload
+                data: action.payload,
+                authenticated: true,
             };
 
         case SIGN_UP_FAILURE:
@@ -34,7 +35,8 @@ export function userReducer(state = initialUserState, action) {
             return {
                 ...state,
                 loading: false,
-                error: action.payload
+                error: action.payload,
+                authenticated: false,
             };
 
         case LOGOUT_SUCCESS:
