@@ -49,7 +49,7 @@ class App extends React.Component {
         if(this.props.isAuthenticated != null) {
             return <Routes isAuthenticated={this.props.isAuthenticated}/>;
         }
-        return <div></div>
+        return <div/>
     }
 }
 
