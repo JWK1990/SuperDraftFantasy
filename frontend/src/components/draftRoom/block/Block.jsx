@@ -2,6 +2,8 @@ import React from 'react';
 import withStyles from "@material-ui/core/styles/withStyles";
 import CountdownClock from "./clock/CountdownClock";
 import Grid from "@material-ui/core/Grid";
+import {connect} from "react-redux";
+import {currentTeamSelector} from "../../../store/selectors/DraftSelectors";
 
 const styles = theme => ({
     root: {
@@ -145,15 +147,16 @@ class DraftRoomBlock extends React.Component {
         //clearInterval(this.bidTimerInterval);
         const addToBlockDetails = JSON.parse(payload.body);
         const player = this.getPlayerDetailsById(addToBlockDetails.playerId);
+        const isBidDisabledTuple = this.getIsBidDisabled(addToBlockDetails.teamId, addToBlockDetails.price, player);
         this.setState(prevState => ({
             ...prevState,
             block: {
                 ...prevState.block,
                 player: player,
-                bidder: this.getTeamDetailsById(addToBlockDetails.teamId),
+                bidder: addToBlockDetails.teamId,
                 price: addToBlockDetails.price,
-                isBidDisabled: this.getIsBidDisabled(addToBlockDetails.price, player),
-                clockState: 'Bid',
+                isBidDisabled: isBidDisabledTuple[0],
+                clockState: isBidDisabledTuple[1],
                 clockKey: this.state.block.clockKey + 1,
             }
         }));
@@ -170,7 +173,7 @@ class DraftRoomBlock extends React.Component {
             ...prevState,
             block: {
                 ...prevState.block,
-                bidder: this.getTeamDetailsById(bidDetails.teamId),
+                bidder: bidDetails.teamId,
                 price: price,
                 isBidDisabled: this.getIsBidDisabled(price, player),
                 clockState: 'Bid',
@@ -220,24 +223,27 @@ class DraftRoomBlock extends React.Component {
         return this.props.draft.teams.find(team => team.id === teamId);
     };
 
-    getIsBidDisabled = (price, player) => {
-        if(price && player) {
-            return !this.getIsBudgetAvailableForPlayer(price) || !this.getIsSlotAvailableForPlayer(player);
+    getIsBidDisabled = (bidderId, price, player) => {
+        console.log(bidderId, this.props.currentTeam.id);
+        if(bidderId === this.props.currentTeam.id) {
+            return [true, "You lead:"];
         }
-        return true;
+        if(price && !this.getIsBudgetAvailableForPlayer(price)) {
+            return [true, "Insufficient budget."]
+        }
+        if(player && !this.getIsSlotAvailableForPlayer(player)) {
+            return [true, "No " + player.position + " Slot."]
+        }
+        return [false, "Bid"];
     }
 
     getIsBudgetAvailableForPlayer = (price) => {
         if(this.getIsTeamFull()) {
             return false;
         }
-        const currentTeamMaxBid = this.getCurrentCoachMaxBid();
+        const currentTeamMaxBid = this.props.currentTeam.maxBid;
         const nextBidPrice = price + 1;
         return currentTeamMaxBid >= nextBidPrice;
-    }
-
-    getCurrentCoachMaxBid = () => {
-        return this.props.currentTeam.maxBid;
     }
 
     getIsSlotAvailableForPlayer = (player) => {
@@ -285,6 +291,8 @@ class DraftRoomBlock extends React.Component {
                                 text={this.state.block.clockState}
                                 key={this.state.block.clockKey}
                                 sendBid={this.sendBid}
+                                isDisabled={this.state.block.isBidDisabled}
+                                currentPrice={this.state.block.price}
                             />
                             : null
                         }
@@ -357,4 +365,10 @@ class DraftRoomBlock extends React.Component {
     }
 }
 
-export default withStyles(styles, {withTheme: true})(DraftRoomBlock);
+const mapStateToProps = state => {
+    return {
+        currentTeam: currentTeamSelector(state)
+    };
+};
+
+export default connect(mapStateToProps)(withStyles(styles, {withTheme: true})(DraftRoomBlock));

@@ -124,12 +124,7 @@ class DraftRoom extends React.Component {
                         />
                     </Grid>
                     <Grid item xs={8}>
-                        <StatisticsContainer
-                            stompClient={this.props.stompClient}
-                            players={this.props.players}
-                            draft={this.props.draft}
-                            currentTeamId={this.props.currentTeam.id}
-                        />
+                        <StatisticsContainer/>
                     </Grid>
                     <Grid item xs={2}>
                         <MyTeam

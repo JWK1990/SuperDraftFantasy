@@ -3,7 +3,7 @@ import MaterialTable from "material-table";
 import Container from "@material-ui/core/Container";
 import DraftRoomPlayersSelected from "./selected/Selected";
 import {playersSelector} from "../../../store/selectors/PlayersSelectors";
-import {currentTeamSelector, draftSelector} from "../../../store/selectors/DraftSelectors";
+import {currentTeamIdSelector, draftSelector} from "../../../store/selectors/DraftSelectors";
 import {stompClientSelector} from "../../../store/selectors/WebSocketSelectors";
 import {connect} from "react-redux";
 
@@ -99,7 +99,7 @@ const mapStateToProps = state => {
         stompClient: stompClientSelector(state),
         players: playersSelector(state),
         draft: draftSelector(state),
-        currentTeam: currentTeamSelector(state)
+        currentTeamId: currentTeamIdSelector(state)
     };
 };
 

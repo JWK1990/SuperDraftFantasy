@@ -11,12 +11,18 @@ h1 {
   align-items: center;
 }
 
-.text {
+.upper-text {
   color: #000000;
+  font-size: 11px;
 }
 
-.value {
-  font-size: 40px;
+.dollar-symbol {
+  font-size: 16px;
+  vertical-align: super;
+}
+
+.bid-text {
+  font-size: 38px;
 }
 
 .info {
