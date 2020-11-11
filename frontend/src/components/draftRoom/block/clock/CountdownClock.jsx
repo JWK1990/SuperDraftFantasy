@@ -31,9 +31,20 @@ function CountdownClock(props) {
             return <div className="timer">Too lale...</div>;
         }
 
+        const sendBid = (e) => {
+         e.preventDefault();
+         props.sendBid();
+        }
+
         return (
             <div>
-                <Fab size="medium" color="primary" aria-label="add" className={[classes.sizeMedium, classes.primary]}>
+                <Fab
+                    size="medium"
+                    color="primary"
+                    aria-label="add"
+                    className={[classes.sizeMedium, classes.primary].join(" ")}
+                    onClick={sendBid}
+                >
                     <div className="timer">
                         <div className="text">{props.text}</div>
                         <div className="value">{remainingTime}</div>

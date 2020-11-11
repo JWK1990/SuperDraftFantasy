@@ -284,6 +284,7 @@ class DraftRoomBlock extends React.Component {
                                 }
                                 text={this.state.block.clockState}
                                 key={this.state.block.clockKey}
+                                sendBid={this.sendBid}
                             />
                             : null
                         }
