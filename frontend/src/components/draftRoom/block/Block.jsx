@@ -1,38 +1,25 @@
 import React from 'react';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-import IconButton from '@material-ui/core/IconButton';
-import Typography from '@material-ui/core/Typography';
-import SkipPreviousIcon from '@material-ui/icons/SkipPrevious';
-import PlayArrowIcon from '@material-ui/icons/PlayArrow';
-import SkipNextIcon from '@material-ui/icons/SkipNext';
-import Container from "@material-ui/core/Container";
 import withStyles from "@material-ui/core/styles/withStyles";
+import CountdownClock from "./clock/CountdownClock";
+import Grid from "@material-ui/core/Grid";
+import {connect} from "react-redux";
+import {currentTeamSelector} from "../../../store/selectors/DraftSelectors";
+import BlockPlayer from "./player/BlockPlayer";
 
 const styles = theme => ({
-    root: {
-        display: 'flex',
+    firstRowGridContainer: {
+        justify: "space-between",
+        alignItems: "stretch",
+        height: "20vh",
+        overflow: "hidden",
     },
-    details: {
-        display: 'flex',
-        flexDirection: 'column',
-    },
-    content: {
-        flex: '1 0 auto',
-    },
-    cover: {
-        width: 151,
-    },
-    controls: {
-        display: 'flex',
-        alignItems: 'center',
-        paddingLeft: theme.spacing(1),
-        paddingBottom: theme.spacing(1),
-    },
-    playIcon: {
-        height: 38,
-        width: 38,
-    },
+    countdownClockDiv: {
+        height: "100%",
+        textAlign: "center",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+    }
 });
 
 class DraftRoomBlock extends React.Component {
@@ -44,8 +31,10 @@ class DraftRoomBlock extends React.Component {
                 player: '',
                 bidder: '',
                 price: '',
-                onTheBlockTimeRemaining: '',
-                bidTimeRemaining: '',
+                clockState: null,
+                clockKey: 0,
+                //onTheBlockTimeRemaining: '',
+                //bidTimeRemaining: '',
                 isBidDisabled: true,
             }
         }
@@ -60,7 +49,7 @@ class DraftRoomBlock extends React.Component {
 
     sendStartDraft = () => {
         if(this.props.stompClient) {
-            console.log(this.props);
+            console.log("Send Start Draft");
             const startDraftDetails = {
                 draftId: this.props.draft.id,
                 playerId: null,
@@ -91,14 +80,14 @@ class DraftRoomBlock extends React.Component {
                 bidTimer: this.props.draft.bidTimer,
             };
             this.props.stompClient.send("/app/bid", {}, JSON.stringify(bidDetails));
-            console.log('Bid Send: ', bidDetails);
+            console.log('Bid Sent: ', bidDetails);
         }
     };
 
     receiveStartNextRound = (payload) => {
         console.log('Start Next Round Received: ', payload);
-        clearInterval(this.addToBlockTimerInterval);
-        clearInterval(this.bidTimerInterval);
+        //clearInterval(this.addToBlockTimerInterval);
+        //clearInterval(this.bidTimerInterval);
         const startNextRoundDetails = JSON.parse(payload.body);
         this.setState(prevState => ({
             ...prevState,
@@ -108,47 +97,53 @@ class DraftRoomBlock extends React.Component {
                 team: this.getTeamDetailsById(startNextRoundDetails.teamId),
                 price: '',
                 isBidDisabled: true,
+                clockState: 'OnTheBlock',
+                clockKey: this.state.block.clockKey + 1,
             }
         }));
-        this.setAddToBlockTimer(startNextRoundDetails.endTime);
+        //this.setAddToBlockTimer(startNextRoundDetails.endTime);
     };
 
     receiveStopDraft = () => {
         console.log('StopDraft Received.');
-        clearInterval(this.addToBlockTimerInterval);
-        clearInterval(this.bidTimerInterval);
+        //clearInterval(this.addToBlockTimerInterval);
+        //clearInterval(this.bidTimerInterval);
         this.setState(prevState => ({
             ...prevState,
             block: {
                 ...prevState.block,
                 addToBlockTimeRemaining: '',
                 bidTimeRemaining: '',
+                clockState: null,
             }
         }));
     }
 
     receiveAddToBlock = (payload) => {
         console.log('AddToBlock Received ', payload);
-        clearInterval(this.addToBlockTimerInterval);
-        clearInterval(this.bidTimerInterval);
+        //clearInterval(this.addToBlockTimerInterval);
+        //clearInterval(this.bidTimerInterval);
         const addToBlockDetails = JSON.parse(payload.body);
         const player = this.getPlayerDetailsById(addToBlockDetails.playerId);
+        const isBidDisabledTuple = this.getIsBidDisabled(addToBlockDetails.teamId, addToBlockDetails.price, player);
         this.setState(prevState => ({
             ...prevState,
             block: {
                 ...prevState.block,
                 player: player,
-                bidder: this.getTeamDetailsById(addToBlockDetails.teamId),
+                bidder: addToBlockDetails.teamId,
                 price: addToBlockDetails.price,
-                isBidDisabled: this.getIsBidDisabled(addToBlockDetails.price, player),
+                isBidDisabled: isBidDisabledTuple[0],
+                clockState: isBidDisabledTuple[1],
+                clockKey: this.state.block.clockKey + 1,
             }
         }));
-        this.setBidTimer(addToBlockDetails.endTime);
+        //this.setBidTimer(addToBlockDetails.endTime);
     };
 
     receiveBid = (payload) => {
-        clearInterval(this.addToBlockTimerInterval);
-        clearInterval(this.bidTimerInterval);
+        //clearInterval(this.addToBlockTimerInterval);
+        //clearInterval(this.bidTimerInterval);
         const bidDetails = JSON.parse(payload.body);
         const player = this.state.block.player;
         const price = bidDetails.price;
@@ -156,15 +151,17 @@ class DraftRoomBlock extends React.Component {
             ...prevState,
             block: {
                 ...prevState.block,
-                bidder: this.getTeamDetailsById(bidDetails.teamId),
+                bidder: bidDetails.teamId,
                 price: price,
                 isBidDisabled: this.getIsBidDisabled(price, player),
+                clockState: 'Bid',
+                clockKey: this.state.block.clockKey + 1,
             }
         }));
-        this.setBidTimer(bidDetails.endTime);
+        //this.setBidTimer(bidDetails.endTime);
     };
 
-    setAddToBlockTimer = (endTime) => {
+/*    setAddToBlockTimer = (endTime) => {
         this.addToBlockTimerInterval = setInterval(() => {
             this.setState(prevState => ({
                 ...prevState,
@@ -178,9 +175,9 @@ class DraftRoomBlock extends React.Component {
                 clearInterval(this.addToBlockTimerInterval);
             }
         }, 1000);
-    };
+    };*/
 
-    setBidTimer = (endTime) => {
+/*    setBidTimer = (endTime) => {
         this.bidTimerInterval = setInterval(() => {
             this.setState(prevState => ({
                 ...prevState,
@@ -194,7 +191,7 @@ class DraftRoomBlock extends React.Component {
                 clearInterval(this.bidTimerInterval);
             }
         }, 1000);
-    };
+    };*/
 
     getPlayerDetailsById = (playerId) => {
         return this.props.players.find(player => player.id === playerId);
@@ -204,24 +201,27 @@ class DraftRoomBlock extends React.Component {
         return this.props.draft.teams.find(team => team.id === teamId);
     };
 
-    getIsBidDisabled = (price, player) => {
-        if(price && player) {
-            return !this.getIsBudgetAvailableForPlayer(price) || !this.getIsSlotAvailableForPlayer(player);
+    getIsBidDisabled = (bidderId, price, player) => {
+        console.log(bidderId, this.props.currentTeam.id);
+        if(bidderId === this.props.currentTeam.id) {
+            return [true, "You lead:"];
         }
-        return true;
+        if(price && !this.getIsBudgetAvailableForPlayer(price)) {
+            return [true, "Insufficient budget."]
+        }
+        if(player && !this.getIsSlotAvailableForPlayer(player)) {
+            return [true, "No " + player.position + " Slot."]
+        }
+        return [false, "Bid"];
     }
 
     getIsBudgetAvailableForPlayer = (price) => {
         if(this.getIsTeamFull()) {
             return false;
         }
-        const currentTeamMaxBid = this.getCurrentCoachMaxBid();
+        const currentTeamMaxBid = this.props.currentTeam.maxBid;
         const nextBidPrice = price + 1;
         return currentTeamMaxBid >= nextBidPrice;
-    }
-
-    getCurrentCoachMaxBid = () => {
-        return this.props.currentTeam.maxBid;
     }
 
     getIsSlotAvailableForPlayer = (player) => {
@@ -251,9 +251,41 @@ class DraftRoomBlock extends React.Component {
     }
 
     render() {
-        const classes = this.props;
+        const {classes} = this.props;
         return (
-            <Container component="main" maxWidth="lg">
+            <Grid
+                container
+                className={classes.firstRowGridContainer}
+            >
+                <Grid item xs={2}>
+                    <div className={classes.countdownClockDiv}>
+                        {!!this.state.block.clockState ?
+                            <CountdownClock
+                                duration={this.state.block.clockState === "OnTheBlock" ?
+                                    this.props.draft.onTheBlockTimer
+                                    : this.props.draft.bidTimer
+                                }
+                                text={this.state.block.clockState}
+                                key={this.state.block.clockKey}
+                                sendBid={this.sendBid}
+                                isDisabled={this.state.block.isBidDisabled}
+                                currentPrice={this.state.block.price}
+                            />
+                            : null
+                        }
+                    </div>
+                </Grid>
+
+                <Grid item xs={8}>
+                    <BlockPlayer
+                        player={this.state.block.player}
+                    />
+                </Grid>
+
+            </Grid>
+
+
+         /*   <Container component="main" maxWidth="lg">
                 <div className={classes.details}>
                     <CardContent className={classes.content}>
                         <Typography component="h5" variant="h5">
@@ -297,11 +329,26 @@ class DraftRoomBlock extends React.Component {
                     image="frontend/src/images/logo.svg"
                     title="Player Picture"
                 />
-                <p>Add To Block Timer: {this.state.block.addToBlockTimeRemaining} </p>
-                <p>Bid Timer: {this.state.block.bidTimeRemaining} </p>
-            </Container>
+                {!!this.state.block.clockState ?
+                    <CountdownClock
+                        duration={this.state.block.clockState === "OnTheBlock" ?
+                            this.props.draft.onTheBlockTimer
+                            : this.props.draft.bidTimer
+                        }
+                        text={this.state.block.clockState}
+                        key={this.state.block.clockKey}
+                    />
+                    : null
+                }
+            </Container>*/
         );
     }
 }
 
-export default withStyles(styles, {withTheme: true})(DraftRoomBlock);
+const mapStateToProps = state => {
+    return {
+        currentTeam: currentTeamSelector(state)
+    };
+};
+
+export default connect(mapStateToProps)(withStyles(styles, {withTheme: true})(DraftRoomBlock));

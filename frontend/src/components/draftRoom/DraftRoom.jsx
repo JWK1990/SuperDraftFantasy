@@ -1,7 +1,7 @@
 import React from "react";
 import DraftRoomBlock from "./block/Block";
 import MyTeam from "./myTeam/MyTeam";
-import {getDraftAction, updateTeamAction, connectWebSocketAction, getPlayersByDraftAction} from "../../store/actions";
+import {connectWebSocketAction, getDraftAction, getPlayersByDraftAction, updateTeamAction} from "../../store/actions";
 import {connect} from "react-redux";
 import {userSelector} from "../../store/selectors/UserSelectors"
 import {currentTeamSelector, draftSelector, onTheBlockTeamSelector} from "../../store/selectors/DraftSelectors"
@@ -11,12 +11,25 @@ import Grid from "@material-ui/core/Grid";
 import {stompClientSelector} from "../../store/selectors/WebSocketSelectors";
 import StatisticsContainer from "./players/StatisticsContainer";
 import ConfigurationUtils from "../../utils/ConfigurationUtils";
+import {withStyles} from "@material-ui/core";
 
-// let stompClient = null;
+const styles = {
+    firstRowGridContainer: {
+        justify: "space-between",
+        alignItems: "stretch",
+        height: "20vh",
+        overflow: "hidden",
+    },
+    secondRowGridContainer: {
+        justify: "space-between",
+        alignItems: "stretch",
+        height: "80vh",
+        overflow: "hidden",
+    },
+};
 
 class DraftRoom extends React.Component {
 
-    // TODO: Update to draftId.
     draftId = ConfigurationUtils.getUrlParam("id");
 
     constructor(props) {
@@ -31,12 +44,11 @@ class DraftRoom extends React.Component {
 
     componentDidMount() {
         this.props.connectWebSocket();
-        // TODO: Replace with draftId.
         this.props.getDraft(this.draftId);
         this.props.getPlayers(this.draftId);
     }
 
-    async componentDidUpdate(prevProps) {
+    async componentDidUpdate(prevProps, prevState, snapshot) {
         if(this.props.players !== prevProps.players) {
             this.setState({isPlayerDataLoaded: true});
         }
@@ -63,20 +75,28 @@ class DraftRoom extends React.Component {
     };
 
     render() {
-        if (!this.state.isStompClientConnected || !this.state.isDraftDataLoaded || !this.state.isPlayerDataLoaded) {
+        const {classes} = this.props;
+
+        if (!this.state.isStompClientConnected
+            || !this.state.isDraftDataLoaded
+            || !this.state.isPlayerDataLoaded
+        ) {
             return <div />
         }
 
         return (
             <div>
-                <Grid container>
+                <Grid
+                    container
+                    className={classes.firstRowGridContainer}
+                >
                     <Grid item xs={2}>
                         <div>
                             <p>Draft Details: {this.props.draft.name}</p>
                             <p>Current OTB Coach: {this.props.onTheBlockTeam ? this.props.onTheBlockTeam.name : "TBA"}</p>
                         </div>
                     </Grid>
-                    <Grid item xs={10}>
+                    <Grid item xs={8}>
                         <DraftRoomBlock
                             stompClient={this.props.stompClient}
                             draft={this.props.draft}
@@ -84,6 +104,17 @@ class DraftRoom extends React.Component {
                             currentTeam={this.props.currentTeam}
                         />
                     </Grid>
+                    <Grid item xs={2}
+                          className={classes.firstRow}
+                    >
+                        MyList Placeholder.
+                    </Grid>
+                </Grid>
+
+                <Grid
+                    container
+                    className={classes.secondRowGridContainer}
+                >
                     <Grid item xs={2}>
                         <DraftRoomTeams
                             stompClient={this.props.stompClient}
@@ -93,12 +124,7 @@ class DraftRoom extends React.Component {
                         />
                     </Grid>
                     <Grid item xs={8}>
-                        <StatisticsContainer
-                            stompClient={this.props.stompClient}
-                            players={this.props.players}
-                            draft={this.props.draft}
-                            currentTeamId={this.props.currentTeam.id}
-                        />
+                        <StatisticsContainer/>
                     </Grid>
                     <Grid item xs={2}>
                         <MyTeam
@@ -131,4 +157,4 @@ const mapDispatchToProps = dispatch => ({
     connectWebSocket: () => dispatch(connectWebSocketAction())
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(DraftRoom);
+export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(DraftRoom));

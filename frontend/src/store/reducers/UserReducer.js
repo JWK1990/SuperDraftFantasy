@@ -40,7 +40,10 @@ export function userReducer(state = initialUserState, action) {
             };
 
         case LOGOUT_SUCCESS:
-            return initialUserState
+            return {
+                ...initialUserState,
+                authenticated: false,
+            }
 
         default:
             return state;

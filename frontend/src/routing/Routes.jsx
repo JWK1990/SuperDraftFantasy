@@ -1,4 +1,4 @@
-import {BrowserRouter as Router, Link, Route, Switch} from "react-router-dom";
+import {BrowserRouter as Router, Route} from "react-router-dom";
 import AuthenticatedNavbar from "../components/navbar";
 import PrivateRoute from "./PrivateRoute";
 import DraftRoom from "../components/draftRoom";
@@ -10,34 +10,9 @@ class Routes extends React.Component {
     render() {
         return (
             <Router>
-                <div>
-                    <ul>
-                        <li>
-                            <Link to="/">Home</Link>
-                        </li>
-                        <li hidden={!this.props.isAuthenticated}>
-                            <Link to="/draftRoom">Draft Room</Link>
-                        </li>
-                        <li hidden={!this.props.isAuthenticated}>
-                            <Link to="/logout">Logout</Link>
-                        </li>
-                    </ul>
-
-                    <hr/>
-
-                    {/*
-                  A <Switch> looks through all its children <Route>
-                  elements and renders the first one whose path
-                  matches the current URL. Use a <Switch> any time
-                  you have multiple routes, but you want only one
-                  of them to render at a time
-                */}
-                    <Switch>
-                        <Route exact path="/" component={this.props.isAuthenticated ? AuthenticatedNavbar : UnauthenticatedNavbar} />
-                        <PrivateRoute isAuthenticated={this.props.isAuthenticated} path="/draftRoom" component={DraftRoom} />
-                        <PrivateRoute exact isAuthenticated={this.props.isAuthenticated} path="/logout" component={Logout} />
-                    </Switch>
-                </div>
+                <Route exact path="/" component={this.props.isAuthenticated ? AuthenticatedNavbar : UnauthenticatedNavbar} />
+                <PrivateRoute isAuthenticated={this.props.isAuthenticated} path="/draftRoom" component={DraftRoom} />
+                <PrivateRoute exact isAuthenticated={this.props.isAuthenticated} path="/logout" component={Logout} />
             </Router>
         )
     };

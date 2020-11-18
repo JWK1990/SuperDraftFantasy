@@ -38,9 +38,7 @@ class App extends React.Component {
     }
 
     componentDidMount() {
-        if(AuthService.getToken()) {
-            this.props.getCurrentUser();
-        }
+        this.props.getCurrentUser();
     }
 
     render() {
