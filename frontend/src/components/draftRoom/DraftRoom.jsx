@@ -1,7 +1,7 @@
 import React from "react";
 import DraftRoomBlock from "./block/Block";
 import MyTeam from "./myTeam/MyTeam";
-import {connectWebSocketAction, getDraftAction, getPlayersByDraftAction, updateTeamAction} from "../../store/actions";
+import {connectWebSocketAction, getDraftAction, getPlayersByDraftAction} from "../../store/actions";
 import {connect} from "react-redux";
 import {draftSelector} from "../../store/selectors/DraftSelectors"
 import {playersSelector} from "../../store/selectors/PlayersSelectors";
@@ -62,11 +62,12 @@ class DraftRoom extends React.Component {
         }
     }
 
-    // disconnect = () => {
-    //     if (stompClient !== null) {
-    //         stompClient.disconnect();
-    //     }
-    // };
+    componentWillUnmount() {
+        if (this.props.stompClient !== null) {
+            console.log("Stomp Client Disconnected.");
+            this.props.stompClient.disconnect();
+        }
+    }
 
     render() {
         const {classes} = this.props;
@@ -128,7 +129,6 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => ({
     getDraft: (draftId) => dispatch(getDraftAction(draftId)),
     getPlayers: (draftId) => dispatch(getPlayersByDraftAction(draftId)),
-    updateTeam: (team) => dispatch(updateTeamAction(team)),
     connectWebSocket: () => dispatch(connectWebSocketAction())
 });
 

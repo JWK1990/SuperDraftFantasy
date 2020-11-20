@@ -3,12 +3,7 @@ import {DragDropContext, Draggable, Droppable} from "react-beautiful-dnd";
 import {reorderTeamListAction, updateTeamAction} from "../../../store/actions";
 import {connect} from "react-redux";
 import {DraftStatusEnum} from "../../../models/DraftStatusEnum";
-import {
-    draftCommissionerUserIdSelector,
-    draftIdSelector,
-    draftStatusSelector, draftTeamsSelector
-} from "../../../store/selectors/DraftSelectors";
-import {userIdSelector} from "../../../store/selectors/UserSelectors";
+import {draftIdSelector, draftStatusSelector, draftTeamsSelector} from "../../../store/selectors/DraftSelectors";
 import {stompClientSelector} from "../../../store/selectors/WebSocketSelectors";
 
 const getSortableTeamList = teamList => {
