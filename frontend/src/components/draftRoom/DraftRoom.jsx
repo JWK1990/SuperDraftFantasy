@@ -3,8 +3,7 @@ import DraftRoomBlock from "./block/Block";
 import MyTeam from "./myTeam/MyTeam";
 import {connectWebSocketAction, getDraftAction, getPlayersByDraftAction, updateTeamAction} from "../../store/actions";
 import {connect} from "react-redux";
-import {userSelector} from "../../store/selectors/UserSelectors"
-import {currentTeamSelector, draftSelector, onTheBlockTeamSelector} from "../../store/selectors/DraftSelectors"
+import {draftSelector} from "../../store/selectors/DraftSelectors"
 import {playersSelector} from "../../store/selectors/PlayersSelectors";
 import DraftRoomTeams from "./teams/Teams";
 import Grid from "@material-ui/core/Grid";
@@ -69,12 +68,6 @@ class DraftRoom extends React.Component {
     //     }
     // };
 
-    receiveTeam = (payload) => {
-        const team = JSON.parse(payload.body);
-        console.log('Team Received: ', team)
-        this.props.updateTeam(team);
-    };
-
     render() {
         const {classes} = this.props;
 
@@ -93,19 +86,9 @@ class DraftRoom extends React.Component {
                 >
                     <Grid item xs={2}>
                         <CommissionerControls/>
-                        <div>
-                            <p>Draft Details: {this.props.draft.name}</p>
-                            <p>Current Coach: {this.props.currentTeam.name}</p>
-                            <p>Current OTB Coach: {this.props.onTheBlockTeam ? this.props.onTheBlockTeam.name : "TBA"}</p>
-                        </div>
                     </Grid>
                     <Grid item xs={8}>
-                        <DraftRoomBlock
-                            stompClient={this.props.stompClient}
-                            draft={this.props.draft}
-                            players={this.props.players}
-                            currentTeam={this.props.currentTeam}
-                        />
+                        <DraftRoomBlock/>
                     </Grid>
                     <Grid item xs={2}
                           className={classes.firstRow}
@@ -119,21 +102,13 @@ class DraftRoom extends React.Component {
                     className={classes.secondRowGridContainer}
                 >
                     <Grid item xs={2}>
-                        <DraftRoomTeams
-                            stompClient={this.props.stompClient}
-                            teams={this.props.draft.teams}
-                            draftId={this.props.draft.id}
-                            draftStatus={this.props.draft.status}
-                        />
+                        <DraftRoomTeams/>
                     </Grid>
                     <Grid item xs={8}>
                         <StatisticsContainer/>
                     </Grid>
                     <Grid item xs={2}>
-                        <MyTeam
-                            roster={this.props.draft.roster}
-                            currentTeam={this.props.currentTeam}
-                        />
+                        <MyTeam/>
                     </Grid>
                 </Grid>
             </div>
@@ -144,12 +119,9 @@ class DraftRoom extends React.Component {
 
 const mapStateToProps = state => {
     return {
-        user: userSelector(state),
         players: playersSelector(state),
         draft: draftSelector(state),
-        currentTeam: currentTeamSelector(state),
-        onTheBlockTeam: onTheBlockTeamSelector(state),
-        stompClient: stompClientSelector(state)
+        stompClient: stompClientSelector(state),
     };
 };
 

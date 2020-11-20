@@ -1,8 +1,15 @@
 import React from "react";
 import {DragDropContext, Draggable, Droppable} from "react-beautiful-dnd";
-import {reorderTeamListAction} from "../../../store/actions";
+import {reorderTeamListAction, updateTeamAction} from "../../../store/actions";
 import {connect} from "react-redux";
 import {DraftStatusEnum} from "../../../models/DraftStatusEnum";
+import {
+    draftCommissionerUserIdSelector,
+    draftIdSelector,
+    draftStatusSelector, draftTeamsSelector
+} from "../../../store/selectors/DraftSelectors";
+import {userIdSelector} from "../../../store/selectors/UserSelectors";
+import {stompClientSelector} from "../../../store/selectors/WebSocketSelectors";
 
 const getSortableTeamList = teamList => {
     teamList.sort((teamA, teamB) => teamA.orderIndex - teamB.orderIndex);
@@ -54,6 +61,7 @@ class DraftRoomTeams extends React.Component {
     }
 
     componentDidMount() {
+        this.props.stompClient.subscribe('/draft/teams', this.receiveTeam);
         this.props.stompClient.subscribe('/draft/reorderTeamLists', this.receiveReorderTeamList);
     }
 
@@ -61,6 +69,12 @@ class DraftRoomTeams extends React.Component {
         const reorderTeamListDto = {draftId: this.props.draftId, teamIdList: reorderedTeamIdList};
         this.props.stompClient.send("/app/reorderTeamList", {}, JSON.stringify(reorderTeamListDto));
     }
+
+    receiveTeam = (payload) => {
+        const team = JSON.parse(payload.body);
+        console.log('Team Received: ', team)
+        this.props.updateTeam(team);
+    };
 
     receiveReorderTeamList = (payload) => {
         console.log('ReorderTeamList Received: ', payload);
@@ -132,8 +146,18 @@ class DraftRoomTeams extends React.Component {
     }
 }
 
+const mapStateToProps = state => {
+    return {
+        stompClient: stompClientSelector(state),
+        draftId: draftIdSelector(state),
+        draftStatus: draftStatusSelector(state),
+        teams: draftTeamsSelector(state),
+    };
+};
+
 const mapDispatchToProps = dispatch => ({
-    updateTeamOrder: (teamList) => dispatch(reorderTeamListAction(teamList))
+    updateTeam: (team) => dispatch(updateTeamAction(team)),
+    updateTeamOrder: (teamList) => dispatch(reorderTeamListAction(teamList)),
 });
 
-export default connect(null, mapDispatchToProps)(DraftRoomTeams);
+export default connect(mapStateToProps, mapDispatchToProps)(DraftRoomTeams);

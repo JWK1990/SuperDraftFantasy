@@ -1,6 +1,8 @@
 import React from 'react';
-import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
+import {DragDropContext, Draggable, Droppable} from 'react-beautiful-dnd';
 import DraftService from '../../../services/DraftService';
+import {currentTeamSelector, draftRosterSelector} from "../../../store/selectors/DraftSelectors";
+import {connect} from "react-redux";
 
 const getInitialMyTeamList = (roster, teamPlayerJoinList) => {
     const initialMyTeamList = {
@@ -382,4 +384,11 @@ class MyTeam extends React.Component {
     }
 }
 
-export default MyTeam;
+const mapStateToProps = state => {
+    return {
+        roster: draftRosterSelector(state),
+        currentTeam: currentTeamSelector(state),
+    };
+};
+
+export default connect(mapStateToProps)(MyTeam);

@@ -3,8 +3,10 @@ import withStyles from "@material-ui/core/styles/withStyles";
 import CountdownClock from "./clock/CountdownClock";
 import Grid from "@material-ui/core/Grid";
 import {connect} from "react-redux";
-import {currentTeamSelector} from "../../../store/selectors/DraftSelectors";
+import {currentTeamSelector, draftSelector} from "../../../store/selectors/DraftSelectors";
 import BlockPlayer from "./player/BlockPlayer";
+import {stompClientSelector} from "../../../store/selectors/WebSocketSelectors";
+import {playersSelector} from "../../../store/selectors/PlayersSelectors";
 
 const styles = theme => ({
     firstRowGridContainer: {
@@ -347,7 +349,10 @@ class DraftRoomBlock extends React.Component {
 
 const mapStateToProps = state => {
     return {
-        currentTeam: currentTeamSelector(state)
+        stompClient: stompClientSelector(state),
+        draft: draftSelector(state),
+        players: playersSelector(state),
+        currentTeam: currentTeamSelector(state),
     };
 };
 

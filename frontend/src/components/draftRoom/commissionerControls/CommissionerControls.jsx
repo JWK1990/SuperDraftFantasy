@@ -1,23 +1,14 @@
 import React from "react";
 import Button from "@material-ui/core/Button";
-import DraftService from "../../../services/DraftService";
 import {DraftStatusEnum} from "../../../models/DraftStatusEnum";
 import {connect} from "react-redux";
-import {userIdSelector, userSelector} from "../../../store/selectors/UserSelectors";
-import {playersSelector} from "../../../store/selectors/PlayersSelectors";
+import {userIdSelector} from "../../../store/selectors/UserSelectors";
 import {
-    currentTeamSelector, draftCommissionerUserIdSelector, draftIdSelector,
-    draftSelector,
-    draftStatusSelector,
-    onTheBlockTeamSelector
+    draftCommissionerUserIdSelector,
+    draftIdSelector,
+    draftStatusSelector
 } from "../../../store/selectors/DraftSelectors";
-import {stompClientSelector} from "../../../store/selectors/WebSocketSelectors";
-import {
-    connectWebSocketAction,
-    getDraftAction,
-    getPlayersByDraftAction, startDraftAction, stopDraftAction,
-    updateTeamAction
-} from "../../../store/actions";
+import {startDraftAction, stopDraftAction} from "../../../store/actions";
 
 
 function CommissionerControls(props) {
