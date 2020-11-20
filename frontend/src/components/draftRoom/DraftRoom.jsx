@@ -12,6 +12,7 @@ import {stompClientSelector} from "../../store/selectors/WebSocketSelectors";
 import StatisticsContainer from "./players/StatisticsContainer";
 import ConfigurationUtils from "../../utils/ConfigurationUtils";
 import {withStyles} from "@material-ui/core";
+import CommissionerControls from "./commissionerControls/CommissionerControls";
 
 const styles = {
     firstRowGridContainer: {
@@ -91,8 +92,10 @@ class DraftRoom extends React.Component {
                     className={classes.firstRowGridContainer}
                 >
                     <Grid item xs={2}>
+                        <CommissionerControls/>
                         <div>
                             <p>Draft Details: {this.props.draft.name}</p>
+                            <p>Current Coach: {this.props.currentTeam.name}</p>
                             <p>Current OTB Coach: {this.props.onTheBlockTeam ? this.props.onTheBlockTeam.name : "TBA"}</p>
                         </div>
                     </Grid>

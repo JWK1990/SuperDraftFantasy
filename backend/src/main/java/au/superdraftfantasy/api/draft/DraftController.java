@@ -39,6 +39,16 @@ public class DraftController {
         return draftService.joinDraft(draftID, writeDto, authentication);
     }
 
+    @PutMapping(name = "startDraft", path="/{draftID}/start")
+    public DraftStatusEnum startDraft(@PathVariable final Long draftID, Authentication authentication) {
+        return draftService.startDraft(draftID, authentication);
+    }
+
+    @PutMapping(name = "stopDraft", path="/{draftID}/stop")
+    public DraftStatusEnum stopDraft(@PathVariable final Long draftID, Authentication authentication) {
+        return draftService.stopDraft(draftID, authentication);
+    }
+
     @GetMapping(name = "getMyDrafts", path = "/myDrafts")
     public List<DraftReadDto> getMyDrafts(Authentication authentication) {
         return draftService.getMyDrafts(authentication);

@@ -276,7 +276,7 @@ class DraftRoomBlock extends React.Component {
                     </div>
                 </Grid>
 
-                <Grid item xs={8}>
+                <Grid item xs={10}>
                     <BlockPlayer
                         player={this.state.block.player}
                     />

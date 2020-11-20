@@ -14,6 +14,14 @@ class DraftService {
         return axios.put("/drafts/" + draftId + "/join", draftJoinWriteDto);
     }
 
+    startDraft(draftId) {
+        return axios.put("/drafts/" + draftId + "/start");
+    }
+
+    stopDraft(draftId) {
+        return axios.put("/drafts/" + draftId + "/stop");
+    }
+
     getMyDrafts() {
         return axios.get("/drafts/myDrafts");
     }

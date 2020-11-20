@@ -1,5 +1,7 @@
 package au.superdraftfantasy.api.draft;
 
+import au.superdraftfantasy.api.block.BlockDto;
+import au.superdraftfantasy.api.block.BlockService;
 import au.superdraftfantasy.api.roster.RosterEntity;
 import au.superdraftfantasy.api.roster.RosterRepository;
 import au.superdraftfantasy.api.team.TeamEntity;
@@ -17,7 +19,6 @@ import javax.transaction.Transactional;
 import javax.validation.constraints.NotBlank;
 import java.util.Collections;
 import java.util.List;
-import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 
 @Service
@@ -27,17 +28,20 @@ public class DraftService {
     private final DraftRepository draftRepository;
     private final UserRepository userRepository;
     private final RosterRepository rosterRepository;
+    private final BlockService blockService;
 
     public DraftService(
             ModelMapper modelMapper,
             DraftRepository draftRepository,
             UserRepository userRepository,
-            RosterRepository rosterRepository
+            RosterRepository rosterRepository,
+            BlockService blockService
     ) {
         this.modelMapper = modelMapper;
         this.draftRepository = draftRepository;
         this.userRepository = userRepository;
         this.rosterRepository = rosterRepository;
+        this.blockService = blockService;
     }
 
     /**
@@ -91,29 +95,54 @@ public class DraftService {
         return team.getId();
     }
 
+    public DraftStatusEnum startDraft(
+            @NotBlank final Long draftID,
+            @NotBlank final Authentication authentication
+    ) {
+        DraftEntity draft = draftRepository.findById(draftID)
+                .orElseThrow(() -> new ResponseStatusException(
+                        HttpStatus.NOT_FOUND,
+                        "Draft with ID '" + draftID + "' not found."
+                ));
+        UserEntity currentUser = getCurrentUser(authentication);
+        checkIfCommissioner(currentUser, draft);
+        draft.setStatus(DraftStatusEnum.IN_PROGRESS);
+        BlockDto blockDto = new BlockDto(
+                draftID,
+                null,
+                null,
+                null,
+                1L,
+                draft.getOnTheBlockTimer(),
+                draft.getBidTimer(),
+                null
+        );
+        blockService.startNextRound(blockDto, false);
+        return draft.getStatus();
+    }
+
+    public DraftStatusEnum stopDraft(
+            @NotBlank final Long draftID,
+            @NotBlank final Authentication authentication
+    ) {
+        DraftEntity draft = draftRepository.findById(draftID)
+                .orElseThrow(() -> new ResponseStatusException(
+                        HttpStatus.NOT_FOUND,
+                        "Draft with ID '" + draftID + "' not found."
+                ));
+        UserEntity currentUser = getCurrentUser(authentication);
+        checkIfCommissioner(currentUser, draft);
+        draft.setStatus(DraftStatusEnum.STOPPED);
+        blockService.stopDraft(draftID);
+        return draft.getStatus();
+    }
+
     public List<DraftReadDto> getMyDrafts(@NotBlank final Authentication authentication) {
         String username = authentication.getName();
         List<DraftEntity> drafts = draftRepository.findDistinctByTeams_User_Username(username);
         return drafts.stream()
                 .map(draft -> modelMapper.map(draft, DraftReadDto.class))
                 .collect(Collectors.toList());
-    }
-
-    @Transactional
-    public Long updateOnTheBlockTeam(Long draftId) {
-        DraftEntity draft = draftRepository.findById(draftId)
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Draft with ID '" + draftId + "' not found."));
-        List<TeamEntity> teamList = draft.getTeams();
-
-        int onTheBlockOrderIndex = getOnTheBlockOrderIndex(teamList);
-
-        teamList.forEach(team -> team.setOnTheBlock(false));
-        TeamEntity onTheBlockTeam = teamList.stream().filter(team -> team.getOrderIndex() == onTheBlockOrderIndex).findFirst()
-                .orElseThrow(() -> new NoSuchElementException("The OnTheBlock Team could not be determined."));
-        onTheBlockTeam.setOnTheBlock(true);
-
-        draftRepository.save(draft);
-        return onTheBlockTeam.getId();
     }
 
     @Transactional
@@ -190,18 +219,6 @@ public class DraftService {
         }
     }
 
-    private int getOnTheBlockOrderIndex(List<TeamEntity> teamList) {
-        int onTheBlockIndex = 0;
-        int draftedPlayerCount = teamList.stream()
-                .mapToInt(team -> team.getTeamPlayerJoins().size())
-                .sum();
-        if (draftedPlayerCount > 0) {
-            int currentRound = draftedPlayerCount / teamList.size();
-            onTheBlockIndex = (int) Math.ceil(draftedPlayerCount - (currentRound * teamList.size()));
-        }
-        return onTheBlockIndex;
-    }
-
     private DraftReadDto mapToDraftReadDto(DraftEntity draft) {
         return modelMapper.map(draft, DraftReadDto.class);
     }
@@ -219,6 +236,21 @@ public class DraftService {
         if(draftRepository.existsByName(draftName)) {
             throw new ResponseStatusException(HttpStatus.CONFLICT, "A draft with the name '" + draftName + "' already exists.");
         }
+    }
+
+    private void checkIfCommissioner(UserEntity user, DraftEntity draft) {
+        draft.getTeams()
+                .stream()
+                .filter(team -> team.getUser().getId().equals(user.getId())
+                                && team.getType().equals(TeamTypeEnum.COMMISSIONER)
+                )
+                .findAny()
+                .orElseThrow(() ->
+                    new ResponseStatusException(
+                            HttpStatus.NOT_FOUND,
+                            "User does not have a team in the Draft"
+                    )
+                );
     }
 
 }

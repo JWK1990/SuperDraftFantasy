@@ -60,7 +60,7 @@ public class PlayerService {
                 .collect(Collectors.toList());
 
         List<PlayerInDraftReadDto> playerInDraftReadDtoList = new ArrayList<>();
-        playerList.stream().forEach((player) -> {
+        playerList.forEach((player) -> {
             playerInDraftReadDtoList.add(convertToPlayerInDraftReadDto(player, draftedPlayerList));
         });
 

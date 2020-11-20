@@ -10,6 +10,7 @@ const useStyles = makeStyles((theme) => ({
     card: {
         display: 'flex',
         height: "100%",
+        width: "100%",
     },
     cardIconDiv: {
         display: 'flex',

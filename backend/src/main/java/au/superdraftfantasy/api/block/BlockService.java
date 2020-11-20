@@ -1,46 +1,51 @@
 package au.superdraftfantasy.api.block;
 
-import au.superdraftfantasy.api.draft.DraftService;
+import au.superdraftfantasy.api.draft.DraftEntity;
+import au.superdraftfantasy.api.draft.DraftRepository;
+import au.superdraftfantasy.api.draft.DraftStatusEnum;
 import au.superdraftfantasy.api.futuresScheduler.FuturesScheduler;
 import au.superdraftfantasy.api.futuresScheduler.ScheduledFutureEnum;
 import au.superdraftfantasy.api.player.PlayerService;
+import au.superdraftfantasy.api.team.TeamEntity;
 import au.superdraftfantasy.api.team.TeamReadDto;
+import au.superdraftfantasy.api.team.TeamRepository;
 import au.superdraftfantasy.api.team.TeamService;
-import org.modelmapper.ModelMapper;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.NoSuchElementException;
 
 @Service
 public class BlockService {
 
-    ModelMapper modelMapper;
-    FuturesScheduler futuresScheduler;
-    TeamService teamService;
-    SimpMessagingTemplate simpMessagingTemplate;
-    PlayerService playerService;
-    DraftService draftService;
+    private final FuturesScheduler futuresScheduler;
+    private final TeamService teamService;
+    private final SimpMessagingTemplate simpMessagingTemplate;
+    private final PlayerService playerService;
+    private final TeamRepository teamRepository;
+    private final DraftRepository draftRepository;
 
     public BlockService(
-            ModelMapper modelMapper,
             FuturesScheduler futuresScheduler,
             TeamService teamService,
             SimpMessagingTemplate simpMessagingTemplate,
             PlayerService playerService,
-            DraftService draftService
+            TeamRepository teamRepository,
+            DraftRepository draftRepository
     ) {
-        this.modelMapper = modelMapper;
         this.futuresScheduler = futuresScheduler;
         this.teamService = teamService;
         this.simpMessagingTemplate = simpMessagingTemplate;
         this.playerService = playerService;
-        this.draftService = draftService;
+        this.teamRepository = teamRepository;
+        this.draftRepository = draftRepository;
     }
 
-    public BlockDto startNextRound(BlockDto blockDto) {
-        Long onTheBlockTeamId = draftService.updateOnTheBlockTeam(blockDto.getDraftId());
-        blockDto.setTeamId(onTheBlockTeamId);
+    public void startNextRound(BlockDto blockDto, boolean otbUpdateRequired) {
+        System.out.println("Start Next Round.");
+
+        blockDto.setTeamId(getOnTheBlockTeamId(blockDto.getDraftId(), otbUpdateRequired));
 
         Long bestAvailablePlayerId = playerService.getBestAvailablePlayer(blockDto.getDraftId());
         blockDto.setPlayerId(bestAvailablePlayerId);
@@ -58,8 +63,8 @@ public class BlockService {
                 this::autoAddToBlock
         );
 
+        updateDraftStatusIfRequired(blockDto.getDraftId());
         this.simpMessagingTemplate.convertAndSend("/draft/rounds", blockDto);
-        return blockDto;
     }
 
     public Long stopDraft(Long draftId) {
@@ -98,7 +103,7 @@ public class BlockService {
         System.out.println("AutoDraftAndStartNextRound");
         TeamReadDto teamReadDto = teamService.addPlayerToTeam(blockDto);
         this.simpMessagingTemplate.convertAndSend("/draft/teams", teamReadDto);
-        startNextRound(blockDto);
+        startNextRound(blockDto, true);
     }
 
     private void autoAddToBlock(BlockDto blockDto) {
@@ -118,6 +123,41 @@ public class BlockService {
         );
     }
 
+    private Long getOnTheBlockTeamId(Long draftId, boolean otbUpdateRequired) {
+        Long onTheBlockTeamId;
+        if(otbUpdateRequired) {
+            onTheBlockTeamId = updateOnTheBlockTeam(draftId);
+        } else {
+            TeamEntity otbTeam = teamRepository.findDistinctByDraftIdAndOnTheBlock(draftId, true)
+                    .orElseThrow(() -> new NoSuchElementException("No On The Block Coach Found."));
+            onTheBlockTeamId = otbTeam.getId();
+        }
+        return onTheBlockTeamId;
+    }
 
+    private Long updateOnTheBlockTeam(Long draftId) {
+        TeamEntity currentOtbTeam = teamRepository.findDistinctByDraftIdAndOnTheBlock(draftId, true)
+                .orElseThrow(() -> new NoSuchElementException("No On The Block Coach Found."));
+        currentOtbTeam.setOnTheBlock(false);
+        teamRepository.save(currentOtbTeam);
+
+        Long nextOrderIndex = (currentOtbTeam.getOrderIndex() + 1);
+        TeamEntity nextOtbTeam = teamRepository.findDistinctByDraftIdAndOrderIndex(draftId, nextOrderIndex)
+                .orElse(teamRepository.findDistinctByDraftIdAndOrderIndex(draftId, 0L)
+                        .orElseThrow(() -> new NoSuchElementException("No On The Block Team Found."))
+                );
+        nextOtbTeam.setOnTheBlock(true);
+        teamRepository.save(nextOtbTeam);
+
+        return nextOtbTeam.getId();
+    }
+
+    private void updateDraftStatusIfRequired(Long draftId) {
+        DraftEntity draft = draftRepository.findById(draftId)
+                .orElseThrow(() -> new NoSuchElementException("Draft Not Found."));
+        if(draft.getStatus() != DraftStatusEnum.IN_PROGRESS) {
+            draft.setStatus(DraftStatusEnum.IN_PROGRESS);
+        }
+    }
 
 }

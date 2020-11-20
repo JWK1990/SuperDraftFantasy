@@ -20,7 +20,7 @@ export default function CircularStatBar(props) {
             <CircularStatIcon
                 statName="SC"
                 statValue= {props.player.average}
-                maxStatValue= {100}
+                maxStatValue= {150}
             />
             <CircularStatIcon
                 statName="GM"
@@ -40,25 +40,25 @@ export default function CircularStatBar(props) {
             {
                 {
                     'DEF':
-                    <CircularStatIcon
-                        statName="RB50"
-                        statValue= {3}
-                        maxStatValue= {5}/>,
-                        'MID':
-                    <CircularStatIcon
-                        statName="CL"
-                        statValue= {7}
-                        maxStatValue= {13}/>,
-                        'RUC':
-                    <CircularStatIcon
-                        statName="HO"
-                        statValue= {25}
-                        maxStatValue= {40}/>,
-                        'FWD':
-                    <CircularStatIcon
-                        statName="GOALS"
-                        statValue= {3.5}
-                        maxStatValue= {7}/>,
+                        <CircularStatIcon
+                            statName="RB50"
+                            statValue= {3}
+                            maxStatValue= {5}/>,
+                    'MID':
+                        <CircularStatIcon
+                            statName="CL"
+                            statValue= {7}
+                            maxStatValue= {13}/>,
+                    'RUC':
+                        <CircularStatIcon
+                            statName="HO"
+                            statValue= {25}
+                            maxStatValue= {40}/>,
+                    'FWD':
+                        <CircularStatIcon
+                            statName="GOALS"
+                            statValue= {3.5}
+                            maxStatValue= {7}/>,
                 }[props.player.primaryPosition]
             }
         </CardContent>
