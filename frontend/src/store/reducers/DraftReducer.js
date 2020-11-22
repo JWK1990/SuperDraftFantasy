@@ -85,16 +85,16 @@ export function draftReducer(state = initialDraftState, action) {
             };
 
         case UPDATE_TEAM:
-            const teamId = action.payload.id;
+            const updatedTeams = [...state.data.teams];
+            let updatedTeamIndex = updatedTeams.findIndex(team => team.id === action.payload.id);
+            updatedTeams[updatedTeamIndex] = action.payload;
             return {
                 ...state,
                 loading: false,
                 error: null,
                 data: {
                     ...state.data,
-                    teams: state.data.teams.map((team) => (
-                        team.id === teamId ? action.payload : team
-                    ))
+                    teams: updatedTeams,
                 }
             }
 

@@ -15,7 +15,9 @@ public class BlockDto {
 
     private Long playerId;
 
-    private Long teamId;
+    private Long onTheBlockTeamId;
+
+    private Long bidderTeamId;
 
     private String myTeamPosition;
 

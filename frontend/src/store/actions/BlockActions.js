@@ -1,25 +1,22 @@
-import AuthService from "../../services/AuthService";
-
-/* UPDATE_BLOCK Actions. */
-export const UPDATE_BLOCK_STARTED = 'UPDATE_BLOCK_STARTED';
-export const UPDATE_BLOCK_SUCCESS = 'UPDATE_BLOCK_SUCCESS';
-export const UPDATE_BLOCK_FAILURE = 'UPDATE_BLOCK_FAILURE';
-
-export const updateBlockStartedAction = () => ({
-    type: UPDATE_BLOCK_STARTED
-});
-
-export const updateBlockSuccessAction = (block, isBidDisabled, clockText) => ({
-    type: UPDATE_BLOCK_SUCCESS,
+export const RECEIVE_START_NEXT_ROUND = 'RECEIVE_START_NEXT_ROUND';
+export const receiveStartNextRoundAction = block => ({
+    type: RECEIVE_START_NEXT_ROUND,
     payload: block,
-    isBidDisabled: isBidDisabled,
-    clockText: clockText
 });
 
-export const updateBlockFailureAction = error => ({
-    type: UPDATE_BLOCK_FAILURE,
-    payload: error
+export const RECEIVE_ADD_TO_BLOCK = 'RECEIVE_ADD_TO_BLOCK';
+export const receiveAddToBlockAction = block => ({
+    type: RECEIVE_ADD_TO_BLOCK,
+    payload: block,
 });
 
+export const RECEIVE_BID = 'RECEIVE_BID';
+export const receiveBidAction = block => ({
+    type: RECEIVE_BID,
+    payload: block,
+});
 
-
+export const RECEIVE_STOP_DRAFT = 'RECEIVE_STOP_DRAFT';
+export const receiveStopDraftAction = () => ({
+    type: RECEIVE_STOP_DRAFT,
+});

@@ -129,7 +129,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => ({
     getDraft: (draftId) => dispatch(getDraftAction(draftId)),
     getPlayers: (draftId) => dispatch(getPlayersByDraftAction(draftId)),
-    connectWebSocket: () => dispatch(connectWebSocketAction())
+    connectWebSocket: () => dispatch(connectWebSocketAction()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(DraftRoom));

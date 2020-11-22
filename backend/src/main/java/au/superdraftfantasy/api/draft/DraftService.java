@@ -112,6 +112,7 @@ public class DraftService {
                 null,
                 null,
                 null,
+                null,
                 1L,
                 draft.getOnTheBlockTimer(),
                 draft.getBidTimer(),

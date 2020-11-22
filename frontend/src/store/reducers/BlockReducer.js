@@ -1,32 +1,21 @@
 import {initialBlockState} from "../state/BlockState";
-import {UPDATE_BLOCK_FAILURE, UPDATE_BLOCK_STARTED, UPDATE_BLOCK_SUCCESS} from "../actions/BlockActions";
+import {RECEIVE_ADD_TO_BLOCK, RECEIVE_BID, RECEIVE_START_NEXT_ROUND, RECEIVE_STOP_DRAFT} from "../actions/BlockActions";
 
 export function blockReducer(state = initialBlockState, action) {
     switch(action.type) {
 
-        case UPDATE_BLOCK_STARTED:
-            return {
-                ...state,
-                loading: true
-            };
-
-        case UPDATE_BLOCK_SUCCESS:
+        case RECEIVE_START_NEXT_ROUND:
+        case RECEIVE_ADD_TO_BLOCK:
+        case RECEIVE_BID:
             return {
                 ...state,
                 loading: false,
                 error: null,
                 data: action.payload,
-                isBidDisabled: action.isBidDisabled,
-                clockText: action.clockText,
-                clockKey: state.clockKey + 1
             };
 
-        case UPDATE_BLOCK_FAILURE:
-            return {
-                ...state,
-                loading: false,
-                error: action.payload,
-            };
+            case RECEIVE_STOP_DRAFT:
+                return initialBlockState
 
         default:
             return state;

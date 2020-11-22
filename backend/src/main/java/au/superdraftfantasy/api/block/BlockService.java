@@ -44,8 +44,8 @@ public class BlockService {
 
     public void startNextRound(BlockDto blockDto, boolean otbUpdateRequired) {
         System.out.println("Start Next Round.");
-
-        blockDto.setTeamId(getOnTheBlockTeamId(blockDto.getDraftId(), otbUpdateRequired));
+        Long onTheBlockTeamId = getOnTheBlockTeamId(blockDto.getDraftId(), otbUpdateRequired);
+        blockDto.setOnTheBlockTeamId(onTheBlockTeamId);
 
         Long bestAvailablePlayerId = playerService.getBestAvailablePlayer(blockDto.getDraftId());
         blockDto.setPlayerId(bestAvailablePlayerId);
@@ -55,6 +55,12 @@ public class BlockService {
 
         blockDto.setPrice(1L);
 
+        updateDraftStatusIfRequired(blockDto.getDraftId());
+        this.simpMessagingTemplate.convertAndSend("/draft/rounds", blockDto);
+
+        // After sending to FE without a bidder, set bidder in case of AutoAddToBlock.
+        blockDto.setBidderTeamId(onTheBlockTeamId);
+
         // Start automated AddToBlock.
         futuresScheduler.startScheduledFuture(
                 ScheduledFutureEnum.AUTO_ADD_TO_BLOCK,
@@ -63,15 +69,14 @@ public class BlockService {
                 this::autoAddToBlock
         );
 
-        updateDraftStatusIfRequired(blockDto.getDraftId());
-        this.simpMessagingTemplate.convertAndSend("/draft/rounds", blockDto);
+
     }
 
-    public Long stopDraft(Long draftId) {
+    public void stopDraft(Long draftId) {
         System.out.println("Draft Stopped.");
         // Stop AutoAddToBlock or AutoDraftPlayer.
         futuresScheduler.stopScheduledFutures(draftId);
-        return draftId;
+        this.simpMessagingTemplate.convertAndSend("/draft/stopDrafts", draftId);
     }
 
     /**

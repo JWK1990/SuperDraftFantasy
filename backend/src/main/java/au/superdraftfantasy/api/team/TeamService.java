@@ -46,8 +46,8 @@ public class TeamService {
      */
     @Transactional
     public TeamReadDto addPlayerToTeam(BlockDto readDto) {
-        TeamEntity team = teamRepository.findById(readDto.getTeamId())
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Team with ID '" + readDto.getTeamId() + "' Not Found."));
+        TeamEntity team = teamRepository.findById(readDto.getOnTheBlockTeamId())
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Team with ID '" + readDto.getOnTheBlockTeamId() + "' Not Found."));
         checkIfPlayerAlreadyDrafted(team, readDto.getPlayerId());
         addPlayerToTeam(team, readDto.getPlayerId(), readDto.getPrice());
         team.setBudget(team.getBudget() - readDto.getPrice());
