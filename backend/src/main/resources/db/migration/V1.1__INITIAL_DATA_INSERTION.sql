@@ -80,7 +80,27 @@ INSERT INTO player_entity(id, first_name, last_name, afl_team_id, average)
            (17, 'Stephen', 'Gilham', 9, 140),
            (18, 'Tim', 'Boyle', 9, 100),
            (19, 'Jack', 'Gunston', 9, 100),
-           (20, 'Will', 'Day', 9, 160);
+           (20, 'Will', 'Day', 9, 160),
+           (21, 'Grant', 'Birchall', 9, 110),
+           (22, 'Tim', 'Clark', 9, 100),
+           (23, 'Patrick', 'Cripps', 4, 100),
+           (24, 'Nat', 'Fyfe', 5, 110),
+           (25, 'Dustin', 'Martin', 1, 130),
+           (26, 'Tyson', 'Stengline', 14, 80),
+           (27, 'Jason', 'Poplyzia', 14, 70),
+           (28, 'Matt', 'Rowell', 2, 140),
+           (29, 'Noah', 'Anderson', 9, 130),
+           (30, 'Paul', 'Puopolo', 9, 100),
+           (31, 'Chris', 'Mew', 9, 110),
+           (32, 'Chris', 'Langford', 9, 130),
+           (33, 'Will', 'Langford', 9, 170),
+           (34, 'Shaun', 'Burgoyne', 9, 100),
+           (35, 'Peter', 'Burgoyne', 9, 100),
+           (36, 'Shane', 'Crawford', 9, 100),
+           (37, 'Bryan', 'Stachaun', 9, 140),
+           (38, 'Robert', 'Walls', 10, 100),
+           (39, 'Malcolm', 'Blight', 11, 100),
+           (40, 'Leigh', 'Matthew', 9, 160);
 
 /* Insert initial Player Positions. */
 INSERT INTO player_position_join(player_id, position_id)
@@ -105,7 +125,29 @@ INSERT INTO player_position_join(player_id, position_id)
            (17, 4),
            (18, 4),
            (19, 1),
-           (20, 2);
+           (20, 2),
+           (21, 2),
+           (22, 2),
+           (22, 3),
+           (23, 4),
+           (24, 4),
+           (25, 1),
+           (26, 4),
+           (27, 4),
+           (28, 1),
+           (29, 2),
+           (29, 3),
+           (30, 2),
+           (31, 2),
+           (32, 2),
+           (33, 3),
+           (34, 4),
+           (35, 4),
+           (36, 1),
+           (37, 4),
+           (38, 4),
+           (39, 1),
+           (40, 2);
 
 
 

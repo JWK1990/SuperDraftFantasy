@@ -20,7 +20,7 @@ import {
 import {blockSelector} from "../../../store/selectors/BlockSelectors";
 import VacantBlock from "./player/VacantBlock";
 import AddToBlockClock from "./clock/AddToBlockClock";
-import PausedDraft from "./player/stats/PausedDraft";
+import PausedDraft from "./player/PausedDraft";
 
 const styles = theme => ({
     firstRowGridContainer: {
