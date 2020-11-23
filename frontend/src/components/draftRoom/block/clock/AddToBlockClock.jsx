@@ -1,6 +1,6 @@
-import React, {useState} from "react";
-import { CountdownCircleTimer } from 'react-countdown-circle-timer'
-import "./BidClock.css";
+import React from "react";
+import {CountdownCircleTimer} from 'react-countdown-circle-timer'
+import "./Clock.css";
 import {Fab} from "@material-ui/core";
 import withStyles from "@material-ui/core/styles/withStyles";
 
@@ -44,7 +44,7 @@ function AddToBlockClock(props) {
                     disabled={true}
                 >
                     <div className="timer">
-                        <div className="bid-text">{remainingTime}</div>
+                        <div className="bid-text">{remainingTime}<span className="seconds-symbol-lg">s</span></div>
                     </div>
                 </Fab>
             </div>

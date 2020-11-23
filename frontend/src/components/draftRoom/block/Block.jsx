@@ -3,7 +3,11 @@ import withStyles from "@material-ui/core/styles/withStyles";
 import BidClock from "./clock/BidClock";
 import Grid from "@material-ui/core/Grid";
 import {connect} from "react-redux";
-import {currentTeamSelector, draftSelector, onTheBlockTeamSelector} from "../../../store/selectors/DraftSelectors";
+import {
+    commissionerTeamNameSelector,
+    currentTeamSelector,
+    draftSelector
+} from "../../../store/selectors/DraftSelectors";
 import BlockPlayer from "./player/BlockPlayer";
 import {stompClientSelector} from "../../../store/selectors/WebSocketSelectors";
 import {playersSelector} from "../../../store/selectors/PlayersSelectors";
@@ -14,8 +18,9 @@ import {
     receiveStopDraftAction,
 } from "../../../store/actions/BlockActions";
 import {blockSelector} from "../../../store/selectors/BlockSelectors";
-import VacantBlock from "./vacantBlock/VacantBlock";
+import VacantBlock from "./player/VacantBlock";
 import AddToBlockClock from "./clock/AddToBlockClock";
+import PausedDraft from "./player/stats/PausedDraft";
 
 const styles = theme => ({
     firstRowGridContainer: {
@@ -216,7 +221,10 @@ class DraftRoomBlock extends React.Component {
                         <BlockPlayer
                             player={this.getPlayerDetailsById(this.props.block.playerId)}
                         />
-                        : "Draft Is Paused"
+                        :
+                            <PausedDraft
+                                commissionerTeamName={this.props.commissionerTeamName}
+                            />
                     }
                 </Grid>
 
@@ -232,6 +240,7 @@ const mapStateToProps = state => {
         players: playersSelector(state),
         currentTeam: currentTeamSelector(state),
         block: blockSelector(state),
+        commissionerTeamName: commissionerTeamNameSelector(state),
     };
 };
 

@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import { CountdownCircleTimer } from 'react-countdown-circle-timer'
-import "./BidClock.css";
+import "./Clock.css";
 import {Fab} from "@material-ui/core";
 import withStyles from "@material-ui/core/styles/withStyles";
 
@@ -75,7 +75,7 @@ function BidClock(props) {
                     <div className="timer">
                         <div className="upper-text">{text.upperText}</div>
                         <div className="bid-text"><span className={"dollar-symbol"}>$</span>{text.bidText}</div>
-                        <div className="value">{remainingTime}s</div>
+                        <div className="value">{remainingTime}<span className={"seconds-symbol-sm"}>s</span></div>
                     </div>
                 </Fab>
             </div>

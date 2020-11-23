@@ -1,7 +1,6 @@
 import React, {useState} from "react";
 import Container from "@material-ui/core/Container";
 import IconButton from "@material-ui/core/IconButton";
-import SkipNextIcon from "@material-ui/icons/SkipNext";
 import MenuItem from "@material-ui/core/MenuItem";
 import InputBase from "@material-ui/core/InputBase";
 import Select from "@material-ui/core/Select";
@@ -9,6 +8,7 @@ import InputLabel from "@material-ui/core/InputLabel";
 import FormControl from "@material-ui/core/FormControl";
 import withStyles from "@material-ui/core/styles/withStyles";
 import makeStyles from "@material-ui/core/styles/makeStyles";
+import AddCircleOutlineIcon from "@material-ui/icons/AddCircleOutline";
 
 const BootstrapInput = withStyles(theme => ({
     root: {
@@ -63,11 +63,11 @@ function DraftRoomPlayersSelected(props) {
         <Container component="main" maxWidth="lg">
             <p>{props.selected ? props.selected.firstName : "TBA"} </p>
             <p>{props.selected ? props.selected.lastName : "TBA"} </p>
-            <p>{props.selected ? props.selected.team : "TBA"} </p>
+            <p>{props.selected ? props.selected.teamId : "TBA"} </p>
             <p>{props.selected ? props.selected.position : "TBA"} </p>
             <div>
                 <FormControl className={classes.margin}>
-                    <InputLabel id="demo-customized-select-label">Age</InputLabel>
+                    <InputLabel id="demo-customized-select-label">Starting Price</InputLabel>
                     <Select
                         labelId="demo-customized-select-label"
                         id="demo-customized-select"
@@ -87,7 +87,7 @@ function DraftRoomPlayersSelected(props) {
                     onClick={() => props.sendAddToBlock(props.selected.id, initialBid)}
                     disabled= {props.isAddToBlockDisabled}
                 >
-                    <SkipNextIcon />
+                    <AddCircleOutlineIcon />
                 </IconButton>
             </div>
         </Container>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, {forwardRef} from "react";
 import MaterialTable from "material-table";
 import Container from "@material-ui/core/Container";
 import DraftRoomPlayersSelected from "./selected/Selected";
@@ -7,6 +7,38 @@ import {currentTeamIdSelector, draftSelector, draftTeamsSelector} from "../../..
 import {stompClientSelector} from "../../../store/selectors/WebSocketSelectors";
 import {connect} from "react-redux";
 import {updatePlayerAvailabilityAction, updateTeamAction} from "../../../store/actions";
+import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
+import {
+    AddBox, ArrowDownward,
+    Check, ChevronLeft,
+    ChevronRight,
+    Clear,
+    DeleteOutline,
+    Edit,
+    FilterList,
+    FirstPage, LastPage, Remove,
+    SaveAlt, Search, ViewColumn
+} from "@material-ui/icons";
+
+const tableIcons = {
+    Add: forwardRef((props, ref) => <AddBox {...props} ref={ref}/>),
+    Check: forwardRef((props, ref) => <Check {...props} ref={ref}/>),
+    Clear: forwardRef((props, ref) => <Clear {...props} ref={ref}/>),
+    Delete: forwardRef((props, ref) => <DeleteOutline {...props} ref={ref}/>),
+    DetailPanel: forwardRef((props, ref) => <ChevronRight {...props} ref={ref}/>),
+    Edit: forwardRef((props, ref) => <Edit {...props} ref={ref}/>),
+    Export: forwardRef((props, ref) => <SaveAlt {...props} ref={ref}/>),
+    Filter: forwardRef((props, ref) => <FilterList {...props} ref={ref}/>),
+    FirstPage: forwardRef((props, ref) => <FirstPage {...props} ref={ref}/>),
+    LastPage: forwardRef((props, ref) => <LastPage {...props} ref={ref}/>),
+    NextPage: forwardRef((props, ref) => <ChevronRight {...props} ref={ref}/>),
+    PreviousPage: forwardRef((props, ref) => <ChevronLeft {...props} ref={ref}/>),
+    ResetSearch: forwardRef((props, ref) => <Clear {...props} ref={ref}/>),
+    Search: forwardRef((props, ref) => <Search {...props} ref={ref}/>),
+    SortArrow: forwardRef((props, ref) => <ArrowDownward {...props} ref={ref}/>),
+    ThirdStateCheck: forwardRef((props, ref) => <Remove {...props} ref={ref}/>),
+    ViewColumn: forwardRef((props, ref) => <ViewColumn {...props} ref={ref}/>)
+};
 
 class DraftRoomPlayers extends React.Component {
 
@@ -65,6 +97,7 @@ class DraftRoomPlayers extends React.Component {
             <Container component="main" maxWidth="xl">
                 <div style={{ maxWidth: "100%" }}>
                     <MaterialTable
+                        icons={tableIcons}
                         title="Players"
                         columns={[
                             { title: "ID", field: "id", type: "numeric", searchable: false },
@@ -77,9 +110,9 @@ class DraftRoomPlayers extends React.Component {
                         data={this.props.players}
                         actions={[
                             rowData => ({
-                                icon: 'save',
+                                icon: () => <AddCircleOutlineIcon />,
                                 tooltip: 'Add To Block',
-                                onClick: (event, rowData) => alert("You Added  " + rowData.firstName + " to the Block."),
+                                onClick: (event, rowData) => this.sendAddToBlock(rowData.id, 1),
                                 hidden: this.getIsAddToBlockDisabled(rowData)
                             })
                         ]}
@@ -95,6 +128,9 @@ class DraftRoomPlayers extends React.Component {
                         onRowClick={(event, rowData, togglePanel) => this.toggleAndSetSelected(togglePanel, rowData)}
                         options={{
                             detailPanelType: "single",
+                            paging: false,
+                            maxBodyHeight: "calc(100vh - 238px - 150px)",
+                            headerStyle: { position: 'sticky', top: 0 },
                             rowStyle: rowData => ({
                                 backgroundColor: rowData.id === this.state.selectedPlayer.id
                                     ? '#0000FF'
@@ -117,7 +153,6 @@ const mapStateToProps = state => {
         draft: draftSelector(state),
         currentTeamId: currentTeamIdSelector(state),
         teams: draftTeamsSelector(state)
-
     };
 };
 

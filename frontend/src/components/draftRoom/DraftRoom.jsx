@@ -18,15 +18,15 @@ const styles = {
         justify: "space-between",
         alignItems: "stretch",
         // TODO: Decide if we want to fix height or let it flex.
-        //height: "20vh",
-        //overflow: "hidden",
+        height: 238,
+        overflow: "hidden",
     },
     secondRowGridContainer: {
         justify: "space-between",
         alignItems: "stretch",
         // TODO: Decide if we want to fix height or let it flex.
-        //height: "80vh",
-        //overflow: "hidden",
+        height: "calc(100vh - 238px)",
+        overflow: "hidden",
     },
 };
 
