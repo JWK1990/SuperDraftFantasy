@@ -55,7 +55,7 @@ public class UserEntity {
     private Set<RoleEntity> roles;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JsonManagedReference(value="user-coach")
-    private List<TeamEntity> coaches;
+    @JsonManagedReference(value="user-team")
+    private List<TeamEntity> teams;
 
 }

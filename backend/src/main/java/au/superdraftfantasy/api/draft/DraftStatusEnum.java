@@ -4,5 +4,6 @@ public enum DraftStatusEnum {
     IN_SETUP,
     READY,
     IN_PROGRESS,
+    STOPPED,
     COMPLETE
 }

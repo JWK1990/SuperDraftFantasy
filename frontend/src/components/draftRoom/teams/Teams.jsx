@@ -3,6 +3,8 @@ import {DragDropContext, Draggable, Droppable} from "react-beautiful-dnd";
 import {reorderTeamListAction} from "../../../store/actions";
 import {connect} from "react-redux";
 import {DraftStatusEnum} from "../../../models/DraftStatusEnum";
+import {draftIdSelector, draftStatusSelector, draftTeamsSelector} from "../../../store/selectors/DraftSelectors";
+import {stompClientSelector} from "../../../store/selectors/WebSocketSelectors";
 
 const getSortableTeamList = teamList => {
     teamList.sort((teamA, teamB) => teamA.orderIndex - teamB.orderIndex);
@@ -132,8 +134,17 @@ class DraftRoomTeams extends React.Component {
     }
 }
 
+const mapStateToProps = state => {
+    return {
+        stompClient: stompClientSelector(state),
+        draftId: draftIdSelector(state),
+        draftStatus: draftStatusSelector(state),
+        teams: draftTeamsSelector(state),
+    };
+};
+
 const mapDispatchToProps = dispatch => ({
-    updateTeamOrder: (teamList) => dispatch(reorderTeamListAction(teamList))
+    updateTeamOrder: (teamList) => dispatch(reorderTeamListAction(teamList)),
 });
 
-export default connect(null, mapDispatchToProps)(DraftRoomTeams);
+export default connect(mapStateToProps, mapDispatchToProps)(DraftRoomTeams);

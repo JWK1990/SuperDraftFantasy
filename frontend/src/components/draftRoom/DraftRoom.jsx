@@ -1,10 +1,9 @@
 import React from "react";
 import DraftRoomBlock from "./block/Block";
 import MyTeam from "./myTeam/MyTeam";
-import {connectWebSocketAction, getDraftAction, getPlayersByDraftAction, updateTeamAction} from "../../store/actions";
+import {connectWebSocketAction, getDraftAction, getPlayersByDraftAction} from "../../store/actions";
 import {connect} from "react-redux";
-import {userSelector} from "../../store/selectors/UserSelectors"
-import {currentTeamSelector, draftSelector, onTheBlockTeamSelector} from "../../store/selectors/DraftSelectors"
+import {draftSelector} from "../../store/selectors/DraftSelectors"
 import {playersSelector} from "../../store/selectors/PlayersSelectors";
 import DraftRoomTeams from "./teams/Teams";
 import Grid from "@material-ui/core/Grid";
@@ -12,18 +11,21 @@ import {stompClientSelector} from "../../store/selectors/WebSocketSelectors";
 import StatisticsContainer from "./players/StatisticsContainer";
 import ConfigurationUtils from "../../utils/ConfigurationUtils";
 import {withStyles} from "@material-ui/core";
+import CommissionerControls from "./commissionerControls/CommissionerControls";
 
 const styles = {
     firstRowGridContainer: {
         justify: "space-between",
         alignItems: "stretch",
-        height: "20vh",
+        // TODO: Decide if we want to fix height or let it flex.
+        height: 238,
         overflow: "hidden",
     },
     secondRowGridContainer: {
         justify: "space-between",
         alignItems: "stretch",
-        height: "80vh",
+        // TODO: Decide if we want to fix height or let it flex.
+        height: "calc(100vh - 238px)",
         overflow: "hidden",
     },
 };
@@ -62,17 +64,12 @@ class DraftRoom extends React.Component {
         }
     }
 
-    // disconnect = () => {
-    //     if (stompClient !== null) {
-    //         stompClient.disconnect();
-    //     }
-    // };
-
-    receiveTeam = (payload) => {
-        const team = JSON.parse(payload.body);
-        console.log('Team Received: ', team)
-        this.props.updateTeam(team);
-    };
+    componentWillUnmount() {
+        if (this.props.stompClient !== null) {
+            console.log("Stomp Client Disconnected.");
+            this.props.stompClient.disconnect();
+        }
+    }
 
     render() {
         const {classes} = this.props;
@@ -91,18 +88,10 @@ class DraftRoom extends React.Component {
                     className={classes.firstRowGridContainer}
                 >
                     <Grid item xs={2}>
-                        <div>
-                            <p>Draft Details: {this.props.draft.name}</p>
-                            <p>Current OTB Coach: {this.props.onTheBlockTeam ? this.props.onTheBlockTeam.name : "TBA"}</p>
-                        </div>
+                        <CommissionerControls/>
                     </Grid>
                     <Grid item xs={8}>
-                        <DraftRoomBlock
-                            stompClient={this.props.stompClient}
-                            draft={this.props.draft}
-                            players={this.props.players}
-                            currentTeam={this.props.currentTeam}
-                        />
+                        <DraftRoomBlock/>
                     </Grid>
                     <Grid item xs={2}
                           className={classes.firstRow}
@@ -116,21 +105,13 @@ class DraftRoom extends React.Component {
                     className={classes.secondRowGridContainer}
                 >
                     <Grid item xs={2}>
-                        <DraftRoomTeams
-                            stompClient={this.props.stompClient}
-                            teams={this.props.draft.teams}
-                            draftId={this.props.draft.id}
-                            draftStatus={this.props.draft.status}
-                        />
+                        <DraftRoomTeams/>
                     </Grid>
                     <Grid item xs={8}>
                         <StatisticsContainer/>
                     </Grid>
                     <Grid item xs={2}>
-                        <MyTeam
-                            roster={this.props.draft.roster}
-                            currentTeam={this.props.currentTeam}
-                        />
+                        <MyTeam/>
                     </Grid>
                 </Grid>
             </div>
@@ -141,20 +122,16 @@ class DraftRoom extends React.Component {
 
 const mapStateToProps = state => {
     return {
-        user: userSelector(state),
         players: playersSelector(state),
         draft: draftSelector(state),
-        currentTeam: currentTeamSelector(state),
-        onTheBlockTeam: onTheBlockTeamSelector(state),
-        stompClient: stompClientSelector(state)
+        stompClient: stompClientSelector(state),
     };
 };
 
 const mapDispatchToProps = dispatch => ({
     getDraft: (draftId) => dispatch(getDraftAction(draftId)),
     getPlayers: (draftId) => dispatch(getPlayersByDraftAction(draftId)),
-    updateTeam: (team) => dispatch(updateTeamAction(team)),
-    connectWebSocket: () => dispatch(connectWebSocketAction())
+    connectWebSocket: () => dispatch(connectWebSocketAction()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(DraftRoom));

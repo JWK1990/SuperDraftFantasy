@@ -23,7 +23,7 @@ export const createDraftAction = (draft) => {
                 dispatch(createDraftFailureAction(err.message))
             })
     }
-}
+};
 
 export const createDraftStartedAction = () => ({
     type: CREATE_DRAFT_STARTED,
@@ -55,7 +55,7 @@ export const getDraftAction = (draftId) => {
                 dispatch(getDraftFailureAction(err.message))
             })
     }
-}
+};
 
 export const getDraftStartedAction = () => ({
     type: GET_DRAFT_STARTED
@@ -92,7 +92,7 @@ export const joinDraftAction = (draftId, joinDraftWriteDto) => {
                 dispatch(joinDraftFailureAction(err.message))
             })
     }
-}
+};
 
 export const joinDraftStartedAction = () => ({
     type: JOIN_DRAFT_STARTED
@@ -105,6 +105,72 @@ export const joinDraftSuccessAction = draft => ({
 
 export const joinDraftFailureAction = error => ({
     type: JOIN_DRAFT_FAILURE,
+    payload: error
+});
+
+// START DRAFT.
+export const START_DRAFT_STARTED = 'START_DRAFT_STARTED';
+export const START_DRAFT_SUCCESS = 'START_DRAFT_SUCCESS';
+export const START_DRAFT_FAILURE = 'START_DRAFT_FAILURE';
+
+export const startDraftAction = (draftId) => {
+    return dispatch => {
+        dispatch(startDraftStartedAction());
+
+        DraftService.startDraft(draftId)
+            .then(res => {
+                dispatch(startDraftSuccessAction(res.data))
+            })
+            .catch(err => {
+                dispatch(startDraftFailureAction(err.message))
+            })
+    }
+};
+
+export const startDraftStartedAction = () => ({
+    type: START_DRAFT_STARTED
+});
+
+export const startDraftSuccessAction = status => ({
+    type: START_DRAFT_SUCCESS,
+    payload: status
+});
+
+export const startDraftFailureAction = error => ({
+    type: START_DRAFT_FAILURE,
+    payload: error
+});
+
+// STOP DRAFT.
+export const STOP_DRAFT_STARTED = 'STOP_DRAFT_STARTED';
+export const STOP_DRAFT_SUCCESS = 'STOP_DRAFT_SUCCESS';
+export const STOP_DRAFT_FAILURE = 'STOP_DRAFT_FAILURE';
+
+export const stopDraftAction = (draftId) => {
+    return dispatch => {
+        dispatch(stopDraftStartedAction());
+
+        DraftService.stopDraft(draftId)
+            .then(res => {
+                dispatch(stopDraftSuccessAction(res.data))
+            })
+            .catch(err => {
+                dispatch(stopDraftFailureAction(err.message))
+            })
+    }
+};
+
+export const stopDraftStartedAction = () => ({
+    type: STOP_DRAFT_STARTED
+});
+
+export const stopDraftSuccessAction = status => ({
+    type: STOP_DRAFT_SUCCESS,
+    payload: status
+});
+
+export const stopDraftFailureAction = error => ({
+    type: STOP_DRAFT_FAILURE,
     payload: error
 });
 
@@ -125,7 +191,7 @@ export const getMyDraftsAction = () => {
                 dispatch(getMyDraftsFailureAction(err.message))
             })
     }
-}
+};
 
 export const getMyDraftsStartedAction = () => ({
     type: GET_MY_DRAFTS_STARTED
@@ -147,7 +213,7 @@ export const UPDATE_TEAM = 'UPDATE_TEAM';
 export const updateTeamAction = team => ({
     type: UPDATE_TEAM,
     payload: team
-})
+});
 
 // REORDER TEAM LIST.
 export const REORDER_TEAM_LIST = 'REORDER_TEAM_LIST';
@@ -155,4 +221,4 @@ export const REORDER_TEAM_LIST = 'REORDER_TEAM_LIST';
 export const reorderTeamListAction = teamList => ({
     type: REORDER_TEAM_LIST,
     payload: teamList
-})
+});

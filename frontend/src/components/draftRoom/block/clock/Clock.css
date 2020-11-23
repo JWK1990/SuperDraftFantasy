@@ -21,6 +21,16 @@ h1 {
   vertical-align: super;
 }
 
+.seconds-symbol-lg {
+  font-size: 16px;
+  vertical-align: alphabetic;
+}
+
+.seconds-symbol-sm {
+  font-size: 10px;
+  vertical-align: alphabetic;
+}
+
 .bid-text {
   font-size: 38px;
 }

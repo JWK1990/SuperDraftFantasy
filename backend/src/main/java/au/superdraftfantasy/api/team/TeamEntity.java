@@ -50,7 +50,7 @@ public class TeamEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
-    @JsonBackReference(value="user-coach")
+    @JsonBackReference(value="user-team")
     private UserEntity user;
 
     @ManyToOne(fetch = FetchType.LAZY)

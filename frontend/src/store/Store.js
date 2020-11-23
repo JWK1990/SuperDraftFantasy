@@ -4,6 +4,7 @@ import thunk from "redux-thunk";
 import {composeWithDevTools} from "redux-devtools-extension";
 import {playersReducer} from "./reducers/PlayersReducer";
 import {webSocketReducer} from "./reducers/WebSocketReducer";
+import {blockReducer} from "./reducers/BlockReducer";
 
 export default function configureStore(preloadedState) {
     const middlewares = [thunk]
@@ -19,6 +20,7 @@ export default function configureStore(preloadedState) {
             draft: draftReducer,
             webSocket: webSocketReducer,
             navigation: navigationReducer,
+            block: blockReducer,
         }
     );
 

@@ -8,7 +8,7 @@ import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        paddingLeft: 40,
+        paddingRight: 40,
     },
     iconRoot: {
         display: 'flex',
@@ -60,7 +60,7 @@ export default function CircularStatIcon(props) {
         const interval = setInterval(() => {
             setValue(value => {
                 let updatedValue = value + 1;
-                if(updatedValue >= props.statValue) {
+                if((updatedValue >= props.statValue) || (updatedValue >= 2000)) {
                     clearInterval(interval)
                 }
                 return updatedValue
