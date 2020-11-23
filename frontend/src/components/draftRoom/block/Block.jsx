@@ -1,9 +1,9 @@
 import React from 'react';
 import withStyles from "@material-ui/core/styles/withStyles";
-import CountdownClock from "./clock/CountdownClock";
+import BidClock from "./clock/BidClock";
 import Grid from "@material-ui/core/Grid";
 import {connect} from "react-redux";
-import {currentTeamSelector, draftSelector, onTheBlockTeamIdSelector} from "../../../store/selectors/DraftSelectors";
+import {currentTeamSelector, draftSelector, onTheBlockTeamSelector} from "../../../store/selectors/DraftSelectors";
 import BlockPlayer from "./player/BlockPlayer";
 import {stompClientSelector} from "../../../store/selectors/WebSocketSelectors";
 import {playersSelector} from "../../../store/selectors/PlayersSelectors";
@@ -14,13 +14,16 @@ import {
     receiveStopDraftAction,
 } from "../../../store/actions/BlockActions";
 import {blockSelector} from "../../../store/selectors/BlockSelectors";
+import VacantBlock from "./vacantBlock/VacantBlock";
+import AddToBlockClock from "./clock/AddToBlockClock";
 
 const styles = theme => ({
     firstRowGridContainer: {
         justify: "space-between",
         alignItems: "stretch",
-        height: "20vh",
-        overflow: "hidden",
+        // TODO: Decide if we want to fix height or let it flex.
+        //height: "20vh",
+        //overflow: "hidden",
     },
     countdownClockDiv: {
         height: "100%",
@@ -51,23 +54,6 @@ class DraftRoomBlock extends React.Component {
         this.props.stompClient.subscribe('/draft/bids', this.receiveBid);
     }
 
-    sendBid = () => {
-        if (this.props.stompClient) {
-            const bidDetails = {
-                draftId: this.props.draft.id,
-                playerId: this.props.block.playerId,
-                onTheBlockTeamId: this.props.onTheBlockTeamId,
-                bidderTeamId: this.props.currentTeam.id,
-                yTeamPosition: null,
-                price: this.props.block.price + 1,
-                onTheBlockTimer: this.props.draft.onTheBlockTimer,
-                bidTimer: this.props.draft.bidTimer,
-            };
-            this.props.stompClient.send("/app/bid", {}, JSON.stringify(bidDetails));
-            console.log('Bid Sent: ', bidDetails);
-        }
-    };
-
     receiveStartNextRound = (payload) => {
         console.log('Start Next Round Received: ', payload);
         const updatedBlockData = JSON.parse(payload.body);
@@ -80,16 +66,6 @@ class DraftRoomBlock extends React.Component {
         })
     };
 
-    receiveStopDraft = () => {
-        console.log('StopDraft Received.');
-        this.props.receiveStopDraft();
-        this.setState({
-            ...this.state,
-            showAddToBlockClock: false,
-            showBidClock: false,
-        })
-    }
-
     receiveAddToBlock = (payload) => {
         console.log('AddToBlock Received ', payload);
         const updatedBlock = JSON.parse(payload.body);
@@ -97,10 +73,27 @@ class DraftRoomBlock extends React.Component {
         this.props.receiveAddToBlock(updatedBlock);
         this.setState({
             ...this.state,
-                showAddToBlockClock: false,
-                showBidClock: true,
-                bidClockKey: this.state.bidClockKey + 1,
+            showAddToBlockClock: false,
+            showBidClock: true,
+            bidClockKey: this.state.bidClockKey + 1,
         });
+    };
+
+    sendBid = () => {
+        if (this.props.stompClient) {
+            const bidDetails = {
+                draftId: this.props.draft.id,
+                playerId: this.props.block.playerId,
+                onTheBlockTeamId: this.props.block.onTheBlockTeamId,
+                bidderTeamId: this.props.currentTeam.id,
+                myTeamPosition: null,
+                price: this.props.block.price + 1,
+                onTheBlockTimer: this.props.draft.onTheBlockTimer,
+                bidTimer: this.props.draft.bidTimer,
+            };
+            this.props.stompClient.send("/app/bid", {}, JSON.stringify(bidDetails));
+            console.log('Bid Sent: ', bidDetails);
+        }
     };
 
     receiveBid = (payload) => {
@@ -116,9 +109,23 @@ class DraftRoomBlock extends React.Component {
         });
     };
 
+    receiveStopDraft = () => {
+        console.log('StopDraft Received.');
+        this.props.receiveStopDraft();
+        this.setState({
+            ...this.state,
+            showAddToBlockClock: false,
+            showBidClock: false,
+        })
+    }
+
     getPlayerDetailsById = (playerId) => {
         return this.props.players.find(player => player.id === playerId);
     };
+
+    getTeamById = (teamId) => {
+        return this.props.draft.teams.find(team => team.id === teamId);
+    }
 
     getIsBidDisabled = (bidderId, price, playerId) => {
         const player = this.getPlayerDetailsById(playerId);
@@ -179,8 +186,15 @@ class DraftRoomBlock extends React.Component {
             >
                 <Grid item xs={2}>
                     <div className={classes.countdownClockDiv}>
-                        {this.state.showBidClock ?
-                            <CountdownClock
+                        {this.state.showAddToBlockClock ?
+                            <AddToBlockClock
+                                duration={this.props.draft.onTheBlockTimer}
+                                text="Add To Block"
+                                key={this.state.addToBlockClockKey}
+                                isDisabled={false}
+                            />
+                            : this.state.showBidClock ?
+                            <BidClock
                                 duration={this.props.draft.bidTimer}
                                 text="Bid"
                                 key={this.state.bidClockKey}
@@ -194,9 +208,16 @@ class DraftRoomBlock extends React.Component {
                 </Grid>
 
                 <Grid item xs={10}>
-                    <BlockPlayer
-                        player={this.getPlayerDetailsById(this.props.block.playerId)}
-                    />
+                    {this.state.showAddToBlockClock ?
+                        <VacantBlock
+                            onTheBlockTeamName={this.getTeamById(this.props.block.onTheBlockTeamId).name}
+                        />
+                        : this.state.showBidClock ?
+                        <BlockPlayer
+                            player={this.getPlayerDetailsById(this.props.block.playerId)}
+                        />
+                        : "Draft Is Paused"
+                    }
                 </Grid>
 
             </Grid>
@@ -211,7 +232,6 @@ const mapStateToProps = state => {
         players: playersSelector(state),
         currentTeam: currentTeamSelector(state),
         block: blockSelector(state),
-        onTheBlockTeamId: onTheBlockTeamIdSelector(state),
     };
 };
 

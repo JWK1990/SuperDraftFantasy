@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import { CountdownCircleTimer } from 'react-countdown-circle-timer'
-import "./CountdownClock.css";
+import "./BidClock.css";
 import {Fab} from "@material-ui/core";
 import withStyles from "@material-ui/core/styles/withStyles";
 
@@ -26,7 +26,7 @@ const styles = {
     },
 };
 
-function CountdownClock(props) {
+function BidClock(props) {
    const {classes} = props;
 
     const [text, setText] = useState({
@@ -99,4 +99,4 @@ function CountdownClock(props) {
     )
 }
 
-export default withStyles(styles)(CountdownClock);
+export default withStyles(styles)(BidClock);
