@@ -1,21 +1,47 @@
 import React from "react";
-import {DragDropContext, Draggable, Droppable} from "react-beautiful-dnd";
+import {DragDropContext, Droppable} from "react-beautiful-dnd";
 import {reorderTeamListAction} from "../../../store/actions";
 import {connect} from "react-redux";
 import {DraftStatusEnum} from "../../../models/DraftStatusEnum";
-import {draftIdSelector, draftStatusSelector, draftTeamsSelector} from "../../../store/selectors/DraftSelectors";
+import {
+    draftSelector,
+    draftStatusSelector,
+    draftTeamsSelector,
+    numOfPlayersRequiredSelector
+} from "../../../store/selectors/DraftSelectors";
 import {stompClientSelector} from "../../../store/selectors/WebSocketSelectors";
+import DraggableTeamContainer from "./DraggableTeamContainer";
+import withStyles from "@material-ui/core/styles/withStyles";
+import {onTheBlockTeamIdSelector} from "../../../store/selectors/BlockSelectors";
 
-const getSortableTeamList = teamList => {
+const grid = 8;
+
+const styles = {
+    rootDiv: {
+        height: "98%",
+        width: "98%",
+    }
+}
+
+const getListStyle = isDraggingOver => ({
+    background: isDraggingOver ? "lightblue" : "lightgrey",
+    padding: grid,
+    height: "98%",
+    width: "98%",
+});
+
+const getSortableTeamList = (teamList, numOfSlots) => {
     teamList.sort((teamA, teamB) => teamA.orderIndex - teamB.orderIndex);
-    return Array.from({ length: teamList.length }, (v, k) => k).map(k => ({
-        id: `item-${teamList[k].orderIndex}`,
-        content: {id: teamList[k].id, name: teamList[k].name}
+    return Array.from({ length: numOfSlots }, (v, k) => k).map(k => ({
+        id: `item-${teamList[k] ?
+            teamList[k].orderIndex
+            : k}`,
+        content: teamList[k] ?
+            {id: teamList[k].id, team: teamList[k], isVacant: false, isLoading: false}
+            : {id: k+1, team: "VACANT", isVacant: true, isLoading: false}
     }));
 }
 
-
-// a little function to help us with reordering the result
 const reorder = (list, startIndex, endIndex) => {
     const result = Array.from(list);
     const [removed] = result.splice(startIndex, 1);
@@ -24,33 +50,12 @@ const reorder = (list, startIndex, endIndex) => {
     return result;
 };
 
-const grid = 8;
-
-const getItemStyle = (isDragging, draggableStyle) => ({
-    // some basic styles to make the sortableTeamList look a bit nicer
-    userSelect: "none",
-    padding: grid * 2,
-    margin: `0 0 ${grid}px 0`,
-
-    // change background colour if dragging
-    background: isDragging ? "lightgreen" : "lightblue",
-
-    // styles we need to apply on draggables
-    ...draggableStyle
-});
-
-const getListStyle = isDraggingOver => ({
-    background: isDraggingOver ? "lightblue" : "lightgrey",
-    padding: grid,
-    width: 250
-});
-
 class DraftRoomTeams extends React.Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            sortableTeamList: getSortableTeamList(props.teams)
+            sortableTeamList: getSortableTeamList(props.teams, props.draft.numOfTeams)
         };
         this.onDragEnd = this.onDragEnd.bind(this);
     }
@@ -59,8 +64,15 @@ class DraftRoomTeams extends React.Component {
         this.props.stompClient.subscribe('/draft/reorderTeamLists', this.receiveReorderTeamList);
     }
 
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if(prevProps.teams !== this.props.teams) {
+            console.log('Component Did Update: ', this.props.teams);
+            this.setState({sortableTeamList: getSortableTeamList(this.props.teams, this.props.draft.numOfTeams)});
+        }
+    }
+
     sendReorderTeamList = (reorderedTeamIdList) => {
-        const reorderTeamListDto = {draftId: this.props.draftId, teamIdList: reorderedTeamIdList};
+        const reorderTeamListDto = {draftId: this.props.draft.id, teamIdList: reorderedTeamIdList};
         this.props.stompClient.send("/app/reorderTeamList", {}, JSON.stringify(reorderTeamListDto));
     }
 
@@ -68,7 +80,6 @@ class DraftRoomTeams extends React.Component {
         console.log('ReorderTeamList Received: ', payload);
         const updatedSortedTeamIdList = JSON.parse(payload.body);
         this.props.updateTeamOrder(updatedSortedTeamIdList);
-        this.setState({sortableTeamList: getSortableTeamList(this.props.teams)});
     }
 
     onDragEnd(result) {
@@ -83,53 +94,43 @@ class DraftRoomTeams extends React.Component {
             result.destination.index
         );
 
+        this.setState({sortableTeamList: reorderedSortableTeamList});
+
         const reorderedTeamIdList = reorderedSortableTeamList.map(sortableTeam => sortableTeam.content.id);
         this.sendReorderTeamList(reorderedTeamIdList);
-    }
-
-    isReorderDisabled() {
-        return this.props.draftStatus !== DraftStatusEnum.READY;
     }
 
     // Normally you would want to split things out into separate components.
     // But in this example everything is just done in one place for simplicity
     render() {
+        const {classes} = this.props;
+        const draggableHeight = 98/this.props.draft.numOfTeams;
+
         return (
-            <DragDropContext onDragEnd={this.onDragEnd}>
-                <Droppable droppableId="droppable">
-                    {(provided, snapshot) => (
-                        <div
-                            {...provided.droppableProps}
-                            ref={provided.innerRef}
-                            style={getListStyle(snapshot.isDraggingOver)}
-                        >
-                            {this.state.sortableTeamList.map((item, index) => (
-                                <Draggable
-                                    key={item.id}
-                                    draggableId={item.id}
-                                    index={index}
-                                    isDragDisabled={this.isReorderDisabled()}
-                                >
-                                    {(provided, snapshot) => (
-                                        <div
-                                            ref={provided.innerRef}
-                                            {...provided.draggableProps}
-                                            {...provided.dragHandleProps}
-                                            style={getItemStyle(
-                                                snapshot.isDragging,
-                                                provided.draggableProps.style
-                                            )}
-                                        >
-                                            {item.content.name}
-                                        </div>
-                                    )}
-                                </Draggable>
-                            ))}
-                            {provided.placeholder}
-                        </div>
-                    )}
-                </Droppable>
-            </DragDropContext>
+            <div className={classes.rootDiv}>
+                <DragDropContext onDragEnd={this.onDragEnd}>
+                    <Droppable droppableId="droppable">
+                        {(provided, snapshot) => (
+                            <div
+                                {...provided.droppableProps}
+                                ref={provided.innerRef}
+                                style={getListStyle(snapshot.isDraggingOver)}
+                            >
+                                {this.state.sortableTeamList.map((item, index) => (
+                                    <DraggableTeamContainer
+                                        item={item}
+                                        index={index}
+                                        isReorderDisabled={this.props.draftStatus !== DraftStatusEnum.READY}
+                                        draggableHeight={draggableHeight}
+                                        numOfPlayersRequired={this.props.numOfPlayersRequired}
+                                        isOnTheBlock={this.props.onTheBlockTeamId === item.content.team.id}
+d                                    />
+                                ))}
+                            </div>
+                        )}
+                    </Droppable>
+                </DragDropContext>
+            </div>
         );
     }
 }
@@ -137,9 +138,11 @@ class DraftRoomTeams extends React.Component {
 const mapStateToProps = state => {
     return {
         stompClient: stompClientSelector(state),
-        draftId: draftIdSelector(state),
+        draft: draftSelector(state),
         draftStatus: draftStatusSelector(state),
         teams: draftTeamsSelector(state),
+        numOfPlayersRequired: numOfPlayersRequiredSelector(state),
+        onTheBlockTeamId: onTheBlockTeamIdSelector(state),
     };
 };
 
@@ -147,4 +150,4 @@ const mapDispatchToProps = dispatch => ({
     updateTeamOrder: (teamList) => dispatch(reorderTeamListAction(teamList)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(DraftRoomTeams);
+export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(DraftRoomTeams));

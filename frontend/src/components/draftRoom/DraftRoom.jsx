@@ -82,7 +82,7 @@ class DraftRoom extends React.Component {
         }
 
         return (
-            <div>
+            <div className={classes.rootDiv}>
                 <Grid
                     container
                     className={classes.firstRowGridContainer}
