@@ -23,6 +23,7 @@ import Remove from "@material-ui/icons/Remove";
 import SaveAlt from "@material-ui/icons/SaveAlt";
 import Search from "@material-ui/icons/Search";
 import ViewColumn from "@material-ui/icons/ViewColumn";
+import {onTheBlockTeamIdSelector} from "../../../store/selectors/BlockSelectors";
 
 const tableIcons = {
     Add: forwardRef((props, ref) => <AddBox {...props} ref={ref}/>),
@@ -65,16 +66,19 @@ class DraftRoomPlayers extends React.Component {
     };
 
     sendAddToBlock = (selectedPlayerId, initialBid) => {
+        console.log("Props: ", this.props);
         if (this.props.stompClient) {
             const addToBlockDetails = {
                 draftId: this.props.draft.id,
                 playerId: selectedPlayerId,
-                teamId: this.props.currentTeamId,
+                onTheBlockTeamId: this.props.onTheBlockTeamId,
+                bidderTeamId: this.props.currentTeamId,
+                myTeamPosition: null,
                 price: initialBid,
                 onTheBlockTimer: this.props.draft.onTheBlockTimer,
-                bidTimer: this.props.draft.bidTimer
+                bidTimer: this.props.draft.bidTimer,
             };
-            this.props.stompClient.send("/app/receiveAddToBlock", {}, JSON.stringify(addToBlockDetails));
+            this.props.stompClient.send("/app/addToBlock", {}, JSON.stringify(addToBlockDetails));
             console.log('Add To Block Sent: ', addToBlockDetails);
         }
     };
@@ -156,7 +160,8 @@ const mapStateToProps = state => {
         players: playersSelector(state),
         draft: draftSelector(state),
         currentTeamId: currentTeamIdSelector(state),
-        teams: draftTeamsSelector(state)
+        teams: draftTeamsSelector(state),
+        onTheBlockTeamId: onTheBlockTeamIdSelector(state),
     };
 };
 

@@ -1,8 +1,6 @@
 package au.superdraftfantasy.api.block;
 
-import au.superdraftfantasy.api.draft.DraftEntity;
 import au.superdraftfantasy.api.draft.DraftRepository;
-import au.superdraftfantasy.api.draft.DraftStatusEnum;
 import au.superdraftfantasy.api.futuresScheduler.FuturesScheduler;
 import au.superdraftfantasy.api.futuresScheduler.ScheduledFutureEnum;
 import au.superdraftfantasy.api.player.PlayerService;
@@ -55,7 +53,6 @@ public class BlockService {
 
         blockDto.setPrice(1L);
 
-        updateDraftStatusIfRequired(blockDto.getDraftId());
         this.simpMessagingTemplate.convertAndSend("/draft/rounds", blockDto);
 
         // After sending to FE without a bidder, set bidder in case of AutoAddToBlock.
@@ -155,14 +152,6 @@ public class BlockService {
         teamRepository.save(nextOtbTeam);
 
         return nextOtbTeam.getId();
-    }
-
-    private void updateDraftStatusIfRequired(Long draftId) {
-        DraftEntity draft = draftRepository.findById(draftId)
-                .orElseThrow(() -> new NoSuchElementException("Draft Not Found."));
-        if(draft.getStatus() != DraftStatusEnum.IN_PROGRESS) {
-            draft.setStatus(DraftStatusEnum.IN_PROGRESS);
-        }
     }
 
 }

@@ -8,4 +8,7 @@ export const currentTeamSelector = state => state.draft.data.teams.find(team => 
 export const currentTeamIdSelector = state => state.draft.data.teams.find(team => team.user.username === state.user.data.username).id;
 export const draftTeamsSelector = state => state.draft.data.teams;
 export const draftRosterSelector = state => state.draft.data.roster;
-export const findTeamById = (state, id) => state.draft.data.teams.find(team => team.id === id);
+export const numOfPlayersRequiredSelector = state => {
+    const roster = state.draft.data.roster;
+    return roster.def + roster.mid + roster.ruc + roster.fwd + roster.bench;
+}

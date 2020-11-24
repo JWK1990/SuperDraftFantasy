@@ -107,6 +107,8 @@ public class DraftService {
         UserEntity currentUser = getCurrentUser(authentication);
         checkIfCommissioner(currentUser, draft);
         draft.setStatus(DraftStatusEnum.IN_PROGRESS);
+        draftRepository.save(draft);
+
         BlockDto blockDto = new BlockDto(
                 draftID,
                 null,
@@ -134,6 +136,7 @@ public class DraftService {
         UserEntity currentUser = getCurrentUser(authentication);
         checkIfCommissioner(currentUser, draft);
         draft.setStatus(DraftStatusEnum.STOPPED);
+        draftRepository.save(draft);
         blockService.stopDraft(draftID);
         return draft.getStatus();
     }
