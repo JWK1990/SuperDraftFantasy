@@ -38,7 +38,7 @@ function DraftRoomPlayersSelected(props) {
         <div>
             <Grid container>
                 {
-                    props.isAddToBlockHidden ?
+                    props.hideAddToBlock ?
                         null :
                         <Grid item xs={1}>
                             <div className={classes.controlsDiv}>
@@ -64,7 +64,6 @@ function DraftRoomPlayersSelected(props) {
                                         color="primary"
                                         aria-label="add"
                                         onClick={() => props.sendAddToBlock(props.player.id, initialBid)}
-                                        hidden={props.isAddToBlockHidden}
                                     >
                                         <AddIcon />
                                     </Fab>

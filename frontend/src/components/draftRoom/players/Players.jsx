@@ -51,11 +51,24 @@ class DraftRoomPlayers extends React.Component {
         super(props);
         this.state = {
             selectedPlayer: '',
+            showAddToBlock: false,
         };
     }
 
     componentDidMount() {
         this.props.stompClient.subscribe('/draft/teams', this.receiveTeam);
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        console.log("PP: ", prevProps, "CP: ", this.props);
+        if(prevProps.isOnTheBlock !== this.props.isOnTheBlock
+            || prevProps.draft.status !== this.props.draft.status
+        ) {
+            console.log("Set State", this.props.isOnTheBlock && this.props.draft.status === "IN_PROGRESS");
+            this.setState({
+                showAddToBlock: this.props.isOnTheBlock && this.props.draft.status === "IN_PROGRESS"
+            })
+        }
     }
 
     receiveTeam = (payload) => {
@@ -92,6 +105,7 @@ class DraftRoomPlayers extends React.Component {
     }
 
     render() {
+
         return (
             <Container component="main" maxWidth="xl">
                 <div style={{ maxWidth: "100%" }}>
@@ -112,7 +126,7 @@ class DraftRoomPlayers extends React.Component {
                                 icon: () => <AddCircleOutlineIcon color="primary"/>,
                                 tooltip: 'Add To Block',
                                 onClick: (event, rowData) => this.sendAddToBlock(rowData.id, 1),
-                                hidden: !this.props.isOnTheBlock
+                                hidden: !this.state.showAddToBlock
                             })
                         ]}
                         detailPanel={rowData => {
@@ -120,7 +134,7 @@ class DraftRoomPlayers extends React.Component {
                                 <DraftRoomPlayersSelected
                                     player={rowData}
                                     sendAddToBlock={this.sendAddToBlock}
-                                    isAddToBlockHidden = {!this.props.isOnTheBlock}
+                                    hideAddToBlock = {!this.state.showAddToBlock}
                                 />
                             )
                         }}
