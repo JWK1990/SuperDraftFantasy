@@ -12,7 +12,7 @@ const getListStyle = (isDraggingOver, styleProps, droppableHeight, isDropDisable
     display: "flex",
     flexDirection: "column",
     justifyContent: "space-between",
-    opacity: isDropDisabled ? "0.15" : "1"
+    opacity: isDropDisabled ? "0.15" : "1",
 });
 
 export default function DroppablePositionContainer(props) {

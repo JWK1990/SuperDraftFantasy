@@ -111,11 +111,6 @@ class MyTeam extends React.Component {
             draggedSecondaryPosition: '',
             isDropDisabled: true,
             isDragging: false,
-            defDroppableHeight: '',
-            midDroppableHeight: '',
-            rucDroppableHeight: '',
-            fwdDroppableHeight: '',
-            benchDroppableHeight: '',
             errorText: '',
         };
     }

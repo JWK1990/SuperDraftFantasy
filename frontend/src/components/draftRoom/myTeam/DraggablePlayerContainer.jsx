@@ -1,6 +1,8 @@
 import React from "react";
 import {Draggable} from "react-beautiful-dnd";
+import {Typography} from "@material-ui/core";
 import withStyles from "@material-ui/core/styles/withStyles";
+import Grid from "@material-ui/core/Grid";
 
 const grid = 8;
 
@@ -36,7 +38,15 @@ const styles = {
     },
     vacant: {
         backgroundColor: "lightslategrey !important",
-    }
+    },
+    playerDetailsContainer: {
+        height: "100%",
+    },
+    playerDetails: {
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+    },
 }
 
 class DraggablePlayerContainer extends React.Component {
@@ -67,11 +77,24 @@ class DraggablePlayerContainer extends React.Component {
                              ${this.props.item.content.vacant ? classes.vacant : null}`
                         }
                     >
-                        {this.props.item.content.player
-                            ? this.props.item.content.player.firstName
-                            + " " + this.props.item.content.player.lastName
-                            + " ($" + this.props.item.content.price + ")"
-                            : ""}
+                        {this.props.item.content.player ?
+                            <Grid container className={classes.playerDetailsContainer}>
+                                <Grid item xs={10} className={classes.playerDetails}>
+                                    <Typography>
+                                        {
+                                            this.props.item.content.player.firstName
+                                            + " " + this.props.item.content.player.lastName
+                                        }
+                                    </Typography>
+                                </Grid>
+                                <Grid item xs={2} className={classes.playerDetails}>
+                                    <Typography>
+                                        {" ($" + this.props.item.content.price + ")"}
+                                    </Typography>
+                                </Grid>
+                            </Grid>
+                            : ""
+                        }
                     </div>
                 )}
             </Draggable>
