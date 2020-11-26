@@ -11,7 +11,8 @@ const styles = {
         padding: grid,
         margin: `0 0 ${grid}px 0`,
         border: "3px solid",
-        height: "100%"
+        height: "100%",
+        minHeight: 20,
     },
     def: {
         borderColor: "red",

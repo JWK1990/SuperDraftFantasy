@@ -60,11 +60,9 @@ class DraftRoomPlayers extends React.Component {
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
-        console.log("PP: ", prevProps, "CP: ", this.props);
         if(prevProps.isOnTheBlock !== this.props.isOnTheBlock
             || prevProps.draft.status !== this.props.draft.status
         ) {
-            console.log("Set State", this.props.isOnTheBlock && this.props.draft.status === "IN_PROGRESS");
             this.setState({
                 showAddToBlock: this.props.isOnTheBlock && this.props.draft.status === "IN_PROGRESS"
             })

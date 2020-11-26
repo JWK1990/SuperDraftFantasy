@@ -109,6 +109,8 @@ class MyTeam extends React.Component {
             },
             draggedPrimaryPosition: '',
             draggedSecondaryPosition: '',
+            isDropDisabled: true,
+            isDragging: false,
             defDroppableHeight: '',
             midDroppableHeight: '',
             rucDroppableHeight: '',
@@ -156,19 +158,24 @@ class MyTeam extends React.Component {
 
     onDragStart = start => {
         const draggedSlot = this.getPositionList(start.source.droppableId)[start.source.index];
-        this.setState({draggedPrimaryPosition: draggedSlot.content.player.primaryPosition});
-        this.setState({draggedSecondaryPosition: draggedSlot.content.player.secondaryPosition});
+        this.setState({
+            ...this.state,
+            isDragging: true,
+            draggedPrimaryPosition: draggedSlot.content.player.primaryPosition,
+            draggedSecondaryPosition: draggedSlot.content.player.secondaryPosition,
+        })
     }
 
     onDragEnd = result => {
         const { source, destination } = result;
-        // Dropped outside the list.
-        if (!destination) {
-            return;
-        }
-        // Re-Ordered.
-        else if (source.droppableId === destination.droppableId) {
-            return;
+        // Dropped outside the list or re-Ordered.
+        if (!destination || (source.droppableId === destination.droppableId)) {
+            this.setState({
+                ...this.state,
+                isDragging: false,
+                draggedPrimaryPosition: '',
+                draggedSecondaryPosition: ''
+            })
         }
         // Moved to another list.
         else {
@@ -208,7 +215,10 @@ class MyTeam extends React.Component {
                 ...prevState.myTeamList,
                 [sourcePosition]: result[source.droppableId],
                 [destinationPosition]: result[destination.droppableId]
-            }
+            },
+            isDragging: false,
+            draggedPrimaryPosition: '',
+            draggedSecondaryPosition: '',
         }));
     }
 
@@ -220,6 +230,7 @@ class MyTeam extends React.Component {
                 <DragDropContext onDragStart={this.onDragStart} onDragEnd={this.onDragEnd}>
                     <DroppablePositionContainer
                         droppableId="droppableDefs"
+                        isDragging={this.state.isDragging}
                         isDropDisabled={this.isDropDisabled("DEF")}
                         itemList={this.state.myTeamList.DEF}
                         styleProps={defDroppableStyle}
@@ -227,6 +238,7 @@ class MyTeam extends React.Component {
                     />
                     <DroppablePositionContainer
                         droppableId="droppableMids"
+                        isDragging={this.state.isDragging}
                         isDropDisabled={this.isDropDisabled("MID")}
                         itemList={this.state.myTeamList.MID}
                         styleProps={midDroppableStyles}
@@ -234,6 +246,7 @@ class MyTeam extends React.Component {
                     />
                     <DroppablePositionContainer
                         droppableId="droppableRucs"
+                        isDragging={this.state.isDragging}
                         isDropDisabled={this.isDropDisabled("RUC")}
                         itemList={this.state.myTeamList.RUC}
                         styleProps={rucDroppableStyles}
@@ -241,6 +254,7 @@ class MyTeam extends React.Component {
                     />
                     <DroppablePositionContainer
                         droppableId="droppableFwds"
+                        isDragging={this.state.isDragging}
                         isDropDisabled={this.isDropDisabled("FWD")}
                         itemList={this.state.myTeamList.FWD}
                         styleProps={fwdDroppableStyles}
@@ -248,6 +262,7 @@ class MyTeam extends React.Component {
                     />
                     <DroppablePositionContainer
                         droppableId="droppableBench"
+                        isDragging={this.state.isDragging}
                         isDropDisabled={this.isDropDisabled("BENCH")}
                         itemList={this.state.myTeamList.BENCH}
                         styleProps={benchDroppableStyles}
