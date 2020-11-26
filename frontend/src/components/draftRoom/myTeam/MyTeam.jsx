@@ -221,7 +221,7 @@ class MyTeam extends React.Component {
         const {classes} = this.props;
 
         return (
-            <div id="my-team-root-div" className={classes.myTeamRoot}>
+            <div className={classes.myTeamRoot}>
                 <DragDropContext onDragStart={this.onDragStart} onDragEnd={this.onDragEnd}>
                     <DroppablePositionContainer
                         droppableId="droppableDefs"

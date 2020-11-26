@@ -4,7 +4,7 @@ import {Typography} from "@material-ui/core";
 import withStyles from "@material-ui/core/styles/withStyles";
 import Grid from "@material-ui/core/Grid";
 
-const grid = 8;
+const grid = 4;
 
 const styles = {
     root: {
@@ -14,7 +14,7 @@ const styles = {
         margin: `0 0 ${grid}px 0`,
         border: "3px solid",
         height: "100%",
-        minHeight: 20,
+        //minHeight: 20,
     },
     def: {
         borderColor: "red",
@@ -47,6 +47,9 @@ const styles = {
         flexDirection: "column",
         justifyContent: "center",
     },
+    playerName: {
+        fontWeight: "bold",
+    }
 }
 
 class DraggablePlayerContainer extends React.Component {
@@ -79,17 +82,26 @@ class DraggablePlayerContainer extends React.Component {
                     >
                         {this.props.item.content.player ?
                             <Grid container className={classes.playerDetailsContainer}>
-                                <Grid item xs={10} className={classes.playerDetails}>
-                                    <Typography>
+                                <Grid item xs={7} className={classes.playerDetails}>
+                                    <Typography className={classes.playerName}>
                                         {
                                             this.props.item.content.player.firstName
                                             + " " + this.props.item.content.player.lastName
                                         }
                                     </Typography>
                                 </Grid>
-                                <Grid item xs={2} className={classes.playerDetails}>
+                                <Grid item xs={4} className={classes.playerDetails}>
                                     <Typography>
-                                        {" ($" + this.props.item.content.price + ")"}
+                                        {this.props.item.content.player.primaryPosition}
+                                        {this.props.item.content.player.secondaryPosition ?
+                                            "/" + this.props.item.content.player.secondaryPosition
+                                            : ""
+                                        }
+                                    </Typography>
+                                </Grid>
+                                <Grid item xs={1} className={classes.playerDetails}>
+                                    <Typography>
+                                        {" $" + this.props.item.content.price}
                                     </Typography>
                                 </Grid>
                             </Grid>

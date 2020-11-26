@@ -2,7 +2,7 @@ import {Droppable} from "react-beautiful-dnd";
 import DraggablePlayerContainer from "./DraggablePlayerContainer";
 import React from "react";
 
-const grid = 8;
+const grid = 4;
 
 const getListStyle = (isDraggingOver, styleProps, droppableHeight, isDropDisabled) => ({
     background: isDraggingOver ? styleProps.isDraggingOverColor : 'white',
@@ -23,7 +23,6 @@ export default function DroppablePositionContainer(props) {
         <Droppable droppableId={props.droppableId} isDropDisabled={props.isDropDisabled}>
             {(provided, snapshot) => (
                 <div
-                    id={props.droppableId}
                     ref={provided.innerRef}
                     style={getListStyle(
                         snapshot.isDraggingOver,
