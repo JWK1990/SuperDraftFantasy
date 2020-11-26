@@ -23,7 +23,7 @@ import Remove from "@material-ui/icons/Remove";
 import SaveAlt from "@material-ui/icons/SaveAlt";
 import Search from "@material-ui/icons/Search";
 import ViewColumn from "@material-ui/icons/ViewColumn";
-import {onTheBlockTeamIdSelector} from "../../../store/selectors/BlockSelectors";
+import {isOnTheBlockSelector, onTheBlockTeamIdSelector} from "../../../store/selectors/BlockSelectors";
 
 const tableIcons = {
     Add: forwardRef((props, ref) => <AddBox {...props} ref={ref}/>),
@@ -66,7 +66,6 @@ class DraftRoomPlayers extends React.Component {
     };
 
     sendAddToBlock = (selectedPlayerId, initialBid) => {
-        console.log("Props: ", this.props);
         if (this.props.stompClient) {
             const addToBlockDetails = {
                 draftId: this.props.draft.id,
@@ -82,14 +81,6 @@ class DraftRoomPlayers extends React.Component {
             console.log('Add To Block Sent: ', addToBlockDetails);
         }
     };
-
-    getIsAddToBlockDisabled = (player) => {
-        // const benchSlotVacant = this.props.vacantPositions["BENCH"];
-        // const primarySlotVacant = this.props.vacantPositions[player.primaryPosition];
-        // const secondarySlotVacant = this.props.vacantPositions[player.secondaryPosition];
-        // return !player.available || (!benchSlotVacant && !primarySlotVacant && !secondarySlotVacant);
-        return false;
-    }
 
     toggleAndSetSelected = (togglePanel, rowData) => {
         togglePanel();
@@ -121,7 +112,7 @@ class DraftRoomPlayers extends React.Component {
                                 icon: () => <AddCircleOutlineIcon color="primary"/>,
                                 tooltip: 'Add To Block',
                                 onClick: (event, rowData) => this.sendAddToBlock(rowData.id, 1),
-                                hidden: this.getIsAddToBlockDisabled(rowData)
+                                hidden: !this.props.isOnTheBlock
                             })
                         ]}
                         detailPanel={rowData => {
@@ -129,7 +120,7 @@ class DraftRoomPlayers extends React.Component {
                                 <DraftRoomPlayersSelected
                                     player={rowData}
                                     sendAddToBlock={this.sendAddToBlock}
-                                    isAddToBlockDisabled = {this.getIsAddToBlockDisabled(this.state.selectedPlayer)}
+                                    isAddToBlockHidden = {!this.props.isOnTheBlock}
                                 />
                             )
                         }}
@@ -162,6 +153,7 @@ const mapStateToProps = state => {
         currentTeamId: currentTeamIdSelector(state),
         teams: draftTeamsSelector(state),
         onTheBlockTeamId: onTheBlockTeamIdSelector(state),
+        isOnTheBlock: isOnTheBlockSelector(state),
     };
 };
 

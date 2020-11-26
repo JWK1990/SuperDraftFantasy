@@ -31,6 +31,6 @@ public class DraftReadDto {
 
     private List<TeamReadDto> teams;
 
-    private Long onTheBlockCoachId;
+    private Long onTheBlockTeamId;
 
 }

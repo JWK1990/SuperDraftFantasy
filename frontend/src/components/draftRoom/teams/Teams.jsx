@@ -28,6 +28,9 @@ const getListStyle = isDraggingOver => ({
     padding: grid,
     height: "98%",
     width: "98%",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-between",
 });
 
 const getSortableTeamList = (teamList, numOfSlots) => {
@@ -66,7 +69,6 @@ class DraftRoomTeams extends React.Component {
 
     componentDidUpdate(prevProps, prevState, snapshot) {
         if(prevProps.teams !== this.props.teams) {
-            console.log('Component Did Update: ', this.props.teams);
             this.setState({sortableTeamList: getSortableTeamList(this.props.teams, this.props.draft.numOfTeams)});
         }
     }
@@ -100,14 +102,13 @@ class DraftRoomTeams extends React.Component {
         this.sendReorderTeamList(reorderedTeamIdList);
     }
 
-    // Normally you would want to split things out into separate components.
-    // But in this example everything is just done in one place for simplicity
+    draggableHeight = 98/this.props.draft.numOfTeams;
+
     render() {
         const {classes} = this.props;
-        const draggableHeight = 98/this.props.draft.numOfTeams;
 
         return (
-            <div className={classes.rootDiv}>
+            <div id="root-div-teams" className={classes.rootDiv}>
                 <DragDropContext onDragEnd={this.onDragEnd}>
                     <Droppable droppableId="droppable">
                         {(provided, snapshot) => (
@@ -120,8 +121,9 @@ class DraftRoomTeams extends React.Component {
                                     <DraggableTeamContainer
                                         item={item}
                                         index={index}
+                                        key={index}
                                         isReorderDisabled={this.props.draftStatus !== DraftStatusEnum.READY}
-                                        draggableHeight={draggableHeight}
+                                        draggableHeight={this.draggableHeight}
                                         numOfPlayersRequired={this.props.numOfPlayersRequired}
                                         isOnTheBlock={this.props.onTheBlockTeamId === item.content.team.id}
 d                                    />

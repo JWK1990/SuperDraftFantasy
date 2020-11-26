@@ -1,5 +1,5 @@
 import React from 'react';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
+import {makeStyles} from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
@@ -9,8 +9,8 @@ import Paper from "@material-ui/core/Paper";
 const useStyles = makeStyles((theme) => ({
     root: {
         display: 'flex',
-        height: "100%",
         width: "100%",
+        height: "100%",
     },
     teamLogo: {
         width: 50,
@@ -39,7 +39,6 @@ const useStyles = makeStyles((theme) => ({
 export default function DraggableTeamContent(props) {
 
     const classes = useStyles();
-    const theme = useTheme();
 
     // TODO: Add ellipsis to text that goes too wide.
     return (

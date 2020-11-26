@@ -101,6 +101,7 @@ class DraftRoom extends React.Component {
                 </Grid>
 
                 <Grid
+                    id="secondRowGrid"
                     container
                     className={classes.secondRowGridContainer}
                 >

@@ -1,24 +1,21 @@
 import React from "react";
 import {Draggable} from "react-beautiful-dnd";
-import {grid} from "@material-ui/system";
 import DraggableTeamContent from "./DraggableTeamContent";
+
+const grid = 8;
 
 const getItemStyle = (isDragging, draggableStyle, isVacant, draggableHeight, isOnTheBlock) => ({
     userSelect: "none",
-    padding: grid * 2,
+    padding: grid,
     margin: `0 0 ${grid}px 0`,
     background: isDragging ? "lightgreen" : isVacant ? "lightgrey" : "lightblue",
     border: isVacant ? "dotted 1px black" : isOnTheBlock ? "solid 3px green" : "solid 1px lightgrey",
     textAlign: isVacant ? "center" : "left",
-    height: draggableHeight + "%",
+    height: "100%",
     ...draggableStyle
 });
 
 class DraggableTeamContainer extends React.Component {
-
-    constructor(props) {
-        super(props);
-    }
 
     render() {
         return (

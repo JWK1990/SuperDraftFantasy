@@ -12,10 +12,7 @@ import {startDraftAction, stopDraftAction} from "../../../store/actions";
 
 
 function CommissionerControls(props) {
-    console.log(props.draftStatus)
-
     const isCommissioner = props.userId === props.commissionerUserId;
-    console.log(isCommissioner);
 
     const getButton = () => {
         if(isCommissioner) {

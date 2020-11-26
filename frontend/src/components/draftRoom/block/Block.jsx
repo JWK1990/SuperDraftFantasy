@@ -17,7 +17,7 @@ import {
     receiveStartNextRoundAction,
     receiveStopDraftAction,
 } from "../../../store/actions/BlockActions";
-import {blockSelector} from "../../../store/selectors/BlockSelectors";
+import {blockSelector, isLeadBidderSelector, isOnTheBlockSelector} from "../../../store/selectors/BlockSelectors";
 import VacantBlock from "./player/VacantBlock";
 import AddToBlockClock from "./clock/AddToBlockClock";
 import PausedDraft from "./player/PausedDraft";
@@ -194,17 +194,15 @@ class DraftRoomBlock extends React.Component {
                         {this.state.showAddToBlockClock ?
                             <AddToBlockClock
                                 duration={this.props.draft.onTheBlockTimer}
-                                text="Add To Block"
                                 key={this.state.addToBlockClockKey}
-                                isDisabled={false}
                             />
                             : this.state.showBidClock ?
                             <BidClock
                                 duration={this.props.draft.bidTimer}
-                                text="Bid"
+                                text={this.props.isLeadBidder ? "You Lead" : "Bid"}
                                 key={this.state.bidClockKey}
                                 sendBid={this.sendBid}
-                                isDisabled={false}
+                                isDisabled={this.props.isLeadBidder}
                                 currentPrice={this.props.block.price}
                             />
                             : null
@@ -216,6 +214,7 @@ class DraftRoomBlock extends React.Component {
                     {this.state.showAddToBlockClock ?
                         <VacantBlock
                             onTheBlockTeamName={this.getTeamById(this.props.block.onTheBlockTeamId).name}
+                            isOnTheBlock={this.props.isOnTheBlock}
                         />
                         : this.state.showBidClock ?
                         <BlockPlayer
@@ -241,6 +240,8 @@ const mapStateToProps = state => {
         currentTeam: currentTeamSelector(state),
         block: blockSelector(state),
         commissionerTeamName: commissionerTeamNameSelector(state),
+        isLeadBidder: isLeadBidderSelector(state),
+        isOnTheBlock: isOnTheBlockSelector(state),
     };
 };
 
@@ -248,7 +249,7 @@ const mapDispatchToProps = dispatch => ({
         receiveStartNextRound: (block) => dispatch(receiveStartNextRoundAction(block)),
         receiveAddToBlock: (block) => dispatch(receiveAddToBlockAction(block)),
         receiveBid: (block) => dispatch(receiveBidAction(block)),
-        receiveStopDraft: () => dispatch(receiveStopDraftAction())
+        receiveStopDraft: () => dispatch(receiveStopDraftAction()),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(

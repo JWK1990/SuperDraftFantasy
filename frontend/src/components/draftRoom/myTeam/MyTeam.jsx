@@ -1,8 +1,41 @@
 import React from 'react';
-import {DragDropContext, Draggable, Droppable} from 'react-beautiful-dnd';
+import {DragDropContext} from 'react-beautiful-dnd';
 import DraftService from '../../../services/DraftService';
-import {currentTeamSelector, draftRosterSelector} from "../../../store/selectors/DraftSelectors";
+import {
+    currentTeamSelector,
+    draftRosterSelector,
+    numOfPlayersRequiredSelector
+} from "../../../store/selectors/DraftSelectors";
 import {connect} from "react-redux";
+import withStyles from "@material-ui/core/styles/withStyles";
+import DroppablePositionContainer from "./DroppablePositionContainer";
+
+const styles = {
+    myTeamRoot: {
+        height: "98%",
+        width: "98%",
+    },
+}
+
+const defDroppableStyle = {
+    isDraggingOverColor: "red",
+}
+
+const midDroppableStyles = {
+    isDraggingOverColor: "lightblue",
+}
+
+const rucDroppableStyles = {
+    isDraggingOverColor: "yellow",
+}
+
+const fwdDroppableStyles = {
+    isDraggingOverColor: "lightgreen",
+}
+
+const benchDroppableStyles = {
+    isDraggingOverColor: "lightgrey",
+}
 
 const getInitialMyTeamList = (roster, teamPlayerJoinList) => {
     const initialMyTeamList = {
@@ -44,9 +77,6 @@ const addPlayerToFirstVacantSlot = (myTeamList, teamPlayerJoin) => {
     }
 }
 
-/**
- * Moves an item from one list to another list.
- */
 const move = (source, destination, droppableSource, droppableDestination) => {
     const sourceClone = Array.from(source);
     const destClone = Array.from(destination);
@@ -65,49 +95,6 @@ const move = (source, destination, droppableSource, droppableDestination) => {
     return result;
 };
 
-const grid = 8;
-
-function getStyle(style, snapshot) {
-    if (!snapshot.isDragging) {
-        return {
-            userSelect: 'none',
-            position: 'static',
-            padding: grid * 2,
-            margin: `0 0 ${grid}px 0`,
-            background: snapshot.isDragging ? 'lightgreen' : 'grey',
-        }
-    };
-
-    if (!snapshot.isDropAnimating) {
-        return {
-            ...style,
-            userSelect: 'none',
-            position: 'static',
-            padding: grid * 2,
-            margin: `0 0 ${grid}px 0`,
-            background: snapshot.isDragging ? 'lightgreen' : 'grey',
-        }
-    }
-  
-    return {
-      ...style,
-      userSelect: 'none',
-      position: 'static',
-      padding: grid * 2,
-      margin: `0 0 ${grid}px 0`,
-      background: snapshot.isDragging ? 'lightgreen' : 'grey',
-      // cannot be 0, but make it super tiny
-      transitionDuration: `0.001s`
-    };
-  }
-
-const getListStyle = isDraggingOver => ({
-    background: isDraggingOver ? 'lightblue' : 'lightgrey',
-    padding: grid,
-    width: 250,
-    transform: 'none',
-});
-
 class MyTeam extends React.Component {
 
     constructor(props) {
@@ -122,6 +109,11 @@ class MyTeam extends React.Component {
             },
             draggedPrimaryPosition: '',
             draggedSecondaryPosition: '',
+            defDroppableHeight: '',
+            midDroppableHeight: '',
+            rucDroppableHeight: '',
+            fwdDroppableHeight: '',
+            benchDroppableHeight: '',
             errorText: '',
         };
     }
@@ -153,19 +145,13 @@ class MyTeam extends React.Component {
 
     getPositionList = id => this.state.myTeamList[this.droppableList[id]];
 
-    isDragDisabled = (isDraggableVacant) => {
-        return isDraggableVacant;
-    }
-
     isDropDisabled = (dropPosition) => {
         const isDropPositionVacant = this.state.myTeamList[dropPosition].findIndex(slot => slot.content.vacant) > -1;
         const isDropPositionValid = dropPosition === "BENCH"
                                     || dropPosition.includes(this.state.draggedPrimaryPosition)
                                     || dropPosition.includes(this.state.draggedSecondaryPosition);
-        if(!isDropPositionVacant || !isDropPositionValid) {
-            return true;
-        }
-        return false;
+        return !isDropPositionVacant || !isDropPositionValid;
+
     };
 
     onDragStart = start => {
@@ -191,15 +177,18 @@ class MyTeam extends React.Component {
             const playerId = sourcePositionList[source.index].content.player.id;
             const destinationPosition = this.droppableList[destination.droppableId];
 
+            const previousState = {...this.state.myTeamList};
+            this.movePlayerAndUpdateState(sourcePositionList, destination, source, destinationPosition);
+
+            // TODO: List is rearranged regardless of success of request. Should try and update this.
             DraftService.saveMyTeamLayout(this.props.currentTeam.id, playerId, destinationPosition)
                 .then(response => {
-                    if(response.status === 200) {
-                        this.movePlayerAndUpdateState(sourcePositionList, destination, source, destinationPosition);
-                    } else {
+                    if(!response.status === 200) {
                         this.setState({errorText: response.data.message});
                     }
                 })
                 .catch(error => {
+                    this.setState(previousState);
                     console.log(error);
                 });
         }
@@ -224,162 +213,48 @@ class MyTeam extends React.Component {
     }
 
     render() {
+        const {classes} = this.props;
+
         return (
-            <DragDropContext onDragStart={this.onDragStart} onDragEnd={this.onDragEnd}>
-                <Droppable droppableId="droppableDefs" isDropDisabled={this.isDropDisabled("DEF")}>
-                    {(provided, snapshot) => (
-                        <div
-                            ref={provided.innerRef}
-                            style={getListStyle(snapshot.isDraggingOver)}
-                        >
-                            {this.state.myTeamList.DEF.map((item, index) => (
-                                <Draggable
-                                    key={item.id}
-                                    draggableId={item.id}
-                                    index={index}
-                                    isDragDisabled={this.isDragDisabled(item.content.vacant)}>
-                                    {(provided, snapshot) => (
-                                        <div
-                                            ref={provided.innerRef}
-                                            {...provided.draggableProps}
-                                            {...provided.dragHandleProps}
-                                            style={getStyle(provided.draggableProps.style, snapshot)}
-                                        >
-                                            {item.content.player
-                                                ? item.content.player.firstName + item.content.player.price
-                                                : ""}
-                                        </div>
-                                    )}
-                                </Draggable>
-                            ))}
-                            <span style={{display: "none"}}>
-                                {provided.placeholder}
-                            </span>
-                        </div>
-                    )}
-                </Droppable>
-                <Droppable droppableId="droppableMids" isDropDisabled={this.isDropDisabled("MID")}>
-                    {(provided, snapshot) => (
-                        <div
-                            ref={provided.innerRef}
-                            style={getListStyle(snapshot.isDraggingOver)}>
-                            {this.state.myTeamList.MID.map((item, index) => (
-                                <Draggable
-                                    key={item.id}
-                                    draggableId={item.id}
-                                    index={index}
-                                    isDragDisabled={this.isDragDisabled(item.content.vacant)}>
-                                    {(provided, snapshot) => (
-                                        <div
-                                            ref={provided.innerRef}
-                                            {...provided.draggableProps}
-                                            {...provided.dragHandleProps}
-                                            style={getStyle(provided.draggableProps.style, snapshot)}>
-                                            {item.content.player
-                                                ? item.content.player.firstName + " ($" + item.content.price + ")"
-                                                : ""}
-                                        </div>
-                                    )}
-                                </Draggable>
-                            ))}
-                            <span style={{display: "none"}}>
-                                {provided.placeholder}
-                            </span>
-                        </div>
-                    )}
-                </Droppable>
-                <Droppable droppableId="droppableRucs" isDropDisabled={this.isDropDisabled("RUC")}>
-                    {(provided, snapshot) => (
-                        <div
-                            ref={provided.innerRef}
-                            style={getListStyle(snapshot.isDraggingOver)}>
-                            {this.state.myTeamList.RUC.map((item, index) => (
-                                <Draggable
-                                    key={item.id}
-                                    draggableId={item.id}
-                                    index={index}
-                                    isDragDisabled={this.isDragDisabled(item.content.vacant)}>
-                                    {(provided, snapshot) => (
-                                        <div
-                                            ref={provided.innerRef}
-                                            {...provided.draggableProps}
-                                            {...provided.dragHandleProps}
-                                            style={getStyle(provided.draggableProps.style, snapshot)}>
-                                            {item.content.player
-                                                ? item.content.player.firstName + " ($" + item.content.price + ")"
-                                                : ""}
-                                        </div>
-                                    )}
-                                </Draggable>
-                            ))}
-                            <span style={{display: "none"}}>
-                                {provided.placeholder}
-                            </span>
-                        </div>
-                    )}
-                </Droppable>
-                <Droppable droppableId="droppableFwds" isDropDisabled={this.isDropDisabled("FWD")}>
-                    {(provided, snapshot) => (
-                        <div
-                            ref={provided.innerRef}
-                            style={getListStyle(snapshot.isDraggingOver)}>
-                            {this.state.myTeamList.FWD.map((item, index) => (
-                                <Draggable
-                                    key={item.id}
-                                    draggableId={item.id}
-                                    index={index}
-                                    isDragDisabled={this.isDragDisabled(item.content.vacant)}>
-                                    {(provided, snapshot) => (
-                                        <div
-                                            ref={provided.innerRef}
-                                            {...provided.draggableProps}
-                                            {...provided.dragHandleProps}
-                                            style={getStyle(provided.draggableProps.style, snapshot)}>
-                                            {item.content.player
-                                                ? item.content.player.firstName + " ($" + item.content.price + ")"
-                                                : ""
-                                            }
-                                        </div>
-                                    )}
-                                </Draggable>
-                            ))}
-                            <span style={{display: "none"}}>
-                                {provided.placeholder}
-                            </span>
-                        </div>
-                    )}
-                </Droppable>
-                <Droppable droppableId="droppableBench" isDropDisabled={this.isDropDisabled('BENCH')}>
-                    {(provided, snapshot) => (
-                        <div
-                            ref={provided.innerRef}
-                            style={getListStyle(snapshot.isDraggingOver)}>
-                            {this.state.myTeamList.BENCH.map((item, index) => (
-                                <Draggable
-                                    key={item.id}
-                                    draggableId={item.id}
-                                    index={index}
-                                    isDragDisabled={this.isDragDisabled(item.content.vacant)}>
-                                    {(provided, snapshot) => (
-                                        <div
-                                            ref={provided.innerRef}
-                                            {...provided.draggableProps}
-                                            {...provided.dragHandleProps}
-                                            style={getStyle(provided.draggableProps.style, snapshot)}>
-                                            {item.content.player
-                                                ? item.content.player.firstName + " ($" + item.content.price + ")"
-                                                : ""}
-                                        </div>
-                                    )}
-                                </Draggable>
-                            ))}
-                            <span style={{display: "none"}}>
-                                {provided.placeholder}
-                            </span>
-                        </div>
-                    )}
-                </Droppable>
-            </DragDropContext>
+            <div id="my-team-root-div" className={classes.myTeamRoot}>
+                <DragDropContext onDragStart={this.onDragStart} onDragEnd={this.onDragEnd}>
+                    <DroppablePositionContainer
+                        droppableId="droppableDefs"
+                        isDropDisabled={this.isDropDisabled("DEF")}
+                        itemList={this.state.myTeamList.DEF}
+                        styleProps={defDroppableStyle}
+                        numOfPlayerRequired={this.props.numOfPlayersRequired}
+                    />
+                    <DroppablePositionContainer
+                        droppableId="droppableMids"
+                        isDropDisabled={this.isDropDisabled("MID")}
+                        itemList={this.state.myTeamList.MID}
+                        styleProps={midDroppableStyles}
+                        numOfPlayerRequired={this.props.numOfPlayersRequired}
+                    />
+                    <DroppablePositionContainer
+                        droppableId="droppableRucs"
+                        isDropDisabled={this.isDropDisabled("RUC")}
+                        itemList={this.state.myTeamList.RUC}
+                        styleProps={rucDroppableStyles}
+                        numOfPlayerRequired={this.props.numOfPlayersRequired}
+                    />
+                    <DroppablePositionContainer
+                        droppableId="droppableFwds"
+                        isDropDisabled={this.isDropDisabled("FWD")}
+                        itemList={this.state.myTeamList.FWD}
+                        styleProps={fwdDroppableStyles}
+                        numOfPlayerRequired={this.props.numOfPlayersRequired}
+                    />
+                    <DroppablePositionContainer
+                        droppableId="droppableBench"
+                        isDropDisabled={this.isDropDisabled("BENCH")}
+                        itemList={this.state.myTeamList.BENCH}
+                        styleProps={benchDroppableStyles}
+                        numOfPlayerRequired={this.props.numOfPlayersRequired}
+                    />
+                </DragDropContext>
+            </div>
         );
     }
 }
@@ -388,7 +263,8 @@ const mapStateToProps = state => {
     return {
         roster: draftRosterSelector(state),
         currentTeam: currentTeamSelector(state),
+        numOfPlayersRequired: numOfPlayersRequiredSelector(state),
     };
 };
 
-export default connect(mapStateToProps)(MyTeam);
+export default connect(mapStateToProps)(withStyles(styles)(MyTeam));

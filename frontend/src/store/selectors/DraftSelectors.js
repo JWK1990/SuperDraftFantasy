@@ -4,8 +4,8 @@ export const draftStatusSelector = state => state.draft.data.status;
 export const draftCommissionerUserIdSelector = state => state.draft.data.teams.find(team => team.type === "COMMISSIONER").user.id;
 export const commissionerTeamNameSelector = state => state.draft.data.teams.find(team => team.type === "COMMISSIONER").name;
 export const myDraftsSelector = state => state.draft.myDrafts;
-export const currentTeamSelector = state => state.draft.data.teams.find(team => team.user.username === state.user.data.username);
-export const currentTeamIdSelector = state => state.draft.data.teams.find(team => team.user.username === state.user.data.username).id;
+export const currentTeamSelector = state => state.draft.data.teams.find(team => team.user.id === state.user.data.id);
+export const currentTeamIdSelector = state => state.draft.data.teams.find(team => team.user.id === state.user.data.id).id;
 export const draftTeamsSelector = state => state.draft.data.teams;
 export const draftRosterSelector = state => state.draft.data.roster;
 export const numOfPlayersRequiredSelector = state => {

@@ -1,6 +1,7 @@
 import DraftService from "../../services/DraftService";
 import {changeCurrentTabAction} from "./NavigationActions";
 import NavigationUtils from "../../utils/NavigationUtils";
+import {updateOnTheBlockTeamAction} from "./BlockActions";
 
 // CREATE DRAFT.
 export const CREATE_DRAFT_STARTED = 'CREATE_DRAFT_STARTED';
@@ -50,6 +51,11 @@ export const getDraftAction = (draftId) => {
         DraftService.getDraft(draftId)
             .then(res => {
                 dispatch(getDraftSuccessAction(res.data))
+                const onTheBlockTeam = res.data.teams.find(team => team.onTheBlock);
+                const onTheBlockTeamId = onTheBlockTeam ? onTheBlockTeam.id : null;
+                if(onTheBlockTeamId) {
+                    dispatch(updateOnTheBlockTeamAction(onTheBlockTeamId))
+                }
             })
             .catch(err => {
                 dispatch(getDraftFailureAction(err.message))

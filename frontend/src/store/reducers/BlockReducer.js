@@ -1,5 +1,11 @@
 import {initialBlockData, initialBlockState} from "../state/BlockState";
-import {RECEIVE_ADD_TO_BLOCK, RECEIVE_BID, RECEIVE_START_NEXT_ROUND, RECEIVE_STOP_DRAFT} from "../actions/BlockActions";
+import {
+    RECEIVE_ADD_TO_BLOCK,
+    RECEIVE_BID,
+    RECEIVE_START_NEXT_ROUND,
+    RECEIVE_STOP_DRAFT,
+    UPDATE_ON_THE_BLOCK_TEAM
+} from "../actions/BlockActions";
 
 export function blockReducer(state = initialBlockState, action) {
     switch(action.type) {
@@ -24,7 +30,18 @@ export function blockReducer(state = initialBlockState, action) {
             };
 
             case RECEIVE_STOP_DRAFT:
-                return initialBlockState
+                return initialBlockState;
+
+        case UPDATE_ON_THE_BLOCK_TEAM:
+                return {
+                    ...state,
+                    loading: false,
+                    error: null,
+                    data: {
+                        ...state.data,
+                        onTheBlockTeamId: action.payload,
+                    }
+                };
 
         default:
             return state;
