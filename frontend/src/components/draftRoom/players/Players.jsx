@@ -3,7 +3,12 @@ import MaterialTable from "material-table";
 import Container from "@material-ui/core/Container";
 import DraftRoomPlayersSelected from "./selected/Selected";
 import {playersSelector} from "../../../store/selectors/PlayersSelectors";
-import {currentTeamIdSelector, draftSelector, draftTeamsSelector} from "../../../store/selectors/DraftSelectors";
+import {
+    currentTeamIdSelector,
+    draftSelector,
+    draftTeamsSelector,
+    isSlotAvailableSelector
+} from "../../../store/selectors/DraftSelectors";
 import {stompClientSelector} from "../../../store/selectors/WebSocketSelectors";
 import {connect} from "react-redux";
 import {updatePlayerAvailabilityAction, updateTeamAction} from "../../../store/actions";
@@ -89,11 +94,10 @@ class DraftRoomPlayers extends React.Component {
                 bidTimer: this.props.draft.bidTimer,
             };
             this.props.stompClient.send("/app/addToBlock", {}, JSON.stringify(addToBlockDetails));
-            console.log('Add To Block Sent: ', addToBlockDetails);
         }
     };
 
-    toggleAndSetSelected = (togglePanel, rowData) => {
+    toggleAndSetSelected = (event, togglePanel, rowData) => {
         togglePanel();
         if(this.state.selectedPlayer === rowData) {
             this.setState({selectedPlayer: ''});
@@ -102,57 +106,75 @@ class DraftRoomPlayers extends React.Component {
         }
     }
 
-    render() {
+    isSlotAvailableForPlayer(primaryPosition, secondaryPosition, caller){
+        const benchAvailability = this.props.slotAvailability.bench;
+        const primaryAvailability = this.props.slotAvailability[primaryPosition.toLowerCase()];
+        const secondaryAvailability = secondaryPosition ? this.props.slotAvailability[secondaryPosition.toLowerCase()] : false;
+        console.log(benchAvailability|| primaryAvailability || secondaryAvailability, caller);
+        return benchAvailability|| primaryAvailability || secondaryAvailability;
+    }
 
+    render() {
+        // TODO: Consider refactoring to basic React Material Table.
+        // Currently, every table row is re-rendered when the table changes.
+        // This means that isSlotAvailableForPlayer is called for every row unnecessarily under the actions section every time a row is expanded.
+        // Also, as the selected row is maintain via the state (rather than a CSS property), the entire component is re-rendered every time this value changes.
+        // Therefore, isSlotAvailableForPlayer is called twice as much as required.
         return (
-            <Container component="main" maxWidth="xl">
-                <div style={{ maxWidth: "100%" }}>
-                    <MaterialTable
-                        icons={tableIcons}
-                        title="Players"
-                        columns={[
-                            { title: "ID", field: "id", type: "numeric", searchable: false },
-                            { title: "Name", field: "firstName" },
-                            { title: "Team", field: "aflTeamId", searchable: false},
-                            { title: "Average", field: "average", type: "numeric", searchable: false },
-                            { title: "Position1", field: "primaryPosition", searchable: false },
-                            { title: "Position2", field: "secondaryPosition", searchable: false },
-                        ]}
-                        data={this.props.players}
-                        actions={[
-                            rowData => ({
-                                icon: () => <AddCircleOutlineIcon color="primary"/>,
-                                tooltip: 'Add To Block',
-                                onClick: (event, rowData) => this.sendAddToBlock(rowData.id, 1),
-                                hidden: !this.state.showAddToBlock
-                            })
-                        ]}
-                        detailPanel={rowData => {
-                            return (
-                                <DraftRoomPlayersSelected
-                                    player={rowData}
-                                    sendAddToBlock={this.sendAddToBlock}
-                                    hideAddToBlock = {!this.state.showAddToBlock}
-                                />
-                            )
-                        }}
-                        onRowClick={(event, rowData, togglePanel) => this.toggleAndSetSelected(togglePanel, rowData)}
-                        options={{
-                            detailPanelType: "single",
-                            paging: false,
-                            maxBodyHeight: "calc(100vh - 238px - 150px)",
-                            headerStyle: { position: 'sticky', top: 0 },
-                            rowStyle: rowData => ({
-                                backgroundColor: rowData.id === this.state.selectedPlayer.id
-                                    ? 'lightblue'
-                                    : (!rowData.available)
-                                        ? '#EEE'
-                                        : '#FFFFFF'
-                            })
-                        }}
-                    />
-                </div>
-            </Container>
+                <Container component="main" maxWidth="xl">
+                    <div style={{ maxWidth: "100%" }}>
+                        <MaterialTable
+                            icons={tableIcons}
+                            title="Players"
+                            columns={[
+                                { title: "ID", field: "id", type: "numeric", searchable: false },
+                                { title: "Name", field: "firstName" },
+                                { title: "Team", field: "aflTeamId", searchable: false},
+                                { title: "Average", field: "average", type: "numeric", searchable: false },
+                                { title: "Position1", field: "primaryPosition", searchable: false },
+                                { title: "Position2", field: "secondaryPosition", searchable: false },
+                            ]}
+                            data={this.props.players}
+                            actions={[
+                                rowData => ({
+                                    icon: () => <AddCircleOutlineIcon/>,
+                                    tooltip: 'Add To Block',
+                                    onClick: (event, rowData) => this.sendAddToBlock(rowData.id, 1),
+                                    hidden: !rowData.available || !this.state.showAddToBlock,
+                                    disabled: !this.isSlotAvailableForPlayer(rowData.primaryPosition, rowData.secondaryPosition, "P")
+                                })
+                            ]}
+                            detailPanel={rowData => {
+                                return (
+                                    <DraftRoomPlayersSelected
+                                        player={rowData}
+                                        sendAddToBlock={this.sendAddToBlock}
+                                        hideAddToBlock = {!rowData.available || !this.state.showAddToBlock}
+                                        isSlotAvailableForPlayer = {this.isSlotAvailableForPlayer(rowData.primaryPosition, rowData.secondaryPosition, "C")}
+                                    />
+                                )
+                            }}
+                            // TODO: As we change the State here in order to maintain the rowStyle background color when a player is selected,the entire table is re-rendered.
+                            // Therefore isSlotAvailableForPlayer is called twice as much as necessary.
+                            // Would be simpler if the active CSS property was set on the selected row, then we wouldn't have to maintain via State.
+                            // Maybe could check if this would work with a Material UI Table.
+                            onRowClick={(event, rowData, togglePanel) => this.toggleAndSetSelected(event, togglePanel, rowData)}
+                            options={{
+                                detailPanelType: "single",
+                                paging: false,
+                                maxBodyHeight: "calc(100vh - 238px - 150px)",
+                                headerStyle: { position: 'sticky', top: 0 },
+                                rowStyle: rowData => ({
+                                    backgroundColor: rowData.id === this.state.selectedPlayer.id
+                                        ? 'lightblue'
+                                        : (!rowData.available)
+                                            ? '#EEE'
+                                            : '#FFFFFF',
+                                })
+                            }}
+                        />
+                    </div>
+                </Container>
         );
     }
 }
@@ -166,6 +188,13 @@ const mapStateToProps = state => {
         teams: draftTeamsSelector(state),
         onTheBlockTeamId: onTheBlockTeamIdSelector(state),
         isOnTheBlock: isOnTheBlockSelector(state),
+        slotAvailability: {
+            def: isSlotAvailableSelector(state, "def"),
+            mid: isSlotAvailableSelector(state, "mid"),
+            ruc: isSlotAvailableSelector(state, "ruc"),
+            fwd: isSlotAvailableSelector(state, "fwd"),
+            bench: isSlotAvailableSelector(state, "bench"),
+        },
     };
 };
 

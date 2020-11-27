@@ -4,7 +4,7 @@ import {DraftStatusEnum} from "../../../models/DraftStatusEnum";
 import {connect} from "react-redux";
 import {userIdSelector} from "../../../store/selectors/UserSelectors";
 import {
-    draftCommissionerUserIdSelector,
+    commissionerUserIdSelector,
     draftIdSelector,
     draftStatusSelector
 } from "../../../store/selectors/DraftSelectors";
@@ -56,7 +56,7 @@ const mapStateToProps = state => {
     return {
         draftId: draftIdSelector(state),
         draftStatus: draftStatusSelector(state),
-        commissionerUserId: draftCommissionerUserIdSelector(state),
+        commissionerUserId: commissionerUserIdSelector(state),
         userId: userIdSelector(state),
     };
 };

@@ -51,6 +51,7 @@ function DraftRoomPlayersSelected(props) {
                                             value={initialBid}
                                             onChange={handleChange}
                                             label="Initial Bid"
+                                            disabled={!props.isSlotAvailableForPlayer}
                                         >
                                             <MenuItem value={initialBid}>${initialBid}</MenuItem>
                                             <MenuItem value={10}>$10</MenuItem>
@@ -63,7 +64,7 @@ function DraftRoomPlayersSelected(props) {
                                     <Fab
                                         color="primary"
                                         aria-label="add"
-                                        onClick={() => props.sendAddToBlock(props.player.id, initialBid)}
+                                        disabled={!props.isSlotAvailableForPlayer}
                                     >
                                         <AddIcon />
                                     </Fab>
@@ -95,7 +96,7 @@ function DraftRoomPlayersSelected(props) {
         //                 value={initialBid}
         //                 onChange={handleChange}
         //                 input={<BootstrapInput />}
-        //                 disabled={props.isAddToBlockDisabled}
+        //                 disabled={props.isSlotAvailableForPlayer}
         //             >
         //                 <MenuItem value={1}>$1</MenuItem>
         //                 <MenuItem value={10}>$10</MenuItem>
@@ -106,7 +107,7 @@ function DraftRoomPlayersSelected(props) {
         //         <IconButton
         //             aria-label="previous"
         //             onClick={() => props.sendAddToBlock(props.selected.id, initialBid)}
-        //             disabled= {props.isAddToBlockDisabled}
+        //             disabled= {props.isSlotAvailableForPlayer}
         //         >
         //             <AddCircleOutlineIcon />
         //         </IconButton>
