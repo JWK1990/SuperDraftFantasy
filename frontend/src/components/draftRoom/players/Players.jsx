@@ -3,7 +3,12 @@ import MaterialTable from "material-table";
 import Container from "@material-ui/core/Container";
 import DraftRoomPlayersSelected from "./selected/Selected";
 import {playersSelector} from "../../../store/selectors/PlayersSelectors";
-import {currentTeamIdSelector, draftSelector, draftTeamsSelector} from "../../../store/selectors/DraftSelectors";
+import {
+    currentTeamIdSelector,
+    draftSelector,
+    draftTeamsSelector,
+    isSlotAvailableSelector
+} from "../../../store/selectors/DraftSelectors";
 import {stompClientSelector} from "../../../store/selectors/WebSocketSelectors";
 import {connect} from "react-redux";
 import {updatePlayerAvailabilityAction, updateTeamAction} from "../../../store/actions";
@@ -23,7 +28,8 @@ import Remove from "@material-ui/icons/Remove";
 import SaveAlt from "@material-ui/icons/SaveAlt";
 import Search from "@material-ui/icons/Search";
 import ViewColumn from "@material-ui/icons/ViewColumn";
-import {onTheBlockTeamIdSelector} from "../../../store/selectors/BlockSelectors";
+import {isOnTheBlockSelector, onTheBlockTeamIdSelector} from "../../../store/selectors/BlockSelectors";
+import DraftRoomUtils from "../../../utils/DraftRoomUtils";
 
 const tableIcons = {
     Add: forwardRef((props, ref) => <AddBox {...props} ref={ref}/>),
@@ -51,11 +57,28 @@ class DraftRoomPlayers extends React.Component {
         super(props);
         this.state = {
             selectedPlayer: '',
+            showAddToBlock: false,
         };
     }
 
     componentDidMount() {
         this.props.stompClient.subscribe('/draft/teams', this.receiveTeam);
+    }
+
+    shouldComponentUpdate(nextProps, nextState, nextContext) {
+        return nextProps.isOnTheBlock !== this.props.isOnTheBlock ||
+            nextProps.draft.status !== this.props.draft.status ||
+            nextProps.slotAvailability !== this.props.slotAvailability
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if(prevProps.isOnTheBlock !== this.props.isOnTheBlock
+            || prevProps.draft.status !== this.props.draft.status
+        ) {
+            this.setState({
+                showAddToBlock: this.props.isOnTheBlock && this.props.draft.status === "IN_PROGRESS"
+            })
+        }
     }
 
     receiveTeam = (payload) => {
@@ -66,7 +89,6 @@ class DraftRoomPlayers extends React.Component {
     };
 
     sendAddToBlock = (selectedPlayerId, initialBid) => {
-        console.log("Props: ", this.props);
         if (this.props.stompClient) {
             const addToBlockDetails = {
                 draftId: this.props.draft.id,
@@ -79,19 +101,10 @@ class DraftRoomPlayers extends React.Component {
                 bidTimer: this.props.draft.bidTimer,
             };
             this.props.stompClient.send("/app/addToBlock", {}, JSON.stringify(addToBlockDetails));
-            console.log('Add To Block Sent: ', addToBlockDetails);
         }
     };
 
-    getIsAddToBlockDisabled = (player) => {
-        // const benchSlotVacant = this.props.vacantPositions["BENCH"];
-        // const primarySlotVacant = this.props.vacantPositions[player.primaryPosition];
-        // const secondarySlotVacant = this.props.vacantPositions[player.secondaryPosition];
-        // return !player.available || (!benchSlotVacant && !primarySlotVacant && !secondarySlotVacant);
-        return false;
-    }
-
-    toggleAndSetSelected = (togglePanel, rowData) => {
+    toggleAndSetSelected = (event, togglePanel, rowData) => {
         togglePanel();
         if(this.state.selectedPlayer === rowData) {
             this.setState({selectedPlayer: ''});
@@ -101,55 +114,76 @@ class DraftRoomPlayers extends React.Component {
     }
 
     render() {
+        // TODO: Consider refactoring to basic React Material Table.
+        // Currently, every table row is re-rendered when the table changes.
+        // This means that isSlotAvailableForPlayer is called for every row unnecessarily under the actions section every time a row is expanded.
+        // Also, as the selected row is maintain via the state (rather than a CSS property), the entire component is re-rendered every time this value changes.
+        // Therefore, isSlotAvailableForPlayer is called twice as much as required.
         return (
-            <Container component="main" maxWidth="xl">
-                <div style={{ maxWidth: "100%" }}>
-                    <MaterialTable
-                        icons={tableIcons}
-                        title="Players"
-                        columns={[
-                            { title: "ID", field: "id", type: "numeric", searchable: false },
-                            { title: "Name", field: "firstName" },
-                            { title: "Team", field: "aflTeamId", searchable: false},
-                            { title: "Average", field: "average", type: "numeric", searchable: false },
-                            { title: "Position1", field: "primaryPosition", searchable: false },
-                            { title: "Position2", field: "secondaryPosition", searchable: false },
-                        ]}
-                        data={this.props.players}
-                        actions={[
-                            rowData => ({
-                                icon: () => <AddCircleOutlineIcon color="primary"/>,
-                                tooltip: 'Add To Block',
-                                onClick: (event, rowData) => this.sendAddToBlock(rowData.id, 1),
-                                hidden: this.getIsAddToBlockDisabled(rowData)
-                            })
-                        ]}
-                        detailPanel={rowData => {
-                            return (
-                                <DraftRoomPlayersSelected
-                                    player={rowData}
-                                    sendAddToBlock={this.sendAddToBlock}
-                                    isAddToBlockDisabled = {this.getIsAddToBlockDisabled(this.state.selectedPlayer)}
-                                />
-                            )
-                        }}
-                        onRowClick={(event, rowData, togglePanel) => this.toggleAndSetSelected(togglePanel, rowData)}
-                        options={{
-                            detailPanelType: "single",
-                            paging: false,
-                            maxBodyHeight: "calc(100vh - 238px - 150px)",
-                            headerStyle: { position: 'sticky', top: 0 },
-                            rowStyle: rowData => ({
-                                backgroundColor: rowData.id === this.state.selectedPlayer.id
-                                    ? 'lightblue'
-                                    : (!rowData.available)
-                                        ? '#EEE'
-                                        : '#FFFFFF'
-                            })
-                        }}
-                    />
-                </div>
-            </Container>
+                <Container component="main" maxWidth="xl">
+                    <div style={{ maxWidth: "100%" }}>
+                        <MaterialTable
+                            icons={tableIcons}
+                            title="Players"
+                            columns={[
+                                { title: "ID", field: "id", type: "numeric", searchable: false },
+                                { title: "Name", field: "firstName" },
+                                { title: "Team", field: "aflTeamId", searchable: false},
+                                { title: "Average", field: "average", type: "numeric", searchable: false },
+                                { title: "Position1", field: "primaryPosition", searchable: false },
+                                { title: "Position2", field: "secondaryPosition", searchable: false },
+                            ]}
+                            data={this.props.players}
+                            // TODO: When we pass rowData into our action, it causes all rows to be re-rendered every time a row is toggled or untoggled.
+                            // Unsure if there is a way around this. Maybe can look into it.
+                            actions={[
+                                rowData => ({
+                                    icon: () => <AddCircleOutlineIcon/>,
+                                    tooltip: 'Add To Block',
+                                    onClick: (event, rowData) => this.sendAddToBlock(rowData.id, 1),
+                                    hidden: !rowData.available || !this.state.showAddToBlock,
+                                    disabled: !DraftRoomUtils.isSlotAvailableForPlayer(
+                                        this.props.slotAvailability,
+                                        rowData.primaryPosition,
+                                        rowData.secondaryPosition
+                                    )
+                                })
+                            ]}
+                            detailPanel={rowData => {
+                                return (
+                                    <DraftRoomPlayersSelected
+                                        player={rowData}
+                                        sendAddToBlock={this.sendAddToBlock}
+                                        hideAddToBlock = {!rowData.available || !this.state.showAddToBlock}
+                                        isSlotAvailableForPlayer = {DraftRoomUtils.isSlotAvailableForPlayer(
+                                            this.props.slotAvailability,
+                                            rowData.primaryPosition,
+                                            rowData.secondaryPosition
+                                        )}
+                                    />
+                                )
+                            }}
+                            // TODO: As we change the State here in order to maintain the rowStyle background color when a player is selected,the entire table is re-rendered.
+                            // Therefore isSlotAvailableForPlayer is called twice as much as necessary.
+                            // Would be simpler if the active CSS property was set on the selected row, then we wouldn't have to maintain via State.
+                            // Maybe could check if this would work with a Material UI Table.
+                            onRowClick={(event, rowData, togglePanel) => this.toggleAndSetSelected(event, togglePanel, rowData)}
+                            options={{
+                                detailPanelType: "single",
+                                paging: false,
+                                maxBodyHeight: "calc(100vh - 238px - 150px)",
+                                headerStyle: { position: 'sticky', top: 0 },
+                                rowStyle: rowData => ({
+                                    backgroundColor: rowData.id === this.state.selectedPlayer.id
+                                        ? 'lightblue'
+                                        : (!rowData.available)
+                                            ? '#EEE'
+                                            : '#FFFFFF',
+                                })
+                            }}
+                        />
+                    </div>
+                </Container>
         );
     }
 }
@@ -162,6 +196,14 @@ const mapStateToProps = state => {
         currentTeamId: currentTeamIdSelector(state),
         teams: draftTeamsSelector(state),
         onTheBlockTeamId: onTheBlockTeamIdSelector(state),
+        isOnTheBlock: isOnTheBlockSelector(state),
+        slotAvailability: {
+            def: isSlotAvailableSelector(state, "def"),
+            mid: isSlotAvailableSelector(state, "mid"),
+            ruc: isSlotAvailableSelector(state, "ruc"),
+            fwd: isSlotAvailableSelector(state, "fwd"),
+            bench: isSlotAvailableSelector(state, "bench"),
+        },
     };
 };
 

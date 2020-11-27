@@ -6,7 +6,7 @@ import {connect} from "react-redux";
 import {
     commissionerTeamNameSelector,
     currentTeamSelector,
-    draftSelector
+    draftSelector, isSlotAvailableSelector
 } from "../../../store/selectors/DraftSelectors";
 import BlockPlayer from "./player/BlockPlayer";
 import {stompClientSelector} from "../../../store/selectors/WebSocketSelectors";
@@ -17,10 +17,11 @@ import {
     receiveStartNextRoundAction,
     receiveStopDraftAction,
 } from "../../../store/actions/BlockActions";
-import {blockSelector} from "../../../store/selectors/BlockSelectors";
+import {blockSelector, isLeadBidderSelector, isOnTheBlockSelector} from "../../../store/selectors/BlockSelectors";
 import VacantBlock from "./player/VacantBlock";
 import AddToBlockClock from "./clock/AddToBlockClock";
 import PausedDraft from "./player/PausedDraft";
+import DraftRoomUtils from "../../../utils/DraftRoomUtils";
 
 const styles = theme => ({
     firstRowGridContainer: {
@@ -74,7 +75,7 @@ class DraftRoomBlock extends React.Component {
     receiveAddToBlock = (payload) => {
         console.log('AddToBlock Received ', payload);
         const updatedBlock = JSON.parse(payload.body);
-        const isBidDisabledTuple = this.getIsBidDisabled(updatedBlock.teamId, updatedBlock.price, updatedBlock.playerId);
+        const isBidDisabledTuple = this.getIsBidDisabledTuple(updatedBlock.teamId, updatedBlock.price, updatedBlock.playerId);
         this.props.receiveAddToBlock(updatedBlock);
         this.setState({
             ...this.state,
@@ -104,7 +105,7 @@ class DraftRoomBlock extends React.Component {
     receiveBid = (payload) => {
         console.log("Bid Received", payload);
         const updatedBlock = JSON.parse(payload.body);
-        const isBidDisabledTuple = this.getIsBidDisabled(updatedBlock.price, updatedBlock.playerId);
+        const isBidDisabledTuple = this.getIsBidDisabledTuple(updatedBlock.price, updatedBlock.playerId);
         this.props.receiveBid(updatedBlock);
         this.setState({
             ...this.state,
@@ -132,17 +133,24 @@ class DraftRoomBlock extends React.Component {
         return this.props.draft.teams.find(team => team.id === teamId);
     }
 
-    getIsBidDisabled = (bidderId, price, playerId) => {
-        const player = this.getPlayerDetailsById(playerId);
-
+    getIsBidDisabledTuple = (bidderId, price, playerId) => {
         if(bidderId === this.props.currentTeam.id) {
             return [true, "You lead:"];
         }
-        if(price && !this.getIsBudgetAvailableForPlayer(price)) {
+
+        if(price && this.props.currentTeam.maxBid < price + 1) {
             return [true, "Insufficient budget."]
         }
-        if(player && !this.getIsSlotAvailableForPlayer(player)) {
-            return [true, "No " + player.position + " Slot."]
+
+        const player = this.getPlayerDetailsById(playerId);
+        if(player &&
+            !DraftRoomUtils.isSlotAvailableForPlayer(
+                this.props.slotAvailability,
+                player.primaryPosition,
+                player.secondaryPosition
+            )
+        ) {
+            return [true, "No " + player.primaryPosition + " or " + player.secondaryPosition + " slot."]
         }
         return [false, "Bid"];
     }
@@ -194,17 +202,15 @@ class DraftRoomBlock extends React.Component {
                         {this.state.showAddToBlockClock ?
                             <AddToBlockClock
                                 duration={this.props.draft.onTheBlockTimer}
-                                text="Add To Block"
                                 key={this.state.addToBlockClockKey}
-                                isDisabled={false}
                             />
                             : this.state.showBidClock ?
                             <BidClock
                                 duration={this.props.draft.bidTimer}
-                                text="Bid"
+                                text={this.props.isLeadBidder ? "You Lead" : "Bid"}
                                 key={this.state.bidClockKey}
                                 sendBid={this.sendBid}
-                                isDisabled={false}
+                                isDisabled={this.props.isLeadBidder}
                                 currentPrice={this.props.block.price}
                             />
                             : null
@@ -216,6 +222,7 @@ class DraftRoomBlock extends React.Component {
                     {this.state.showAddToBlockClock ?
                         <VacantBlock
                             onTheBlockTeamName={this.getTeamById(this.props.block.onTheBlockTeamId).name}
+                            isOnTheBlock={this.props.isOnTheBlock}
                         />
                         : this.state.showBidClock ?
                         <BlockPlayer
@@ -241,6 +248,15 @@ const mapStateToProps = state => {
         currentTeam: currentTeamSelector(state),
         block: blockSelector(state),
         commissionerTeamName: commissionerTeamNameSelector(state),
+        isLeadBidder: isLeadBidderSelector(state),
+        isOnTheBlock: isOnTheBlockSelector(state),
+        slotAvailability: {
+            def: isSlotAvailableSelector(state, "def"),
+            mid: isSlotAvailableSelector(state, "mid"),
+            ruc: isSlotAvailableSelector(state, "ruc"),
+            fwd: isSlotAvailableSelector(state, "fwd"),
+            bench: isSlotAvailableSelector(state, "bench"),
+        },
     };
 };
 
@@ -248,7 +264,7 @@ const mapDispatchToProps = dispatch => ({
         receiveStartNextRound: (block) => dispatch(receiveStartNextRoundAction(block)),
         receiveAddToBlock: (block) => dispatch(receiveAddToBlockAction(block)),
         receiveBid: (block) => dispatch(receiveBidAction(block)),
-        receiveStopDraft: () => dispatch(receiveStopDraftAction())
+        receiveStopDraft: () => dispatch(receiveStopDraftAction()),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(

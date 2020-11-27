@@ -27,6 +27,7 @@ const styles = {
 };
 
 function BidClock(props) {
+
    const {classes} = props;
 
     const [text, setText] = useState({

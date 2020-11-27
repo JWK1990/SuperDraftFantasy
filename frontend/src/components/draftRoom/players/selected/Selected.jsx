@@ -1,12 +1,9 @@
 import React, {useState} from "react";
-import InputBase from "@material-ui/core/InputBase";
-import withStyles from "@material-ui/core/styles/withStyles";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import PlayerBar from "../../../shared/PlayerBar";
 import Grid from "@material-ui/core/Grid";
 import Fab from "@material-ui/core/Fab";
 import AddIcon from '@material-ui/icons/Add';
-import Paper from "@material-ui/core/Paper";
 import {FormControl, InputLabel, MenuItem, Select} from "@material-ui/core";
 
 const useStyles = makeStyles(theme => ({
@@ -40,48 +37,47 @@ function DraftRoomPlayersSelected(props) {
     return (
         <div>
             <Grid container>
-
-                <Grid item xs={1}>
-                    <div className={classes.controlsDiv}>
-
-                        <div className={classes.inputDiv}>
-                            <FormControl variant="outlined">
-                                <InputLabel id="starting-bid">Bid</InputLabel>
-                                <Select
-                                    labelId="demo-simple-select-outlined-label"
-                                    id="demo-simple-select-outlined"
-                                    value={initialBid}
-                                    onChange={handleChange}
-                                    label="Initial Bid"
-                                >
-                                    <MenuItem value={initialBid}>${initialBid}</MenuItem>
-                                    <MenuItem value={10}>$10</MenuItem>
-                                    <MenuItem value={20}>$20</MenuItem>
-                                    <MenuItem value={30}>$30</MenuItem>
-                                </Select>
-                            </FormControl>
-                        </div>
-
-                        <div>
-                            <Fab
-                                color="primary"
-                                aria-label="add"
-                                onClick={() => props.sendAddToBlock(props.player.id, initialBid)}
-                            >
-                                <AddIcon />
-                            </Fab>
-                        </div>
-
-                    </div>
-                </Grid>
-
+                {
+                    props.hideAddToBlock ?
+                        null :
+                        <Grid item xs={1}>
+                            <div className={classes.controlsDiv}>
+                                <div className={classes.inputDiv}>
+                                    <FormControl variant="outlined">
+                                        <InputLabel id="starting-bid">Bid</InputLabel>
+                                        <Select
+                                            labelId="demo-simple-select-outlined-label"
+                                            id="demo-simple-select-outlined"
+                                            value={initialBid}
+                                            onChange={handleChange}
+                                            label="Initial Bid"
+                                            disabled={!props.isSlotAvailableForPlayer}
+                                        >
+                                            <MenuItem value={initialBid}>${initialBid}</MenuItem>
+                                            <MenuItem value={10}>$10</MenuItem>
+                                            <MenuItem value={20}>$20</MenuItem>
+                                            <MenuItem value={30}>$30</MenuItem>
+                                        </Select>
+                                    </FormControl>
+                                </div>
+                                <div>
+                                    <Fab
+                                        color="primary"
+                                        aria-label="add"
+                                        disabled={!props.isSlotAvailableForPlayer}
+                                        onClick={() => props.sendAddToBlock(props.player.id, initialBid)}
+                                    >
+                                        <AddIcon />
+                                    </Fab>
+                                </div>
+                            </div>
+                        </Grid>
+                }
                 <Grid item xs={11}>
                     <PlayerBar
                         player={props.player}
                     />
                 </Grid>
-
-
             </Grid>
         </div>
 
@@ -101,7 +97,7 @@ function DraftRoomPlayersSelected(props) {
         //                 value={initialBid}
         //                 onChange={handleChange}
         //                 input={<BootstrapInput />}
-        //                 disabled={props.isAddToBlockDisabled}
+        //                 disabled={props.isSlotAvailableForPlayer}
         //             >
         //                 <MenuItem value={1}>$1</MenuItem>
         //                 <MenuItem value={10}>$10</MenuItem>
@@ -112,7 +108,7 @@ function DraftRoomPlayersSelected(props) {
         //         <IconButton
         //             aria-label="previous"
         //             onClick={() => props.sendAddToBlock(props.selected.id, initialBid)}
-        //             disabled= {props.isAddToBlockDisabled}
+        //             disabled= {props.isSlotAvailableForPlayer}
         //         >
         //             <AddCircleOutlineIcon />
         //         </IconButton>

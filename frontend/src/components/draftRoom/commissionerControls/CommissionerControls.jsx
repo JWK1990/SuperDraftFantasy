@@ -4,7 +4,7 @@ import {DraftStatusEnum} from "../../../models/DraftStatusEnum";
 import {connect} from "react-redux";
 import {userIdSelector} from "../../../store/selectors/UserSelectors";
 import {
-    draftCommissionerUserIdSelector,
+    commissionerUserIdSelector,
     draftIdSelector,
     draftStatusSelector
 } from "../../../store/selectors/DraftSelectors";
@@ -12,10 +12,7 @@ import {startDraftAction, stopDraftAction} from "../../../store/actions";
 
 
 function CommissionerControls(props) {
-    console.log(props.draftStatus)
-
     const isCommissioner = props.userId === props.commissionerUserId;
-    console.log(isCommissioner);
 
     const getButton = () => {
         if(isCommissioner) {
@@ -59,7 +56,7 @@ const mapStateToProps = state => {
     return {
         draftId: draftIdSelector(state),
         draftStatus: draftStatusSelector(state),
-        commissionerUserId: draftCommissionerUserIdSelector(state),
+        commissionerUserId: commissionerUserIdSelector(state),
         userId: userIdSelector(state),
     };
 };

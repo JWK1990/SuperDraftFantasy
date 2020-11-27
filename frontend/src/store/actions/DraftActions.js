@@ -1,6 +1,7 @@
 import DraftService from "../../services/DraftService";
 import {changeCurrentTabAction} from "./NavigationActions";
 import NavigationUtils from "../../utils/NavigationUtils";
+import {updateOnTheBlockTeamAction} from "./BlockActions";
 
 // CREATE DRAFT.
 export const CREATE_DRAFT_STARTED = 'CREATE_DRAFT_STARTED';
@@ -50,6 +51,11 @@ export const getDraftAction = (draftId) => {
         DraftService.getDraft(draftId)
             .then(res => {
                 dispatch(getDraftSuccessAction(res.data))
+                const onTheBlockTeam = res.data.teams.find(team => team.onTheBlock);
+                const onTheBlockTeamId = onTheBlockTeam ? onTheBlockTeam.id : null;
+                if(onTheBlockTeamId) {
+                    dispatch(updateOnTheBlockTeamAction(onTheBlockTeamId))
+                }
             })
             .catch(err => {
                 dispatch(getDraftFailureAction(err.message))
@@ -221,4 +227,34 @@ export const REORDER_TEAM_LIST = 'REORDER_TEAM_LIST';
 export const reorderTeamListAction = teamList => ({
     type: REORDER_TEAM_LIST,
     payload: teamList
+});
+
+// MY TEAM POSITION.
+export const UPDATE_MY_TEAM_POSITION_STARTED = 'UPDATE_MY_TEAM_POSITION_STARTED';
+export const UPDATE_MY_TEAM_POSITION_SUCCESS = 'UPDATE_MY_TEAM_POSITION_SUCCESS';
+export const UPDATE_MY_TEAM_POSITION_FAILURE = 'UPDATE_MY_TEAM_POSITION_FAILURE';
+
+export const updateMyTeamPositionAction = (teamId, playerId, position) => {
+    return dispatch => {
+        dispatch(updateMyTeamPositionStartedAction());
+
+        DraftService.saveMyTeamLayout(teamId, playerId, position)
+            .catch(err => {
+                dispatch(updateMyTeamPositionFailureAction(err.message))
+            })
+    }
+};
+
+export const updateMyTeamPositionStartedAction = () => ({
+    type: UPDATE_MY_TEAM_POSITION_STARTED
+});
+
+export const updateMyTeamPositionSuccessAction = myTeamPosition => ({
+    type: UPDATE_MY_TEAM_POSITION_SUCCESS,
+    payload: myTeamPosition
+});
+
+export const updateMyTeamPositionFailureAction = error => ({
+    type: UPDATE_MY_TEAM_POSITION_FAILURE,
+    payload: error
 });
