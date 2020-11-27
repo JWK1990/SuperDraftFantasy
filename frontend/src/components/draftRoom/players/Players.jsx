@@ -64,6 +64,12 @@ class DraftRoomPlayers extends React.Component {
         this.props.stompClient.subscribe('/draft/teams', this.receiveTeam);
     }
 
+    shouldComponentUpdate(nextProps, nextState, nextContext) {
+        return nextProps.isOnTheBlock !== this.props.isOnTheBlock ||
+            nextProps.draft.status !== this.props.draft.status ||
+            nextProps.slotAvailability !== this.props.slotAvailability
+    }
+
     componentDidUpdate(prevProps, prevState, snapshot) {
         if(prevProps.isOnTheBlock !== this.props.isOnTheBlock
             || prevProps.draft.status !== this.props.draft.status
@@ -106,11 +112,10 @@ class DraftRoomPlayers extends React.Component {
         }
     }
 
-    isSlotAvailableForPlayer(primaryPosition, secondaryPosition, caller){
+    isSlotAvailableForPlayer(primaryPosition, secondaryPosition){
         const benchAvailability = this.props.slotAvailability.bench;
         const primaryAvailability = this.props.slotAvailability[primaryPosition.toLowerCase()];
         const secondaryAvailability = secondaryPosition ? this.props.slotAvailability[secondaryPosition.toLowerCase()] : false;
-        console.log(benchAvailability|| primaryAvailability || secondaryAvailability, caller);
         return benchAvailability|| primaryAvailability || secondaryAvailability;
     }
 
@@ -135,13 +140,15 @@ class DraftRoomPlayers extends React.Component {
                                 { title: "Position2", field: "secondaryPosition", searchable: false },
                             ]}
                             data={this.props.players}
+                            // TODO: When we pass rowData into our action, it causes all rows to be re-rendered every time a row is toggled or untoggled.
+                            // Unsure if there is a way around this. Maybe can look into it.
                             actions={[
                                 rowData => ({
                                     icon: () => <AddCircleOutlineIcon/>,
                                     tooltip: 'Add To Block',
                                     onClick: (event, rowData) => this.sendAddToBlock(rowData.id, 1),
                                     hidden: !rowData.available || !this.state.showAddToBlock,
-                                    disabled: !this.isSlotAvailableForPlayer(rowData.primaryPosition, rowData.secondaryPosition, "P")
+                                    disabled: !this.isSlotAvailableForPlayer(rowData.primaryPosition, rowData.secondaryPosition)
                                 })
                             ]}
                             detailPanel={rowData => {
@@ -150,7 +157,7 @@ class DraftRoomPlayers extends React.Component {
                                         player={rowData}
                                         sendAddToBlock={this.sendAddToBlock}
                                         hideAddToBlock = {!rowData.available || !this.state.showAddToBlock}
-                                        isSlotAvailableForPlayer = {this.isSlotAvailableForPlayer(rowData.primaryPosition, rowData.secondaryPosition, "C")}
+                                        isSlotAvailableForPlayer = {this.isSlotAvailableForPlayer(rowData.primaryPosition, rowData.secondaryPosition)}
                                     />
                                 )
                             }}

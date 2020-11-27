@@ -91,7 +91,7 @@ export default function CircularStatIcon(props) {
                         <CircularProgress
                             size={68}
                             className={[classes.fabProgress, barColour].join(" ")}
-                            variant="static"
+                            variant="determinate"
                             value={value/props.maxStatValue * 100}
                         />
                     </div>

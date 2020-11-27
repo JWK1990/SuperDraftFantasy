@@ -228,3 +228,33 @@ export const reorderTeamListAction = teamList => ({
     type: REORDER_TEAM_LIST,
     payload: teamList
 });
+
+// MY TEAM POSITION.
+export const UPDATE_MY_TEAM_POSITION_STARTED = 'UPDATE_MY_TEAM_POSITION_STARTED';
+export const UPDATE_MY_TEAM_POSITION_SUCCESS = 'UPDATE_MY_TEAM_POSITION_SUCCESS';
+export const UPDATE_MY_TEAM_POSITION_FAILURE = 'UPDATE_MY_TEAM_POSITION_FAILURE';
+
+export const updateMyTeamPositionAction = (teamId, playerId, position) => {
+    return dispatch => {
+        dispatch(updateMyTeamPositionStartedAction());
+
+        DraftService.saveMyTeamLayout(teamId, playerId, position)
+            .catch(err => {
+                dispatch(updateMyTeamPositionFailureAction(err.message))
+            })
+    }
+};
+
+export const updateMyTeamPositionStartedAction = () => ({
+    type: UPDATE_MY_TEAM_POSITION_STARTED
+});
+
+export const updateMyTeamPositionSuccessAction = myTeamPosition => ({
+    type: UPDATE_MY_TEAM_POSITION_SUCCESS,
+    payload: myTeamPosition
+});
+
+export const updateMyTeamPositionFailureAction = error => ({
+    type: UPDATE_MY_TEAM_POSITION_FAILURE,
+    payload: error
+});

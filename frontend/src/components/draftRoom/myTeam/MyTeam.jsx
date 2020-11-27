@@ -9,6 +9,8 @@ import {
 import {connect} from "react-redux";
 import withStyles from "@material-ui/core/styles/withStyles";
 import DroppablePositionContainer from "./DroppablePositionContainer";
+import {updateMyTeamPositionAction, updateMyTeamPositionSuccessAction} from "../../../store/actions";
+import {stompClientSelector} from "../../../store/selectors/WebSocketSelectors";
 
 const styles = {
     myTeamRoot: {
@@ -119,12 +121,22 @@ class MyTeam extends React.Component {
         this.setState({myTeamList: getInitialMyTeamList(this.props.roster, this.props.currentTeam.teamPlayerJoins)});
     }
 
+    componentDidMount() {
+        this.props.stompClient.subscribe('/draft/updateMyTeamPositions', this.receiveUpdatedMyTeamPosition)
+    }
+
     componentWillUpdate(nextProps) {
         const newPlayerReceived = nextProps.currentTeam.teamPlayerJoins.length !== this.props.currentTeam.teamPlayerJoins.length;
         if(newPlayerReceived) {
             const playerToBeAdded = nextProps.currentTeam.teamPlayerJoins[nextProps.currentTeam.teamPlayerJoins.length -1];
             addPlayerToFirstVacantSlot(this.state.myTeamList, playerToBeAdded);
         }
+    }
+
+    receiveUpdatedMyTeamPosition = (payload) => {
+        const updatedMyTeamPosition = JSON.parse(payload.body);
+        console.log("UPDATED MY TEAM POSITION: ", updatedMyTeamPosition);
+        this.props.updateMyTeamPositionSuccess(updatedMyTeamPosition);
     }
 
     /**
@@ -183,16 +195,8 @@ class MyTeam extends React.Component {
             this.movePlayerAndUpdateState(sourcePositionList, destination, source, destinationPosition);
 
             // TODO: List is rearranged regardless of success of request. Should try and update this.
-            DraftService.saveMyTeamLayout(this.props.currentTeam.id, playerId, destinationPosition)
-                .then(response => {
-                    if(!response.status === 200) {
-                        this.setState({errorText: response.data.message});
-                    }
-                })
-                .catch(error => {
-                    this.setState(previousState);
-                    console.log(error);
-                });
+            // Use POST rather than WebSockets to send as this functionality may be used outside of a Draft too.
+            this.props.updateMyTeamPosition(this.props.currentTeam.id, playerId, destinationPosition);
         }
     };
 
@@ -269,12 +273,18 @@ class MyTeam extends React.Component {
     }
 }
 
+const mapDispatchToProps = dispatch => ({
+    updateMyTeamPosition: (teamId, playerId, position) => dispatch(updateMyTeamPositionAction(teamId, playerId, position)),
+    updateMyTeamPositionSuccess: (team) => dispatch(updateMyTeamPositionSuccessAction(team)),
+})
+
 const mapStateToProps = state => {
     return {
         roster: draftRosterSelector(state),
         currentTeam: currentTeamSelector(state),
         numOfPlayersRequired: numOfPlayersRequiredSelector(state),
+        stompClient: stompClientSelector(state),
     };
 };
 
-export default connect(mapStateToProps)(withStyles(styles)(MyTeam));
+export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(MyTeam));

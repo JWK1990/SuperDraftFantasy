@@ -18,7 +18,10 @@ import {
     START_DRAFT_SUCCESS,
     STOP_DRAFT_STARTED,
     STOP_DRAFT_FAILURE,
-    STOP_DRAFT_SUCCESS
+    STOP_DRAFT_SUCCESS,
+    UPDATE_MY_TEAM_POSITION_FAILURE,
+    UPDATE_MY_TEAM_POSITION_STARTED,
+    UPDATE_MY_TEAM_POSITION_SUCCESS
 } from "../actions";
 import {initialDraftState} from "../state/DraftState";
 
@@ -31,6 +34,7 @@ export function draftReducer(state = initialDraftState, action) {
         case GET_MY_DRAFTS_STARTED:
         case START_DRAFT_STARTED:
         case STOP_DRAFT_STARTED:
+        case UPDATE_MY_TEAM_POSITION_STARTED:
             return {
                 ...state,
                 loading: true
@@ -72,18 +76,6 @@ export function draftReducer(state = initialDraftState, action) {
                 myDrafts: action.payload
             };
 
-        case CREATE_DRAFT_FAILURE:
-        case GET_DRAFT_FAILURE:
-        case JOIN_DRAFT_FAILURE:
-        case GET_MY_DRAFTS_FAILURE:
-        case START_DRAFT_FAILURE:
-        case STOP_DRAFT_FAILURE:
-            return {
-                ...state,
-                loading: false,
-                error: action.payload
-            };
-
         case UPDATE_TEAM:
             const updatedTeams = [...state.data.teams];
             let updatedTeamIndex = updatedTeams.findIndex(team => team.id === action.payload.id);
@@ -112,6 +104,37 @@ export function draftReducer(state = initialDraftState, action) {
                     ))
                 }
             }
+
+        case UPDATE_MY_TEAM_POSITION_SUCCESS:
+            const teams = [...state.data.teams];
+            const teamIndex = teams.findIndex(team => team.id === action.payload.teamId);
+            const teamPlayerJoinIndex = teams[teamIndex].teamPlayerJoins.findIndex(
+                teamPlayerJoin => teamPlayerJoin.player.id === action.payload.playerId
+            );
+            teams[teamIndex].teamPlayerJoins[teamPlayerJoinIndex].myTeamPosition = action.payload.myTeamPosition;
+            return {
+                ...state,
+                loading: false,
+                error: null,
+                data: {
+                    ...state.data,
+                    teams: teams,
+                }
+            }
+
+
+        case CREATE_DRAFT_FAILURE:
+        case GET_DRAFT_FAILURE:
+        case JOIN_DRAFT_FAILURE:
+        case GET_MY_DRAFTS_FAILURE:
+        case START_DRAFT_FAILURE:
+        case STOP_DRAFT_FAILURE:
+        case UPDATE_MY_TEAM_POSITION_FAILURE:
+            return {
+                ...state,
+                loading: false,
+                error: action.payload
+            };
 
         default:
             return state;

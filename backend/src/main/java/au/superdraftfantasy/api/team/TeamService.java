@@ -1,13 +1,13 @@
 package au.superdraftfantasy.api.team;
 
 import au.superdraftfantasy.api.block.BlockDto;
-import au.superdraftfantasy.api.draft.DraftRepository;
 import au.superdraftfantasy.api.player.PlayerEntity;
 import au.superdraftfantasy.api.player.PlayerRepository;
 import au.superdraftfantasy.api.teamPlayerJoin.TeamPlayerJoinEntity;
-import au.superdraftfantasy.api.user.UserRepository;
+import au.superdraftfantasy.api.teamPlayerJoin.TeamPlayerJoinWriteDto;
 import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
+import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
@@ -20,23 +20,20 @@ import java.util.stream.Collectors;
 public class TeamService {
 
     private final ModelMapper modelMapper;
-    private final DraftRepository draftRepository;
-    private final UserRepository userRepository;
     private final TeamRepository teamRepository;
     private final PlayerRepository playerRepository;
+    private final SimpMessagingTemplate simpMessagingTemplate;
 
     public TeamService(
             ModelMapper modelMapper,
-            DraftRepository draftRepository,
-            UserRepository userRepository,
             TeamRepository teamRepository,
-            PlayerRepository playerRepository
+            PlayerRepository playerRepository,
+            SimpMessagingTemplate simpMessagingTemplate
     ) {
         this.modelMapper = modelMapper;
-        this.draftRepository = draftRepository;
-        this.userRepository = userRepository;
         this.teamRepository = teamRepository;
         this.playerRepository = playerRepository;
+        this.simpMessagingTemplate = simpMessagingTemplate;
     }
 
     /**
@@ -57,21 +54,24 @@ public class TeamService {
 
     /**
      * Updates a Players current field position within a Team.
-     * @param teamID
+     * @param teamId
      * @param playerId
      * @param myTeamPosition
      * @return
      */
-    public String updateMyTeamPosition(final Long teamID, Long playerId, String myTeamPosition) {
-        TeamEntity team = teamRepository.findById(teamID)
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Team with ID '" + teamID + "' Not Found."));
+    public String updateMyTeamPosition(final Long teamId, Long playerId, String myTeamPosition) {
+        TeamEntity team = teamRepository.findById(teamId)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Team with ID '" + teamId + "' Not Found."));
 
         TeamPlayerJoinEntity teamPlayerJoinToUpdate = team.getTeamPlayerJoins()
-                .stream().filter(teamPlayerJoin -> teamPlayerJoin.getPlayer().getId() == playerId)
+                .stream().filter(teamPlayerJoin -> teamPlayerJoin.getPlayer().getId().equals(playerId))
                 .findFirst().orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "TeamPlayerJoinEntity not found"));
 
         teamPlayerJoinToUpdate.setMyTeamPosition(myTeamPosition);
         teamRepository.save(team);
+        // TODO: Update ReadDto to include teamId so that we can use it here.
+        TeamPlayerJoinWriteDto readDto = new TeamPlayerJoinWriteDto(teamId, playerId, myTeamPosition);
+        this.simpMessagingTemplate.convertAndSend("/draft/updateMyTeamPositions", readDto);
         return myTeamPosition;
     }
 
