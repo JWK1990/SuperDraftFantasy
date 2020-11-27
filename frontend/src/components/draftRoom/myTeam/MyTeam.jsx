@@ -1,6 +1,5 @@
 import React from 'react';
 import {DragDropContext} from 'react-beautiful-dnd';
-import DraftService from '../../../services/DraftService';
 import {
     currentTeamSelector,
     draftRosterSelector,
@@ -191,11 +190,10 @@ class MyTeam extends React.Component {
             const playerId = sourcePositionList[source.index].content.player.id;
             const destinationPosition = this.droppableList[destination.droppableId];
 
-            const previousState = {...this.state.myTeamList};
             this.movePlayerAndUpdateState(sourcePositionList, destination, source, destinationPosition);
 
             // TODO: List is rearranged regardless of success of request. Should try and update this.
-            // Use POST rather than WebSockets to send as this functionality may be used outside of a Draft too.
+            // Uses POST rather than WebSockets to send as this functionality may be used outside of a Draft too.
             this.props.updateMyTeamPosition(this.props.currentTeam.id, playerId, destinationPosition);
         }
     };
