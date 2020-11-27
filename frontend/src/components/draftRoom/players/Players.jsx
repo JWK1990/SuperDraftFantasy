@@ -29,6 +29,7 @@ import SaveAlt from "@material-ui/icons/SaveAlt";
 import Search from "@material-ui/icons/Search";
 import ViewColumn from "@material-ui/icons/ViewColumn";
 import {isOnTheBlockSelector, onTheBlockTeamIdSelector} from "../../../store/selectors/BlockSelectors";
+import DraftRoomUtils from "../../../utils/DraftRoomUtils";
 
 const tableIcons = {
     Add: forwardRef((props, ref) => <AddBox {...props} ref={ref}/>),
@@ -112,13 +113,6 @@ class DraftRoomPlayers extends React.Component {
         }
     }
 
-    isSlotAvailableForPlayer(primaryPosition, secondaryPosition){
-        const benchAvailability = this.props.slotAvailability.bench;
-        const primaryAvailability = this.props.slotAvailability[primaryPosition.toLowerCase()];
-        const secondaryAvailability = secondaryPosition ? this.props.slotAvailability[secondaryPosition.toLowerCase()] : false;
-        return benchAvailability|| primaryAvailability || secondaryAvailability;
-    }
-
     render() {
         // TODO: Consider refactoring to basic React Material Table.
         // Currently, every table row is re-rendered when the table changes.
@@ -148,7 +142,11 @@ class DraftRoomPlayers extends React.Component {
                                     tooltip: 'Add To Block',
                                     onClick: (event, rowData) => this.sendAddToBlock(rowData.id, 1),
                                     hidden: !rowData.available || !this.state.showAddToBlock,
-                                    disabled: !this.isSlotAvailableForPlayer(rowData.primaryPosition, rowData.secondaryPosition)
+                                    disabled: !DraftRoomUtils.isSlotAvailableForPlayer(
+                                        this.props.slotAvailability,
+                                        rowData.primaryPosition,
+                                        rowData.secondaryPosition
+                                    )
                                 })
                             ]}
                             detailPanel={rowData => {
@@ -157,7 +155,11 @@ class DraftRoomPlayers extends React.Component {
                                         player={rowData}
                                         sendAddToBlock={this.sendAddToBlock}
                                         hideAddToBlock = {!rowData.available || !this.state.showAddToBlock}
-                                        isSlotAvailableForPlayer = {this.isSlotAvailableForPlayer(rowData.primaryPosition, rowData.secondaryPosition)}
+                                        isSlotAvailableForPlayer = {DraftRoomUtils.isSlotAvailableForPlayer(
+                                            this.props.slotAvailability,
+                                            rowData.primaryPosition,
+                                            rowData.secondaryPosition
+                                        )}
                                     />
                                 )
                             }}

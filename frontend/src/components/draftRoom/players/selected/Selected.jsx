@@ -65,6 +65,7 @@ function DraftRoomPlayersSelected(props) {
                                         color="primary"
                                         aria-label="add"
                                         disabled={!props.isSlotAvailableForPlayer}
+                                        onClick={() => props.sendAddToBlock(props.player.id, initialBid)}
                                     >
                                         <AddIcon />
                                     </Fab>
