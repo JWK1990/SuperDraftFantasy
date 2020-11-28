@@ -1,7 +1,8 @@
 package au.superdraftfantasy.api.teamPlayerJoin;
 
-import au.superdraftfantasy.api.team.TeamEntity;
 import au.superdraftfantasy.api.player.PlayerEntity;
+import au.superdraftfantasy.api.position.PositionEntity;
+import au.superdraftfantasy.api.team.TeamEntity;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -32,7 +33,9 @@ TeamPlayerJoinEntity {
 
     Long price;
 
-    @Column(name = "myTeamPosition")
-    private String myTeamPosition;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "myTeamPosition")
+    // TODO: Should be of type PositionEntity.
+    private PositionEntity myTeamPosition;
 
 }
