@@ -69,8 +69,8 @@ const fillSlots = (myTeamList, teamPlayerJoinList) => {
 }
 
 const addPlayerToFirstVacantSlot = (myTeamList, teamPlayerJoin) => {
-    if(teamPlayerJoin.myTeamPosition != null) {
-        const relevantPositionList = myTeamList[teamPlayerJoin.myTeamPosition];
+    if(teamPlayerJoin.myTeamPositionType != null) {
+        const relevantPositionList = myTeamList[teamPlayerJoin.myTeamPositionType];
         const firstVacantSlot = relevantPositionList.find(slot => slot.content.vacant);
         firstVacantSlot.content.vacant = false;
         firstVacantSlot.content.player = teamPlayerJoin.player;

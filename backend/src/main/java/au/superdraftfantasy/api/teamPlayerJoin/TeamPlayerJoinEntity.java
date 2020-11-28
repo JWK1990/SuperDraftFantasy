@@ -34,7 +34,7 @@ TeamPlayerJoinEntity {
     Long price;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "myTeamPosition")
+    @JoinColumn(name = "my_team_position_id")
     // TODO: Should be of type PositionEntity.
     private PositionEntity myTeamPosition;
 

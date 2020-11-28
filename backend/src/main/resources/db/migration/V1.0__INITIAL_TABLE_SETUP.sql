@@ -124,10 +124,11 @@ CREATE TABLE team_player_join_entity (
     team_id INT,
     player_id INT,
     price INT,
-    my_team_position VARCHAR(255),
+    my_team_position_id INT,
 
     CONSTRAINT fk_team_id FOREIGN KEY (team_id) REFERENCES team_entity(id),
-    CONSTRAINT fk_player_id FOREIGN KEY (player_id) REFERENCES player_entity(id)
+    CONSTRAINT fk_player_id FOREIGN KEY (player_id) REFERENCES player_entity(id),
+    CONSTRAINT fk_my_team_position_id FOREIGN KEY (my_team_position_id) REFERENCES position_entity(id)
 );
 
 

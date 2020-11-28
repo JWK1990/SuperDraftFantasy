@@ -1,7 +1,9 @@
 package au.superdraftfantasy.api.teamPlayerJoin;
 
 import au.superdraftfantasy.api.player.PlayerReadDto;
-import au.superdraftfantasy.api.position.PositionReadDto;
+import au.superdraftfantasy.api.position.PositionEntity;
+import au.superdraftfantasy.api.position.PositionTypeEnum;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -15,6 +17,13 @@ public class TeamPlayerJoinReadDto {
 
     private Long price;
 
-    private PositionReadDto myTeamPosition;
+    @JsonIgnore
+    private PositionEntity myTeamPosition;
+
+    private PositionTypeEnum myTeamPositionType;
+
+    private PositionTypeEnum myTeamPositionType() {
+        return this.myTeamPosition.getType();
+    }
 
 }
