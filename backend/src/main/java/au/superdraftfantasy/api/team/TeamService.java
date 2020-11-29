@@ -2,7 +2,9 @@ package au.superdraftfantasy.api.team;
 
 import au.superdraftfantasy.api.block.BlockDto;
 import au.superdraftfantasy.api.player.PlayerEntity;
+import au.superdraftfantasy.api.player.PlayerInDraftReadDto;
 import au.superdraftfantasy.api.player.PlayerRepository;
+import au.superdraftfantasy.api.player.PlayerService;
 import au.superdraftfantasy.api.position.PositionEntity;
 import au.superdraftfantasy.api.position.PositionReadDto;
 import au.superdraftfantasy.api.position.PositionRepository;
@@ -31,19 +33,22 @@ public class TeamService {
     private final PlayerRepository playerRepository;
     private final SimpMessagingTemplate simpMessagingTemplate;
     private final PositionRepository positionRepository;
+    private final PlayerService playerService;
 
     public TeamService(
             ModelMapper modelMapper,
             TeamRepository teamRepository,
             PlayerRepository playerRepository,
             SimpMessagingTemplate simpMessagingTemplate,
-            PositionRepository positionRepository
+            PositionRepository positionRepository,
+            PlayerService playerService
     ) {
         this.modelMapper = modelMapper;
         this.teamRepository = teamRepository;
         this.playerRepository = playerRepository;
         this.simpMessagingTemplate = simpMessagingTemplate;
         this.positionRepository = positionRepository;
+        this.playerService = playerService;
     }
 
     /**
@@ -63,7 +68,7 @@ public class TeamService {
     }
 
     /**
-     * Updates a Players current field position within a Team.
+     * Updates a Player's current field position within a Team.
      * @param teamId
      * @param playerId
      * @param myTeamPosition
@@ -84,6 +89,31 @@ public class TeamService {
         TeamPlayerJoinWriteDto readDto = new TeamPlayerJoinWriteDto(teamId, playerId, new PositionReadDto(myTeamPosition));
         this.simpMessagingTemplate.convertAndSend("/draft/updateMyTeamPositions", readDto);
         return myTeamPosition;
+    }
+
+    /**
+     * Gets the best available player for a given team based on their available slots.
+     * @param draftId
+     * @param teamId
+     * @return
+     */
+    //TODO: Could update to get based on highest rank. For this need to add a rank field so that we're not just using average.
+    @Transactional
+    public Long getBestAvailablePlayerForTeam(Long draftId, Long teamId) {
+        // TODO: Update so that we only grab the required player from the DB. Not the entire list every time. We could query on available and position.
+        List<PlayerInDraftReadDto> playerList = playerService.getPlayersByDraft(draftId);
+        TeamEntity team = teamRepository.findById(teamId).orElseThrow(() -> new NoSuchElementException("Team with id " + teamId + " not found."));
+        // Get first available Player if bench is free, or if not, get first available Player that has a position with a free slot.
+        PlayerInDraftReadDto bestAvailablePlayer = playerList.stream().filter(player ->
+                player.isAvailable() && (
+                        isSlotAvailableForPosition(team, PositionTypeEnum.BENCH)
+                                || isSlotAvailableForPosition(team, player.getPrimaryPosition())
+                                        || (player.getSecondaryPosition() != null && isSlotAvailableForPosition(team, player.getSecondaryPosition()))
+                )
+        )
+                .findFirst()
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Could not fetch best available Player."));
+        return bestAvailablePlayer.getId();
     }
 
     private void addPlayer(TeamEntity team, Long playerID, Long price) {

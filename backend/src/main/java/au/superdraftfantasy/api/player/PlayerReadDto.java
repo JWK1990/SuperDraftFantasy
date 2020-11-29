@@ -1,6 +1,7 @@
 package au.superdraftfantasy.api.player;
 
 import au.superdraftfantasy.api.position.PositionEntity;
+import au.superdraftfantasy.api.position.PositionTypeEnum;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -27,17 +28,17 @@ public class PlayerReadDto {
     @JsonIgnore
     List<PositionEntity> positions;
     
-    String primaryPosition;
+    PositionTypeEnum primaryPosition;
 
-    String secondaryPosition;
+    PositionTypeEnum secondaryPosition;
 
-    public String getPrimaryPosition() {
-        return this.positions.get(0).getType().toString();
+    public PositionTypeEnum getPrimaryPosition() {
+        return this.positions.get(0).getType();
     }
 
-    public String getSecondaryPosition() {
+    public PositionTypeEnum getSecondaryPosition() {
         if(this.positions.size() > 1) {
-            return this.positions.get(1).getType().toString();
+            return this.positions.get(1).getType();
         } else {
             return null;
         }
