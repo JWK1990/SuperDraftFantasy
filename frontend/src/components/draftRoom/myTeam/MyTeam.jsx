@@ -10,6 +10,7 @@ import withStyles from "@material-ui/core/styles/withStyles";
 import DroppablePositionContainer from "./DroppablePositionContainer";
 import {updateMyTeamPositionAction, updateMyTeamPositionSuccessAction} from "../../../store/actions";
 import {stompClientSelector} from "../../../store/selectors/WebSocketSelectors";
+import {isLeadBidderSelector} from "../../../store/selectors/BlockSelectors";
 
 const styles = {
     myTeamRoot: {
@@ -158,8 +159,7 @@ class MyTeam extends React.Component {
         const isDropPositionValid = dropPosition === "BENCH"
                                     || dropPosition.includes(this.state.draggedPrimaryPosition)
                                     || dropPosition.includes(this.state.draggedSecondaryPosition);
-        return !isDropPositionVacant || !isDropPositionValid;
-
+        return !isDropPositionVacant || !isDropPositionValid || this.props.isLeadBidder;
     };
 
     onDragStart = start => {
@@ -282,6 +282,7 @@ const mapStateToProps = state => {
         currentTeam: currentTeamSelector(state),
         numOfPlayersRequired: numOfPlayersRequiredSelector(state),
         stompClient: stompClientSelector(state),
+        isLeadBidder: isLeadBidderSelector(state),
     };
 };
 

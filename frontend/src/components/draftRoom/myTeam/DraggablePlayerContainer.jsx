@@ -3,6 +3,8 @@ import {Draggable} from "react-beautiful-dnd";
 import {Typography} from "@material-ui/core";
 import withStyles from "@material-ui/core/styles/withStyles";
 import Grid from "@material-ui/core/Grid";
+import {connect} from "react-redux";
+import {isLeadBidderSelector} from "../../../store/selectors/BlockSelectors";
 
 const grid = 4;
 
@@ -64,7 +66,7 @@ class DraggablePlayerContainer extends React.Component {
                 key={this.props.item.id}
                 draggableId={this.props.item.id}
                 index={this.props.index}
-                isDragDisabled={this.props.item.content.vacant}>
+                isDragDisabled={this.props.item.content.vacant || this.props.isLeadBidder}>
                 {(provided, snapshot) => (
                     <div
                         ref={provided.innerRef}
@@ -115,4 +117,10 @@ class DraggablePlayerContainer extends React.Component {
 
 }
 
-export default withStyles(styles)(DraggablePlayerContainer);
+const mapStateToProps = (state) => {
+    return {
+        isLeadBidder: isLeadBidderSelector(state),
+    }
+}
+
+export default connect(mapStateToProps)(withStyles(styles)(DraggablePlayerContainer));
