@@ -53,9 +53,9 @@ class DraftRoomBlock extends React.Component {
             addToBlockClockKey: 0,
             showBidClock: false,
             bidClockTimeRemaining: '',
-            bidClockKey: 0,
             isBidClockDisabled: true,
             bidBlockText: '',
+            bidClockKey: 0,
         }
     }
 
@@ -64,6 +64,21 @@ class DraftRoomBlock extends React.Component {
         this.props.stompClient.subscribe('/draft/stopDrafts', this.receiveStopDraft);
         this.props.stompClient.subscribe('/draft/addToBlocks', this.receiveAddToBlock);
         this.props.stompClient.subscribe('/draft/bids', this.receiveBid);
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if(prevProps.currentTeam.teamPlayerJoins !== this.props.currentTeam.teamPlayerJoins) {
+            const isBidDisabledTuple = this.getIsBidDisabledTuple(this.props.block.bidderTeamId, this.props.block.price, this.props.block.playerId);
+            if(isBidDisabledTuple[0] !== this.state.isBidClockDisabled) {
+                this.setState({
+                    ...this.state,
+                    isBidClockDisabled: isBidDisabledTuple[0],
+                    bidClockTimeRemaining: (this.props.block.endTime - Date.now()) / 1000,
+                    bidClockText: isBidDisabledTuple[1],
+                    bidClockKey: this.state.bidClockKey + 1,
+                })
+            }
+        }
     }
 
     receiveStartNextRound = (payload) => {
@@ -168,19 +183,26 @@ class DraftRoomBlock extends React.Component {
         }
 
         const player = this.getPlayerDetailsById(playerId);
-        if(player &&
+        if(player && this.isSlotAvailable(player)) {
+            return[true, this.getSlotUnavailableText(player)];
+        }
+
+        return [false, "Bid"];
+    }
+
+    isSlotAvailable(player) {
+        return player &&
             !DraftRoomUtils.isSlotAvailableForPlayer(
                 this.props.slotAvailability,
                 player.primaryPosition,
                 player.secondaryPosition
             )
-        ) {
-            return [true, "No " + player.primaryPosition
-            + (player.secondaryPosition ? " or " + player.secondaryPosition : '')
-                + " slot."]
-        }
+    }
 
-        return [false, "Bid"];
+    getSlotUnavailableText(player) {
+        return "No " + player.primaryPosition
+        + (player.secondaryPosition ? " or " + player.secondaryPosition : '')
+        + " slot.";
     }
 
     render() {

@@ -1,6 +1,5 @@
 package au.superdraftfantasy.api.teamPlayerJoin;
 
-import au.superdraftfantasy.api.position.PositionReadDto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,6 +13,6 @@ public class TeamPlayerJoinWriteDto {
 
     private Long playerId;
 
-    private PositionReadDto myTeamPosition;
+    private String myTeamPositionType;
 
 }

@@ -6,7 +6,6 @@ import au.superdraftfantasy.api.player.PlayerInDraftReadDto;
 import au.superdraftfantasy.api.player.PlayerRepository;
 import au.superdraftfantasy.api.player.PlayerService;
 import au.superdraftfantasy.api.position.PositionEntity;
-import au.superdraftfantasy.api.position.PositionReadDto;
 import au.superdraftfantasy.api.position.PositionRepository;
 import au.superdraftfantasy.api.position.PositionTypeEnum;
 import au.superdraftfantasy.api.teamPlayerJoin.TeamPlayerJoinEntity;
@@ -86,7 +85,7 @@ public class TeamService {
         teamPlayerJoinToUpdate.setMyTeamPosition(position);
         teamRepository.save(team);
         // TODO: Update ReadDto to include teamId so that we can use it here.
-        TeamPlayerJoinWriteDto readDto = new TeamPlayerJoinWriteDto(teamId, playerId, new PositionReadDto(myTeamPosition));
+        TeamPlayerJoinWriteDto readDto = new TeamPlayerJoinWriteDto(teamId, playerId, myTeamPosition.name());
         this.simpMessagingTemplate.convertAndSend("/draft/updateMyTeamPositions", readDto);
         return myTeamPosition;
     }

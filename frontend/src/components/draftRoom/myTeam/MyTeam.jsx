@@ -135,7 +135,6 @@ class MyTeam extends React.Component {
 
     receiveUpdatedMyTeamPosition = (payload) => {
         const updatedMyTeamPosition = JSON.parse(payload.body);
-        console.log("UPDATED MY TEAM POSITION: ", updatedMyTeamPosition);
         this.props.updateMyTeamPositionSuccess(updatedMyTeamPosition);
     }
 
