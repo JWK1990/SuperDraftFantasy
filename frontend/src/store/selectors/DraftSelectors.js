@@ -24,7 +24,7 @@ export const currentTeamIdSelector = state => state.draft.data.teams.find(team =
 export const isSlotAvailableSelector = (state, position) => {
     const totalSlots = draftRosterSelector(state)[position];
     const filledSlots = currentTeamSelector(state).teamPlayerJoins.filter(
-        player => player.myTeamPosition === PositionTypeEnum[position]
+        player => player.myTeamPositionType === PositionTypeEnum[position]
     ).length;
     return filledSlots < totalSlots;
 }

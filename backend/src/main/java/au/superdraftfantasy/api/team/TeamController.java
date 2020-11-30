@@ -1,5 +1,6 @@
 package au.superdraftfantasy.api.team;
 
+import au.superdraftfantasy.api.position.PositionTypeEnum;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,10 +17,10 @@ public class TeamController {
     }
 
     @PutMapping(name = "updateMyTeamPosition", path = "{teamID}/players/{playerID}/myTeamPosition/{myTeamPosition}")
-    public String updateMyTeamPosition(
+    public PositionTypeEnum updateMyTeamPosition(
             @PathVariable final Long teamID,
             @PathVariable final Long playerID,
-            @PathVariable final String myTeamPosition
+            @PathVariable final PositionTypeEnum myTeamPosition
     ) {
         return teamService.updateMyTeamPosition(teamID, playerID, myTeamPosition);
     }

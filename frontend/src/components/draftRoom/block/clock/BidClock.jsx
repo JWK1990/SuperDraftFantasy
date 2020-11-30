@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import { CountdownCircleTimer } from 'react-countdown-circle-timer'
 import "./Clock.css";
-import {Fab} from "@material-ui/core";
+import {Fab, Tooltip} from "@material-ui/core";
 import withStyles from "@material-ui/core/styles/withStyles";
 
 const styles = {
@@ -31,7 +31,7 @@ function BidClock(props) {
    const {classes} = props;
 
     const [text, setText] = useState({
-        upperText: props.text,
+        upperText: props.isDisabled ? (props.tooltipText === "You are the lead bidder." ? "You Lead" : "Bid Disabled") : "Click To Bid",
         bidText: props.currentPrice,
     });
 
@@ -62,24 +62,27 @@ function BidClock(props) {
         }
 
         return (
-            <div>
-                <Fab
-                    size="medium"
-                    color="primary"
-                    aria-label="add"
-                    className={[classes.sizeMedium, classes.primary].join(" ")}
-                    onClick={sendBid}
-                    onMouseEnter={handleMouseEnter}
-                    onMouseLeave={handleMouseLeave}
-                    disabled={props.isDisabled}
-                >
-                    <div className="timer">
-                        <div className="upper-text">{text.upperText}</div>
-                        <div className="bid-text"><span className={"dollar-symbol"}>$</span>{text.bidText}</div>
-                        <div className="value">{remainingTime}<span className={"seconds-symbol-sm"}>s</span></div>
-                    </div>
-                </Fab>
-            </div>
+            <Tooltip title={<h1 style={{color: "lightblue"}}>{props.tooltipText}</h1>} placement="top">
+                <div>
+                        <Fab
+                            size="medium"
+                            color="primary"
+                            aria-label="add"
+                            className={[classes.sizeMedium, classes.primary].join(" ")}
+                            onClick={sendBid}
+                            onMouseEnter={handleMouseEnter}
+                            onMouseLeave={handleMouseLeave}
+                            disabled={props.isDisabled}
+                        >
+                            <div className="timer">
+                                <div className="upper-text">{text.upperText}</div>
+                                <div className="bid-text"><span className={"dollar-symbol"}>$</span>{text.bidText}</div>
+                                <div className="value">{remainingTime}<span className={"seconds-symbol-sm"}>s</span></div>
+                            </div>
+                        </Fab>
+                </div>
+            </Tooltip>
+
 
         );
     };

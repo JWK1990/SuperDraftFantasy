@@ -7,7 +7,7 @@ export const initialPlayersData = [
         average: null,
         primaryPosition: null,
         secondaryPosition: null,
-        myTeamPosition: null,
+        myTeamPositionType: null,
         available: null,
         draftTeam: null,
         price: null

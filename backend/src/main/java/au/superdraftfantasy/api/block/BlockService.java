@@ -1,9 +1,7 @@
 package au.superdraftfantasy.api.block;
 
-import au.superdraftfantasy.api.draft.DraftRepository;
 import au.superdraftfantasy.api.futuresScheduler.FuturesScheduler;
 import au.superdraftfantasy.api.futuresScheduler.ScheduledFutureEnum;
-import au.superdraftfantasy.api.player.PlayerService;
 import au.superdraftfantasy.api.team.TeamEntity;
 import au.superdraftfantasy.api.team.TeamReadDto;
 import au.superdraftfantasy.api.team.TeamRepository;
@@ -20,33 +18,24 @@ public class BlockService {
     private final FuturesScheduler futuresScheduler;
     private final TeamService teamService;
     private final SimpMessagingTemplate simpMessagingTemplate;
-    private final PlayerService playerService;
     private final TeamRepository teamRepository;
-    private final DraftRepository draftRepository;
 
     public BlockService(
             FuturesScheduler futuresScheduler,
             TeamService teamService,
             SimpMessagingTemplate simpMessagingTemplate,
-            PlayerService playerService,
-            TeamRepository teamRepository,
-            DraftRepository draftRepository
+            TeamRepository teamRepository
     ) {
         this.futuresScheduler = futuresScheduler;
         this.teamService = teamService;
         this.simpMessagingTemplate = simpMessagingTemplate;
-        this.playerService = playerService;
         this.teamRepository = teamRepository;
-        this.draftRepository = draftRepository;
     }
 
     public void startNextRound(BlockDto blockDto, boolean otbUpdateRequired) {
         System.out.println("Start Next Round.");
         Long onTheBlockTeamId = getOnTheBlockTeamId(blockDto.getDraftId(), otbUpdateRequired);
         blockDto.setOnTheBlockTeamId(onTheBlockTeamId);
-
-        Long bestAvailablePlayerId = playerService.getBestAvailablePlayer(blockDto.getDraftId());
-        blockDto.setPlayerId(bestAvailablePlayerId);
 
         LocalDateTime endTime = LocalDateTime.now().plusSeconds(blockDto.getOnTheBlockTimer());
         blockDto.setEndTime(endTime);
@@ -65,8 +54,6 @@ public class BlockService {
                 endTime,
                 this::autoAddToBlock
         );
-
-
     }
 
     public void stopDraft(Long draftId) {
@@ -110,6 +97,12 @@ public class BlockService {
 
     private void autoAddToBlock(BlockDto blockDto) {
         System.out.println("Run AutoAddToBlock" + blockDto);
+
+        // TODO: The below potentially has an issue.
+        //  If the player re-arranges their team after the AUTO_ADD_TO_BLOCK is scheduled, this could lead to no vacant slot if the player is auto drafted.
+        Long bestAvailablePlayerId = teamService.getBestAvailablePlayerForTeam(blockDto.getDraftId(), blockDto.getOnTheBlockTeamId());
+        blockDto.setPlayerId(bestAvailablePlayerId);
+        System.out.println("Best available player ID " + bestAvailablePlayerId);
 
         // Broadcast AddToBlock to start bidding in FE.
         LocalDateTime endTime = LocalDateTime.now().plusSeconds(blockDto.getBidTimer());

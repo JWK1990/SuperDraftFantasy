@@ -6,7 +6,9 @@ import {connect} from "react-redux";
 import {
     commissionerTeamNameSelector,
     currentTeamSelector,
-    draftSelector, isSlotAvailableSelector
+    draftSelector,
+    isSlotAvailableSelector,
+    numOfPlayersRequiredSelector
 } from "../../../store/selectors/DraftSelectors";
 import BlockPlayer from "./player/BlockPlayer";
 import {stompClientSelector} from "../../../store/selectors/WebSocketSelectors";
@@ -50,6 +52,8 @@ class DraftRoomBlock extends React.Component {
             showAddToBlockClock: false,
             showBidClock: false,
             bidClockKey: 0,
+            isBidClockDisabled: true,
+            bidBlockText: '',
         }
     }
 
@@ -75,13 +79,15 @@ class DraftRoomBlock extends React.Component {
     receiveAddToBlock = (payload) => {
         console.log('AddToBlock Received ', payload);
         const updatedBlock = JSON.parse(payload.body);
-        const isBidDisabledTuple = this.getIsBidDisabledTuple(updatedBlock.teamId, updatedBlock.price, updatedBlock.playerId);
+        const isBidDisabledTuple = this.getIsBidDisabledTuple(updatedBlock.bidderTeamId, updatedBlock.price, updatedBlock.playerId);
         this.props.receiveAddToBlock(updatedBlock);
         this.setState({
             ...this.state,
             showAddToBlockClock: false,
             showBidClock: true,
             bidClockKey: this.state.bidClockKey + 1,
+            isBidClockDisabled: isBidDisabledTuple[0],
+            bidClockText: isBidDisabledTuple[1],
         });
     };
 
@@ -105,13 +111,15 @@ class DraftRoomBlock extends React.Component {
     receiveBid = (payload) => {
         console.log("Bid Received", payload);
         const updatedBlock = JSON.parse(payload.body);
-        const isBidDisabledTuple = this.getIsBidDisabledTuple(updatedBlock.price, updatedBlock.playerId);
+        const isBidDisabledTuple = this.getIsBidDisabledTuple(updatedBlock.bidderTeamId, updatedBlock.price, updatedBlock.playerId);
         this.props.receiveBid(updatedBlock);
         this.setState({
             ...this.state,
             showAddToBlockClock: false,
             showBidClock: true,
             bidClockKey: this.state.bidClockKey + 1,
+            isBidClockDisabled: isBidDisabledTuple[0],
+            bidClockText: isBidDisabledTuple[1],
         });
     };
 
@@ -133,9 +141,18 @@ class DraftRoomBlock extends React.Component {
         return this.props.draft.teams.find(team => team.id === teamId);
     }
 
+    // TODO: Currently this isn't dynamic. If space is made available, the bid clock isn't enabled.
+    // This is because we need to push a key to update the timer.
+    // We need to change the timer to be based on endTime - currentTime (rather than a set number).
+    // Then when a relevant team update is received, we should increment the bidClockKey to refresh the timer.
     getIsBidDisabledTuple = (bidderId, price, playerId) => {
+
+        if(this.props.currentTeam.teamPlayerJoins.length >= this.props.numOfPlayerRequired) {
+            return [true, "Your team is full."]
+        }
+
         if(bidderId === this.props.currentTeam.id) {
-            return [true, "You lead:"];
+            return [true, "You are the lead bidder."];
         }
 
         if(price && this.props.currentTeam.maxBid < price + 1) {
@@ -150,44 +167,12 @@ class DraftRoomBlock extends React.Component {
                 player.secondaryPosition
             )
         ) {
-            return [true, "No " + player.primaryPosition + " or " + player.secondaryPosition + " slot."]
+            return [true, "No " + player.primaryPosition
+            + (player.secondaryPosition ? " or " + player.secondaryPosition : '')
+                + " slot."]
         }
+
         return [false, "Bid"];
-    }
-
-    getIsBudgetAvailableForPlayer = (price) => {
-        if(this.getIsTeamFull()) {
-            return false;
-        }
-        const currentTeamMaxBid = this.props.currentTeam.maxBid;
-        const nextBidPrice = price + 1;
-        return currentTeamMaxBid >= nextBidPrice;
-    }
-
-    getIsSlotAvailableForPlayer = (player) => {
-        if(this.getIsTeamFull()) {
-            return false;
-        }
-        // const benchSlotAvailable = this.state.vacantPositions["BENCH"];
-        // const primarySlotAvailable = this.state.vacantPositions[player.primaryPosition];
-        // const secondarySlotAvailable = player.secondaryPosition ? this.state.vacantPositions[player.secondaryPosition] : false;
-        // return benchSlotAvailable || primarySlotAvailable || secondarySlotAvailable;
-        return true;
-    };
-
-    getIsTeamFull = () => {
-        const currentTeamPlayerCount = this.getCurrentTeamPlayerCount();
-        const numOfSlotsPerTeam = this.getNumOfSlotsPerTeam();
-        return currentTeamPlayerCount >= numOfSlotsPerTeam;
-    };
-
-    getCurrentTeamPlayerCount = () => {
-        return this.props.currentTeam.teamPlayerJoins.length;
-    }
-
-    getNumOfSlotsPerTeam = () => {
-        const roster = this.props.draft.roster;
-        return roster.def + roster.mid + roster.ruc + roster.fwd + roster.bench;
     }
 
     render() {
@@ -207,11 +192,11 @@ class DraftRoomBlock extends React.Component {
                             : this.state.showBidClock ?
                             <BidClock
                                 duration={this.props.draft.bidTimer}
-                                text={this.props.isLeadBidder ? "You Lead" : "Bid"}
                                 key={this.state.bidClockKey}
                                 sendBid={this.sendBid}
-                                isDisabled={this.props.isLeadBidder}
+                                isDisabled={this.state.isBidClockDisabled}
                                 currentPrice={this.props.block.price}
+                                tooltipText={this.state.bidClockText}
                             />
                             : null
                         }
@@ -257,6 +242,7 @@ const mapStateToProps = state => {
             fwd: isSlotAvailableSelector(state, "fwd"),
             bench: isSlotAvailableSelector(state, "bench"),
         },
+        numOfPlayerRequired: numOfPlayersRequiredSelector(state),
     };
 };
 
