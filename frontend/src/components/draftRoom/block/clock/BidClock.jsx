@@ -51,14 +51,14 @@ function BidClock(props) {
         });
     }
 
+    const sendBid = (e) => {
+        e.preventDefault();
+        props.sendBid();
+    }
+
     const renderTime = ({ remainingTime }) => {
         if (remainingTime === 0) {
             return <div className="timer">Sold for ${props.currentPrice}</div>;
-        }
-
-        const sendBid = (e) => {
-         e.preventDefault();
-         props.sendBid();
         }
 
         return (
@@ -82,8 +82,6 @@ function BidClock(props) {
                         </Fab>
                 </div>
             </Tooltip>
-
-
         );
     };
 
@@ -91,6 +89,7 @@ function BidClock(props) {
         <CountdownCircleTimer
             isPlaying
             duration={props.duration}
+            initialRemainingTime={props.initialRemainingTime}
             colors={[
                 ['#004777', 0.33],
                 ['#F7B801', 0.33],

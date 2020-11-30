@@ -70,7 +70,6 @@ class DraftRoomBlock extends React.Component {
         console.log('Start Next Round Received: ', payload);
         const updatedBlock = JSON.parse(payload.body);
         this.props.receiveStartNextRound(updatedBlock);
-        console.log(updatedBlock.endTime,  Date.now(), (updatedBlock.endTime - Date.now())/1000);
         this.setState({
             ...this.state,
             showAddToBlockClock: true,
@@ -86,7 +85,6 @@ class DraftRoomBlock extends React.Component {
         const updatedBlock = JSON.parse(payload.body);
         const isBidDisabledTuple = this.getIsBidDisabledTuple(updatedBlock.bidderTeamId, updatedBlock.price, updatedBlock.playerId);
         this.props.receiveAddToBlock(updatedBlock);
-        console.log(updatedBlock.endTime,  Date.now(), (updatedBlock.endTime - Date.now())/1000);
         this.setState({
             ...this.state,
             showAddToBlockClock: false,
@@ -121,7 +119,6 @@ class DraftRoomBlock extends React.Component {
         const updatedBlock = JSON.parse(payload.body);
         const isBidDisabledTuple = this.getIsBidDisabledTuple(updatedBlock.bidderTeamId, updatedBlock.price, updatedBlock.playerId);
         this.props.receiveBid(updatedBlock);
-        console.log(updatedBlock.endTime,  Date.now(), (updatedBlock.endTime - Date.now())/1000);
         this.setState({
             ...this.state,
             showAddToBlockClock: false,
@@ -197,12 +194,14 @@ class DraftRoomBlock extends React.Component {
                     <div className={classes.countdownClockDiv}>
                         {this.state.showAddToBlockClock ?
                             <AddToBlockClock
-                                duration={this.state.addToBlockClockTimeRemaining}
+                                duration={this.props.draft.onTheBlockTimer}
+                                initialRemainingTime={this.state.addToBlockClockTimeRemaining}
                                 key={this.state.addToBlockClockKey}
                             />
                             : this.state.showBidClock ?
                             <BidClock
-                                duration={this.state.bidClockTimeRemaining}
+                                duration={this.props.draft.bidTimer}
+                                initialRemainingTime={this.state.bidClockTimeRemaining}
                                 key={this.state.bidClockKey}
                                 sendBid={this.sendBid}
                                 isDisabled={this.state.isBidClockDisabled}
