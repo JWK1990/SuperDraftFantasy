@@ -3,7 +3,7 @@ package au.superdraftfantasy.api.futuresScheduler;
 import au.superdraftfantasy.api.block.BlockDto;
 
 import java.time.Duration;
-import java.time.LocalDateTime;
+import java.time.Instant;
 import java.util.concurrent.*;
 
 public class FuturesScheduler {
@@ -14,11 +14,11 @@ public class FuturesScheduler {
     public void startScheduledFuture(
             ScheduledFutureEnum type,
             BlockDto readDto,
-            LocalDateTime endTime,
+            Long endTime,
             ScheduledFutureInterface scheduledFutureInterface
     ) {
         String key = getKey(readDto.getDraftId(), type);
-        long delayInMilliseconds = Duration.between(LocalDateTime.now(), endTime).toMillis();
+        long delayInMilliseconds = Duration.between(Instant.now(), Instant.ofEpochMilli(endTime)).toMillis();
         ScheduledFuture<?> future = scheduler.schedule(
                 () -> scheduledFutureInterface.createScheduledFuture(readDto),
                 delayInMilliseconds,

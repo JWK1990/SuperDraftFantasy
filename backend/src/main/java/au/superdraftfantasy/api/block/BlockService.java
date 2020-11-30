@@ -9,7 +9,7 @@ import au.superdraftfantasy.api.team.TeamService;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDateTime;
+import java.time.Instant;
 import java.util.NoSuchElementException;
 
 @Service
@@ -37,7 +37,7 @@ public class BlockService {
         Long onTheBlockTeamId = getOnTheBlockTeamId(blockDto.getDraftId(), otbUpdateRequired);
         blockDto.setOnTheBlockTeamId(onTheBlockTeamId);
 
-        LocalDateTime endTime = LocalDateTime.now().plusSeconds(blockDto.getOnTheBlockTimer());
+        Long endTime = Instant.now().plusSeconds(blockDto.getOnTheBlockTimer()).toEpochMilli();
         blockDto.setEndTime(endTime);
 
         blockDto.setPrice(1L);
@@ -74,7 +74,7 @@ public class BlockService {
         // Stop AutoAddToBlock or AutoDraftPlayer.
         futuresScheduler.stopScheduledFutures(blockDto.getDraftId());
 
-        LocalDateTime endTime = LocalDateTime.now().plusSeconds(blockDto.getBidTimer());
+        Long endTime = Instant.now().plusSeconds(blockDto.getBidTimer()).toEpochMilli();
         blockDto.setEndTime(endTime);
 
         // Start AutoDraftPlayer.
@@ -98,14 +98,12 @@ public class BlockService {
     private void autoAddToBlock(BlockDto blockDto) {
         System.out.println("Run AutoAddToBlock" + blockDto);
 
-        // TODO: The below potentially has an issue.
-        //  If the player re-arranges their team after the AUTO_ADD_TO_BLOCK is scheduled, this could lead to no vacant slot if the player is auto drafted.
         Long bestAvailablePlayerId = teamService.getBestAvailablePlayerForTeam(blockDto.getDraftId(), blockDto.getOnTheBlockTeamId());
         blockDto.setPlayerId(bestAvailablePlayerId);
         System.out.println("Best available player ID " + bestAvailablePlayerId);
 
         // Broadcast AddToBlock to start bidding in FE.
-        LocalDateTime endTime = LocalDateTime.now().plusSeconds(blockDto.getBidTimer());
+        Long endTime = Instant.now().plusSeconds(blockDto.getBidTimer()).toEpochMilli();
         blockDto.setEndTime(endTime);
         this.simpMessagingTemplate.convertAndSend("/draft/addToBlocks", blockDto);
 
