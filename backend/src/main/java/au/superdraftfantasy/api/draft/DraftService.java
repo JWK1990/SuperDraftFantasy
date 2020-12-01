@@ -5,6 +5,7 @@ import au.superdraftfantasy.api.block.BlockService;
 import au.superdraftfantasy.api.roster.RosterEntity;
 import au.superdraftfantasy.api.roster.RosterRepository;
 import au.superdraftfantasy.api.team.TeamEntity;
+import au.superdraftfantasy.api.team.TeamStatusEnum;
 import au.superdraftfantasy.api.team.TeamTypeEnum;
 import au.superdraftfantasy.api.user.UserEntity;
 import au.superdraftfantasy.api.user.UserRepository;
@@ -12,6 +13,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.web.firewall.RequestRejectedException;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -104,6 +106,12 @@ public class DraftService {
                         HttpStatus.NOT_FOUND,
                         "Draft with ID '" + draftID + "' not found."
                 ));
+        if(draft.getStatus().equals(DraftStatusEnum.IN_SETUP) ||
+                draft.getStatus().equals(DraftStatusEnum.COMPLETE)) {
+            throw new RequestRejectedException("Draft is not in a valid Status to be started.");
+        } else if(draft.getStatus().equals(DraftStatusEnum.IN_PROGRESS)) {
+            throw new RequestRejectedException("Draft is already in progress.");
+        }
         UserEntity currentUser = getCurrentUser(authentication);
         checkIfCommissioner(currentUser, draft);
         draft.setStatus(DraftStatusEnum.IN_PROGRESS);
@@ -133,11 +141,17 @@ public class DraftService {
                         HttpStatus.NOT_FOUND,
                         "Draft with ID '" + draftID + "' not found."
                 ));
+        if(draft.getStatus().equals(DraftStatusEnum.IN_SETUP) ||
+                draft.getStatus().equals(DraftStatusEnum.COMPLETE)) {
+            throw new RequestRejectedException("Draft is not in a valid Status to be stopped.");
+        } else if(draft.getStatus().equals(DraftStatusEnum.STOPPED)) {
+            throw new RequestRejectedException("Draft is already stopped.");
+        }
         UserEntity currentUser = getCurrentUser(authentication);
         checkIfCommissioner(currentUser, draft);
         draft.setStatus(DraftStatusEnum.STOPPED);
         draftRepository.save(draft);
-        blockService.stopDraft(draftID);
+        blockService.stopDraft(draftID, DraftStatusEnum.STOPPED.name());
         return draft.getStatus();
     }
 
@@ -195,6 +209,7 @@ public class DraftService {
                 Collections.emptyList(),
                 user,
                 draft,
+                TeamStatusEnum.IN_SETUP,
                 null,
                 null
         );

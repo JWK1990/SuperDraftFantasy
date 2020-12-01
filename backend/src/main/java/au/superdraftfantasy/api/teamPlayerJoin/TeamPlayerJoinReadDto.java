@@ -22,7 +22,7 @@ public class TeamPlayerJoinReadDto {
     private String myTeamPositionType;
 
     private String myTeamPositionType() {
-        return this.myTeamPosition.getType().name();
+        return myTeamPosition.getType().name();
     }
 
 }

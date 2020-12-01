@@ -24,6 +24,8 @@ import VacantBlock from "./player/VacantBlock";
 import AddToBlockClock from "./clock/AddToBlockClock";
 import PausedDraft from "./player/PausedDraft";
 import DraftRoomUtils from "../../../utils/DraftRoomUtils";
+import {DraftStatusEnum} from "../../../models/DraftStatusEnum";
+import {updateDraftStatus} from "../../../store/actions";
 
 const styles = theme => ({
     firstRowGridContainer: {
@@ -85,6 +87,9 @@ class DraftRoomBlock extends React.Component {
         console.log('Start Next Round Received: ', payload);
         const updatedBlock = JSON.parse(payload.body);
         this.props.receiveStartNextRound(updatedBlock);
+        if(this.props.draft.status !== DraftStatusEnum.IN_PROGRESS) {
+            this.props.updateDraftStatus(DraftStatusEnum.IN_PROGRESS);
+        }
         this.setState({
             ...this.state,
             showAddToBlockClock: true,
@@ -145,8 +150,9 @@ class DraftRoomBlock extends React.Component {
         });
     };
 
-    receiveStopDraft = () => {
+    receiveStopDraft = (payload) => {
         console.log('StopDraft Received.');
+        const updatedStatus = payload.body;
         this.props.receiveStopDraft();
         this.setState({
             ...this.state,
@@ -155,6 +161,9 @@ class DraftRoomBlock extends React.Component {
             showBidClock: false,
             bidClockTimeRemaining: '',
         })
+        if(this.props.draft.status !== updatedStatus) {
+            this.props.updateDraftStatus(updatedStatus);
+        }
     }
 
     getPlayerDetailsById = (playerId) => {
@@ -283,6 +292,7 @@ const mapDispatchToProps = dispatch => ({
         receiveAddToBlock: (block) => dispatch(receiveAddToBlockAction(block)),
         receiveBid: (block) => dispatch(receiveBidAction(block)),
         receiveStopDraft: () => dispatch(receiveStopDraftAction()),
+        updateDraftStatus: (status) => dispatch(updateDraftStatus(status)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(

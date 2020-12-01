@@ -8,6 +8,7 @@ import au.superdraftfantasy.api.player.PlayerService;
 import au.superdraftfantasy.api.position.PositionEntity;
 import au.superdraftfantasy.api.position.PositionRepository;
 import au.superdraftfantasy.api.position.PositionTypeEnum;
+import au.superdraftfantasy.api.roster.RosterEntity;
 import au.superdraftfantasy.api.teamPlayerJoin.TeamPlayerJoinEntity;
 import au.superdraftfantasy.api.teamPlayerJoin.TeamPlayerJoinWriteDto;
 import org.modelmapper.ModelMapper;
@@ -62,6 +63,12 @@ public class TeamService {
         checkIfPlayerAlreadyDrafted(team, readDto.getPlayerId());
         addPlayer(team, readDto.getPlayerId(), readDto.getPrice());
         team.setBudget(team.getBudget() - readDto.getPrice());
+
+        RosterEntity roster = team.getDraft().getRoster();
+        long totalRosterSlots = roster.getDef() + roster.getMid() + roster.getRuc() + roster.getFwd() + roster.getBench();
+        if(team.getTeamPlayerJoins().size() >= totalRosterSlots) {
+            team.setStatus(TeamStatusEnum.READY);
+        }
         teamRepository.save(team);
         return modelMapper.map(team, TeamReadDto.class);
     }
@@ -135,7 +142,7 @@ public class TeamService {
             positionType = PositionTypeEnum.DEF;
         } else if(positions.contains(PositionTypeEnum.MID) && isSlotAvailableForPosition(team, PositionTypeEnum.MID)) {
             positionType = PositionTypeEnum.MID;
-        } else if(positions.contains(PositionTypeEnum.RUC) && isSlotAvailableForPosition(team, PositionTypeEnum.MID)) {
+        } else if(positions.contains(PositionTypeEnum.RUC) && isSlotAvailableForPosition(team, PositionTypeEnum.RUC)) {
             positionType = PositionTypeEnum.RUC;
         } else if(positions.contains(PositionTypeEnum.FWD) && isSlotAvailableForPosition(team, PositionTypeEnum.FWD)) {
             positionType = PositionTypeEnum.FWD;

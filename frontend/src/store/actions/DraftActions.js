@@ -114,9 +114,8 @@ export const joinDraftFailureAction = error => ({
     payload: error
 });
 
-// START DRAFT.
+// START DRAFT (Success action handled via UPDATE_DRAFT_STATUS as it's received via WebSockets).
 export const START_DRAFT_STARTED = 'START_DRAFT_STARTED';
-export const START_DRAFT_SUCCESS = 'START_DRAFT_SUCCESS';
 export const START_DRAFT_FAILURE = 'START_DRAFT_FAILURE';
 
 export const startDraftAction = (draftId) => {
@@ -124,9 +123,6 @@ export const startDraftAction = (draftId) => {
         dispatch(startDraftStartedAction());
 
         DraftService.startDraft(draftId)
-            .then(res => {
-                dispatch(startDraftSuccessAction(res.data))
-            })
             .catch(err => {
                 dispatch(startDraftFailureAction(err.message))
             })
@@ -137,19 +133,13 @@ export const startDraftStartedAction = () => ({
     type: START_DRAFT_STARTED
 });
 
-export const startDraftSuccessAction = status => ({
-    type: START_DRAFT_SUCCESS,
-    payload: status
-});
-
 export const startDraftFailureAction = error => ({
     type: START_DRAFT_FAILURE,
     payload: error
 });
 
-// STOP DRAFT.
+// STOP DRAFT (Success action handled via UPDATE_DRAFT_STATUS as it's received via WebSockets).
 export const STOP_DRAFT_STARTED = 'STOP_DRAFT_STARTED';
-export const STOP_DRAFT_SUCCESS = 'STOP_DRAFT_SUCCESS';
 export const STOP_DRAFT_FAILURE = 'STOP_DRAFT_FAILURE';
 
 export const stopDraftAction = (draftId) => {
@@ -157,9 +147,6 @@ export const stopDraftAction = (draftId) => {
         dispatch(stopDraftStartedAction());
 
         DraftService.stopDraft(draftId)
-            .then(res => {
-                dispatch(stopDraftSuccessAction(res.data))
-            })
             .catch(err => {
                 dispatch(stopDraftFailureAction(err.message))
             })
@@ -170,15 +157,18 @@ export const stopDraftStartedAction = () => ({
     type: STOP_DRAFT_STARTED
 });
 
-export const stopDraftSuccessAction = status => ({
-    type: STOP_DRAFT_SUCCESS,
-    payload: status
-});
-
 export const stopDraftFailureAction = error => ({
     type: STOP_DRAFT_FAILURE,
     payload: error
 });
+
+// DRAFT STATUS.
+export const UPDATE_DRAFT_STATUS = "UPDATE_DRAFT_STATUS";
+
+export const updateDraftStatus = status => ({
+    type: UPDATE_DRAFT_STATUS,
+    payload: status
+})
 
 // GET MY DRAFTS.
 export const GET_MY_DRAFTS_STARTED = 'GET_MY_DRAFTS_STARTED';

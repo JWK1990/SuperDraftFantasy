@@ -58,6 +58,11 @@ public class TeamEntity {
     @JsonBackReference(value="draft-team")
     private DraftEntity draft;
 
+    @NotNull
+    @Enumerated(EnumType.ORDINAL)
+    @Column(name = "status_id")
+    private TeamStatusEnum status;
+
     @CreationTimestamp
     private LocalDateTime createdOn;
 

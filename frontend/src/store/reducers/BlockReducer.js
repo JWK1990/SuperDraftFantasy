@@ -29,8 +29,8 @@ export function blockReducer(state = initialBlockState, action) {
                 data: action.payload,
             };
 
-            case RECEIVE_STOP_DRAFT:
-                return initialBlockState;
+        case RECEIVE_STOP_DRAFT:
+            return initialBlockState;
 
         case UPDATE_ON_THE_BLOCK_TEAM:
                 return {

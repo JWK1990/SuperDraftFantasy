@@ -37,12 +37,20 @@ public class TeamReadDto {
     @JsonIgnore
     private DraftEntity draft;
 
+    @JsonIgnore
+    private TeamStatusEnum status;
+
+    private String statusType;
 
     public Long getMaxBid() {
         RosterEntity roster = draft.getRoster();
         Long rosterSize = roster.getDef() + roster.getMid() + roster.getRuc() + roster.getFwd() + roster.getBench();
         int playerSize = teamPlayerJoins.size();
         return budget - (rosterSize - playerSize - 1);
+    }
+
+    private String getStatusType() {
+        return status.name();
     }
 
 }

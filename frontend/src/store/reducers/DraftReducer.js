@@ -14,10 +14,9 @@ import {
     REORDER_TEAM_LIST,
     START_DRAFT_FAILURE,
     START_DRAFT_STARTED,
-    START_DRAFT_SUCCESS,
     STOP_DRAFT_FAILURE,
     STOP_DRAFT_STARTED,
-    STOP_DRAFT_SUCCESS,
+    UPDATE_DRAFT_STATUS,
     UPDATE_MY_TEAM_POSITION_FAILURE,
     UPDATE_MY_TEAM_POSITION_STARTED,
     UPDATE_MY_TEAM_POSITION_SUCCESS,
@@ -56,8 +55,7 @@ export function draftReducer(state = initialDraftState, action) {
                 data: action.payload
             };
 
-        case START_DRAFT_SUCCESS:
-        case STOP_DRAFT_SUCCESS:
+        case UPDATE_DRAFT_STATUS:
             return {
                 ...state,
                 loading: false,

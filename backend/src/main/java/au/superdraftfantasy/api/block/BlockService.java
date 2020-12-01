@@ -1,15 +1,17 @@
 package au.superdraftfantasy.api.block;
 
+import au.superdraftfantasy.api.draft.DraftEntity;
+import au.superdraftfantasy.api.draft.DraftRepository;
+import au.superdraftfantasy.api.draft.DraftStatusEnum;
 import au.superdraftfantasy.api.futuresScheduler.FuturesScheduler;
 import au.superdraftfantasy.api.futuresScheduler.ScheduledFutureEnum;
-import au.superdraftfantasy.api.team.TeamEntity;
-import au.superdraftfantasy.api.team.TeamReadDto;
-import au.superdraftfantasy.api.team.TeamRepository;
-import au.superdraftfantasy.api.team.TeamService;
+import au.superdraftfantasy.api.team.*;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Service;
 
 import java.time.Instant;
+import java.util.Comparator;
+import java.util.List;
 import java.util.NoSuchElementException;
 
 @Service
@@ -19,21 +21,25 @@ public class BlockService {
     private final TeamService teamService;
     private final SimpMessagingTemplate simpMessagingTemplate;
     private final TeamRepository teamRepository;
+    private final DraftRepository draftRepository;
 
     public BlockService(
             FuturesScheduler futuresScheduler,
             TeamService teamService,
             SimpMessagingTemplate simpMessagingTemplate,
-            TeamRepository teamRepository
+            TeamRepository teamRepository,
+            DraftRepository draftRepository
     ) {
         this.futuresScheduler = futuresScheduler;
         this.teamService = teamService;
         this.simpMessagingTemplate = simpMessagingTemplate;
         this.teamRepository = teamRepository;
+        this.draftRepository = draftRepository;
     }
 
     public void startNextRound(BlockDto blockDto, boolean otbUpdateRequired) {
         System.out.println("Start Next Round.");
+
         Long onTheBlockTeamId = getOnTheBlockTeamId(blockDto.getDraftId(), otbUpdateRequired);
         blockDto.setOnTheBlockTeamId(onTheBlockTeamId);
 
@@ -56,11 +62,11 @@ public class BlockService {
         );
     }
 
-    public void stopDraft(Long draftId) {
+    public void stopDraft(Long draftId, String status) {
         System.out.println("Draft Stopped.");
         // Stop AutoAddToBlock or AutoDraftPlayer.
         futuresScheduler.stopScheduledFutures(draftId);
-        this.simpMessagingTemplate.convertAndSend("/draft/stopDrafts", draftId);
+        this.simpMessagingTemplate.convertAndSend("/draft/stopDrafts", status);
     }
 
     /**
@@ -92,7 +98,20 @@ public class BlockService {
         System.out.println("AutoDraftAndStartNextRound");
         TeamReadDto teamReadDto = teamService.addPlayerToTeam(blockDto);
         this.simpMessagingTemplate.convertAndSend("/draft/teams", teamReadDto);
-        startNextRound(blockDto, true);
+
+        Long draftId = blockDto.getDraftId();
+        List<TeamEntity> teamList = teamRepository.findAllByDraftId(draftId);
+        boolean isDraftComplete = teamList.stream()
+                .allMatch(team -> team.getStatus().equals(TeamStatusEnum.READY));
+        if(isDraftComplete) {
+            DraftEntity draft = draftRepository.findById(draftId)
+                    .orElseThrow(() -> new NoSuchElementException("Draft with id " + draftId + " not found."));
+            draft.setStatus(DraftStatusEnum.COMPLETE);
+            draftRepository.save(draft);
+            stopDraft(draftId, DraftStatusEnum.COMPLETE.name());
+        } else {
+            startNextRound(blockDto, true);
+        }
     }
 
     private void autoAddToBlock(BlockDto blockDto) {
@@ -129,20 +148,36 @@ public class BlockService {
     }
 
     private Long updateOnTheBlockTeam(Long draftId) {
-        TeamEntity currentOtbTeam = teamRepository.findDistinctByDraftIdAndOnTheBlock(draftId, true)
-                .orElseThrow(() -> new NoSuchElementException("No On The Block Coach Found."));
+        List<TeamEntity> teamList = teamRepository.findAllByDraftId(draftId);
+        teamList.sort(Comparator.comparing(TeamEntity::getOrderIndex));
+        Long currentOrderIndex = unsetCurrentOtbTeamAndGetOrderIndex(teamList);
+        return setNextOnTheBlockTeam(teamList, currentOrderIndex);
+    }
+
+    private Long unsetCurrentOtbTeamAndGetOrderIndex(List<TeamEntity> teamList) {
+        TeamEntity currentOtbTeam = teamList.stream()
+                .filter(TeamEntity::isOnTheBlock)
+                .findAny()
+                .orElseThrow(() -> new NoSuchElementException("OnTheBlock Team Not Found."));
         currentOtbTeam.setOnTheBlock(false);
         teamRepository.save(currentOtbTeam);
+        return currentOtbTeam.getOrderIndex();
+    }
 
-        Long nextOrderIndex = (currentOtbTeam.getOrderIndex() + 1);
-        TeamEntity nextOtbTeam = teamRepository.findDistinctByDraftIdAndOrderIndex(draftId, nextOrderIndex)
-                .orElse(teamRepository.findDistinctByDraftIdAndOrderIndex(draftId, 0L)
-                        .orElseThrow(() -> new NoSuchElementException("No On The Block Team Found."))
+    private Long setNextOnTheBlockTeam(List<TeamEntity> teamList, Long currentOrderIndex) {
+        Long nextOrderIndex = currentOrderIndex + 1;
+        TeamEntity nextOtbTeam = teamList.stream()
+                .filter(team -> (
+                        team.getOrderIndex() >= nextOrderIndex &&
+                                team.getStatus().equals(TeamStatusEnum.IN_SETUP)
+                )).findFirst()
+                .orElse(teamList.stream()
+                        .filter(team -> team.getStatus().equals(TeamStatusEnum.IN_SETUP))
+                        .findFirst()
+                        .orElseThrow(() -> new NoSuchElementException("All Teams are full."))
                 );
         nextOtbTeam.setOnTheBlock(true);
         teamRepository.save(nextOtbTeam);
-
         return nextOtbTeam.getId();
     }
-
 }

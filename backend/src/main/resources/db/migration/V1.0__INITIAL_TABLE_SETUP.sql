@@ -72,6 +72,11 @@ CREATE TABLE team_type_enum (
     type varchar NOT NULL
 );
 
+CREATE TABLE team_status_enum (
+    id BIGSERIAL PRIMARY KEY,
+    status varchar NOT NULL
+);
+
 CREATE TABLE team_entity (
     id BIGSERIAL,
     name VARCHAR(255) NOT NULL,
@@ -81,13 +86,15 @@ CREATE TABLE team_entity (
     order_index INT NOT NULL,
     user_id INT NOT NULL,
     draft_id INT,
+    status_id INT NOT NULL,
     created_on TIMESTAMP NOT NULL,
     updated_on TIMESTAMP NOT NULL,
 
     CONSTRAINT pk_team_entity PRIMARY KEY(id),
-    CONSTRAINT fk_type_id FOREIGN KEY(type_id) REFERENCES team_type_enum(id),
-    CONSTRAINT fk_user_id FOREIGN KEY(user_id) REFERENCES user_entity(id) ON DELETE CASCADE ON UPDATE CASCADE,
-    CONSTRAINT fk_draft_id FOREIGN KEY(draft_id) REFERENCES draft_entity(id) ON DELETE CASCADE ON UPDATE CASCADE
+    CONSTRAINT fk_team_type_id FOREIGN KEY(type_id) REFERENCES team_type_enum(id),
+    CONSTRAINT fk_team_user_id FOREIGN KEY(user_id) REFERENCES user_entity(id) ON DELETE CASCADE ON UPDATE CASCADE,
+    CONSTRAINT fk_team_draft_id FOREIGN KEY(draft_id) REFERENCES draft_entity(id) ON DELETE CASCADE ON UPDATE CASCADE,
+    CONSTRAINT fk_team_status_id FOREIGN KEY(status_id) REFERENCES team_status_enum(id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE afl_teams_enum (
