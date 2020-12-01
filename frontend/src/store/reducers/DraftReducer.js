@@ -1,27 +1,26 @@
 import {
+    CREATE_DRAFT_FAILURE,
+    CREATE_DRAFT_STARTED,
+    CREATE_DRAFT_SUCCESS,
     GET_DRAFT_FAILURE,
     GET_DRAFT_STARTED,
     GET_DRAFT_SUCCESS,
-    UPDATE_TEAM,
-    REORDER_TEAM_LIST,
-    GET_MY_DRAFTS_STARTED,
     GET_MY_DRAFTS_FAILURE,
+    GET_MY_DRAFTS_STARTED,
     GET_MY_DRAFTS_SUCCESS,
-    CREATE_DRAFT_STARTED,
-    CREATE_DRAFT_FAILURE,
-    CREATE_DRAFT_SUCCESS,
+    JOIN_DRAFT_FAILURE,
     JOIN_DRAFT_STARTED,
     JOIN_DRAFT_SUCCESS,
-    JOIN_DRAFT_FAILURE,
-    START_DRAFT_STARTED,
+    REORDER_TEAM_LIST,
     START_DRAFT_FAILURE,
-    START_DRAFT_SUCCESS,
-    STOP_DRAFT_STARTED,
+    START_DRAFT_STARTED,
     STOP_DRAFT_FAILURE,
-    STOP_DRAFT_SUCCESS,
+    STOP_DRAFT_STARTED,
+    UPDATE_DRAFT_STATUS,
     UPDATE_MY_TEAM_POSITION_FAILURE,
     UPDATE_MY_TEAM_POSITION_STARTED,
-    UPDATE_MY_TEAM_POSITION_SUCCESS
+    UPDATE_MY_TEAM_POSITION_SUCCESS,
+    UPDATE_TEAM
 } from "../actions";
 import {initialDraftState} from "../state/DraftState";
 
@@ -56,8 +55,7 @@ export function draftReducer(state = initialDraftState, action) {
                 data: action.payload
             };
 
-        case START_DRAFT_SUCCESS:
-        case STOP_DRAFT_SUCCESS:
+        case UPDATE_DRAFT_STATUS:
             return {
                 ...state,
                 loading: false,
@@ -77,16 +75,17 @@ export function draftReducer(state = initialDraftState, action) {
             };
 
         case UPDATE_TEAM:
-            const updatedTeams = [...state.data.teams];
-            let updatedTeamIndex = updatedTeams.findIndex(team => team.id === action.payload.id);
-            updatedTeams[updatedTeamIndex] = action.payload;
             return {
                 ...state,
                 loading: false,
                 error: null,
                 data: {
                     ...state.data,
-                    teams: updatedTeams,
+                    teams: state.data.teams.map(team => (
+                        team.id !== action.payload.id
+                            ? team
+                            : action.payload
+                    )),
                 }
             }
 
@@ -97,7 +96,7 @@ export function draftReducer(state = initialDraftState, action) {
                 error: null,
                 data: {
                     ...state.data,
-                    teams: state.data.teams.map((team) => (
+                    teams: state.data.teams.map(team => (
                         team.orderIndex === action.payload.indexOf(team.id)
                             ? team
                             : {...team, orderIndex: action.payload.indexOf(team.id)}
@@ -106,22 +105,24 @@ export function draftReducer(state = initialDraftState, action) {
             }
 
         case UPDATE_MY_TEAM_POSITION_SUCCESS:
-            const teams = [...state.data.teams];
-            const teamIndex = teams.findIndex(team => team.id === action.payload.teamId);
-            const teamPlayerJoinIndex = teams[teamIndex].teamPlayerJoins.findIndex(
-                teamPlayerJoin => teamPlayerJoin.player.id === action.payload.playerId
-            );
-            teams[teamIndex].teamPlayerJoins[teamPlayerJoinIndex].myTeamPositionType = action.payload.myTeamPositionType;
             return {
                 ...state,
                 loading: false,
                 error: null,
                 data: {
                     ...state.data,
-                    teams: teams,
+                    // Map is used to ensure immutable update.
+                    teams: state.data.teams.map((team) => (
+                        team.id !== action.payload.teamId
+                            ? team
+                        : {...team, teamPlayerJoins: team.teamPlayerJoins.map(teamPlayerJoin => (
+                            teamPlayerJoin.player.id !== action.payload.playerId
+                                ? teamPlayerJoin
+                                : {...teamPlayerJoin, myTeamPositionType: action.payload.myTeamPositionType}))
+                        }
+                    ))
                 }
             }
-
 
         case CREATE_DRAFT_FAILURE:
         case GET_DRAFT_FAILURE:

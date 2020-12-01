@@ -83,6 +83,7 @@ export const getCurrentUserAction = () => {
             })
             .catch(err => {
                 dispatch(getCurrentUserFailureAction(err.message));
+                AuthService.removeToken();
             })
     }
 }

@@ -19,11 +19,16 @@ INSERT INTO draft_status_enum(id, status)
     VALUES (0, 'IN_SETUP'),
            (1, 'READY'),
            (2, 'IN_PROGRESS'),
-           (3, 'COMPLETE');
+           (3, 'STOPPED'),
+           (4, 'COMPLETE');
 
 INSERT INTO team_type_enum(id, type)
     VALUES  (0, 'COMMISSIONER'),
             (1, 'MEMBER');
+
+INSERT INTO team_status_enum(id, status)
+VALUES (0, 'IN_SETUP'),
+       (1, 'READY');
 
 /* Insert initial Afl Teams Data. */
 INSERT INTO afl_teams_enum(id, aflTeam)

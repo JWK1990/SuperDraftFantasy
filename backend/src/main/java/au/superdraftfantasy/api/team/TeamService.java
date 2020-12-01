@@ -6,9 +6,9 @@ import au.superdraftfantasy.api.player.PlayerInDraftReadDto;
 import au.superdraftfantasy.api.player.PlayerRepository;
 import au.superdraftfantasy.api.player.PlayerService;
 import au.superdraftfantasy.api.position.PositionEntity;
-import au.superdraftfantasy.api.position.PositionReadDto;
 import au.superdraftfantasy.api.position.PositionRepository;
 import au.superdraftfantasy.api.position.PositionTypeEnum;
+import au.superdraftfantasy.api.roster.RosterEntity;
 import au.superdraftfantasy.api.teamPlayerJoin.TeamPlayerJoinEntity;
 import au.superdraftfantasy.api.teamPlayerJoin.TeamPlayerJoinWriteDto;
 import org.modelmapper.ModelMapper;
@@ -63,6 +63,12 @@ public class TeamService {
         checkIfPlayerAlreadyDrafted(team, readDto.getPlayerId());
         addPlayer(team, readDto.getPlayerId(), readDto.getPrice());
         team.setBudget(team.getBudget() - readDto.getPrice());
+
+        RosterEntity roster = team.getDraft().getRoster();
+        long totalRosterSlots = roster.getDef() + roster.getMid() + roster.getRuc() + roster.getFwd() + roster.getBench();
+        if(team.getTeamPlayerJoins().size() >= totalRosterSlots) {
+            team.setStatus(TeamStatusEnum.READY);
+        }
         teamRepository.save(team);
         return modelMapper.map(team, TeamReadDto.class);
     }
@@ -86,7 +92,7 @@ public class TeamService {
         teamPlayerJoinToUpdate.setMyTeamPosition(position);
         teamRepository.save(team);
         // TODO: Update ReadDto to include teamId so that we can use it here.
-        TeamPlayerJoinWriteDto readDto = new TeamPlayerJoinWriteDto(teamId, playerId, new PositionReadDto(myTeamPosition));
+        TeamPlayerJoinWriteDto readDto = new TeamPlayerJoinWriteDto(teamId, playerId, myTeamPosition.name());
         this.simpMessagingTemplate.convertAndSend("/draft/updateMyTeamPositions", readDto);
         return myTeamPosition;
     }
@@ -118,7 +124,6 @@ public class TeamService {
 
     private void addPlayer(TeamEntity team, Long playerID, Long price) {
         PlayerEntity player =  playerRepository.findById(playerID).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Player with ID '" + playerID + "' Not Found."));
-        // TODO: Update to calculate correct MyTeamPosition rather than just taking the first position.
         PositionEntity myTeamPosition = getMyTeamPosition(team, player);
         if(myTeamPosition != null) {
             TeamPlayerJoinEntity teamPlayerJoin = new TeamPlayerJoinEntity(null, team, player, price, myTeamPosition);
@@ -137,7 +142,7 @@ public class TeamService {
             positionType = PositionTypeEnum.DEF;
         } else if(positions.contains(PositionTypeEnum.MID) && isSlotAvailableForPosition(team, PositionTypeEnum.MID)) {
             positionType = PositionTypeEnum.MID;
-        } else if(positions.contains(PositionTypeEnum.RUC) && isSlotAvailableForPosition(team, PositionTypeEnum.MID)) {
+        } else if(positions.contains(PositionTypeEnum.RUC) && isSlotAvailableForPosition(team, PositionTypeEnum.RUC)) {
             positionType = PositionTypeEnum.RUC;
         } else if(positions.contains(PositionTypeEnum.FWD) && isSlotAvailableForPosition(team, PositionTypeEnum.FWD)) {
             positionType = PositionTypeEnum.FWD;

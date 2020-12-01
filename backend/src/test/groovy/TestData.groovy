@@ -3,6 +3,7 @@ package au.superdraftfantasy.api
 import au.superdraftfantasy.api.draft.DraftJoinWriteDto
 import au.superdraftfantasy.api.team.TeamEntity
 import au.superdraftfantasy.api.team.TeamReadDto
+import au.superdraftfantasy.api.team.TeamStatusEnum
 import au.superdraftfantasy.api.team.TeamTypeEnum
 import au.superdraftfantasy.api.draft.DraftEntity
 import au.superdraftfantasy.api.draft.DraftReadDto
@@ -60,10 +61,10 @@ class TestData {
 
     static class Team {
         static TeamEntity createCommissioner(Long id, UserEntity user, DraftEntity draft) {
-            return new TeamEntity(id, "TestCommissionerTeam", TeamTypeEnum.COMMISSIONER, 100L, false, Arrays.asList(), user, draft, null, null)
+            return new TeamEntity(id, "TestCommissionerTeam", TeamTypeEnum.COMMISSIONER, 100L, false, Arrays.asList(), user, draft, TeamStatusEnum.IN_SETUP, null, null)
         }
         static TeamEntity createMember(Long id, UserEntity user, DraftEntity draft) {
-            return new TeamEntity(id, "TestMemberTeam", TeamTypeEnum.MEMBER, 100L, false, Arrays.asList(), user, draft, null, null)
+            return new TeamEntity(id, "TestMemberTeam", TeamTypeEnum.MEMBER, 100L, false, Arrays.asList(), user, draft, TeamStatusEnum.IN_SETUP, null, null)
         }
         static DraftJoinWriteDto createWriteDto(Long draftId) {
             return new DraftJoinWriteDto(null, draftId)

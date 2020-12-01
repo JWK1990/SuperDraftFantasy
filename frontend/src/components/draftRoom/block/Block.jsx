@@ -24,6 +24,8 @@ import VacantBlock from "./player/VacantBlock";
 import AddToBlockClock from "./clock/AddToBlockClock";
 import PausedDraft from "./player/PausedDraft";
 import DraftRoomUtils from "../../../utils/DraftRoomUtils";
+import {DraftStatusEnum} from "../../../models/DraftStatusEnum";
+import {updateDraftStatus} from "../../../store/actions";
 
 const styles = theme => ({
     firstRowGridContainer: {
@@ -48,12 +50,14 @@ class DraftRoomBlock extends React.Component {
         super(props);
 
         this.state = {
-            addToBlockClockKey: 0,
             showAddToBlockClock: false,
+            addToBlockClockTimeRemaining: '',
+            addToBlockClockKey: 0,
             showBidClock: false,
-            bidClockKey: 0,
+            bidClockTimeRemaining: '',
             isBidClockDisabled: true,
             bidBlockText: '',
+            bidClockKey: 0,
         }
     }
 
@@ -64,15 +68,35 @@ class DraftRoomBlock extends React.Component {
         this.props.stompClient.subscribe('/draft/bids', this.receiveBid);
     }
 
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if(prevProps.currentTeam.teamPlayerJoins !== this.props.currentTeam.teamPlayerJoins) {
+            const isBidDisabledTuple = this.getIsBidDisabledTuple(this.props.block.bidderTeamId, this.props.block.price, this.props.block.playerId);
+            if(isBidDisabledTuple[0] !== this.state.isBidClockDisabled) {
+                this.setState({
+                    ...this.state,
+                    isBidClockDisabled: isBidDisabledTuple[0],
+                    bidClockTimeRemaining: (this.props.block.endTime - Date.now()) / 1000,
+                    bidClockText: isBidDisabledTuple[1],
+                    bidClockKey: this.state.bidClockKey + 1,
+                })
+            }
+        }
+    }
+
     receiveStartNextRound = (payload) => {
         console.log('Start Next Round Received: ', payload);
-        const updatedBlockData = JSON.parse(payload.body);
-        this.props.receiveStartNextRound(updatedBlockData);
+        const updatedBlock = JSON.parse(payload.body);
+        this.props.receiveStartNextRound(updatedBlock);
+        if(this.props.draft.status !== DraftStatusEnum.IN_PROGRESS) {
+            this.props.updateDraftStatus(DraftStatusEnum.IN_PROGRESS);
+        }
         this.setState({
             ...this.state,
             showAddToBlockClock: true,
+            addToBlockClockTimeRemaining: (updatedBlock.endTime - Date.now()) / 1000,
             addToBlockClockKey: this.state.addToBlockClockKey + 1,
             showBidClock: false,
+            bidClockTimeRemaining: '',
         })
     };
 
@@ -84,7 +108,9 @@ class DraftRoomBlock extends React.Component {
         this.setState({
             ...this.state,
             showAddToBlockClock: false,
+            addToBlockClockTimeRemaining: '',
             showBidClock: true,
+            bidClockTimeRemaining: (updatedBlock.endTime - Date.now())/1000,
             bidClockKey: this.state.bidClockKey + 1,
             isBidClockDisabled: isBidDisabledTuple[0],
             bidClockText: isBidDisabledTuple[1],
@@ -117,20 +143,27 @@ class DraftRoomBlock extends React.Component {
             ...this.state,
             showAddToBlockClock: false,
             showBidClock: true,
+            bidClockTimeRemaining: (updatedBlock.endTime - Date.now())/1000,
             bidClockKey: this.state.bidClockKey + 1,
             isBidClockDisabled: isBidDisabledTuple[0],
             bidClockText: isBidDisabledTuple[1],
         });
     };
 
-    receiveStopDraft = () => {
+    receiveStopDraft = (payload) => {
         console.log('StopDraft Received.');
+        const updatedStatus = payload.body;
         this.props.receiveStopDraft();
         this.setState({
             ...this.state,
             showAddToBlockClock: false,
+            addToBlockClockTimeRemaining: '',
             showBidClock: false,
+            bidClockTimeRemaining: '',
         })
+        if(this.props.draft.status !== updatedStatus) {
+            this.props.updateDraftStatus(updatedStatus);
+        }
     }
 
     getPlayerDetailsById = (playerId) => {
@@ -146,7 +179,6 @@ class DraftRoomBlock extends React.Component {
     // We need to change the timer to be based on endTime - currentTime (rather than a set number).
     // Then when a relevant team update is received, we should increment the bidClockKey to refresh the timer.
     getIsBidDisabledTuple = (bidderId, price, playerId) => {
-
         if(this.props.currentTeam.teamPlayerJoins.length >= this.props.numOfPlayerRequired) {
             return [true, "Your team is full."]
         }
@@ -160,19 +192,26 @@ class DraftRoomBlock extends React.Component {
         }
 
         const player = this.getPlayerDetailsById(playerId);
-        if(player &&
+        if(player && this.isSlotAvailable(player)) {
+            return[true, this.getSlotUnavailableText(player)];
+        }
+
+        return [false, "Bid"];
+    }
+
+    isSlotAvailable(player) {
+        return player &&
             !DraftRoomUtils.isSlotAvailableForPlayer(
                 this.props.slotAvailability,
                 player.primaryPosition,
                 player.secondaryPosition
             )
-        ) {
-            return [true, "No " + player.primaryPosition
-            + (player.secondaryPosition ? " or " + player.secondaryPosition : '')
-                + " slot."]
-        }
+    }
 
-        return [false, "Bid"];
+    getSlotUnavailableText(player) {
+        return "No " + player.primaryPosition
+        + (player.secondaryPosition ? " or " + player.secondaryPosition : '')
+        + " slot.";
     }
 
     render() {
@@ -187,11 +226,13 @@ class DraftRoomBlock extends React.Component {
                         {this.state.showAddToBlockClock ?
                             <AddToBlockClock
                                 duration={this.props.draft.onTheBlockTimer}
+                                initialRemainingTime={this.state.addToBlockClockTimeRemaining}
                                 key={this.state.addToBlockClockKey}
                             />
                             : this.state.showBidClock ?
                             <BidClock
                                 duration={this.props.draft.bidTimer}
+                                initialRemainingTime={this.state.bidClockTimeRemaining}
                                 key={this.state.bidClockKey}
                                 sendBid={this.sendBid}
                                 isDisabled={this.state.isBidClockDisabled}
@@ -251,6 +292,7 @@ const mapDispatchToProps = dispatch => ({
         receiveAddToBlock: (block) => dispatch(receiveAddToBlockAction(block)),
         receiveBid: (block) => dispatch(receiveBidAction(block)),
         receiveStopDraft: () => dispatch(receiveStopDraftAction()),
+        updateDraftStatus: (status) => dispatch(updateDraftStatus(status)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(
