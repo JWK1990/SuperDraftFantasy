@@ -3,8 +3,10 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">  
   <modelVersion>4.0.0</modelVersion>  
   <groupId>au.superdraftfantasy</groupId>  
-  <artifactId>app</artifactId>
-  <version>1.0-SNAPSHOT</version>  
+  <artifactId>superdraftfantasy</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <name>superdraftfantasy</name>
+  <description>SuperDraftFantasy - Draft It Your Way.</description>
   <properties> 
     <java.version>1.8</java.version>  
     <spock-core.version>1.2-groovy-2.5</spock-core.version>  
@@ -136,7 +138,7 @@
     <!-- ModelMapper Dependencies End --> 
   </dependencies>  
   <build> 
-    <finalName>app</finalName>
+    <finalName>${artifactId}-${version}</finalName>
     <plugins> 
       <!-- SpringBoot Plugin - To enable boot with Maven -->  
       <plugin> 
@@ -239,19 +241,20 @@
       <!-- Maven Resources Plugin End. -->
     </plugins>
   </build>
-  <!-- Repository for fetching the artifacts from Azure -->  
-  <repositories> 
-    <repository> 
-      <id>SuperDraftFantasy</id>  
-      <url>https://pkgs.dev.azure.com/jwkumm/SuperDraftFantasy/_packaging/SuperDraftFantasy/maven/v1</url>  
-      <releases> 
-        <enabled>true</enabled> 
-      </releases>  
-      <snapshots> 
-        <enabled>true</enabled> 
-      </snapshots> 
-    </repository> 
-  </repositories>  
+  <!-- Repository for fetching the artifacts from Azure -->
+  <!-- Commented out as it caused issues when fetching dependencies using mvnw when running in Docker. -->
+<!--  <repositories> -->
+<!--    <repository> -->
+<!--      <id>SuperDraftFantasy</id>  -->
+<!--      <url>https://pkgs.dev.azure.com/jwkumm/SuperDraftFantasy/_packaging/SuperDraftFantasy/maven/v1</url>  -->
+<!--      <releases> -->
+<!--        <enabled>true</enabled> -->
+<!--      </releases>  -->
+<!--      <snapshots> -->
+<!--        <enabled>true</enabled> -->
+<!--      </snapshots> -->
+<!--    </repository> -->
+<!--  </repositories>  -->
   <!-- Repository to push the artifacts to Azure -->  
   <distributionManagement> 
     <repository> 
