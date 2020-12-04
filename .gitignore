@@ -66,3 +66,6 @@ ci/credentials.yml
 **TestDateiS3.txt
 client.iml
 /.directory
+
+# Docker
+.env

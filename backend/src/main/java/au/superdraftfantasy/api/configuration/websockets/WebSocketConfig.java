@@ -23,6 +23,7 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
                         "http://localhost:3000",
                         "http://localhost:8080",
                         "http://localhost:80",
+                        "http://localhost",
                         "http://superdraftfantasy.azurewebsites.net",
                         "https://superdraftfantasy.azurewebsites.net",
                         "http://superdraftfantasy.com",
