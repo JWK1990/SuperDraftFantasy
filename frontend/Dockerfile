@@ -1,19 +1,23 @@
-#### Stage 1: Build the react application
-FROM node:12.4.0-alpine as builder
+###########
+# BUILDER #
+###########
 
-# Configure the main working directory inside the docker image.
-# This is the base directory used in any further RUN, COPY, and ENTRYPOINT
-# commands.
+# pull official base image
+FROM node:12.18.3-alpine3.9 as builder
+
+# set work directory
 WORKDIR /app
 
-# Copy the package.json as well as the package-lock.json and install
-# the dependencies. This is a separate step so the dependencies
-# will be cached unless changes to one of those two files
-# are made.
-COPY package.json package-lock.json ./
-RUN npm install
+# install dependencies and avoid `node-gyp rebuild` errors
+COPY package.json ./
+RUN apk add --no-cache --virtual .gyp \
+        python \
+        make \
+        g++ \
+    && npm install \
+    && apk del .gyp
 
-# Copy the main application
+# copy our react project
 COPY . ./
 
 # perform npm build
@@ -27,10 +31,10 @@ RUN REACT_APP_API_SERVER=${API_SERVER} \
 #########
 
 # pull official base image
-FROM node:12.4.0-alpine
+FROM node:12.18.3-alpine3.9
 
 # set work directory
-WORKDIR /usr/src/app
+WORKDIR /app
 
 # install serve - deployment static server suggested by official create-react-app
 RUN npm install -g serve

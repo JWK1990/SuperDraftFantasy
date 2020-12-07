@@ -12,7 +12,7 @@ services:
       args:
         - API_SERVER=${ENV_API_SERVER}
     volumes:
-      - react_static_volume:/usr/src/app/build/static
+      - react_static_volume:/app/build/static
     expose:
       - 3000
     env_file:
@@ -27,7 +27,7 @@ services:
       context: backend
       dockerfile: Dockerfile
     volumes:
-      - spring_boot_static_volume:/usr/src/app/static
+      - spring_boot_static_volume:/app/static
     expose:
       - 8080
     command: gunicorn mainapp.wsgi:application --bind 0.0.0.0:8000
@@ -57,8 +57,8 @@ services:
     restart: always
     build: ./nginx
     volumes:
-      - spring_boot_static_volume:/usr/src/app/spring_boot_files/static
-      - react_static_volume:/usr/src/app/react_files/static
+      - spring_boot_static_volume:/app/app-server_files/static
+      - react_static_volume:/app/app-client_files/static
     ports:
       - 80:80
     depends_on:
