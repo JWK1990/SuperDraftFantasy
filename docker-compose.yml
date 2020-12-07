@@ -6,26 +6,18 @@ version: '3'
 services:
   # Frontend Service
   app-client:
-    build:
-      context: frontend
-      dockerfile: Dockerfile
-      args:
-        - API_SERVER=${ENV_API_SERVER}
+    image: "jwk1990/superdraftfantasy:fe_latest"
     volumes:
       - react_static_volume:/app/build/static
     expose:
       - 3000
-    env_file:
-      - .env
     command: serve -s build -l 3000
     depends_on:
       - app-server
   # App backend service
   app-server:
     # Configuration for building the docker image for the backend service
-    build:
-      context: backend
-      dockerfile: Dockerfile
+    image: "jwk1990/superdraftfantasy:be_latest"
     volumes:
       - spring_boot_static_volume:/app/static
     expose:
@@ -55,7 +47,7 @@ services:
 
   nginx:
     restart: always
-    build: ./nginx
+    image: "jwk1990/superdraftfantasy:nginx_latest"
     volumes:
       - spring_boot_static_volume:/app/app-server_files/static
       - react_static_volume:/app/app-client_files/static
