@@ -6,11 +6,7 @@ version: '3'
 services:
   # Frontend Service
   app-client:
-    build:
-      context: frontend # Use an image built from the specified dockerfile in the `frontend` directory.
-      dockerfile: Dockerfile
-      args:
-        REACT_APP_API_SERVER: # Should be left blank when using locally.
+    image: "jwk1990/superdraftfantasy:fe_prod_v0.1"
     ports:
       - "80:80" # Map the exposed port 80 on the container to port 80 on the host machine
     restart: always
@@ -22,9 +18,7 @@ services:
   # App backend service
   app-server:
     # Configuration for building the docker image for the backend service
-    build:
-      context: backend # Use an image built from the specified dockerfile in the `backend` directory.
-      dockerfile: Dockerfile
+    image: "jwk1990/superdraftfantasy:be_prod_v0.1"
     ports:
       - "8080:8080" # Forward the exposed port 8080 on the container to port 8080 on the host machine
     restart: always
@@ -50,13 +44,13 @@ services:
       POSTGRES_DB: ${DB_NAME}
       POSTGRES_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
     volumes:
-      - db-data-dev:/var/lib/postgresql
+      - db-data-prod:/var/lib/postgresql
     networks:
       - backend
 
 # Volumes
 volumes:
-  db-data-dev:
+  db-data-prod:
 
 # Networks to be created to facilitate communication between containers
 networks:
