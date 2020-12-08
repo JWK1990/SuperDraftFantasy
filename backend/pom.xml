@@ -240,7 +240,7 @@
     </plugins>
   </build>
   <!-- Repository for fetching the artifacts from Azure -->  
-  <repositories> 
+  <!-- <repositories>
     <repository> 
       <id>SuperDraftFantasy</id>  
       <url>https://pkgs.dev.azure.com/jwkumm/SuperDraftFantasy/_packaging/SuperDraftFantasy/maven/v1</url>  
@@ -251,7 +251,8 @@
         <enabled>true</enabled> 
       </snapshots> 
     </repository> 
-  </repositories>  
+  </repositories>
+  -->
   <!-- Repository to push the artifacts to Azure -->  
   <distributionManagement> 
     <repository> 

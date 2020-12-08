@@ -32,7 +32,6 @@ speed-measure-plugin.json
 *.sublime-workspace
 *.iml
 
-
 # IDE - VSCode
 .vscode
 **/.vscode/*
@@ -67,3 +66,6 @@ ci/credentials.yml
 **TestDateiS3.txt
 client.iml
 /.directory
+
+# Docker
+.env
