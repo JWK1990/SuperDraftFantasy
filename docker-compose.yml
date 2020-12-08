@@ -6,7 +6,7 @@ version: '3'
 services:
   # Frontend Service
   app-client:
-    image: "jwk1990/superdraftfantasy:local_test_for_frontend"
+    image: "jwk1990/superdraftfantasy:fe_prod_v0.1"
     ports:
       - "80:80" # Map the exposed port 80 on the container to port 3000 on the host machine
     restart: always
@@ -18,7 +18,7 @@ services:
   # App backend service
   app-server:
     # Configuration for building the docker image for the backend service
-    image: "jwk1990/superdraftfantasy:local_test_for_backend"
+    image: "jwk1990/superdraftfantasy:be_prod_v0.1"
     ports:
       - "8080:8080" # Forward the exposed port 8080 on the container to port 8080 on the host machine
     restart: always
@@ -44,13 +44,13 @@ services:
       POSTGRES_DB: ${DB_NAME}
       POSTGRES_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
     volumes:
-      - db-data:/var/lib/postgresql
+      - db-data-prod:/var/lib/postgresql
     networks:
       - backend
 
 # Volumes
 volumes:
-  db-data:
+  db-data-prod:
 
 # Networks to be created to facilitate communication between containers
 networks:
