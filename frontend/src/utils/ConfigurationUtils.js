@@ -1,8 +1,10 @@
 class ConfigurationUtils {
 
     getBaseUrl() {
-        return process.env.NODE_ENV === 'production' ? "" : "http://localhost:8080";
+        console.log("Base URL: ", process.env.REACT_APP_API_BASE_URL);
+        return process.env.NODE_ENV === 'production' ? process.env.REACT_APP_API_SERVER + "/api" : "http://localhost:8080/api";
     }
+
 
     getWebsocketUrl() {
         return this.getBaseUrl() + "/websocket";
