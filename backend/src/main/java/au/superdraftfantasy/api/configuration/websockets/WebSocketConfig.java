@@ -18,6 +18,8 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
 
     @Override
     public void registerStompEndpoints(StompEndpointRegistry registry) {
+        // As WebSockets weren't working in Prod, we've temporarily switched to using "xhr-streaming" and "xhr-polling".
+        // As a result, we've added the option to disabled WebSockets here. The long term solution is to try and reenable and use WebSockets in Production.
         registry.addEndpoint("/websocket")
                 .setAllowedOrigins(
                         "http://localhost:3000",
@@ -29,7 +31,8 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
                         "http://superdraftfantasy.com",
                         "https://superdraftfantasy.com"
                 )
-                .withSockJS();
+                .withSockJS()
+                .setWebSocketEnabled(false);
     }
 
 }
