@@ -31,5 +31,5 @@ logging:
         boot:
           autoconfigure: ERROR
       hibernate:
-        SQL: DEBUG
+        SQL: INFO
 #        type: TRACE
