@@ -18,8 +18,13 @@ export const connectWebSocketAction = () => {
         }
         
         dispatch(connectWebSocketStartedAction());
-
-        const sockJS = new SockJS(ConfigurationHelper.getWebsocketUrl());
+        // The below sockJsProtocols have been added so that we only use the below 2 transport types.
+        // This was added as we were getting errors in the Network tab for the other protocols in Production (incl WebSockets).
+        // The supported Browsers for these transports can be seen in the below article.
+        // WebSockets has also been disabled in the Backend. The long term solution is to get Websockets to work in Production.
+        // https://github.com/sockjs/sockjs-client#supported-transports-by-browser-html-served-from-http-or-https.
+        const sockJsProtocols = ["xhr-streaming", "xhr-polling"];
+        const sockJS = new SockJS(ConfigurationHelper.getWebsocketUrl(), null, {transports: sockJsProtocols});
         stompClient = Stomp.over(sockJS);
         stompClient.debug = null;
         stompClient.connect(
