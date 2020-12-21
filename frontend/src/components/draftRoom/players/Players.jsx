@@ -28,7 +28,11 @@ import Remove from "@material-ui/icons/Remove";
 import SaveAlt from "@material-ui/icons/SaveAlt";
 import Search from "@material-ui/icons/Search";
 import ViewColumn from "@material-ui/icons/ViewColumn";
-import {isOnTheBlockSelector, onTheBlockTeamIdSelector} from "../../../store/selectors/BlockSelectors";
+import {
+    isBiddingUnderwaySelector,
+    isOnTheBlockSelector,
+    onTheBlockTeamIdSelector
+} from "../../../store/selectors/BlockSelectors";
 import DraftRoomUtils from "../../../utils/DraftRoomUtils";
 
 const tableIcons = {
@@ -74,9 +78,10 @@ class DraftRoomPlayers extends React.Component {
     componentDidUpdate(prevProps, prevState, snapshot) {
         if(prevProps.isOnTheBlock !== this.props.isOnTheBlock
             || prevProps.draft.status !== this.props.draft.status
+            || prevProps.isBiddingUnderway !== this.props.isBiddingUnderway
         ) {
             this.setState({
-                showAddToBlock: this.props.isOnTheBlock && this.props.draft.status === "IN_PROGRESS"
+                showAddToBlock: this.props.isOnTheBlock && this.props.draft.status === "IN_PROGRESS" && !this.props.isBiddingUnderway
             })
         }
     }
@@ -204,6 +209,7 @@ const mapStateToProps = state => {
             fwd: isSlotAvailableSelector(state, "fwd"),
             bench: isSlotAvailableSelector(state, "bench"),
         },
+        isBiddingUnderway: isBiddingUnderwaySelector(state),
     };
 };
 
