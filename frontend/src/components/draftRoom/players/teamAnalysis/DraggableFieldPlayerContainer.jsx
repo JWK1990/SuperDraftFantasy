@@ -2,8 +2,8 @@ import React from "react";
 import {Draggable} from "react-beautiful-dnd";
 import withStyles from "@material-ui/core/styles/withStyles";
 import {connect} from "react-redux";
-import {isLeadBidderSelector} from "../../../store/selectors/BlockSelectors";
-import DraggablePlayerCard from "./DraggablePlayerCard";
+import {isLeadBidderSelector} from "../../../../store/selectors/BlockSelectors";
+import DraggableFieldPlayerCard from "./DraggableFieldPlayerCard";
 
 const grid = 4;
 
@@ -14,7 +14,8 @@ const styles = {
         padding: grid,
         margin: `0 0 ${grid}px 0`,
         border: "3px solid",
-        height: "100%",
+        height: "40%",
+        width: "30%",
         //minHeight: 20,
     },
     def: {
@@ -81,7 +82,7 @@ class DraggablePlayerContainer extends React.Component {
                              ${this.props.item.content.vacant ? classes.vacant : null}`
                         }
                     >
-                        <DraggablePlayerCard
+                        <DraggableFieldPlayerCard
                             player={this.props.item.content.player}
                             price={this.props.item.content.price}
                             position={this.props.item.content.position}

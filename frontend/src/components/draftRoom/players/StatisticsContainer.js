@@ -8,6 +8,7 @@ import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import DraftRoomPlayers from "./Players";
+import TeamAnalysis from "./teamAnalysis/TeamAnalysis";
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -73,8 +74,8 @@ export default function StatisticsContainer() {
                     aria-label="full width tabs example"
                 >
                     <Tab label="Players" {...a11yProps(0)} />
-                    <Tab label="Analysis" {...a11yProps(1)} />
-                    <Tab label="Statistics" {...a11yProps(2)} />
+                    <Tab label="Teams" {...a11yProps(1)} />
+                    <Tab label="Analysis" {...a11yProps(2)} />
                 </Tabs>
             </AppBar>
             <SwipeableViews
@@ -86,7 +87,7 @@ export default function StatisticsContainer() {
                     <DraftRoomPlayers />
                 </TabPanel>
                 <TabPanel value={value} index={1} dir={theme.direction}>
-                    Item Two
+                    <TeamAnalysis />
                 </TabPanel>
                 <TabPanel value={value} index={2} dir={theme.direction}>
                     Item Three
