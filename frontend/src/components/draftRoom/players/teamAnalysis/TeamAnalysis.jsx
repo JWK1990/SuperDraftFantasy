@@ -12,11 +12,11 @@ const styles = {
         position: "relative",
     },
     positionsDiv: {
-        width: 600,
+        width: 1000,
         height: 1000,
         position: "absolute",
-        top: 250,
-        left: 350,
+        top: 214,
+        left: 172,
     }
 }
 

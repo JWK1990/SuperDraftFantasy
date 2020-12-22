@@ -23,22 +23,29 @@ const styles = {
 
 const defDroppableStyle = {
     isDraggingOverColor: "red",
+    droppableWidth: "80%", // 80% as pockets are narrower
+    draggableWidth: "30%", // Max 3 per row
+
 }
 
 const midDroppableStyles = {
     isDraggingOverColor: "lightblue",
+    droppableWidth: "100%", // 100% as wings are wider
 }
 
 const rucDroppableStyles = {
     isDraggingOverColor: "yellow",
+    droppableWidth: "100%", // 100% as wings are wider
 }
 
 const fwdDroppableStyles = {
     isDraggingOverColor: "lightgreen",
+    droppableWidth: "80%",// 80% as pockets are narrower
 }
 
 const benchDroppableStyles = {
     isDraggingOverColor: "lightgrey",
+    droppableWidth: "100%", // 100% as Bench can be wider
 }
 
 const getInitialMyTeamList = (roster, teamPlayerJoinList) => {

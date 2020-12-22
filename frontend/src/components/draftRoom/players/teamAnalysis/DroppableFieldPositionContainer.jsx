@@ -12,9 +12,10 @@ const getListStyle = (isDraggingOver, styleProps, droppableHeight, isDropDisable
     flexDirection: "row",
     justifyContent: "center",
     opacity: isDropDisabled ? "0.15" : "1",
-    width: "100%",
-    height: `calc(${droppableHeight}% - ${(grid * 2)}px`,
+    width: styleProps.droppableWidth,
+    height: `20%`,
     flexWrap: "wrap",
+    margin: "0 auto",
 });
 
 export default function DroppableFieldPositionContainer(props) {

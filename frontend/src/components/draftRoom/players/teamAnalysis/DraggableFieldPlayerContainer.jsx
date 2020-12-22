@@ -15,28 +15,32 @@ const styles = {
         margin: `0 0 ${grid}px 0`,
         border: "3px solid",
         height: "40%",
-        width: "30%",
         //minHeight: 20,
     },
     def: {
         borderColor: "red",
-        backgroundColor: "lightsalmon"
+        backgroundColor: "lightsalmon",
+        width: "30%", // Max 3 per row
     },
     mid: {
         borderColor: "blue",
-        backgroundColor: "lightblue"
+        backgroundColor: "lightblue",
+        width: "22%", // Max 4 per row
     },
     ruc: {
         borderColor: "yellow",
-        backgroundColor: "lightyellow"
+        backgroundColor: "lightyellow",
+        width: "22%", // Max 4 per row
     },
     fwd: {
         borderColor: "green",
-        backgroundColor: "lightgreen"
+        backgroundColor: "lightgreen",
+        width: "30%", // Max 3 per row
     },
     bench: {
         borderColor: "black",
-        backgroundColor: "lightgrey"
+        backgroundColor: "lightgrey",
+        width: "22%", // Max 4 per row
     },
     vacant: {
         backgroundColor: "lightslategrey !important",
