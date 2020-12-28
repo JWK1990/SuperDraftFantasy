@@ -3,20 +3,26 @@ import Field from '../../../../images/Field.svg';
 import withStyles from "@material-ui/core/styles/withStyles";
 import FieldView from "./FieldView";
 
+const fieldSizeMultiplier = 1.8;
+const fieldWidth = 675 * fieldSizeMultiplier;
+const fieldHeight = 719 * fieldSizeMultiplier;
+
 const styles = {
     paperContainer: {
         backgroundImage: `url(${Field})`,
-        backgroundSize: "cover",
-        width: 675 * 2,
-        height: 719 * 2,
+        backgroundSize: "contain",
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "center",
+        width: fieldWidth,
+        height: fieldHeight, // Originally 719.
         position: "relative",
     },
     positionsDiv: {
-        width: 1000,
-        height: 1000,
+        width: "69%",
+        height: "84%",
         position: "absolute",
-        top: 214,
-        left: 172,
+        top: "13.8%",
+        left: "15%",
     }
 }
 

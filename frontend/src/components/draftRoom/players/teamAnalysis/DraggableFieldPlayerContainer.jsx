@@ -14,33 +14,38 @@ const styles = {
         padding: grid,
         margin: `0 0 ${grid}px 0`,
         border: "3px solid",
-        height: "40%",
+        marginLeft: "1%",
         //minHeight: 20,
     },
     def: {
         borderColor: "red",
         backgroundColor: "lightsalmon",
-        width: "30%", // Max 3 per row
+        width: "calc(27.5% - 5px)",
+        height: "calc(40% - 5px)", // 40% because it's 2 rows.
     },
     mid: {
         borderColor: "blue",
         backgroundColor: "lightblue",
-        width: "22%", // Max 4 per row
+        width: "calc(22% - 5px)",
+        height: "calc(40% - 5px)", // 40% because it's 2 rows.
     },
     ruc: {
         borderColor: "yellow",
         backgroundColor: "lightyellow",
-        width: "22%", // Max 4 per row
+        width: "calc(22% - 5px)",
+        height: "calc(80% - 5px)", // 80% because it's 1 row.
     },
     fwd: {
         borderColor: "green",
         backgroundColor: "lightgreen",
-        width: "30%", // Max 3 per row
+        width: "calc(27.5% - 5px)",
+        height: "calc(40% - 5px)", // 40% because it's 2 rows.
     },
     bench: {
         borderColor: "black",
         backgroundColor: "lightgrey",
-        width: "22%", // Max 4 per row
+        width: "calc(22% - 5px)",
+        height: "calc(80% - 5px)", // 80% because it's 1 row.
     },
     vacant: {
         backgroundColor: "lightslategrey !important",

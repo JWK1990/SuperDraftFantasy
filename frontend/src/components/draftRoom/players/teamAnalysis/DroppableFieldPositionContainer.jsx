@@ -2,20 +2,23 @@ import {Droppable} from "react-beautiful-dnd";
 import React from "react";
 import DraggableFieldPlayerContainer from "./DraggableFieldPlayerContainer";
 
-const grid = 4;
+//const grid = 4;
 
 const getListStyle = (isDraggingOver, styleProps, droppableHeight, isDropDisabled) => ({
     background: isDraggingOver ? styleProps.isDraggingOverColor : 'rgba(0, 0, 0, 0)',
-    padding: grid,
     transform: 'none',
     display: "flex",
-    flexDirection: "row",
+    flexDirection: styleProps.flexDirection,
     justifyContent: "center",
     opacity: isDropDisabled ? "0.15" : "1",
+    height: styleProps.height,
     width: styleProps.droppableWidth,
-    height: `20%`,
     flexWrap: "wrap",
     margin: "0 auto",
+    //padding: grid,
+    alignItems: styleProps.alignItems,
+    paddingLeft: styleProps.sidePadding,
+    paddingRight: styleProps.sidePadding,
 });
 
 export default function DroppableFieldPositionContainer(props) {

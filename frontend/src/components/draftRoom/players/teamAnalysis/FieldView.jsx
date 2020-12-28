@@ -8,7 +8,6 @@ import {
 } from "../../../../store/selectors/DraftSelectors";
 import withStyles from "@material-ui/core/styles/withStyles";
 import {updateMyTeamPositionAction, updateMyTeamPositionSuccessAction} from "../../../../store/actions";
-import DroppablePositionContainer from "../../myTeam/DroppablePositionContainer";
 import {DragDropContext} from "react-beautiful-dnd";
 import {connect} from "react-redux";
 import DroppableFieldPositionContainer from "./DroppableFieldPositionContainer";
@@ -16,36 +15,61 @@ import DroppableFieldPositionContainer from "./DroppableFieldPositionContainer";
 
 const styles = {
     myTeamRoot: {
-        height: "98%",
-        width: "98%",
+        height: "100%",
+    },
+    startingDiv: {
+        height: "75%",
+    },
+    benchDiv: {
+        height: "25%",
+        display: "flex",
+        alignItems: "end",
     },
 }
 
 const defDroppableStyle = {
     isDraggingOverColor: "red",
     droppableWidth: "80%", // 80% as pockets are narrower
-    draggableWidth: "30%", // Max 3 per row
-
+    flexDirection: "row",
+    height: "28.5%", // 2 rows.
+    alignItems: "center",
+    sidePadding: "10%",
 }
 
 const midDroppableStyles = {
     isDraggingOverColor: "lightblue",
     droppableWidth: "100%", // 100% as wings are wider
+    flexDirection: "row",
+    height: "28.5%", // 2 rows.
+    alignItems: "center",
+    sidePadding: "0%",
 }
 
 const rucDroppableStyles = {
     isDraggingOverColor: "yellow",
     droppableWidth: "100%", // 100% as wings are wider
+    flexDirection: "row",
+    height: "14.5%", // 1 rows.
+    alignItems: "center",
+    sidePadding: "0%",
 }
 
 const fwdDroppableStyles = {
     isDraggingOverColor: "lightgreen",
     droppableWidth: "80%",// 80% as pockets are narrower
+    flexDirection: "row",
+    height: "28.5%", // 2 rows.
+    alignItems: "center",
+    sidePadding: "10%",
 }
 
 const benchDroppableStyles = {
     isDraggingOverColor: "lightgrey",
     droppableWidth: "100%", // 100% as Bench can be wider
+    flexDirection: "row",
+    height: "40%", // 1 rows.
+    alignItems: "end",
+    sidePadding: "0%",
 }
 
 const getInitialMyTeamList = (roster, teamPlayerJoinList) => {
@@ -233,46 +257,50 @@ class MyTeam extends React.Component {
         return (
             <div className={classes.myTeamRoot}>
                 <DragDropContext onDragStart={this.onDragStart} onDragEnd={this.onDragEnd}>
-                    <DroppableFieldPositionContainer
-                        droppableId="droppableDefs"
-                        isDragging={this.state.isDragging}
-                        isDropDisabled={this.isDropDisabled("DEF")}
-                        itemList={this.state.myTeamList.DEF}
-                        styleProps={defDroppableStyle}
-                        numOfPlayerRequired={this.props.numOfPlayersRequired}
-                    />
-                    <DroppableFieldPositionContainer
-                        droppableId="droppableMids"
-                        isDragging={this.state.isDragging}
-                        isDropDisabled={this.isDropDisabled("MID")}
-                        itemList={this.state.myTeamList.MID}
-                        styleProps={midDroppableStyles}
-                        numOfPlayerRequired={this.props.numOfPlayersRequired}
-                    />
-                    <DroppableFieldPositionContainer
-                        droppableId="droppableRucs"
-                        isDragging={this.state.isDragging}
-                        isDropDisabled={this.isDropDisabled("RUC")}
-                        itemList={this.state.myTeamList.RUC}
-                        styleProps={rucDroppableStyles}
-                        numOfPlayerRequired={this.props.numOfPlayersRequired}
-                    />
-                    <DroppableFieldPositionContainer
-                        droppableId="droppableFwds"
-                        isDragging={this.state.isDragging}
-                        isDropDisabled={this.isDropDisabled("FWD")}
-                        itemList={this.state.myTeamList.FWD}
-                        styleProps={fwdDroppableStyles}
-                        numOfPlayerRequired={this.props.numOfPlayersRequired}
-                    />
-                    <DroppableFieldPositionContainer
-                        droppableId="droppableBench"
-                        isDragging={this.state.isDragging}
-                        isDropDisabled={this.isDropDisabled("BENCH")}
-                        itemList={this.state.myTeamList.BENCH}
-                        styleProps={benchDroppableStyles}
-                        numOfPlayerRequired={this.props.numOfPlayersRequired}
-                    />
+                    <div className={classes.startingDiv}>
+                        <DroppableFieldPositionContainer
+                            droppableId="droppableDefs"
+                            isDragging={this.state.isDragging}
+                            isDropDisabled={this.isDropDisabled("DEF")}
+                            itemList={this.state.myTeamList.DEF}
+                            styleProps={defDroppableStyle}
+                            numOfPlayerRequired={this.props.numOfPlayersRequired}
+                        />
+                        <DroppableFieldPositionContainer
+                            droppableId="droppableMids"
+                            isDragging={this.state.isDragging}
+                            isDropDisabled={this.isDropDisabled("MID")}
+                            itemList={this.state.myTeamList.MID}
+                            styleProps={midDroppableStyles}
+                            numOfPlayerRequired={this.props.numOfPlayersRequired}
+                        />
+                        <DroppableFieldPositionContainer
+                            droppableId="droppableRucs"
+                            isDragging={this.state.isDragging}
+                            isDropDisabled={this.isDropDisabled("RUC")}
+                            itemList={this.state.myTeamList.RUC}
+                            styleProps={rucDroppableStyles}
+                            numOfPlayerRequired={this.props.numOfPlayersRequired}
+                        />
+                        <DroppableFieldPositionContainer
+                            droppableId="droppableFwds"
+                            isDragging={this.state.isDragging}
+                            isDropDisabled={this.isDropDisabled("FWD")}
+                            itemList={this.state.myTeamList.FWD}
+                            styleProps={fwdDroppableStyles}
+                            numOfPlayerRequired={this.props.numOfPlayersRequired}
+                        />
+                    </div>
+                    <div className={classes.benchDiv}>
+                        <DroppableFieldPositionContainer
+                            droppableId="droppableBench"
+                            isDragging={this.state.isDragging}
+                            isDropDisabled={this.isDropDisabled("BENCH")}
+                            itemList={this.state.myTeamList.BENCH}
+                            styleProps={benchDroppableStyles}
+                            numOfPlayerRequired={this.props.numOfPlayersRequired}
+                        />
+                    </div>
                 </DragDropContext>
             </div>
         );
