@@ -7,6 +7,24 @@ import DraggablePlayerCard from "./DraggablePlayerCard";
 
 const grid = 4;
 
+const getStyle = (style, snapshot) => {
+
+    if(snapshot.isDragging) {
+        return {
+            ...style,
+            backgroundColor: "pink",
+        }
+    }
+
+    if(Boolean(snapshot.combineTargetFor)) {
+        return {
+            ...style,
+            backgroundColor: "yellow",
+        }
+    }
+    return style;
+}
+
 const styles = {
     root: {
         userSelect: 'none',
@@ -38,7 +56,7 @@ const styles = {
         backgroundColor: "lightgrey"
     },
     vacant: {
-        backgroundColor: "lightslategrey !important",
+        backgroundColor: "lightslategrey",
     },
     playerDetailsContainer: {
         height: "100%",
@@ -71,10 +89,7 @@ class DraggablePlayerContainer extends React.Component {
                         ref={provided.innerRef}
                         {...provided.draggableProps}
                         {...provided.dragHandleProps}
-                        style={{
-                            ...snapshot.isDragging ?
-                                {...provided.draggableProps.style, backgroundColor: "white"} : null,
-                        }}
+                        style={getStyle(provided.draggableProps.style, snapshot)}
                         className={
                             `${classes.root}
                              ${classes[this.props.item.content.position.toLowerCase()]}
@@ -85,6 +100,7 @@ class DraggablePlayerContainer extends React.Component {
                             player={this.props.item.content.player}
                             price={this.props.item.content.price}
                             position={this.props.item.content.position}
+                            snapshot={snapshot}
                         />
                     </div>
                 )}

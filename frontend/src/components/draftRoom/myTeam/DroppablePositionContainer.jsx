@@ -5,14 +5,14 @@ import React from "react";
 const grid = 4;
 
 const getListStyle = (isDraggingOver, styleProps, droppableHeight, isDropDisabled) => ({
-    background: isDraggingOver ? styleProps.isDraggingOverColor : 'white',
+    //background: isDraggingOver ? styleProps.isDraggingOverColor : 'white',
     padding: grid,
-    transform: 'none',
+    //transform: 'none',
     height: `calc(${droppableHeight}% - ${(grid * 2)}px`,
     display: "flex",
     flexDirection: "column",
     justifyContent: "space-between",
-    opacity: isDropDisabled ? "0.15" : "1",
+    //opacity: isDropDisabled ? "0.15" : "1",
 });
 
 export default function DroppablePositionContainer(props) {
@@ -20,7 +20,11 @@ export default function DroppablePositionContainer(props) {
     const droppableHeight = (props.itemList.length / props.numOfPlayerRequired) * 100;
 
     return(
-        <Droppable droppableId={props.droppableId} isDropDisabled={props.isDropDisabled}>
+        <Droppable
+            droppableId={props.droppableId}
+            isDropDisabled={props.isDropDisabled}
+            isCombineEnabled={true}
+        >
             {(provided, snapshot) => (
                 <div
                     ref={provided.innerRef}

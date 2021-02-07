@@ -24,6 +24,7 @@ const styles = {
         height: "25%",
         display: "flex",
         alignItems: "end",
+        paddingTop: "20%"
     },
 }
 

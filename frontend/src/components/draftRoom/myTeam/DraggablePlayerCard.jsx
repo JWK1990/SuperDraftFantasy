@@ -22,6 +22,7 @@ class DraggablePlayerCard extends React.Component {
     positionStyle = styles[this.props.position.toLowerCase()];
 
     render() {
+        console.log("Snapshot: ", this.props.snapshot);
         const {classes} = this.props;
 
         return (

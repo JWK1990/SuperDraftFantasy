@@ -154,6 +154,9 @@ class MyTeam extends React.Component {
     getPositionList = id => this.state.myTeamList[this.droppableList[id]];
 
     isDropDisabled = (dropPosition) => {
+        if(this.state.isDropDisabled) {
+            return true;
+        }
         const isDropPositionVacant = this.state.myTeamList[dropPosition].findIndex(slot => slot.content.vacant) > -1;
         const isDropPositionValid = dropPosition === "BENCH"
                                     || dropPosition.includes(this.state.draggedPrimaryPosition)
@@ -171,9 +174,28 @@ class MyTeam extends React.Component {
         })
     }
 
+    onDragUpdate = update => {
+        console.log("Drag Update: ", update);
+        if(!update.combine) {
+            console.log("Not Combine.");
+            this.setState({
+                ...this.state,
+                isDropDisabled: true
+            })
+        } else {
+            this.setState({
+                ...this.state,
+                isDropDisabled: false
+            })
+        }
+        console.log(update);
+    }
+
     onDragEnd = result => {
         const { source, destination } = result;
         // Dropped outside the list or re-Ordered.
+        console.log("Source: ", source);
+        console.log("Destination: ", destination);
         if (!destination || (source.droppableId === destination.droppableId)) {
             this.setState({
                 ...this.state,
@@ -223,7 +245,7 @@ class MyTeam extends React.Component {
 
         return (
             <div className={classes.myTeamRoot}>
-                <DragDropContext onDragStart={this.onDragStart} onDragEnd={this.onDragEnd}>
+                <DragDropContext onDragStart={this.onDragStart} onDragUpdate={this.onDragUpdate} onDragEnd={this.onDragEnd}>
                     <DroppablePositionContainer
                         droppableId="droppableDefs"
                         isDragging={this.state.isDragging}
