@@ -47,7 +47,7 @@ export default function PlayerBar(props) {
             <div className={classes.cardIconDiv}>
                 <CardMedia
                     className={classes.playerIcon}
-                    image={require("../../images/WillDay.jpeg")}
+                    image={require("../../static/images/WillDay.jpeg")}
                     title="On The Block Player"
                 />
             </div>

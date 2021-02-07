@@ -46,7 +46,7 @@ export default function DraggableTeamContent(props) {
             <Card className={classes.root}>
                 <CardMedia
                     className={classes.teamLogo}
-                    image={require("../../../images/AustralianFlagLogo.jpg")}
+                    image={require("../../../static/images/AustralianFlagLogo.jpg")}
                     title="Team Logo"
                 />
                 <div className={classes.teamDetailsDiv}>

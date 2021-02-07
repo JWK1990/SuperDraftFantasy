@@ -7,7 +7,8 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
-import DraftRoomPlayers from "./Players";
+import DraftRoomPlayers from "./players/Players";
+import DraftRoomStatistics from "./statistics/Statistics";
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -48,7 +49,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function StatisticsContainer() {
+export default function MainContainer() {
     const classes = useStyles();
     const theme = useTheme();
     const [value, setValue] = React.useState(0);
@@ -86,10 +87,10 @@ export default function StatisticsContainer() {
                     <DraftRoomPlayers />
                 </TabPanel>
                 <TabPanel value={value} index={1} dir={theme.direction}>
-                    Item Two
+                    Team View
                 </TabPanel>
                 <TabPanel value={value} index={2} dir={theme.direction}>
-                    Item Three
+                    <DraftRoomStatistics />
                 </TabPanel>
             </SwipeableViews>
         </div>

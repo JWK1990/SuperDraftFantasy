@@ -8,7 +8,7 @@ import {playersSelector} from "../../store/selectors/PlayersSelectors";
 import DraftRoomTeams from "./teams/Teams";
 import Grid from "@material-ui/core/Grid";
 import {stompClientSelector} from "../../store/selectors/WebSocketSelectors";
-import StatisticsContainer from "./players/StatisticsContainer";
+import MainContainer from "./mainContainer/MainContainer";
 import ConfigurationUtils from "../../utils/ConfigurationUtils";
 import {withStyles} from "@material-ui/core";
 import CommissionerControls from "./commissionerControls/CommissionerControls";
@@ -109,7 +109,7 @@ class DraftRoom extends React.Component {
                         <DraftRoomTeams/>
                     </Grid>
                     <Grid item xs={8}>
-                        <StatisticsContainer/>
+                        <MainContainer/>
                     </Grid>
                     <Grid item xs={2}>
                         <MyTeam/>
