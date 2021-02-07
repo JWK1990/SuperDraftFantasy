@@ -14,9 +14,9 @@ spring:
         show_sql: false
   datasource:
     platform: postgres
-    url: jdbc:postgresql://localhost:5432/superdraftfantasy
-    username: recall
-    password: recall
+    url: jdbc:postgresql://localhost:5432/superdraftfantasy_dev
+    username: sduser
+    password: sdpassword
     driverClassName: org.postgresql.Driver
 
 server:
