@@ -1,6 +1,6 @@
 import React from "react";
 import {Line, LineChart} from "recharts";
-import playerData from "../../../../player-data.json";
+import playerData from "../../../../playerPerGame.json";
 
 class GamesPlayedChart extends React.Component {
 
