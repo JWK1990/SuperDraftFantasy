@@ -79,7 +79,6 @@ class DraftRoomTeams extends React.Component {
     }
 
     receiveReorderTeamList = (payload) => {
-        console.log('ReorderTeamList Received: ', payload);
         const updatedSortedTeamIdList = JSON.parse(payload.body);
         this.props.updateTeamOrder(updatedSortedTeamIdList);
     }
