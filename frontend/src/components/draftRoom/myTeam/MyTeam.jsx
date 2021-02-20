@@ -83,54 +83,6 @@ const addPlayerToFirstVacantSlot = (myTeamList, teamPlayerJoin) => {
     }
 }
 
-const move = (sourcePlayerList, destinationPlayerList, sourceDroppableInfo, destinationDroppableInfo) => {
-    const sourcePlayerListClone = Array.from(sourcePlayerList);
-    const destinationPlayerListClone = Array.from(destinationPlayerList);
-
-    // Remove relevant slots from initial lists.
-    const [slotRemovedFromSource] = sourcePlayerListClone.splice(sourceDroppableInfo.index, 1);
-    const [slotRemovedFromDestination] = destinationPlayerListClone.splice(destinationDroppableInfo.index, 1);
-
-    console.log("Source Slot: ", slotRemovedFromSource);
-    console.log("Destination Slot: ", slotRemovedFromDestination);
-
-    // Add slots to updated lists.
-    sourcePlayerListClone.splice(sourceDroppableInfo.index, 0, slotRemovedFromDestination);
-    destinationPlayerListClone.splice(destinationDroppableInfo.index, 0, slotRemovedFromSource);
-
-/*    const firstAvailableSlot = destinationPlayerListClone.find(slot => slot.content.vacant);
-    firstAvailableSlot.content.vacant = false;
-    firstAvailableSlot.content.player = slotRemovedFromSource.content.player;
-    firstAvailableSlot.content.price = slotRemovedFromSource.content.price;*/
-
-    const result = {};
-    result[sourceDroppableInfo.droppableId] = sourcePlayerListClone;
-    result[destinationDroppableInfo.droppableId] = destinationPlayerListClone;
-    console.log("Result: ", result);
-    return result;
-};
-
-const moveToNonVacantPosition = (sourcePlayerList, destinationPlayerList, sourceDroppableInfo, destinationDroppableInfo) => {
-    const sourcePlayerListClone = Array.from(sourcePlayerList);
-    const destinationPlayerListClone = Array.from(destinationPlayerList);
-
-    const sourcePlayer = sourcePlayerList[sourceDroppableInfo.index].dynamicSlotData;
-    const destinationPlayer = destinationPlayerList[destinationDroppableInfo.index].dynamicSlotData;
-
-    // Switch content of 2 switched slots.
-    console.log(sourcePlayer);
-    console.log(destinationPlayer);
-
-    sourcePlayerListClone[sourceDroppableInfo.index].dynamicSlotData = destinationPlayer;
-    destinationPlayerListClone[destinationDroppableInfo.index].dynamicSlotData = sourcePlayer;
-
-    const result = {};
-    result[sourceDroppableInfo.droppableId] = sourcePlayerListClone;
-    result[destinationDroppableInfo.droppableId] = destinationPlayerListClone;
-    console.log("Result: ", result);
-    return result;
-};
-
 class MyTeam extends React.Component {
 
     constructor(props) {
@@ -172,6 +124,43 @@ class MyTeam extends React.Component {
         this.props.updateMyTeamPositionSuccess(updatedMyTeamPosition);
     }
 
+    movePlayers = (sourcePlayerList, destinationPlayerList, sourceDroppableInfo, destinationDroppableInfo) => {
+        const sourcePlayerListClone = Array.from(sourcePlayerList);
+        const sourceSlotData = sourcePlayerList[sourceDroppableInfo.index].dynamicSlotData;
+        const sourcePosition = this.droppableList[sourceDroppableInfo.droppableId];
+
+        const destinationPlayerListClone = Array.from(destinationPlayerList);
+        const destinationSlotData = destinationPlayerList[destinationDroppableInfo.index].dynamicSlotData;
+        const destinationPosition = this.droppableList[destinationDroppableInfo.droppableId];
+
+        // Switch content of 2 switched slots.
+        sourcePlayerListClone[sourceDroppableInfo.index].dynamicSlotData = destinationSlotData;
+        destinationPlayerListClone[destinationDroppableInfo.index].dynamicSlotData = sourceSlotData;
+
+        this.setState(prevState => ({
+            ...prevState,
+            myTeamList: {
+                ...prevState.myTeamList,
+                [sourcePosition]: sourcePlayerListClone,
+                [destinationPosition]: destinationPlayerListClone
+            },
+            isDragging: false,
+            draggedPrimaryPosition: '',
+            draggedSecondaryPosition: '',
+        }));
+
+        // If move involves a position change.
+        if(sourcePosition !== destinationPosition) {
+            // Send a request to update the sourcePlayer's position in the DB.
+            this.props.updateMyTeamPosition(this.props.currentTeam.id, sourceSlotData.player.id, destinationPosition);
+            // If 2 players switched positions, also send a request to update the destinationPlayer's position in the DB.
+            if(destinationSlotData.player != null) {
+                this.props.updateMyTeamPosition(this.props.currentTeam.id, destinationSlotData.player.id, sourcePosition);
+            }
+        }
+
+    };
+
     /**
      * A semi-generic way to handle multiple lists. Matches
      * the IDs of the droppable container to the names of the
@@ -209,10 +198,9 @@ class MyTeam extends React.Component {
     }
 
     onDragEnd = result => {
-        console.log("ODE Result: ", result);
         const { source, destination } = result;
-        // Dropped outside the list or re-Ordered.
-        if (!destination || (source.droppableId === destination.droppableId)) {
+        // Dropped outside the list.
+        if (!destination) {
             this.setState({
                 ...this.state,
                 isDragging: false,
@@ -224,61 +212,18 @@ class MyTeam extends React.Component {
         else {
             const sourcePosition = this.droppableList[source.droppableId];
             const sourcePlayerList = this.getPlayersByPosition(sourcePosition);
-            const sourcePlayer = sourcePlayerList[source.index].dynamicSlotData.player;
-
             const destinationPosition = this.droppableList[destination.droppableId];
             const destinationPlayerList = this.getPlayersByPosition(destinationPosition);
             const destinationPlayer = destinationPlayerList[destination.index].dynamicSlotData.player;
-
-            // If player is dropped on valid vacant slot.
-            if(!destinationPlayer) {
-                this.movePlayerAndUpdateState(sourcePlayerList, destination, source, destinationPosition);
-                this.props.updateMyTeamPosition(this.props.currentTeam.id, sourcePlayer.id, destinationPosition);
-            }
-            // Else if player is dropped on a valid player to switch with.
-            else if(sourcePosition === "BENCH"
+            // If destination is vacant or is filled with a player that can be switched with the source player.
+            if(!destinationPlayer
+                || sourcePosition === "BENCH"
                 || destinationPlayer.primaryPosition === sourcePosition
                 || destinationPlayer.secondaryPosition === sourcePosition) {
-                console.log("Valid Switch");
-                this.movePlayerAndUpdateState(sourcePlayerList, destination, source, destinationPosition);
-                this.props.updateMyTeamPosition(this.props.currentTeam.id, sourcePlayer.id, destinationPosition);
+                this.movePlayers(sourcePlayerList, destinationPlayerList, source, destination);
             }
-
-            console.log(sourcePlayer, destinationPlayer);
-            // Dropped onto a valid vacant position.
-            // TODO: Add spinner to relevant slot when loading.
-
-
-            //const destinationPosition = this.droppableList[destination.droppableId];
-
-            //this.movePlayerAndUpdateState(sourcePositionList, destination, source, destinationPosition);
-
-            // TODO: List is rearranged regardless of success of request. Should try and update this.
-            // Uses POST rather than WebSockets to send as this functionality may be used outside of a Draft too.
-            //this.props.updateMyTeamPosition(this.props.currentTeam.id, sourcePlayerId, destinationPosition);
         }
     };
-
-    movePlayerAndUpdateState(sourcePositionList, destination, source, destinationPosition) {
-        const result = moveToNonVacantPosition(
-            sourcePositionList,
-            this.getPlayersByPosition(this.droppableList[destination.droppableId]),
-            source,
-            destination
-        );
-        const sourcePosition = this.droppableList[source.droppableId];
-        this.setState(prevState => ({
-            ...prevState,
-            myTeamList: {
-                ...prevState.myTeamList,
-                [sourcePosition]: result[source.droppableId],
-                [destinationPosition]: result[destination.droppableId]
-            },
-            isDragging: false,
-            draggedPrimaryPosition: '',
-            draggedSecondaryPosition: '',
-        }));
-    }
 
     render() {
         const {classes} = this.props;
