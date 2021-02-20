@@ -56,7 +56,7 @@ const styles = {
 
 class DraggablePlayerContainer extends React.Component {
 
-    positionStyle = styles[this.props.item.content.position.toLowerCase()];
+    positionStyle = styles[this.props.item.position.toLowerCase()];
 
     render() {
         const {classes} = this.props;
@@ -66,7 +66,7 @@ class DraggablePlayerContainer extends React.Component {
                 key={this.props.item.id}
                 draggableId={this.props.item.id}
                 index={this.props.index}
-                isDragDisabled={this.props.item.content.vacant || this.props.isLeadBidder}>
+                isDragDisabled={this.props.item.dynamicSlotData.vacant || this.props.isLeadBidder}>
                 {(provided, snapshot) => (
                     <div
                         ref={provided.innerRef}
@@ -78,32 +78,32 @@ class DraggablePlayerContainer extends React.Component {
                         }}
                         className={
                             `${classes.root}
-                             ${classes[this.props.item.content.position.toLowerCase()]}
-                             ${this.props.item.content.vacant ? classes.vacant : null}`
+                             ${classes[this.props.item.position.toLowerCase()]}
+                             ${this.props.item.dynamicSlotData.vacant ? classes.vacant : null}`
                         }
                     >
-                        {this.props.item.content.player ?
+                        {this.props.item.dynamicSlotData.player ?
                             <Grid container className={classes.playerDetailsContainer}>
                                 <Grid item xs={7} className={classes.playerDetails}>
                                     <Typography className={classes.playerName}>
                                         {
-                                            this.props.item.content.player.firstName
-                                            + " " + this.props.item.content.player.lastName
+                                            this.props.item.dynamicSlotData.player.firstName
+                                            + " " + this.props.item.dynamicSlotData.player.lastName
                                         }
                                     </Typography>
                                 </Grid>
                                 <Grid item xs={4} className={classes.playerDetails}>
                                     <Typography>
-                                        {this.props.item.content.player.primaryPosition}
-                                        {this.props.item.content.player.secondaryPosition ?
-                                            "/" + this.props.item.content.player.secondaryPosition
+                                        {this.props.item.dynamicSlotData.player.primaryPosition}
+                                        {this.props.item.dynamicSlotData.player.secondaryPosition ?
+                                            "/" + this.props.item.dynamicSlotData.player.secondaryPosition
                                             : ""
                                         }
                                     </Typography>
                                 </Grid>
                                 <Grid item xs={1} className={classes.playerDetails}>
                                     <Typography>
-                                        {" $" + this.props.item.content.price}
+                                        {" $" + this.props.item.dynamicSlotData.price}
                                     </Typography>
                                 </Grid>
                             </Grid>
