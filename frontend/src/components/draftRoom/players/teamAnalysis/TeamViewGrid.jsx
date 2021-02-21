@@ -1,5 +1,5 @@
 import React from "react";
-import TeamView from "../../../shared/TeamView";
+import TeamView from "../../../shared/teamView/TeamView";
 
 const grid = 4;
 
@@ -126,7 +126,7 @@ const functions = {
     }),
 }
 
-class TeamFieldView extends React.Component {
+class TeamViewGrid extends React.Component {
 
     render() {
         return <TeamView
@@ -137,4 +137,4 @@ class TeamFieldView extends React.Component {
     }
 }
 
-export default TeamFieldView;
+export default TeamViewGrid;

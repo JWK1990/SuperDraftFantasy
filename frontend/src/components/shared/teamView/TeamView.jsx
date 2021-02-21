@@ -1,16 +1,16 @@
 import React from "react";
 import {DragDropContext} from "react-beautiful-dnd";
-import DroppablePositionContainer from "../draftRoom/myTeam/DroppablePositionContainer";
-import {updateMyTeamPositionAction, updateMyTeamPositionSuccessAction} from "../../store/actions";
+import DroppablePositionContainer from "./DroppablePositionContainer";
+import {updateMyTeamPositionAction, updateMyTeamPositionSuccessAction} from "../../../store/actions";
 import {
     currentTeamSelector,
     draftRosterSelector,
     numOfPlayersRequiredSelector
-} from "../../store/selectors/DraftSelectors";
-import {stompClientSelector} from "../../store/selectors/WebSocketSelectors";
-import {isLeadBidderSelector} from "../../store/selectors/BlockSelectors";
+} from "../../../store/selectors/DraftSelectors";
+import {stompClientSelector} from "../../../store/selectors/WebSocketSelectors";
+import {isLeadBidderSelector} from "../../../store/selectors/BlockSelectors";
 import {connect} from "react-redux";
-import {ConditionalWrapper} from "./ConditionalWrapper";
+import {ConditionalWrapper} from "../ConditionalWrapper";
 
 class TeamView extends React.Component {
 

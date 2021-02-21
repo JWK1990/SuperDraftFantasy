@@ -17,7 +17,7 @@ const styles = {
     }
 }
 
-class PlayerCardForList extends React.Component {
+class PlayerCard extends React.Component {
 
     render() {
         const {classes} = this.props;
@@ -54,4 +54,4 @@ class PlayerCardForList extends React.Component {
 
 }
 
-export default withStyles(styles)(PlayerCardForList);
+export default withStyles(styles)(PlayerCard);

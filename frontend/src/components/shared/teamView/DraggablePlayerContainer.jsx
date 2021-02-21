@@ -2,7 +2,7 @@ import React from "react";
 import {Draggable} from "react-beautiful-dnd";
 import {connect} from "react-redux";
 import {isLeadBidderSelector} from "../../../store/selectors/BlockSelectors";
-import PlayerCardForList from "./PlayerCardForList";
+import PlayerCardForList from "./PlayerCard";
 
 const getDynamicDroppableStyle = (baseStyles, positionStyles, item) => ({
     ...baseStyles,

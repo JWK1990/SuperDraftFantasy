@@ -1,6 +1,6 @@
 import React from "react";
 import DraftRoomBlock from "./block/Block";
-import TeamListView from "./myTeam/TeamListView";
+import TeamViewList from "./myTeam/TeamViewList";
 import {connectWebSocketAction, getDraftAction, getPlayersByDraftAction} from "../../store/actions";
 import {connect} from "react-redux";
 import {draftSelector} from "../../store/selectors/DraftSelectors"
@@ -112,7 +112,7 @@ class DraftRoom extends React.Component {
                         <StatisticsContainer/>
                     </Grid>
                     <Grid item xs={2}>
-                        <TeamListView/>
+                        <TeamViewList/>
                     </Grid>
                 </Grid>
             </div>

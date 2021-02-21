@@ -1,9 +1,9 @@
 import React from "react";
 import Field from '../../../../images/Field.svg';
 import withStyles from "@material-ui/core/styles/withStyles";
-import TeamFieldView from "./FieldView";
+import TeamViewGrid from "./TeamViewGrid";
 
-const fieldSizeMultiplier = 1.8;
+const fieldSizeMultiplier = 1.4;
 const fieldWidth = 675 * fieldSizeMultiplier;
 const fieldHeight = 719 * fieldSizeMultiplier;
 
@@ -26,7 +26,7 @@ const styles = {
     }
 }
 
-class TeamAnalysis extends React.Component {
+class TeamViewField extends React.Component {
 
     render() {
         const {classes} = this.props;
@@ -34,11 +34,11 @@ class TeamAnalysis extends React.Component {
         return (
             <div className={classes.paperContainer}>
                 <div className={classes.positionsDiv}>
-                    <TeamFieldView />
+                    <TeamViewGrid />
                 </div>
             </div>
         )
     }
 }
 
-export default withStyles(styles)(TeamAnalysis);
+export default withStyles(styles)(TeamViewField);
