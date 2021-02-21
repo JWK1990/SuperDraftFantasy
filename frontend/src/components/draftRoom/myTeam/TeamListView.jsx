@@ -1,31 +1,83 @@
 import React from 'react';
 import TeamView from "../../shared/TeamView";
 
-const styles = {
-    myTeamRoot: {
-        height: "98%",
-        width: "98%",
-    },
-    startingDiv: {
-        height: "100%",
-    },
+const grid = 4;
 
-    defDroppableStyle: {
-        isDraggingOverColor: "red",
+const styles = {
+    baseStyles: {
+        myTeamRoot: {
+            height: "98%",
+            width: "98%",
+        },
     },
-    midDroppableStyles: {
-        isDraggingOverColor: "lightblue",
+    droppableStyles: {
+        def: {
+            isDraggingOverColor: "red",
+        },
+        mid: {
+            isDraggingOverColor: "lightblue",
+        },
+        ruc: {
+            isDraggingOverColor: "yellow",
+        },
+        fwd: {
+            isDraggingOverColor: "lightgreen",
+        },
+        bench: {
+            isDraggingOverColor: "lightgrey",
+        },
     },
-    rucDroppableStyles: {
-        isDraggingOverColor: "yellow",
-    },
-    fwdDroppableStyles: {
-        isDraggingOverColor: "lightgreen",
-    },
-    benchDroppableStyles: {
-        isDraggingOverColor: "lightgrey",
+    draggableStyles: {
+        root: {
+            userSelect: 'none',
+            position: 'static',
+            padding: grid,
+            margin: `0 0 ${grid}px 0`,
+            border: "3px solid",
+            height: "100%",
+            draggingBackgroundColor: "white",
+            vacantBackgroundColor: "lightslategrey",
+        },
+        def: {
+            borderColor: "red",
+            backgroundColor: "lightsalmon"
+        },
+        mid: {
+            borderColor: "blue",
+            backgroundColor: "lightblue"
+        },
+        ruc: {
+            borderColor: "yellow",
+            backgroundColor: "lightyellow"
+        },
+        fwd: {
+            borderColor: "green",
+            backgroundColor: "lightgreen"
+        },
+        bench: {
+            borderColor: "black",
+            backgroundColor: "lightgrey"
+        },
+        playerDetailsContainer: {
+            height: "100%",
+        },
     }
 }
+
+
+const functions = {
+    getDynamicDroppableStyle: (isDraggingOver, styleProps, droppableHeight, isDropDisabled) => ({
+        background: isDraggingOver ? styleProps.isDraggingOverColor : 'white',
+        padding: grid,
+        transform: 'none',
+        height: `calc(${droppableHeight}% - ${(grid * 2)}px`,
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "space-between",
+        opacity: isDropDisabled ? "0.15" : "1",
+    }),
+}
+
 
 class TeamListView extends React.Component {
 
@@ -33,6 +85,7 @@ class TeamListView extends React.Component {
         return <TeamView
             type={"list"}
             styles={styles}
+            functions={functions}
         />
     }
 

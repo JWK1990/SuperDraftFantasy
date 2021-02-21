@@ -56,12 +56,31 @@ const styles = {
     },
 }
 
+const functions = {
+    getDynamicDroppableStyle: (isDraggingOver, styleProps, droppableHeight, isDropDisabled) => ({
+        background: isDraggingOver ? styleProps.isDraggingOverColor : 'rgba(0, 0, 0, 0)',
+        transform: 'none',
+        display: "flex",
+        flexDirection: styleProps.flexDirection,
+        justifyContent: "center",
+        opacity: isDropDisabled ? "0.15" : "1",
+        height: styleProps.height,
+        width: styleProps.droppableWidth,
+        flexWrap: "wrap",
+        margin: "0 auto",
+        alignItems: styleProps.alignItems,
+        paddingLeft: styleProps.sidePadding,
+        paddingRight: styleProps.sidePadding,
+    }),
+}
+
 class TeamFieldView extends React.Component {
 
     render() {
         return <TeamView
             type={"field"}
             styles={styles}
+            functions={functions}
         />
     }
 }

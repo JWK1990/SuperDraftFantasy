@@ -2,19 +2,6 @@ import {Droppable} from "react-beautiful-dnd";
 import DraggablePlayerContainer from "./DraggablePlayerContainer";
 import React from "react";
 
-const grid = 4;
-
-const getListStyle = (isDraggingOver, styleProps, droppableHeight, isDropDisabled) => ({
-    background: isDraggingOver ? styleProps.isDraggingOverColor : 'white',
-    padding: grid,
-    transform: 'none',
-    height: `calc(${droppableHeight}% - ${(grid * 2)}px`,
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "space-between",
-    opacity: isDropDisabled ? "0.15" : "1",
-});
-
 export default function DroppablePositionContainer(props) {
 
     const droppableHeight = (props.itemList.length / props.numOfPlayerRequired) * 100;
@@ -24,12 +11,14 @@ export default function DroppablePositionContainer(props) {
             {(provided, snapshot) => (
                 <div
                     ref={provided.innerRef}
-                    style={getListStyle(
-                        snapshot.isDraggingOver,
-                        props.styleProps,
-                        droppableHeight,
-                        (props.isDragging && props.isDropDisabled)
-                    )}
+                    style={
+                        props.getDynamicDroppableStyle(
+                            snapshot.isDraggingOver,
+                            props.styleProps,
+                            droppableHeight,
+                            (props.isDragging && props.isDropDisabled)
+                        )
+                    }
                 >
                     {props.itemList.map((item, index) => (
                         <DraggablePlayerContainer
@@ -37,6 +26,8 @@ export default function DroppablePositionContainer(props) {
                             item={item}
                             index={index}
                             snapshot={snapshot}
+                            baseStyles={props.draggableStyles.root}
+                            positionStyles={props.draggableStyles[item.position.toString().toLowerCase()]}
                         />
                     ))}
                     <span style={{display: "none"}}>

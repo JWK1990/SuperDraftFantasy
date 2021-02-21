@@ -1,66 +1,28 @@
 import React from "react";
 import {Draggable} from "react-beautiful-dnd";
-import {Typography} from "@material-ui/core";
-import withStyles from "@material-ui/core/styles/withStyles";
-import Grid from "@material-ui/core/Grid";
 import {connect} from "react-redux";
 import {isLeadBidderSelector} from "../../../store/selectors/BlockSelectors";
+import PlayerCardForList from "./PlayerCardForList";
 
-const grid = 4;
+const getDynamicDroppableStyle = (baseStyles, positionStyles, item) => ({
+    ...baseStyles,
+    ...positionStyles,
+    backgroundColor: item.dynamicSlotData.vacant ? baseStyles.vacantBackgroundColor
+            : positionStyles.backgroundColor,
+    borderColor: positionStyles.borderColor,
+})
 
-const styles = {
-    root: {
-        userSelect: 'none',
-        position: 'static',
-        padding: grid,
-        margin: `0 0 ${grid}px 0`,
-        border: "3px solid",
-        height: "100%",
-        //minHeight: 20,
-    },
-    def: {
-        borderColor: "red",
-        backgroundColor: "lightsalmon"
-    },
-    mid: {
-        borderColor: "blue",
-        backgroundColor: "lightblue"
-    },
-    ruc: {
-        borderColor: "yellow",
-        backgroundColor: "lightyellow"
-    },
-    fwd: {
-        borderColor: "green",
-        backgroundColor: "lightgreen"
-    },
-    bench: {
-        borderColor: "black",
-        backgroundColor: "lightgrey"
-    },
-    vacant: {
-        backgroundColor: "lightslategrey !important",
-    },
-    playerDetailsContainer: {
-        height: "100%",
-    },
-    playerDetails: {
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-    },
-    playerName: {
-        fontWeight: "bold",
-    }
-}
+const getDraggingStyles = (provided, baseStyles, positionStyles) => ({
+    ...baseStyles,
+    ...positionStyles,
+    ...provided.draggableProps.style,
+    backgroundColor: baseStyles.draggingBackgroundColor,
+})
 
 class DraggablePlayerContainer extends React.Component {
 
-    positionStyle = styles[this.props.item.position.toLowerCase()];
 
     render() {
-        const {classes} = this.props;
-
         return (
             <Draggable
                 key={this.props.item.id}
@@ -72,43 +34,17 @@ class DraggablePlayerContainer extends React.Component {
                         ref={provided.innerRef}
                         {...provided.draggableProps}
                         {...provided.dragHandleProps}
-                        style={{
-                            ...snapshot.isDragging ?
-                                {...provided.draggableProps.style, backgroundColor: "white"} : null,
+                        style={{...snapshot.isDragging
+                                ? getDraggingStyles(provided, this.props.baseStyles, this.props.positionStyles)
+                                : getDynamicDroppableStyle(this.props.baseStyles, this.props.positionStyles, this.props.item)
                         }}
-                        className={
-                            `${classes.root}
-                             ${classes[this.props.item.position.toLowerCase()]}
-                             ${this.props.item.dynamicSlotData.vacant ? classes.vacant : null}`
-                        }
+                        className={this.props.styles}
                     >
-                        {this.props.item.dynamicSlotData.player ?
-                            <Grid container className={classes.playerDetailsContainer}>
-                                <Grid item xs={7} className={classes.playerDetails}>
-                                    <Typography className={classes.playerName}>
-                                        {
-                                            this.props.item.dynamicSlotData.player.firstName
-                                            + " " + this.props.item.dynamicSlotData.player.lastName
-                                        }
-                                    </Typography>
-                                </Grid>
-                                <Grid item xs={4} className={classes.playerDetails}>
-                                    <Typography>
-                                        {this.props.item.dynamicSlotData.player.primaryPosition}
-                                        {this.props.item.dynamicSlotData.player.secondaryPosition ?
-                                            "/" + this.props.item.dynamicSlotData.player.secondaryPosition
-                                            : ""
-                                        }
-                                    </Typography>
-                                </Grid>
-                                <Grid item xs={1} className={classes.playerDetails}>
-                                    <Typography>
-                                        {" $" + this.props.item.dynamicSlotData.price}
-                                    </Typography>
-                                </Grid>
-                            </Grid>
-                            : ""
-                        }
+                        <PlayerCardForList
+                            player={this.props.item.dynamicSlotData.player}
+                            price={this.props.item.dynamicSlotData.price}
+                            position={this.props.item.position}
+                        />
                     </div>
                 )}
             </Draggable>
@@ -123,4 +59,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps)(withStyles(styles)(DraggablePlayerContainer));
+export default connect(mapStateToProps)(DraggablePlayerContainer);

@@ -199,10 +199,13 @@ class TeamView extends React.Component {
     };
 
     render() {
-        const styles = this.props.styles;
-
+        const baseStyles = this.props.styles.baseStyles;
+        const droppableStyles = this.props.styles.droppableStyles;
+        const draggableStyles = this.props.styles.draggableStyles;
+        const functions = this.props.functions;
+        console.log(functions);
         return (
-            <div style={styles.myTeamRoot}>
+            <div style={baseStyles.myTeamRoot}>
                 <DragDropContext onDragStart={this.onDragStart} onDragEnd={this.onDragEnd}>
                     <ConditionalWrapper
                         condition={this.props.type === "field"}
@@ -213,32 +216,40 @@ class TeamView extends React.Component {
                             isDragging={this.state.isDragging}
                             isDropDisabled={this.isDropDisabled("DEF")}
                             itemList={this.state.myTeamList.DEF}
-                            styleProps={styles.defDroppableStyle}
+                            styleProps={droppableStyles.def}
+                            getDynamicDroppableStyle={functions.getDynamicDroppableStyle}
                             numOfPlayerRequired={this.props.numOfPlayersRequired}
+                            draggableStyles={draggableStyles}
                         />
                         <DroppablePositionContainer
                             droppableId="droppableMids"
                             isDragging={this.state.isDragging}
                             isDropDisabled={this.isDropDisabled("MID")}
                             itemList={this.state.myTeamList.MID}
-                            styleProps={styles.midDroppableStyles}
+                            styleProps={droppableStyles.mid}
+                            getDynamicDroppableStyle={functions.getDynamicDroppableStyle}
                             numOfPlayerRequired={this.props.numOfPlayersRequired}
+                            draggableStyles={draggableStyles}
                         />
                         <DroppablePositionContainer
                             droppableId="droppableRucs"
                             isDragging={this.state.isDragging}
                             isDropDisabled={this.isDropDisabled("RUC")}
                             itemList={this.state.myTeamList.RUC}
-                            styleProps={styles.rucDroppableStyles}
+                            styleProps={droppableStyles.ruc}
+                            getDynamicDroppableStyle={functions.getDynamicDroppableStyle}
                             numOfPlayerRequired={this.props.numOfPlayersRequired}
+                            draggableStyles={draggableStyles}
                         />
                         <DroppablePositionContainer
                             droppableId="droppableFwds"
                             isDragging={this.state.isDragging}
                             isDropDisabled={this.isDropDisabled("FWD")}
                             itemList={this.state.myTeamList.FWD}
-                            styleProps={styles.fwdDroppableStyles}
+                            styleProps={droppableStyles.fwd}
+                            getDynamicDroppableStyle={functions.getDynamicDroppableStyle}
                             numOfPlayerRequired={this.props.numOfPlayersRequired}
+                            draggableStyles={draggableStyles}
                         />
                     </ConditionalWrapper>
                     <ConditionalWrapper
@@ -250,8 +261,10 @@ class TeamView extends React.Component {
                                 isDragging={this.state.isDragging}
                                 isDropDisabled={this.isDropDisabled("BENCH")}
                                 itemList={this.state.myTeamList.BENCH}
-                                styleProps={styles.benchDroppableStyles}
+                                styleProps={droppableStyles.bench}
+                                getDynamicDroppableStyle={functions.getDynamicDroppableStyle}
                                 numOfPlayerRequired={this.props.numOfPlayersRequired}
+                                draggableStyles={draggableStyles}
                             />
                     </ConditionalWrapper>
                 </DragDropContext>
