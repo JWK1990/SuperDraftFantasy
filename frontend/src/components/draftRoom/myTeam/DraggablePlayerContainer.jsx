@@ -21,7 +21,6 @@ const getDraggingStyles = (provided, baseStyles, positionStyles) => ({
 
 class DraggablePlayerContainer extends React.Component {
 
-
     render() {
         return (
             <Draggable

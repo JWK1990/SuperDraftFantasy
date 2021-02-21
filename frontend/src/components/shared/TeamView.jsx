@@ -203,13 +203,14 @@ class TeamView extends React.Component {
         const droppableStyles = this.props.styles.droppableStyles;
         const draggableStyles = this.props.styles.draggableStyles;
         const functions = this.props.functions;
+        console.log(draggableStyles);
         console.log(functions);
         return (
             <div style={baseStyles.myTeamRoot}>
                 <DragDropContext onDragStart={this.onDragStart} onDragEnd={this.onDragEnd}>
                     <ConditionalWrapper
                         condition={this.props.type === "field"}
-                        wrapper={children => <div className="startingDiv">{children}</div>}
+                        wrapper={children => <div style={baseStyles.startingDiv}>{children}</div>}
                     >
                         <DroppablePositionContainer
                             droppableId="droppableDefs"
@@ -254,7 +255,7 @@ class TeamView extends React.Component {
                     </ConditionalWrapper>
                     <ConditionalWrapper
                         condition={this.props.type === "field"}
-                        wrapper={children => <div className="benchDiv">{children}</div>}
+                        wrapper={children => <div style={baseStyles.benchDiv}>{children}</div>}
                     >
                             <DroppablePositionContainer
                                 droppableId="droppableBench"
