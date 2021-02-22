@@ -7,7 +7,8 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
-import DraftRoomPlayers from "./Players";
+import DraftRoomPlayers from "./players/Players";
+import TeamAnalysisContainer from "./teams/TeamAnalysisContainer";
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -86,7 +87,7 @@ export default function StatisticsContainer() {
                     <DraftRoomPlayers />
                 </TabPanel>
                 <TabPanel value={value} index={1} dir={theme.direction}>
-                    Item Two
+                    <TeamAnalysisContainer />
                 </TabPanel>
                 <TabPanel value={value} index={2} dir={theme.direction}>
                     Item Three

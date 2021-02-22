@@ -120,7 +120,7 @@ class DraftRoomTeams extends React.Component {
                                     <DraggableTeamContainer
                                         item={item}
                                         index={index}
-                                        key={index}
+                                        key={item.id}
                                         isReorderDisabled={this.props.draftStatus !== DraftStatusEnum.READY}
                                         draggableHeight={this.draggableHeight}
                                         numOfPlayersRequired={this.props.numOfPlayersRequired}
