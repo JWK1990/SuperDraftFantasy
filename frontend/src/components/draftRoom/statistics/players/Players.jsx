@@ -2,16 +2,16 @@ import React, {forwardRef} from "react";
 import MaterialTable from "material-table";
 import Container from "@material-ui/core/Container";
 import DraftRoomPlayersSelected from "./selected/Selected";
-import {playersSelector} from "../../../store/selectors/PlayersSelectors";
+import {playersSelector} from "../../../../store/selectors/PlayersSelectors";
 import {
     currentTeamIdSelector,
     draftSelector,
     draftTeamsSelector,
     isSlotAvailableSelector
-} from "../../../store/selectors/DraftSelectors";
-import {stompClientSelector} from "../../../store/selectors/WebSocketSelectors";
+} from "../../../../store/selectors/DraftSelectors";
+import {stompClientSelector} from "../../../../store/selectors/WebSocketSelectors";
 import {connect} from "react-redux";
-import {updatePlayerAvailabilityAction, updateTeamAction} from "../../../store/actions";
+import {updatePlayerAvailabilityAction, updateTeamAction} from "../../../../store/actions";
 import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
 import AddBox from "@material-ui/icons/AddBox";
 import ArrowDownward from "@material-ui/icons/ArrowDownward";
@@ -32,8 +32,8 @@ import {
     isBiddingUnderwaySelector,
     isOnTheBlockSelector,
     onTheBlockTeamIdSelector
-} from "../../../store/selectors/BlockSelectors";
-import DraftRoomUtils from "../../../utils/DraftRoomUtils";
+} from "../../../../store/selectors/BlockSelectors";
+import DraftRoomUtils from "../../../../utils/DraftRoomUtils";
 
 const tableIcons = {
     Add: forwardRef((props, ref) => <AddBox {...props} ref={ref}/>),

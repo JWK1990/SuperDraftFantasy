@@ -19,6 +19,10 @@ const styles = {
 
 class PlayerCard extends React.Component {
 
+    shouldComponentUpdate(nextProps, nextState, nextContext) {
+        return nextProps.player !== this.props.player;
+    }
+
     render() {
         const {classes} = this.props;
 

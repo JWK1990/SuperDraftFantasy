@@ -3,8 +3,8 @@ import {DragDropContext} from "react-beautiful-dnd";
 import DroppablePositionContainer from "./DroppablePositionContainer";
 import {updateMyTeamPositionAction, updateMyTeamPositionSuccessAction} from "../../../store/actions";
 import {
-    currentTeamSelector,
     draftRosterSelector,
+    draftTeamSelector,
     numOfPlayersRequiredSelector
 } from "../../../store/selectors/DraftSelectors";
 import {stompClientSelector} from "../../../store/selectors/WebSocketSelectors";
@@ -33,7 +33,7 @@ class TeamView extends React.Component {
     }
 
     componentWillMount() {
-        this.setState({myTeamList: this.getInitialMyTeamList(this.props.roster, this.props.currentTeam.teamPlayerJoins)});
+        this.setState({myTeamList: this.getInitialMyTeamList(this.props.roster, this.props.team.teamPlayerJoins)});
     }
 
     componentDidMount() {
@@ -41,11 +41,19 @@ class TeamView extends React.Component {
     }
 
     componentWillUpdate(nextProps) {
-        const newPlayerReceived = nextProps.currentTeam.teamPlayerJoins.length !== this.props.currentTeam.teamPlayerJoins.length;
-        if(newPlayerReceived) {
-            const playerToBeAdded = nextProps.currentTeam.teamPlayerJoins[nextProps.currentTeam.teamPlayerJoins.length -1];
-            this.addPlayerToFirstVacantSlot(this.state.myTeamList, playerToBeAdded);
+        // Different Team selected so we update team list.
+        if(nextProps.team.id !== this.props.team.id) {
+            this.setState({myTeamList: this.getInitialMyTeamList(this.props.roster, nextProps.team.teamPlayerJoins)});
         }
+        // New player added to current Team so we update team list.
+        else {
+            const newPlayerReceived = nextProps.team.teamPlayerJoins.length !== this.props.team.teamPlayerJoins.length;
+            if(newPlayerReceived) {
+                const playerToBeAdded = nextProps.team.teamPlayerJoins[nextProps.team.teamPlayerJoins.length -1];
+                this.addPlayerToFirstVacantSlot(this.state.myTeamList, playerToBeAdded);
+            }
+        }
+
     }
 
     /**
@@ -99,12 +107,18 @@ class TeamView extends React.Component {
 
     addPlayerToFirstVacantSlot = (myTeamList, teamPlayerJoin) => {
         if(teamPlayerJoin.myTeamPositionType != null) {
-            const relevantPositionList = myTeamList[teamPlayerJoin.myTeamPositionType];
-            const firstVacantSlot = relevantPositionList.find(slot => slot.dynamicSlotData.vacant);
+            const myTeamListCopy = {...myTeamList};
+            const relevantPositionListCopy = myTeamListCopy[teamPlayerJoin.myTeamPositionType];
+            const firstVacantSlot = relevantPositionListCopy.find(slot => slot.dynamicSlotData.vacant);
             firstVacantSlot.dynamicSlotData.vacant = false;
             firstVacantSlot.dynamicSlotData.player = teamPlayerJoin.player;
             firstVacantSlot.dynamicSlotData.price = teamPlayerJoin.price;
+            this.setState(prevState => ({
+                ...prevState,
+                myTeamList: myTeamListCopy
+            }))
         }
+
     }
 
     receiveUpdatedMyTeamPosition = (payload) => {
@@ -140,22 +154,19 @@ class TeamView extends React.Component {
         // If move involves a position change.
         if(sourcePosition !== destinationPosition) {
             // Send a request to update the sourcePlayer's position in the DB.
-            this.props.updateMyTeamPosition(this.props.currentTeam.id, sourceSlotData.player.id, destinationPosition);
+            this.props.updateMyTeamPosition(this.props.team.id, sourceSlotData.player.id, destinationPosition);
             // If 2 players switched positions, also send a request to update the destinationPlayer's position in the DB.
             if(destinationSlotData.player != null) {
-                this.props.updateMyTeamPosition(this.props.currentTeam.id, destinationSlotData.player.id, sourcePosition);
+                this.props.updateMyTeamPosition(this.props.team.id, destinationSlotData.player.id, sourcePosition);
             }
         }
 
     };
 
     isDropDisabled = (dropPosition) => {
-        // Disable drop if drop position isn't valid for current player.
-        //const isDropPositionVacant = this.state.myTeamList[dropPosition].findIndex(slot => slot.content.vacant) > -1;
         const isDropPositionValid = dropPosition === "BENCH"
             || dropPosition.includes(this.state.draggedPrimaryPosition)
             || dropPosition.includes(this.state.draggedSecondaryPosition);
-        //return !isDropPositionVacant || !isDropPositionValid || this.props.isLeadBidder;
         return !isDropPositionValid || this.props.isLeadBidder;
     };
 
@@ -203,8 +214,7 @@ class TeamView extends React.Component {
         const droppableStyles = this.props.styles.droppableStyles;
         const draggableStyles = this.props.styles.draggableStyles;
         const functions = this.props.functions;
-        console.log(draggableStyles);
-        console.log(functions);
+
         return (
             <div style={baseStyles.myTeamRoot}>
                 <DragDropContext onDragStart={this.onDragStart} onDragEnd={this.onDragEnd}>
@@ -279,13 +289,13 @@ const mapDispatchToProps = dispatch => ({
     updateMyTeamPositionSuccess: (team) => dispatch(updateMyTeamPositionSuccessAction(team)),
 })
 
-const mapStateToProps = state => {
+const mapStateToProps = (state, props) => {
     return {
         roster: draftRosterSelector(state),
-        currentTeam: currentTeamSelector(state),
         numOfPlayersRequired: numOfPlayersRequiredSelector(state),
         stompClient: stompClientSelector(state),
         isLeadBidder: isLeadBidderSelector(state),
+        team: draftTeamSelector(state, props.teamId),
     };
 };
 

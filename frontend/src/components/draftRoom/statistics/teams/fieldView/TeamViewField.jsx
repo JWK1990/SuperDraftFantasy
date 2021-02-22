@@ -1,5 +1,5 @@
 import React from "react";
-import Field from '../../../../images/Field.svg';
+import Field from '../../../../../images/Field.svg';
 import withStyles from "@material-ui/core/styles/withStyles";
 import TeamViewGrid from "./TeamViewGrid";
 

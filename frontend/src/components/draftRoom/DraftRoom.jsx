@@ -1,6 +1,5 @@
 import React from "react";
 import DraftRoomBlock from "./block/Block";
-import TeamViewList from "./myTeam/TeamViewList";
 import {connectWebSocketAction, getDraftAction, getPlayersByDraftAction} from "../../store/actions";
 import {connect} from "react-redux";
 import {draftSelector} from "../../store/selectors/DraftSelectors"
@@ -8,10 +7,11 @@ import {playersSelector} from "../../store/selectors/PlayersSelectors";
 import DraftRoomTeams from "./teams/Teams";
 import Grid from "@material-ui/core/Grid";
 import {stompClientSelector} from "../../store/selectors/WebSocketSelectors";
-import StatisticsContainer from "./players/StatisticsContainer";
 import ConfigurationUtils from "../../utils/ConfigurationUtils";
 import {withStyles} from "@material-ui/core";
 import CommissionerControls from "./commissionerControls/CommissionerControls";
+import TeamViewList from "./myTeam/TeamViewList";
+import StatisticsContainer from "./statistics/StatisticsContainer";
 
 const styles = {
     firstRowGridContainer: {

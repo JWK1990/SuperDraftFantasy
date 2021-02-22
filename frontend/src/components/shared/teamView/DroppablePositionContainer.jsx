@@ -22,7 +22,7 @@ export default function DroppablePositionContainer(props) {
                 >
                     {props.itemList.map((item, index) => (
                         <DraggablePlayerContainer
-                            key={index}
+                            key={item.id + "-" + (item.dynamicSlotData.player ? item.dynamicSlotData.player : "vacant")}
                             item={item}
                             index={index}
                             snapshot={snapshot}

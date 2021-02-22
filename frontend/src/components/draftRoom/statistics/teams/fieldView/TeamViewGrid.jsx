@@ -1,5 +1,7 @@
 import React from "react";
-import TeamView from "../../../shared/teamView/TeamView";
+import TeamView from "../../../../shared/teamView/TeamView";
+import {connect} from "react-redux";
+import {currentDraftStatisticsTeamIdSelector} from "../../../../../store/selectors/NavigationSelectors";
 
 const grid = 4;
 
@@ -126,15 +128,26 @@ const functions = {
     }),
 }
 
+
 class TeamViewGrid extends React.Component {
 
     render() {
-        return <TeamView
-            type={"field"}
-            styles={styles}
-            functions={functions}
-        />
+            return (
+                <TeamView
+                    type={"field"}
+                    styles={styles}
+                    functions={functions}
+                    teamId={this.props.selectedTeamId}
+                />
+            )
     }
+
 }
 
-export default TeamViewGrid;
+const mapStateToProps = (state) => {
+    return {
+        selectedTeamId: currentDraftStatisticsTeamIdSelector(state),
+    };
+};
+
+export default connect(mapStateToProps)(TeamViewGrid);

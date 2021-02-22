@@ -1,5 +1,7 @@
 import React from 'react';
 import TeamView from "../../shared/teamView/TeamView";
+import {currentTeamIdSelector} from "../../../store/selectors/DraftSelectors";
+import {connect} from "react-redux";
 
 const grid = 4;
 
@@ -86,9 +88,16 @@ class TeamViewList extends React.Component {
             type={"list"}
             styles={styles}
             functions={functions}
+            teamId={this.props.teamId}
         />
     }
 
 }
 
-export default TeamViewList;
+const mapStateToProps = state => {
+    return {
+        teamId: currentTeamIdSelector(state),
+    };
+};
+
+export default connect(mapStateToProps)(TeamViewList);
