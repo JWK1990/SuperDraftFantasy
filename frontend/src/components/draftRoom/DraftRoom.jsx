@@ -83,36 +83,30 @@ class DraftRoom extends React.Component {
 
         return (
             <div className={classes.rootDiv}>
-                <Grid
-                    container
-                    className={classes.firstRowGridContainer}
-                >
-                    <Grid item xs={2}>
-                        <CommissionerControls/>
+                <Grid container>
+                    <Grid container xs={10}>
+                        <Grid container className="firstRowGridContainer">
+                            <Grid item xs={3}>
+                                <CommissionerControls/>
+                            </Grid>
+                            <Grid item xs={9}>
+                                <DraftRoomBlock/>
+                            </Grid>
+                        </Grid>
+                        <Grid container className="secondRowGridContainer">
+                            <Grid item xs={3}>
+                                <DraftRoomTeams/>
+                            </Grid>
+                            <Grid item xs={9}>
+                                <StatisticsContainer/>
+                            </Grid>
+                        </Grid>
                     </Grid>
-                    <Grid item xs={8}>
-                        <DraftRoomBlock/>
-                    </Grid>
-                    <Grid item xs={2}
-                          className={classes.firstRow}
-                    >
-                        MyList Placeholder.
-                    </Grid>
-                </Grid>
 
-                <Grid
-                    id="secondRowGrid"
-                    container
-                    className={classes.secondRowGridContainer}
-                >
-                    <Grid item xs={2}>
-                        <DraftRoomTeams/>
-                    </Grid>
-                    <Grid item xs={8}>
-                        <StatisticsContainer/>
-                    </Grid>
-                    <Grid item xs={2}>
-                        <TeamViewList/>
+                    <Grid container xs={2}>
+                        <Grid item xs={12}>
+                            <TeamViewList/>
+                        </Grid>
                     </Grid>
                 </Grid>
             </div>
