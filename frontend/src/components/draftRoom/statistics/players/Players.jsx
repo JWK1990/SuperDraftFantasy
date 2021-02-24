@@ -75,7 +75,7 @@ const theme = createMuiTheme({
                     maxHeight: "var(--draft-room-players-search-height)",
                 },
             }
-        }
+        },
     }
 });
 
@@ -86,6 +86,7 @@ class DraftRoomPlayers extends React.Component {
         this.state = {
             selectedPlayer: '',
             showAddToBlock: false,
+            positionFilter: 'MID',
         };
     }
 
@@ -96,7 +97,8 @@ class DraftRoomPlayers extends React.Component {
     shouldComponentUpdate(nextProps, nextState, nextContext) {
         return nextProps.isOnTheBlock !== this.props.isOnTheBlock ||
             nextProps.draft.status !== this.props.draft.status ||
-            nextProps.slotAvailability !== this.props.slotAvailability
+            nextProps.slotAvailability !== this.props.slotAvailability ||
+            nextState.positionFilter !== this.state.positionFilter
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
@@ -108,6 +110,15 @@ class DraftRoomPlayers extends React.Component {
                 showAddToBlock: this.props.isOnTheBlock && this.props.draft.status === "IN_PROGRESS" && !this.props.isBiddingUnderway
             })
         }
+    }
+
+    getFullPosition(player) {
+        let fullPosition = player.primaryPosition;
+        if(player.secondaryPosition !== null) {
+            console.log(player.secondaryPosition);
+            fullPosition += (" - " + player.secondaryPosition);
+        }
+        return fullPosition;
     }
 
     receiveTeam = (payload) => {
@@ -142,15 +153,6 @@ class DraftRoomPlayers extends React.Component {
         }
     }
 
-    getFullPosition(player) {
-        let fullPosition = player.primaryPosition;
-        if(player.secondaryPosition !== null) {
-            console.log(player.secondaryPosition);
-            fullPosition += (" - " + player.secondaryPosition);
-        }
-        return fullPosition;
-    }
-
     render() {
         // TODO: Consider refactoring to basic React Material Table.
         // Currently, every table row is re-rendered when the table changes.
@@ -164,11 +166,13 @@ class DraftRoomPlayers extends React.Component {
                         icons={tableIcons}
                         title=""
                         columns={[
-                            { title: "ID", field: "id", type: "numeric", searchable: false, filtering: false },
-                            { title: "Name", field: "firstName", filtering: false },
-                            { title: "Team", field: "aflTeamId", searchable: false},
-                            { title: "Average", field: "average", type: "numeric", searchable: false, filtering: false },
-                            { title: "Position1", field:"primaryPosition", render: (player) => this.getFullPosition(player), searchable: false, lookup: ["DEF", "FWD"]},
+                            { title: "ID", field: "id", type: "numeric", filtering: false, align: "left", width: null },
+                            { title: "Name", field: "fullName", filtering: true, align: "left" },
+                            { title: "Team", field: "aflTeamId", filtering: false, align: "left" },
+                            { title: "Average", field: "average", type: "numeric", filtering: false, align: "left" },
+                            { title: "Position", field:"fullPosition", align: "left",
+                                customFilterAndSearch: (term, rowData) => rowData.fullPosition.includes(this.state.positionFilter),
+                            }
                         ]}
                         data={this.props.players}
                         // TODO: When we pass rowData into our action, it causes all rows to be re-rendered every time a row is toggled or untoggled.
@@ -183,7 +187,8 @@ class DraftRoomPlayers extends React.Component {
                                     this.props.slotAvailability,
                                     rowData.primaryPosition,
                                     rowData.secondaryPosition
-                                )
+                                ),
+
                             })
                         ]}
                         detailPanel={rowData => {
@@ -200,7 +205,7 @@ class DraftRoomPlayers extends React.Component {
                                 />
                             )
                         }}
-                        // TODO: As we change the State here in order to maintain the rowStyle background color when a player is selected,the entire table is re-rendered.
+                        // TODO: As we change the State here in order to maintain the rowStyle background color when a player is selected, the entire table is re-rendered.
                         // Therefore isSlotAvailableForPlayer is called twice as much as necessary.
                         // Would be simpler if the active CSS property was set on the selected row, then we wouldn't have to maintain via State.
                         // Maybe could check if this would work with a Material UI Table.
@@ -213,12 +218,16 @@ class DraftRoomPlayers extends React.Component {
                             maxBodyHeight: "var(--draft-room-players-list-height)",
                             rowStyle: rowData => ({
                                 backgroundColor: rowData.id === this.state.selectedPlayer.id
-                                    ? 'lightblue'
+                                    ? "var(--highlight-color)"
                                     : (!rowData.available)
-                                        ? '#EEE'
+                                        ? "var(--disabled-color)"
                                         : '#FFFFFF',
                                 fontSize: "14px",
-                            })
+                            }),
+                            search: false,
+                        }}
+                        localization={{
+                            header: {actions: ''}
                         }}
                     />
                 </div>
