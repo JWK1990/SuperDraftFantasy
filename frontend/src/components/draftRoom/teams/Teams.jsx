@@ -11,23 +11,14 @@ import {
 } from "../../../store/selectors/DraftSelectors";
 import {stompClientSelector} from "../../../store/selectors/WebSocketSelectors";
 import DraggableTeamContainer from "./DraggableTeamContainer";
-import withStyles from "@material-ui/core/styles/withStyles";
 import {onTheBlockTeamIdSelector} from "../../../store/selectors/BlockSelectors";
 
 const grid = 8;
 
-const styles = {
-    rootDiv: {
-        height: "98%",
-        width: "98%",
-    }
-}
-
 const getListStyle = isDraggingOver => ({
     background: isDraggingOver ? "lightblue" : "lightgrey",
     padding: grid,
-    height: "98%",
-    width: "98%",
+    height: "100%",
     display: "flex",
     flexDirection: "column",
     justifyContent: "space-between",
@@ -104,10 +95,8 @@ class DraftRoomTeams extends React.Component {
     draggableHeight = 98/this.props.draft.numOfTeams;
 
     render() {
-        const {classes} = this.props;
-
         return (
-            <div id="root-div-teams" className={classes.rootDiv}>
+            <div className="teamList">
                 <DragDropContext onDragEnd={this.onDragEnd}>
                     <Droppable droppableId="droppable">
                         {(provided, snapshot) => (
@@ -151,4 +140,4 @@ const mapDispatchToProps = dispatch => ({
     updateTeamOrder: (teamList) => dispatch(reorderTeamListAction(teamList)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(DraftRoomTeams));
+export default connect(mapStateToProps, mapDispatchToProps)(DraftRoomTeams);

@@ -6,6 +6,7 @@ import * as serviceWorker from './serviceWorker';
 import 'typeface-roboto';
 import { Provider } from "react-redux";
 import configureStore from "./store/Store";
+import "./themes/globalStyles.css";
 
 require('dotenv').config()
 

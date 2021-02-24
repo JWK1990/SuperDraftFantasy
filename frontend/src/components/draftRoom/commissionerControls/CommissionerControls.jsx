@@ -45,7 +45,7 @@ function CommissionerControls(props) {
     }
 
     return (
-        <div>
+        <div className="commissionerControls">
             {getButton()}
         </div>
     )

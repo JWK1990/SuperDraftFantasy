@@ -14,19 +14,8 @@ import TeamViewList from "./myTeam/TeamViewList";
 import StatisticsContainer from "./statistics/StatisticsContainer";
 
 const styles = {
-    firstRowGridContainer: {
-        justify: "space-between",
-        alignItems: "stretch",
-        // TODO: Decide if we want to fix height or let it flex.
-        height: 238,
-        overflow: "hidden",
-    },
-    secondRowGridContainer: {
-        justify: "space-between",
-        alignItems: "stretch",
-        // TODO: Decide if we want to fix height or let it flex.
-        height: "calc(100vh - 238px)",
-        overflow: "hidden",
+    rootContainer: {
+        height: "100%",
     },
 };
 
@@ -82,34 +71,36 @@ class DraftRoom extends React.Component {
         }
 
         return (
-            <div className={classes.rootDiv}>
-                <Grid container>
-                    <Grid container xs={10}>
-                        <Grid container className="firstRowGridContainer">
-                            <Grid item xs={3}>
+            <>
+                <Grid container spacing={1} direction="row" justify="space-between" alignItems="stretch"
+                      className={classes.rootContainer}>
+                    <Grid item xs={2}>
+                        <Grid container spacing={1}>
+                            <Grid item xs={12}>
                                 <CommissionerControls/>
                             </Grid>
-                            <Grid item xs={9}>
-                                <DraftRoomBlock/>
-                            </Grid>
-                        </Grid>
-                        <Grid container className="secondRowGridContainer">
-                            <Grid item xs={3}>
+                            <Grid item xs={12}>
                                 <DraftRoomTeams/>
                             </Grid>
-                            <Grid item xs={9}>
+                        </Grid>
+                    </Grid>
+                    <Grid item xs={8}>
+                        <Grid container spacing={1}>
+                            <Grid item xs={12}>
+                                <DraftRoomBlock/>
+                            </Grid>
+                            <Grid item xs={12}>
                                 <StatisticsContainer/>
                             </Grid>
                         </Grid>
                     </Grid>
-
-                    <Grid container xs={2}>
+                    <Grid item xs={2}>
                         <Grid item xs={12}>
                             <TeamViewList/>
                         </Grid>
                     </Grid>
                 </Grid>
-            </div>
+            </>
         )
     }
 

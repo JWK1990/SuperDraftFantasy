@@ -1,0 +1,22 @@
+:root {
+    --draft-room-first-row-height: 240px;
+    --draft-room-second-row-height: calc(100vh - 240px);
+    --draft-room-tab-panel-height: 32px;
+    --draft-room-players-search-height: 32px;
+    --draft-room-players-list-height: calc(var(--draft-room-second-row-height) - var(--draft-room-tab-panel-height) - var(--draft-room-players-search-height))
+}
+
+.commissionerControls {
+    height: var(--draft-room-first-row-height);
+}
+.teamList {
+    height: var(--draft-room-second-row-height);
+}
+.block {
+    height: var(--draft-room-first-row-height);
+}
+.statistics {
+    height: var(--draft-room-second-row-height);
+}
+
+

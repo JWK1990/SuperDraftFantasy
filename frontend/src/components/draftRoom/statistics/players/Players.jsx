@@ -1,6 +1,5 @@
 import React, {forwardRef} from "react";
 import MaterialTable from "material-table";
-import Container from "@material-ui/core/Container";
 import DraftRoomPlayersSelected from "./selected/Selected";
 import {playersSelector} from "../../../../store/selectors/PlayersSelectors";
 import {
@@ -34,6 +33,7 @@ import {
     onTheBlockTeamIdSelector
 } from "../../../../store/selectors/BlockSelectors";
 import DraftRoomUtils from "../../../../utils/DraftRoomUtils";
+import {createMuiTheme, MuiThemeProvider} from "@material-ui/core";
 
 const tableIcons = {
     Add: forwardRef((props, ref) => <AddBox {...props} ref={ref}/>),
@@ -54,6 +54,30 @@ const tableIcons = {
     ThirdStateCheck: forwardRef((props, ref) => <Remove {...props} ref={ref}/>),
     ViewColumn: forwardRef((props, ref) => <ViewColumn {...props} ref={ref}/>)
 };
+
+const theme = createMuiTheme({
+    overrides: {
+        MuiTableCell: {
+            root: {
+                paddingTop: 5,
+                paddingBottom: 5,
+            }
+        },
+        MuiIconButton: {
+            root: {
+                padding: 2,
+            }
+        },
+        MuiToolbar: {
+            regular: {
+                '@media (min-width: 600px)': {
+                    minHeight: "var(--draft-room-players-search-height)",
+                    maxHeight: "var(--draft-room-players-search-height)",
+                },
+            }
+        }
+    }
+});
 
 class DraftRoomPlayers extends React.Component {
 
@@ -118,6 +142,15 @@ class DraftRoomPlayers extends React.Component {
         }
     }
 
+    getFullPosition(player) {
+        let fullPosition = player.primaryPosition;
+        if(player.secondaryPosition !== null) {
+            console.log(player.secondaryPosition);
+            fullPosition += (" - " + player.secondaryPosition);
+        }
+        return fullPosition;
+    }
+
     render() {
         // TODO: Consider refactoring to basic React Material Table.
         // Currently, every table row is re-rendered when the table changes.
@@ -125,70 +158,71 @@ class DraftRoomPlayers extends React.Component {
         // Also, as the selected row is maintain via the state (rather than a CSS property), the entire component is re-rendered every time this value changes.
         // Therefore, isSlotAvailableForPlayer is called twice as much as required.
         return (
-                <Container component="main" maxWidth="xl">
-                    <div style={{ maxWidth: "100%" }}>
-                        <MaterialTable
-                            icons={tableIcons}
-                            title="Players"
-                            columns={[
-                                { title: "ID", field: "id", type: "numeric", searchable: false },
-                                { title: "Name", field: "firstName" },
-                                { title: "Team", field: "aflTeamId", searchable: false},
-                                { title: "Average", field: "average", type: "numeric", searchable: false },
-                                { title: "Position1", field: "primaryPosition", searchable: false },
-                                { title: "Position2", field: "secondaryPosition", searchable: false },
-                            ]}
-                            data={this.props.players}
-                            // TODO: When we pass rowData into our action, it causes all rows to be re-rendered every time a row is toggled or untoggled.
-                            // Unsure if there is a way around this. Maybe can look into it.
-                            actions={[
-                                rowData => ({
-                                    icon: () => <AddCircleOutlineIcon/>,
-                                    tooltip: 'Add To Block',
-                                    onClick: (event, rowData) => this.sendAddToBlock(rowData.id, 1),
-                                    hidden: !rowData.available || !this.state.showAddToBlock,
-                                    disabled: !DraftRoomUtils.isSlotAvailableForPlayer(
+            <MuiThemeProvider theme={theme}>
+                <div style={{ maxWidth: "100%" }}>
+                    <MaterialTable
+                        icons={tableIcons}
+                        title=""
+                        columns={[
+                            { title: "ID", field: "id", type: "numeric", searchable: false, filtering: false },
+                            { title: "Name", field: "firstName", filtering: false },
+                            { title: "Team", field: "aflTeamId", searchable: false},
+                            { title: "Average", field: "average", type: "numeric", searchable: false, filtering: false },
+                            { title: "Position1", field:"primaryPosition", render: (player) => this.getFullPosition(player), searchable: false, lookup: ["DEF", "FWD"]},
+                        ]}
+                        data={this.props.players}
+                        // TODO: When we pass rowData into our action, it causes all rows to be re-rendered every time a row is toggled or untoggled.
+                        // Unsure if there is a way around this. Maybe can look into it.
+                        actions={[
+                            rowData => ({
+                                icon: () => <AddCircleOutlineIcon/>,
+                                tooltip: 'Add To Block',
+                                onClick: (event, rowData) => this.sendAddToBlock(rowData.id, 1),
+                                hidden: !rowData.available || !this.state.showAddToBlock,
+                                disabled: !DraftRoomUtils.isSlotAvailableForPlayer(
+                                    this.props.slotAvailability,
+                                    rowData.primaryPosition,
+                                    rowData.secondaryPosition
+                                )
+                            })
+                        ]}
+                        detailPanel={rowData => {
+                            return (
+                                <DraftRoomPlayersSelected
+                                    player={rowData}
+                                    sendAddToBlock={this.sendAddToBlock}
+                                    hideAddToBlock = {!rowData.available || !this.state.showAddToBlock}
+                                    isSlotAvailableForPlayer = {DraftRoomUtils.isSlotAvailableForPlayer(
                                         this.props.slotAvailability,
                                         rowData.primaryPosition,
                                         rowData.secondaryPosition
-                                    )
-                                })
-                            ]}
-                            detailPanel={rowData => {
-                                return (
-                                    <DraftRoomPlayersSelected
-                                        player={rowData}
-                                        sendAddToBlock={this.sendAddToBlock}
-                                        hideAddToBlock = {!rowData.available || !this.state.showAddToBlock}
-                                        isSlotAvailableForPlayer = {DraftRoomUtils.isSlotAvailableForPlayer(
-                                            this.props.slotAvailability,
-                                            rowData.primaryPosition,
-                                            rowData.secondaryPosition
-                                        )}
-                                    />
-                                )
-                            }}
-                            // TODO: As we change the State here in order to maintain the rowStyle background color when a player is selected,the entire table is re-rendered.
-                            // Therefore isSlotAvailableForPlayer is called twice as much as necessary.
-                            // Would be simpler if the active CSS property was set on the selected row, then we wouldn't have to maintain via State.
-                            // Maybe could check if this would work with a Material UI Table.
-                            onRowClick={(event, rowData, togglePanel) => this.toggleAndSetSelected(event, togglePanel, rowData)}
-                            options={{
-                                detailPanelType: "single",
-                                paging: false,
-                                maxBodyHeight: "calc(100vh - 238px - 150px)",
-                                headerStyle: { position: 'sticky', top: 0 },
-                                rowStyle: rowData => ({
-                                    backgroundColor: rowData.id === this.state.selectedPlayer.id
-                                        ? 'lightblue'
-                                        : (!rowData.available)
-                                            ? '#EEE'
-                                            : '#FFFFFF',
-                                })
-                            }}
-                        />
-                    </div>
-                </Container>
+                                    )}
+                                />
+                            )
+                        }}
+                        // TODO: As we change the State here in order to maintain the rowStyle background color when a player is selected,the entire table is re-rendered.
+                        // Therefore isSlotAvailableForPlayer is called twice as much as necessary.
+                        // Would be simpler if the active CSS property was set on the selected row, then we wouldn't have to maintain via State.
+                        // Maybe could check if this would work with a Material UI Table.
+                        onRowClick={(event, rowData, togglePanel) => this.toggleAndSetSelected(event, togglePanel, rowData)}
+                        options={{
+                            detailPanelType: "single",
+                            paging: false,
+                            headerStyle: { position: 'sticky', top: 0 },
+                            filtering: true,
+                            maxBodyHeight: "var(--draft-room-players-list-height)",
+                            rowStyle: rowData => ({
+                                backgroundColor: rowData.id === this.state.selectedPlayer.id
+                                    ? 'lightblue'
+                                    : (!rowData.available)
+                                        ? '#EEE'
+                                        : '#FFFFFF',
+                                fontSize: "14px",
+                            })
+                        }}
+                    />
+                </div>
+            </MuiThemeProvider>
         );
     }
 }
