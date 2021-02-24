@@ -8,9 +8,8 @@ const grid = 4;
 const styles = {
     baseStyles: {
         myTeamRoot: {
-            height: "98%",
-            width: "98%",
-        },
+            height: "100%",
+        }
     },
     droppableStyles: {
         def: {
@@ -35,7 +34,7 @@ const styles = {
             position: 'static',
             padding: grid,
             margin: `0 0 ${grid}px 0`,
-            border: "3px solid",
+            border: "2px solid",
             height: "100%",
             draggingBackgroundColor: "white",
             vacantBackgroundColor: "lightslategrey",
@@ -84,12 +83,16 @@ const functions = {
 class TeamViewList extends React.Component {
 
     render() {
-        return <TeamView
-            type={"list"}
-            styles={styles}
-            functions={functions}
-            teamId={this.props.teamId}
-        />
+        return (
+            <div className="myTeam">
+                <TeamView
+                    type={"list"}
+                    styles={styles}
+                    functions={functions}
+                    teamId={this.props.teamId}
+                />
+            </div>
+        )
     }
 
 }

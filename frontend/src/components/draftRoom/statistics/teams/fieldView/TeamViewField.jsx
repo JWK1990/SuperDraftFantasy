@@ -1,14 +1,14 @@
 import React from "react";
-import Field from '../../../../../images/Field.svg';
+import Field from '../../../../../images/FieldWithoutBackground.svg';
 import withStyles from "@material-ui/core/styles/withStyles";
 import TeamViewGrid from "./TeamViewGrid";
 
-const fieldSizeMultiplier = 1.4;
-const fieldWidth = 675 * fieldSizeMultiplier;
-const fieldHeight = 719 * fieldSizeMultiplier;
+const fieldSizeMultiplier = 0.7;
+const fieldWidth = 600 * fieldSizeMultiplier;
+const fieldHeight = 720 * fieldSizeMultiplier;
 
 const styles = {
-    paperContainer: {
+    field: {
         backgroundImage: `url(${Field})`,
         backgroundSize: "contain",
         backgroundRepeat: "no-repeat",
@@ -17,12 +17,12 @@ const styles = {
         height: fieldHeight, // Originally 719.
         position: "relative",
     },
-    positionsDiv: {
-        width: "69%",
-        height: "84%",
+    playerGrid: {
+        width: "80%",
+        height: "100%",
         position: "absolute",
-        top: "13.8%",
-        left: "15%",
+        top: "13%",
+        left: "8.5%",
     }
 }
 
@@ -32,8 +32,8 @@ class TeamViewField extends React.Component {
         const {classes} = this.props;
 
         return (
-            <div className={classes.paperContainer}>
-                <div className={classes.positionsDiv}>
+            <div className={classes.field}>
+                <div className={classes.playerGrid}>
                     <TeamViewGrid />
                 </div>
             </div>

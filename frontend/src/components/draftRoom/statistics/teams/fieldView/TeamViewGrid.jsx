@@ -17,7 +17,6 @@ const styles = {
             height: "25%",
             display: "flex",
             alignItems: "end",
-            paddingTop: "20%"
         },
     },
     droppableStyles: {
@@ -68,7 +67,7 @@ const styles = {
             position: 'static',
             padding: grid,
             margin: `0 0 ${grid}px 0`,
-            border: "3px solid",
+            border: "1px solid",
             marginLeft: "1%",
             //minHeight: 20,
             draggingBackgroundColor: "white",

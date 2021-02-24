@@ -5,7 +5,13 @@ import {MenuItem, TextField} from "@material-ui/core";
 import TeamViewField from "./fieldView/TeamViewField";
 import {changeDraftStatisticsTeamIdAction} from "../../../../store/actions/NavigationActions";
 import {currentDraftStatisticsTeamIdSelector} from "../../../../store/selectors/NavigationSelectors";
+import withStyles from "@material-ui/core/styles/withStyles";
 
+const styles = {
+    teamFieldViewContainer: {
+        width: "50%",
+    }
+}
 class TeamAnalysisContainer extends React.Component {
 
     componentWillMount() {
@@ -19,26 +25,32 @@ class TeamAnalysisContainer extends React.Component {
     }
 
     render() {
+        const {classes} = this.props;
+
         if(!this.props.selectedTeamId) {
             return null;
         }
         return (
-            <>
-                <TextField
-                    id="draft-team-analysis-select"
-                    select
-                    value={this.props.selectedTeamId}
-                    onChange={this.handleTeamChange}
-                    helperText="Select Team To Analyse."
-                >
-                    {this.props.teamNameList.map((team) => (
-                        <MenuItem key={team.id} value={team.id}>
-                            {team.name}
-                        </MenuItem>
-                    ))}
-                </TextField>
-                <TeamViewField />
-            </>
+            <div className="teamAnalysis">
+                <div className="teamSelect" style={{display:"none"}}>
+                    <TextField
+                        id="draft-team-analysis-select"
+                        select
+                        value={this.props.selectedTeamId}
+                        onChange={this.handleTeamChange}
+                        helperText="Select Team To Analyse."
+                    >
+                        {this.props.teamNameList.map((team) => (
+                            <MenuItem key={team.id} value={team.id}>
+                                {team.name}
+                            </MenuItem>
+                        ))}
+                    </TextField>
+                </div>
+                <div className={classes.teamFieldViewContainer}>
+                    <TeamViewField />
+                </div>
+            </div>
         )
     }
 }
@@ -54,4 +66,4 @@ const mapDispatchToProps = dispatch => ({
     changeDraftStatisticsTeamIdAction: teamId => dispatch(changeDraftStatisticsTeamIdAction(teamId))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(TeamAnalysisContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(TeamAnalysisContainer));
