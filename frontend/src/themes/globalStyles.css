@@ -1,13 +1,24 @@
 :root {
+    /* Grid Heights. */
     --draft-room-first-row-height: 240px;
     --draft-room-second-row-height: calc(100vh - 240px);
     --draft-room-tab-panel-height: 40px;
     --draft-room-players-search-height: 0px;
     --draft-room-players-list-height: calc(var(--draft-room-second-row-height) - var(--draft-room-tab-panel-height) - var(--draft-room-players-search-height));
     --draft-room-right-column-height: calc(var(--draft-room-first-row-height) + var(--draft-room-second-row-height));
+
+    /* Colours. */
     --highlight-color: greenyellow;
     --hover-color: lightblue;
     --disabled-color: #EEE;
+    --def-color-primary: 255, 0, 0; /* Red. */
+    --def-color-secondary: 255, 207, 187; /* Light Salmon. */
+    --mid-color-primary: 0, 0, 255; /* Blue. */
+    --mid-color-secondary: 173, 216, 230; /* Light Blue. */
+    --ruc-color-primary: 255, 255, 0; /* Yellow. */
+    --ruc-color-secondary: 255, 255, 224; /* Light Yellow. */
+    --fwd-color-primary: 0, 128, 0; /* Green. */
+    --fwd-color-secondary: 144, 238, 144; /* Light Green. */
 }
 
 .commissionerControls {

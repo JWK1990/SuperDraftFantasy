@@ -7,6 +7,7 @@ import {changeDraftStatisticsTeamIdAction} from "../../../../store/actions/Navig
 import {currentDraftStatisticsTeamIdSelector} from "../../../../store/selectors/NavigationSelectors";
 import withStyles from "@material-ui/core/styles/withStyles";
 import Grid from "@material-ui/core/Grid";
+import TeamStats from "./teamStats/TeamStats";
 
 const styles = {
     teamStatsContainer: {
@@ -17,6 +18,7 @@ const styles = {
         width: "100%",
     }
 }
+
 class TeamAnalysisContainer extends React.Component {
 
     componentWillMount() {
@@ -40,7 +42,7 @@ class TeamAnalysisContainer extends React.Component {
             <div className="teamAnalysis">
                 <Grid container spacing={0} direction="row" justify="space-between" alignItems="stretch">
                     <Grid item xs={12}>
-                        <div className="teamSelect centered-div">
+                        <div className="centered-div">
                             <TextField
                                 id="draft-team-analysis-select"
                                 select
@@ -56,10 +58,18 @@ class TeamAnalysisContainer extends React.Component {
                             </TextField>
                         </div>
                     </Grid>
-                    <Grid item xs={8}>
+                    <Grid item xs={7}>
+                        <Grid container spacing={0} direction="row" justify="space-between" alignItems="stretch">
+                            <Grid item xs={12}>
+                                <TeamStats />
+                            </Grid>
+                            <Grid item xs={12}>
+                                <p>Test 2</p>
+                            </Grid>
+                        </Grid>
                     </Grid>
                     {/* Change the below width to change the size of the TeamFieldView. */}
-                    <Grid item xs={4}>
+                    <Grid item xs={5}>
                         <div className={classes.teamFieldViewContainer}>
                             <TeamViewField />
                         </div>
