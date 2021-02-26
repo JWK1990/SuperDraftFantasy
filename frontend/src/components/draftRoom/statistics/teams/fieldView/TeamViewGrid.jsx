@@ -136,6 +136,7 @@ class TeamViewGrid extends React.Component {
                     styles={styles}
                     functions={functions}
                     teamId={this.props.selectedTeamId}
+                    isDraggingDisabled={true}
                 />
             )
     }

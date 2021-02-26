@@ -90,6 +90,7 @@ class TeamViewList extends React.Component {
                     styles={styles}
                     functions={functions}
                     teamId={this.props.teamId}
+                    isDraggingDisabled={false}
                 />
             </div>
         )
