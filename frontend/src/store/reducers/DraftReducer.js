@@ -122,8 +122,8 @@ export function draftReducer(state = initialDraftState, action) {
                                 : {...teamPlayerJoin,
                                     myTeamPositionType:
                                         action.payload.myTeamPositions[
-                                            action.payload.myTeamPositions
-                                                .findIndex(player => player.playerId === teamPlayerJoin.player.id)].myTeamPosition
+                                            action.payload.myTeamPositions.findIndex(player => player.playerId === teamPlayerJoin.player.id)
+                                            ].myTeamPosition
                             }))
                         }
                     ))
