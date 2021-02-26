@@ -8,8 +8,9 @@ import {currentDraftStatisticsTeamIdSelector} from "../../../../store/selectors/
 import withStyles from "@material-ui/core/styles/withStyles";
 
 const styles = {
+    // Use the below width to control the size of the TeamFieldView.
     teamFieldViewContainer: {
-        width: "50%",
+        width: "40%",
     }
 }
 class TeamAnalysisContainer extends React.Component {

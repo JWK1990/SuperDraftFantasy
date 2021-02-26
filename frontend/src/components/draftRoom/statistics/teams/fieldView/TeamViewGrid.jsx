@@ -15,8 +15,7 @@ const styles = {
         },
         benchDiv: {
             height: "25%",
-            display: "flex",
-            alignItems: "end",
+            paddingTop: "16%",
         },
     },
     droppableStyles: {
