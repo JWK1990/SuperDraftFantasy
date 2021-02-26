@@ -9,8 +9,9 @@ import au.superdraftfantasy.api.position.PositionEntity;
 import au.superdraftfantasy.api.position.PositionRepository;
 import au.superdraftfantasy.api.position.PositionTypeEnum;
 import au.superdraftfantasy.api.roster.RosterEntity;
+import au.superdraftfantasy.api.teamPlayerJoin.MyTeamPositionReadDto;
+import au.superdraftfantasy.api.teamPlayerJoin.MyTeamPositionWriteDto;
 import au.superdraftfantasy.api.teamPlayerJoin.TeamPlayerJoinEntity;
-import au.superdraftfantasy.api.teamPlayerJoin.TeamPlayerJoinWriteDto;
 import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
@@ -19,6 +20,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Set;
@@ -76,25 +78,29 @@ public class TeamService {
     /**
      * Updates a Player's current field position within a Team.
      * @param teamId
-     * @param playerId
-     * @param myTeamPosition
+     * @param writeDto
      * @return
      */
-    public PositionTypeEnum updateMyTeamPosition(final Long teamId, Long playerId, PositionTypeEnum myTeamPosition) {
+    public MyTeamPositionReadDto updateMyTeamPosition(final Long teamId, List<MyTeamPositionWriteDto> writeDto) {
         TeamEntity team = teamRepository.findById(teamId)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Team with ID '" + teamId + "' Not Found."));
 
-        TeamPlayerJoinEntity teamPlayerJoinToUpdate = team.getTeamPlayerJoins()
-                .stream().filter(teamPlayerJoin -> teamPlayerJoin.getPlayer().getId().equals(playerId))
-                .findFirst().orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "TeamPlayerJoinEntity not found"));
+        List<TeamPlayerJoinEntity> teamPlayerJoins = team.getTeamPlayerJoins();
+        MyTeamPositionReadDto readDto = new MyTeamPositionReadDto(teamId, new ArrayList<>());
 
-        PositionEntity position = positionRepository.findByType(myTeamPosition).orElseThrow(() -> new NoSuchElementException(myTeamPosition + " position not found."));
-        teamPlayerJoinToUpdate.setMyTeamPosition(position);
+        writeDto.forEach(myTeamPositionUpdate -> {
+            TeamPlayerJoinEntity teamPlayerJoinToUpdate = teamPlayerJoins.stream()
+                    .filter(teamPlayerJoin -> teamPlayerJoin.getPlayer().getId().equals(myTeamPositionUpdate.getPlayerId()))
+                    .findFirst().orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "TeamPlayerJoinEntity not found"));
+            PositionEntity position = positionRepository.findByType(myTeamPositionUpdate.getMyTeamPosition())
+                    .orElseThrow(() ->new NoSuchElementException(myTeamPositionUpdate.getMyTeamPosition() + " position not found."));
+            teamPlayerJoinToUpdate.setMyTeamPosition(position);
+            readDto.getMyTeamPositions().add(myTeamPositionUpdate);
+        });
         teamRepository.save(team);
-        // TODO: Update ReadDto to include teamId so that we can use it here.
-        TeamPlayerJoinWriteDto readDto = new TeamPlayerJoinWriteDto(teamId, playerId, myTeamPosition.name());
+
         this.simpMessagingTemplate.convertAndSend("/draft/updateMyTeamPositions", readDto);
-        return myTeamPosition;
+        return readDto;
     }
 
     /**
