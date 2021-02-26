@@ -54,6 +54,7 @@ class TeamView extends React.Component {
         // TODO: Could refactor the field layout to always be inline with the BE positions.
         // To do this first would need to add Slot Number Values to BE (e.g. M1, D5 etc).
         else if(this.props.type === "field" && nextProps.team.teamPlayerJoins !== this.props.team.teamPlayerJoins) {
+            console.log("Update field");
             this.setState({myTeamList: this.getInitialMyTeamList(this.props.roster, nextProps.team.teamPlayerJoins)});
         }
 
@@ -156,12 +157,12 @@ class TeamView extends React.Component {
 
         // If move involves a position change.
         if(sourcePosition !== destinationPosition) {
-            // Send a request to update the sourcePlayer's position in the DB.
-            this.props.updateMyTeamPosition(this.props.team.id, sourceSlotData.player.id, destinationPosition);
-            // If 2 players switched positions, also send a request to update the destinationPlayer's position in the DB.
+            let updatePlayerPositions = [{playerId: sourceSlotData.player.id, myTeamPosition: destinationPosition}];
+            // If 2 players switched positions, also update the destinationPlayer's position in the DB.
             if(destinationSlotData.player != null) {
-                this.props.updateMyTeamPosition(this.props.team.id, destinationSlotData.player.id, sourcePosition);
+                updatePlayerPositions.push({playerId: destinationSlotData.player.id, myTeamPosition: sourcePosition});
             }
+            this.props.updateMyTeamPosition(this.props.team.id, updatePlayerPositions);
         }
 
     };

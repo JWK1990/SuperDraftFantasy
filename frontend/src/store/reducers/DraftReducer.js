@@ -116,9 +116,15 @@ export function draftReducer(state = initialDraftState, action) {
                         team.id !== action.payload.teamId
                             ? team
                         : {...team, teamPlayerJoins: team.teamPlayerJoins.map(teamPlayerJoin => (
-                            teamPlayerJoin.player.id !== action.payload.playerId
+                            // Try and find playerId in List of updated playerIds.
+                            action.payload.myTeamPositions.findIndex(myTeamPosition => myTeamPosition.playerId === teamPlayerJoin.player.id) === -1
                                 ? teamPlayerJoin
-                                : {...teamPlayerJoin, myTeamPositionType: action.payload.myTeamPositionType}))
+                                : {...teamPlayerJoin,
+                                    myTeamPositionType:
+                                        action.payload.myTeamPositions[
+                                            action.payload.myTeamPositions
+                                                .findIndex(player => player.playerId === teamPlayerJoin.player.id)].myTeamPosition
+                            }))
                         }
                     ))
                 }

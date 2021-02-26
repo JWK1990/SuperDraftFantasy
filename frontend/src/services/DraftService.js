@@ -30,8 +30,8 @@ class DraftService {
         return axios.get("/players/draft/" + draftId);
     }
 
-    saveMyTeamLayout(teamId, playerId, position) {
-        return axios.put("/teams/" + teamId + "/players/" + playerId + "/myTeamPosition/" + position, {});
+    saveMyTeamLayout(teamId, updatedMyTeamPositions) {
+        return axios.put("/teams/" + teamId + "/myTeamPositions/", updatedMyTeamPositions);
     }
 
 }

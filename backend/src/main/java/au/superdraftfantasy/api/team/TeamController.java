@@ -1,10 +1,10 @@
 package au.superdraftfantasy.api.team;
 
-import au.superdraftfantasy.api.position.PositionTypeEnum;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import au.superdraftfantasy.api.teamPlayerJoin.MyTeamPositionReadDto;
+import au.superdraftfantasy.api.teamPlayerJoin.MyTeamPositionWriteDto;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping(path = "/teams")
@@ -16,13 +16,12 @@ public class TeamController {
         this.teamService = teamService;
     }
 
-    @PutMapping(name = "updateMyTeamPosition", path = "{teamID}/players/{playerID}/myTeamPosition/{myTeamPosition}")
-    public PositionTypeEnum updateMyTeamPosition(
+    @PutMapping(name = "updateMyTeamPositions", path = "{teamID}/myTeamPositions")
+    public MyTeamPositionReadDto updateMyTeamPositions(
             @PathVariable final Long teamID,
-            @PathVariable final Long playerID,
-            @PathVariable final PositionTypeEnum myTeamPosition
+            @RequestBody final List<MyTeamPositionWriteDto> updatedMyTeamPositions
     ) {
-        return teamService.updateMyTeamPosition(teamID, playerID, myTeamPosition);
+        return teamService.updateMyTeamPosition(teamID, updatedMyTeamPositions);
     }
 
 }
