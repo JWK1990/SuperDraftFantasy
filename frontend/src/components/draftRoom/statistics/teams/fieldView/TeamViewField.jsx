@@ -27,7 +27,7 @@ class TeamViewField extends React.Component {
         return (
             <>
             <div className={classes.rootContainer}>
-                <img src={Field} className={classes.fieldImage} />
+                <img src={Field} className={classes.fieldImage} alt={"Field."}/>
                 <div className={classes.playerGrid}>
                     <TeamViewGrid />
                 </div>
