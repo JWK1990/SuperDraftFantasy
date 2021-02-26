@@ -35,4 +35,10 @@
     height: var(--draft-room-right-column-height);
 }
 
+.centered-div {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
 

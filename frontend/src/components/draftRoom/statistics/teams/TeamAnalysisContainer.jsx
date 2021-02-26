@@ -39,8 +39,8 @@ class TeamAnalysisContainer extends React.Component {
         return (
             <div className="teamAnalysis">
                 <Grid container spacing={0} direction="row" justify="space-between" alignItems="stretch">
-                    <Grid item xs={8}>
-                        <div className="teamSelect">
+                    <Grid item xs={12}>
+                        <div className="teamSelect centered-div">
                             <TextField
                                 id="draft-team-analysis-select"
                                 select
@@ -55,6 +55,8 @@ class TeamAnalysisContainer extends React.Component {
                                 ))}
                             </TextField>
                         </div>
+                    </Grid>
+                    <Grid item xs={8}>
                     </Grid>
                     {/* Change the below width to change the size of the TeamFieldView. */}
                     <Grid item xs={4}>
