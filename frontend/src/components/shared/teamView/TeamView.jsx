@@ -41,17 +41,20 @@ class TeamView extends React.Component {
     }
 
     componentWillUpdate(nextProps) {
-        // Different Team selected so we update team list.
+        // If different Team selected then we update team list.
         if(nextProps.team.id !== this.props.team.id) {
             this.setState({myTeamList: this.getInitialMyTeamList(this.props.roster, nextProps.team.teamPlayerJoins)});
         }
-        // New player added to current Team so we update team list.
-        else {
-            const newPlayerReceived = nextProps.team.teamPlayerJoins.length !== this.props.team.teamPlayerJoins.length;
-            if(newPlayerReceived) {
+        // Else if new player added to current Team then we update team list.
+        else if (nextProps.team.teamPlayerJoins.length !== this.props.team.teamPlayerJoins.length){
                 const playerToBeAdded = nextProps.team.teamPlayerJoins[nextProps.team.teamPlayerJoins.length -1];
                 this.addPlayerToFirstVacantSlot(this.state.myTeamList, playerToBeAdded);
-            }
+        }
+        // Else if a player has been by the manually moved in the TeamList then we update the field view.
+        // TODO: Could refactor the field layout to always be inline with the BE positions.
+        // To do this first would need to add Slot Number Values to BE (e.g. M1, D5 etc).
+        else if(this.props.type === "field" && nextProps.team.teamPlayerJoins !== this.props.team.teamPlayerJoins) {
+            this.setState({myTeamList: this.getInitialMyTeamList(this.props.roster, nextProps.team.teamPlayerJoins)});
         }
 
     }
