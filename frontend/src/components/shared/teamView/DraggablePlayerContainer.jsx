@@ -27,7 +27,7 @@ class DraggablePlayerContainer extends React.Component {
                 key={this.props.item.id}
                 draggableId={this.props.item.id}
                 index={this.props.index}
-                isDragDisabled={this.props.item.dynamicSlotData.vacant || this.props.isLeadBidder}>
+                isDragDisabled={this.props.isDraggingDisabled || this.props.item.dynamicSlotData.vacant || this.props.isLeadBidder}>
                 {(provided, snapshot) => (
                     <div
                         ref={provided.innerRef}

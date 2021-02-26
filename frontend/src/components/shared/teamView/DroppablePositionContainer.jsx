@@ -28,6 +28,7 @@ export default function DroppablePositionContainer(props) {
                             snapshot={snapshot}
                             baseStyles={props.draggableStyles.root}
                             positionStyles={props.draggableStyles[item.position.toString().toLowerCase()]}
+                            isDraggingDisabled={props.isDraggingDisabled}
                         />
                     ))}
                     <span style={{display: "none"}}>

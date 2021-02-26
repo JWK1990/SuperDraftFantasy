@@ -1,0 +1,38 @@
+:root {
+    --draft-room-first-row-height: 240px;
+    --draft-room-second-row-height: calc(100vh - 240px);
+    --draft-room-tab-panel-height: 40px;
+    --draft-room-players-search-height: 0px;
+    --draft-room-players-list-height: calc(var(--draft-room-second-row-height) - var(--draft-room-tab-panel-height) - var(--draft-room-players-search-height));
+    --draft-room-right-column-height: calc(var(--draft-room-first-row-height) + var(--draft-room-second-row-height));
+    --highlight-color: greenyellow;
+    --hover-color: lightblue;
+    --disabled-color: #EEE;
+}
+
+.commissionerControls {
+    height: var(--draft-room-first-row-height);
+}
+.teamList {
+    height: var(--draft-room-second-row-height);
+}
+.block {
+    height: var(--draft-room-first-row-height);
+}
+.statistics {
+    height: var(--draft-room-second-row-height);
+}
+
+.statistics tr:hover {
+    background: var(--hover-color) !important;
+}
+
+.teamAnalysis {
+    height: var(--draft-room-second-row-height);
+}
+
+.myTeam {
+    height: var(--draft-room-right-column-height);
+}
+
+

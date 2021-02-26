@@ -217,51 +217,49 @@ class DraftRoomBlock extends React.Component {
     render() {
         const {classes} = this.props;
         return (
-            <Grid
-                container
-                className={classes.firstRowGridContainer}
-            >
-                <Grid item xs={2}>
-                    <div className={classes.countdownClockDiv}>
+            <div className="block">
+                <Grid container className={classes.firstRowGridContainer}>
+                    <Grid item xs={2}>
+                        <div className={classes.countdownClockDiv}>
+                            {this.state.showAddToBlockClock ?
+                                <AddToBlockClock
+                                    duration={this.props.draft.onTheBlockTimer}
+                                    initialRemainingTime={this.state.addToBlockClockTimeRemaining}
+                                    key={this.state.addToBlockClockKey}
+                                />
+                                : this.state.showBidClock ?
+                                <BidClock
+                                    duration={this.props.draft.bidTimer}
+                                    initialRemainingTime={this.state.bidClockTimeRemaining}
+                                    key={this.state.bidClockKey}
+                                    sendBid={this.sendBid}
+                                    isDisabled={this.state.isBidClockDisabled}
+                                    currentPrice={this.props.block.price}
+                                    tooltipText={this.state.bidClockText}
+                                />
+                                : null
+                            }
+                        </div>
+                    </Grid>
+
+                    <Grid item xs={10}>
                         {this.state.showAddToBlockClock ?
-                            <AddToBlockClock
-                                duration={this.props.draft.onTheBlockTimer}
-                                initialRemainingTime={this.state.addToBlockClockTimeRemaining}
-                                key={this.state.addToBlockClockKey}
+                            <VacantBlock
+                                onTheBlockTeamName={this.getTeamById(this.props.block.onTheBlockTeamId).name}
+                                isOnTheBlock={this.props.isOnTheBlock}
                             />
                             : this.state.showBidClock ?
-                            <BidClock
-                                duration={this.props.draft.bidTimer}
-                                initialRemainingTime={this.state.bidClockTimeRemaining}
-                                key={this.state.bidClockKey}
-                                sendBid={this.sendBid}
-                                isDisabled={this.state.isBidClockDisabled}
-                                currentPrice={this.props.block.price}
-                                tooltipText={this.state.bidClockText}
+                            <BlockPlayer
+                                player={this.getPlayerDetailsById(this.props.block.playerId)}
                             />
-                            : null
+                            :
+                                <PausedDraft
+                                    commissionerTeamName={this.props.commissionerTeamName}
+                                />
                         }
-                    </div>
+                    </Grid>
                 </Grid>
-
-                <Grid item xs={10}>
-                    {this.state.showAddToBlockClock ?
-                        <VacantBlock
-                            onTheBlockTeamName={this.getTeamById(this.props.block.onTheBlockTeamId).name}
-                            isOnTheBlock={this.props.isOnTheBlock}
-                        />
-                        : this.state.showBidClock ?
-                        <BlockPlayer
-                            player={this.getPlayerDetailsById(this.props.block.playerId)}
-                        />
-                        :
-                            <PausedDraft
-                                commissionerTeamName={this.props.commissionerTeamName}
-                            />
-                    }
-                </Grid>
-
-            </Grid>
+            </div>
         );
     }
 }

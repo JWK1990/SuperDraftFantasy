@@ -14,19 +14,8 @@ import TeamViewList from "./myTeam/TeamViewList";
 import StatisticsContainer from "./statistics/StatisticsContainer";
 
 const styles = {
-    firstRowGridContainer: {
-        justify: "space-between",
-        alignItems: "stretch",
-        // TODO: Decide if we want to fix height or let it flex.
-        height: 238,
-        overflow: "hidden",
-    },
-    secondRowGridContainer: {
-        justify: "space-between",
-        alignItems: "stretch",
-        // TODO: Decide if we want to fix height or let it flex.
-        height: "calc(100vh - 238px)",
-        overflow: "hidden",
+    rootContainer: {
+        height: "100%",
     },
 };
 
@@ -82,40 +71,36 @@ class DraftRoom extends React.Component {
         }
 
         return (
-            <div className={classes.rootDiv}>
-                <Grid
-                    container
-                    className={classes.firstRowGridContainer}
-                >
+            <>
+                <Grid container spacing={1} direction="row" justify="space-between" alignItems="stretch"
+                      className={classes.rootContainer}>
                     <Grid item xs={2}>
-                        <CommissionerControls/>
+                        <Grid container spacing={1}>
+                            <Grid item xs={12}>
+                                <CommissionerControls/>
+                            </Grid>
+                            <Grid item xs={12}>
+                                <DraftRoomTeams/>
+                            </Grid>
+                        </Grid>
                     </Grid>
                     <Grid item xs={8}>
-                        <DraftRoomBlock/>
-                    </Grid>
-                    <Grid item xs={2}
-                          className={classes.firstRow}
-                    >
-                        MyList Placeholder.
-                    </Grid>
-                </Grid>
-
-                <Grid
-                    id="secondRowGrid"
-                    container
-                    className={classes.secondRowGridContainer}
-                >
-                    <Grid item xs={2}>
-                        <DraftRoomTeams/>
-                    </Grid>
-                    <Grid item xs={8}>
-                        <StatisticsContainer/>
+                        <Grid container spacing={1}>
+                            <Grid item xs={12}>
+                                <DraftRoomBlock/>
+                            </Grid>
+                            <Grid item xs={12}>
+                                <StatisticsContainer/>
+                            </Grid>
+                        </Grid>
                     </Grid>
                     <Grid item xs={2}>
-                        <TeamViewList/>
+                        <Grid item xs={12}>
+                            <TeamViewList/>
+                        </Grid>
                     </Grid>
                 </Grid>
-            </div>
+            </>
         )
     }
 

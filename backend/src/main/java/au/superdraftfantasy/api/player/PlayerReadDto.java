@@ -21,6 +21,8 @@ public class PlayerReadDto {
 
     String lastName;
 
+    String fullName;
+
     AflTeamEnum aflTeamId;
 
     Long average;
@@ -32,6 +34,12 @@ public class PlayerReadDto {
 
     PositionTypeEnum secondaryPosition;
 
+    String fullPosition;
+
+    public String getFullName() {
+        return this.firstName + " " + this.lastName;
+    }
+
     public PositionTypeEnum getPrimaryPosition() {
         return this.positions.get(0).getType();
     }
@@ -42,6 +50,14 @@ public class PlayerReadDto {
         } else {
             return null;
         }
+    }
+
+    public String getFullPosition() {
+        String fullPosition = getPrimaryPosition().toString();
+        if(getSecondaryPosition() != null) {
+            fullPosition += " - " + getSecondaryPosition();
+        }
+        return fullPosition;
     }
 
 }

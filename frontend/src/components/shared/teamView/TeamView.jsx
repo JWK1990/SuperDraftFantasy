@@ -231,6 +231,7 @@ class TeamView extends React.Component {
                             getDynamicDroppableStyle={functions.getDynamicDroppableStyle}
                             numOfPlayerRequired={this.props.numOfPlayersRequired}
                             draggableStyles={draggableStyles}
+                            isDraggingDisabled={this.props.isDraggingDisabled}
                         />
                         <DroppablePositionContainer
                             droppableId="droppableMids"
@@ -241,6 +242,7 @@ class TeamView extends React.Component {
                             getDynamicDroppableStyle={functions.getDynamicDroppableStyle}
                             numOfPlayerRequired={this.props.numOfPlayersRequired}
                             draggableStyles={draggableStyles}
+                            isDraggingDisabled={this.props.isDraggingDisabled}
                         />
                         <DroppablePositionContainer
                             droppableId="droppableRucs"
@@ -251,6 +253,7 @@ class TeamView extends React.Component {
                             getDynamicDroppableStyle={functions.getDynamicDroppableStyle}
                             numOfPlayerRequired={this.props.numOfPlayersRequired}
                             draggableStyles={draggableStyles}
+                            isDraggingDisabled={this.props.isDraggingDisabled}
                         />
                         <DroppablePositionContainer
                             droppableId="droppableFwds"
@@ -261,6 +264,7 @@ class TeamView extends React.Component {
                             getDynamicDroppableStyle={functions.getDynamicDroppableStyle}
                             numOfPlayerRequired={this.props.numOfPlayersRequired}
                             draggableStyles={draggableStyles}
+                            isDraggingDisabled={this.props.isDraggingDisabled}
                         />
                     </ConditionalWrapper>
                     <ConditionalWrapper
@@ -276,6 +280,7 @@ class TeamView extends React.Component {
                                 getDynamicDroppableStyle={functions.getDynamicDroppableStyle}
                                 numOfPlayerRequired={this.props.numOfPlayersRequired}
                                 draggableStyles={draggableStyles}
+                                isDraggingDisabled={this.props.isDraggingDisabled}
                             />
                     </ConditionalWrapper>
                 </DragDropContext>
