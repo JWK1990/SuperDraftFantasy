@@ -1,4 +1,3 @@
-import React from "react";
 import {
     createMuiTheme,
     MuiThemeProvider,
@@ -10,11 +9,12 @@ import {
     TableRow
 } from "@material-ui/core";
 import Paper from "@material-ui/core/Paper";
+import React from "react";
 import withStyles from "@material-ui/core/styles/withStyles";
 
 const styles = {
-    teamStatsTable: {
-        //minWidth: 650,
+    rootContainer: {
+        paddingTop: 0,
     },
     rowHeader: {
         borderRight: "1px solid black",
@@ -66,14 +66,14 @@ const theme = createMuiTheme({
     }
 });
 
-class TeamStats extends React.Component {
+class TeamStatsTable extends React.Component {
 
-    render() {
+    render(){
         const {classes} = this.props;
 
-        return (
+        return(
             <MuiThemeProvider theme={theme}>
-                <TableContainer component={Paper}>
+                <TableContainer component={Paper} className={classes.rootContainer}>
                     <Table className={classes.teamStatsTable} aria-label="Player Stat Bar">
                         <TableHead>
                             <TableRow>
@@ -116,7 +116,6 @@ class TeamStats extends React.Component {
             </MuiThemeProvider>
         )
     }
-
 }
 
-export default withStyles(styles)(TeamStats);
+export default withStyles(styles)(TeamStatsTable);

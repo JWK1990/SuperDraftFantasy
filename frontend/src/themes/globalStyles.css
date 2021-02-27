@@ -7,6 +7,9 @@
     --draft-room-players-list-height: calc(var(--draft-room-second-row-height) - var(--draft-room-tab-panel-height) - var(--draft-room-players-search-height));
     --draft-room-right-column-height: calc(var(--draft-room-first-row-height) + var(--draft-room-second-row-height));
 
+    /* Tab Panel Heights. */
+    --tab-panel-secondary-height: 20px;
+
     /* Colours. */
     --highlight-color: greenyellow;
     --hover-color: lightblue;

@@ -1,14 +1,14 @@
 import React from 'react'
 import {draftTeamsNameSelector} from "../../../../store/selectors/DraftSelectors";
 import {connect} from "react-redux";
-import {MenuItem, TextField} from "@material-ui/core";
 import TeamViewField from "./fieldView/TeamViewField";
 import {changeDraftStatisticsTeamIdAction} from "../../../../store/actions/NavigationActions";
 import {currentDraftStatisticsTeamIdSelector} from "../../../../store/selectors/NavigationSelectors";
 import withStyles from "@material-ui/core/styles/withStyles";
 import Grid from "@material-ui/core/Grid";
-import TeamStats from "./teamStats/TeamStats";
-import TeamGraphs from "./teamGraphs/TeamGraphs";
+import TeamStatsTableContainer from "./teamStats/table/TeamStatsTableContainer";
+import TeamStatsGraphContainer from "./teamStats/graphs/TeamStatsGraphContainer";
+import StatSelector from "../../../shared/StatSelector";
 
 const styles = {
     rootContainer: {
@@ -46,29 +46,21 @@ class TeamAnalysisContainer extends React.Component {
             <div className="teamAnalysis">
                 <Grid container className="rootContainer" spacing={4} direction="row" justify="space-between" alignItems="stretch">
                     <Grid item xs={12}>
-                        <div className="centered-div">
-                            <TextField
-                                id="draft-team-analysis-select"
-                                select
-                                value={this.props.selectedTeamId}
-                                onChange={this.handleTeamChange}
-                                helperText="Select Team To Analyse."
-                            >
-                                {this.props.teamNameList.map((team) => (
-                                    <MenuItem key={team.id} value={team.id}>
-                                        {team.name}
-                                    </MenuItem>
-                                ))}
-                            </TextField>
-                        </div>
+                        <StatSelector
+                            id="draft-team-analysis-select"
+                            value={this.props.selectedTeamId}
+                            onChange={this.handleTeamChange}
+                            helperText="Select Team To Analyse."
+                            optionList={this.props.teamNameList}
+                        />
                     </Grid>
                     <Grid item xs={7}>
                         <Grid container spacing={4} direction="row" justify="space-between" alignItems="stretch">
                             <Grid item xs={12}>
-                                <TeamStats />
+                                <TeamStatsTableContainer />
                             </Grid>
                             <Grid item xs={12}>
-                                <TeamGraphs />
+                                <TeamStatsGraphContainer />
                             </Grid>
                         </Grid>
                     </Grid>

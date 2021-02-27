@@ -1,8 +1,8 @@
 import React from "react";
 import {Line, LineChart} from "recharts";
-import playerData from "../../../../../player-data.json";
+import playerData from "../../../../../../player-data.json";
 
-class TeamLineChart extends React.Component {
+class TeamStatsLineChart extends React.Component {
 
     render() {
         return (
@@ -14,4 +14,4 @@ class TeamLineChart extends React.Component {
 
 }
 
-export default TeamLineChart;
+export default TeamStatsLineChart;

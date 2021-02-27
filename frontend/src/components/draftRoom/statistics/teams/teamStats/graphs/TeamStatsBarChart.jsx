@@ -1,9 +1,9 @@
 import React from "react";
 import {Bar, BarChart, CartesianGrid, Legend, ResponsiveContainer, Tooltip, XAxis, YAxis} from "recharts";
-import playerData from "../../../../../player-data.json";
+import playerData from "../../../../../../player-data.json";
 
 
-class TeamBarChart extends React.Component {
+class TeamStatsBarChart extends React.Component {
 
     render() {
         return (
@@ -22,4 +22,4 @@ class TeamBarChart extends React.Component {
 
 }
 
-export default TeamBarChart;
+export default TeamStatsBarChart;
