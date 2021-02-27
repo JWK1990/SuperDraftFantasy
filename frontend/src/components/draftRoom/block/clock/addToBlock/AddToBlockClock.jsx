@@ -3,17 +3,17 @@ import {CountdownCircleTimer} from 'react-countdown-circle-timer'
 import withStyles from "@material-ui/core/styles/withStyles";
 
 const styles = {
-    secondsText: {
-        fontSize: 16,
-        verticalAlign: "alphabetic",
-    },
     rootDiv: {
         display: "grid",
         justifyContent: "center",
-    }
+    },
+    secondsSymbol: {
+        fontSize: 16,
+        verticalAlign: "alphabetic",
+    },
 }
 
-function Clock(props) {
+function AddToBlockClock(props) {
     const {classes} = props;
 
     const renderTime = ({ remainingTime }) => {
@@ -26,7 +26,7 @@ function Clock(props) {
         }
         return (
             <div>
-                <p>{remainingTime}<span className={classes.secondsText}>s</span></p>
+                <p>{remainingTime}<span className={classes.secondsSymbol}>s</span></p>
             </div>
         );
     };
@@ -37,7 +37,7 @@ function Clock(props) {
                 isPlaying
                 duration={props.duration}
                 colors={props.clockColors}
-                size={100}
+                size={110}
             >
                 {renderTime}
             </CountdownCircleTimer>
@@ -45,4 +45,4 @@ function Clock(props) {
     )
 }
 
-export default withStyles(styles)(Clock);
+export default withStyles(styles)(AddToBlockClock);

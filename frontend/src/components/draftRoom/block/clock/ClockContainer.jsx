@@ -1,7 +1,7 @@
-import BidClock from "./BidClock";
 import React from "react";
 import withStyles from "@material-ui/core/styles/withStyles";
 import AddToBlockClockContainer from "./addToBlock/AddToBlockClockContainer";
+import BidClockContainer from "./bidClock/BidClockContainer";
 
 const styles = theme => ({
     rootDiv: {
@@ -13,7 +13,7 @@ const styles = theme => ({
     }
 })
 
-function BlockClockContainer(props) {
+function ClockContainer(props) {
     const {classes} = props;
 
     return (
@@ -29,14 +29,16 @@ function BlockClockContainer(props) {
                     />
                 )
                 : props.showBidClock ?
-                    <BidClock
+                    <BidClockContainer
                         duration={props.bidTimer}
                         initialRemainingTime={props.bidClockTimeRemaining}
-                        key={props.bidClockKey}
+                        bidClockKey={props.bidClockKey}
                         sendBid={props.sendBid}
                         isDisabled={props.isBidClockDisabled}
                         currentPrice={props.currentPrice}
                         tooltipText={props.bidClockText}
+                        isLeadBidder={props.isLeadBidder}
+                        leadBidderTeamName={props.leadBidderTeamName}
                     />
                     : null
             }
@@ -45,4 +47,4 @@ function BlockClockContainer(props) {
 
 }
 
-export default withStyles(styles)(BlockClockContainer);
+export default withStyles(styles)(ClockContainer);

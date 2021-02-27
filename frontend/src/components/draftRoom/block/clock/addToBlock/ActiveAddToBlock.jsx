@@ -1,5 +1,5 @@
 import React from "react";
-import AddToBlockClock from "../Clock";
+import AddToBlockClock from "./AddToBlockClock";
 import Grid from "@material-ui/core/Grid";
 import withStyles from "@material-ui/core/styles/withStyles";
 
@@ -8,7 +8,7 @@ const styles = {
       height: "100%",
     },
     upperText: {
-        color: "#ED2939",
+        color: "var(--text-black)",
         fontWeight: 500,
     },
     lowerText: {
@@ -39,7 +39,7 @@ function ActiveAddToBlock(props) {
                 />
             </Grid>
             <Grid item xs={12}>
-                <p className={classes.lowerText}>Select A Player Below...</p>
+                <p className={classes.lowerText}>Select A Player...</p>
             </Grid>
         </Grid>
     )

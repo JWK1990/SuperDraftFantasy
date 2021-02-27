@@ -1,5 +1,5 @@
 import React from "react";
-import AddToBlockClock from "../Clock";
+import AddToBlockClock from "./AddToBlockClock";
 import Grid from "@material-ui/core/Grid";
 import withStyles from "@material-ui/core/styles/withStyles";
 
@@ -8,12 +8,12 @@ const styles = {
         height: "100%"
     },
     upperText: {
-        color: "grey",
+        color: "var(--text-black)",
     }
 }
 
 const clockColors = [
-    ['grey', 1],
+    ['#808080', 1],
 ]
 
 function InactiveAddToBlock(props) {
@@ -33,7 +33,7 @@ function InactiveAddToBlock(props) {
                 />
             </Grid>
             <Grid item xs={12}>
-                <p className={classes.upperText}>Awaiting Their Selection...</p>
+                <p className={classes.upperText}>Awaiting Selection...</p>
             </Grid>
         </Grid>
     )

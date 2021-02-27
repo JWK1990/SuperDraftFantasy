@@ -19,7 +19,7 @@ const styles = {
     },
     rowHeader: {
         borderRight: "1px solid black",
-        color: "rgba(0, 0, 0, 0.87)",
+        color: "var(--text-black)",
         fontWeight: 500,
     },
     defHeader: {

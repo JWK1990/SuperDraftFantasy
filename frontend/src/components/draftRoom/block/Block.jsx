@@ -17,17 +17,26 @@ import {
     receiveStartNextRoundAction,
     receiveStopDraftAction,
 } from "../../../store/actions/BlockActions";
-import {blockSelector, isLeadBidderSelector, isOnTheBlockSelector} from "../../../store/selectors/BlockSelectors";
+import {
+    blockSelector,
+    isLeadBidderSelector,
+    isOnTheBlockSelector,
+    leadBidderTeamNameSelector
+} from "../../../store/selectors/BlockSelectors";
 import DraftRoomUtils from "../../../utils/DraftRoomUtils";
 import {DraftStatusEnum} from "../../../models/DraftStatusEnum";
 import {updateDraftStatus} from "../../../store/actions";
-import BlockClockContainer from "./clock/BlockClockContainer";
+import ClockContainer from "./clock/ClockContainer";
 import BlockPlayerContainer from "./player/BlockPlayerContainer";
 
 const styles = theme => ({
     rootContainer: {
         height: "100%",
     },
+    // TODO: Potentially add maxHeight or height of 100% to all Grid Items.
+    gridItem: {
+        maxHeight: "100%",
+    }
 });
 
 class DraftRoomBlock extends React.Component {
@@ -186,7 +195,7 @@ class DraftRoomBlock extends React.Component {
             return[true, this.getSlotUnavailableText(player)];
         }
 
-        return [false, "Bid"];
+        return [false, "Current Bid"];
     }
 
     isSlotAvailable(player) {
@@ -209,8 +218,8 @@ class DraftRoomBlock extends React.Component {
         return (
             <div className="block">
                 <Grid container className={classes.rootContainer} spacing={1} direction="row" justify="space-between" alignItems="stretch">
-                    <Grid item xs={2}>
-                        <BlockClockContainer
+                    <Grid item xs={2} className={classes.gridItem}>
+                        <ClockContainer
                             showAddToBlockClock={this.state.showAddToBlockClock}
                             showBidClock={this.state.showBidClock}
                             onTheBlockTimer={this.props.draft.onTheBlockTimer}
@@ -225,9 +234,11 @@ class DraftRoomBlock extends React.Component {
                             bidClockText={this.state.bidClockText}
                             isOnTheBlock={this.props.isOnTheBlock}
                             onTheBlockTeamName={this.getOnTheBlockTeamName()}
+                            isLeadBidder={this.props.isLeadBidder}
+                            leadBidderTeamName={this.props.leadBidderTeamName}
                         />
                     </Grid>
-                    <Grid item xs={10}>
+                    <Grid item xs={10} className={classes.gridItem}>
                         <BlockPlayerContainer
                             isOnTheBlock={this.props.isOnTheBlock}
                             showAddToBlockClock={this.state.showAddToBlockClock}
@@ -261,6 +272,7 @@ const mapStateToProps = state => {
             bench: isSlotAvailableSelector(state, "bench"),
         },
         numOfPlayerRequired: numOfPlayersRequiredSelector(state),
+        leadBidderTeamName: leadBidderTeamNameSelector(state),
     };
 };
 
@@ -272,7 +284,4 @@ const mapDispatchToProps = dispatch => ({
         updateDraftStatus: (status) => dispatch(updateDraftStatus(status)),
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(
-    withStyles(styles, {withTheme: true})
-    (DraftRoomBlock)
-);
+export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles, {withTheme: true})(DraftRoomBlock));
