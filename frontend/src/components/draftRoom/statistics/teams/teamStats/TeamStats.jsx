@@ -107,7 +107,7 @@ class TeamStats extends React.Component {
                                 <TableCell className={classes.defColumn}>26 (#1)</TableCell>
                                 <TableCell className={classes.midColumn}>50 (#3)</TableCell>
                                 <TableCell className={classes.rucColumn}>110 (#2)</TableCell>
-                                <TableCell className={classes.fwdColumn}>100 (#10)</TableCell>
+                                <TableCell className={classes.fwdColumn}>100 (#1)</TableCell>
                                 <TableCell className={classes.summaryColumn}>40 (#1)</TableCell>
                             </TableRow>
                         </TableBody>

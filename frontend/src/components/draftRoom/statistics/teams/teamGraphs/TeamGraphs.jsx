@@ -1,10 +1,11 @@
 import React from "react";
+import TeamBarChart from "./TeamBarChart";
 
 class TeamGraphs extends React.Component {
 
     render() {
         return (
-            <p>Team 2</p>
+            <TeamBarChart />
         )
     }
 

@@ -11,6 +11,9 @@ import TeamStats from "./teamStats/TeamStats";
 import TeamGraphs from "./teamGraphs/TeamGraphs";
 
 const styles = {
+    rootContainer: {
+        height: "100%",
+    },
     teamStatsContainer: {
         width: "100%",
     },
@@ -41,7 +44,7 @@ class TeamAnalysisContainer extends React.Component {
 
         return (
             <div className="teamAnalysis">
-                <Grid container spacing={4} direction="row" justify="space-between" alignItems="stretch">
+                <Grid container className="rootContainer" spacing={4} direction="row" justify="space-between" alignItems="stretch">
                     <Grid item xs={12}>
                         <div className="centered-div">
                             <TextField
@@ -60,7 +63,7 @@ class TeamAnalysisContainer extends React.Component {
                         </div>
                     </Grid>
                     <Grid item xs={7}>
-                        <Grid container spacing={0} direction="row" justify="space-between" alignItems="stretch">
+                        <Grid container spacing={4} direction="row" justify="space-between" alignItems="stretch">
                             <Grid item xs={12}>
                                 <TeamStats />
                             </Grid>
