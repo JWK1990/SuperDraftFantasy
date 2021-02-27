@@ -3,21 +3,26 @@ import {Typography} from "@material-ui/core";
 import withStyles from "@material-ui/core/styles/withStyles";
 
 const styles = {
-    rootDiv: {
+    pausedBlockRootDiv: {
         height: "100%",
-    }
+        display: "grid",
+        alignItems: "center",
+    },
 }
 
-function VacantBlock(props) {
+function PausedBlock(props) {
     const {classes} = props;
 
     return (
-        <div className={classes.rootDiv}>
-            <Typography>
-                {props.commissionerTeamName} has paused the Draft. Wait for them to restart.
+        <div className={classes.pausedBlockRootDiv}>
+            <Typography variant="h5" align="center" color="textPrimary">
+                {props.commissionerTeamName} has paused the Draft.
+            </Typography>
+            <Typography variant="subtitle1" align="center" color="textSecondary">
+                Waiting for them to restart....
             </Typography>
         </div>
     )
 }
 
-export default withStyles(styles)(VacantBlock);
+export default withStyles(styles)(PausedBlock);

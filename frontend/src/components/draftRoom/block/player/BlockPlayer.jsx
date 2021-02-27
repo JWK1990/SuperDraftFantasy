@@ -1,5 +1,5 @@
 import React from 'react';
-import PlayerBar from "../../../shared/PlayerBar";
+import PlayerBar from "../../../shared/playerBar/PlayerBar";
 
 export default function BlockPlayer(props) {
     return (

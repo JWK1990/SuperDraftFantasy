@@ -3,9 +3,9 @@ import {makeStyles} from '@material-ui/core/styles';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
-import CircularStatBar from "./CircularStatBar";
+import CircularStatBar from "../CircularStatBar";
 import Card from "@material-ui/core/Card";
-import StatBar from "./StatBar";
+import StatBar from "../StatBar";
 
 const useStyles = makeStyles((theme) => ({
     card: {
@@ -47,7 +47,7 @@ export default function PlayerBar(props) {
             <div className={classes.cardIconDiv}>
                 <CardMedia
                     className={classes.playerIcon}
-                    image={require("../../images/WillDay.jpeg")}
+                    image={require("../../../images/WillDay.jpeg")}
                     title="On The Block Player"
                 />
             </div>
