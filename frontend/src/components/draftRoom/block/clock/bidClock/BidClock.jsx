@@ -47,15 +47,13 @@ function BidClock(props) {
         }
 
         return (
-            <Tooltip title={<h1 style={{color: "lightblue"}}>{props.tooltipText}</h1>} placement="top">
-                <div>
-                    <div className={props.isLeadBidder ? classes.leadingBidText : classes.trailingBidText}>
-                        <sup className={classes.dollarSymbol}>$</sup>
-                        {props.currentPrice}
-                    </div>
-                    <div className="value">{remainingTime}<span className={classes.secondsSymbol}>s</span></div>
+            <div>
+                <div className={props.isLeadBidder ? classes.leadingBidText : classes.trailingBidText}>
+                    <sup className={classes.dollarSymbol}>$</sup>
+                    {props.currentPrice}
                 </div>
-            </Tooltip>
+                <div className="value">{remainingTime}<span className={classes.secondsSymbol}>s</span></div>
+            </div>
         );
     };
 

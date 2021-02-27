@@ -195,7 +195,7 @@ class DraftRoomBlock extends React.Component {
             return[true, this.getSlotUnavailableText(player)];
         }
 
-        return [false, "Current Bid"];
+        return [false, "Bid"];
     }
 
     isSlotAvailable(player) {

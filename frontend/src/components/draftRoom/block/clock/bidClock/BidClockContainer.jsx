@@ -3,6 +3,7 @@ import Grid from "@material-ui/core/Grid";
 import BidClock from "./BidClock";
 import withStyles from "@material-ui/core/styles/withStyles";
 import Button from "@material-ui/core/Button";
+import {Tooltip} from "@material-ui/core";
 
 const styles = {
     rootContainer: {
@@ -62,14 +63,18 @@ function BidClockContainer(props) {
                 {
                     props.isLeadBidder
                         ? <p className={classes.lowerTextLeading}>Daumen Drück!</p>
-                        : <Button
-                            variant="contained"
-                            color="primary"
-                            onClick={props.sendBid}
-                            disabled={props.isDisabled}
-                        >
-                            Bid ${props.currentPrice + 1}
-                        </Button>
+                        : (
+                            <Tooltip title={<p>{props.tooltipText}</p>} placement="left">
+                                <Button
+                                    variant="contained"
+                                    color="primary"
+                                    onClick={props.sendBid}
+                                    disabled={props.isDisabled}
+                                >
+                                    Bid ${props.currentPrice + 1}
+                                </Button>
+                            </Tooltip>
+                        )
                 }
             </Grid>
         </Grid>
