@@ -1,6 +1,5 @@
 import AddToBlockClock from "./AddToBlockClock";
 import BidClock from "./BidClock";
-import Grid from "@material-ui/core/Grid";
 import React from "react";
 import withStyles from "@material-ui/core/styles/withStyles";
 
@@ -14,7 +13,8 @@ const styles = theme => ({
     }
 })
 
-function BlockClock(props) {
+function BlockClockContainer(props) {
+    console.log("Block Clock Props: ", props);
     const {classes} = props;
 
     return (
@@ -42,4 +42,4 @@ function BlockClock(props) {
 
 }
 
-export default withStyles(styles)(BlockClock);
+export default withStyles(styles)(BlockClockContainer);

@@ -4,7 +4,7 @@ import withStyles from "@material-ui/core/styles/withStyles";
 
 const styles = {
     rootDiv: {
-        height: 238,
+        height: "100%",
     }
 }
 
