@@ -21,7 +21,7 @@ import {blockSelector, isLeadBidderSelector, isOnTheBlockSelector} from "../../.
 import DraftRoomUtils from "../../../utils/DraftRoomUtils";
 import {DraftStatusEnum} from "../../../models/DraftStatusEnum";
 import {updateDraftStatus} from "../../../store/actions";
-import BlockClock from "./clock/BlockClockContainer";
+import BlockClockContainer from "./clock/BlockClockContainer";
 import BlockPlayerContainer from "./player/BlockPlayerContainer";
 
 const styles = theme => ({
@@ -70,14 +70,15 @@ class DraftRoomBlock extends React.Component {
     }
 
     getOnTheBlockTeamName = () => {
+        let teamName = null;
         if(this.props.block.onTheBlockTeamId) {
-            return this.props.draft.teams.find(team => team.id === this.props.block.onTheBlockTeamId).name;
+            teamName = this.props.draft.teams.find(team => team.id === this.props.block.onTheBlockTeamId).name;
         }
-        return null;
+        return teamName;
     }
 
-    getOnTheBlockPlayer = () => {
-        return this.props.players.find(player => player.id === this.props.block.playerId);
+    getPlayerDetailsById = (playerId) => {
+        return this.props.players.find(player => player.id === playerId);
     };
 
     receiveStartNextRound = (payload) => {
@@ -209,7 +210,7 @@ class DraftRoomBlock extends React.Component {
             <div className="block">
                 <Grid container className={classes.rootContainer} spacing={1} direction="row" justify="space-between" alignItems="stretch">
                     <Grid item xs={2}>
-                        <BlockClock
+                        <BlockClockContainer
                             showAddToBlockClock={this.state.showAddToBlockClock}
                             showBidClock={this.state.showBidClock}
                             onTheBlockTimer={this.props.draft.onTheBlockTimer}
@@ -222,6 +223,8 @@ class DraftRoomBlock extends React.Component {
                             sendBid={this.sendBid}
                             currentPrice={this.props.block.price}
                             bidClockText={this.state.bidClockText}
+                            isOnTheBlock={this.props.isOnTheBlock}
+                            onTheBlockTeamName={this.getOnTheBlockTeamName()}
                         />
                     </Grid>
                     <Grid item xs={10}>
@@ -231,7 +234,7 @@ class DraftRoomBlock extends React.Component {
                             showBidClock={this.state.showBidClock}
                             commissionerTeamName={this.props.commissionerTeamName}
                             onTheBlockTeamName={this.getOnTheBlockTeamName()}
-                            onTheBlockPlayer={this.getOnTheBlockPlayer()}
+                            onTheBlockPlayer={this.getPlayerDetailsById(this.props.block.playerId)}
                         />
                     </Grid>
                 </Grid>

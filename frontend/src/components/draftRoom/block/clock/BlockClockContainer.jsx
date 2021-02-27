@@ -1,7 +1,7 @@
-import AddToBlockClock from "./AddToBlockClock";
 import BidClock from "./BidClock";
 import React from "react";
 import withStyles from "@material-ui/core/styles/withStyles";
+import AddToBlockClockContainer from "./addToBlock/AddToBlockClockContainer";
 
 const styles = theme => ({
     rootDiv: {
@@ -14,17 +14,20 @@ const styles = theme => ({
 })
 
 function BlockClockContainer(props) {
-    console.log("Block Clock Props: ", props);
     const {classes} = props;
 
     return (
         <div className={classes.rootDiv}>
-            {props.showAddToBlockClock ?
-                <AddToBlockClock
-                    duration={props.onTheBlockTimer}
-                    initialRemainingTime={props.addToBlockClockTimeRemaining}
-                    key={props.addToBlockClockKey}
-                />
+            {props.showAddToBlockClock
+                ? (
+                    <AddToBlockClockContainer
+                        activeOnTheBlock={props.isOnTheBlock}
+                        duration={props.onTheBlockTimer}
+                        initialRemainingTime={props.addToBlockClockTimeRemaining}
+                        addToBlockKey={props.addToBlockClockKey}
+                        onTheBlockTeamName={props.onTheBlockTeamName}
+                    />
+                )
                 : props.showBidClock ?
                     <BidClock
                         duration={props.bidTimer}

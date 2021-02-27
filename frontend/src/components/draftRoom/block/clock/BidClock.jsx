@@ -1,11 +1,12 @@
 import React, {useState} from "react";
 import { CountdownCircleTimer } from 'react-countdown-circle-timer'
-import "./Clock.css";
 import {Fab, Tooltip} from "@material-ui/core";
 import withStyles from "@material-ui/core/styles/withStyles";
 
 const styles = {
     primary: {
+        width: "110px",
+        height: "110px",
         boxShadow: "none",
         color: "inherit",
         backgroundColor: "inherit",
@@ -19,10 +20,6 @@ const styles = {
         '&:disabled': {
             color: "inherit",
         },
-    },
-    sizeMedium: {
-        width: "110px",
-        height: "110px",
     },
 };
 
