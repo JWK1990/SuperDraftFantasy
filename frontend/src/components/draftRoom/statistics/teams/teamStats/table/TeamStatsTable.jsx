@@ -13,12 +13,13 @@ import React from "react";
 import withStyles from "@material-ui/core/styles/withStyles";
 
 const styles = {
+    // TODO: Potentially hardcode height here to make height consistent when stats change.
     rootContainer: {
         paddingTop: 0,
     },
     rowHeader: {
         borderRight: "1px solid black",
-        color: "rgba(0, 0, 0, 0.87)",
+        color: "var(--text-black)",
         fontWeight: 500,
     },
     defHeader: {

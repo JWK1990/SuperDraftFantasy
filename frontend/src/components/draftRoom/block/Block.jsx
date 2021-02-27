@@ -1,6 +1,5 @@
 import React from 'react';
 import withStyles from "@material-ui/core/styles/withStyles";
-import BidClock from "./clock/BidClock";
 import Grid from "@material-ui/core/Grid";
 import {connect} from "react-redux";
 import {
@@ -10,7 +9,6 @@ import {
     isSlotAvailableSelector,
     numOfPlayersRequiredSelector
 } from "../../../store/selectors/DraftSelectors";
-import BlockPlayer from "./player/BlockPlayer";
 import {stompClientSelector} from "../../../store/selectors/WebSocketSelectors";
 import {playersSelector} from "../../../store/selectors/PlayersSelectors";
 import {
@@ -19,28 +17,25 @@ import {
     receiveStartNextRoundAction,
     receiveStopDraftAction,
 } from "../../../store/actions/BlockActions";
-import {blockSelector, isLeadBidderSelector, isOnTheBlockSelector} from "../../../store/selectors/BlockSelectors";
-import VacantBlock from "./player/VacantBlock";
-import AddToBlockClock from "./clock/AddToBlockClock";
-import PausedDraft from "./player/PausedDraft";
+import {
+    blockSelector,
+    isLeadBidderSelector,
+    isOnTheBlockSelector,
+    leadBidderTeamNameSelector
+} from "../../../store/selectors/BlockSelectors";
 import DraftRoomUtils from "../../../utils/DraftRoomUtils";
 import {DraftStatusEnum} from "../../../models/DraftStatusEnum";
 import {updateDraftStatus} from "../../../store/actions";
+import ClockContainer from "./clock/ClockContainer";
+import BlockPlayerContainer from "./player/BlockPlayerContainer";
 
 const styles = theme => ({
-    firstRowGridContainer: {
-        justify: "space-between",
-        alignItems: "stretch",
-        // TODO: Decide if we want to fix height or let it flex.
-        //height: "20vh",
-        //overflow: "hidden",
-    },
-    countdownClockDiv: {
+    rootContainer: {
         height: "100%",
-        textAlign: "center",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
+    },
+    // TODO: Potentially add maxHeight or height of 100% to all Grid Items.
+    gridItem: {
+        maxHeight: "100%",
     }
 });
 
@@ -56,7 +51,7 @@ class DraftRoomBlock extends React.Component {
             showBidClock: false,
             bidClockTimeRemaining: '',
             isBidClockDisabled: true,
-            bidBlockText: '',
+            bidClockText: '',
             bidClockKey: 0,
         }
     }
@@ -82,6 +77,18 @@ class DraftRoomBlock extends React.Component {
             }
         }
     }
+
+    getOnTheBlockTeamName = () => {
+        let teamName = null;
+        if(this.props.block.onTheBlockTeamId) {
+            teamName = this.props.draft.teams.find(team => team.id === this.props.block.onTheBlockTeamId).name;
+        }
+        return teamName;
+    }
+
+    getPlayerDetailsById = (playerId) => {
+        return this.props.players.find(player => player.id === playerId);
+    };
 
     receiveStartNextRound = (payload) => {
         console.log('Start Next Round Received: ', payload);
@@ -166,14 +173,6 @@ class DraftRoomBlock extends React.Component {
         }
     }
 
-    getPlayerDetailsById = (playerId) => {
-        return this.props.players.find(player => player.id === playerId);
-    };
-
-    getTeamById = (teamId) => {
-        return this.props.draft.teams.find(team => team.id === teamId);
-    }
-
     // TODO: Currently this isn't dynamic. If space is made available, the bid clock isn't enabled.
     // This is because we need to push a key to update the timer.
     // We need to change the timer to be based on endTime - currentTime (rather than a set number).
@@ -218,45 +217,36 @@ class DraftRoomBlock extends React.Component {
         const {classes} = this.props;
         return (
             <div className="block">
-                <Grid container className={classes.firstRowGridContainer}>
-                    <Grid item xs={2}>
-                        <div className={classes.countdownClockDiv}>
-                            {this.state.showAddToBlockClock ?
-                                <AddToBlockClock
-                                    duration={this.props.draft.onTheBlockTimer}
-                                    initialRemainingTime={this.state.addToBlockClockTimeRemaining}
-                                    key={this.state.addToBlockClockKey}
-                                />
-                                : this.state.showBidClock ?
-                                <BidClock
-                                    duration={this.props.draft.bidTimer}
-                                    initialRemainingTime={this.state.bidClockTimeRemaining}
-                                    key={this.state.bidClockKey}
-                                    sendBid={this.sendBid}
-                                    isDisabled={this.state.isBidClockDisabled}
-                                    currentPrice={this.props.block.price}
-                                    tooltipText={this.state.bidClockText}
-                                />
-                                : null
-                            }
-                        </div>
+                <Grid container className={classes.rootContainer} spacing={1} direction="row" justify="space-between" alignItems="stretch">
+                    <Grid item xs={2} className={classes.gridItem}>
+                        <ClockContainer
+                            showAddToBlockClock={this.state.showAddToBlockClock}
+                            showBidClock={this.state.showBidClock}
+                            onTheBlockTimer={this.props.draft.onTheBlockTimer}
+                            bidTimer={this.props.draft.bidTimer}
+                            addToBlockClockTimeRemaining={this.state.addToBlockClockTimeRemaining}
+                            bidClockTimeRemaining={this.state.bidClockTimeRemaining}
+                            addToBlockClockKey={this.state.addToBlockClockKey}
+                            bidClockKey={this.state.bidClockKey}
+                            isBidClockDisabled={this.state.isBidClockDisabled}
+                            sendBid={this.sendBid}
+                            currentPrice={this.props.block.price}
+                            bidClockText={this.state.bidClockText}
+                            isOnTheBlock={this.props.isOnTheBlock}
+                            onTheBlockTeamName={this.getOnTheBlockTeamName()}
+                            isLeadBidder={this.props.isLeadBidder}
+                            leadBidderTeamName={this.props.leadBidderTeamName}
+                        />
                     </Grid>
-
-                    <Grid item xs={10}>
-                        {this.state.showAddToBlockClock ?
-                            <VacantBlock
-                                onTheBlockTeamName={this.getTeamById(this.props.block.onTheBlockTeamId).name}
-                                isOnTheBlock={this.props.isOnTheBlock}
-                            />
-                            : this.state.showBidClock ?
-                            <BlockPlayer
-                                player={this.getPlayerDetailsById(this.props.block.playerId)}
-                            />
-                            :
-                                <PausedDraft
-                                    commissionerTeamName={this.props.commissionerTeamName}
-                                />
-                        }
+                    <Grid item xs={10} className={classes.gridItem}>
+                        <BlockPlayerContainer
+                            isOnTheBlock={this.props.isOnTheBlock}
+                            showAddToBlockClock={this.state.showAddToBlockClock}
+                            showBidClock={this.state.showBidClock}
+                            commissionerTeamName={this.props.commissionerTeamName}
+                            onTheBlockTeamName={this.getOnTheBlockTeamName()}
+                            onTheBlockPlayer={this.getPlayerDetailsById(this.props.block.playerId)}
+                        />
                     </Grid>
                 </Grid>
             </div>
@@ -282,6 +272,7 @@ const mapStateToProps = state => {
             bench: isSlotAvailableSelector(state, "bench"),
         },
         numOfPlayerRequired: numOfPlayersRequiredSelector(state),
+        leadBidderTeamName: leadBidderTeamNameSelector(state),
     };
 };
 
@@ -293,7 +284,4 @@ const mapDispatchToProps = dispatch => ({
         updateDraftStatus: (status) => dispatch(updateDraftStatus(status)),
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(
-    withStyles(styles, {withTheme: true})
-    (DraftRoomBlock)
-);
+export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles, {withTheme: true})(DraftRoomBlock));
