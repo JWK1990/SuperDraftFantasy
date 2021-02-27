@@ -8,6 +8,7 @@ import {currentDraftStatisticsTeamIdSelector} from "../../../../store/selectors/
 import withStyles from "@material-ui/core/styles/withStyles";
 import Grid from "@material-ui/core/Grid";
 import TeamStats from "./teamStats/TeamStats";
+import TeamGraphs from "./teamGraphs/TeamGraphs";
 
 const styles = {
     teamStatsContainer: {
@@ -40,7 +41,7 @@ class TeamAnalysisContainer extends React.Component {
 
         return (
             <div className="teamAnalysis">
-                <Grid container spacing={0} direction="row" justify="space-between" alignItems="stretch">
+                <Grid container spacing={4} direction="row" justify="space-between" alignItems="stretch">
                     <Grid item xs={12}>
                         <div className="centered-div">
                             <TextField
@@ -64,7 +65,7 @@ class TeamAnalysisContainer extends React.Component {
                                 <TeamStats />
                             </Grid>
                             <Grid item xs={12}>
-                                <p>Test 2</p>
+                                <TeamGraphs />
                             </Grid>
                         </Grid>
                     </Grid>

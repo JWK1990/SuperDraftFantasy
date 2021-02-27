@@ -87,7 +87,7 @@ class TeamStats extends React.Component {
                         </TableHead>
                         <TableBody>
                             <TableRow>
-                                <TableCell className={classes.rowHeader}>Count</TableCell>
+                                <TableCell className={classes.rowHeader}>#</TableCell>
                                 <TableCell className={classes.defColumn}>1</TableCell>
                                 <TableCell className={classes.midColumn}>2</TableCell>
                                 <TableCell className={classes.rucColumn}>8</TableCell>
@@ -95,20 +95,20 @@ class TeamStats extends React.Component {
                                 <TableCell className={classes.summaryColumn}>5</TableCell>
                             </TableRow>
                             <TableRow>
-                                <TableCell className={classes.rowHeader}>SC</TableCell>
-                                <TableCell className={classes.defColumn}>26 (#1)</TableCell>
-                                <TableCell className={classes.midColumn}>50 (#3)</TableCell>
-                                <TableCell className={classes.rucColumn}>110 (#2)</TableCell>
-                                <TableCell className={classes.fwdColumn}>100 (#10)</TableCell>
-                                <TableCell className={classes.summaryColumn}>40 (#1)</TableCell>
-                            </TableRow>
-                            <TableRow>
-                                <TableCell className={classes.rowHeader}>Spend</TableCell>
+                                <TableCell className={classes.rowHeader}>$</TableCell>
                                 <TableCell className={classes.defColumn}>$70</TableCell>
                                 <TableCell className={classes.midColumn}>$10</TableCell>
                                 <TableCell className={classes.rucColumn}>$5</TableCell>
                                 <TableCell className={classes.fwdColumn}>$7</TableCell>
                                 <TableCell className={classes.summaryColumn}>$8</TableCell>
+                            </TableRow>
+                            <TableRow>
+                                <TableCell className={classes.rowHeader}>Points</TableCell>
+                                <TableCell className={classes.defColumn}>26 (#1)</TableCell>
+                                <TableCell className={classes.midColumn}>50 (#3)</TableCell>
+                                <TableCell className={classes.rucColumn}>110 (#2)</TableCell>
+                                <TableCell className={classes.fwdColumn}>100 (#10)</TableCell>
+                                <TableCell className={classes.summaryColumn}>40 (#1)</TableCell>
                             </TableRow>
                         </TableBody>
                     </Table>
