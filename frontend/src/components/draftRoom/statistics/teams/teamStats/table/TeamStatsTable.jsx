@@ -13,6 +13,7 @@ import React from "react";
 import withStyles from "@material-ui/core/styles/withStyles";
 
 const styles = {
+    // TODO: Potentially hardcode height here to make height consistent when stats change.
     rootContainer: {
         paddingTop: 0,
     },

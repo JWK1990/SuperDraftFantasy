@@ -5,9 +5,9 @@ import StatTabPanel from "../../../../../shared/StatTabPanel";
 class TeamStatsTableContainer extends React.Component {
 
     tabList = [
-        {label: "Average", component: <TeamStatsTable />},
-        {label: "Spend", component: <p> Stat 2 </p>},
-        {label: "Dollars", component: <p> Stat 3 </p>},
+        {label: "Overview", component: <TeamStatsTable />},
+        {label: "Rankings", component: <p> Show Rankings Compared To Other Coaches In Key Stats. </p>},
+        {label: "Log", component: <p> Show History Of Players Drafted Or Bids. </p>},
     ]
 
     render() {
