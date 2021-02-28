@@ -1,41 +1,9 @@
 import React from 'react';
 import {makeStyles} from '@material-ui/core/styles';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
-import CircularStatBar from "../circularStatBar/CircularStatBar";
-import Card from "@material-ui/core/Card";
-import StatBar from "../StatBar";
 import Grid from "@material-ui/core/Grid";
 import WillDayImage from '../../../images/WillDay.jpeg';
-import CircularStatBarSecondary from "../circularStatBar/CircularStatBarSecondary";
 import CircularStatIcon from "../circularStatBar/CircularStatIcon";
-import {Paper} from "@material-ui/core";
-
-/*
-const useStyles = makeStyles((theme) => ({
-    card: {
-        display: 'flex',
-        height: "100%",
-        width: "100%",
-    },
-    cardIconDiv: {
-        display: 'flex',
-        flexDirection: 'column',
-    },
-    playerIcon: {
-        width: 320,
-        height: "100%",
-    },
-    playIcon: {
-        height: 38,
-        width: 38,
-    },
-    playerHeader: {
-        paddingLeft: 40,
-    }
-}));
-*/
 
 const useStyles = makeStyles((theme) => ({
     rootContainer: {
