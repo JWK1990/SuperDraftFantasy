@@ -1,7 +1,6 @@
 import React from "react";
 import {makeStyles} from "@material-ui/core/styles";
-import ActiveOnTheBlock from "./ActiveOnTheBlock";
-import InactiveOnTheBlock from "./InactiveOnTheBlock";
+import PurchaseReview from "./purchaseReview/PurchaseReview";
 
 const useStyles = makeStyles(theme => ({
     rootDiv: {
@@ -16,12 +15,7 @@ function VacantBlock(props) {
     const classes = useStyles();
 
     return (
-        <div className={classes.rootDiv}>
-            {props.isOnTheBlock ?
-                <ActiveOnTheBlock />
-                : <InactiveOnTheBlock />
-            }
-        </div>
+        <PurchaseReview />
     )
 }
 

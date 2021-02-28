@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import makeStyles from "@material-ui/core/styles/makeStyles";
-import PlayerBar from "../../../../shared/PlayerBar";
+import PlayerBar from "../../../../shared/playerBar/PlayerBar";
 import Grid from "@material-ui/core/Grid";
 import Fab from "@material-ui/core/Fab";
 import AddIcon from '@material-ui/icons/Add';

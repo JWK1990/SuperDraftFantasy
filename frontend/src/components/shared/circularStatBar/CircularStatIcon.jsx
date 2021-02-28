@@ -7,21 +7,14 @@ import Fab from '@material-ui/core/Fab';
 import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles((theme) => ({
-    root: {
-        paddingRight: 40,
-    },
-    iconRoot: {
-        display: 'flex',
-        alignItems: 'center',
-    },
     wrapper: {
         margin: theme.spacing(1),
         position: 'relative',
     },
     fabProgress: {
         position: 'absolute',
-        top: -6,
-        left: -6,
+        top:-5,
+        left: -3 ,
         zIndex: 1,
         transform: "rotate(0deg)!important"
     },
@@ -40,7 +33,10 @@ const useStyles = makeStyles((theme) => ({
     title: {
         fontSize: 16,
         fontWeight: "bold",
-    }
+    },
+    statButton: {
+        boxShadow: "none",
+    },
 }));
 
 export default function CircularStatIcon(props) {
@@ -73,29 +69,34 @@ export default function CircularStatIcon(props) {
     }, [props.statValue]);
 
     return (
-        <div className={classes.root}>
-            <Typography
-                align="center"
-                className={classes.title}
-            >
-                {props.statName}
-            </Typography>
-            <div className={classes.iconRoot}>
-                    <div className={classes.wrapper}>
-                        <Fab
-                            aria-label="save"
-                            color="primary"
-                        >
-                            {value}
-                        </Fab>
-                        <CircularProgress
-                            size={68}
-                            className={[classes.fabProgress, barColour].join(" ")}
-                            variant="determinate"
-                            value={value/props.maxStatValue * 100}
-                        />
-                    </div>
-                </div>
+        <div>
+            {props.showHeader
+                ? (
+                    <Typography
+                        align="center"
+                        className={classes.title}
+                    >
+                        {props.statName}
+                    </Typography>
+                ) : null
+            }
+            <div className={classes.wrapper}>
+                <Fab
+                    className={classes.statButton}
+                    aria-label={props.statName}
+                    color="primary"
+                    size="medium"
+                >
+                    {value}
+                </Fab>
+                <CircularProgress
+                    size={55}
+                    className={[classes.fabProgress, barColour].join(" ")}
+                    variant="determinate"
+                    value={value/props.maxStatValue * 100}
+                    thickness={4}
+                />
+            </div>
         </div>
     );
 }

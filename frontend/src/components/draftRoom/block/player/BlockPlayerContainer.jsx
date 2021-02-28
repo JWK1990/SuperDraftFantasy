@@ -4,12 +4,12 @@ import BlockPlayer from "./BlockPlayer";
 import PausedDraft from "./paused/PausedDraft";
 import withStyles from "@material-ui/core/styles/withStyles";
 
-const styles = theme => ({
+const styles = {
     rootDiv: {
         height: "100%",
-        backgroundColor: "pink",
     }
-})
+
+};
 
 function BlockPlayerContainer(props) {
     const {classes} = props;
