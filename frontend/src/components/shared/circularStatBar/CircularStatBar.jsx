@@ -21,21 +21,25 @@ export default function CircularStatBar(props) {
                 statName="SC"
                 statValue= {props.player.average}
                 maxStatValue= {150}
+                showHeader={true}
             />
             <CircularStatIcon
                 statName="GM"
                 statValue= {14}
                 maxStatValue= {22}
+                showHeader={true}
             />
             <CircularStatIcon
                 statName="DISP"
                 statValue= {25}
                 maxStatValue= {30}
+                showHeader={true}
             />
             <CircularStatIcon
                 statName="MK"
                 statValue= {2}
                 maxStatValue= {15}
+                showHeader={true}
             />
             {
                 {
@@ -43,22 +47,30 @@ export default function CircularStatBar(props) {
                         <CircularStatIcon
                             statName="RB50"
                             statValue= {3}
-                            maxStatValue= {5}/>,
+                            maxStatValue= {5}
+                            showHeader={true}
+                        />,
                     'MID':
                         <CircularStatIcon
                             statName="CL"
                             statValue= {7}
-                            maxStatValue= {13}/>,
+                            maxStatValue= {13}
+                            showHeader={true}
+                        />,
                     'RUC':
                         <CircularStatIcon
                             statName="HO"
                             statValue= {25}
-                            maxStatValue= {40}/>,
+                            maxStatValue= {40}
+                            showHeader={true}
+                        />,
                     'FWD':
                         <CircularStatIcon
                             statName="GOALS"
                             statValue= {3.5}
-                            maxStatValue= {7}/>,
+                            maxStatValue= {7}
+                            showHeader={true}
+                        />,
                 }[props.player.primaryPosition]
             }
         </CardContent>

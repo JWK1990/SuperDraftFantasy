@@ -3,7 +3,7 @@ import {makeStyles} from '@material-ui/core/styles';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
-import CircularStatBar from "../CircularStatBar";
+import CircularStatBar from "../circularStatBar/CircularStatBar";
 import Card from "@material-ui/core/Card";
 import StatBar from "../StatBar";
 
