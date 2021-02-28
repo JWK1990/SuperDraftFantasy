@@ -35,12 +35,6 @@ export default function CircularStatBar(props) {
                 maxStatValue= {30}
                 showHeader={true}
             />
-            <CircularStatIcon
-                statName="MK"
-                statValue= {2}
-                maxStatValue= {15}
-                showHeader={true}
-            />
             {
                 {
                     'DEF':

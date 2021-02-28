@@ -1,17 +1,20 @@
 import React from "react";
 import Grid from "@material-ui/core/Grid";
-import {mockPlayerSelector} from "../../../../../../store/selectors/PlayersSelectors";
 import withStyles from "@material-ui/core/styles/withStyles";
 import {connect} from "react-redux";
-import PurchaseReviewStats from "./PurchaseReviewStats";
 import Box from "@material-ui/core/Box";
-import WillDayImage from "../../../../../../images/WillDay.jpeg";
+import WillDayImage from "../../../images/WillDay.jpeg";
 import Typography from "@material-ui/core/Typography";
-import CircularStatIcon from "../../../../../shared/circularStatBar/CircularStatIcon";
 import {Paper} from "@material-ui/core";
+import TeamStatsBarChart from "../../draftRoom/statistics/teams/teamStats/graphs/TeamStatsBarChart";
+import CircularStatIcon from "../circularStatBar/CircularStatIcon";
+import {mockPlayerSelector} from "../../../store/selectors/PlayersSelectors";
+import StatBar from "../StatBar";
+import CircularStatBar from "../circularStatBar/CircularStatBar";
+import PlayerGraphContainer from "../../draftRoom/block/player/filled/PlayerGraphContainer";
 
 const styles = {
-    paperRoot: {
+    rootPaper: {
         height: "100%",
     },
     rootContainer: {
@@ -32,26 +35,26 @@ const styles = {
         width: "228px",
         height: "100%",
     },
-    purchaseReviewStatsGridItem: {
+    playerGraphContainer: {
         height: "100%",
-    }
+    },
 }
 
-class PurchaseReview extends React.Component {
+class PlayerBarPrimary extends React.Component {
 
     render() {
         const {classes} = this.props;
 
         return (
-            <Paper elevation={3} className={classes.paperRoot}>
+            <Paper elevation={3} className={classes.rootPaper}>
                 <Grid container className={classes.rootContainer} spacing={0} direction="row" justify="flex-start" alignItems="center">
                     <Grid item className={classes.playerImageGridItem}>
                         <img src={WillDayImage} className={classes.playerImage} alt={this.props.statName}/>
                     </Grid>
-                    <Grid item className={classes.playerDetailsGridItem}>
+                    <Grid item xs className={classes.playerDetailsGridItem}>
                         <Grid container className={classes.detailsContainer} spacing={0} direction="row" justify="flex-start" alignItems="center">
                             <Grid item xs={12}>
-                                <Typography variant="h4" color="textPrimary">
+                                <Typography variant="h3" color="textPrimary">
                                     {this.props.player ? this.props.player.firstName + " " + this.props.player.lastName : null}
                                 </Typography>
                                 <Typography variant="subtitle1" color="textSecondary">
@@ -63,30 +66,13 @@ class PurchaseReview extends React.Component {
                             </Grid>
                             <Grid item xs={12}>
                                 <Box display={"flex"} flexDirection={"row"}>
-                                    <CircularStatIcon
-                                        statName="Bid #"
-                                        statValue= {this.props.player.average}
-                                        maxStatValue= {150}
-                                        showHeader={true}
-                                    />
-                                    <CircularStatIcon
-                                        statName="$ Ch"
-                                        statValue= {this.props.player.average}
-                                        maxStatValue= {200}
-                                        showHeader={true}
-                                    />
-                                    <CircularStatIcon
-                                        statName="Rank"
-                                        statValue= {this.props.player.average}
-                                        maxStatValue= {170}
-                                        showHeader={true}
-                                    />
+                                    <CircularStatBar player={this.props.player}/>
                                 </Box>
                             </Grid>
                         </Grid>
                     </Grid>
-                    <Grid item className={classes.purchaseReviewStatsGridItem}>
-                        <PurchaseReviewStats />
+                    <Grid item xs={5}>
+                        <PlayerGraphContainer />
                     </Grid>
                 </Grid>
             </Paper>
@@ -101,4 +87,4 @@ const mapStateToProps = state => {
     };
 };
 
-export default connect(mapStateToProps)(withStyles(styles)(PurchaseReview));
+export default connect(mapStateToProps)(withStyles(styles)(PlayerBarPrimary));
