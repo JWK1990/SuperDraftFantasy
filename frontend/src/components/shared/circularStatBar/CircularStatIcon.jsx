@@ -7,13 +7,6 @@ import Fab from '@material-ui/core/Fab';
 import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles((theme) => ({
-    root: {
-        // paddingRight: 40,
-    },
-    iconRoot: {
-        display: 'flex',
-        alignItems: 'center',
-    },
     wrapper: {
         margin: theme.spacing(1),
         position: 'relative',
@@ -76,7 +69,7 @@ export default function CircularStatIcon(props) {
     }, [props.statValue]);
 
     return (
-        <div className={classes.root}>
+        <div>
             {props.showHeader
                 ? (
                     <Typography
@@ -87,25 +80,23 @@ export default function CircularStatIcon(props) {
                     </Typography>
                 ) : null
             }
-            <div className={classes.iconRoot}>
-                    <div className={classes.wrapper}>
-                        <Fab
-                            className={classes.statButton}
-                            aria-label={props.statName}
-                            color="primary"
-                            size="medium"
-                        >
-                            {value}
-                        </Fab>
-                        <CircularProgress
-                            size={55}
-                            className={[classes.fabProgress, barColour].join(" ")}
-                            variant="determinate"
-                            value={value/props.maxStatValue * 100}
-                            thickness={4}
-                        />
-                    </div>
-                </div>
+            <div className={classes.wrapper}>
+                <Fab
+                    className={classes.statButton}
+                    aria-label={props.statName}
+                    color="primary"
+                    size="medium"
+                >
+                    {value}
+                </Fab>
+                <CircularProgress
+                    size={55}
+                    className={[classes.fabProgress, barColour].join(" ")}
+                    variant="determinate"
+                    value={value/props.maxStatValue * 100}
+                    thickness={4}
+                />
+            </div>
         </div>
     );
 }
