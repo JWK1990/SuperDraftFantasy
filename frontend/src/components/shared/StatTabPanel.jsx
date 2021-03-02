@@ -48,6 +48,9 @@ export default function StatTabPanel(props) {
     const theme = createMuiTheme({
         overrides: {
             MuiAppBar: {
+                root: {
+                    width: "100",
+                },
                 colorTransparent: {
                     boxShadow: "none",
                 }
@@ -85,7 +88,7 @@ export default function StatTabPanel(props) {
                     onChange={handleChange}
                     indicatorColor="primary"
                     textColor="primary"
-                    variant="fullWidth"
+                    variant={"fillWidth"}
                     aria-label="full width tabs"
                 >
                     {props.tabList.map((tab, index) => (
