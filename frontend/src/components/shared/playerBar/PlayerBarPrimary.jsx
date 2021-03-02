@@ -6,10 +6,7 @@ import Box from "@material-ui/core/Box";
 import WillDayImage from "../../../images/WillDay.jpeg";
 import Typography from "@material-ui/core/Typography";
 import {Paper} from "@material-ui/core";
-import TeamStatsBarChart from "../../draftRoom/statistics/teams/teamStats/graphs/TeamStatsBarChart";
-import CircularStatIcon from "../circularStatBar/CircularStatIcon";
 import {mockPlayerSelector} from "../../../store/selectors/PlayersSelectors";
-import StatBar from "../StatBar";
 import CircularStatBar from "../circularStatBar/CircularStatBar";
 import PlayerGraphContainer from "../../draftRoom/block/player/filled/PlayerGraphContainer";
 

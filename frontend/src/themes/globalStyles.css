@@ -10,6 +10,9 @@
     /* Tab Panel Heights. */
     --tab-panel-secondary-height: 20px;
 
+    /* Component Heights. */
+    --player-card-height: 216px;
+
     /* Colours. */
     --highlight-color: greenyellow;
     --hover-color: lightblue;
