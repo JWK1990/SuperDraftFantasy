@@ -4,13 +4,16 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
-import WillDayImage from "../../../../../images/WillDay.jpeg";
-import CircularStatIcon from "../../../../shared/circularStatBar/CircularStatIcon";
+import WillDayImage from "../../../../../../images/WillDay.jpeg";
+import CircularStatIcon from "../../../../../shared/circularStatBar/CircularStatIcon";
+import TeamStatsBarChart from "../../../../statistics/teams/teamStats/graphs/TeamStatsBarChart";
+import StatTabPanel from "../../../../../shared/StatTabPanel";
+import BlockPlayerStatTabPanel from "./stats/BlockPlayerStatTabPanel";
 
 const useStyles = makeStyles((theme) => ({
     root: {
         display: 'flex',
-        height: 'var(--player-card-height)',
+        height: '200px',
     },
     details: {
         display: 'flex',
@@ -23,10 +26,10 @@ const useStyles = makeStyles((theme) => ({
         width: 170,
     },
     controls: {
-        display: 'flex',
-        alignItems: 'center',
+        alignItems: 'flex-start',
         paddingLeft: theme.spacing(1),
         paddingBottom: theme.spacing(1),
+        height: "100%",
     },
     playIcon: {
         height: 38,
@@ -34,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function PurchaseReviewPlayerCard(props) {
+export default function BlockPlayerCard(props) {
     const classes = useStyles();
 
     return (
@@ -60,24 +63,7 @@ export default function PurchaseReviewPlayerCard(props) {
                     </Typography>
                 </CardContent>
                 <div className={classes.controls}>
-                    <CircularStatIcon
-                        statName="Avg"
-                        statValue= {props.player.average}
-                        maxStatValue= {150}
-                        showHeader={true}
-                    />
-                    <CircularStatIcon
-                        statName="GP"
-                        statValue= {props.player.average}
-                        maxStatValue= {100}
-                        showHeader={true}
-                    />
-                    <CircularStatIcon
-                        statName="Rank"
-                        statValue= {props.player.average}
-                        maxStatValue= {70}
-                        showHeader={true}
-                    />
+                    <BlockPlayerStatTabPanel player={props.player}/>
                 </div>
             </div>
         </Card>

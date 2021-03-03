@@ -97,6 +97,16 @@ export default function CircularStatIcon(props) {
                     thickness={4}
                 />
             </div>
+            {props.showFooter
+                ? (
+                    <Typography
+                        align="center"
+                        className={classes.title}
+                    >
+                        {props.statName}
+                    </Typography>
+                ) : null
+            }
         </div>
     );
 }

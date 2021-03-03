@@ -49,6 +49,9 @@ const styles = {
     summaryColumn: {
         color: "rgba(0, 0, 0, 0.87)",
         fontWeight: 500,
+    },
+    cell: {
+        textAlign: "center",
     }
 }
 
@@ -56,7 +59,6 @@ const theme = createMuiTheme({
     overrides: {
         MuiTableCell: {
             root: {
-                textAlign: "center",
             },
             head: {
                 borderBottom: "1px solid black",
