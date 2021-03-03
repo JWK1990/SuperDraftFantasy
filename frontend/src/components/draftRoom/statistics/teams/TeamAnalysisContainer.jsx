@@ -31,6 +31,7 @@ class TeamAnalysisContainer extends React.Component {
             this.props.changeDraftStatisticsTeamIdAction(this.props.teamNameList[0].id);
         }
     }
+
     handleTeamChange = (event) => {
         this.props.changeDraftStatisticsTeamIdAction(event.target.value);
     }
@@ -46,13 +47,15 @@ class TeamAnalysisContainer extends React.Component {
             <div className="teamAnalysis">
                 <Grid container className="rootContainer" spacing={4} direction="row" justify="space-between" alignItems="stretch">
                     <Grid item xs={12}>
-                        <StatSelector
-                            id="draft-team-analysis-select"
-                            value={this.props.selectedTeamId}
-                            onChange={this.handleTeamChange}
-                            helperText="Select Team To Analyse."
-                            optionList={this.props.teamNameList}
-                        />
+                        <div className="centered-div">
+                            <StatSelector
+                                id="draft-team-analysis-select"
+                                value={this.props.selectedTeamId}
+                                onChange={this.handleTeamChange}
+                                helperText="Select Team To Analyse."
+                                optionList={this.props.teamNameList}
+                            />
+                        </div>
                     </Grid>
                     <Grid item xs={7}>
                         <Grid container spacing={4} direction="row" justify="space-between" alignItems="stretch">

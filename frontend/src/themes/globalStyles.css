@@ -1,7 +1,7 @@
 :root {
     /* Grid Heights. */
-    --draft-room-first-row-height: 240px;
-    --draft-room-second-row-height: calc(100vh - 240px);
+    --draft-room-first-row-height: 260px;
+    --draft-room-second-row-height: calc(100vh - var(--draft-room-first-row-height));
     --draft-room-tab-panel-height: 40px;
     --draft-room-players-search-height: 0px;
     --draft-room-players-list-height: calc(var(--draft-room-second-row-height) - var(--draft-room-tab-panel-height) - var(--draft-room-players-search-height));
@@ -11,7 +11,7 @@
     --tab-panel-secondary-height: 20px;
 
     /* Component Heights. */
-    --player-card-height: 216px;
+    --player-card-height: calc(var(--draft-room-first-row-height) - 20px);
 
     /* Colours. */
     --highlight-color: greenyellow;

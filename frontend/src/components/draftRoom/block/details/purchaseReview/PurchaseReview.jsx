@@ -1,6 +1,6 @@
 import React from "react";
 import Grid from "@material-ui/core/Grid";
-import {mockPlayerSelector} from "../../../../../../store/selectors/PlayersSelectors";
+import {mockPlayerSelector} from "../../../../../store/selectors/PlayersSelectors";
 import withStyles from "@material-ui/core/styles/withStyles";
 import {connect} from "react-redux";
 import Typography from "@material-ui/core/Typography";

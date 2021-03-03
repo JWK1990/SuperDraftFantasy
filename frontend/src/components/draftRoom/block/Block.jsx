@@ -27,7 +27,7 @@ import DraftRoomUtils from "../../../utils/DraftRoomUtils";
 import {DraftStatusEnum} from "../../../models/DraftStatusEnum";
 import {updateDraftStatus} from "../../../store/actions";
 import ClockContainer from "./clock/ClockContainer";
-import BlockPlayerContainer from "./player/BlockPlayerContainer";
+import BlockPlayerContainer from "./details/BlockDetailsContainer";
 
 const styles = theme => ({
     rootContainer: {

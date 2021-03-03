@@ -1,8 +1,8 @@
 import React from "react";
-import VacantBlock from "./vacant/VacantBlock";
-import BlockPlayer from "./BlockPlayer";
+import BlockPlayer from "./player/BlockPlayer";
 import PausedDraft from "./paused/PausedDraft";
 import withStyles from "@material-ui/core/styles/withStyles";
+import PurchaseReview from "./purchaseReview/PurchaseReview";
 
 const styles = {
     rootDiv: {
@@ -11,13 +11,13 @@ const styles = {
 
 };
 
-function BlockPlayerContainer(props) {
+function BlockDetailsContainer(props) {
     const {classes} = props;
 
     return(
         <div className={classes.rootDiv}>
             {props.showAddToBlockClock ?
-                <VacantBlock
+                <PurchaseReview
                     onTheBlockTeamName={props.onTheBlockTeamName}
                     isOnTheBlock={props.isOnTheBlock}
                 />
@@ -35,4 +35,4 @@ function BlockPlayerContainer(props) {
 
 }
 
-export default withStyles(styles)(BlockPlayerContainer);
+export default withStyles(styles)(BlockDetailsContainer);
