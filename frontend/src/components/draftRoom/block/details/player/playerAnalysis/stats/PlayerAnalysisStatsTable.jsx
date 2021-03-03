@@ -26,6 +26,7 @@ const theme = createMuiTheme({
 
 const useStyles = makeStyles(() => ({
     tableContainer: {
+        paddingTop: 10,
         overflowX: 'auto',
     },
     rowHeader: {

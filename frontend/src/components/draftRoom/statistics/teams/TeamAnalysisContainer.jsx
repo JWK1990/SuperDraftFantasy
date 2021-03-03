@@ -31,6 +31,7 @@ class TeamAnalysisContainer extends React.Component {
             this.props.changeDraftStatisticsTeamIdAction(this.props.teamNameList[0].id);
         }
     }
+
     handleTeamChange = (event) => {
         this.props.changeDraftStatisticsTeamIdAction(event.target.value);
     }

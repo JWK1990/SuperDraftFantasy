@@ -106,7 +106,7 @@ export default function StatTabPanel(props) {
                 onChangeIndex={handleChangeIndex}
             >
                 {props.tabList.map((tab, index) => (
-                    <TabPanel value={value} index={index} skey={index}>
+                    <TabPanel value={value} index={index} key={index}>
                         {tab.component}
                     </TabPanel>
                 ))}

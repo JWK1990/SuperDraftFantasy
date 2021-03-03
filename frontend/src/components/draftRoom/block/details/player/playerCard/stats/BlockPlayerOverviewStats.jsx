@@ -15,7 +15,7 @@ export default function BlockPlayerOverviewStats(props) {
     const classes = useStyles();
 
     return (
-        <div class={classes.statBarDiv}>
+        <div className={classes.statBarDiv}>
             <CircularStatIcon
                 statName="Avg"
                 statValue= {props.player.average}
