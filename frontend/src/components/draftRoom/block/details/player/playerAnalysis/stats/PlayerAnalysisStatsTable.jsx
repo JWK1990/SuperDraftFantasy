@@ -26,7 +26,7 @@ const theme = createMuiTheme({
 
 const useStyles = makeStyles(() => ({
     tableContainer: {
-        paddingTop: 10,
+        paddingTop: 20,
         overflowX: 'auto',
     },
     rowHeader: {
@@ -95,6 +95,17 @@ export default function PlayerAnalysisStatsTable(props) {
                             <TableCell>5</TableCell>
                             <TableCell>7</TableCell>
                             <TableCell>8</TableCell>
+                            <TableCell>2</TableCell>
+                            <TableCell>3</TableCell>
+                            <TableCell>4</TableCell>
+                        </TableRow>
+                        <TableRow>
+                            <TableCell className={classes.rowHeader}>PS</TableCell>
+                            <TableCell>1</TableCell>
+                            <TableCell>2</TableCell>
+                            <TableCell>8</TableCell>
+                            <TableCell>7</TableCell>
+                            <TableCell>5</TableCell>
                             <TableCell>2</TableCell>
                             <TableCell>3</TableCell>
                             <TableCell>4</TableCell>

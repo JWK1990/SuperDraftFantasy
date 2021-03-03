@@ -13,7 +13,6 @@ import BlockPlayerStatTabPanel from "./stats/BlockPlayerStatTabPanel";
 const useStyles = makeStyles((theme) => ({
     root: {
         display: 'flex',
-        height: '200px',
     },
     details: {
         display: 'flex',

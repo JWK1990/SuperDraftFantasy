@@ -7,6 +7,16 @@ import {
 } from "../../../../../../../store/selectors/NavigationSelectors";
 import {changeBlockGraphPeriod, changeBlockGraphStat} from "../../../../../../../store/actions/NavigationActions";
 import Box from "@material-ui/core/Box";
+import TeamStatsBarChart from "../../../../../statistics/teams/teamStats/graphs/TeamStatsBarChart";
+import PlayerAnalysisGraph from "./PlayerAnalysisGraph";
+import withStyles from "@material-ui/core/styles/withStyles";
+
+const styles = {
+    graphDiv: {
+        // Height of the On The Block section minus the Tab Panel and Selectors at the top.
+        height: "calc(var(--player-card-height) - 60px)",
+    }
+}
 
 const statOptionsList = [
     {id: 1, name: "Ave"},
@@ -41,6 +51,7 @@ class PlayerAnalysisGraphsContainer extends React.Component {
     }
 
     render() {
+        const {classes} = this.props;
 
         if(!this.props.selectedBlockGraphStat || !this.props.selectedBlockGraphPeriod) {
             return null;
@@ -64,9 +75,12 @@ class PlayerAnalysisGraphsContainer extends React.Component {
                             optionList={periodOptionsList}
                         />
                 </Box>
-
+                <div className={classes.graphDiv}>
+                    <PlayerAnalysisGraph
+                        player={this.props.player}
+                    />
+                </div>
             </>
-
         )
 
     }
@@ -84,4 +98,4 @@ const mapDispatchToProps = dispatch => ({
     changeBlockGraphPeriod: periodId => dispatch(changeBlockGraphPeriod(periodId)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(PlayerAnalysisGraphsContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(PlayerAnalysisGraphsContainer));

@@ -65,14 +65,16 @@ function BidClockContainer(props) {
                         ? <p className={classes.lowerTextLeading}>Daumen Drück!</p>
                         : (
                             <Tooltip title={<p>{props.tooltipText}</p>} placement="left">
-                                <Button
-                                    variant="contained"
-                                    color="primary"
-                                    onClick={props.sendBid}
-                                    disabled={props.isDisabled}
-                                >
-                                    Bid ${props.currentPrice + 1}
-                                </Button>
+                                <span>
+                                    <Button
+                                        variant="contained"
+                                        color="primary"
+                                        onClick={props.sendBid}
+                                        disabled={props.isDisabled}
+                                    >
+                                        Bid ${props.currentPrice + 1}
+                                    </Button>
+                                </span>
                             </Tooltip>
                         )
                 }
