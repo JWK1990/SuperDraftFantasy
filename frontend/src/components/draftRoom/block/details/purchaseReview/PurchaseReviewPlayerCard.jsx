@@ -4,8 +4,8 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
-import WillDayImage from "../../../../../../images/WillDay.jpeg";
-import CircularStatIcon from "../../../../../shared/circularStatBar/CircularStatIcon";
+import WillDayImage from "../../../../../images/WillDay.jpeg";
+import CircularStatIcon from "../../../../shared/circularStatBar/CircularStatIcon";
 
 const useStyles = makeStyles((theme) => ({
     root: {

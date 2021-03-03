@@ -8,7 +8,7 @@ import Typography from "@material-ui/core/Typography";
 import {Paper} from "@material-ui/core";
 import {mockPlayerSelector} from "../../../store/selectors/PlayersSelectors";
 import CircularStatBar from "../circularStatBar/CircularStatBar";
-import PlayerGraphContainer from "../../draftRoom/block/player/filled/PlayerGraphContainer";
+import PlayerGraphContainer from "../../draftRoom/block/details/player/PlayerGraphContainer";
 
 const styles = {
     rootPaper: {
