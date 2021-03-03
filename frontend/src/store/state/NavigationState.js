@@ -2,5 +2,6 @@ export const initialNavigationState =
     {
         currentTabName: "",
         draftStatisticsTeamId: "",
-        draftBlockPlayerAnalysisGraph: "",
+        blockGraphStat: "",
+        blockGraphPeriod: "",
     }

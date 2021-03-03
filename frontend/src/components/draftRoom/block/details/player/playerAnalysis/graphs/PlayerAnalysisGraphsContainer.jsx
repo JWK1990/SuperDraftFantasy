@@ -1,41 +1,72 @@
 import React from "react";
 import StatSelector from "../../../../../../shared/StatSelector";
 import {connect} from "react-redux";
-import {currentDraftBlockPlayerAnalysisGraphSelector} from "../../../../../../../store/selectors/NavigationSelectors";
-import {changeDraftBlockPlayerAnalysisGraph} from "../../../../../../../store/actions/NavigationActions";
+import {
+    currentBlockGraphPeriodSelector,
+    currentBlockGraphStatSelector
+} from "../../../../../../../store/selectors/NavigationSelectors";
+import {changeBlockGraphPeriod, changeBlockGraphStat} from "../../../../../../../store/actions/NavigationActions";
+import Box from "@material-ui/core/Box";
 
-const graphList = [
-    {id: 1, name: "Test1"},
-    {id: 2, name: "Test2"},
+const statOptionsList = [
+    {id: 1, name: "Ave"},
+    {id: 2, name: "Disp"},
+    {id: 3, name: "Price"},
+];
+
+const periodOptionsList = [
+    {id: 1, name: "2020"},
+    {id: 2, name: "Career"},
+    {id: 3, name: "Pre-Season"},
 ];
 
 class PlayerAnalysisGraphsContainer extends React.Component {
 
     componentWillMount() {
         // If no Team is selected, set to the first Team in the list.
-        if(!this.props.selectedPlayerAnalysisGraph) {
-            this.props.changeDraftBlockPlayerAnalysisGraph(graphList[0].id);
+        if(!this.props.selectedBlockGraphStat) {
+            this.props.changeBlockGraphStat(statOptionsList[0].id);
+        }
+        if(!this.props.selectedBlockGraphPeriod) {
+            this.props.changeBlockGraphPeriod(periodOptionsList[0].id);
         }
     }
 
-    handleTeamChange = (event) => {
-        this.props.changeDraftBlockPlayerAnalysisGraph(event.target.value);
+    handleStatChange = (event) => {
+        this.props.changeBlockGraphStat(event.target.value);
+    }
+
+    handlePeriodChange = (event) => {
+        this.props.changeBlockGraphPeriod(event.target.value);
     }
 
     render() {
 
-        if(!this.props.selectedPlayerAnalysisGraph) {
+        if(!this.props.selectedBlockGraphStat || !this.props.selectedBlockGraphPeriod) {
             return null;
         }
 
         return (
-            <StatSelector
-                id="player-analysis-graph-select"
-                value={this.props.selectedPlayerAnalysisGraph}
-                onChange={this.handleTeamChange}
-                helperText="Select Team To Analyse."
-                optionList={graphList}
-            />
+            <>
+                <Box textAlign={"center"} paddingLeft={4} paddingRight={4}>
+                        <StatSelector
+                            id="player-analysis-graph-stat-select"
+                            value={this.props.selectedBlockGraphStat}
+                            onChange={this.handleStatChange}
+                            helperText=""
+                            optionList={statOptionsList}
+                        />
+                        <StatSelector
+                            id="player-analysis-graph-period-select"
+                            value={this.props.selectedBlockGraphPeriod}
+                            onChange={this.handlePeriodChange}
+                            helperText=""
+                            optionList={periodOptionsList}
+                        />
+                </Box>
+
+            </>
+
         )
 
     }
@@ -43,12 +74,14 @@ class PlayerAnalysisGraphsContainer extends React.Component {
 
 const mapStateToProps = state => {
     return {
-        selectedPlayerAnalysisGraph: currentDraftBlockPlayerAnalysisGraphSelector(state)
+        selectedBlockGraphStat: currentBlockGraphStatSelector(state),
+        selectedBlockGraphPeriod: currentBlockGraphPeriodSelector(state),
     };
 };
 
 const mapDispatchToProps = dispatch => ({
-    changeDraftBlockPlayerAnalysisGraph: graphId => dispatch(changeDraftBlockPlayerAnalysisGraph(graphId))
+    changeBlockGraphStat: statId => dispatch(changeBlockGraphStat(statId)),
+    changeBlockGraphPeriod: periodId => dispatch(changeBlockGraphPeriod(periodId)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(PlayerAnalysisGraphsContainer);
