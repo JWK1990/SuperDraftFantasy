@@ -36,6 +36,10 @@ const useStyles = makeStyles((theme) => ({
 export default function BlockPlayerCard(props) {
     const classes = useStyles();
 
+    if(!props.player) {
+        return null;
+    }
+
     return (
         <Card className={classes.root} elevation={4}>
             <CardMedia
