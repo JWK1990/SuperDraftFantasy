@@ -5,9 +5,6 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import WillDayImage from "../../../../../../images/WillDay.jpeg";
-import CircularStatIcon from "../../../../../shared/circularStatBar/CircularStatIcon";
-import TeamStatsBarChart from "../../../../statistics/teams/teamStats/graphs/TeamStatsBarChart";
-import StatTabPanel from "../../../../../shared/StatTabPanel";
 import BlockPlayerStatTabPanel from "./stats/BlockPlayerStatTabPanel";
 
 const useStyles = makeStyles((theme) => ({

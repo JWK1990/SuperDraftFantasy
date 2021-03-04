@@ -7,7 +7,6 @@ import {
 } from "../../../../../../../store/selectors/NavigationSelectors";
 import {changeBlockGraphPeriod, changeBlockGraphStat} from "../../../../../../../store/actions/NavigationActions";
 import Box from "@material-ui/core/Box";
-import TeamStatsBarChart from "../../../../../statistics/teams/teamStats/graphs/TeamStatsBarChart";
 import PlayerAnalysisGraph from "./PlayerAnalysisGraph";
 import withStyles from "@material-ui/core/styles/withStyles";
 

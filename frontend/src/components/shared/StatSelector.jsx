@@ -1,24 +1,29 @@
-import {FormControl, InputLabel, MenuItem, Select, TextField} from "@material-ui/core";
+import {FormControl, MenuItem, Select} from "@material-ui/core";
 import React from "react";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 
 const useStyles = makeStyles((theme) => ({
-   select: {
-     fontSize: 10,
-   },
+    formControl: {
+        paddingRight: 20,
+        paddingLeft: 20,
+    },
+    select: {
+        fontSize: 14,
+    },
 }));
 
 export default function StatSelector(props) {
     const classes = useStyles();
 
     return (
-        <FormControl>
+        <FormControl className={classes.formControl}>
             <Select
                 id={props.id}
+                className={classes.select}
                 value={props.value}
                 onChange={props.onChange}
                 variant={"standard"}
-                autoWidth
+                autoWidth={true}
             >
                 {props.optionList.map((option) => (
                     <MenuItem key={props.id + "-" + option.id} value={option.id}>

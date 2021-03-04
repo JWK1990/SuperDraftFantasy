@@ -3,11 +3,8 @@ import Grid from "@material-ui/core/Grid";
 import {mockPlayerSelector} from "../../../../../store/selectors/PlayersSelectors";
 import withStyles from "@material-ui/core/styles/withStyles";
 import {connect} from "react-redux";
-import Typography from "@material-ui/core/Typography";
 import {Paper} from "@material-ui/core";
 import BlockPlayerCard from "./playerCard/BlockPlayerCard";
-import PurchaseReviewRatingCard from "../purchaseReview/PurchaseReviewRatingCard";
-import PlayerAnalysis from "./playerAnalysis/PlayerAnalysisCard";
 import PlayerAnalysisCard from "./playerAnalysis/PlayerAnalysisCard";
 
 const styles = {
