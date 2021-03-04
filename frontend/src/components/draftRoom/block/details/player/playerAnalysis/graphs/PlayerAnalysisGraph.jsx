@@ -1,14 +1,14 @@
 import React from "react";
 import {
-    ComposedChart,
     Bar,
     CartesianGrid,
-    ResponsiveContainer,
-    XAxis,
-    YAxis,
+    ComposedChart,
+    Line,
     ReferenceLine,
+    ResponsiveContainer,
     Tooltip,
-    Line, Legend
+    XAxis,
+    YAxis
 } from "recharts";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 

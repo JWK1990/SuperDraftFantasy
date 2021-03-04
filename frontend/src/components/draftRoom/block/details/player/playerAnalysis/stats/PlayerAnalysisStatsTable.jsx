@@ -1,5 +1,4 @@
 import React, {useRef} from "react";
-import StatBar from "../../../../../../shared/StatBar";
 import {
     createMuiTheme,
     MuiThemeProvider,
