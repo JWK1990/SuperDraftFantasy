@@ -15,7 +15,7 @@ export default function BlockPlayerCareerStats(props) {
     const classes = useStyles();
 
     return (
-        <div class={classes.statBarDiv}>
+        <div className={classes.statBarDiv}>
             <CircularStatIcon
                 statName="Ave"
                 statValue= {props.player.id}
