@@ -1,5 +1,6 @@
 // Draft.
 import {PositionTypeEnum} from "../../models/PositionTypeEnum";
+import {userIdSelector} from "./UserSelectors";
 
 export const draftSelector = state => state.draft.data;
 export const draftIdSelector = state => state.draft.data.id;
@@ -10,16 +11,11 @@ export const numOfPlayersRequiredSelector = state => {
     const roster = state.draft.data.roster;
     return roster.def + roster.mid + roster.ruc + roster.fwd + roster.bench;
 }
-export const draftTeamsNameSelector = state => state.draft.data.teams.map(team => {
-    return {
-        id: team.id,
-        name: team.name
-    }
-});
 
 // Commissioner.
 export const commissionerUserIdSelector = state => state.draft.data.teams.find(team => team.type === "COMMISSIONER").user.id;
 export const commissionerTeamNameSelector = state => state.draft.data.teams.find(team => team.type === "COMMISSIONER").name;
+export const isCurrentUserCommissionerSelector = state => commissionerUserIdSelector(state) === userIdSelector(state);
 
 // Current User.
 export const myDraftsSelector = state => state.draft.myDrafts;
@@ -28,6 +24,22 @@ export const currentTeamIdSelector = state => state.draft.data.teams.find(team =
 
 // Teams.
 export const draftTeamSelector = (state, teamId) => state.draft.data.teams.find(team => team.id === teamId);
+export const draftTeamsNameSelector = state => state.draft.data.teams.map(team => {
+    return {
+        id: team.id,
+        name: team.name
+    }
+});
+export const draftedPlayersSelector = state => {
+    const draftedPlayersList = [];
+    state.draft.data.teams.forEach(team => {
+        team.teamPlayerJoins.forEach(teamPlayerJoin => {
+            teamPlayerJoin["team"] = {id: team.id, name: team.name};
+            draftedPlayersList.push(teamPlayerJoin)
+        });
+    })
+    return draftedPlayersList.sort((a, b) => a.id < b.id ? 1 : -1);
+}
 
 // Position Availability.
 export const isSlotAvailableSelector = (state, position) => {

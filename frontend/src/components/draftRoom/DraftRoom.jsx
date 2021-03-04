@@ -9,9 +9,9 @@ import Grid from "@material-ui/core/Grid";
 import {stompClientSelector} from "../../store/selectors/WebSocketSelectors";
 import ConfigurationUtils from "../../utils/ConfigurationUtils";
 import {withStyles} from "@material-ui/core";
-import CommissionerControls from "./commissionerControls/CommissionerControls";
 import TeamViewList from "./myTeam/TeamViewList";
 import StatisticsContainer from "./statistics/StatisticsContainer";
+import DraftDetailsContainer from "./draftDetails/DraftDetailsContainer";
 
 const styles = {
     rootContainer: {
@@ -77,7 +77,7 @@ class DraftRoom extends React.Component {
                     <Grid item xs={2}>
                         <Grid container spacing={1}>
                             <Grid item xs={12}>
-                                <CommissionerControls/>
+                                <DraftDetailsContainer/>
                             </Grid>
                             <Grid item xs={12}>
                                 <DraftRoomTeams/>

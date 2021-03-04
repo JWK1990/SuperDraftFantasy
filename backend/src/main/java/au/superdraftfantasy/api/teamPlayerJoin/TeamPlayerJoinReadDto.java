@@ -12,6 +12,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class TeamPlayerJoinReadDto {
 
+    private Long id;
+
     private PlayerReadDto player;
 
     private Long price;

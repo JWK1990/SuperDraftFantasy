@@ -57,6 +57,7 @@ const useStyles = makeStyles(() => ({
         '@media (min-width: 600px)': {
             minWidth: "100px"
         },
+        height: "100%",
     },
     tab: {
         minHeight: "var(--tab-panel-secondary-height)",
@@ -66,6 +67,7 @@ const useStyles = makeStyles(() => ({
         '@media (min-width: 600px)': {
             minWidth: "100px"
         },
+        overflowY: "scroll",
     },
 }));
 
