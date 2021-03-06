@@ -1,9 +1,11 @@
 import React from "react";
-import makeStyles from "@material-ui/core/styles/makeStyles";
 import {List} from "@material-ui/core";
 import DraftHistoryListItem from "./DraftHistoryListItem";
+import {draftedPlayersSelector} from "../../../store/selectors/DraftSelectors";
+import withStyles from "@material-ui/core/styles/withStyles";
+import {connect} from "react-redux";
 
-const useStyles = makeStyles((theme) => ({
+const styles = {
     draftHistoryRootDiv: {
         width: "100%",
         height: "100%",
@@ -16,19 +18,28 @@ const useStyles = makeStyles((theme) => ({
         fontWeight: 500,
         fontSize: 16,
     }
-}));
+};
 
-export default function DraftHistory(props) {
-    const classes = useStyles();
+class DraftHistory extends React.Component {
 
-    return (
-        <div className={classes.draftHistoryRootDiv}>
-            <List dense>
-                {props.draftedPlayersList.map((draftedPlayer, index) => (
-                    <DraftHistoryListItem draftedPlayer={draftedPlayer} key={draftedPlayer.player.id + "-" + index}/>
-                ))}
-            </List>
-        </div>
-    )
+    render() {
+        const {classes} = this.props;
+
+        return (
+            <div className={classes.draftHistoryRootDiv}>
+                <List dense>
+                    {this.props.draftedPlayersList.map((draftedPlayer, index) => (
+                        <DraftHistoryListItem draftedPlayer={draftedPlayer} key={draftedPlayer.player.id + "-" + index}/>
+                    ))}
+                </List>
+            </div>
+        )
+    }
 
 }
+
+const mapStateToProps = (state) => ({
+    draftedPlayersList: draftedPlayersSelector(state),
+})
+
+export default connect(mapStateToProps)(withStyles(styles)(DraftHistory));

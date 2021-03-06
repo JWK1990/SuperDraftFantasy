@@ -53,22 +53,23 @@ const useStyles = makeStyles(() => ({
         minHeight: "var(--tab-panel-secondary-height)",
         maxHeight: "var(--tab-panel-secondary-height)",
         backgroundColor: "transparent",
-        minWidth: "140px",
+        minWidth: "100px",
         '@media (min-width: 600px)': {
             minWidth: "100px"
         },
-        height: "100%",
     },
     tab: {
         minHeight: "var(--tab-panel-secondary-height)",
         maxHeight: "var(--tab-panel-secondary-height)",
         backgroundColor: "transparent",
-        minWidth: "140px",
+        minWidth: "100px",
         '@media (min-width: 600px)': {
             minWidth: "100px"
         },
-        overflowY: "scroll",
     },
+    swipeableViews: {
+        height: "100%",
+    }
 }));
 
 export default function StatTabPanel(props) {
@@ -87,19 +88,19 @@ export default function StatTabPanel(props) {
         <div className={classes.rootStatTabPanelDiv}>
             <AppBar className={classes.appBar} position="static" color="transparent">
                 <Tabs
-                    className={classes.tabs}
                     value={value}
+                    className={classes.tabs}
                     onChange={handleChange}
                     indicatorColor="primary"
                     textColor="primary"
                     variant="fullWidth"
-                    aria-label="full width tabs"
+                    aria-label="Stat Tab Panel"
                     TabIndicatorProps={{style: {display: "none"}}}
                 >
                     {props.tabList.map((tab, index) => (
                         <Tab
                             label={tab.label}
-                            className={classes.tabs}
+                            className={classes.tab}
                             {...a11yProps({index})}
                             key={index}
                         />
@@ -109,6 +110,7 @@ export default function StatTabPanel(props) {
             <SwipeableViews
                 index={value}
                 onChangeIndex={handleChangeIndex}
+                className={classes.swipeableViews}
             >
                 {props.tabList.map((tab, index) => (
                     <TabPanel value={value} index={index} key={index}>
