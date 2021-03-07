@@ -59,61 +59,8 @@ INSERT INTO position_entity (id, type)
             (4, 'FWD'),
             (5, 'BENCH');
 
-/* Insert initial Player Data. */
-INSERT INTO player_entity(id, first_name, last_name, afl_team_id, average)
-    VALUES (1, 'Cyril', 'Rioli', 9, 100),
-           (2, 'Jarryd', 'Roughead', 9, 100),
-           (3, 'Jaeger', 'O''Meara', 9, 100),
-           (4, 'Tom', 'Mitchell', 9, 100),
-           (5, 'Ben', 'Stratton', 9, 100),
-           (6, 'Isaac', 'Smith', 9, 100),
-           (7, 'James', 'Worpel', 9, 100),
-           (8, 'Sam', 'Frost', 9, 100),
-           (9, 'Jonathon', 'Patton', 9, 100),
-           (10, 'Luke', 'Breust', 9, 100),
-           (11, 'Robert', 'Dipierdomenico', 9, 110),
-           (12, 'Dermott', 'Brereton', 9, 130),
-           (13, 'Jason', 'Dunstall', 9, 170),
-           (14, 'Nick', 'Holland', 9, 100),
-           (15, 'Trent', 'Croad', 9, 100),
-           (16, 'James', 'Sicily', 9, 100),
-           (17, 'Stephen', 'Gilham', 9, 140),
-           (18, 'Tim', 'Boyle', 9, 100),
-           (19, 'Jack', 'Gunston', 9, 100),
-           (20, 'Will', 'Day', 9, 160),
-           (21, 'Grant', 'Birchall', 9, 110),
-           (22, 'Tim', 'Clark', 9, 100),
-           (23, 'Patrick', 'Cripps', 4, 100),
-           (24, 'Nat', 'Fyfe', 5, 110),
-           (25, 'Dustin', 'Martin', 1, 130),
-           (26, 'Tyson', 'Stengline', 14, 80),
-           (27, 'Jason', 'Poplyzia', 14, 70),
-           (28, 'Matt', 'Rowell', 2, 140),
-           (29, 'Noah', 'Anderson', 9, 130),
-           (30, 'Paul', 'Puopolo', 9, 100),
-           (31, 'Chris', 'Mew', 9, 110),
-           (32, 'Chris', 'Langford', 9, 130),
-           (33, 'Will', 'Langford', 9, 170),
-           (34, 'Shaun', 'Burgoyne', 9, 100),
-           (35, 'Peter', 'Burgoyne', 9, 100),
-           (36, 'Shane', 'Crawford', 9, 100),
-           (37, 'Bryan', 'Stachaun', 9, 140),
-           (38, 'Robert', 'Walls', 10, 100),
-           (39, 'Malcolm', 'Blight', 11, 100),
-           (40, 'Leigh', 'Matthew', 9, 160),
-           (41, 'Craig', 'McRae', 9, 110),
-           (42, 'Stephen', 'Tingay', 11, 110),
-           (43, 'Simon', 'Garlic', 7, 90),
-           (44, 'Denver', 'Grainger-Barras', 9, 140),
-           (45, 'Tom', 'Barrass', 9, 70),
-           (46, 'Josh P.', 'Kennedy', 9, 110),
-           (47, 'Josh J.', 'Kennedy', 9, 120),
-           (48, 'Tadgh', 'Kennelly', 5, 85),
-           (49, 'Kurt', 'Heatherley', 9, 115),
-           (50, 'Shem', 'Tatupu', 4, 110);
-
 /* Insert initial Player Positions. */
-INSERT INTO player_position_join(player_id, position_id)
+/* INSERT INTO player_position_join(player_id, position_id)
     VALUES (1, 2),
            (2, 2),
            (2, 3),
@@ -172,6 +119,7 @@ INSERT INTO player_position_join(player_id, position_id)
            (49, 1),
            (49, 2),
            (50, 1);
+   */
 
 
 

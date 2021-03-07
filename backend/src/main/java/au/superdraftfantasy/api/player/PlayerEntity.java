@@ -1,10 +1,9 @@
 package au.superdraftfantasy.api.player;
 
 import au.superdraftfantasy.api.position.PositionEntity;
+import au.superdraftfantasy.api.seasonSummary.SeasonSummaryEntity;
 import au.superdraftfantasy.api.teamPlayerJoin.TeamPlayerJoinEntity;
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -18,14 +17,9 @@ import java.util.Set;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@JsonIdentityInfo(
-        generator = ObjectIdGenerators.PropertyGenerator.class,
-        property = "id"
-)
 public class PlayerEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @NotBlank
@@ -34,12 +28,9 @@ public class PlayerEntity {
     @NotBlank
     private String lastName;
 
-    @NotBlank
-    @Enumerated(EnumType.ORDINAL)
-    private AflTeamEnum aflTeamId;
-
-    @NotBlank
-    private Long average;
+    @OneToMany(mappedBy = "player", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference(value="player-seasonSummary")
+    private List<SeasonSummaryEntity> seasonSummaries;
 
     @ManyToMany
     @JoinTable(
