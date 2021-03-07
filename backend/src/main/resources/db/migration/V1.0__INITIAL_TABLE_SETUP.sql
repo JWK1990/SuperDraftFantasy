@@ -51,7 +51,7 @@ CREATE TABLE draft_status_enum (
 );
 
 CREATE TABLE draft_entity (
-    id SERIAL,
+    id SERIAL PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
     num_of_teams INT NOT NULL,
     roster_id INT NOT NULL,
@@ -62,7 +62,6 @@ CREATE TABLE draft_entity (
     created_on TIMESTAMP NOT NULL,
     updated_on TIMESTAMP NOT NULL,
 
-    CONSTRAINT pk_draft_entity PRIMARY KEY(id),
     CONSTRAINT fk_roster_id FOREIGN KEY(roster_id) REFERENCES roster_entity(id),
     CONSTRAINT fk_status_id FOREIGN KEY(status_id) REFERENCES draft_status_enum(id)
 );
@@ -78,7 +77,7 @@ CREATE TABLE team_status_enum (
 );
 
 CREATE TABLE team_entity (
-    id SERIAL,
+    id SERIAL PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
     type_id SMALLINT NOT NULL,
     budget SMALLINT NOT NULL,
@@ -90,7 +89,6 @@ CREATE TABLE team_entity (
     created_on TIMESTAMP NOT NULL,
     updated_on TIMESTAMP NOT NULL,
 
-    CONSTRAINT pk_team_entity PRIMARY KEY(id),
     CONSTRAINT fk_team_type_id FOREIGN KEY(type_id) REFERENCES team_type_enum(id),
     CONSTRAINT fk_team_user_id FOREIGN KEY(user_id) REFERENCES user_entity(id) ON DELETE CASCADE ON UPDATE CASCADE,
     CONSTRAINT fk_team_draft_id FOREIGN KEY(draft_id) REFERENCES draft_entity(id) ON DELETE CASCADE ON UPDATE CASCADE,
@@ -108,18 +106,40 @@ CREATE TABLE position_entity (
 );
 
 CREATE TABLE player_entity (
-    id SERIAL,
+    id SERIAL PRIMARY KEY,
     first_name VARCHAR(255) NOT NULL,
     last_name VARCHAR(255) NOT NULL,
-
-    CONSTRAINT pk_player_entity PRIMARY KEY(id)
+    date_of_birth DATE
 );
 
-CREATE TABLE player_position_join (
+CREATE TABLE player_draft_entity (
     player_id INT,
+    origin VARCHAR(255),
+    round SMALLINT,
+    pick SMALLINT,
+    year SMALLINT,
+    type VARCHAR(255),
+
+    CONSTRAINT fk_player_id FOREIGN KEY (player_id) REFERENCES player_entity(id)
+);
+
+CREATE TABLE player_season_entity (
+       id SERIAL PRIMARY KEY,
+       player_id INT,
+       afl_team_id SMALLINT,
+       jumper_number SMALLINT,
+       height SMALLINT,
+       weight SMALLINT,
+
+       CONSTRAINT fk_player_id FOREIGN KEY (player_id) REFERENCES player_entity(id),
+       CONSTRAINT fk_afl_team_id FOREIGN KEY (afl_team_id) REFERENCES afl_teams_enum(id)
+);
+
+CREATE TABLE player_season_position_join (
+    player_season_id INT,
     position_id SMALLINT,
 
-    CONSTRAINT fk_player_id FOREIGN KEY (player_id) REFERENCES player_entity(id),
+    CONSTRAINT fk_player_season_id FOREIGN KEY (player_season_id) REFERENCES player_season_entity(id),
     CONSTRAINT fk_position_id FOREIGN KEY (position_id) REFERENCES position_entity(id)
 );
 

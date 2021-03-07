@@ -26,109 +26,75 @@ public class SeasonSummaryEntity {
     @JsonBackReference(value="player-seasonSummary")
     private PlayerEntity player;
 
+    @NotNull
+    private int year;
+
     @NotBlank
     @Enumerated(EnumType.ORDINAL)
     private AflTeamEnum aflTeamId;
 
-    @NotNull
-    private int year;
-
-    @NotNull
     private int games;
 
-    @NotNull
     private double average;
 
-    // TODO: Remove TotalPoints From Insert.
-
-    @NotNull
     private double kicks;
 
-    @NotNull
     private double handballs;
 
-    @NotNull
     private double marks;
 
-    @NotNull
     private double goals;
 
-    @NotNull
     private double behinds;
 
-    @NotNull
     private double tackles;
 
-    @NotNull
     private double hitouts;
 
-    @NotNull
     private double goalAssists;
 
-    @NotNull
     private double insideFiftys;
 
-    @NotNull
     private double clearances;
 
-    @NotNull
     private double clangers;
 
-    @NotNull
     private double reboundFiftys;
 
-    @NotNull
     private double freesFor;
 
-    @NotNull
     private double freesAgainst;
 
-    @NotNull
     private double dreamTeam;
 
-    @NotNull
     private double contestedPossessions;
 
-    @NotNull
     private double uncontestedPossessions;
 
-    @NotNull
     private double effectiveDisposals;
 
-    @NotNull
     private double contestedMarks;
 
-    @NotNull
     private double marksInsideFifty;
 
-    @NotNull
     private double onePercenters;
 
-    @NotNull
     private double bounces;
 
-    @NotNull
     private double centerClearances;
 
-    @NotNull
     private double stoppageClearances;
 
-    @NotNull
     private double scoreInvolvements;
 
-    @NotNull
     private double metersGained;
 
-    @NotNull
     private double turnovers;
 
-    @NotNull
     private double intercepts;
 
-    @NotNull
     private double tacklesInsideFifty;
 
-    @NotNull
     private double timeOnGround;
 
 }

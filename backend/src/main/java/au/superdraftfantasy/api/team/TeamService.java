@@ -140,7 +140,8 @@ public class TeamService {
     }
 
     private PositionEntity getMyTeamPosition(TeamEntity team, PlayerEntity player) {
-        Set<PositionTypeEnum> positions = player.getPositions().stream().map(PositionEntity::getType).collect(Collectors.toSet());
+        // TODO - Fetch 2021 here.
+        Set<PositionTypeEnum> positions = player.getSeasonDetails().get(0).getPositions().stream().map(PositionEntity::getType).collect(Collectors.toSet());
 
         // The below order is significant, as it determines which positions are treated as primary and which are secondary.
         PositionTypeEnum positionType = null;
