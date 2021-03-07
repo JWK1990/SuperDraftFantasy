@@ -23,7 +23,6 @@ import org.springframework.web.server.ResponseStatusException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
-import java.util.Set;
 import java.util.stream.Collectors;
 
 
@@ -140,7 +139,7 @@ public class TeamService {
     }
 
     private PositionEntity getMyTeamPosition(TeamEntity team, PlayerEntity player) {
-        Set<PositionTypeEnum> positions = player.getPositions().stream().map(PositionEntity::getType).collect(Collectors.toSet());
+        List<PositionTypeEnum> positions = player.getPositions().stream().map(PositionEntity::getType).collect(Collectors.toList());
 
         // The below order is significant, as it determines which positions are treated as primary and which are secondary.
         PositionTypeEnum positionType = null;

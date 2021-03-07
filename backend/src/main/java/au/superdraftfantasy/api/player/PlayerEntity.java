@@ -12,7 +12,6 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.time.LocalDate;
 import java.util.List;
-import java.util.Set;
 
 @Entity
 @Data
@@ -46,7 +45,7 @@ public class PlayerEntity {
             name = "player_position_join",
             joinColumns = @JoinColumn(name = "player_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "position_id", referencedColumnName = "id"))
-    private Set<PositionEntity> positions;
+    private List<PositionEntity> positions;
 
     // Follows example here - https://stackoverflow.com/questions/5127129/mapping-many-to-many-association-table-with-extra-columns.
     @OneToMany(mappedBy = "player")
@@ -54,7 +53,7 @@ public class PlayerEntity {
     private List<TeamPlayerJoinEntity> teamPlayerJoins;
 
     @OneToMany(mappedBy = "player", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JsonManagedReference(value="player-seasonSummary")
+    @JsonManagedReference(value="player-seasonSummaries")
     private List<SeasonSummaryEntity> seasonSummaries;
 
 }

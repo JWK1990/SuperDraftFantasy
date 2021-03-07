@@ -2,6 +2,7 @@ package au.superdraftfantasy.api.player;
 
 import au.superdraftfantasy.api.draft.DraftEntity;
 import au.superdraftfantasy.api.draft.DraftRepository;
+import au.superdraftfantasy.api.seasonSummary.SeasonSummaryBaseStats;
 import au.superdraftfantasy.api.teamPlayerJoin.TeamPlayerJoinEntity;
 import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
@@ -11,6 +12,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
@@ -35,13 +37,8 @@ public class PlayerService {
      * Read a list of all Players.
      * @return
      */
-    public List<PlayerReadDto> getAllPlayers() {
-        List<PlayerEntity> playerList = playerRepository.findAll();
-        List<PlayerReadDto> playerReadDtoList = new ArrayList<>();
-        playerList.stream().forEach((player) -> {
-            playerReadDtoList.add(convertToPlayerReadDto(player));
-        });
-        return playerReadDtoList;
+    public List<PlayerEntity> getAllPlayers() {
+        return playerRepository.findAll();
     }
 
     /**
@@ -67,9 +64,21 @@ public class PlayerService {
         return playerInDraftReadDtoList;
     }
 
-    private PlayerReadDto convertToPlayerReadDto(PlayerEntity playerEntity) {
-        PlayerReadDto playerReadDto = modelMapper.map(playerEntity, PlayerReadDto.class);
-        return playerReadDto;
+    public PlayerBaseReadDto getPlayerById(Long playerId) {
+       PlayerBaseInterface playerBase = playerRepository.findBaseById(playerId)
+               .orElseThrow(() -> new NoSuchElementException("Player with id " + playerId + " not found."));
+       SeasonSummaryBaseStats baseStats = playerBase.getBaseStats(2019);
+       return convertToPlayerBaseReadDto(playerBase, baseStats);
+    }
+
+    private PlayerBaseReadDto convertToPlayerBaseReadDto(PlayerBaseInterface playerBase, SeasonSummaryBaseStats baseStats) {
+        PlayerBaseReadDto readDto = modelMapper.map(playerBase, PlayerBaseReadDto.class);
+        readDto.setGames(baseStats.getGames());
+        readDto.setAverage(baseStats.getAverage());
+        readDto.setDisposals(baseStats.getDisposals());
+        readDto.setDisposalEfficiency(baseStats.getDisposalEfficiency());
+        readDto.setTackles(baseStats.getTackles());
+        return readDto;
     }
 
     private PlayerInDraftReadDto convertToPlayerInDraftReadDto(PlayerEntity playerEntity, List<TeamPlayerJoinEntity> draftedPlayerList) {
