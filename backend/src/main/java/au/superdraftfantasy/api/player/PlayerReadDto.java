@@ -23,10 +23,6 @@ public class PlayerReadDto {
 
     String fullName;
 
-    AflTeamEnum aflTeamId;
-
-    Long average;
-
     @JsonIgnore
     List<PositionEntity> positions;
     
