@@ -27,13 +27,13 @@ public class SeasonSummaryEntity {
     private PlayerEntity player;
 
     @NotNull
-    private int year;
+    private Integer year;
 
     @NotBlank
     @Enumerated(EnumType.ORDINAL)
     private AflTeamEnum aflTeamId;
 
-    private int games;
+    private Integer games;
 
     private double average;
 
