@@ -10,7 +10,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 16,
             "year": 2018,
             "type": "Rookie",
-            "drafting_team_id": 14
+            "drafting_team_id": 13
           },
           {
             "player_id": 2,
@@ -19,7 +19,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 19,
             "year": 2013,
             "type": "National",
-            "drafting_team_id": 15
+            "drafting_team_id": 14
           },
           {
             "player_id": 3,
@@ -28,7 +28,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 35,
             "year": 2015,
             "type": "National",
-            "drafting_team_id": 18
+            "drafting_team_id": 17
           },
           {
             "player_id": 4,
@@ -37,7 +37,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 13,
             "year": 2011,
             "type": "National",
-            "drafting_team_id": 9
+            "drafting_team_id": 8
           },
           {
             "player_id": 5,
@@ -46,7 +46,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 33,
             "year": 2019,
             "type": "Rookie",
-            "drafting_team_id": 17
+            "drafting_team_id": 16
           },
           {
             "player_id": 6,
@@ -55,7 +55,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 8,
             "year": 2015,
             "type": "National",
-            "drafting_team_id": 8
+            "drafting_team_id": 7
           },
           {
             "player_id": 7,
@@ -64,7 +64,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 4,
             "year": 2016,
             "type": "National",
-            "drafting_team_id": 8
+            "drafting_team_id": 7
           },
           {
             "player_id": 8,
@@ -73,7 +73,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 32,
             "year": 2017,
             "type": "National",
-            "drafting_team_id": 17
+            "drafting_team_id": 16
           },
           {
             "player_id": 9,
@@ -82,7 +82,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 7,
             "year": 2013,
             "type": "National",
-            "drafting_team_id": 2
+            "drafting_team_id": 1
           },
           {
             "player_id": 10,
@@ -100,7 +100,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 44,
             "year": 2013,
             "type": "National",
-            "drafting_team_id": 16
+            "drafting_team_id": 15
           },
           {
             "player_id": 12,
@@ -109,7 +109,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 21,
             "year": 2017,
             "type": "National",
-            "drafting_team_id": 17
+            "drafting_team_id": 16
           },
           {
             "player_id": 13,
@@ -118,7 +118,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 26,
             "year": 2020,
             "type": "National",
-            "drafting_team_id": 15
+            "drafting_team_id": 14
           },
           {
             "player_id": 14,
@@ -127,7 +127,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 28,
             "year": 2017,
             "type": "Rookie",
-            "drafting_team_id": 16
+            "drafting_team_id": 15
           },
           {
             "player_id": 15,
@@ -136,7 +136,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 26,
             "year": 2013,
             "type": "Rookie",
-            "drafting_team_id": 5
+            "drafting_team_id": 4
           },
           {
             "player_id": 16,
@@ -145,7 +145,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 68,
             "year": 2013,
             "type": "National",
-            "drafting_team_id": 13
+            "drafting_team_id": 12
           },
           {
             "player_id": 17,
@@ -163,7 +163,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 2,
             "year": 2019,
             "type": "National",
-            "drafting_team_id": 8
+            "drafting_team_id": 7
           },
           {
             "player_id": 19,
@@ -172,7 +172,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 61,
             "year": 2014,
             "type": "National",
-            "drafting_team_id": 2
+            "drafting_team_id": 1
           },
           {
             "player_id": 20,
@@ -181,7 +181,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 18,
             "year": 2020,
             "type": "National",
-            "drafting_team_id": 9
+            "drafting_team_id": 8
           },
           {
             "player_id": 21,
@@ -190,7 +190,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 55,
             "year": 2018,
             "type": "National",
-            "drafting_team_id": 2
+            "drafting_team_id": 1
           },
           {
             "player_id": 22,
@@ -199,7 +199,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 4,
             "year": 2019,
             "type": "National",
-            "drafting_team_id": 9
+            "drafting_team_id": 8
           },
           {
             "player_id": 23,
@@ -208,7 +208,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 35,
             "year": 2009,
             "type": "National",
-            "drafting_team_id": 14
+            "drafting_team_id": 13
           },
           {
             "player_id": 24,
@@ -217,7 +217,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 81,
             "year": 2012,
             "type": "National",
-            "drafting_team_id": 1
+            "drafting_team_id": 0
           },
           {
             "player_id": 25,
@@ -226,7 +226,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 11,
             "year": 2018,
             "type": "Rookie",
-            "drafting_team_id": 7
+            "drafting_team_id": 6
           },
           {
             "player_id": 26,
@@ -235,7 +235,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 17,
             "year": 2010,
             "type": "National",
-            "drafting_team_id": 12
+            "drafting_team_id": 11
           },
           {
             "player_id": 27,
@@ -244,7 +244,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 15,
             "year": 2017,
             "type": "National",
-            "drafting_team_id": 2
+            "drafting_team_id": 1
           },
           {
             "player_id": 28,
@@ -253,7 +253,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 18,
             "year": 2017,
             "type": "Rookie",
-            "drafting_team_id": 14
+            "drafting_team_id": 13
           },
           {
             "player_id": 29,
@@ -262,7 +262,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 48,
             "year": 2017,
             "type": "National",
-            "drafting_team_id": 11
+            "drafting_team_id": 10
           },
           {
             "player_id": 30,
@@ -280,7 +280,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 42,
             "year": 2017,
             "type": "National",
-            "drafting_team_id": 8
+            "drafting_team_id": 7
           },
           {
             "player_id": 32,
@@ -289,7 +289,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 43,
             "year": 2017,
             "type": "National",
-            "drafting_team_id": 2
+            "drafting_team_id": 1
           },
           {
             "player_id": 33,
@@ -298,7 +298,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 25,
             "year": 2017,
             "type": "National",
-            "drafting_team_id": 14
+            "drafting_team_id": 13
           },
           {
             "player_id": 34,
@@ -307,7 +307,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 22,
             "year": 2020,
             "type": "Rookie",
-            "drafting_team_id": 6
+            "drafting_team_id": 5
           },
           {
             "player_id": 35,
@@ -316,7 +316,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 43,
             "year": 2013,
             "type": "National",
-            "drafting_team_id": 17
+            "drafting_team_id": 16
           },
           {
             "player_id": 36,
@@ -325,7 +325,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 39,
             "year": 2016,
             "type": "National",
-            "drafting_team_id": 15
+            "drafting_team_id": 14
           },
           {
             "player_id": 37,
@@ -334,7 +334,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 55,
             "year": 2020,
             "type": "National",
-            "drafting_team_id": 18
+            "drafting_team_id": 17
           },
           {
             "player_id": 38,
@@ -343,7 +343,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 75,
             "year": 2018,
             "type": "National",
-            "drafting_team_id": 11
+            "drafting_team_id": 10
           },
           {
             "player_id": 39,
@@ -361,7 +361,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 14,
             "year": 2019,
             "type": "National",
-            "drafting_team_id": 13
+            "drafting_team_id": 12
           },
           {
             "player_id": 41,
@@ -370,7 +370,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 17,
             "year": 2016,
             "type": "National",
-            "drafting_team_id": 2
+            "drafting_team_id": 1
           },
           {
             "player_id": 42,
@@ -379,7 +379,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 28,
             "year": 2020,
             "type": "National",
-            "drafting_team_id": 1
+            "drafting_team_id": 0
           },
           {
             "player_id": 43,
@@ -388,7 +388,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 36,
             "year": 2018,
             "type": "National",
-            "drafting_team_id": 2
+            "drafting_team_id": 1
           },
           {
             "player_id": 44,
@@ -397,7 +397,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 3,
             "year": 2004,
             "type": "Pre-Season",
-            "drafting_team_id": 3
+            "drafting_team_id": 2
           },
           {
             "player_id": 45,
@@ -406,7 +406,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 59,
             "year": 2018,
             "type": "National",
-            "drafting_team_id": 6
+            "drafting_team_id": 5
           },
           {
             "player_id": 46,
@@ -415,7 +415,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 86,
             "year": 2011,
             "type": "National",
-            "drafting_team_id": 7
+            "drafting_team_id": 6
           },
           {
             "player_id": 47,
@@ -424,7 +424,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 45,
             "year": 2019,
             "type": "National",
-            "drafting_team_id": 4
+            "drafting_team_id": 3
           },
           {
             "player_id": 48,
@@ -433,7 +433,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 3,
             "year": 2013,
             "type": "National",
-            "drafting_team_id": 15
+            "drafting_team_id": 14
           },
           {
             "player_id": 49,
@@ -442,7 +442,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 15,
             "year": 2020,
             "type": "Rookie",
-            "drafting_team_id": 2
+            "drafting_team_id": 1
           },
           {
             "player_id": 50,
@@ -451,7 +451,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 34,
             "year": 2014,
             "type": "National",
-            "drafting_team_id": 6
+            "drafting_team_id": 5
           },
           {
             "player_id": 51,
@@ -460,7 +460,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 10,
             "year": 2018,
             "type": "National",
-            "drafting_team_id": 16
+            "drafting_team_id": 15
           },
           {
             "player_id": 52,
@@ -469,7 +469,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 54,
             "year": 2011,
             "type": "Rookie",
-            "drafting_team_id": 7
+            "drafting_team_id": 6
           },
           {
             "player_id": 53,
@@ -478,7 +478,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 5,
             "year": 2006,
             "type": "National",
-            "drafting_team_id": 13
+            "drafting_team_id": 12
           },
           {
             "player_id": 54,
@@ -487,7 +487,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 29,
             "year": 2016,
             "type": "National",
-            "drafting_team_id": 14
+            "drafting_team_id": 13
           },
           {
             "player_id": 55,
@@ -496,7 +496,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 11,
             "year": 2017,
             "type": "National",
-            "drafting_team_id": 9
+            "drafting_team_id": 8
           },
           {
             "player_id": 56,
@@ -505,7 +505,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 37,
             "year": 2015,
             "type": "National",
-            "drafting_team_id": 13
+            "drafting_team_id": 12
           },
           {
             "player_id": 57,
@@ -514,7 +514,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 4,
             "year": 2013,
             "type": "National",
-            "drafting_team_id": 18
+            "drafting_team_id": 17
           },
           {
             "player_id": 58,
@@ -532,7 +532,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 77,
             "year": 2018,
             "type": "National",
-            "drafting_team_id": 4
+            "drafting_team_id": 3
           },
           {
             "player_id": 60,
@@ -541,7 +541,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 10,
             "year": 2016,
             "type": "National",
-            "drafting_team_id": 8
+            "drafting_team_id": 7
           },
           {
             "player_id": 61,
@@ -550,7 +550,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 21,
             "year": 2020,
             "type": "National",
-            "drafting_team_id": 11
+            "drafting_team_id": 10
           },
           {
             "player_id": 62,
@@ -577,7 +577,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 53,
             "year": 2020,
             "type": "National",
-            "drafting_team_id": 5
+            "drafting_team_id": 4
           },
           {
             "player_id": 65,
@@ -586,7 +586,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 66,
             "year": 2012,
             "type": "National",
-            "drafting_team_id": 10
+            "drafting_team_id": 9
           },
           {
             "player_id": 66,
@@ -595,7 +595,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 13,
             "year": 2017,
             "type": "National",
-            "drafting_team_id": 17
+            "drafting_team_id": 16
           },
           {
             "player_id": 67,
@@ -604,7 +604,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 2,
             "year": 2017,
             "type": "National",
-            "drafting_team_id": 6
+            "drafting_team_id": 5
           },
           {
             "player_id": 68,
@@ -613,7 +613,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 3,
             "year": 2014,
             "type": "National",
-            "drafting_team_id": 11
+            "drafting_team_id": 10
           },
           {
             "player_id": 69,
@@ -622,7 +622,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 77,
             "year": 2011,
             "type": "National",
-            "drafting_team_id": 10
+            "drafting_team_id": 9
           },
           {
             "player_id": 70,
@@ -631,7 +631,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 34,
             "year": 2018,
             "type": "National",
-            "drafting_team_id": 9
+            "drafting_team_id": 8
           },
           {
             "player_id": 71,
@@ -640,7 +640,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 67,
             "year": 2015,
             "type": "National",
-            "drafting_team_id": 14
+            "drafting_team_id": 13
           },
           {
             "player_id": 72,
@@ -649,7 +649,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 46,
             "year": 2020,
             "type": "National",
-            "drafting_team_id": 10
+            "drafting_team_id": 9
           },
           {
             "player_id": 73,
@@ -658,7 +658,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 9,
             "year": 2016,
             "type": "National",
-            "drafting_team_id": 8
+            "drafting_team_id": 7
           },
           {
             "player_id": 74,
@@ -667,7 +667,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 4,
             "year": 2016,
             "type": "Rookie",
-            "drafting_team_id": 8
+            "drafting_team_id": 7
           },
           {
             "player_id": 75,
@@ -676,7 +676,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 47,
             "year": 2013,
             "type": "National",
-            "drafting_team_id": 12
+            "drafting_team_id": 11
           },
           {
             "player_id": 76,
@@ -694,7 +694,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 35,
             "year": 2016,
             "type": "National",
-            "drafting_team_id": 4
+            "drafting_team_id": 3
           },
           {
             "player_id": 78,
@@ -712,7 +712,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 54,
             "year": 2015,
             "type": "National",
-            "drafting_team_id": 5
+            "drafting_team_id": 4
           },
           {
             "player_id": 80,
@@ -721,7 +721,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 50,
             "year": 2017,
             "type": "National",
-            "drafting_team_id": 4
+            "drafting_team_id": 3
           },
           {
             "player_id": 81,
@@ -730,7 +730,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 27,
             "year": 2019,
             "type": "Rookie",
-            "drafting_team_id": 7
+            "drafting_team_id": 6
           },
           {
             "player_id": 82,
@@ -748,7 +748,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 12,
             "year": 2020,
             "type": "National",
-            "drafting_team_id": 9
+            "drafting_team_id": 8
           },
           {
             "player_id": 84,
@@ -757,7 +757,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 38,
             "year": 2019,
             "type": "National",
-            "drafting_team_id": 5
+            "drafting_team_id": 4
           },
           {
             "player_id": 85,
@@ -775,7 +775,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 16,
             "year": 2019,
             "type": "Rookie",
-            "drafting_team_id": 8
+            "drafting_team_id": 7
           },
           {
             "player_id": 87,
@@ -784,7 +784,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 5,
             "year": 2011,
             "type": "National",
-            "drafting_team_id": 9
+            "drafting_team_id": 8
           },
           {
             "player_id": 88,
@@ -802,7 +802,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 12,
             "year": 2000,
             "type": "National",
-            "drafting_team_id": 13
+            "drafting_team_id": 12
           },
           {
             "player_id": 90,
@@ -811,7 +811,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 22,
             "year": 2019,
             "type": "Rookie",
-            "drafting_team_id": 13
+            "drafting_team_id": 12
           },
           {
             "player_id": 91,
@@ -820,7 +820,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 19,
             "year": 2015,
             "type": "National",
-            "drafting_team_id": 10
+            "drafting_team_id": 9
           },
           {
             "player_id": 92,
@@ -829,7 +829,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 67,
             "year": 2014,
             "type": "National",
-            "drafting_team_id": 14
+            "drafting_team_id": 13
           },
           {
             "player_id": 93,
@@ -838,7 +838,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 53,
             "year": 2019,
             "type": "National",
-            "drafting_team_id": 18
+            "drafting_team_id": 17
           },
           {
             "player_id": 94,
@@ -847,7 +847,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 12,
             "year": 2018,
             "type": "National",
-            "drafting_team_id": 13
+            "drafting_team_id": 12
           },
           {
             "player_id": 95,
@@ -856,7 +856,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 39,
             "year": 2018,
             "type": "Rookie",
-            "drafting_team_id": 1
+            "drafting_team_id": 0
           },
           {
             "player_id": 96,
@@ -865,7 +865,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 52,
             "year": 2013,
             "type": "National",
-            "drafting_team_id": 13
+            "drafting_team_id": 12
           },
           {
             "player_id": 97,
@@ -874,7 +874,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 52,
             "year": 2019,
             "type": "National",
-            "drafting_team_id": 15
+            "drafting_team_id": 14
           },
           {
             "player_id": 98,
@@ -883,7 +883,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 41,
             "year": 2018,
             "type": "National",
-            "drafting_team_id": 15
+            "drafting_team_id": 14
           },
           {
             "player_id": 99,
@@ -892,7 +892,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 7,
             "year": 2010,
             "type": "National",
-            "drafting_team_id": 8
+            "drafting_team_id": 7
           },
           {
             "player_id": 100,
@@ -901,7 +901,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 56,
             "year": 2019,
             "type": "National",
-            "drafting_team_id": 5
+            "drafting_team_id": 4
           },
           {
             "player_id": 101,
@@ -910,7 +910,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 11,
             "year": 2018,
             "type": "National",
-            "drafting_team_id": 9
+            "drafting_team_id": 8
           },
           {
             "player_id": 102,
@@ -919,7 +919,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 7,
             "year": 2013,
             "type": "Rookie",
-            "drafting_team_id": 1
+            "drafting_team_id": 0
           },
           {
             "player_id": 103,
@@ -928,7 +928,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 48,
             "year": 2016,
             "type": "National",
-            "drafting_team_id": 16
+            "drafting_team_id": 15
           },
           {
             "player_id": 104,
@@ -937,7 +937,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 39,
             "year": 2018,
             "type": "National",
-            "drafting_team_id": 17
+            "drafting_team_id": 16
           },
           {
             "player_id": 105,
@@ -955,7 +955,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 5,
             "year": 2020,
             "type": "National",
-            "drafting_team_id": 16
+            "drafting_team_id": 15
           },
           {
             "player_id": 107,
@@ -964,7 +964,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 98,
             "year": 2012,
             "type": "National",
-            "drafting_team_id": 18
+            "drafting_team_id": 17
           },
           {
             "player_id": 108,
@@ -973,7 +973,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 24,
             "year": 2009,
             "type": "National",
-            "drafting_team_id": 5
+            "drafting_team_id": 4
           },
           {
             "player_id": 109,
@@ -982,7 +982,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 41,
             "year": 2020,
             "type": "National",
-            "drafting_team_id": 3
+            "drafting_team_id": 2
           },
           {
             "player_id": 110,
@@ -991,7 +991,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 3,
             "year": 2020,
             "type": "Rookie",
-            "drafting_team_id": 16
+            "drafting_team_id": 15
           },
           {
             "player_id": 111,
@@ -1000,7 +1000,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 89,
             "year": 2012,
             "type": "National",
-            "drafting_team_id": 3
+            "drafting_team_id": 2
           },
           {
             "player_id": 112,
@@ -1009,7 +1009,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 29,
             "year": 2014,
             "type": "Rookie",
-            "drafting_team_id": 14
+            "drafting_team_id": 13
           },
           {
             "player_id": 113,
@@ -1018,7 +1018,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 45,
             "year": 2018,
             "type": "National",
-            "drafting_team_id": 18
+            "drafting_team_id": 17
           },
           {
             "player_id": 114,
@@ -1027,7 +1027,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 59,
             "year": 2013,
             "type": "National",
-            "drafting_team_id": 10
+            "drafting_team_id": 9
           },
           {
             "player_id": 115,
@@ -1036,7 +1036,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 5,
             "year": 2017,
             "type": "National",
-            "drafting_team_id": 6
+            "drafting_team_id": 5
           },
           {
             "player_id": 116,
@@ -1045,7 +1045,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 15,
             "year": 2018,
             "type": "Rookie",
-            "drafting_team_id": 11
+            "drafting_team_id": 10
           },
           {
             "player_id": 117,
@@ -1054,7 +1054,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 14,
             "year": 2020,
             "type": "National",
-            "drafting_team_id": 6
+            "drafting_team_id": 5
           },
           {
             "player_id": 118,
@@ -1063,7 +1063,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 45,
             "year": 2018,
             "type": "Rookie",
-            "drafting_team_id": 14
+            "drafting_team_id": 13
           },
           {
             "player_id": 119,
@@ -1072,7 +1072,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 28,
             "year": 2020,
             "type": "Rookie",
-            "drafting_team_id": 4
+            "drafting_team_id": 3
           },
           {
             "player_id": 120,
@@ -1081,7 +1081,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 7,
             "year": 2017,
             "type": "National",
-            "drafting_team_id": 15
+            "drafting_team_id": 14
           },
           {
             "player_id": 121,
@@ -1090,7 +1090,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 15,
             "year": 2018,
             "type": "National",
-            "drafting_team_id": 7
+            "drafting_team_id": 6
           },
           {
             "player_id": 122,
@@ -1099,7 +1099,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 21,
             "year": 2020,
             "type": "Rookie",
-            "drafting_team_id": 5
+            "drafting_team_id": 4
           },
           {
             "player_id": 123,
@@ -1108,7 +1108,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 31,
             "year": 2015,
             "type": "National",
-            "drafting_team_id": 12
+            "drafting_team_id": 11
           },
           {
             "player_id": 124,
@@ -1117,7 +1117,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 35,
             "year": 2017,
             "type": "National",
-            "drafting_team_id": 15
+            "drafting_team_id": 14
           },
           {
             "player_id": 125,
@@ -1126,7 +1126,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 14,
             "year": 2019,
             "type": "Rookie",
-            "drafting_team_id": 7
+            "drafting_team_id": 6
           },
           {
             "player_id": 126,
@@ -1135,7 +1135,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 29,
             "year": 2012,
             "type": "National",
-            "drafting_team_id": 13
+            "drafting_team_id": 12
           },
           {
             "player_id": 127,
@@ -1144,7 +1144,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 10,
             "year": 2014,
             "type": "National",
-            "drafting_team_id": 7
+            "drafting_team_id": 6
           },
           {
             "player_id": 128,
@@ -1153,7 +1153,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 8,
             "year": 2017,
             "type": "National",
-            "drafting_team_id": 15
+            "drafting_team_id": 14
           },
           {
             "player_id": 129,
@@ -1162,7 +1162,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 36,
             "year": 2015,
             "type": "National",
-            "drafting_team_id": 17
+            "drafting_team_id": 16
           },
           {
             "player_id": 130,
@@ -1171,7 +1171,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 24,
             "year": 2020,
             "type": "National",
-            "drafting_team_id": 2
+            "drafting_team_id": 1
           },
           {
             "player_id": 131,
@@ -1180,7 +1180,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 37,
             "year": 2019,
             "type": "National",
-            "drafting_team_id": 2
+            "drafting_team_id": 1
           },
           {
             "player_id": 132,
@@ -1189,7 +1189,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 20,
             "year": 2017,
             "type": "National",
-            "drafting_team_id": 14
+            "drafting_team_id": 13
           },
           {
             "player_id": 133,
@@ -1207,7 +1207,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 20,
             "year": 2018,
             "type": "National",
-            "drafting_team_id": 14
+            "drafting_team_id": 13
           },
           {
             "player_id": 135,
@@ -1216,7 +1216,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 55,
             "year": 2015,
             "type": "National",
-            "drafting_team_id": 6
+            "drafting_team_id": 5
           },
           {
             "player_id": 136,
@@ -1225,7 +1225,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 26,
             "year": 2009,
             "type": "National",
-            "drafting_team_id": 5
+            "drafting_team_id": 4
           },
           {
             "player_id": 137,
@@ -1234,7 +1234,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 31,
             "year": 2019,
             "type": "National",
-            "drafting_team_id": 12
+            "drafting_team_id": 11
           },
           {
             "player_id": 138,
@@ -1243,7 +1243,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 6,
             "year": 2010,
             "type": "National",
-            "drafting_team_id": 14
+            "drafting_team_id": 13
           },
           {
             "player_id": 139,
@@ -1252,7 +1252,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 2,
             "year": 2011,
             "type": "National",
-            "drafting_team_id": 9
+            "drafting_team_id": 8
           },
           {
             "player_id": 140,
@@ -1261,7 +1261,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 64,
             "year": 2019,
             "type": "National",
-            "drafting_team_id": 15
+            "drafting_team_id": 14
           },
           {
             "player_id": 141,
@@ -1270,7 +1270,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 29,
             "year": 2019,
             "type": "Rookie",
-            "drafting_team_id": 8
+            "drafting_team_id": 7
           },
           {
             "player_id": 142,
@@ -1279,7 +1279,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 36,
             "year": 2017,
             "type": "National",
-            "drafting_team_id": 7
+            "drafting_team_id": 6
           },
           {
             "player_id": 143,
@@ -1288,7 +1288,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 25,
             "year": 2020,
             "type": "National",
-            "drafting_team_id": 1
+            "drafting_team_id": 0
           },
           {
             "player_id": 144,
@@ -1306,7 +1306,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 62,
             "year": 2014,
             "type": "National",
-            "drafting_team_id": 18
+            "drafting_team_id": 17
           },
           {
             "player_id": 146,
@@ -1315,7 +1315,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 14,
             "year": 2012,
             "type": "National",
-            "drafting_team_id": 9
+            "drafting_team_id": 8
           },
           {
             "player_id": 147,
@@ -1324,7 +1324,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 2,
             "year": 2007,
             "type": "National",
-            "drafting_team_id": 14
+            "drafting_team_id": 13
           },
           {
             "player_id": 148,
@@ -1342,7 +1342,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 46,
             "year": 2016,
             "type": "Rookie",
-            "drafting_team_id": 10
+            "drafting_team_id": 9
           },
           {
             "player_id": 150,
@@ -1351,7 +1351,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 41,
             "year": 2016,
             "type": "National",
-            "drafting_team_id": 6
+            "drafting_team_id": 5
           },
           {
             "player_id": 151,
@@ -1360,7 +1360,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 60,
             "year": 2014,
             "type": "Rookie",
-            "drafting_team_id": 4
+            "drafting_team_id": 3
           },
           {
             "player_id": 152,
@@ -1369,7 +1369,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 8,
             "year": 2020,
             "type": "National",
-            "drafting_team_id": 5
+            "drafting_team_id": 4
           },
           {
             "player_id": 153,
@@ -1378,7 +1378,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 24,
             "year": 2010,
             "type": "National",
-            "drafting_team_id": 15
+            "drafting_team_id": 14
           },
           {
             "player_id": 154,
@@ -1387,7 +1387,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 13,
             "year": 2013,
             "type": "National",
-            "drafting_team_id": 3
+            "drafting_team_id": 2
           },
           {
             "player_id": 155,
@@ -1396,7 +1396,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 86,
             "year": 2012,
             "type": "National",
-            "drafting_team_id": 2
+            "drafting_team_id": 1
           },
           {
             "player_id": 156,
@@ -1405,7 +1405,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 2,
             "year": 2011,
             "type": "Mini",
-            "drafting_team_id": 1
+            "drafting_team_id": 0
           },
           {
             "player_id": 157,
@@ -1414,7 +1414,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 23,
             "year": 2013,
             "type": "National",
-            "drafting_team_id": 1
+            "drafting_team_id": 0
           },
           {
             "player_id": 158,
@@ -1423,7 +1423,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 59,
             "year": 2017,
             "type": "National",
-            "drafting_team_id": 6
+            "drafting_team_id": 5
           },
           {
             "player_id": 159,
@@ -1432,7 +1432,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 20,
             "year": 2011,
             "type": "National",
-            "drafting_team_id": 6
+            "drafting_team_id": 5
           },
           {
             "player_id": 160,
@@ -1441,7 +1441,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 43,
             "year": 2019,
             "type": "National",
-            "drafting_team_id": 14
+            "drafting_team_id": 13
           },
           {
             "player_id": 161,
@@ -1450,7 +1450,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 20,
             "year": 2016,
             "type": "National",
-            "drafting_team_id": 9
+            "drafting_team_id": 8
           },
           {
             "player_id": 162,
@@ -1459,7 +1459,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 23,
             "year": 2015,
             "type": "National",
-            "drafting_team_id": 3
+            "drafting_team_id": 2
           },
           {
             "player_id": 163,
@@ -1468,7 +1468,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 107,
             "year": 2012,
             "type": "National",
-            "drafting_team_id": 16
+            "drafting_team_id": 15
           },
           {
             "player_id": 164,
@@ -1477,7 +1477,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 5,
             "year": 2009,
             "type": "National",
-            "drafting_team_id": 12
+            "drafting_team_id": 11
           },
           {
             "player_id": 165,
@@ -1486,7 +1486,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 12,
             "year": 2015,
             "type": "National",
-            "drafting_team_id": 3
+            "drafting_team_id": 2
           },
           {
             "player_id": 166,
@@ -1495,7 +1495,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 89,
             "year": 2013,
             "type": "National",
-            "drafting_team_id": 3
+            "drafting_team_id": 2
           },
           {
             "player_id": 167,
@@ -1504,7 +1504,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 33,
             "year": 2013,
             "type": "National",
-            "drafting_team_id": 2
+            "drafting_team_id": 1
           },
           {
             "player_id": 168,
@@ -1513,7 +1513,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 70,
             "year": 2011,
             "type": "National",
-            "drafting_team_id": 18
+            "drafting_team_id": 17
           },
           {
             "player_id": 169,
@@ -1522,7 +1522,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 57,
             "year": 2016,
             "type": "National",
-            "drafting_team_id": 4
+            "drafting_team_id": 3
           },
           {
             "player_id": 170,
@@ -1531,7 +1531,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 45,
             "year": 2014,
             "type": "National",
-            "drafting_team_id": 18
+            "drafting_team_id": 17
           },
           {
             "player_id": 171,
@@ -1540,7 +1540,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 10,
             "year": 2007,
             "type": "National",
-            "drafting_team_id": 1
+            "drafting_team_id": 0
           },
           {
             "player_id": 172,
@@ -1549,7 +1549,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 46,
             "year": 2014,
             "type": "National",
-            "drafting_team_id": 18
+            "drafting_team_id": 17
           },
           {
             "player_id": 173,
@@ -1558,7 +1558,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 27,
             "year": 2017,
             "type": "National",
-            "drafting_team_id": 9
+            "drafting_team_id": 8
           },
           {
             "player_id": 174,
@@ -1567,7 +1567,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 10,
             "year": 2012,
             "type": "National",
-            "drafting_team_id": 5
+            "drafting_team_id": 4
           },
           {
             "player_id": 175,
@@ -1576,7 +1576,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 38,
             "year": 2016,
             "type": "National",
-            "drafting_team_id": 6
+            "drafting_team_id": 5
           },
           {
             "player_id": 176,
@@ -1603,7 +1603,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 4,
             "year": 2017,
             "type": "National",
-            "drafting_team_id": 12
+            "drafting_team_id": 11
           },
           {
             "player_id": 179,
@@ -1612,7 +1612,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 75,
             "year": 2016,
             "type": "National",
-            "drafting_team_id": 1
+            "drafting_team_id": 0
           },
           {
             "player_id": 180,
@@ -1621,7 +1621,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 10,
             "year": 2008,
             "type": "National",
-            "drafting_team_id": 1
+            "drafting_team_id": 0
           },
           {
             "player_id": 181,
@@ -1630,7 +1630,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 56,
             "year": 2015,
             "type": "National",
-            "drafting_team_id": 16
+            "drafting_team_id": 15
           },
           {
             "player_id": 182,
@@ -1639,7 +1639,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 3,
             "year": 2010,
             "type": "National",
-            "drafting_team_id": 8
+            "drafting_team_id": 7
           },
           {
             "player_id": 183,
@@ -1648,7 +1648,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 13,
             "year": 2019,
             "type": "National",
-            "drafting_team_id": 10
+            "drafting_team_id": 9
           },
           {
             "player_id": 184,
@@ -1657,7 +1657,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 58,
             "year": 2016,
             "type": "National",
-            "drafting_team_id": 9
+            "drafting_team_id": 8
           },
           {
             "player_id": 185,
@@ -1666,7 +1666,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 5,
             "year": 2014,
             "type": "National",
-            "drafting_team_id": 4
+            "drafting_team_id": 3
           },
           {
             "player_id": 186,
@@ -1675,7 +1675,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 19,
             "year": 2019,
             "type": "National",
-            "drafting_team_id": 7
+            "drafting_team_id": 6
           },
           {
             "player_id": 187,
@@ -1684,7 +1684,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 30,
             "year": 2017,
             "type": "National",
-            "drafting_team_id": 3
+            "drafting_team_id": 2
           },
           {
             "player_id": 188,
@@ -1702,7 +1702,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 12,
             "year": 2011,
             "type": "National",
-            "drafting_team_id": 2
+            "drafting_team_id": 1
           },
           {
             "player_id": 190,
@@ -1711,7 +1711,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 17,
             "year": 2015,
             "type": "National",
-            "drafting_team_id": 1
+            "drafting_team_id": 0
           },
           {
             "player_id": 191,
@@ -1720,7 +1720,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 3,
             "year": 2017,
             "type": "National",
-            "drafting_team_id": 3
+            "drafting_team_id": 2
           },
           {
             "player_id": 192,
@@ -1729,7 +1729,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 21,
             "year": 2019,
             "type": "National",
-            "drafting_team_id": 14
+            "drafting_team_id": 13
           },
           {
             "player_id": 193,
@@ -1738,7 +1738,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 35,
             "year": 2020,
             "type": "National",
-            "drafting_team_id": 10
+            "drafting_team_id": 9
           },
           {
             "player_id": 194,
@@ -1747,7 +1747,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 1,
             "year": 2016,
             "type": "Rookie",
-            "drafting_team_id": 5
+            "drafting_team_id": 4
           },
           {
             "player_id": 195,
@@ -1756,7 +1756,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 33,
             "year": 2016,
             "type": "National",
-            "drafting_team_id": 13
+            "drafting_team_id": 12
           },
           {
             "player_id": 196,
@@ -1765,7 +1765,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 11,
             "year": 2014,
             "type": "National",
-            "drafting_team_id": 17
+            "drafting_team_id": 16
           },
           {
             "player_id": 197,
@@ -1774,7 +1774,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 3,
             "year": 2016,
             "type": "Rookie",
-            "drafting_team_id": 6
+            "drafting_team_id": 5
           },
           {
             "player_id": 198,
@@ -1783,7 +1783,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 30,
             "year": 2013,
             "type": "National",
-            "drafting_team_id": 12
+            "drafting_team_id": 11
           },
           {
             "player_id": 199,
@@ -1792,7 +1792,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 28,
             "year": 2009,
             "type": "National",
-            "drafting_team_id": 7
+            "drafting_team_id": 6
           },
           {
             "player_id": 200,
@@ -1801,7 +1801,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 25,
             "year": 2015,
             "type": "National",
-            "drafting_team_id": 18
+            "drafting_team_id": 17
           },
           {
             "player_id": 201,
@@ -1810,7 +1810,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 18,
             "year": 2013,
             "type": "National",
-            "drafting_team_id": 15
+            "drafting_team_id": 14
           },
           {
             "player_id": 202,
@@ -1819,7 +1819,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 37,
             "year": 2020,
             "type": "National",
-            "drafting_team_id": 3
+            "drafting_team_id": 2
           },
           {
             "player_id": 203,
@@ -1828,7 +1828,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 69,
             "year": 2009,
             "type": "National",
-            "drafting_team_id": 10
+            "drafting_team_id": 9
           },
           {
             "player_id": 204,
@@ -1837,7 +1837,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 18,
             "year": 2018,
             "type": "National",
-            "drafting_team_id": 13
+            "drafting_team_id": 12
           },
           {
             "player_id": 205,
@@ -1846,7 +1846,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 18,
             "year": 2018,
             "type": "Rookie",
-            "drafting_team_id": 17
+            "drafting_team_id": 16
           },
           {
             "player_id": 206,
@@ -1855,7 +1855,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 52,
             "year": 2020,
             "type": "National",
-            "drafting_team_id": 17
+            "drafting_team_id": 16
           },
           {
             "player_id": 207,
@@ -1864,7 +1864,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 26,
             "year": 2006,
             "type": "National",
-            "drafting_team_id": 14
+            "drafting_team_id": 13
           },
           {
             "player_id": 208,
@@ -1882,7 +1882,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 15,
             "year": 2011,
             "type": "National",
-            "drafting_team_id": 14
+            "drafting_team_id": 13
           },
           {
             "player_id": 210,
@@ -1891,7 +1891,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 31,
             "year": 2017,
             "type": "Rookie",
-            "drafting_team_id": 1
+            "drafting_team_id": 0
           },
           {
             "player_id": 211,
@@ -1900,7 +1900,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 19,
             "year": 2016,
             "type": "National",
-            "drafting_team_id": 18
+            "drafting_team_id": 17
           },
           {
             "player_id": 212,
@@ -1909,7 +1909,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 41,
             "year": 2019,
             "type": "National",
-            "drafting_team_id": 7
+            "drafting_team_id": 6
           },
           {
             "player_id": 213,
@@ -1918,7 +1918,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 39,
             "year": 2020,
             "type": "National",
-            "drafting_team_id": 5
+            "drafting_team_id": 4
           },
           {
             "player_id": 214,
@@ -1927,7 +1927,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 55,
             "year": 2013,
             "type": "National",
-            "drafting_team_id": 5
+            "drafting_team_id": 4
           },
           {
             "player_id": 215,
@@ -1936,7 +1936,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 60,
             "year": 2019,
             "type": "National",
-            "drafting_team_id": 8
+            "drafting_team_id": 7
           },
           {
             "player_id": 216,
@@ -1945,7 +1945,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 51,
             "year": 2017,
             "type": "National",
-            "drafting_team_id": 13
+            "drafting_team_id": 12
           },
           {
             "player_id": 217,
@@ -1954,7 +1954,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 85,
             "year": 2014,
             "type": "National",
-            "drafting_team_id": 9
+            "drafting_team_id": 8
           },
           {
             "player_id": 218,
@@ -1963,7 +1963,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 20,
             "year": 2015,
             "type": "National",
-            "drafting_team_id": 8
+            "drafting_team_id": 7
           },
           {
             "player_id": 219,
@@ -1972,7 +1972,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 27,
             "year": 2016,
             "type": "National",
-            "drafting_team_id": 3
+            "drafting_team_id": 2
           },
           {
             "player_id": 220,
@@ -1981,7 +1981,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 11,
             "year": 2019,
             "type": "National",
-            "drafting_team_id": 8
+            "drafting_team_id": 7
           },
           {
             "player_id": 221,
@@ -1990,7 +1990,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 58,
             "year": 2020,
             "type": "National",
-            "drafting_team_id": 9
+            "drafting_team_id": 8
           },
           {
             "player_id": 222,
@@ -1999,7 +1999,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 11,
             "year": 2016,
             "type": "National",
-            "drafting_team_id": 16
+            "drafting_team_id": 15
           },
           {
             "player_id": 223,
@@ -2008,7 +2008,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 41,
             "year": 2015,
             "type": "National",
-            "drafting_team_id": 9
+            "drafting_team_id": 8
           },
           {
             "player_id": 224,
@@ -2017,7 +2017,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 12,
             "year": 2017,
             "type": "National",
-            "drafting_team_id": 1
+            "drafting_team_id": 0
           },
           {
             "player_id": 225,
@@ -2026,7 +2026,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 22,
             "year": 2017,
             "type": "National",
-            "drafting_team_id": 7
+            "drafting_team_id": 6
           },
           {
             "player_id": 226,
@@ -2035,7 +2035,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 31,
             "year": 2018,
             "type": "National",
-            "drafting_team_id": 17
+            "drafting_team_id": 16
           },
           {
             "player_id": 227,
@@ -2044,7 +2044,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 56,
             "year": 2020,
             "type": "National",
-            "drafting_team_id": 12
+            "drafting_team_id": 11
           },
           {
             "player_id": 228,
@@ -2053,7 +2053,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 65,
             "year": 2018,
             "type": "National",
-            "drafting_team_id": 7
+            "drafting_team_id": 6
           },
           {
             "player_id": 229,
@@ -2062,7 +2062,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 34,
             "year": 2016,
             "type": "Rookie",
-            "drafting_team_id": 16
+            "drafting_team_id": 15
           },
           {
             "player_id": 230,
@@ -2071,7 +2071,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 84,
             "year": 2014,
             "type": "National",
-            "drafting_team_id": 13
+            "drafting_team_id": 12
           },
           {
             "player_id": 231,
@@ -2080,7 +2080,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 6,
             "year": 2015,
             "type": "National",
-            "drafting_team_id": 5
+            "drafting_team_id": 4
           },
           {
             "player_id": 232,
@@ -2089,7 +2089,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 5,
             "year": 2004,
             "type": "National",
-            "drafting_team_id": 10
+            "drafting_team_id": 9
           },
           {
             "player_id": 233,
@@ -2098,7 +2098,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 12,
             "year": 2006,
             "type": "National",
-            "drafting_team_id": 11
+            "drafting_team_id": 10
           },
           {
             "player_id": 234,
@@ -2116,7 +2116,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 61,
             "year": 2019,
             "type": "National",
-            "drafting_team_id": 6
+            "drafting_team_id": 5
           },
           {
             "player_id": 236,
@@ -2125,7 +2125,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 31,
             "year": 2017,
             "type": "National",
-            "drafting_team_id": 11
+            "drafting_team_id": 10
           },
           {
             "player_id": 237,
@@ -2134,7 +2134,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 83,
             "year": 2012,
             "type": "National",
-            "drafting_team_id": 9
+            "drafting_team_id": 8
           },
           {
             "player_id": 238,
@@ -2152,7 +2152,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 38,
             "year": 2020,
             "type": "Rookie",
-            "drafting_team_id": 8
+            "drafting_team_id": 7
           },
           {
             "player_id": 240,
@@ -2161,7 +2161,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 20,
             "year": 2009,
             "type": "National",
-            "drafting_team_id": 6
+            "drafting_team_id": 5
           },
           {
             "player_id": 241,
@@ -2170,7 +2170,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 4,
             "year": 2010,
             "type": "National",
-            "drafting_team_id": 17
+            "drafting_team_id": 16
           },
           {
             "player_id": 242,
@@ -2179,7 +2179,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 62,
             "year": 2019,
             "type": "National",
-            "drafting_team_id": 18
+            "drafting_team_id": 17
           },
           {
             "player_id": 243,
@@ -2188,7 +2188,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 22,
             "year": 2013,
             "type": "National",
-            "drafting_team_id": 2
+            "drafting_team_id": 1
           },
           {
             "player_id": 244,
@@ -2197,7 +2197,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 6,
             "year": 2018,
             "type": "Midyear",
-            "drafting_team_id": 18
+            "drafting_team_id": 17
           },
           {
             "player_id": 245,
@@ -2206,7 +2206,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 60,
             "year": 2017,
             "type": "National",
-            "drafting_team_id": 13
+            "drafting_team_id": 12
           },
           {
             "player_id": 246,
@@ -2215,7 +2215,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 15,
             "year": 2012,
             "type": "National",
-            "drafting_team_id": 12
+            "drafting_team_id": 11
           },
           {
             "player_id": 247,
@@ -2224,7 +2224,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 72,
             "year": 2016,
             "type": "National",
-            "drafting_team_id": 14
+            "drafting_team_id": 13
           },
           {
             "player_id": 248,
@@ -2233,7 +2233,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 34,
             "year": 2009,
             "type": "National",
-            "drafting_team_id": 11
+            "drafting_team_id": 10
           },
           {
             "player_id": 249,
@@ -2242,7 +2242,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 58,
             "year": 2006,
             "type": "Rookie",
-            "drafting_team_id": 15
+            "drafting_team_id": 14
           },
           {
             "player_id": 250,
@@ -2251,7 +2251,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 18,
             "year": 2019,
             "type": "National",
-            "drafting_team_id": 13
+            "drafting_team_id": 12
           },
           {
             "player_id": 251,
@@ -2269,7 +2269,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 1,
             "year": 2020,
             "type": "Rookie",
-            "drafting_team_id": 1
+            "drafting_team_id": 0
           },
           {
             "player_id": 253,
@@ -2278,7 +2278,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 13,
             "year": 2020,
             "type": "Rookie",
-            "drafting_team_id": 4
+            "drafting_team_id": 3
           },
           {
             "player_id": 254,
@@ -2287,7 +2287,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 21,
             "year": 2017,
             "type": "Rookie",
-            "drafting_team_id": 6
+            "drafting_team_id": 5
           },
           {
             "player_id": 255,
@@ -2296,7 +2296,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 6,
             "year": 2020,
             "type": "Rookie",
-            "drafting_team_id": 5
+            "drafting_team_id": 4
           },
           {
             "player_id": 256,
@@ -2305,7 +2305,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 16,
             "year": 2020,
             "type": "Rookie",
-            "drafting_team_id": 13
+            "drafting_team_id": 12
           },
           {
             "player_id": 257,
@@ -2314,7 +2314,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 37,
             "year": 2006,
             "type": "National",
-            "drafting_team_id": 12
+            "drafting_team_id": 11
           },
           {
             "player_id": 258,
@@ -2323,7 +2323,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 48,
             "year": 2019,
             "type": "National",
-            "drafting_team_id": 1
+            "drafting_team_id": 0
           },
           {
             "player_id": 259,
@@ -2332,7 +2332,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 26,
             "year": 2019,
             "type": "National",
-            "drafting_team_id": 16
+            "drafting_team_id": 15
           },
           {
             "player_id": 260,
@@ -2341,7 +2341,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 71,
             "year": 2018,
             "type": "National",
-            "drafting_team_id": 8
+            "drafting_team_id": 7
           },
           {
             "player_id": 261,
@@ -2350,7 +2350,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 53,
             "year": 2016,
             "type": "National",
-            "drafting_team_id": 14
+            "drafting_team_id": 13
           },
           {
             "player_id": 262,
@@ -2359,7 +2359,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 6,
             "year": 2020,
             "type": "National",
-            "drafting_team_id": 10
+            "drafting_team_id": 9
           },
           {
             "player_id": 263,
@@ -2368,7 +2368,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 55,
             "year": 2006,
             "type": "National",
-            "drafting_team_id": 13
+            "drafting_team_id": 12
           },
           {
             "player_id": 264,
@@ -2377,7 +2377,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 29,
             "year": 2013,
             "type": "Rookie",
-            "drafting_team_id": 13
+            "drafting_team_id": 12
           },
           {
             "player_id": 265,
@@ -2386,7 +2386,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 14,
             "year": 2018,
             "type": "Rookie",
-            "drafting_team_id": 10
+            "drafting_team_id": 9
           },
           {
             "player_id": 266,
@@ -2395,7 +2395,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 10,
             "year": 2019,
             "type": "National",
-            "drafting_team_id": 9
+            "drafting_team_id": 8
           },
           {
             "player_id": 267,
@@ -2404,7 +2404,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 11,
             "year": 2011,
             "type": "National",
-            "drafting_team_id": 9
+            "drafting_team_id": 8
           },
           {
             "player_id": 268,
@@ -2413,7 +2413,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 48,
             "year": 2015,
             "type": "Rookie",
-            "drafting_team_id": 1
+            "drafting_team_id": 0
           },
           {
             "player_id": 269,
@@ -2422,7 +2422,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 32,
             "year": 2007,
             "type": "National",
-            "drafting_team_id": 12
+            "drafting_team_id": 11
           },
           {
             "player_id": 270,
@@ -2431,7 +2431,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 18,
             "year": 2015,
             "type": "National",
-            "drafting_team_id": 15
+            "drafting_team_id": 14
           },
           {
             "player_id": 271,
@@ -2440,7 +2440,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 2,
             "year": 2009,
             "type": "Pre-Season",
-            "drafting_team_id": 14
+            "drafting_team_id": 13
           },
           {
             "player_id": 272,
@@ -2449,7 +2449,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 18,
             "year": 2012,
             "type": "National",
-            "drafting_team_id": 4
+            "drafting_team_id": 3
           },
           {
             "player_id": 273,
@@ -2458,7 +2458,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 76,
             "year": 2017,
             "type": "National",
-            "drafting_team_id": 5
+            "drafting_team_id": 4
           },
           {
             "player_id": 274,
@@ -2467,7 +2467,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 32,
             "year": 2020,
             "type": "National",
-            "drafting_team_id": 16
+            "drafting_team_id": 15
           },
           {
             "player_id": 275,
@@ -2476,7 +2476,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 29,
             "year": 2009,
             "type": "National",
-            "drafting_team_id": 1
+            "drafting_team_id": 0
           },
           {
             "player_id": 276,
@@ -2485,7 +2485,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 23,
             "year": 2010,
             "type": "National",
-            "drafting_team_id": 7
+            "drafting_team_id": 6
           },
           {
             "player_id": 277,
@@ -2494,7 +2494,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 33,
             "year": 2016,
             "type": "Rookie",
-            "drafting_team_id": 7
+            "drafting_team_id": 6
           },
           {
             "player_id": 278,
@@ -2503,7 +2503,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 7,
             "year": 2011,
             "type": "Pre-Season",
-            "drafting_team_id": 8
+            "drafting_team_id": 7
           },
           {
             "player_id": 279,
@@ -2512,7 +2512,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 72,
             "year": 2018,
             "type": "National",
-            "drafting_team_id": 5
+            "drafting_team_id": 4
           },
           {
             "player_id": 280,
@@ -2521,7 +2521,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 30,
             "year": 2018,
             "type": "National",
-            "drafting_team_id": 1
+            "drafting_team_id": 0
           },
           {
             "player_id": 281,
@@ -2530,7 +2530,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 32,
             "year": 2011,
             "type": "National",
-            "drafting_team_id": 7
+            "drafting_team_id": 6
           },
           {
             "player_id": 282,
@@ -2539,7 +2539,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 46,
             "year": 2016,
             "type": "National",
-            "drafting_team_id": 11
+            "drafting_team_id": 10
           },
           {
             "player_id": 283,
@@ -2548,7 +2548,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 30,
             "year": 2008,
             "type": "National",
-            "drafting_team_id": 16
+            "drafting_team_id": 15
           },
           {
             "player_id": 284,
@@ -2557,7 +2557,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 14,
             "year": 2016,
             "type": "Rookie",
-            "drafting_team_id": 10
+            "drafting_team_id": 9
           },
           {
             "player_id": 285,
@@ -2566,7 +2566,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 27,
             "year": 2006,
             "type": "Rookie",
-            "drafting_team_id": 18
+            "drafting_team_id": 17
           },
           {
             "player_id": 286,
@@ -2575,7 +2575,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 44,
             "year": 2015,
             "type": "National",
-            "drafting_team_id": 10
+            "drafting_team_id": 9
           },
           {
             "player_id": 287,
@@ -2584,7 +2584,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 2,
             "year": 2013,
             "type": "Rookie",
-            "drafting_team_id": 11
+            "drafting_team_id": 10
           },
           {
             "player_id": 288,
@@ -2593,7 +2593,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 76,
             "year": 2013,
             "type": "National",
-            "drafting_team_id": 1
+            "drafting_team_id": 0
           },
           {
             "player_id": 289,
@@ -2602,7 +2602,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 4,
             "year": 2008,
             "type": "National",
-            "drafting_team_id": 13
+            "drafting_team_id": 12
           },
           {
             "player_id": 290,
@@ -2611,7 +2611,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 2,
             "year": 2019,
             "type": "Pre-Season",
-            "drafting_team_id": 10
+            "drafting_team_id": 9
           },
           {
             "player_id": 291,
@@ -2620,7 +2620,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 1,
             "year": 2020,
             "type": "Pre-Season",
-            "drafting_team_id": 1
+            "drafting_team_id": 0
           },
           {
             "player_id": 292,
@@ -2629,7 +2629,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 41,
             "year": 2006,
             "type": "National",
-            "drafting_team_id": 7
+            "drafting_team_id": 6
           },
           {
             "player_id": 293,
@@ -2638,7 +2638,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 27,
             "year": 2018,
             "type": "Rookie",
-            "drafting_team_id": 12
+            "drafting_team_id": 11
           },
           {
             "player_id": 294,
@@ -2647,7 +2647,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 47,
             "year": 2017,
             "type": "National",
-            "drafting_team_id": 13
+            "drafting_team_id": 12
           },
           {
             "player_id": 295,
@@ -2656,7 +2656,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 78,
             "year": 2018,
             "type": "National",
-            "drafting_team_id": 18
+            "drafting_team_id": 17
           },
           {
             "player_id": 296,
@@ -2665,7 +2665,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 7,
             "year": 2011,
             "type": "National",
-            "drafting_team_id": 9
+            "drafting_team_id": 8
           },
           {
             "player_id": 297,
@@ -2674,7 +2674,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 21,
             "year": 2016,
             "type": "National",
-            "drafting_team_id": 16
+            "drafting_team_id": 15
           },
           {
             "player_id": 298,
@@ -2683,7 +2683,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 18,
             "year": 2014,
             "type": "National",
-            "drafting_team_id": 16
+            "drafting_team_id": 15
           },
           {
             "player_id": 299,
@@ -2692,7 +2692,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 35,
             "year": 2019,
             "type": "Rookie",
-            "drafting_team_id": 7
+            "drafting_team_id": 6
           },
           {
             "player_id": 300,
@@ -2701,7 +2701,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 16,
             "year": 2016,
             "type": "Rookie",
-            "drafting_team_id": 7
+            "drafting_team_id": 6
           },
           {
             "player_id": 301,
@@ -2710,7 +2710,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 9,
             "year": 2019,
             "type": "National",
-            "drafting_team_id": 6
+            "drafting_team_id": 5
           },
           {
             "player_id": 302,
@@ -2719,7 +2719,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 17,
             "year": 2020,
             "type": "National",
-            "drafting_team_id": 4
+            "drafting_team_id": 3
           },
           {
             "player_id": 303,
@@ -2728,7 +2728,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 8,
             "year": 2010,
             "type": "National",
-            "drafting_team_id": 5
+            "drafting_team_id": 4
           },
           {
             "player_id": 304,
@@ -2737,7 +2737,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 32,
             "year": 2013,
             "type": "National",
-            "drafting_team_id": 16
+            "drafting_team_id": 15
           },
           {
             "player_id": 305,
@@ -2746,7 +2746,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 4,
             "year": 2010,
             "type": "Pre-Season",
-            "drafting_team_id": 5
+            "drafting_team_id": 4
           },
           {
             "player_id": 306,
@@ -2764,7 +2764,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 17,
             "year": 2017,
             "type": "National",
-            "drafting_team_id": 14
+            "drafting_team_id": 13
           },
           {
             "player_id": 308,
@@ -2773,7 +2773,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 11,
             "year": 2005,
             "type": "National",
-            "drafting_team_id": 18
+            "drafting_team_id": 17
           },
           {
             "player_id": 309,
@@ -2782,7 +2782,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 45,
             "year": 2020,
             "type": "National",
-            "drafting_team_id": 15
+            "drafting_team_id": 14
           },
           {
             "player_id": 310,
@@ -2791,7 +2791,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 33,
             "year": 2011,
             "type": "National",
-            "drafting_team_id": 10
+            "drafting_team_id": 9
           },
           {
             "player_id": 311,
@@ -2800,7 +2800,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 24,
             "year": 2018,
             "type": "National",
-            "drafting_team_id": 9
+            "drafting_team_id": 8
           },
           {
             "player_id": 312,
@@ -2809,7 +2809,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 3,
             "year": 2008,
             "type": "National",
-            "drafting_team_id": 6
+            "drafting_team_id": 5
           },
           {
             "player_id": 313,
@@ -2818,7 +2818,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 51,
             "year": 2016,
             "type": "National",
-            "drafting_team_id": 1
+            "drafting_team_id": 0
           },
           {
             "player_id": 314,
@@ -2827,7 +2827,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 16,
             "year": 2015,
             "type": "National",
-            "drafting_team_id": 9
+            "drafting_team_id": 8
           },
           {
             "player_id": 315,
@@ -2836,7 +2836,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 54,
             "year": 2018,
             "type": "National",
-            "drafting_team_id": 15
+            "drafting_team_id": 14
           },
           {
             "player_id": 316,
@@ -2845,7 +2845,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 20,
             "year": 2016,
             "type": "Rookie",
-            "drafting_team_id": 2
+            "drafting_team_id": 1
           },
           {
             "player_id": 317,
@@ -2854,7 +2854,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 14,
             "year": 2015,
             "type": "National",
-            "drafting_team_id": 2
+            "drafting_team_id": 1
           },
           {
             "player_id": 318,
@@ -2872,7 +2872,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 2,
             "year": 2012,
             "type": "Mini",
-            "drafting_team_id": 11
+            "drafting_team_id": 10
           },
           {
             "player_id": 320,
@@ -2881,7 +2881,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 7,
             "year": 2020,
             "type": "National",
-            "drafting_team_id": 8
+            "drafting_team_id": 7
           },
           {
             "player_id": 321,
@@ -2890,7 +2890,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 19,
             "year": 2017,
             "type": "Rookie",
-            "drafting_team_id": 8
+            "drafting_team_id": 7
           },
           {
             "player_id": 322,
@@ -2899,7 +2899,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 20,
             "year": 2020,
             "type": "National",
-            "drafting_team_id": 7
+            "drafting_team_id": 6
           },
           {
             "player_id": 323,
@@ -2908,7 +2908,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 20,
             "year": 2020,
             "type": "Rookie",
-            "drafting_team_id": 8
+            "drafting_team_id": 7
           },
           {
             "player_id": 324,
@@ -2917,7 +2917,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 3,
             "year": 2019,
             "type": "Rookie",
-            "drafting_team_id": 3
+            "drafting_team_id": 2
           },
           {
             "player_id": 325,
@@ -2926,7 +2926,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 54,
             "year": 2007,
             "type": "National",
-            "drafting_team_id": 5
+            "drafting_team_id": 4
           },
           {
             "player_id": 326,
@@ -2935,7 +2935,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 7,
             "year": 2015,
             "type": "National",
-            "drafting_team_id": 9
+            "drafting_team_id": 8
           },
           {
             "player_id": 327,
@@ -2944,7 +2944,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 56,
             "year": 2018,
             "type": "National",
-            "drafting_team_id": 11
+            "drafting_team_id": 10
           },
           {
             "player_id": 328,
@@ -2953,7 +2953,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 4,
             "year": 2011,
             "type": "National",
-            "drafting_team_id": 9
+            "drafting_team_id": 8
           },
           {
             "player_id": 329,
@@ -2962,7 +2962,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 3,
             "year": 2010,
             "type": "Pre-Season",
-            "drafting_team_id": 14
+            "drafting_team_id": 13
           },
           {
             "player_id": 330,
@@ -2971,7 +2971,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 45,
             "year": 2015,
             "type": "Rookie",
-            "drafting_team_id": 13
+            "drafting_team_id": 12
           },
           {
             "player_id": 331,
@@ -2980,7 +2980,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 56,
             "year": 2014,
             "type": "National",
-            "drafting_team_id": 13
+            "drafting_team_id": 12
           },
           {
             "player_id": 332,
@@ -2989,7 +2989,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 31,
             "year": 2014,
             "type": "National",
-            "drafting_team_id": 10
+            "drafting_team_id": 9
           },
           {
             "player_id": 333,
@@ -2998,7 +2998,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 33,
             "year": 2010,
             "type": "National",
-            "drafting_team_id": 11
+            "drafting_team_id": 10
           },
           {
             "player_id": 334,
@@ -3007,7 +3007,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 5,
             "year": 2018,
             "type": "Rookie",
-            "drafting_team_id": 6
+            "drafting_team_id": 5
           },
           {
             "player_id": 335,
@@ -3016,7 +3016,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 57,
             "year": 2013,
             "type": "National",
-            "drafting_team_id": 11
+            "drafting_team_id": 10
           },
           {
             "player_id": 336,
@@ -3025,7 +3025,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 49,
             "year": 2012,
             "type": "National",
-            "drafting_team_id": 18
+            "drafting_team_id": 17
           },
           {
             "player_id": 337,
@@ -3034,7 +3034,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 24,
             "year": 2018,
             "type": "Rookie",
-            "drafting_team_id": 1
+            "drafting_team_id": 0
           },
           {
             "player_id": 338,
@@ -3043,7 +3043,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 5,
             "year": 2008,
             "type": "National",
-            "drafting_team_id": 5
+            "drafting_team_id": 4
           },
           {
             "player_id": 339,
@@ -3052,7 +3052,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 13,
             "year": 2005,
             "type": "National",
-            "drafting_team_id": 17
+            "drafting_team_id": 16
           },
           {
             "player_id": 340,
@@ -3061,7 +3061,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 65,
             "year": 2019,
             "type": "National",
-            "drafting_team_id": 9
+            "drafting_team_id": 8
           },
           {
             "player_id": 341,
@@ -3070,7 +3070,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 60,
             "year": 2012,
             "type": "National",
-            "drafting_team_id": 17
+            "drafting_team_id": 16
           },
           {
             "player_id": 342,
@@ -3079,7 +3079,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 61,
             "year": 2018,
             "type": "National",
-            "drafting_team_id": 9
+            "drafting_team_id": 8
           },
           {
             "player_id": 343,
@@ -3088,7 +3088,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 21,
             "year": 2013,
             "type": "National",
-            "drafting_team_id": 13
+            "drafting_team_id": 12
           },
           {
             "player_id": 344,
@@ -3097,7 +3097,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 3,
             "year": 2019,
             "type": "National",
-            "drafting_team_id": 11
+            "drafting_team_id": 10
           },
           {
             "player_id": 345,
@@ -3106,7 +3106,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 49,
             "year": 2019,
             "type": "National",
-            "drafting_team_id": 17
+            "drafting_team_id": 16
           },
           {
             "player_id": 346,
@@ -3115,7 +3115,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 48,
             "year": 2018,
             "type": "National",
-            "drafting_team_id": 7
+            "drafting_team_id": 6
           },
           {
             "player_id": 347,
@@ -3133,7 +3133,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 9,
             "year": 2019,
             "type": "Rookie",
-            "drafting_team_id": 10
+            "drafting_team_id": 9
           },
           {
             "player_id": 349,
@@ -3142,7 +3142,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 12,
             "year": 2010,
             "type": "Rookie",
-            "drafting_team_id": 5
+            "drafting_team_id": 4
           },
           {
             "player_id": 350,
@@ -3151,7 +3151,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 50,
             "year": 2013,
             "type": "Rookie",
-            "drafting_team_id": 11
+            "drafting_team_id": 10
           },
           {
             "player_id": 351,
@@ -3169,7 +3169,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 105,
             "year": 2012,
             "type": "National",
-            "drafting_team_id": 18
+            "drafting_team_id": 17
           },
           {
             "player_id": 353,
@@ -3178,7 +3178,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 58,
             "year": 2019,
             "type": "National",
-            "drafting_team_id": 17
+            "drafting_team_id": 16
           },
           {
             "player_id": 354,
@@ -3187,7 +3187,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 63,
             "year": 2019,
             "type": "National",
-            "drafting_team_id": 5
+            "drafting_team_id": 4
           },
           {
             "player_id": 355,
@@ -3196,7 +3196,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 85,
             "year": 2012,
             "type": "National",
-            "drafting_team_id": 13
+            "drafting_team_id": 12
           },
           {
             "player_id": 356,
@@ -3205,7 +3205,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 9,
             "year": 2018,
             "type": "National",
-            "drafting_team_id": 1
+            "drafting_team_id": 0
           },
           {
             "player_id": 357,
@@ -3214,7 +3214,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 30,
             "year": 2019,
             "type": "National",
-            "drafting_team_id": 5
+            "drafting_team_id": 4
           },
           {
             "player_id": 358,
@@ -3223,7 +3223,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 48,
             "year": 2016,
             "type": "Rookie",
-            "drafting_team_id": 7
+            "drafting_team_id": 6
           },
           {
             "player_id": 359,
@@ -3232,7 +3232,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 16,
             "year": 2020,
             "type": "National",
-            "drafting_team_id": 13
+            "drafting_team_id": 12
           },
           {
             "player_id": 360,
@@ -3241,7 +3241,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 32,
             "year": 2008,
             "type": "National",
-            "drafting_team_id": 18
+            "drafting_team_id": 17
           },
           {
             "player_id": 361,
@@ -3250,7 +3250,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 12,
             "year": 2005,
             "type": "National",
-            "drafting_team_id": 11
+            "drafting_team_id": 10
           },
           {
             "player_id": 362,
@@ -3259,7 +3259,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 15,
             "year": 2013,
             "type": "National",
-            "drafting_team_id": 16
+            "drafting_team_id": 15
           },
           {
             "player_id": 363,
@@ -3268,7 +3268,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 9,
             "year": 2011,
             "type": "Rookie",
-            "drafting_team_id": 18
+            "drafting_team_id": 17
           },
           {
             "player_id": 364,
@@ -3277,7 +3277,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 33,
             "year": 2018,
             "type": "National",
-            "drafting_team_id": 11
+            "drafting_team_id": 10
           },
           {
             "player_id": 365,
@@ -3295,7 +3295,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 40,
             "year": 2018,
             "type": "National",
-            "drafting_team_id": 2
+            "drafting_team_id": 1
           },
           {
             "player_id": 367,
@@ -3322,7 +3322,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 58,
             "year": 2015,
             "type": "Rookie",
-            "drafting_team_id": 1
+            "drafting_team_id": 0
           },
           {
             "player_id": 370,
@@ -3331,7 +3331,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 7,
             "year": 2019,
             "type": "Rookie",
-            "drafting_team_id": 1
+            "drafting_team_id": 0
           },
           {
             "player_id": 371,
@@ -3340,7 +3340,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 7,
             "year": 2015,
             "type": "Rookie",
-            "drafting_team_id": 4
+            "drafting_team_id": 3
           },
           {
             "player_id": 372,
@@ -3349,7 +3349,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 40,
             "year": 2013,
             "type": "Rookie",
-            "drafting_team_id": 1
+            "drafting_team_id": 0
           },
           {
             "player_id": 373,
@@ -3358,7 +3358,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 2,
             "year": 2013,
             "type": "National",
-            "drafting_team_id": 9
+            "drafting_team_id": 8
           },
           {
             "player_id": 374,
@@ -3367,7 +3367,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 24,
             "year": 2017,
             "type": "National",
-            "drafting_team_id": 7
+            "drafting_team_id": 6
           },
           {
             "player_id": 375,
@@ -3376,7 +3376,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 29,
             "year": 2018,
             "type": "National",
-            "drafting_team_id": 4
+            "drafting_team_id": 3
           },
           {
             "player_id": 376,
@@ -3385,7 +3385,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 17,
             "year": 2019,
             "type": "National",
-            "drafting_team_id": 3
+            "drafting_team_id": 2
           },
           {
             "player_id": 377,
@@ -3403,7 +3403,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 40,
             "year": 2006,
             "type": "National",
-            "drafting_team_id": 10
+            "drafting_team_id": 9
           },
           {
             "player_id": 379,
@@ -3412,7 +3412,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 4,
             "year": 2005,
             "type": "National",
-            "drafting_team_id": 3
+            "drafting_team_id": 2
           },
           {
             "player_id": 380,
@@ -3421,7 +3421,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 13,
             "year": 2015,
             "type": "National",
-            "drafting_team_id": 9
+            "drafting_team_id": 8
           },
           {
             "player_id": 381,
@@ -3430,7 +3430,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 48,
             "year": 2012,
             "type": "National",
-            "drafting_team_id": 11
+            "drafting_team_id": 10
           },
           {
             "player_id": 382,
@@ -3439,7 +3439,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 6,
             "year": 2018,
             "type": "National",
-            "drafting_team_id": 8
+            "drafting_team_id": 7
           },
           {
             "player_id": 383,
@@ -3448,7 +3448,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 4,
             "year": 2018,
             "type": "National",
-            "drafting_team_id": 15
+            "drafting_team_id": 14
           },
           {
             "player_id": 384,
@@ -3457,7 +3457,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 41,
             "year": 2013,
             "type": "National",
-            "drafting_team_id": 7
+            "drafting_team_id": 6
           },
           {
             "player_id": 385,
@@ -3466,7 +3466,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 52,
             "year": 2018,
             "type": "National",
-            "drafting_team_id": 10
+            "drafting_team_id": 9
           },
           {
             "player_id": 386,
@@ -3484,7 +3484,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 9,
             "year": 2016,
             "type": "Rookie",
-            "drafting_team_id": 13
+            "drafting_team_id": 12
           },
           {
             "player_id": 388,
@@ -3493,7 +3493,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 86,
             "year": 2013,
             "type": "National",
-            "drafting_team_id": 1
+            "drafting_team_id": 0
           },
           {
             "player_id": 389,
@@ -3502,7 +3502,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 46,
             "year": 2014,
             "type": "Rookie",
-            "drafting_team_id": 14
+            "drafting_team_id": 13
           },
           {
             "player_id": 390,
@@ -3511,7 +3511,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 54,
             "year": 2014,
             "type": "National",
-            "drafting_team_id": 6
+            "drafting_team_id": 5
           },
           {
             "player_id": 391,
@@ -3520,7 +3520,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 56,
             "year": 2017,
             "type": "National",
-            "drafting_team_id": 9
+            "drafting_team_id": 8
           },
           {
             "player_id": 392,
@@ -3529,7 +3529,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 17,
             "year": 2014,
             "type": "National",
-            "drafting_team_id": 5
+            "drafting_team_id": 4
           },
           {
             "player_id": 393,
@@ -3538,7 +3538,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 73,
             "year": 2016,
             "type": "National",
-            "drafting_team_id": 12
+            "drafting_team_id": 11
           },
           {
             "player_id": 394,
@@ -3547,7 +3547,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 22,
             "year": 2020,
             "type": "National",
-            "drafting_team_id": 11
+            "drafting_team_id": 10
           },
           {
             "player_id": 395,
@@ -3556,7 +3556,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 20,
             "year": 2014,
             "type": "National",
-            "drafting_team_id": 5
+            "drafting_team_id": 4
           },
           {
             "player_id": 396,
@@ -3565,7 +3565,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 36,
             "year": 2020,
             "type": "National",
-            "drafting_team_id": 12
+            "drafting_team_id": 11
           },
           {
             "player_id": 397,
@@ -3574,7 +3574,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 27,
             "year": 2013,
             "type": "National",
-            "drafting_team_id": 8
+            "drafting_team_id": 7
           },
           {
             "player_id": 398,
@@ -3583,7 +3583,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 28,
             "year": 2010,
             "type": "National",
-            "drafting_team_id": 2
+            "drafting_team_id": 1
           },
           {
             "player_id": 399,
@@ -3592,7 +3592,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 14,
             "year": 2014,
             "type": "National",
-            "drafting_team_id": 1
+            "drafting_team_id": 0
           },
           {
             "player_id": 400,
@@ -3601,7 +3601,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 76,
             "year": 2016,
             "type": "National",
-            "drafting_team_id": 10
+            "drafting_team_id": 9
           },
           {
             "player_id": 401,
@@ -3610,7 +3610,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 41,
             "year": 2010,
             "type": "National",
-            "drafting_team_id": 18
+            "drafting_team_id": 17
           },
           {
             "player_id": 402,
@@ -3619,7 +3619,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 42,
             "year": 2016,
             "type": "Rookie",
-            "drafting_team_id": 13
+            "drafting_team_id": 12
           },
           {
             "player_id": 403,
@@ -3628,7 +3628,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 14,
             "year": 2017,
             "type": "National",
-            "drafting_team_id": 16
+            "drafting_team_id": 15
           },
           {
             "player_id": 404,
@@ -3637,7 +3637,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 28,
             "year": 2016,
             "type": "National",
-            "drafting_team_id": 18
+            "drafting_team_id": 17
           },
           {
             "player_id": 405,
@@ -3646,7 +3646,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 26,
             "year": 2015,
             "type": "Rookie",
-            "drafting_team_id": 9
+            "drafting_team_id": 8
           },
           {
             "player_id": 406,
@@ -3655,7 +3655,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 16,
             "year": 2012,
             "type": "Rookie",
-            "drafting_team_id": 16
+            "drafting_team_id": 15
           },
           {
             "player_id": 407,
@@ -3664,7 +3664,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 29,
             "year": 2013,
             "type": "National",
-            "drafting_team_id": 9
+            "drafting_team_id": 8
           },
           {
             "player_id": 408,
@@ -3682,7 +3682,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 8,
             "year": 2016,
             "type": "National",
-            "drafting_team_id": 6
+            "drafting_team_id": 5
           },
           {
             "player_id": 410,
@@ -3691,7 +3691,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 25,
             "year": 2016,
             "type": "National",
-            "drafting_team_id": 15
+            "drafting_team_id": 14
           },
           {
             "player_id": 411,
@@ -3700,7 +3700,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 41,
             "year": 2014,
             "type": "National",
-            "drafting_team_id": 15
+            "drafting_team_id": 14
           },
           {
             "player_id": 412,
@@ -3709,7 +3709,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 49,
             "year": 2020,
             "type": "National",
-            "drafting_team_id": 13
+            "drafting_team_id": 12
           },
           {
             "player_id": 413,
@@ -3718,7 +3718,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 2,
             "year": 2018,
             "type": "National",
-            "drafting_team_id": 8
+            "drafting_team_id": 7
           },
           {
             "player_id": 414,
@@ -3727,7 +3727,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 29,
             "year": 2010,
             "type": "National",
-            "drafting_team_id": 17
+            "drafting_team_id": 16
           },
           {
             "player_id": 415,
@@ -3736,7 +3736,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 51,
             "year": 2016,
             "type": "Rookie",
-            "drafting_team_id": 4
+            "drafting_team_id": 3
           },
           {
             "player_id": 416,
@@ -3745,7 +3745,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 11,
             "year": 2010,
             "type": "National",
-            "drafting_team_id": 8
+            "drafting_team_id": 7
           },
           {
             "player_id": 417,
@@ -3754,7 +3754,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 13,
             "year": 2008,
             "type": "National",
-            "drafting_team_id": 15
+            "drafting_team_id": 14
           },
           {
             "player_id": 418,
@@ -3763,7 +3763,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 61,
             "year": 2010,
             "type": "National",
-            "drafting_team_id": 1
+            "drafting_team_id": 0
           },
           {
             "player_id": 419,
@@ -3772,7 +3772,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 48,
             "year": 2006,
             "type": "National",
-            "drafting_team_id": 1
+            "drafting_team_id": 0
           },
           {
             "player_id": 420,
@@ -3781,7 +3781,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 21,
             "year": 2015,
             "type": "Rookie",
-            "drafting_team_id": 8
+            "drafting_team_id": 7
           },
           {
             "player_id": 421,
@@ -3790,7 +3790,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 19,
             "year": 2020,
             "type": "National",
-            "drafting_team_id": 4
+            "drafting_team_id": 3
           },
           {
             "player_id": 422,
@@ -3799,7 +3799,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 6,
             "year": 2012,
             "type": "National",
-            "drafting_team_id": 18
+            "drafting_team_id": 17
           },
           {
             "player_id": 423,
@@ -3826,7 +3826,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 29,
             "year": 2019,
             "type": "National",
-            "drafting_team_id": 10
+            "drafting_team_id": 9
           },
           {
             "player_id": 426,
@@ -3835,7 +3835,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 34,
             "year": 2019,
             "type": "National",
-            "drafting_team_id": 12
+            "drafting_team_id": 11
           },
           {
             "player_id": 427,
@@ -3853,7 +3853,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 6,
             "year": 2014,
             "type": "National",
-            "drafting_team_id": 9
+            "drafting_team_id": 8
           },
           {
             "player_id": 429,
@@ -3862,7 +3862,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 50,
             "year": 2015,
             "type": "National",
-            "drafting_team_id": 14
+            "drafting_team_id": 13
           },
           {
             "player_id": 430,
@@ -3871,7 +3871,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 10,
             "year": 2016,
             "type": "Rookie",
-            "drafting_team_id": 15
+            "drafting_team_id": 14
           },
           {
             "player_id": 431,
@@ -3880,7 +3880,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 16,
             "year": 2016,
             "type": "National",
-            "drafting_team_id": 13
+            "drafting_team_id": 12
           },
           {
             "player_id": 432,
@@ -3889,7 +3889,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 3,
             "year": 2009,
             "type": "National",
-            "drafting_team_id": 14
+            "drafting_team_id": 13
           },
           {
             "player_id": 433,
@@ -3898,7 +3898,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 1,
             "year": 2019,
             "type": "Pre-Season",
-            "drafting_team_id": 3
+            "drafting_team_id": 2
           },
           {
             "player_id": 434,
@@ -3907,7 +3907,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 3,
             "year": 2007,
             "type": "Pre-Season",
-            "drafting_team_id": 11
+            "drafting_team_id": 10
           },
           {
             "player_id": 435,
@@ -3916,7 +3916,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 44,
             "year": 2019,
             "type": "National",
-            "drafting_team_id": 14
+            "drafting_team_id": 13
           },
           {
             "player_id": 436,
@@ -3925,7 +3925,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 39,
             "year": 2015,
             "type": "National",
-            "drafting_team_id": 2
+            "drafting_team_id": 1
           },
           {
             "player_id": 437,
@@ -3943,7 +3943,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 8,
             "year": 2012,
             "type": "National",
-            "drafting_team_id": 2
+            "drafting_team_id": 1
           },
           {
             "player_id": 439,
@@ -3952,7 +3952,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 30,
             "year": 2014,
             "type": "National",
-            "drafting_team_id": 4
+            "drafting_team_id": 3
           },
           {
             "player_id": 440,
@@ -3961,7 +3961,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 40,
             "year": 2007,
             "type": "National",
-            "drafting_team_id": 6
+            "drafting_team_id": 5
           },
           {
             "player_id": 441,
@@ -3979,7 +3979,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 6,
             "year": 2019,
             "type": "National",
-            "drafting_team_id": 1
+            "drafting_team_id": 0
           },
           {
             "player_id": 443,
@@ -3997,7 +3997,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 66,
             "year": 2011,
             "type": "National",
-            "drafting_team_id": 7
+            "drafting_team_id": 6
           },
           {
             "player_id": 445,
@@ -4006,7 +4006,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 33,
             "year": 2017,
             "type": "National",
-            "drafting_team_id": 16
+            "drafting_team_id": 15
           },
           {
             "player_id": 446,
@@ -4015,7 +4015,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 3,
             "year": 2016,
             "type": "National",
-            "drafting_team_id": 2
+            "drafting_team_id": 1
           },
           {
             "player_id": 447,
@@ -4024,7 +4024,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 44,
             "year": 2020,
             "type": "National",
-            "drafting_team_id": 4
+            "drafting_team_id": 3
           },
           {
             "player_id": 448,
@@ -4033,7 +4033,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 4,
             "year": 2020,
             "type": "National",
-            "drafting_team_id": 16
+            "drafting_team_id": 15
           },
           {
             "player_id": 449,
@@ -4042,7 +4042,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 8,
             "year": 2013,
             "type": "National",
-            "drafting_team_id": 12
+            "drafting_team_id": 11
           },
           {
             "player_id": 450,
@@ -4051,7 +4051,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 53,
             "year": 2010,
             "type": "National",
-            "drafting_team_id": 11
+            "drafting_team_id": 10
           },
           {
             "player_id": 451,
@@ -4060,7 +4060,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 22,
             "year": 2015,
             "type": "Rookie",
-            "drafting_team_id": 5
+            "drafting_team_id": 4
           },
           {
             "player_id": 452,
@@ -4069,7 +4069,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 9,
             "year": 2007,
             "type": "National",
-            "drafting_team_id": 15
+            "drafting_team_id": 14
           },
           {
             "player_id": 453,
@@ -4078,7 +4078,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 42,
             "year": 2018,
             "type": "National",
-            "drafting_team_id": 2
+            "drafting_team_id": 1
           },
           {
             "player_id": 454,
@@ -4087,7 +4087,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 74,
             "year": 2013,
             "type": "National",
-            "drafting_team_id": 17
+            "drafting_team_id": 16
           },
           {
             "player_id": 455,
@@ -4096,7 +4096,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 43,
             "year": 2014,
             "type": "National",
-            "drafting_team_id": 1
+            "drafting_team_id": 0
           },
           {
             "player_id": 456,
@@ -4105,7 +4105,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 1,
             "year": 2016,
             "type": "National",
-            "drafting_team_id": 5
+            "drafting_team_id": 4
           },
           {
             "player_id": 457,
@@ -4123,7 +4123,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 16,
             "year": 2018,
             "type": "National",
-            "drafting_team_id": 1
+            "drafting_team_id": 0
           },
           {
             "player_id": 459,
@@ -4132,7 +4132,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 44,
             "year": 2018,
             "type": "National",
-            "drafting_team_id": 16
+            "drafting_team_id": 15
           },
           {
             "player_id": 460,
@@ -4141,7 +4141,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 37,
             "year": 2016,
             "type": "Rookie",
-            "drafting_team_id": 2
+            "drafting_team_id": 1
           },
           {
             "player_id": 461,
@@ -4150,7 +4150,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 23,
             "year": 2020,
             "type": "National",
-            "drafting_team_id": 4
+            "drafting_team_id": 3
           },
           {
             "player_id": 462,
@@ -4159,7 +4159,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 31,
             "year": 2012,
             "type": "National",
-            "drafting_team_id": 14
+            "drafting_team_id": 13
           },
           {
             "player_id": 463,
@@ -4168,7 +4168,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 21,
             "year": 2015,
             "type": "National",
-            "drafting_team_id": 12
+            "drafting_team_id": 11
           },
           {
             "player_id": 464,
@@ -4177,7 +4177,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 10,
             "year": 2015,
             "type": "National",
-            "drafting_team_id": 3
+            "drafting_team_id": 2
           },
           {
             "player_id": 465,
@@ -4186,7 +4186,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 22,
             "year": 2014,
             "type": "National",
-            "drafting_team_id": 15
+            "drafting_team_id": 14
           },
           {
             "player_id": 466,
@@ -4204,7 +4204,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 19,
             "year": 2016,
             "type": "Rookie",
-            "drafting_team_id": 5
+            "drafting_team_id": 4
           },
           {
             "player_id": 468,
@@ -4222,7 +4222,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 26,
             "year": 2014,
             "type": "National",
-            "drafting_team_id": 18
+            "drafting_team_id": 17
           },
           {
             "player_id": 470,
@@ -4231,7 +4231,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 23,
             "year": 2018,
             "type": "National",
-            "drafting_team_id": 8
+            "drafting_team_id": 7
           },
           {
             "player_id": 471,
@@ -4240,7 +4240,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 31,
             "year": 2020,
             "type": "National",
-            "drafting_team_id": 4
+            "drafting_team_id": 3
           },
           {
             "player_id": 472,
@@ -4249,7 +4249,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 11,
             "year": 2020,
             "type": "Rookie",
-            "drafting_team_id": 18
+            "drafting_team_id": 17
           },
           {
             "player_id": 473,
@@ -4258,7 +4258,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 40,
             "year": 2017,
             "type": "National",
-            "drafting_team_id": 1
+            "drafting_team_id": 0
           },
           {
             "player_id": 474,
@@ -4276,7 +4276,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 25,
             "year": 2013,
             "type": "National",
-            "drafting_team_id": 2
+            "drafting_team_id": 1
           },
           {
             "player_id": 476,
@@ -4285,7 +4285,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 25,
             "year": 2019,
             "type": "National",
-            "drafting_team_id": 13
+            "drafting_team_id": 12
           },
           {
             "player_id": 477,
@@ -4294,7 +4294,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 69,
             "year": 2017,
             "type": "National",
-            "drafting_team_id": 6
+            "drafting_team_id": 5
           },
           {
             "player_id": 478,
@@ -4303,7 +4303,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 52,
             "year": 2014,
             "type": "Rookie",
-            "drafting_team_id": 16
+            "drafting_team_id": 15
           },
           {
             "player_id": 479,
@@ -4312,7 +4312,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 10,
             "year": 2009,
             "type": "National",
-            "drafting_team_id": 5
+            "drafting_team_id": 4
           },
           {
             "player_id": 480,
@@ -4321,7 +4321,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 46,
             "year": 2012,
             "type": "National",
-            "drafting_team_id": 16
+            "drafting_team_id": 15
           },
           {
             "player_id": 481,
@@ -4330,7 +4330,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 18,
             "year": 2020,
             "type": "Rookie",
-            "drafting_team_id": 12
+            "drafting_team_id": 11
           },
           {
             "player_id": 482,
@@ -4339,7 +4339,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 66,
             "year": 2015,
             "type": "National",
-            "drafting_team_id": 7
+            "drafting_team_id": 6
           },
           {
             "player_id": 483,
@@ -4348,7 +4348,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 26,
             "year": 2013,
             "type": "National",
-            "drafting_team_id": 5
+            "drafting_team_id": 4
           },
           {
             "player_id": 484,
@@ -4366,7 +4366,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 57,
             "year": 2017,
             "type": "National",
-            "drafting_team_id": 7
+            "drafting_team_id": 6
           },
           {
             "player_id": 486,
@@ -4375,7 +4375,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 22,
             "year": 2017,
             "type": "Rookie",
-            "drafting_team_id": 4
+            "drafting_team_id": 3
           },
           {
             "player_id": 487,
@@ -4384,7 +4384,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 11,
             "year": 2015,
             "type": "National",
-            "drafting_team_id": 1
+            "drafting_team_id": 0
           },
           {
             "player_id": 488,
@@ -4393,7 +4393,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 63,
             "year": 2017,
             "type": "National",
-            "drafting_team_id": 14
+            "drafting_team_id": 13
           },
           {
             "player_id": 489,
@@ -4402,7 +4402,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 29,
             "year": 2014,
             "type": "National",
-            "drafting_team_id": 8
+            "drafting_team_id": 7
           },
           {
             "player_id": 490,
@@ -4411,7 +4411,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 3,
             "year": 2015,
             "type": "National",
-            "drafting_team_id": 16
+            "drafting_team_id": 15
           },
           {
             "player_id": 491,
@@ -4420,7 +4420,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 29,
             "year": 2020,
             "type": "National",
-            "drafting_team_id": 10
+            "drafting_team_id": 9
           },
           {
             "player_id": 492,
@@ -4429,7 +4429,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 21,
             "year": 2011,
             "type": "National",
-            "drafting_team_id": 16
+            "drafting_team_id": 15
           },
           {
             "player_id": 493,
@@ -4438,7 +4438,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 9,
             "year": 2014,
             "type": "National",
-            "drafting_team_id": 4
+            "drafting_team_id": 3
           },
           {
             "player_id": 494,
@@ -4447,7 +4447,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 67,
             "year": 2017,
             "type": "National",
-            "drafting_team_id": 10
+            "drafting_team_id": 9
           },
           {
             "player_id": 495,
@@ -4456,7 +4456,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 57,
             "year": 2019,
             "type": "National",
-            "drafting_team_id": 10
+            "drafting_team_id": 9
           },
           {
             "player_id": 496,
@@ -4465,7 +4465,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 74,
             "year": 2016,
             "type": "National",
-            "drafting_team_id": 10
+            "drafting_team_id": 9
           },
           {
             "player_id": 497,
@@ -4474,7 +4474,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 38,
             "year": 2018,
             "type": "National",
-            "drafting_team_id": 5
+            "drafting_team_id": 4
           },
           {
             "player_id": 498,
@@ -4483,7 +4483,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 39,
             "year": 2008,
             "type": "National",
-            "drafting_team_id": 7
+            "drafting_team_id": 6
           },
           {
             "player_id": 499,
@@ -4492,7 +4492,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 57,
             "year": 2007,
             "type": "Rookie",
-            "drafting_team_id": 7
+            "drafting_team_id": 6
           },
           {
             "player_id": 500,
@@ -4501,7 +4501,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 19,
             "year": 2003,
             "type": "National",
-            "drafting_team_id": 6
+            "drafting_team_id": 5
           },
           {
             "player_id": 501,
@@ -4510,7 +4510,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 33,
             "year": 2020,
             "type": "Rookie",
-            "drafting_team_id": 8
+            "drafting_team_id": 7
           },
           {
             "player_id": 502,
@@ -4519,7 +4519,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 38,
             "year": 2017,
             "type": "Rookie",
-            "drafting_team_id": 1
+            "drafting_team_id": 0
           },
           {
             "player_id": 503,
@@ -4537,7 +4537,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 39,
             "year": 2017,
             "type": "National",
-            "drafting_team_id": 4
+            "drafting_team_id": 3
           },
           {
             "player_id": 505,
@@ -4555,7 +4555,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 34,
             "year": 2017,
             "type": "National",
-            "drafting_team_id": 14
+            "drafting_team_id": 13
           },
           {
             "player_id": 507,
@@ -4564,7 +4564,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 58,
             "year": 2012,
             "type": "Rookie",
-            "drafting_team_id": 16
+            "drafting_team_id": 15
           },
           {
             "player_id": 508,
@@ -4573,7 +4573,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 2,
             "year": 2008,
             "type": "National",
-            "drafting_team_id": 17
+            "drafting_team_id": 16
           },
           {
             "player_id": 509,
@@ -4582,7 +4582,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 35,
             "year": 2013,
             "type": "National",
-            "drafting_team_id": 16
+            "drafting_team_id": 15
           },
           {
             "player_id": 510,
@@ -4591,7 +4591,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 60,
             "year": 2016,
             "type": "National",
-            "drafting_team_id": 7
+            "drafting_team_id": 6
           },
           {
             "player_id": 511,
@@ -4609,7 +4609,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 9,
             "year": 2017,
             "type": "National",
-            "drafting_team_id": 18
+            "drafting_team_id": 17
           },
           {
             "player_id": 513,
@@ -4618,7 +4618,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 40,
             "year": 2014,
             "type": "National",
-            "drafting_team_id": 11
+            "drafting_team_id": 10
           },
           {
             "player_id": 514,
@@ -4627,7 +4627,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 58,
             "year": 2011,
             "type": "National",
-            "drafting_team_id": 6
+            "drafting_team_id": 5
           },
           {
             "player_id": 515,
@@ -4636,7 +4636,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 33,
             "year": 2020,
             "type": "National",
-            "drafting_team_id": 7
+            "drafting_team_id": 6
           },
           {
             "player_id": 516,
@@ -4645,7 +4645,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 51,
             "year": 2014,
             "type": "National",
-            "drafting_team_id": 17
+            "drafting_team_id": 16
           },
           {
             "player_id": 517,
@@ -4663,7 +4663,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 35,
             "year": 2014,
             "type": "Rookie",
-            "drafting_team_id": 16
+            "drafting_team_id": 15
           },
           {
             "player_id": 519,
@@ -4672,7 +4672,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 37,
             "year": 2011,
             "type": "National",
-            "drafting_team_id": 15
+            "drafting_team_id": 14
           },
           {
             "player_id": 520,
@@ -4681,7 +4681,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 40,
             "year": 2020,
             "type": "Rookie",
-            "drafting_team_id": 8
+            "drafting_team_id": 7
           },
           {
             "player_id": 521,
@@ -4690,7 +4690,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 53,
             "year": 2018,
             "type": "National",
-            "drafting_team_id": 11
+            "drafting_team_id": 10
           },
           {
             "player_id": 522,
@@ -4699,7 +4699,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 14,
             "year": 2018,
             "type": "Midyear",
-            "drafting_team_id": 4
+            "drafting_team_id": 3
           },
           {
             "player_id": 523,
@@ -4708,7 +4708,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 54,
             "year": 2019,
             "type": "National",
-            "drafting_team_id": 14
+            "drafting_team_id": 13
           },
           {
             "player_id": 524,
@@ -4717,7 +4717,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 10,
             "year": 2017,
             "type": "National",
-            "drafting_team_id": 3
+            "drafting_team_id": 2
           },
           {
             "player_id": 525,
@@ -4726,7 +4726,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 9,
             "year": 2014,
             "type": "Rookie",
-            "drafting_team_id": 1
+            "drafting_team_id": 0
           },
           {
             "player_id": 526,
@@ -4735,7 +4735,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 28,
             "year": 2012,
             "type": "National",
-            "drafting_team_id": 10
+            "drafting_team_id": 9
           },
           {
             "player_id": 527,
@@ -4762,7 +4762,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 42,
             "year": 2019,
             "type": "National",
-            "drafting_team_id": 1
+            "drafting_team_id": 0
           },
           {
             "player_id": 530,
@@ -4771,7 +4771,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 27,
             "year": 2020,
             "type": "National",
-            "drafting_team_id": 6
+            "drafting_team_id": 5
           },
           {
             "player_id": 531,
@@ -4789,7 +4789,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 22,
             "year": 2018,
             "type": "National",
-            "drafting_team_id": 9
+            "drafting_team_id": 8
           },
           {
             "player_id": 533,
@@ -4807,7 +4807,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 4,
             "year": 2015,
             "type": "National",
-            "drafting_team_id": 11
+            "drafting_team_id": 10
           },
           {
             "player_id": 535,
@@ -4816,7 +4816,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 1,
             "year": 2011,
             "type": "Mini",
-            "drafting_team_id": 8
+            "drafting_team_id": 7
           },
           {
             "player_id": 536,
@@ -4825,7 +4825,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 28,
             "year": 2018,
             "type": "National",
-            "drafting_team_id": 17
+            "drafting_team_id": 16
           },
           {
             "player_id": 537,
@@ -4834,7 +4834,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 69,
             "year": 2015,
             "type": "Rookie",
-            "drafting_team_id": 16
+            "drafting_team_id": 15
           },
           {
             "player_id": 538,
@@ -4852,7 +4852,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 14,
             "year": 2015,
             "type": "Rookie",
-            "drafting_team_id": 16
+            "drafting_team_id": 15
           },
           {
             "player_id": 540,
@@ -4861,7 +4861,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 26,
             "year": 2016,
             "type": "National",
-            "drafting_team_id": 7
+            "drafting_team_id": 6
           },
           {
             "player_id": 541,
@@ -4870,7 +4870,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 5,
             "year": 2015,
             "type": "National",
-            "drafting_team_id": 5
+            "drafting_team_id": 4
           },
           {
             "player_id": 542,
@@ -4879,7 +4879,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 40,
             "year": 2010,
             "type": "National",
-            "drafting_team_id": 16
+            "drafting_team_id": 15
           },
           {
             "player_id": 543,
@@ -4888,7 +4888,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 8,
             "year": 2020,
             "type": "Rookie",
-            "drafting_team_id": 3
+            "drafting_team_id": 2
           },
           {
             "player_id": 544,
@@ -4897,7 +4897,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 8,
             "year": 2019,
             "type": "Rookie",
-            "drafting_team_id": 13
+            "drafting_team_id": 12
           },
           {
             "player_id": 545,
@@ -4906,7 +4906,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 46,
             "year": 2017,
             "type": "National",
-            "drafting_team_id": 15
+            "drafting_team_id": 14
           },
           {
             "player_id": 546,
@@ -4915,7 +4915,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 1,
             "year": 2011,
             "type": "National",
-            "drafting_team_id": 9
+            "drafting_team_id": 8
           },
           {
             "player_id": 547,
@@ -4924,7 +4924,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 54,
             "year": 2017,
             "type": "National",
-            "drafting_team_id": 2
+            "drafting_team_id": 1
           },
           {
             "player_id": 548,
@@ -4933,7 +4933,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 37,
             "year": 2013,
             "type": "National",
-            "drafting_team_id": 6
+            "drafting_team_id": 5
           },
           {
             "player_id": 549,
@@ -4942,7 +4942,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 11,
             "year": 2020,
             "type": "National",
-            "drafting_team_id": 1
+            "drafting_team_id": 0
           },
           {
             "player_id": 550,
@@ -4951,7 +4951,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 5,
             "year": 2005,
             "type": "National",
-            "drafting_team_id": 4
+            "drafting_team_id": 3
           },
           {
             "player_id": 551,
@@ -4969,7 +4969,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 35,
             "year": 2019,
             "type": "National",
-            "drafting_team_id": 12
+            "drafting_team_id": 11
           },
           {
             "player_id": 553,
@@ -4978,7 +4978,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 9,
             "year": 2020,
             "type": "National",
-            "drafting_team_id": 5
+            "drafting_team_id": 4
           },
           {
             "player_id": 554,
@@ -4987,7 +4987,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 14,
             "year": 2016,
             "type": "National",
-            "drafting_team_id": 9
+            "drafting_team_id": 8
           },
           {
             "player_id": 555,
@@ -4996,7 +4996,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 2,
             "year": 2014,
             "type": "National",
-            "drafting_team_id": 11
+            "drafting_team_id": 10
           },
           {
             "player_id": 556,
@@ -5005,7 +5005,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 6,
             "year": 2016,
             "type": "National",
-            "drafting_team_id": 3
+            "drafting_team_id": 2
           },
           {
             "player_id": 557,
@@ -5014,7 +5014,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 38,
             "year": 2017,
             "type": "National",
-            "drafting_team_id": 17
+            "drafting_team_id": 16
           },
           {
             "player_id": 558,
@@ -5023,7 +5023,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 37,
             "year": 2017,
             "type": "National",
-            "drafting_team_id": 11
+            "drafting_team_id": 10
           },
           {
             "player_id": 559,
@@ -5032,7 +5032,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 97,
             "year": 2012,
             "type": "National",
-            "drafting_team_id": 9
+            "drafting_team_id": 8
           },
           {
             "player_id": 560,
@@ -5041,7 +5041,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 58,
             "year": 2015,
             "type": "National",
-            "drafting_team_id": 4
+            "drafting_team_id": 3
           },
           {
             "player_id": 561,
@@ -5050,7 +5050,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 3,
             "year": 2020,
             "type": "National",
-            "drafting_team_id": 12
+            "drafting_team_id": 11
           },
           {
             "player_id": 562,
@@ -5059,7 +5059,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 20,
             "year": 2019,
             "type": "National",
-            "drafting_team_id": 3
+            "drafting_team_id": 2
           },
           {
             "player_id": 563,
@@ -5068,7 +5068,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 12,
             "year": 2019,
             "type": "National",
-            "drafting_team_id": 11
+            "drafting_team_id": 10
           },
           {
             "player_id": 564,
@@ -5077,7 +5077,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 13,
             "year": 2018,
             "type": "Midyear",
-            "drafting_team_id": 14
+            "drafting_team_id": 13
           },
           {
             "player_id": 565,
@@ -5086,7 +5086,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 50,
             "year": 2014,
             "type": "National",
-            "drafting_team_id": 10
+            "drafting_team_id": 9
           },
           {
             "player_id": 566,
@@ -5095,7 +5095,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 3,
             "year": 2012,
             "type": "National",
-            "drafting_team_id": 9
+            "drafting_team_id": 8
           },
           {
             "player_id": 567,
@@ -5104,7 +5104,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 5,
             "year": 2010,
             "type": "National",
-            "drafting_team_id": 2
+            "drafting_team_id": 1
           },
           {
             "player_id": 568,
@@ -5113,7 +5113,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 30,
             "year": 2020,
             "type": "National",
-            "drafting_team_id": 4
+            "drafting_team_id": 3
           },
           {
             "player_id": 569,
@@ -5122,7 +5122,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 13,
             "year": 2020,
             "type": "National",
-            "drafting_team_id": 12
+            "drafting_team_id": 11
           },
           {
             "player_id": 570,
@@ -5131,7 +5131,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 19,
             "year": 2017,
             "type": "National",
-            "drafting_team_id": 8
+            "drafting_team_id": 7
           },
           {
             "player_id": 571,
@@ -5140,7 +5140,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 18,
             "year": 2016,
             "type": "National",
-            "drafting_team_id": 13
+            "drafting_team_id": 12
           },
           {
             "player_id": 572,
@@ -5149,7 +5149,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 9,
             "year": 2010,
             "type": "National",
-            "drafting_team_id": 8
+            "drafting_team_id": 7
           },
           {
             "player_id": 573,
@@ -5158,7 +5158,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 15,
             "year": 2014,
             "type": "Rookie",
-            "drafting_team_id": 12
+            "drafting_team_id": 11
           },
           {
             "player_id": 574,
@@ -5167,7 +5167,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 59,
             "year": 2019,
             "type": "National",
-            "drafting_team_id": 2
+            "drafting_team_id": 1
           },
           {
             "player_id": 575,
@@ -5176,7 +5176,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 13,
             "year": 2018,
             "type": "National",
-            "drafting_team_id": 4
+            "drafting_team_id": 3
           },
           {
             "player_id": 576,
@@ -5185,7 +5185,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 46,
             "year": 2019,
             "type": "National",
-            "drafting_team_id": 14
+            "drafting_team_id": 13
           },
           {
             "player_id": 577,
@@ -5194,7 +5194,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 90,
             "year": 2013,
             "type": "National",
-            "drafting_team_id": 16
+            "drafting_team_id": 15
           },
           {
             "player_id": 578,
@@ -5203,7 +5203,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 47,
             "year": 2019,
             "type": "National",
-            "drafting_team_id": 3
+            "drafting_team_id": 2
           },
           {
             "player_id": 579,
@@ -5212,7 +5212,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 3,
             "year": 2018,
             "type": "National",
-            "drafting_team_id": 8
+            "drafting_team_id": 7
           },
           {
             "player_id": 580,
@@ -5221,7 +5221,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 40,
             "year": 2019,
             "type": "National",
-            "drafting_team_id": 4
+            "drafting_team_id": 3
           },
           {
             "player_id": 581,
@@ -5230,7 +5230,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 43,
             "year": 2016,
             "type": "National",
-            "drafting_team_id": 7
+            "drafting_team_id": 6
           },
           {
             "player_id": 582,
@@ -5239,7 +5239,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 1,
             "year": 2017,
             "type": "National",
-            "drafting_team_id": 2
+            "drafting_team_id": 1
           },
           {
             "player_id": 583,
@@ -5248,7 +5248,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 25,
             "year": 2008,
             "type": "National",
-            "drafting_team_id": 2
+            "drafting_team_id": 1
           },
           {
             "player_id": 584,
@@ -5257,7 +5257,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 30,
             "year": 2015,
             "type": "National",
-            "drafting_team_id": 5
+            "drafting_team_id": 4
           },
           {
             "player_id": 585,
@@ -5275,7 +5275,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 38,
             "year": 2009,
             "type": "National",
-            "drafting_team_id": 16
+            "drafting_team_id": 15
           },
           {
             "player_id": 587,
@@ -5284,7 +5284,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 9,
             "year": 2020,
             "type": "Rookie",
-            "drafting_team_id": 9
+            "drafting_team_id": 8
           },
           {
             "player_id": 588,
@@ -5293,7 +5293,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 10,
             "year": 2020,
             "type": "National",
-            "drafting_team_id": 5
+            "drafting_team_id": 4
           },
           {
             "player_id": 589,
@@ -5302,7 +5302,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 51,
             "year": 2019,
             "type": "National",
-            "drafting_team_id": 9
+            "drafting_team_id": 8
           },
           {
             "player_id": 590,
@@ -5311,7 +5311,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 7,
             "year": 2008,
             "type": "National",
-            "drafting_team_id": 2
+            "drafting_team_id": 1
           },
           {
             "player_id": 591,
@@ -5320,7 +5320,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 16,
             "year": 2017,
             "type": "National",
-            "drafting_team_id": 18
+            "drafting_team_id": 17
           },
           {
             "player_id": 592,
@@ -5329,7 +5329,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 22,
             "year": 2016,
             "type": "National",
-            "drafting_team_id": 5
+            "drafting_team_id": 4
           },
           {
             "player_id": 593,
@@ -5338,7 +5338,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 13,
             "year": 2006,
             "type": "National",
-            "drafting_team_id": 14
+            "drafting_team_id": 13
           },
           {
             "player_id": 594,
@@ -5347,7 +5347,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 15,
             "year": 2015,
             "type": "National",
-            "drafting_team_id": 14
+            "drafting_team_id": 13
           },
           {
             "player_id": 595,
@@ -5356,7 +5356,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 51,
             "year": 2020,
             "type": "National",
-            "drafting_team_id": 14
+            "drafting_team_id": 13
           },
           {
             "player_id": 596,
@@ -5365,7 +5365,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 52,
             "year": 2016,
             "type": "National",
-            "drafting_team_id": 17
+            "drafting_team_id": 16
           },
           {
             "player_id": 597,
@@ -5374,7 +5374,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 32,
             "year": 2019,
             "type": "National",
-            "drafting_team_id": 11
+            "drafting_team_id": 10
           },
           {
             "player_id": 598,
@@ -5383,7 +5383,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 49,
             "year": 2009,
             "type": "National",
-            "drafting_team_id": 6
+            "drafting_team_id": 5
           },
           {
             "player_id": 599,
@@ -5392,7 +5392,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 22,
             "year": 2019,
             "type": "National",
-            "drafting_team_id": 2
+            "drafting_team_id": 1
           },
           {
             "player_id": 600,
@@ -5401,7 +5401,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 40,
             "year": 2008,
             "type": "National",
-            "drafting_team_id": 3
+            "drafting_team_id": 2
           },
           {
             "player_id": 601,
@@ -5410,7 +5410,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 5,
             "year": 2008,
             "type": "Pre-Season",
-            "drafting_team_id": 2
+            "drafting_team_id": 1
           },
           {
             "player_id": 602,
@@ -5419,7 +5419,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 6,
             "year": 2009,
             "type": "National",
-            "drafting_team_id": 16
+            "drafting_team_id": 15
           },
           {
             "player_id": 603,
@@ -5428,7 +5428,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 17,
             "year": 2016,
             "type": "Rookie",
-            "drafting_team_id": 16
+            "drafting_team_id": 15
           },
           {
             "player_id": 604,
@@ -5437,7 +5437,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 37,
             "year": 2019,
             "type": "Rookie",
-            "drafting_team_id": 8
+            "drafting_team_id": 7
           },
           {
             "player_id": 605,
@@ -5446,7 +5446,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 34,
             "year": 2020,
             "type": "National",
-            "drafting_team_id": 11
+            "drafting_team_id": 10
           },
           {
             "player_id": 606,
@@ -5455,7 +5455,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 43,
             "year": 2018,
             "type": "National",
-            "drafting_team_id": 14
+            "drafting_team_id": 13
           },
           {
             "player_id": 607,
@@ -5464,7 +5464,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 25,
             "year": 2011,
             "type": "National",
-            "drafting_team_id": 15
+            "drafting_team_id": 14
           },
           {
             "player_id": 608,
@@ -5473,7 +5473,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 37,
             "year": 2016,
             "type": "National",
-            "drafting_team_id": 17
+            "drafting_team_id": 16
           },
           {
             "player_id": 609,
@@ -5482,7 +5482,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 31,
             "year": 2008,
             "type": "National",
-            "drafting_team_id": 18
+            "drafting_team_id": 17
           },
           {
             "player_id": 610,
@@ -5491,7 +5491,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 25,
             "year": 2018,
             "type": "National",
-            "drafting_team_id": 16
+            "drafting_team_id": 15
           },
           {
             "player_id": 611,
@@ -5500,7 +5500,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 38,
             "year": 2020,
             "type": "National",
-            "drafting_team_id": 1
+            "drafting_team_id": 0
           },
           {
             "player_id": 612,
@@ -5509,7 +5509,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 1,
             "year": 2019,
             "type": "National",
-            "drafting_team_id": 8
+            "drafting_team_id": 7
           },
           {
             "player_id": 613,
@@ -5518,7 +5518,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 5,
             "year": 2018,
             "type": "National",
-            "drafting_team_id": 13
+            "drafting_team_id": 12
           },
           {
             "player_id": 614,
@@ -5527,7 +5527,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 55,
             "year": 2019,
             "type": "National",
-            "drafting_team_id": 4
+            "drafting_team_id": 3
           },
           {
             "player_id": 615,
@@ -5536,7 +5536,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 26,
             "year": 2017,
             "type": "National",
-            "drafting_team_id": 17
+            "drafting_team_id": 16
           },
           {
             "player_id": 616,
@@ -5545,7 +5545,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 66,
             "year": 2016,
             "type": "National",
-            "drafting_team_id": 6
+            "drafting_team_id": 5
           },
           {
             "player_id": 617,
@@ -5554,7 +5554,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 40,
             "year": 2020,
             "type": "National",
-            "drafting_team_id": 14
+            "drafting_team_id": 13
           },
           {
             "player_id": 618,
@@ -5563,7 +5563,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 7,
             "year": 2005,
             "type": "National",
-            "drafting_team_id": 5
+            "drafting_team_id": 4
           },
           {
             "player_id": 619,
@@ -5572,7 +5572,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 25,
             "year": 2014,
             "type": "Rookie",
-            "drafting_team_id": 8
+            "drafting_team_id": 7
           },
           {
             "player_id": 620,
@@ -5581,7 +5581,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 9,
             "year": 2013,
             "type": "National",
-            "drafting_team_id": 11
+            "drafting_team_id": 10
           },
           {
             "player_id": 621,
@@ -5590,7 +5590,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 4,
             "year": 2020,
             "type": "Rookie",
-            "drafting_team_id": 10
+            "drafting_team_id": 9
           },
           {
             "player_id": 622,
@@ -5599,7 +5599,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 2,
             "year": 2015,
             "type": "National",
-            "drafting_team_id": 2
+            "drafting_team_id": 1
           },
           {
             "player_id": 623,
@@ -5608,7 +5608,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 24,
             "year": 2019,
             "type": "National",
-            "drafting_team_id": 1
+            "drafting_team_id": 0
           },
           {
             "player_id": 624,
@@ -5617,7 +5617,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 37,
             "year": 2020,
             "type": "Rookie",
-            "drafting_team_id": 13
+            "drafting_team_id": 12
           },
           {
             "player_id": 625,
@@ -5626,7 +5626,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 57,
             "year": 2018,
             "type": "National",
-            "drafting_team_id": 6
+            "drafting_team_id": 5
           },
           {
             "player_id": 626,
@@ -5644,7 +5644,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 49,
             "year": 2018,
             "type": "National",
-            "drafting_team_id": 12
+            "drafting_team_id": 11
           },
           {
             "player_id": 628,
@@ -5653,7 +5653,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 7,
             "year": 2016,
             "type": "National",
-            "drafting_team_id": 8
+            "drafting_team_id": 7
           },
           {
             "player_id": 629,
@@ -5671,7 +5671,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 76,
             "year": 2010,
             "type": "National",
-            "drafting_team_id": 4
+            "drafting_team_id": 3
           },
           {
             "player_id": 631,
@@ -5680,7 +5680,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 7,
             "year": 2006,
             "type": "National",
-            "drafting_team_id": 7
+            "drafting_team_id": 6
           },
           {
             "player_id": 632,
@@ -5689,7 +5689,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 8,
             "year": 2019,
             "type": "National",
-            "drafting_team_id": 6
+            "drafting_team_id": 5
           },
           {
             "player_id": 633,
@@ -5698,7 +5698,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 5,
             "year": 2016,
             "type": "National",
-            "drafting_team_id": 9
+            "drafting_team_id": 8
           },
           {
             "player_id": 634,
@@ -5707,7 +5707,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 88,
             "year": 2011,
             "type": "National",
-            "drafting_team_id": 8
+            "drafting_team_id": 7
           },
           {
             "player_id": 635,
@@ -5716,7 +5716,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 43,
             "year": 2020,
             "type": "National",
-            "drafting_team_id": 2
+            "drafting_team_id": 1
           },
           {
             "player_id": 636,
@@ -5725,7 +5725,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 27,
             "year": 2019,
             "type": "National",
-            "drafting_team_id": 8
+            "drafting_team_id": 7
           },
           {
             "player_id": 637,
@@ -5752,7 +5752,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 11,
             "year": 2013,
             "type": "National",
-            "drafting_team_id": 17
+            "drafting_team_id": 16
           },
           {
             "player_id": 640,
@@ -5761,7 +5761,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 7,
             "year": 2009,
             "type": "National",
-            "drafting_team_id": 17
+            "drafting_team_id": 16
           },
           {
             "player_id": 641,
@@ -5779,7 +5779,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 34,
             "year": 2008,
             "type": "National",
-            "drafting_team_id": 10
+            "drafting_team_id": 9
           },
           {
             "player_id": 643,
@@ -5788,7 +5788,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 64,
             "year": 2017,
             "type": "National",
-            "drafting_team_id": 9
+            "drafting_team_id": 8
           },
           {
             "player_id": 644,
@@ -5797,7 +5797,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 64,
             "year": 2018,
             "type": "National",
-            "drafting_team_id": 1
+            "drafting_team_id": 0
           },
           {
             "player_id": 645,
@@ -5806,7 +5806,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 11,
             "year": 2014,
             "type": "Rookie",
-            "drafting_team_id": 14
+            "drafting_team_id": 13
           },
           {
             "player_id": 646,
@@ -5824,7 +5824,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 56,
             "year": 2013,
             "type": "National",
-            "drafting_team_id": 10
+            "drafting_team_id": 9
           },
           {
             "player_id": 648,
@@ -5833,7 +5833,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 11,
             "year": 2008,
             "type": "National",
-            "drafting_team_id": 4
+            "drafting_team_id": 3
           },
           {
             "player_id": 649,
@@ -5842,7 +5842,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 32,
             "year": 2015,
             "type": "National",
-            "drafting_team_id": 4
+            "drafting_team_id": 3
           },
           {
             "player_id": 650,
@@ -5851,7 +5851,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 53,
             "year": 2015,
             "type": "National",
-            "drafting_team_id": 3
+            "drafting_team_id": 2
           },
           {
             "player_id": 651,
@@ -5860,7 +5860,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 12,
             "year": 2016,
             "type": "National",
-            "drafting_team_id": 12
+            "drafting_team_id": 11
           },
           {
             "player_id": 652,
@@ -5869,7 +5869,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 53,
             "year": 2016,
             "type": "Rookie",
-            "drafting_team_id": 7
+            "drafting_team_id": 6
           },
           {
             "player_id": 653,
@@ -5878,7 +5878,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 12,
             "year": 2012,
             "type": "Rookie",
-            "drafting_team_id": 17
+            "drafting_team_id": 16
           },
           {
             "player_id": 654,
@@ -5887,7 +5887,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 1,
             "year": 2014,
             "type": "Rookie",
-            "drafting_team_id": 15
+            "drafting_team_id": 14
           },
           {
             "player_id": 655,
@@ -5896,7 +5896,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 44,
             "year": 2008,
             "type": "National",
-            "drafting_team_id": 1
+            "drafting_team_id": 0
           },
           {
             "player_id": 656,
@@ -5905,7 +5905,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 34,
             "year": 2019,
             "type": "Rookie",
-            "drafting_team_id": 2
+            "drafting_team_id": 1
           },
           {
             "player_id": 657,
@@ -5914,7 +5914,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 7,
             "year": 2018,
             "type": "National",
-            "drafting_team_id": 18
+            "drafting_team_id": 17
           },
           {
             "player_id": 658,
@@ -5923,7 +5923,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 33,
             "year": 2019,
             "type": "National",
-            "drafting_team_id": 2
+            "drafting_team_id": 1
           },
           {
             "player_id": 659,
@@ -5932,7 +5932,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 14,
             "year": 2010,
             "type": "National",
-            "drafting_team_id": 1
+            "drafting_team_id": 0
           },
           {
             "player_id": 660,
@@ -5941,7 +5941,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 14,
             "year": 2011,
             "type": "National",
-            "drafting_team_id": 9
+            "drafting_team_id": 8
           },
           {
             "player_id": 661,
@@ -5950,7 +5950,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 21,
             "year": 2018,
             "type": "National",
-            "drafting_team_id": 2
+            "drafting_team_id": 1
           },
           {
             "player_id": 662,
@@ -5959,7 +5959,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 48,
             "year": 2020,
             "type": "National",
-            "drafting_team_id": 2
+            "drafting_team_id": 1
           },
           {
             "player_id": 663,
@@ -5968,7 +5968,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 19,
             "year": 2010,
             "type": "National",
-            "drafting_team_id": 10
+            "drafting_team_id": 9
           },
           {
             "player_id": 664,
@@ -5977,7 +5977,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 41,
             "year": 2015,
             "type": "Rookie",
-            "drafting_team_id": 11
+            "drafting_team_id": 10
           },
           {
             "player_id": 665,
@@ -5986,7 +5986,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 26,
             "year": 2020,
             "type": "Rookie",
-            "drafting_team_id": 18
+            "drafting_team_id": 17
           },
           {
             "player_id": 666,
@@ -6004,7 +6004,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 7,
             "year": 2018,
             "type": "Midyear",
-            "drafting_team_id": 5
+            "drafting_team_id": 4
           },
           {
             "player_id": 668,
@@ -6013,7 +6013,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 68,
             "year": 2014,
             "type": "Rookie",
-            "drafting_team_id": 14
+            "drafting_team_id": 13
           },
           {
             "player_id": 669,
@@ -6022,7 +6022,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 29,
             "year": 2017,
             "type": "National",
-            "drafting_team_id": 11
+            "drafting_team_id": 10
           },
           {
             "player_id": 670,
@@ -6031,7 +6031,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 27,
             "year": 2018,
             "type": "National",
-            "drafting_team_id": 11
+            "drafting_team_id": 10
           },
           {
             "player_id": 671,
@@ -6040,7 +6040,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 42,
             "year": 2020,
             "type": "National",
-            "drafting_team_id": 12
+            "drafting_team_id": 11
           },
           {
             "player_id": 672,
@@ -6049,7 +6049,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 24,
             "year": 2020,
             "type": "Rookie",
-            "drafting_team_id": 9
+            "drafting_team_id": 8
           },
           {
             "player_id": 673,
@@ -6067,7 +6067,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 47,
             "year": 2008,
             "type": "National",
-            "drafting_team_id": 15
+            "drafting_team_id": 14
           },
           {
             "player_id": 675,
@@ -6076,7 +6076,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 18,
             "year": 2017,
             "type": "National",
-            "drafting_team_id": 2
+            "drafting_team_id": 1
           },
           {
             "player_id": 676,
@@ -6085,7 +6085,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 24,
             "year": 2014,
             "type": "National",
-            "drafting_team_id": 9
+            "drafting_team_id": 8
           },
           {
             "player_id": 677,
@@ -6094,7 +6094,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 15,
             "year": 2019,
             "type": "Rookie",
-            "drafting_team_id": 9
+            "drafting_team_id": 8
           },
           {
             "player_id": 678,
@@ -6103,7 +6103,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 6,
             "year": 2016,
             "type": "Rookie",
-            "drafting_team_id": 14
+            "drafting_team_id": 13
           },
           {
             "player_id": 679,
@@ -6112,7 +6112,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 16,
             "year": 2019,
             "type": "National",
-            "drafting_team_id": 7
+            "drafting_team_id": 6
           },
           {
             "player_id": 680,
@@ -6121,7 +6121,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 5,
             "year": 2019,
             "type": "National",
-            "drafting_team_id": 16
+            "drafting_team_id": 15
           },
           {
             "player_id": 681,
@@ -6130,7 +6130,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 6,
             "year": 2017,
             "type": "National",
-            "drafting_team_id": 4
+            "drafting_team_id": 3
           },
           {
             "player_id": 682,
@@ -6139,7 +6139,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 47,
             "year": 2020,
             "type": "National",
-            "drafting_team_id": 7
+            "drafting_team_id": 6
           },
           {
             "player_id": 683,
@@ -6148,7 +6148,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 27,
             "year": 2012,
             "type": "National",
-            "drafting_team_id": 9
+            "drafting_team_id": 8
           },
           {
             "player_id": 684,
@@ -6157,7 +6157,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 40,
             "year": 2016,
             "type": "National",
-            "drafting_team_id": 7
+            "drafting_team_id": 6
           },
           {
             "player_id": 685,
@@ -6166,7 +6166,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 19,
             "year": 2018,
             "type": "National",
-            "drafting_team_id": 3
+            "drafting_team_id": 2
           },
           {
             "player_id": 686,
@@ -6175,7 +6175,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 15,
             "year": 2020,
             "type": "National",
-            "drafting_team_id": 9
+            "drafting_team_id": 8
           },
           {
             "player_id": 687,
@@ -6184,7 +6184,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 7,
             "year": 2018,
             "type": "Rookie",
-            "drafting_team_id": 1
+            "drafting_team_id": 0
           },
           {
             "player_id": 688,
@@ -6193,7 +6193,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 5,
             "year": 2012,
             "type": "National",
-            "drafting_team_id": 18
+            "drafting_team_id": 17
           },
           {
             "player_id": 689,
@@ -6202,7 +6202,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 17,
             "year": 2018,
             "type": "National",
-            "drafting_team_id": 6
+            "drafting_team_id": 5
           },
           {
             "player_id": 690,
@@ -6211,7 +6211,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 1,
             "year": 2010,
             "type": "National",
-            "drafting_team_id": 8
+            "drafting_team_id": 7
           },
           {
             "player_id": 691,
@@ -6220,7 +6220,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 23,
             "year": 2018,
             "type": "Rookie",
-            "drafting_team_id": 18
+            "drafting_team_id": 17
           },
           {
             "player_id": 692,
@@ -6229,7 +6229,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 73,
             "year": 2017,
             "type": "National",
-            "drafting_team_id": 6
+            "drafting_team_id": 5
           },
           {
             "player_id": 693,
@@ -6238,7 +6238,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 70,
             "year": 2013,
             "type": "National",
-            "drafting_team_id": 6
+            "drafting_team_id": 5
           },
           {
             "player_id": 694,
@@ -6247,7 +6247,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 50,
             "year": 2019,
             "type": "National",
-            "drafting_team_id": 7
+            "drafting_team_id": 6
           },
           {
             "player_id": 695,
@@ -6256,7 +6256,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 13,
             "year": 2009,
             "type": "National",
-            "drafting_team_id": 1
+            "drafting_team_id": 0
           },
           {
             "player_id": 696,
@@ -6265,7 +6265,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 2,
             "year": 2016,
             "type": "National",
-            "drafting_team_id": 9
+            "drafting_team_id": 8
           },
           {
             "player_id": 697,
@@ -6274,7 +6274,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 15,
             "year": 2007,
             "type": "National",
-            "drafting_team_id": 12
+            "drafting_team_id": 11
           },
           {
             "player_id": 698,
@@ -6283,7 +6283,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 46,
             "year": 2018,
             "type": "National",
-            "drafting_team_id": 12
+            "drafting_team_id": 11
           },
           {
             "player_id": 699,
@@ -6292,7 +6292,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 28,
             "year": 2013,
             "type": "National",
-            "drafting_team_id": 2
+            "drafting_team_id": 1
           },
           {
             "player_id": 700,
@@ -6301,7 +6301,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 28,
             "year": 2017,
             "type": "National",
-            "drafting_team_id": 9
+            "drafting_team_id": 8
           },
           {
             "player_id": 701,
@@ -6310,7 +6310,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 2,
             "year": 2020,
             "type": "National",
-            "drafting_team_id": 1
+            "drafting_team_id": 0
           },
           {
             "player_id": 702,
@@ -6319,7 +6319,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 42,
             "year": 2015,
             "type": "Rookie",
-            "drafting_team_id": 4
+            "drafting_team_id": 3
           },
           {
             "player_id": 703,
@@ -6337,7 +6337,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 8,
             "year": 2018,
             "type": "National",
-            "drafting_team_id": 12
+            "drafting_team_id": 11
           },
           {
             "player_id": 705,
@@ -6364,7 +6364,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 9,
             "year": 2011,
             "type": "National",
-            "drafting_team_id": 9
+            "drafting_team_id": 8
           },
           {
             "player_id": 708,
@@ -6382,7 +6382,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 5,
             "year": 2020,
             "type": "Rookie",
-            "drafting_team_id": 8
+            "drafting_team_id": 7
           },
           {
             "player_id": 710,
@@ -6391,7 +6391,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 7,
             "year": 2020,
             "type": "Rookie",
-            "drafting_team_id": 6
+            "drafting_team_id": 5
           },
           {
             "player_id": 711,
@@ -6409,7 +6409,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 12,
             "year": 2020,
             "type": "Rookie",
-            "drafting_team_id": 17
+            "drafting_team_id": 16
           },
           {
             "player_id": 713,
@@ -6427,7 +6427,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 27,
             "year": 2015,
             "type": "National",
-            "drafting_team_id": 6
+            "drafting_team_id": 5
           },
           {
             "player_id": 715,
@@ -6436,7 +6436,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 102,
             "year": 2012,
             "type": "National",
-            "drafting_team_id": 3
+            "drafting_team_id": 2
           },
           {
             "player_id": 716,
@@ -6445,7 +6445,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 25,
             "year": 2013,
             "type": "Rookie",
-            "drafting_team_id": 12
+            "drafting_team_id": 11
           },
           {
             "player_id": 717,
@@ -6454,7 +6454,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 3,
             "year": 2011,
             "type": "National",
-            "drafting_team_id": 9
+            "drafting_team_id": 8
           },
           {
             "player_id": 718,
@@ -6463,7 +6463,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 1,
             "year": 2020,
             "type": "National",
-            "drafting_team_id": 18
+            "drafting_team_id": 17
           },
           {
             "player_id": 719,
@@ -6481,7 +6481,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 32,
             "year": 2018,
             "type": "National",
-            "drafting_team_id": 6
+            "drafting_team_id": 5
           },
           {
             "player_id": 721,
@@ -6490,7 +6490,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 2,
             "year": 2014,
             "type": "Rookie",
-            "drafting_team_id": 11
+            "drafting_team_id": 10
           },
           {
             "player_id": 722,
@@ -6499,7 +6499,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 37,
             "year": 2018,
             "type": "National",
-            "drafting_team_id": 18
+            "drafting_team_id": 17
           },
           {
             "player_id": 723,
@@ -6508,7 +6508,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 42,
             "year": 2009,
             "type": "National",
-            "drafting_team_id": 7
+            "drafting_team_id": 6
           },
           {
             "player_id": 724,
@@ -6517,7 +6517,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 27,
             "year": 2020,
             "type": "Rookie",
-            "drafting_team_id": 17
+            "drafting_team_id": 16
           },
           {
             "player_id": 725,
@@ -6526,7 +6526,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 26,
             "year": 2012,
             "type": "National",
-            "drafting_team_id": 11
+            "drafting_team_id": 10
           },
           {
             "player_id": 726,
@@ -6535,7 +6535,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 9,
             "year": 2012,
             "type": "National",
-            "drafting_team_id": 14
+            "drafting_team_id": 13
           },
           {
             "player_id": 727,
@@ -6544,7 +6544,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 50,
             "year": 2020,
             "type": "National",
-            "drafting_team_id": 6
+            "drafting_team_id": 5
           },
           {
             "player_id": 728,
@@ -6553,7 +6553,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 54,
             "year": 2013,
             "type": "National",
-            "drafting_team_id": 7
+            "drafting_team_id": 6
           },
           {
             "player_id": 729,
@@ -6562,7 +6562,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 2,
             "year": 2020,
             "type": "Rookie",
-            "drafting_team_id": 12
+            "drafting_team_id": 11
           },
           {
             "player_id": 730,
@@ -6571,7 +6571,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 75,
             "year": 2007,
             "type": "National",
-            "drafting_team_id": 1
+            "drafting_team_id": 0
           },
           {
             "player_id": 731,
@@ -6580,7 +6580,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 23,
             "year": 2017,
             "type": "National",
-            "drafting_team_id": 12
+            "drafting_team_id": 11
           },
           {
             "player_id": 732,
@@ -6589,7 +6589,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 22,
             "year": 2010,
             "type": "National",
-            "drafting_team_id": 18
+            "drafting_team_id": 17
           },
           {
             "player_id": 733,
@@ -6598,7 +6598,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 1,
             "year": 2018,
             "type": "National",
-            "drafting_team_id": 3
+            "drafting_team_id": 2
           },
           {
             "player_id": 734,
@@ -6607,7 +6607,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 53,
             "year": 2008,
             "type": "National",
-            "drafting_team_id": 6
+            "drafting_team_id": 5
           },
           {
             "player_id": 735,
@@ -6616,7 +6616,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 19,
             "year": 2007,
             "type": "National",
-            "drafting_team_id": 18
+            "drafting_team_id": 17
           },
           {
             "player_id": 736,
@@ -6625,7 +6625,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 39,
             "year": 2019,
             "type": "National",
-            "drafting_team_id": 16
+            "drafting_team_id": 15
           },
           {
             "player_id": 737,
@@ -6634,7 +6634,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 51,
             "year": 2015,
             "type": "Rookie",
-            "drafting_team_id": 17
+            "drafting_team_id": 16
           },
           {
             "player_id": 738,
@@ -6643,7 +6643,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 77,
             "year": 2016,
             "type": "National",
-            "drafting_team_id": 17
+            "drafting_team_id": 16
           },
           {
             "player_id": 739,
@@ -6652,7 +6652,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 22,
             "year": 2018,
             "type": "Rookie",
-            "drafting_team_id": 6
+            "drafting_team_id": 5
           },
           {
             "player_id": 740,
@@ -6661,7 +6661,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 42,
             "year": 2011,
             "type": "National",
-            "drafting_team_id": 15
+            "drafting_team_id": 14
           },
           {
             "player_id": 741,
@@ -6670,7 +6670,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 59,
             "year": 2020,
             "type": "National",
-            "drafting_team_id": 9
+            "drafting_team_id": 8
           },
           {
             "player_id": 742,
@@ -6679,7 +6679,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 9,
             "year": 2015,
             "type": "National",
-            "drafting_team_id": 11
+            "drafting_team_id": 10
           },
           {
             "player_id": 743,
@@ -6688,7 +6688,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 15,
             "year": 2019,
             "type": "National",
-            "drafting_team_id": 18
+            "drafting_team_id": 17
           },
           {
             "player_id": 744,
@@ -6697,7 +6697,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 1,
             "year": 2015,
             "type": "National",
-            "drafting_team_id": 3
+            "drafting_team_id": 2
           },
           {
             "player_id": 745,
@@ -6706,7 +6706,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 13,
             "year": 2014,
             "type": "National",
-            "drafting_team_id": 6
+            "drafting_team_id": 5
           },
           {
             "player_id": 746,
@@ -6715,7 +6715,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 26,
             "year": 2018,
             "type": "National",
-            "drafting_team_id": 18
+            "drafting_team_id": 17
           },
           {
             "player_id": 747,
@@ -6724,7 +6724,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 54,
             "year": 2020,
             "type": "National",
-            "drafting_team_id": 6
+            "drafting_team_id": 5
           },
           {
             "player_id": 748,
@@ -6733,7 +6733,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 1,
             "year": 2012,
             "type": "National",
-            "drafting_team_id": 9
+            "drafting_team_id": 8
           },
           {
             "player_id": 749,
@@ -6751,7 +6751,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 3,
             "year": 2018,
             "type": "Rookie",
-            "drafting_team_id": 15
+            "drafting_team_id": 14
           },
           {
             "player_id": 751,
@@ -6760,7 +6760,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 48,
             "year": 2015,
             "type": "National",
-            "drafting_team_id": 18
+            "drafting_team_id": 17
           },
           {
             "player_id": 752,
@@ -6769,7 +6769,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 35,
             "year": 2018,
             "type": "National",
-            "drafting_team_id": 17
+            "drafting_team_id": 16
           },
           {
             "player_id": 753,
@@ -6778,7 +6778,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 23,
             "year": 2019,
             "type": "National",
-            "drafting_team_id": 13
+            "drafting_team_id": 12
           },
           {
             "player_id": 754,
@@ -6787,7 +6787,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 95,
             "year": 2013,
             "type": "National",
-            "drafting_team_id": 9
+            "drafting_team_id": 8
           },
           {
             "player_id": 755,
@@ -6796,7 +6796,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 61,
             "year": 2016,
             "type": "National",
-            "drafting_team_id": 3
+            "drafting_team_id": 2
           },
           {
             "player_id": 756,
@@ -6823,7 +6823,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 57,
             "year": 2020,
             "type": "National",
-            "drafting_team_id": 17
+            "drafting_team_id": 16
           },
           {
             "player_id": 759,
@@ -6832,7 +6832,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 7,
             "year": 2012,
             "type": "National",
-            "drafting_team_id": 13
+            "drafting_team_id": 12
           },
           {
             "player_id": 760,
@@ -6841,7 +6841,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 6,
             "year": 2011,
             "type": "National",
-            "drafting_team_id": 13
+            "drafting_team_id": 12
           },
           {
             "player_id": 761,
@@ -6850,7 +6850,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 23,
             "year": 2016,
             "type": "National",
-            "drafting_team_id": 2
+            "drafting_team_id": 1
           },
           {
             "player_id": 762,
@@ -6859,7 +6859,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 67,
             "year": 2011,
             "type": "National",
-            "drafting_team_id": 4
+            "drafting_team_id": 3
           },
           {
             "player_id": 763,
@@ -6868,7 +6868,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 43,
             "year": 2007,
             "type": "National",
-            "drafting_team_id": 18
+            "drafting_team_id": 17
           },
           {
             "player_id": 764,
@@ -6877,7 +6877,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 41,
             "year": 2012,
             "type": "National",
-            "drafting_team_id": 12
+            "drafting_team_id": 11
           },
           {
             "player_id": 765,
@@ -6886,7 +6886,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 32,
             "year": 2019,
             "type": "Rookie",
-            "drafting_team_id": 13
+            "drafting_team_id": 12
           },
           {
             "player_id": 766,
@@ -6895,7 +6895,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 45,
             "year": 2017,
             "type": "National",
-            "drafting_team_id": 10
+            "drafting_team_id": 9
           },
           {
             "player_id": 767,
@@ -6904,7 +6904,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 28,
             "year": 2019,
             "type": "National",
-            "drafting_team_id": 1
+            "drafting_team_id": 0
           },
           {
             "player_id": 768,
@@ -6913,7 +6913,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 8,
             "year": 2014,
             "type": "National",
-            "drafting_team_id": 8
+            "drafting_team_id": 7
           },
           {
             "player_id": 769,
@@ -6922,7 +6922,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 72,
             "year": 2017,
             "type": "National",
-            "drafting_team_id": 12
+            "drafting_team_id": 11
           },
           {
             "player_id": 770,
@@ -6931,7 +6931,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 30,
             "year": 2011,
             "type": "National",
-            "drafting_team_id": 2
+            "drafting_team_id": 1
           },
           {
             "player_id": 771,
@@ -6940,7 +6940,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 7,
             "year": 2019,
             "type": "National",
-            "drafting_team_id": 6
+            "drafting_team_id": 5
           },
           {
             "player_id": 772,
@@ -6949,7 +6949,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 6,
             "year": 2018,
             "type": "Rookie",
-            "drafting_team_id": 18
+            "drafting_team_id": 17
           },
           {
             "player_id": 773,
@@ -6958,7 +6958,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 49,
             "year": 2016,
             "type": "National",
-            "drafting_team_id": 18
+            "drafting_team_id": 17
           },
           {
             "player_id": 774,
@@ -6967,7 +6967,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 23,
             "year": 2008,
             "type": "National",
-            "drafting_team_id": 5
+            "drafting_team_id": 4
           },
           {
             "player_id": 775,
@@ -6976,7 +6976,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 66,
             "year": 2017,
             "type": "National",
-            "drafting_team_id": 5
+            "drafting_team_id": 4
           },
           {
             "player_id": 776,
@@ -6985,7 +6985,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 9,
             "year": 2008,
             "type": "National",
-            "drafting_team_id": 12
+            "drafting_team_id": 11
           },
           {
             "player_id": 777,
@@ -7003,7 +7003,7 @@ INSERT INTO player_draft_entity(player_id, origin, round, pick, year, type, draf
             "pick": 11,
             "year": 2016,
             "type": "Rookie",
-            "drafting_team_id": 12
+            "drafting_team_id": 11
           }
         ]'
     );

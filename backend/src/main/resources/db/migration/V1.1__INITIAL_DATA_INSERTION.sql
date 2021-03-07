@@ -32,24 +32,24 @@ VALUES (0, 'IN_SETUP'),
 
 /* Insert initial Afl Teams Data. */
 INSERT INTO afl_teams_enum(id, afl_team)
-    VALUES  (1, 'ADELAIDE_CROWS'),
-            (2, 'BRISBANE_LIONS'),
-            (3, 'CARLTON_BLUES'),
-            (4, 'COLLINGWOOD_MAGPIES'),
-            (5, 'ESSENDON_BOMBERS'),
-            (6, 'FREMANTLE_DOCKERS'),
-            (7, 'GEELONG_CATS'),
-            (8, 'GOLD_COAST_SUNS'),
-            (9, 'GWS_GIANTS'),
-            (10, 'HAWTHORN_HAWKS'),
-            (11, 'MELBOURNE_DEMONS'),
-            (12, 'NORTH_MELBOURNE_KANGAROOS'),
-            (13, 'PORT_ADELAIDE_POWER'),
-            (14, 'RICHMOND_TIGERS'),
-            (15, 'ST_KILDA_SAINTS'),
-            (16, 'SYDNEY_SWANS'),
-            (17, 'WEST_COAST_EAGLES'),
-            (18, 'WESTERN_BULLDOGS');
+    VALUES  (0, 'ADELAIDE_CROWS'),
+            (1, 'BRISBANE_LIONS'),
+            (2, 'CARLTON_BLUES'),
+            (3, 'COLLINGWOOD_MAGPIES'),
+            (4, 'ESSENDON_BOMBERS'),
+            (5, 'FREMANTLE_DOCKERS'),
+            (6, 'GEELONG_CATS'),
+            (7, 'GOLD_COAST_SUNS'),
+            (8, 'GWS_GIANTS'),
+            (9, 'HAWTHORN_HAWKS'),
+            (10, 'MELBOURNE_DEMONS'),
+            (11, 'NORTH_MELBOURNE_KANGAROOS'),
+            (12, 'PORT_ADELAIDE_POWER'),
+            (13, 'RICHMOND_TIGERS'),
+            (14, 'ST_KILDA_SAINTS'),
+            (15, 'SYDNEY_SWANS'),
+            (16, 'WEST_COAST_EAGLES'),
+            (17, 'WESTERN_BULLDOGS');
 
 /* Insert initial Position Data. */
 INSERT INTO position_entity (id, type)
