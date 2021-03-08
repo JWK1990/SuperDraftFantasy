@@ -8,7 +8,7 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import TeamAnalysisContainer from "./teams/TeamAnalysisContainer";
 import makeStyles from "@material-ui/core/styles/makeStyles";
-import Example from "./UpdatedPlayersContainer";
+import UpdatedPlayerListContainer from "./teams/UpdatedPlayerListContainer";
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -93,7 +93,7 @@ export default function StatisticsContainer() {
                 onChangeIndex={handleChangeIndex}
             >
                 <TabPanel value={value} index={0}>
-                    <Example />
+                    <UpdatedPlayerListContainer />
                 </TabPanel>
                 <TabPanel value={value} index={1}>
                     <TeamAnalysisContainer />
