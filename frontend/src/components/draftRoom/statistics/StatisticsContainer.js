@@ -8,7 +8,7 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import TeamAnalysisContainer from "./teams/TeamAnalysisContainer";
 import makeStyles from "@material-ui/core/styles/makeStyles";
-import UpdatedPlayerListContainer from "./teams/UpdatedPlayerListContainer";
+import UpdatedPlayerListContainer from "./players/UpdatedPlayerListContainer";
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;

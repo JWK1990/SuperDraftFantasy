@@ -3,16 +3,18 @@ package au.superdraftfantasy.api.player;
 import au.superdraftfantasy.api.draft.DraftRepository;
 import au.superdraftfantasy.api.seasonSummary.SeasonSummaryBaseStats;
 import au.superdraftfantasy.api.teamPlayerJoin.TeamPlayerJoinBaseInterface;
-import au.superdraftfantasy.api.teamPlayerJoin.TeamPlayerJoinEntity;
 import au.superdraftfantasy.api.teamPlayerJoin.TeamPlayerJoinRepository;
 import org.modelmapper.ModelMapper;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
-import java.util.Optional;
 
 @Service
 public class PlayerService {
@@ -59,7 +61,7 @@ public class PlayerService {
      * @return
      */
     @Transactional
-    public List<PlayerBaseReadDto> getPlayersByDraft(Long draftId) {
+    public List<PlayerBaseReadDto> getAllPlayersByDraft(Long draftId) {
         List<PlayerBaseInterface> playerList = playerRepository.findAllBaseBy();
         List<PlayerBaseReadDto> readDtoList = new ArrayList<>();
         playerList.forEach((player) -> {
@@ -73,22 +75,15 @@ public class PlayerService {
         return readDtoList;
     }
 
-    private PlayerInDraftReadDto convertToPlayerInDraftReadDto(PlayerEntity playerEntity, List<TeamPlayerJoinEntity> draftedPlayerList) {
-        PlayerInDraftReadDto playerReadDto = modelMapper.map(playerEntity, PlayerInDraftReadDto.class);
-
-        Optional<TeamPlayerJoinEntity> alreadyDraftedPlayer = draftedPlayerList.stream()
-                .filter(draftedPlayer -> draftedPlayer.getPlayer().getId().equals(playerEntity.getId()))
-                .findAny();
-
-        if(alreadyDraftedPlayer.isPresent()) {
-            playerReadDto.setAvailable(false);
-            playerReadDto.setPrice(alreadyDraftedPlayer.get().getPrice());
-            playerReadDto.setDraftTeam(alreadyDraftedPlayer.get().getTeam().getName());
-        } else {
-            playerReadDto.setAvailable(true);
-        }
-
-        return playerReadDto;
+    /**
+     * Read a list of a subset of Players including Draft specific attributes.
+     * @return
+     */
+    @Transactional
+    public Page<PlayerBaseInterface> getPlayersByDraft(Long draftId, Integer startIndex, Integer endIndex) {
+        Pageable pageable = PageRequest.of(0, 20, Sort.by("id"));
+        Page<PlayerBaseInterface> page = playerRepository.findAllBasePageBy(pageable);
+        return page;
     }
 
 }

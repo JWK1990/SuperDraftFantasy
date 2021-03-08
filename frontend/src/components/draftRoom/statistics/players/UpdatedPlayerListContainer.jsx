@@ -1,6 +1,6 @@
 import React from "react";
 import DraftService from "../../../../services/DraftService";
-import UpdatedPlayerList from "../UpdatedPlayerList";
+import UpdatedPlayerList from "./UpdatedPlayerList";
 
 class UpdatedPlayerListContainer extends React.PureComponent {
     state = {
@@ -12,12 +12,12 @@ class UpdatedPlayerListContainer extends React.PureComponent {
     _loadNextPage = (...args) => {
         console.log("loadNextPage", ...args);
         this.setState({isNextPageLoading: true}, () => {
-            DraftService.getPlayersByDraft(1)
+            DraftService.getPlayersByDraft(1, 0, 20)
                 .then(players => {
                         this.setState(state => ({
                             hasNextPage: state.items.length < 700,
                             isNextPageLoading: false,
-                            items: [...state.items].concat(players.data),
+                            items: [...state.items].concat(players.data.content),
                         }));
                     }
                 );
