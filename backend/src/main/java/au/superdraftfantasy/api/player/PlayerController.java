@@ -15,18 +15,18 @@ public class PlayerController {
     }
 
     @GetMapping(name = "getAllPlayers")
-    public List<PlayerEntity> getAllPlayers() {
+    public List<PlayerBaseInterface> getAllPlayers() {
         return playerService.getAllPlayers();
-    }
-
-    @GetMapping(name = "getPlayersByDraft", path = "/draft/{draftId}")
-    public List<PlayerInDraftReadDto> getPlayersByDraft(@PathVariable Long draftId) {
-        return playerService.getPlayersByDraft(draftId);
     }
 
     @GetMapping(name = "getPlayersByDraft", path = "/{playerId}")
     public PlayerBaseReadDto getPlayerById(@PathVariable Long playerId) {
         return playerService.getPlayerById(playerId);
+    }
+
+    @GetMapping(name = "getPlayersByDraft", path = "/draft/{draftId}")
+    public List<PlayerBaseReadDto> getPlayersByDraft(@PathVariable Long draftId) {
+        return playerService.getPlayersByDraft(draftId);
     }
 
 }

@@ -1,5 +1,7 @@
 package au.superdraftfantasy.api.player;
 
+import au.superdraftfantasy.api.seasonSummary.SeasonSummaryBaseStats;
+import au.superdraftfantasy.api.teamPlayerJoin.TeamPlayerJoinBaseInterface;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -9,6 +11,34 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class PlayerBaseReadDto {
+
+    public PlayerBaseReadDto(
+            PlayerBaseInterface playerBase,
+            SeasonSummaryBaseStats baseStats,
+            TeamPlayerJoinBaseInterface teamPlayerJoin
+    ) {
+        this.id = playerBase.getId();
+        this.firstName = playerBase.getFirstName();
+        this.lastName = playerBase.getLastName();
+        this.aflTeam = playerBase.getAflTeam();
+        this.jumperNumber = playerBase.getJumperNumber();
+        this.primaryPosition = playerBase.getPrimaryPosition();
+        this.secondaryPosition = playerBase.getSecondaryPosition();
+        if(baseStats != null) {
+            this.games = baseStats.getGames();
+            this.average = baseStats.getAverage();
+            this.disposals = baseStats.getDisposals();
+            this.disposalEfficiency = baseStats.getDisposalEfficiency();
+            this.tackles = baseStats.getTackles();
+        }
+        if(teamPlayerJoin != null) {
+            this.available = false;
+            this.draftTeam = teamPlayerJoin.getTeamId();
+            this.price = teamPlayerJoin.getPrice();
+        } else {
+            this.available = true;
+        }
+    }
 
     Long id;
 
@@ -33,5 +63,11 @@ public class PlayerBaseReadDto {
     double disposalEfficiency;
 
     double tackles;
+
+    boolean available;
+
+    Long draftTeam;
+
+    Integer price;
 
 }
