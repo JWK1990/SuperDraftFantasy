@@ -6,7 +6,8 @@ class UpdatedPlayerListContainer extends React.PureComponent {
     state = {
         hasNextPage: true,
         isNextPageLoading: false,
-        items: []
+        items: [],
+        expandedPanel: false,
     };
 
     _loadNextPage = (...args) => {
@@ -24,8 +25,16 @@ class UpdatedPlayerListContainer extends React.PureComponent {
         });
     };
 
+    handleChange = (panelId, listRef) => (event, isExpanded) => {
+        this.setState({expandedPanel: isExpanded ? panelId : false})
+        // Required to recalculate the rowHeights when rows are expanded.
+        if(listRef.current) {
+            listRef.current.resetAfterIndex(panelId);
+        }
+    };
+
     render() {
-        const { hasNextPage, isNextPageLoading, items } = this.state;
+        const { hasNextPage, isNextPageLoading, items, expandedPanel } = this.state;
 
         return(
             <UpdatedPlayerList
@@ -33,6 +42,8 @@ class UpdatedPlayerListContainer extends React.PureComponent {
                 isNextPageLoading={isNextPageLoading}
                 items={items}
                 loadNextPage={this._loadNextPage}
+                expandedPanel={expandedPanel}
+                handleChange={this.handleChange}
             />
         )
     }
