@@ -91,11 +91,11 @@ public class PlayerService {
      * Read an individual Player by Id.
      * @return
      */
-    public PlayerBaseReadDto getPlayerBaseById(Long playerId) {
+    public PlayerBaseReadDto getPlayerBaseById(Long playerId, Long draftId) {
         IPlayerBase playerBase = playerRepository.findPlayerBaseById(playerId)
                 .orElseThrow(() -> new NoSuchElementException("Player with id " + playerId + " not found."));
         ISeasonSummaryBase baseStats = playerBase.getBaseStats(2020);
-        TeamPlayerJoinBaseInterface teamPlayerJoin = playerBase.getTeamPlayerJoin(1L);
+        TeamPlayerJoinBaseInterface teamPlayerJoin = playerBase.getTeamPlayerJoin(draftId);
         return new PlayerBaseReadDto(playerBase, baseStats, teamPlayerJoin);
     }
 
@@ -103,11 +103,11 @@ public class PlayerService {
      * Read an individual Player by Id.
      * @return
      */
-    public PlayerDetailsReadDto getPlayerDetailsById(Long playerId) {
+    public PlayerDetailsReadDto getPlayerDetailsById(Long playerId, Long draftId) {
         IPlayerDetails playerDetails = playerRepository.findPlayerDetailsById(playerId)
                 .orElseThrow(() -> new NoSuchElementException("Player with id " + playerId + " not found."));
         ISeasonSummaryDetails baseStats = playerDetails.getBaseStats(2020);
-        TeamPlayerJoinBaseInterface teamPlayerJoin = playerDetails.getTeamPlayerJoin(1L);
+        TeamPlayerJoinBaseInterface teamPlayerJoin = playerDetails.getTeamPlayerJoin(draftId);
         return new PlayerDetailsReadDto(playerDetails, baseStats, teamPlayerJoin);
     }
 

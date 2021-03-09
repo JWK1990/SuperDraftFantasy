@@ -37,13 +37,19 @@ public class PlayerController {
     }
 
     @GetMapping(name = "getPlayerBaseById", path = "/{playerId}")
-    public PlayerBaseReadDto getPlayerBaseById(@PathVariable Long playerId) {
-        return playerService.getPlayerBaseById(playerId);
+    public PlayerBaseReadDto getPlayerBaseById(
+            @PathVariable Long playerId,
+            @RequestParam String draftId
+    ) {
+        return playerService.getPlayerBaseById(playerId, Long.decode(draftId));
     }
 
     @GetMapping(name = "getPlayerDetailsById", path = "/{playerId}/details")
-    public PlayerDetailsReadDto getPlayerDetailsById(@PathVariable Long playerId) {
-        return playerService.getPlayerDetailsById(playerId);
+    public PlayerDetailsReadDto getPlayerDetailsById(
+            @PathVariable Long playerId,
+            @RequestParam String draftId
+    ) {
+        return playerService.getPlayerDetailsById(playerId, Long.decode(draftId));
     }
 
 }

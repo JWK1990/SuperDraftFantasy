@@ -35,6 +35,11 @@ class DraftService {
         return axios.get("/players/draft/" + draftId + "/page?pageNum=" + pageNum + "&pageSize=" + pageSize);
     }
 
+    // TODO: Refactor the two functions here to be together.
+    getPlayerDetailsById(playerId, draftId) {
+        return axios.get("/players/" + playerId + "?draftId=" + draftId);
+    }
+
     saveMyTeamLayout(teamId, updatedMyTeamPositions) {
         return axios.put("/teams/" + teamId + "/myTeamPositions/", updatedMyTeamPositions);
     }
