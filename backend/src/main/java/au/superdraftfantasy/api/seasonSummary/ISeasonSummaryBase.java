@@ -1,6 +1,6 @@
 package au.superdraftfantasy.api.seasonSummary;
 
-public interface SeasonSummaryBaseStats {
+public interface ISeasonSummaryBase {
 
     Integer getGames();
 

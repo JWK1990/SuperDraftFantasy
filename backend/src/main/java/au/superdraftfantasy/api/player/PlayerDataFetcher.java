@@ -28,7 +28,7 @@ public class PlayerDataFetcher {
                 : null;
     }
 
-    public SeasonSummaryEntity getBaseStats(PlayerEntity playerEntity, int year) {
+    public SeasonSummaryEntity getSeasonSummary(PlayerEntity playerEntity, int year) {
         return playerEntity.getSeasonSummaries().stream()
                 .filter(seasonSummary -> seasonSummary.getYear() == year)
                 .findAny()

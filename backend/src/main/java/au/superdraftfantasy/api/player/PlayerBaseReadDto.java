@@ -1,6 +1,6 @@
 package au.superdraftfantasy.api.player;
 
-import au.superdraftfantasy.api.seasonSummary.SeasonSummaryBaseStats;
+import au.superdraftfantasy.api.seasonSummary.ISeasonSummaryBase;
 import au.superdraftfantasy.api.teamPlayerJoin.TeamPlayerJoinBaseInterface;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -13,8 +13,8 @@ import lombok.NoArgsConstructor;
 public class PlayerBaseReadDto {
 
     public PlayerBaseReadDto(
-            PlayerBaseInterface playerBase,
-            SeasonSummaryBaseStats baseStats,
+            IPlayerBase playerBase,
+            ISeasonSummaryBase baseStats,
             TeamPlayerJoinBaseInterface teamPlayerJoin
     ) {
         this.id = playerBase.getId();
@@ -69,5 +69,6 @@ public class PlayerBaseReadDto {
     Long draftTeam;
 
     Integer price;
+
 
 }

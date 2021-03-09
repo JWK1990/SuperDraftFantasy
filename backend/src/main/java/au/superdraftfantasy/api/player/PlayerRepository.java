@@ -11,7 +11,8 @@ import java.util.Optional;
 @Repository
 public interface PlayerRepository extends JpaRepository<PlayerEntity, Long> {
     Optional<PlayerEntity> findById(Long playerId);
-    Optional<PlayerBaseInterface> findBaseById(Long playerId);
-    List<PlayerBaseInterface> findAllBaseBy();
-    Page<PlayerBaseInterface> findAllBasePageBy(Pageable pageable);
+    Optional<IPlayerBase> findPlayerBaseById(Long playerId);
+    Optional<IPlayerDetails> findPlayerDetailsById(Long playerId);
+    List<IPlayerBase> findAllBaseBy();
+    Page<IPlayerBase> findAllBasePageBy(Pageable pageable);
 }
