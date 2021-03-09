@@ -31,8 +31,8 @@ class DraftService {
     }
 
     // TODO: Refactor the two functions here to be together.
-    getPlayersByDraft(draftId, startIndex, endIndex) {
-        return axios.get("/players/draft/" + draftId + "/page?startIndex=" + startIndex + "&endIndex=" + endIndex);
+    getPlayersPageByDraft(draftId, pageNum, pageSize) {
+        return axios.get("/players/draft/" + draftId + "/page?pageNum=" + pageNum + "&pageSize=" + pageSize);
     }
 
     saveMyTeamLayout(teamId, updatedMyTeamPositions) {

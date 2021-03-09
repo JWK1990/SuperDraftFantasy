@@ -80,8 +80,8 @@ public class PlayerService {
      * @return
      */
     @Transactional
-    public Page<PlayerBaseInterface> getPlayersByDraft(Long draftId, Integer startIndex, Integer endIndex) {
-        Pageable pageable = PageRequest.of(0, 20, Sort.by("id"));
+    public Page<PlayerBaseInterface> getPlayersPageByDraft(Long draftId, Integer pageNum, Integer pageSize) {
+        Pageable pageable = PageRequest.of(pageNum, pageSize, Sort.by("id"));
         Page<PlayerBaseInterface> page = playerRepository.findAllBasePageBy(pageable);
         return page;
     }

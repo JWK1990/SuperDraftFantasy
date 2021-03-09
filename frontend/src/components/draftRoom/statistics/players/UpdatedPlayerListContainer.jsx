@@ -13,10 +13,13 @@ class UpdatedPlayerListContainer extends React.PureComponent {
     _loadNextPage = (...args) => {
         console.log("loadNextPage", ...args);
         this.setState({isNextPageLoading: true}, () => {
-            DraftService.getPlayersByDraft(1, 0, 20)
+            DraftService.getPlayersPageByDraft(1, this.state.items.length/25, 25)
                 .then(players => {
                         this.setState(state => ({
-                            hasNextPage: state.items.length < 700,
+                            /* Players are loaded in batches of 25 and therefore hasNextPage is calculated in batches of 25.
+                               If the last batch contained the last player, then hasNextPage is false (hence the 778-25).
+                            */
+                            hasNextPage: state.items.length < (778 - 25),
                             isNextPageLoading: false,
                             items: [...state.items].concat(players.data.content),
                         }));

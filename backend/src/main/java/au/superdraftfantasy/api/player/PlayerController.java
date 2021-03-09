@@ -35,10 +35,10 @@ public class PlayerController {
     @GetMapping(name = "getPlayersByDraft", path = "/draft/{draftId}/page")
     public Page<PlayerBaseInterface> getPlayersByDraft(
             @PathVariable Long draftId,
-            @RequestParam(required = false) String startIndex,
-            @RequestParam(required = false) String endIndex
+            @RequestParam(required = false) String pageNum,
+            @RequestParam(required = false) String pageSize
     ) {
-        return playerService.getPlayersByDraft(draftId, Integer.parseInt(startIndex), Integer.parseInt(endIndex));
+        return playerService.getPlayersPageByDraft(draftId, Integer.parseInt(pageNum), Integer.parseInt(pageSize));
     }
 
 }
