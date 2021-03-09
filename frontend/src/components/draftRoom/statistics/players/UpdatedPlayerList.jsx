@@ -17,8 +17,8 @@ export default function UpdatedPlayerList({
     items,
     // Callback function responsible for loading the next page of items.
     loadNextPage,
-    // Update the expandedPanel index.
-    expandedPanel,
+    // Update the expandedPanelIndex index.
+    expandedPanelIndex,
     // Handle click of panel.
     handleChange,
 }) {
@@ -33,8 +33,7 @@ export default function UpdatedPlayerList({
     const isItemLoaded = index => !hasNextPage || index < items.length;
 
     const getItemSize = index => {
-        console.log("Index: " + index, "Expanded Panel: " + expandedPanel);
-        return (items.length > 0 && index === expandedPanel) ? 200 : 50;
+        return (items.length > 0 && index === expandedPanelIndex) ? 200 : 50;
     }
 
     // Render an item or a loading indicator.
@@ -48,7 +47,7 @@ export default function UpdatedPlayerList({
         return (
                 <Accordion
                     style={style} key={index}
-                    expanded={expandedPanel === index}
+                    expanded={expandedPanelIndex === index}
                     onChange={handleChange(index, listRef)}
                     TransitionProps={{unmountOnExit: true}}
                 >
