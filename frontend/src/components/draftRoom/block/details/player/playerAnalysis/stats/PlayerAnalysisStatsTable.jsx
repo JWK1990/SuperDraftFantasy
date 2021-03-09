@@ -1,4 +1,4 @@
-import React, {useRef} from "react";
+import React, {useEffect, useState} from "react";
 import {
     createMuiTheme,
     MuiThemeProvider,
@@ -11,6 +11,7 @@ import {
 } from "@material-ui/core";
 import Paper from "@material-ui/core/Paper";
 import makeStyles from "@material-ui/core/styles/makeStyles";
+import DraftService from "../../../../../../../services/DraftService";
 
 const theme = createMuiTheme({
     overrides: {
@@ -40,27 +41,24 @@ const useStyles = makeStyles(() => ({
 
 export default function PlayerAnalysisStatsTable(props) {
     const classes = useStyles();
+    const [playerDetails, setPlayerDetails] = useState(1);
 
-    // Adds the ability to horizontally scrolls with the mousewheel.
-    // TODO: Make overflow of body hidden to stop is scrolling the body also.
-    const scrollRef = useRef(null);
+    useEffect(() =>{
+        let isMounted = true; // note this flag denote mount status
+        DraftService.getPlayerDetailsById(props.player.id, 1)
+            .then(response => {
+                if(isMounted) {
+                    setPlayerDetails(response.data);
+                }
+            })
+        return () => { isMounted = false }; // use effect cleanup to set flag false, if unmounted
+    },[props.player.id])
 
-    const onWheel = e => {
-        console.log(e, scrollRef.current);
-        if(e.deltaY === 0) return;
-        e.preventDefault();
-        const container = scrollRef.current;
-        const containerScrollPosition = scrollRef.current.scrollLeft;
-
-        container.scrollTo({
-            top: 0,
-            left: containerScrollPosition + e.deltaY,
-        });
-    };
+    console.log("Player Details: ", playerDetails);
 
     return (
         <MuiThemeProvider theme={theme}>
-            <TableContainer component={Paper} className={classes.tableContainer} ref={scrollRef} onWheel={onWheel}>
+            <TableContainer component={Paper} className={classes.tableContainer}>
                 <Table aria-label="Player Stat Bar" size={"small"}>
                     <TableHead>
                         <TableRow>
@@ -78,7 +76,7 @@ export default function PlayerAnalysisStatsTable(props) {
                     <TableBody>
                         <TableRow>
                             <TableCell className={classes.rowHeader}>2020</TableCell>
-                            <TableCell>1</TableCell>
+                            <TableCell>{playerDetails.kicks}</TableCell>
                             <TableCell>2</TableCell>
                             <TableCell>8</TableCell>
                             <TableCell>7</TableCell>

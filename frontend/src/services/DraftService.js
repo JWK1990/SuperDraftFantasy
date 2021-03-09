@@ -30,14 +30,12 @@ class DraftService {
         return axios.get("/players/draft/" + draftId);
     }
 
-    // TODO: Refactor the two functions here to be together.
     getPlayersPageByDraft(draftId, pageNum, pageSize) {
         return axios.get("/players/draft/" + draftId + "/page?pageNum=" + pageNum + "&pageSize=" + pageSize);
     }
 
-    // TODO: Refactor the two functions here to be together.
     getPlayerDetailsById(playerId, draftId) {
-        return axios.get("/players/" + playerId + "?draftId=" + draftId);
+        return axios.get("/players/" + playerId + "/details?draftId=" + draftId);
     }
 
     saveMyTeamLayout(teamId, updatedMyTeamPositions) {
