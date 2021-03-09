@@ -9,7 +9,7 @@ export const getPlayersByDraftAction = (draftId) => {
     return dispatch => {
         dispatch(getPlayersByDraftStartedAction());
 
-        DraftService.getPlayersByDraft(draftId)
+        DraftService.getAllPlayersByDraft(draftId)
             .then(res => {
                 dispatch(getPlayersByDraftSuccessAction(res.data))
             })

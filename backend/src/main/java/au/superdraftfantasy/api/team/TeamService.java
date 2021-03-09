@@ -2,7 +2,6 @@ package au.superdraftfantasy.api.team;
 
 import au.superdraftfantasy.api.block.BlockDto;
 import au.superdraftfantasy.api.player.PlayerEntity;
-import au.superdraftfantasy.api.player.PlayerInDraftReadDto;
 import au.superdraftfantasy.api.player.PlayerRepository;
 import au.superdraftfantasy.api.player.PlayerService;
 import au.superdraftfantasy.api.position.PositionEntity;
@@ -23,7 +22,6 @@ import org.springframework.web.server.ResponseStatusException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
-import java.util.Set;
 import java.util.stream.Collectors;
 
 
@@ -112,7 +110,7 @@ public class TeamService {
     //TODO: Could update to get based on highest rank. For this need to add a rank field so that we're not just using average.
     @Transactional
     public Long getBestAvailablePlayerForTeam(Long draftId, Long teamId) {
-        // TODO: Update so that we only grab the required player from the DB. Not the entire list every time. We could query on available and position.
+/*        // TODO: Update so that we only grab the required player from the DB. Not the entire list every time. We could query on available and position.
         List<PlayerInDraftReadDto> playerList = playerService.getPlayersByDraft(draftId);
         TeamEntity team = teamRepository.findById(teamId).orElseThrow(() -> new NoSuchElementException("Team with id " + teamId + " not found."));
         // Get first available Player if bench is free, or if not, get first available Player that has a position with a free slot.
@@ -125,7 +123,8 @@ public class TeamService {
         )
                 .findFirst()
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Could not fetch best available Player."));
-        return bestAvailablePlayer.getId();
+        return bestAvailablePlayer.getId();*/
+        return 100L;
     }
 
     private void addPlayer(TeamEntity team, Long playerID, Long price) {
@@ -140,7 +139,7 @@ public class TeamService {
     }
 
     private PositionEntity getMyTeamPosition(TeamEntity team, PlayerEntity player) {
-        Set<PositionTypeEnum> positions = player.getPositions().stream().map(PositionEntity::getType).collect(Collectors.toSet());
+        List<PositionTypeEnum> positions = player.getPositions().stream().map(PositionEntity::getType).collect(Collectors.toList());
 
         // The below order is significant, as it determines which positions are treated as primary and which are secondary.
         PositionTypeEnum positionType = null;

@@ -47,6 +47,10 @@
     background: var(--hover-color) !important;
 }
 
+.playerSearch {
+    height: var(--draft-room-second-row-height);
+}
+
 .teamAnalysis {
     height: var(--draft-room-second-row-height);
 }

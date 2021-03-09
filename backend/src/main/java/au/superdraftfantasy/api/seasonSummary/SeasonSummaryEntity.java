@@ -23,7 +23,7 @@ public class SeasonSummaryEntity {
 
     @ManyToOne
     @JoinColumn(name = "player_id")
-    @JsonBackReference(value="player-seasonSummary")
+    @JsonBackReference(value="player-seasonSummaries")
     private PlayerEntity player;
 
     @NotNull
@@ -40,6 +40,8 @@ public class SeasonSummaryEntity {
     private double kicks;
 
     private double handballs;
+
+    private double disposals;
 
     private double marks;
 
@@ -72,6 +74,8 @@ public class SeasonSummaryEntity {
     private double uncontestedPossessions;
 
     private double effectiveDisposals;
+
+    private double disposalEfficiency;
 
     private double contestedMarks;
 

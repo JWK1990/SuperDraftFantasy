@@ -6,9 +6,9 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
-import DraftRoomPlayers from "./players/Players";
 import TeamAnalysisContainer from "./teams/TeamAnalysisContainer";
 import makeStyles from "@material-ui/core/styles/makeStyles";
+import UpdatedPlayerListContainer from "./players/UpdatedPlayerListContainer";
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -20,6 +20,7 @@ function TabPanel(props) {
             id={`full-width-tabpanel-${index}`}
             aria-labelledby={`full-width-tab-${index}`}
             {...other}
+            style={{overflow: "hidden"}}
         >
             {value === index && (
                 <Box p={0}>
@@ -92,7 +93,7 @@ export default function StatisticsContainer() {
                 onChangeIndex={handleChangeIndex}
             >
                 <TabPanel value={value} index={0}>
-                    <DraftRoomPlayers />
+                    <UpdatedPlayerListContainer />
                 </TabPanel>
                 <TabPanel value={value} index={1}>
                     <TeamAnalysisContainer />
