@@ -1,6 +1,7 @@
 import React from "react";
 import DraftService from "../../../../services/DraftService";
 import UpdatedPlayerList from "./UpdatedPlayerList";
+import PlayerAnalysisTableHeader from "./PlayerAnalysisTableHeader";
 
 class UpdatedPlayerListContainer extends React.PureComponent {
     state = {
@@ -11,7 +12,6 @@ class UpdatedPlayerListContainer extends React.PureComponent {
     };
 
     _loadNextPage = (...args) => {
-        console.log("loadNextPage", ...args);
         this.setState({isNextPageLoading: true}, () => {
             DraftService.getPlayersPageByDraft(1, this.state.items.length/25, 25)
                 .then(players => {
@@ -43,14 +43,17 @@ class UpdatedPlayerListContainer extends React.PureComponent {
         const { hasNextPage, isNextPageLoading, items, expandedPanelIndex } = this.state;
 
         return(
-            <UpdatedPlayerList
-                hasNextPage={hasNextPage}
-                isNextPageLoading={isNextPageLoading}
-                items={items}
-                loadNextPage={this._loadNextPage}
-                expandedPanelIndex={expandedPanelIndex}
-                handleChange={this.handleChange}
-            />
+            <>
+                <PlayerAnalysisTableHeader />
+                <UpdatedPlayerList
+                    hasNextPage={hasNextPage}
+                    isNextPageLoading={isNextPageLoading}
+                    items={items}
+                    loadNextPage={this._loadNextPage}
+                    expandedPanelIndex={expandedPanelIndex}
+                    handleChange={this.handleChange}
+                />
+            </>
         )
     }
 }
