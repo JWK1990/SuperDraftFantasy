@@ -2,6 +2,8 @@ import React from "react";
 import DraftService from "../../../../services/DraftService";
 import UpdatedPlayerList from "./UpdatedPlayerList";
 import PlayerAnalysisTableHeader from "./PlayerAnalysisTableHeader";
+import {draftIdSelector} from "../../../../store/selectors/DraftSelectors";
+import {connect} from "react-redux";
 
 class UpdatedPlayerListContainer extends React.PureComponent {
     state = {
@@ -13,7 +15,7 @@ class UpdatedPlayerListContainer extends React.PureComponent {
 
     _loadNextPage = (...args) => {
         this.setState({isNextPageLoading: true}, () => {
-            DraftService.getPlayersPageByDraft(1, this.state.items.length/25, 25)
+            DraftService.getPlayersPageByDraft(this.props.draftId, this.state.items.length/25, 25)
                 .then(players => {
                         this.setState(state => ({
                             /* Players are loaded in batches of 25 and therefore hasNextPage is calculated in batches of 25.
@@ -58,4 +60,10 @@ class UpdatedPlayerListContainer extends React.PureComponent {
     }
 }
 
-export default UpdatedPlayerListContainer;
+const mapStateToProps = state => {
+    return {
+        draftId: draftIdSelector(state),
+    }
+}
+
+export default connect(mapStateToProps)(UpdatedPlayerListContainer);

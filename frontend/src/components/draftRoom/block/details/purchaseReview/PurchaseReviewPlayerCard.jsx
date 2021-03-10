@@ -47,7 +47,7 @@ export default function PurchaseReviewPlayerCard(props) {
             <div className={classes.details}>
                 <CardContent className={classes.content}>
                     <Typography component="h5" variant="h5" style={{fontWeight: "bold"}}>
-                        {props.player ? props.player.firstName + " " + props.player.lastName : null}
+                        {props.player ? props.player.fullName : null}
                     </Typography>
                     <Typography variant="subtitle1" color="textPrimary">
                         {props.player.secondaryPosition ?

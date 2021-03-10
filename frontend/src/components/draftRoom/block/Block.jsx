@@ -135,6 +135,11 @@ class DraftRoomBlock extends React.Component {
         });
     };
 
+    receiveTeam = (payload) => {
+        const team = JSON.parse(payload.body);
+        this.props.updateTeam(team);
+    };
+
     sendBid = () => {
         if (this.props.stompClient) {
             const bidDetails = {

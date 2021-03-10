@@ -7,6 +7,7 @@ import {Paper} from "@material-ui/core";
 import PurchaseReviewRatingCard from "./PurchaseReviewRatingCard";
 import PurchaseReviewPlayerCard from "./PurchaseReviewPlayerCard";
 import PurchaseReviewStatsCard from "./PurchaseReviewStatsCard";
+import {lastDraftedPlayerSelector} from "../../../../../store/selectors/DraftSelectors";
 
 const styles = {
     paperRoot: {
@@ -31,7 +32,7 @@ class PurchaseReview extends React.Component {
     render() {
         const {classes} = this.props;
 
-        if(!this.props.player) {
+        if(!this.props.lastDraftedPlayerDetails) {
             return null;
         }
 
@@ -47,7 +48,7 @@ class PurchaseReview extends React.Component {
                         </Typography>
                     </Grid>
                     <Grid item xs={5}>
-                        <PurchaseReviewPlayerCard player={this.props.player}/>
+                        <PurchaseReviewPlayerCard player={this.props.lastDraftedPlayerDetails.player}/>
                     </Grid>
                     <Grid item xs={2}>
                         <PurchaseReviewStatsCard />
@@ -64,8 +65,7 @@ class PurchaseReview extends React.Component {
 
 const mapStateToProps = state => {
     return {
-        // Todo: Get last selected player.
-        //player: mockPlayerSelector(state, 0),
+        lastDraftedPlayerDetails: lastDraftedPlayerSelector(state),
     };
 };
 

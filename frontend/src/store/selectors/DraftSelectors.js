@@ -51,6 +51,12 @@ export const draftedPlayersSelector = state => {
     })
     return draftedPlayersList.sort((a, b) => a.id < b.id ? 1 : -1);
 }
+export const lastDraftedPlayerSelector = state => {
+    const draftedPlayersList = draftedPlayersSelector(state);
+    console.log(draftedPlayersList);
+    console.log(draftedPlayersList[draftedPlayersList.length - 1]);
+    return draftedPlayersList[0];
+}
 
 // Position Availability.
 export const isSlotAvailableSelector = (state, position) => {

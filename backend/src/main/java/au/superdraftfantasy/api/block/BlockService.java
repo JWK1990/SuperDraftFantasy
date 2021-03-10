@@ -80,7 +80,7 @@ public class BlockService {
      * @param blockDto
      * @return
      */
-    public BlockDto processBlockEvent(BlockDto blockDto) {
+    public BlockDto processBlockEvent(BlockDto blockDto, boolean isAddToBlock) {
         System.out.println("Process Manual AddToBlock Or Bid.");
         // Stop AutoAddToBlock or AutoDraftPlayer.
         futuresScheduler.stopScheduledFutures(blockDto.getDraftId());
@@ -96,6 +96,16 @@ public class BlockService {
                 this::autoDraftPlayerAndStartNextRound
         );
 
+        if(isAddToBlock) {
+            // Broadcast Player Details. Do this at the end to ensure it doesn't hold up bidding.
+            Long playerId = blockDto.getPlayerId();
+            if(playerId != null) {
+                PlayerDetailsReadDto playerReadDto = playerService.getPlayerDetailsById(playerId, blockDto.getDraftId());
+                if(playerReadDto != null) {
+                    this.simpMessagingTemplate.convertAndSend("/draft/playerDetails", playerReadDto);
+                }
+            }
+        }
         return blockDto;
     }
 
