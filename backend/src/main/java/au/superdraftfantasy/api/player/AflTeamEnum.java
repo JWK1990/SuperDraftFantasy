@@ -2,24 +2,24 @@ package au.superdraftfantasy.api.player;
 
 // TODO Rename Team to Club to avoid confusion with SDTeam.
 public enum AflTeamEnum {
-    ADELAIDE_CROWS("Adelaide Crows"),
-    BRISBANE_LIONS("Brisbane Lions"),
-    CARLTON_BLUES("Carlton Blues"),
-    COLLINGWOOD_MAGPIES("Collingwood Magpies"),
-    ESSENDON_BOMBERS("Essendon Bombers"),
-    FREMANTLE_DOCKERS("Fremantle Dockers"),
-    GEELONG_CATS("Geelong Cats"),
-    GOLD_COAST_SUNS("Gold Coast Suns"),
-    GWS_GIANTS("GWS Giants"),
-    HAWTHORN_HAWKS("Hawthorn Hawks"),
-    MELBOURNE_DEMONS("Melbourne Demons"),
-    NORTH_MELBOURNE_KANGAROOS("North Melbourne Kangaroos"),
-    PORT_ADELAIDE_POWER("Port Adelaide Power"),
-    RICHMOND_TIGERS("Richmond Tigers"),
-    ST_KILDA_SAINTS("St Kilda Saints"),
-    SYDNEY_SWANS("Sydney Swans"),
-    WEST_COAST_EAGLES("West Coast Eagles"),
-    WESTERN_BULLDOGS("Western Bulldogs");
+    ADELAIDE_CROWS("ADE"),
+    BRISBANE_LIONS("BRI"),
+    CARLTON_BLUES("CAR"),
+    COLLINGWOOD_MAGPIES("COLL"),
+    ESSENDON_BOMBERS("ESS"),
+    FREMANTLE_DOCKERS("FRE"),
+    GEELONG_CATS("GEE"),
+    GOLD_COAST_SUNS("GC"),
+    GWS_GIANTS("GWS"),
+    HAWTHORN_HAWKS("HAW"),
+    MELBOURNE_DEMONS("MEL"),
+    NORTH_MELBOURNE_KANGAROOS("NTH"),
+    PORT_ADELAIDE_POWER("PTA"),
+    RICHMOND_TIGERS("RIC"),
+    ST_KILDA_SAINTS("STK"),
+    SYDNEY_SWANS("SYD"),
+    WEST_COAST_EAGLES("WCE"),
+    WESTERN_BULLDOGS("WBD");
 
     private final String aflTeamName;
 

@@ -16,13 +16,8 @@ public class PlayerController {
     }
 
     @GetMapping(name = "getAllPlayers")
-    public List<PlayerBaseInterface> getAllPlayers() {
+    public List<IPlayerBase> getAllPlayers() {
         return playerService.getAllPlayers();
-    }
-
-    @GetMapping(name = "getPlayerById", path = "/{playerId}")
-    public PlayerBaseReadDto getPlayerById(@PathVariable Long playerId) {
-        return playerService.getPlayerById(playerId);
     }
 
     @GetMapping(name = "getAllPlayersByDraft", path = "/draft/{draftId}")
@@ -32,13 +27,29 @@ public class PlayerController {
         return playerService.getAllPlayersByDraft(draftId);
     }
 
-    @GetMapping(name = "getPlayersByDraft", path = "/draft/{draftId}/page")
-    public Page<PlayerBaseInterface> getPlayersByDraft(
+    @GetMapping(name = "getPlayersPageByDraftId", path = "/draft/{draftId}/page")
+    public Page<PlayerBaseReadDto> getPlayersPageByDraftId(
             @PathVariable Long draftId,
             @RequestParam(required = false) String pageNum,
             @RequestParam(required = false) String pageSize
     ) {
-        return playerService.getPlayersPageByDraft(draftId, Integer.parseInt(pageNum), Integer.parseInt(pageSize));
+        return playerService.getPlayersPageByDraftId(draftId, Integer.parseInt(pageNum), Integer.parseInt(pageSize));
+    }
+
+    @GetMapping(name = "getPlayerBaseById", path = "/{playerId}")
+    public PlayerBaseReadDto getPlayerBaseById(
+            @PathVariable Long playerId,
+            @RequestParam String draftId
+    ) {
+        return playerService.getPlayerBaseById(playerId, Long.decode(draftId));
+    }
+
+    @GetMapping(name = "getPlayerDetailsById", path = "/{playerId}/details")
+    public PlayerDetailsReadDto getPlayerDetailsById(
+            @PathVariable Long playerId,
+            @RequestParam String draftId
+    ) {
+        return playerService.getPlayerDetailsById(playerId, Long.decode(draftId));
     }
 
 }

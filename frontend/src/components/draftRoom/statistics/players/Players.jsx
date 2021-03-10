@@ -1,3 +1,4 @@
+/*
 import React, {forwardRef} from "react";
 import MaterialTable from "material-table";
 import DraftRoomPlayersSelected from "./selected/Selected";
@@ -114,7 +115,6 @@ class DraftRoomPlayers extends React.Component {
     getFullPosition(player) {
         let fullPosition = player.primaryPosition;
         if(player.secondaryPosition !== null) {
-            console.log(player.secondaryPosition);
             fullPosition += (" - " + player.secondaryPosition);
         }
         return fullPosition;
@@ -261,3 +261,4 @@ const mapDispatchToProps = dispatch => ({
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(DraftRoomPlayers));
+*/

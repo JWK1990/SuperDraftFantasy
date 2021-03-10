@@ -5,6 +5,9 @@ import InfiniteLoader from "react-window-infinite-loader";
 import {Accordion, AccordionDetails, AccordionSummary} from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import PlayerAnalysisTableRow from "./PlayerAnalysisTableRow";
+import ExpandedPlayerContainer from "./ExpandedPlayerContainer";
+import DraftRoomPlayersSelected from "./selected/Selected";
 
 export default function UpdatedPlayerList({
     // Are there more items to load?
@@ -33,17 +36,13 @@ export default function UpdatedPlayerList({
     const isItemLoaded = index => !hasNextPage || index < items.length;
 
     const getItemSize = index => {
-        return (items.length > 0 && index === expandedPanelIndex) ? 200 : 50;
+        // Expanded row height is var(--player-card-height) + 50px (non-expanded row) + 42px (additional padding).
+        return (items.length > 0 && index === expandedPanelIndex) ? 332 : 50;
     }
 
     // Render an item or a loading indicator.
+    // TODO: Work out how to better handle slotAvailability to allow AddToBlock for each row.
     const PlayerRow = ({ index, style }) => {
-        let content;
-        if (!isItemLoaded(index)) {
-            content = "Loading...";
-        } else {
-            content = items[index].id;
-        }
         return (
                 <Accordion
                     style={style} key={index}
@@ -56,13 +55,14 @@ export default function UpdatedPlayerList({
                         aria-controls="player-content"
                         id="player-header"
                     >
-                        <Typography>{content}</Typography>
+                        {
+                            !isItemLoaded(index)
+                                ? <Typography>Loading Players...</Typography>
+                                : <PlayerAnalysisTableRow player={items[index]} />
+                        }
                     </AccordionSummary>
                     <AccordionDetails>
-                        <Typography>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
-                            sit amet blandit leo lobortis eget.
-                        </Typography>
+                        <ExpandedPlayerContainer component={DraftRoomPlayersSelected} player={items[index]}/>
                     </AccordionDetails>
                 </Accordion>
         )

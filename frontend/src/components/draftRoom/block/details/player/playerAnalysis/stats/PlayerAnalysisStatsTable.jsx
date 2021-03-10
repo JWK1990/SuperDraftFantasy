@@ -1,4 +1,4 @@
-import React, {useRef} from "react";
+import React from "react";
 import {
     createMuiTheme,
     MuiThemeProvider,
@@ -41,26 +41,13 @@ const useStyles = makeStyles(() => ({
 export default function PlayerAnalysisStatsTable(props) {
     const classes = useStyles();
 
-    // Adds the ability to horizontally scrolls with the mousewheel.
-    // TODO: Make overflow of body hidden to stop is scrolling the body also.
-    const scrollRef = useRef(null);
-
-    const onWheel = e => {
-        console.log(e, scrollRef.current);
-        if(e.deltaY === 0) return;
-        e.preventDefault();
-        const container = scrollRef.current;
-        const containerScrollPosition = scrollRef.current.scrollLeft;
-
-        container.scrollTo({
-            top: 0,
-            left: containerScrollPosition + e.deltaY,
-        });
-    };
+    if(!props.player) {
+        return null;
+    }
 
     return (
         <MuiThemeProvider theme={theme}>
-            <TableContainer component={Paper} className={classes.tableContainer} ref={scrollRef} onWheel={onWheel}>
+            <TableContainer component={Paper} className={classes.tableContainer}>
                 <Table aria-label="Player Stat Bar" size={"small"}>
                     <TableHead>
                         <TableRow>
@@ -78,10 +65,10 @@ export default function PlayerAnalysisStatsTable(props) {
                     <TableBody>
                         <TableRow>
                             <TableCell className={classes.rowHeader}>2020</TableCell>
-                            <TableCell>1</TableCell>
-                            <TableCell>2</TableCell>
-                            <TableCell>8</TableCell>
-                            <TableCell>7</TableCell>
+                            <TableCell>{props.player.kicks}</TableCell>
+                            <TableCell>{props.player.marks}</TableCell>
+                            <TableCell>{props.player.tackles}</TableCell>
+                            <TableCell>{props.player.insideFiftys}</TableCell>
                             <TableCell>5</TableCell>
                             <TableCell>2</TableCell>
                             <TableCell>3</TableCell>

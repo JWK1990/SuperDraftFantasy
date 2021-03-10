@@ -10,6 +10,7 @@ import BlockPlayerStatTabPanel from "./stats/BlockPlayerStatTabPanel";
 const useStyles = makeStyles((theme) => ({
     root: {
         display: 'flex',
+        height: "var(--player-card-height)",
     },
     details: {
         display: 'flex',
@@ -41,10 +42,11 @@ export default function BlockPlayerCard(props) {
     }
 
     return (
-        <Card className={classes.root} elevation={4}>
+        <Card className={classes.root} elevation={2}>
             <CardMedia
                 className={classes.playerImage}
                 image={WillDayImage}
+
                 title="Purchase Review Player Image."
             />
             <div className={classes.details}>

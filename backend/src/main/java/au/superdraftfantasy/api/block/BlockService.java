@@ -5,6 +5,8 @@ import au.superdraftfantasy.api.draft.DraftRepository;
 import au.superdraftfantasy.api.draft.DraftStatusEnum;
 import au.superdraftfantasy.api.futuresScheduler.FuturesScheduler;
 import au.superdraftfantasy.api.futuresScheduler.ScheduledFutureEnum;
+import au.superdraftfantasy.api.player.PlayerDetailsReadDto;
+import au.superdraftfantasy.api.player.PlayerService;
 import au.superdraftfantasy.api.team.*;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Service;
@@ -22,19 +24,22 @@ public class BlockService {
     private final SimpMessagingTemplate simpMessagingTemplate;
     private final TeamRepository teamRepository;
     private final DraftRepository draftRepository;
+    private final PlayerService playerService;
 
     public BlockService(
             FuturesScheduler futuresScheduler,
             TeamService teamService,
             SimpMessagingTemplate simpMessagingTemplate,
             TeamRepository teamRepository,
-            DraftRepository draftRepository
+            DraftRepository draftRepository,
+            PlayerService playerService
     ) {
         this.futuresScheduler = futuresScheduler;
         this.teamService = teamService;
         this.simpMessagingTemplate = simpMessagingTemplate;
         this.teamRepository = teamRepository;
         this.draftRepository = draftRepository;
+        this.playerService = playerService;
     }
 
     public void startNextRound(BlockDto blockDto, boolean otbUpdateRequired) {
@@ -75,13 +80,22 @@ public class BlockService {
      * @param blockDto
      * @return
      */
-    public BlockDto processBlockEvent(BlockDto blockDto) {
+    public BlockDto processBlockEvent(BlockDto blockDto, boolean isAddToBlock) {
         System.out.println("Process Manual AddToBlock Or Bid.");
         // Stop AutoAddToBlock or AutoDraftPlayer.
         futuresScheduler.stopScheduledFutures(blockDto.getDraftId());
 
+        // Set end time for current Bid.
         Long endTime = Instant.now().plusSeconds(blockDto.getBidTimer()).toEpochMilli();
         blockDto.setEndTime(endTime);
+
+        // If AddToBlock then add PlayerDetails.
+        if(isAddToBlock) {
+            PlayerDetailsReadDto playerReadDto = playerService.getPlayerDetailsById(blockDto.getPlayerId(), blockDto.getDraftId());
+            if(playerReadDto != null) {
+                blockDto.setPlayerDetails(playerReadDto);
+            }
+        }
 
         // Start AutoDraftPlayer.
         futuresScheduler.startScheduledFuture(
@@ -121,9 +135,17 @@ public class BlockService {
         blockDto.setPlayerId(bestAvailablePlayerId);
         System.out.println("Best available player ID " + bestAvailablePlayerId);
 
-        // Broadcast AddToBlock to start bidding in FE.
+        // Set endTime for starting Bid.
         Long endTime = Instant.now().plusSeconds(blockDto.getBidTimer()).toEpochMilli();
         blockDto.setEndTime(endTime);
+
+        // Add PlayerDetails.
+        if(bestAvailablePlayerId != null) {
+            PlayerDetailsReadDto playerReadDto = playerService.getPlayerDetailsById(bestAvailablePlayerId, blockDto.getDraftId());
+            blockDto.setPlayerDetails(playerReadDto);
+        }
+
+        // Broadcast AddToBlock to start bidding in FE.
         this.simpMessagingTemplate.convertAndSend("/draft/addToBlocks", blockDto);
 
         // Schedule AutoDraftPlayer future.

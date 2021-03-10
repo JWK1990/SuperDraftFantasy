@@ -126,6 +126,7 @@ public class DraftService {
                 1L,
                 draft.getOnTheBlockTimer(),
                 draft.getBidTimer(),
+                null,
                 null
         );
         blockService.startNextRound(blockDto, false);

@@ -18,13 +18,13 @@ public class BlockController {
     @MessageMapping("/addToBlock")
     @SendTo("/draft/addToBlocks")
     public BlockDto addToBlock(BlockDto blockDto) {
-        return blockService.processBlockEvent(blockDto);
+        return blockService.processBlockEvent(blockDto, true);
     }
 
     @MessageMapping("/bid")
     @SendTo("/draft/bids")
     public BlockDto bid(BlockDto blockDto) {
-        return blockService.processBlockEvent(blockDto);
+        return blockService.processBlockEvent(blockDto, false);
     }
 
 }

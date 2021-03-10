@@ -12,6 +12,17 @@ export const numOfPlayersRequiredSelector = state => {
     return roster.def + roster.mid + roster.ruc + roster.fwd + roster.bench;
 }
 
+// Base Details.
+export const draftBaseSelector = state => {
+    const draftData = state.draft.data;
+    return {
+        id: draftData.id,
+        status: draftData.status,
+        onTheBlockTimer: draftData.onTheBlockTimer,
+        bidTimer: draftData.bidTimer,
+    };
+}
+
 // Commissioner.
 export const commissionerUserIdSelector = state => state.draft.data.teams.find(team => team.type === "COMMISSIONER").user.id;
 export const commissionerTeamNameSelector = state => state.draft.data.teams.find(team => team.type === "COMMISSIONER").name;
@@ -39,6 +50,12 @@ export const draftedPlayersSelector = state => {
         });
     })
     return draftedPlayersList.sort((a, b) => a.id < b.id ? 1 : -1);
+}
+export const lastDraftedPlayerSelector = state => {
+    const draftedPlayersList = draftedPlayersSelector(state);
+    console.log(draftedPlayersList);
+    console.log(draftedPlayersList[draftedPlayersList.length - 1]);
+    return draftedPlayersList[0];
 }
 
 // Position Availability.

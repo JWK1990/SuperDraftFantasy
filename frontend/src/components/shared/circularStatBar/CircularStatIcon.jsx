@@ -16,7 +16,6 @@ const useStyles = makeStyles((theme) => ({
         top:-5,
         left: -3 ,
         zIndex: 1,
-        transform: "rotate(0deg)!important"
     },
     greenBar: {
         color: green[500],
@@ -41,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function CircularStatIcon(props) {
     const classes = useStyles();
-    const [value, setValue] = React.useState(0);
+    const [loading, setLoading] = React.useState(true);
 
     // TODO: Could update this to represent how high in the rankings they are.
     const statRanking = props.statValue/props.maxStatValue;
@@ -53,20 +52,13 @@ export default function CircularStatIcon(props) {
     })
 
     useEffect(() => {
-        const interval = setInterval(() => {
-            setValue(value => {
-                let updatedValue = value + 1;
-                if((updatedValue >= props.statValue) || (updatedValue >= 2000)) {
-                    clearInterval(interval)
-                }
-                return updatedValue
-            });
-        }, 10);
-
+        const timer = setTimeout(() => {
+            setLoading(false);
+        }, 1500);
         return () => {
-            clearInterval(interval);
+            clearInterval(timer);
         };
-    }, [props.statValue]);
+    }, []);
 
     return (
         <div>
@@ -87,15 +79,26 @@ export default function CircularStatIcon(props) {
                     color="primary"
                     size="medium"
                 >
-                    {value}
+                    {loading ? "..." : props.statValue}
                 </Fab>
-                <CircularProgress
-                    size={55}
-                    className={[classes.fabProgress, barColour].join(" ")}
-                    variant="determinate"
-                    value={value/props.maxStatValue * 100}
-                    thickness={4}
-                />
+                {loading
+                    ? (
+                        <CircularProgress
+                            size={55}
+                            className={[classes.fabProgress, barColour].join(" ")}
+                            thickness={4}
+                        />
+                    )
+                    : (
+                        <CircularProgress
+                            size={55}
+                            className={[classes.fabProgress, barColour].join(" ")}
+                            variant="determinate"
+                            value={100}
+                            thickness={4}
+                        />
+                    )
+                }
             </div>
             {props.showFooter
                 ? (
