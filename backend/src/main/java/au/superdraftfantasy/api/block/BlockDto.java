@@ -1,5 +1,6 @@
 package au.superdraftfantasy.api.block;
 
+import au.superdraftfantasy.api.player.PlayerDetailsReadDto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -26,5 +27,7 @@ public class BlockDto {
     private Long bidTimer;
 
     private Long endTime;
+
+    private PlayerDetailsReadDto playerDetails;
 
 }

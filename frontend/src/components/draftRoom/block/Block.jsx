@@ -61,14 +61,17 @@ class DraftRoomBlock extends React.Component {
         this.props.stompClient.subscribe('/draft/stopDrafts', this.receiveStopDraft);
         this.props.stompClient.subscribe('/draft/addToBlocks', this.receiveAddToBlock);
         this.props.stompClient.subscribe('/draft/bids', this.receiveBid);
-        this.props.stompClient.subscribe('/draft/playerDetails', this.receivePlayerDetails);
         this.props.stompClient.subscribe('/draft/teams', this.receiveTeam);
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
         // Updates the state of the BlockClock if a player is moved.
         if(prevProps.currentTeam.teamPlayerJoins !== this.props.currentTeam.teamPlayerJoins) {
-            const isBidDisabledTuple = this.getIsBidDisabledTuple(this.props.block.bidderTeamId, this.props.block.price, this.props.block.playerId);
+            const isBidDisabledTuple = this.getIsBidDisabledTuple(
+                this.props.block.bidderTeamId,
+                this.props.block.price,
+                this.props.block.playerDetails
+            );
             if(isBidDisabledTuple[0] !== this.state.isBidClockDisabled) {
                 this.setState({
                     ...this.state,
@@ -110,7 +113,7 @@ class DraftRoomBlock extends React.Component {
         const isBidDisabledTuple = this.getIsBidDisabledTuple(
             updatedBlock.bidderTeamId,
             updatedBlock.price,
-            updatedBlock.playerId
+            updatedBlock.playerDetails
         );
         // Update Block in Store.
         this.props.receiveAddToBlock(updatedBlock);
@@ -124,14 +127,7 @@ class DraftRoomBlock extends React.Component {
             bidClockKey: this.state.bidClockKey + 1,
             isBidClockDisabled: isBidDisabledTuple[0],
             bidClockText: isBidDisabledTuple[1],
-        });
-    };
-
-    receivePlayerDetails = (payload) => {
-        const playerDetails = JSON.parse(payload.body);
-        this.setState({
-            ...this.state,
-            playerDetails: playerDetails,
+            playerDetails: updatedBlock.playerDetails,
         });
     };
 
@@ -161,7 +157,7 @@ class DraftRoomBlock extends React.Component {
         const isBidDisabledTuple = this.getIsBidDisabledTuple(
             updatedBlock.bidderTeamId,
             updatedBlock.price,
-            updatedBlock.playerId
+            updatedBlock.playerDetails
         );
         this.props.receiveBid(updatedBlock);
         this.setState({
@@ -199,33 +195,39 @@ class DraftRoomBlock extends React.Component {
     // This is because we need to push a key to update the timer.
     // We need to change the timer to be based on endTime - currentTime (rather than a set number).
     // Then when a relevant team update is received, we should increment the bidClockKey to refresh the timer.
-    getIsBidDisabledTuple = (bidderId, price) => {
+    getIsBidDisabledTuple = (bidderId, price, player) => {
+        console.log("BidderId: ", bidderId, price);
         if(this.props.currentTeam.teamPlayerJoins.length >= this.props.numOfPlayerRequired) {
+            console.log("1");
             return [true, "Your team is full."]
         }
 
         if(bidderId === this.props.currentTeam.id) {
+            console.log("2");
             return [true, "You are the lead bidder."];
         }
 
         if(price && this.props.currentTeam.maxBid < price + 1) {
+            console.log("3");
             return [true, "Insufficient budget."]
         }
 
-        if(this.state.player && this.isSlotAvailable(this.state.player)) {
-            return[true, this.getSlotUnavailableText(this.slot.player)];
-        }
-
-        return [false, "Bid"];
-    }
-
-    isSlotAvailable(player) {
-        return player &&
+        console.log("Player: ", this.state.playerDetails);
+        if(
+            player &&
             !DraftRoomUtils.isSlotAvailableForPlayer(
                 this.props.slotAvailability,
                 player.primaryPosition,
                 player.secondaryPosition
             )
+        ) {
+            console.log("Tuple Player: ", player);
+            return[true, this.getSlotUnavailableText(player)];
+        }
+
+        console.log("4");
+
+        return [false, "Bid"];
     }
 
     getSlotUnavailableText(player) {

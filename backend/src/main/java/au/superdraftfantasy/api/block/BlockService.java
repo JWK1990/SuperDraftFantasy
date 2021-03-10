@@ -85,8 +85,17 @@ public class BlockService {
         // Stop AutoAddToBlock or AutoDraftPlayer.
         futuresScheduler.stopScheduledFutures(blockDto.getDraftId());
 
+        // Set end time for current Bid.
         Long endTime = Instant.now().plusSeconds(blockDto.getBidTimer()).toEpochMilli();
         blockDto.setEndTime(endTime);
+
+        // If AddToBlock then add PlayerDetails.
+        if(isAddToBlock) {
+            PlayerDetailsReadDto playerReadDto = playerService.getPlayerDetailsById(blockDto.getPlayerId(), blockDto.getDraftId());
+            if(playerReadDto != null) {
+                blockDto.setPlayerDetails(playerReadDto);
+            }
+        }
 
         // Start AutoDraftPlayer.
         futuresScheduler.startScheduledFuture(
@@ -96,16 +105,6 @@ public class BlockService {
                 this::autoDraftPlayerAndStartNextRound
         );
 
-        if(isAddToBlock) {
-            // Broadcast Player Details. Do this at the end to ensure it doesn't hold up bidding.
-            Long playerId = blockDto.getPlayerId();
-            if(playerId != null) {
-                PlayerDetailsReadDto playerReadDto = playerService.getPlayerDetailsById(playerId, blockDto.getDraftId());
-                if(playerReadDto != null) {
-                    this.simpMessagingTemplate.convertAndSend("/draft/playerDetails", playerReadDto);
-                }
-            }
-        }
         return blockDto;
     }
 
@@ -136,9 +135,17 @@ public class BlockService {
         blockDto.setPlayerId(bestAvailablePlayerId);
         System.out.println("Best available player ID " + bestAvailablePlayerId);
 
-        // Broadcast AddToBlock to start bidding in FE.
+        // Set endTime for starting Bid.
         Long endTime = Instant.now().plusSeconds(blockDto.getBidTimer()).toEpochMilli();
         blockDto.setEndTime(endTime);
+
+        // Add PlayerDetails.
+        if(bestAvailablePlayerId != null) {
+            PlayerDetailsReadDto playerReadDto = playerService.getPlayerDetailsById(bestAvailablePlayerId, blockDto.getDraftId());
+            blockDto.setPlayerDetails(playerReadDto);
+        }
+
+        // Broadcast AddToBlock to start bidding in FE.
         this.simpMessagingTemplate.convertAndSend("/draft/addToBlocks", blockDto);
 
         // Schedule AutoDraftPlayer future.
@@ -149,13 +156,7 @@ public class BlockService {
                 this::autoDraftPlayerAndStartNextRound
         );
 
-        // Broadcast Player Details. Do this at the end to ensure it doesn't hold up bidding.
-        if(bestAvailablePlayerId != null) {
-            PlayerDetailsReadDto playerReadDto = playerService.getPlayerDetailsById(bestAvailablePlayerId, blockDto.getDraftId());
-            if(playerReadDto != null) {
-                this.simpMessagingTemplate.convertAndSend("/draft/playerDetails", playerReadDto);
-            }
-        }
+
 
     }
 

@@ -1,6 +1,7 @@
 class DraftRoomUtils {
 
     isSlotAvailableForPlayer(slotAvailability, primaryPosition, secondaryPosition){
+        console.log("SlotAvailability: ", slotAvailability, primaryPosition, secondaryPosition);
         if(slotAvailability.bench) {
             return true;
         }

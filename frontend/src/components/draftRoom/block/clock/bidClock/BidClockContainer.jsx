@@ -35,6 +35,8 @@ const inactiveClockColors = [
 function BidClockContainer(props) {
     const {classes} = props;
 
+    console.log("Bid Clock Props: ", props);
+
     return(
         <Grid container className={classes.rootContainer} spacing={1} direction="row" justify="space-between" alignItems="stretch">
             <Grid item xs={12}>
