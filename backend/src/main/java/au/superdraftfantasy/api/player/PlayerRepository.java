@@ -15,4 +15,5 @@ public interface PlayerRepository extends JpaRepository<PlayerEntity, Long> {
     Optional<IPlayerDetails> findPlayerDetailsById(Long playerId);
     List<IPlayerBase> findAllBaseBy();
     Page<IPlayerBase> findAllBasePageBy(Pageable pageable);
+    List<IPlayerAvailability> findAllPlayerAvailabilityBy();
 }

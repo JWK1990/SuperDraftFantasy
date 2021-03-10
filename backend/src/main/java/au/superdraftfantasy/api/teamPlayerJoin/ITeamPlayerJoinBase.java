@@ -2,7 +2,7 @@ package au.superdraftfantasy.api.teamPlayerJoin;
 
 import org.springframework.beans.factory.annotation.Value;
 
-public interface TeamPlayerJoinBaseInterface {
+public interface ITeamPlayerJoinBase {
 
     @Value("#{target.team.id}")
     Long getTeamId();

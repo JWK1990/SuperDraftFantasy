@@ -1,30 +1,18 @@
 package au.superdraftfantasy.api.player;
 
-import au.superdraftfantasy.api.seasonSummary.ISeasonSummaryBase;
+import au.superdraftfantasy.api.position.PositionTypeEnum;
 import au.superdraftfantasy.api.teamPlayerJoin.ITeamPlayerJoinBase;
 import org.springframework.beans.factory.annotation.Value;
 
-public interface IPlayerBase {
+public interface IPlayerAvailability {
 
     Long getId();
 
-    String getFirstName();
-
-    String getLastName();
-
-    @Value("#{@playerDataFetcher.getAflTeam(target)}")
-    String getAflTeam();
-
-    Integer getJumperNumber();
-
     @Value("#{@playerDataFetcher.getPrimaryPosition(target)}")
-    String getPrimaryPosition();
+    PositionTypeEnum getPrimaryPosition();
 
     @Value("#{@playerDataFetcher.getSecondaryPosition(target)}")
-    String getSecondaryPosition();
-
-    @Value("#{@playerDataFetcher.getSeasonSummary(target, args[0])}")
-    ISeasonSummaryBase getBaseStats(int year);
+    PositionTypeEnum getSecondaryPosition();
 
     @Value("#{@playerDataFetcher.getTeamPlayerJoin(target, args[0])}")
     ITeamPlayerJoinBase getTeamPlayerJoin(Long draftId);

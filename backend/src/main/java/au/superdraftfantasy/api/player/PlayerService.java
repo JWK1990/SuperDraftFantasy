@@ -3,7 +3,7 @@ package au.superdraftfantasy.api.player;
 import au.superdraftfantasy.api.draft.DraftRepository;
 import au.superdraftfantasy.api.seasonSummary.ISeasonSummaryBase;
 import au.superdraftfantasy.api.seasonSummary.ISeasonSummaryDetails;
-import au.superdraftfantasy.api.teamPlayerJoin.TeamPlayerJoinBaseInterface;
+import au.superdraftfantasy.api.teamPlayerJoin.ITeamPlayerJoinBase;
 import au.superdraftfantasy.api.teamPlayerJoin.TeamPlayerJoinRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.data.domain.Page;
@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.function.Function;
+import java.util.stream.Collectors;
 
 @Service
 public class PlayerService {
@@ -95,7 +96,7 @@ public class PlayerService {
         IPlayerBase playerBase = playerRepository.findPlayerBaseById(playerId)
                 .orElseThrow(() -> new NoSuchElementException("Player with id " + playerId + " not found."));
         ISeasonSummaryBase baseStats = playerBase.getBaseStats(2020);
-        TeamPlayerJoinBaseInterface teamPlayerJoin = playerBase.getTeamPlayerJoin(draftId);
+        ITeamPlayerJoinBase teamPlayerJoin = playerBase.getTeamPlayerJoin(draftId);
         return new PlayerBaseReadDto(playerBase, baseStats, teamPlayerJoin);
     }
 
@@ -107,8 +108,19 @@ public class PlayerService {
         IPlayerDetails playerDetails = playerRepository.findPlayerDetailsById(playerId)
                 .orElseThrow(() -> new NoSuchElementException("Player with id " + playerId + " not found."));
         ISeasonSummaryDetails baseStats = playerDetails.getBaseStats(2020);
-        TeamPlayerJoinBaseInterface teamPlayerJoin = playerDetails.getTeamPlayerJoin(draftId);
+        ITeamPlayerJoinBase teamPlayerJoin = playerDetails.getTeamPlayerJoin(draftId);
         return new PlayerDetailsReadDto(playerDetails, baseStats, teamPlayerJoin);
+    }
+
+    /**
+     * Get Player availability by Draft.
+     * @return
+     */
+    public List<PlayerAvailabilityDto> getPlayerAvailabilityByDraft(Long draftId) {
+        List<IPlayerAvailability> playerAvailabilityList = playerRepository.findAllPlayerAvailabilityBy();
+        return playerAvailabilityList.stream()
+                .map(player -> new PlayerAvailabilityDto(player, draftId))
+                .collect(Collectors.toList());
     }
 
 }

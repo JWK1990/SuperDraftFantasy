@@ -7,6 +7,7 @@ import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import PlayerAnalysisTableRow from "./PlayerAnalysisTableRow";
 import DraftRoomPlayersSelected from "./selected/Selected";
+import UpdatedPlayersContainer from "./UpdatedPlayersContainer";
 
 export default function UpdatedPlayerList({
     // Are there more items to load?
@@ -60,7 +61,7 @@ export default function UpdatedPlayerList({
                         }
                     </AccordionSummary>
                     <AccordionDetails>
-                        <DraftRoomPlayersSelected player={items[index]}/>
+                        <UpdatedPlayersContainer player={items[index]}/>
                     </AccordionDetails>
                 </Accordion>
         )

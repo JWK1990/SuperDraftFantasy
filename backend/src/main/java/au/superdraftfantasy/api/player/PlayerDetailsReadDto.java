@@ -1,7 +1,7 @@
 package au.superdraftfantasy.api.player;
 
 import au.superdraftfantasy.api.seasonSummary.ISeasonSummaryDetails;
-import au.superdraftfantasy.api.teamPlayerJoin.TeamPlayerJoinBaseInterface;
+import au.superdraftfantasy.api.teamPlayerJoin.ITeamPlayerJoinBase;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -13,7 +13,7 @@ public class PlayerDetailsReadDto extends PlayerBaseReadDto {
     public PlayerDetailsReadDto(
             IPlayerBase playerBase,
             ISeasonSummaryDetails seasonSummaryDetails,
-            TeamPlayerJoinBaseInterface teamPlayerJoin
+            ITeamPlayerJoinBase teamPlayerJoin
     ) {
         super(playerBase, seasonSummaryDetails, teamPlayerJoin);
         this.kicks = seasonSummaryDetails.getKicks();

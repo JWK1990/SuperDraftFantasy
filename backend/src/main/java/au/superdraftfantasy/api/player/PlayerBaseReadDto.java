@@ -1,7 +1,7 @@
 package au.superdraftfantasy.api.player;
 
 import au.superdraftfantasy.api.seasonSummary.ISeasonSummaryBase;
-import au.superdraftfantasy.api.teamPlayerJoin.TeamPlayerJoinBaseInterface;
+import au.superdraftfantasy.api.teamPlayerJoin.ITeamPlayerJoinBase;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -15,7 +15,7 @@ public class PlayerBaseReadDto {
     public PlayerBaseReadDto(
             IPlayerBase playerBase,
             ISeasonSummaryBase baseStats,
-            TeamPlayerJoinBaseInterface teamPlayerJoin
+            ITeamPlayerJoinBase teamPlayerJoin
     ) {
         this.id = playerBase.getId();
         this.firstName = playerBase.getFirstName();
