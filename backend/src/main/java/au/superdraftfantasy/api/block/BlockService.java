@@ -155,9 +155,6 @@ public class BlockService {
                 endTime,
                 this::autoDraftPlayerAndStartNextRound
         );
-
-
-
     }
 
     private Long getOnTheBlockTeamId(Long draftId, boolean otbUpdateRequired) {
