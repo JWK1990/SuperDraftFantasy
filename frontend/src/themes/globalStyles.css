@@ -67,7 +67,7 @@
 
 /* PlayerAnalysis Table Styling. */
 .tinyWidthDiv {
-    text-align: center;
+    text-align: left;
     width: 5%;
     min-width: 50px;
 }

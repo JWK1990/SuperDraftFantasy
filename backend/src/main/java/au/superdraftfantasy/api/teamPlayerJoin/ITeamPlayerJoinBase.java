@@ -7,6 +7,9 @@ public interface ITeamPlayerJoinBase {
     @Value("#{target.team.id}")
     Long getTeamId();
 
+    @Value("#{target.team.name}")
+    String getTeamName();
+
     @Value("#{target.player.id}")
     Long getPlayerId();
 

@@ -30,32 +30,32 @@ export default function PlayerAnalysisTableRow(props) {
                 <Typography>{props.player.id}</Typography>
             </div>
             <div className={"largeWidthDiv"}>
-                <Typography>{props.player.name}</Typography>
+                <Typography>{props.player.fullName}</Typography>
             </div>
             <div className={"smallWidthDiv"}>
-                <Typography>Team</Typography>
+                <Typography>{props.player.aflTeam}</Typography>
             </div>
             <div className={"smallWidthDiv"}>
-                <Typography>Position</Typography>
+                <Typography>{props.player.fullPosition}</Typography>
             </div>
             <div className="tinyWidthDiv">
-                <Typography>SC</Typography>
+                <Typography>{props.player.average}</Typography>
             </div>
             <div className="tinyWidthDiv">
-                <Typography>GM</Typography>
+                <Typography>{props.player.games}</Typography>
             </div>
             <div className="tinyWidthDiv">
-                <Typography>D</Typography>
+                <Typography>{props.player.disposals}</Typography>
             </div>
             <div className="tinyWidthDiv">
-                <Typography>DE%</Typography>
+                <Typography>{props.player.disposalEfficiency}</Typography>
             </div>
             <div className="tinyWidthDiv">
-                <Typography>T</Typography>
+                <Typography>{props.player.tackles}</Typography>
             </div>
             <div className="tinyWidthDiv">
-                <Tooltip title={"Coach"}>
-                    <Typography>$</Typography>
+                <Tooltip title={props.player.draftTeamName}>
+                    <Typography><span>$</span>{props.player.price}</Typography>
                 </Tooltip>
             </div>
         </Grid>

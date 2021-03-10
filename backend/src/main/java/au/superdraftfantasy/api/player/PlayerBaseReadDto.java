@@ -20,10 +20,12 @@ public class PlayerBaseReadDto {
         this.id = playerBase.getId();
         this.firstName = playerBase.getFirstName();
         this.lastName = playerBase.getLastName();
+        this.fullName = playerBase.getFirstName() + " " + playerBase.getLastName();
         this.aflTeam = playerBase.getAflTeam();
         this.jumperNumber = playerBase.getJumperNumber();
         this.primaryPosition = playerBase.getPrimaryPosition();
         this.secondaryPosition = playerBase.getSecondaryPosition();
+        this.fullPosition = getFullPosition(this.primaryPosition, this.secondaryPosition);
         if(baseStats != null) {
             this.games = baseStats.getGames();
             this.average = baseStats.getAverage();
@@ -33,7 +35,8 @@ public class PlayerBaseReadDto {
         }
         if(teamPlayerJoin != null) {
             this.available = false;
-            this.draftTeam = teamPlayerJoin.getTeamId();
+            this.draftTeamId = teamPlayerJoin.getTeamId();
+            this.draftTeamName = teamPlayerJoin.getTeamName();
             this.price = teamPlayerJoin.getPrice();
         } else {
             this.available = true;
@@ -46,6 +49,8 @@ public class PlayerBaseReadDto {
 
     String lastName;
 
+    String fullName;
+
     String aflTeam;
 
     Integer jumperNumber;
@@ -53,6 +58,8 @@ public class PlayerBaseReadDto {
     String primaryPosition;
 
     String secondaryPosition;
+
+    String fullPosition;
 
     Integer games;
 
@@ -66,9 +73,19 @@ public class PlayerBaseReadDto {
 
     boolean available;
 
-    Long draftTeam;
+    Long draftTeamId;
+
+    String draftTeamName;
 
     Integer price;
+
+    private String getFullPosition(String primaryPosition, String secondaryPosition) {
+        String fullPosition = primaryPosition;
+        if(secondaryPosition != null) {
+            fullPosition += "-" + secondaryPosition;
+        }
+        return fullPosition;
+    }
 
 
 }
