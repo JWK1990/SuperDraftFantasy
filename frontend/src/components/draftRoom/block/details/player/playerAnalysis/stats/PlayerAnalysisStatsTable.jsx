@@ -56,8 +56,6 @@ export default function PlayerAnalysisStatsTable(props) {
         return () => { isMounted = false }; // use effect cleanup to set flag false, if unmounted
     },[props.player])
 
-    console.log("Player Details: ", playerDetails);
-
     return (
         <MuiThemeProvider theme={theme}>
             <TableContainer component={Paper} className={classes.tableContainer}>

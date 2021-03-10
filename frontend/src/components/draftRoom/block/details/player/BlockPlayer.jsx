@@ -24,7 +24,6 @@ const useStyles = makeStyles((theme) => ({
 
 export default function BlockPlayer(props) {
     const classes = useStyles();
-    console.log("Block Player Props: ", props);
 
     return (
         <Grid container className={classes.rootContainer} spacing={0} direction="row" justify="flex-start" alignItems="center">

@@ -91,7 +91,6 @@ class DraftRoomBlock extends React.Component {
     };
 
     receiveStartNextRound = (payload) => {
-        console.log('Start Next Round Received: ', payload);
         const updatedBlock = JSON.parse(payload.body);
         this.props.receiveStartNextRound(updatedBlock);
         if(this.props.draft.status !== DraftStatusEnum.IN_PROGRESS) {
@@ -108,7 +107,6 @@ class DraftRoomBlock extends React.Component {
     };
 
     receiveAddToBlock = (payload) => {
-        console.log('AddToBlock Received ', payload);
         const updatedBlock = JSON.parse(payload.body);
         const isBidDisabledTuple = this.getIsBidDisabledTuple(updatedBlock.bidderTeamId, updatedBlock.price, updatedBlock.playerId);
         this.props.receiveAddToBlock(updatedBlock);
@@ -137,12 +135,10 @@ class DraftRoomBlock extends React.Component {
                 bidTimer: this.props.draft.bidTimer,
             };
             this.props.stompClient.send("/app/bid", {}, JSON.stringify(bidDetails));
-            console.log('Bid Sent: ', bidDetails);
         }
     };
 
     receiveBid = (payload) => {
-        console.log("Bid Received", payload);
         const updatedBlock = JSON.parse(payload.body);
         const isBidDisabledTuple = this.getIsBidDisabledTuple(updatedBlock.bidderTeamId, updatedBlock.price, updatedBlock.playerId);
         this.props.receiveBid(updatedBlock);
@@ -158,7 +154,6 @@ class DraftRoomBlock extends React.Component {
     };
 
     receiveStopDraft = (payload) => {
-        console.log('StopDraft Received.');
         const updatedStatus = payload.body;
         this.props.receiveStopDraft();
         this.setState({

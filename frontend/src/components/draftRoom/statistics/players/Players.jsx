@@ -114,7 +114,6 @@ class DraftRoomPlayers extends React.Component {
     getFullPosition(player) {
         let fullPosition = player.primaryPosition;
         if(player.secondaryPosition !== null) {
-            console.log(player.secondaryPosition);
             fullPosition += (" - " + player.secondaryPosition);
         }
         return fullPosition;

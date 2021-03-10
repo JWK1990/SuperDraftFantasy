@@ -202,7 +202,6 @@ export default function PlayerAnalysisGraph(props) {
 
     const CustomTooltip = ({ active, payload, label }) => {
         if (active && payload && payload.length) {
-            console.log("Payload: ", payload, "Label: ", label);
             return (
                 <div className={classes.customTooltip}>
                     <p className={classes.round}>{`Rd ${label} - ${data[label-1].Description}`}</p>

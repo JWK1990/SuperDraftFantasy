@@ -54,7 +54,6 @@ class TeamView extends React.Component {
         // TODO: Could refactor the field layout to always be inline with the BE positions.
         // To do this first would need to add Slot Number Values to BE (e.g. M1, D5 etc).
         else if(this.props.type === "field" && nextProps.team.teamPlayerJoins !== this.props.team.teamPlayerJoins) {
-            console.log("Update field");
             this.setState({myTeamList: this.getInitialMyTeamList(this.props.roster, nextProps.team.teamPlayerJoins)});
         }
 
