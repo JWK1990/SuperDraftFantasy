@@ -7,6 +7,7 @@ import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import PlayerAnalysisTableRow from "./PlayerAnalysisTableRow";
 import ExpandedPlayerContainer from "./ExpandedPlayerContainer";
+import DraftRoomPlayersSelected from "./selected/Selected";
 
 export default function UpdatedPlayerList({
     // Are there more items to load?
@@ -40,6 +41,7 @@ export default function UpdatedPlayerList({
     }
 
     // Render an item or a loading indicator.
+    // TODO: Work out how to better handle slotAvailability to allow AddToBlock for each row.
     const PlayerRow = ({ index, style }) => {
         return (
                 <Accordion
@@ -60,7 +62,7 @@ export default function UpdatedPlayerList({
                         }
                     </AccordionSummary>
                     <AccordionDetails>
-                        <ExpandedPlayerContainer player={items[index]}/>
+                        <ExpandedPlayerContainer component={DraftRoomPlayersSelected} player={items[index]}/>
                     </AccordionDetails>
                 </Accordion>
         )

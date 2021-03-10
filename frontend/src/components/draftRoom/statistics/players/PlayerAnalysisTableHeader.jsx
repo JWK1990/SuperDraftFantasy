@@ -26,9 +26,6 @@ export default function PlayerAnalysisTableHeader() {
         <Paper>
             <Grid container className={classes.rootContainer} direction={"row"} justify={"flex-start"} alignItems="center">
                 <div className="tinyWidthDiv">
-                    <Typography/>
-                </div>
-                <div className="tinyWidthDiv">
                     <Typography className={classes.headerText}>Rank</Typography>
                 </div>
                 <div className={"largeWidthDiv"}>

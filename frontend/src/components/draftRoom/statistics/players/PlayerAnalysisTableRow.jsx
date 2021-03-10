@@ -1,9 +1,8 @@
-import {Fab, Tooltip} from "@material-ui/core";
+import {Tooltip} from "@material-ui/core";
 import React from "react";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
-import AddIcon from "@material-ui/icons/Add";
 
 const useStyles = makeStyles((theme) => ({
     rootContainer: {
@@ -33,11 +32,6 @@ export default function PlayerAnalysisTableRow(props) {
 
     return (
         <Grid container className={classes.rootContainer} direction={"row"} justify={"flex-start"} alignItems="center">
-            <div className="tinyWidthDiv">
-                <Fab className={classes.addToBlockButton} color="primary" aria-label="add-to-block">
-                    <AddIcon />
-                </Fab>
-            </div>
             <div className="tinyWidthDiv">
                 <Typography>{props.player.id}</Typography>
             </div>

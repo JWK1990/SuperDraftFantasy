@@ -24,7 +24,7 @@ import {
 } from "../../../store/selectors/BlockSelectors";
 import DraftRoomUtils from "../../../utils/DraftRoomUtils";
 import {DraftStatusEnum} from "../../../models/DraftStatusEnum";
-import {updateDraftStatus} from "../../../store/actions";
+import {updateDraftStatus, updateTeamAction} from "../../../store/actions";
 import ClockContainer from "./clock/ClockContainer";
 import BlockPlayerContainer from "./details/BlockDetailsContainer";
 
@@ -62,6 +62,7 @@ class DraftRoomBlock extends React.Component {
         this.props.stompClient.subscribe('/draft/addToBlocks', this.receiveAddToBlock);
         this.props.stompClient.subscribe('/draft/bids', this.receiveBid);
         this.props.stompClient.subscribe('/draft/playerDetails', this.receivePlayerDetails);
+        this.props.stompClient.subscribe('/draft/teams', this.receiveTeam);
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
@@ -167,6 +168,11 @@ class DraftRoomBlock extends React.Component {
             isBidClockDisabled: isBidDisabledTuple[0],
             bidClockText: isBidDisabledTuple[1],
         });
+    };
+
+    receiveUpdatedTeam = (payload) => {
+        const updatedTeam = JSON.parse(payload.body);
+        this.props.updateTeam(updatedTeam);
     };
 
     receiveStopDraft = (payload) => {
@@ -290,6 +296,7 @@ const mapDispatchToProps = dispatch => ({
         receiveAddToBlock: (block) => dispatch(receiveAddToBlockAction(block)),
         receiveBid: (block) => dispatch(receiveBidAction(block)),
         receiveStopDraft: () => dispatch(receiveStopDraftAction()),
+        updateTeam: (team) => dispatch(updateTeamAction(team)),
         updateDraftStatus: (status) => dispatch(updateDraftStatus(status)),
 })
 

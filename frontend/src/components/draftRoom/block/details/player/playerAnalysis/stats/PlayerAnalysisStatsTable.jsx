@@ -66,9 +66,9 @@ export default function PlayerAnalysisStatsTable(props) {
                         <TableRow>
                             <TableCell className={classes.rowHeader}>2020</TableCell>
                             <TableCell>{props.player.kicks}</TableCell>
-                            <TableCell>2</TableCell>
-                            <TableCell>8</TableCell>
-                            <TableCell>7</TableCell>
+                            <TableCell>{props.player.marks}</TableCell>
+                            <TableCell>{props.player.tackles}</TableCell>
+                            <TableCell>{props.player.insideFiftys}</TableCell>
                             <TableCell>5</TableCell>
                             <TableCell>2</TableCell>
                             <TableCell>3</TableCell>
