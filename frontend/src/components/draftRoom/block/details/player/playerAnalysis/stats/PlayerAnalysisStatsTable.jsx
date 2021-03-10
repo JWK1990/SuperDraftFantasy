@@ -45,14 +45,16 @@ export default function PlayerAnalysisStatsTable(props) {
 
     useEffect(() =>{
         let isMounted = true; // note this flag denote mount status
-        DraftService.getPlayerDetailsById(props.player.id, 1)
-            .then(response => {
-                if(isMounted) {
-                    setPlayerDetails(response.data);
-                }
-            })
+        if(props.player != null && props.player.id != null) {
+            DraftService.getPlayerDetailsById(props.player.id, 1)
+                .then(response => {
+                    if(isMounted) {
+                        setPlayerDetails(response.data);
+                    }
+                })
+        }
         return () => { isMounted = false }; // use effect cleanup to set flag false, if unmounted
-    },[props.player.id])
+    },[props.player])
 
     console.log("Player Details: ", playerDetails);
 

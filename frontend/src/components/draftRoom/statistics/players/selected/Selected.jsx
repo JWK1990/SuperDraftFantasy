@@ -38,46 +38,44 @@ export default function DraftRoomPlayersSelected(props) {
     }
 
     return (
-        <div>
-            <Grid container>
-                <Grid item xs={1}>
-                    <div className={classes.controlsDiv}>
-                        <div className={classes.inputDiv}>
-                            <FormControl variant="outlined">
-                                <InputLabel id="starting-bid">Bid</InputLabel>
-                                <Select
-                                    labelId="demo-simple-select-outlined-label"
-                                    id="demo-simple-select-outlined"
-                                    value={initialBid}
-                                    onChange={handleChange}
-                                    label="Initial Bid"
-                                    disabled={isAddToBlockDisabled()}
-                                >
-                                    <MenuItem value={initialBid}>${initialBid}</MenuItem>
-                                    <MenuItem value={10}>$10</MenuItem>
-                                    <MenuItem value={20}>$20</MenuItem>
-                                    <MenuItem value={30}>$30</MenuItem>
-                                </Select>
-                            </FormControl>
-                        </div>
-                        <div>
-                            <Fab
-                                color="primary"
-                                aria-label="add"
+        <Grid container>
+            <Grid item xs={1}>
+                <div className={classes.controlsDiv}>
+                    <div className={classes.inputDiv}>
+                        <FormControl variant="outlined">
+                            <InputLabel id="starting-bid">Bid</InputLabel>
+                            <Select
+                                labelId="demo-simple-select-outlined-label"
+                                id="demo-simple-select-outlined"
+                                value={initialBid}
+                                onChange={handleChange}
+                                label="Initial Bid"
                                 disabled={isAddToBlockDisabled()}
-                                onClick={() => props.sendAddToBlock(props.player.id, initialBid)}
                             >
-                                <AddIcon />
-                            </Fab>
-                        </div>
+                                <MenuItem value={initialBid}>${initialBid}</MenuItem>
+                                <MenuItem value={10}>$10</MenuItem>
+                                <MenuItem value={20}>$20</MenuItem>
+                                <MenuItem value={30}>$30</MenuItem>
+                            </Select>
+                        </FormControl>
                     </div>
-                </Grid>
-                <Grid item xs={11}>
-                    <BlockPlayer
-                        player={props.player}
-                    />
-                </Grid>
+                    <div>
+                        <Fab
+                            color="primary"
+                            aria-label="add"
+                            disabled={isAddToBlockDisabled()}
+                            onClick={() => props.sendAddToBlock(props.player.id, initialBid)}
+                        >
+                            <AddIcon />
+                        </Fab>
+                    </div>
+                </div>
             </Grid>
-        </div>
+            <Grid item xs={11}>
+                <BlockPlayer
+                    player={props.player}
+                />
+            </Grid>
+        </Grid>
     );
 }
