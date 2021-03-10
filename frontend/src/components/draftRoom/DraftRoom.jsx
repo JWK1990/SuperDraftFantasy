@@ -1,9 +1,8 @@
 import React from "react";
 import DraftRoomBlock from "./block/Block";
-import {connectWebSocketAction, getDraftAction, getPlayersByDraftAction} from "../../store/actions";
+import {connectWebSocketAction, getDraftAction} from "../../store/actions";
 import {connect} from "react-redux";
 import {draftSelector} from "../../store/selectors/DraftSelectors"
-import {playersSelector} from "../../store/selectors/PlayersSelectors";
 import DraftRoomTeams from "./teams/Teams";
 import Grid from "@material-ui/core/Grid";
 import {stompClientSelector} from "../../store/selectors/WebSocketSelectors";
@@ -36,13 +35,9 @@ class DraftRoom extends React.Component {
     componentDidMount() {
         this.props.connectWebSocket();
         this.props.getDraft(this.draftId);
-        this.props.getPlayers(this.draftId);
     }
 
     async componentDidUpdate(prevProps, prevState, snapshot) {
-        if(this.props.players !== prevProps.players) {
-            this.setState({isPlayerDataLoaded: true});
-        }
         if(this.props.draft !== prevProps.draft) {
             this.setState({isDraftDataLoaded: true});
         }
@@ -63,10 +58,7 @@ class DraftRoom extends React.Component {
     render() {
         const {classes} = this.props;
 
-        if (!this.state.isStompClientConnected
-            || !this.state.isDraftDataLoaded
-            || !this.state.isPlayerDataLoaded
-        ) {
+        if (!this.state.isStompClientConnected || !this.state.isDraftDataLoaded) {
             return <div />
         }
 
@@ -108,7 +100,6 @@ class DraftRoom extends React.Component {
 
 const mapStateToProps = state => {
     return {
-        players: playersSelector(state),
         draft: draftSelector(state),
         stompClient: stompClientSelector(state),
     };
@@ -116,7 +107,6 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => ({
     getDraft: (draftId) => dispatch(getDraftAction(draftId)),
-    getPlayers: (draftId) => dispatch(getPlayersByDraftAction(draftId)),
     connectWebSocket: () => dispatch(connectWebSocketAction()),
 });
 

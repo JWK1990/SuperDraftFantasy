@@ -46,6 +46,7 @@ export default function BlockPlayerCard(props) {
             <CardMedia
                 className={classes.playerImage}
                 image={WillDayImage}
+
                 title="Purchase Review Player Image."
             />
             <div className={classes.details}>

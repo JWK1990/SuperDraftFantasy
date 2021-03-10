@@ -1,6 +1,5 @@
 import React from "react";
 import Grid from "@material-ui/core/Grid";
-import {mockPlayerSelector} from "../../../../../store/selectors/PlayersSelectors";
 import withStyles from "@material-ui/core/styles/withStyles";
 import {connect} from "react-redux";
 import Typography from "@material-ui/core/Typography";
@@ -32,6 +31,10 @@ class PurchaseReview extends React.Component {
     render() {
         const {classes} = this.props;
 
+        if(!this.props.player) {
+            return null;
+        }
+
         return (
             <Paper elevation={2} className={classes.paperRoot}>
                 <Grid container className={classes.rootContainer} spacing={0} direction="row" justify="flex-start" alignItems="center">
@@ -61,7 +64,8 @@ class PurchaseReview extends React.Component {
 
 const mapStateToProps = state => {
     return {
-        player: mockPlayerSelector(state, 0),
+        // Todo: Get last selected player.
+        //player: mockPlayerSelector(state, 0),
     };
 };
 

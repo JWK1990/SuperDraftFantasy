@@ -5,6 +5,8 @@ import au.superdraftfantasy.api.draft.DraftRepository;
 import au.superdraftfantasy.api.draft.DraftStatusEnum;
 import au.superdraftfantasy.api.futuresScheduler.FuturesScheduler;
 import au.superdraftfantasy.api.futuresScheduler.ScheduledFutureEnum;
+import au.superdraftfantasy.api.player.PlayerDetailsReadDto;
+import au.superdraftfantasy.api.player.PlayerService;
 import au.superdraftfantasy.api.team.*;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Service;
@@ -22,19 +24,22 @@ public class BlockService {
     private final SimpMessagingTemplate simpMessagingTemplate;
     private final TeamRepository teamRepository;
     private final DraftRepository draftRepository;
+    private final PlayerService playerService;
 
     public BlockService(
             FuturesScheduler futuresScheduler,
             TeamService teamService,
             SimpMessagingTemplate simpMessagingTemplate,
             TeamRepository teamRepository,
-            DraftRepository draftRepository
+            DraftRepository draftRepository,
+            PlayerService playerService
     ) {
         this.futuresScheduler = futuresScheduler;
         this.teamService = teamService;
         this.simpMessagingTemplate = simpMessagingTemplate;
         this.teamRepository = teamRepository;
         this.draftRepository = draftRepository;
+        this.playerService = playerService;
     }
 
     public void startNextRound(BlockDto blockDto, boolean otbUpdateRequired) {
@@ -133,6 +138,15 @@ public class BlockService {
                 endTime,
                 this::autoDraftPlayerAndStartNextRound
         );
+
+        // Broadcast Player Details. Do this at the end to ensure it doesn't hold up bidding.
+        if(bestAvailablePlayerId != null) {
+            PlayerDetailsReadDto playerReadDto = playerService.getPlayerDetailsById(bestAvailablePlayerId, blockDto.getDraftId());
+            if(playerReadDto != null) {
+                this.simpMessagingTemplate.convertAndSend("/draft/playerDetails", playerReadDto);
+            }
+        }
+
     }
 
     private Long getOnTheBlockTeamId(Long draftId, boolean otbUpdateRequired) {

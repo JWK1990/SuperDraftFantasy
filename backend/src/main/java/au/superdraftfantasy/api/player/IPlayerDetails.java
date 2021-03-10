@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Value;
 public interface IPlayerDetails extends IPlayerBase {
 
     @Value("#{@playerDataFetcher.getSeasonSummary(target, args[0])}")
-    ISeasonSummaryDetails getBaseStats(int year);
+    ISeasonSummaryDetails getSeasonSummary(int year);
 
 }
 

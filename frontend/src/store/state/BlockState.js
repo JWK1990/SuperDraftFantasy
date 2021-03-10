@@ -8,6 +8,7 @@ export const initialBlockData = {
     onTheBlockTimer: '',
     bidTimer: '',
     endTime: '',
+    player: '',
 }
 
 export const initialBlockState = {

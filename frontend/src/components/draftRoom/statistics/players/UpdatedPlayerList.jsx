@@ -6,7 +6,6 @@ import {Accordion, AccordionDetails, AccordionSummary} from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import PlayerAnalysisTableRow from "./PlayerAnalysisTableRow";
-import UpdatedPlayersContainer from "./ExpandedPlayerContainer";
 import ExpandedPlayerContainer from "./ExpandedPlayerContainer";
 
 export default function UpdatedPlayerList({

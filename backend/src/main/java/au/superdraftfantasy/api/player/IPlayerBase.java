@@ -24,7 +24,7 @@ public interface IPlayerBase {
     String getSecondaryPosition();
 
     @Value("#{@playerDataFetcher.getSeasonSummary(target, args[0])}")
-    ISeasonSummaryBase getBaseStats(int year);
+    ISeasonSummaryBase getSeasonSummary(int year);
 
     @Value("#{@playerDataFetcher.getTeamPlayerJoin(target, args[0])}")
     ITeamPlayerJoinBase getTeamPlayerJoin(Long draftId);

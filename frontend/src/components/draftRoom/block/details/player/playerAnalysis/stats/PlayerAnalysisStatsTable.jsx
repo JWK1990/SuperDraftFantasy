@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import {
     createMuiTheme,
     MuiThemeProvider,
@@ -11,7 +11,6 @@ import {
 } from "@material-ui/core";
 import Paper from "@material-ui/core/Paper";
 import makeStyles from "@material-ui/core/styles/makeStyles";
-import DraftService from "../../../../../../../services/DraftService";
 
 const theme = createMuiTheme({
     overrides: {
@@ -41,20 +40,10 @@ const useStyles = makeStyles(() => ({
 
 export default function PlayerAnalysisStatsTable(props) {
     const classes = useStyles();
-    const [playerDetails, setPlayerDetails] = useState(1);
 
-    useEffect(() =>{
-        let isMounted = true; // note this flag denote mount status
-        if(props.player != null && props.player.id != null) {
-            DraftService.getPlayerDetailsById(props.player.id, 1)
-                .then(response => {
-                    if(isMounted) {
-                        setPlayerDetails(response.data);
-                    }
-                })
-        }
-        return () => { isMounted = false }; // use effect cleanup to set flag false, if unmounted
-    },[props.player])
+    if(!props.player) {
+        return null;
+    }
 
     return (
         <MuiThemeProvider theme={theme}>
@@ -76,7 +65,7 @@ export default function PlayerAnalysisStatsTable(props) {
                     <TableBody>
                         <TableRow>
                             <TableCell className={classes.rowHeader}>2020</TableCell>
-                            <TableCell>{playerDetails.kicks}</TableCell>
+                            <TableCell>{props.player.kicks}</TableCell>
                             <TableCell>2</TableCell>
                             <TableCell>8</TableCell>
                             <TableCell>7</TableCell>

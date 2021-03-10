@@ -2,7 +2,6 @@ package au.superdraftfantasy.api.player;
 
 import au.superdraftfantasy.api.draft.DraftRepository;
 import au.superdraftfantasy.api.seasonSummary.ISeasonSummaryBase;
-import au.superdraftfantasy.api.seasonSummary.ISeasonSummaryDetails;
 import au.superdraftfantasy.api.teamPlayerJoin.ITeamPlayerJoinBase;
 import au.superdraftfantasy.api.teamPlayerJoin.TeamPlayerJoinRepository;
 import org.modelmapper.ModelMapper;
@@ -58,7 +57,7 @@ public class PlayerService {
         playerList.forEach((player) -> {
             PlayerBaseReadDto readDto = new PlayerBaseReadDto(
                     player,
-                    player.getBaseStats(2020),
+                    player.getSeasonSummary(2020),
                     player.getTeamPlayerJoin(draftId)
             );
             readDtoList.add(readDto);
@@ -81,7 +80,7 @@ public class PlayerService {
             public PlayerBaseReadDto apply(IPlayerBase player) {
                 return new PlayerBaseReadDto(
                         player,
-                        player.getBaseStats(2020),
+                        player.getSeasonSummary(2020),
                         player.getTeamPlayerJoin(draftId)
                 );
             }
@@ -92,10 +91,11 @@ public class PlayerService {
      * Read an individual Player by Id.
      * @return
      */
+    @Transactional
     public PlayerBaseReadDto getPlayerBaseById(Long playerId, Long draftId) {
         IPlayerBase playerBase = playerRepository.findPlayerBaseById(playerId)
                 .orElseThrow(() -> new NoSuchElementException("Player with id " + playerId + " not found."));
-        ISeasonSummaryBase baseStats = playerBase.getBaseStats(2020);
+        ISeasonSummaryBase baseStats = playerBase.getSeasonSummary(2020);
         ITeamPlayerJoinBase teamPlayerJoin = playerBase.getTeamPlayerJoin(draftId);
         return new PlayerBaseReadDto(playerBase, baseStats, teamPlayerJoin);
     }
@@ -104,18 +104,18 @@ public class PlayerService {
      * Read an individual Player by Id.
      * @return
      */
+    @Transactional
     public PlayerDetailsReadDto getPlayerDetailsById(Long playerId, Long draftId) {
         IPlayerDetails playerDetails = playerRepository.findPlayerDetailsById(playerId)
                 .orElseThrow(() -> new NoSuchElementException("Player with id " + playerId + " not found."));
-        ISeasonSummaryDetails baseStats = playerDetails.getBaseStats(2020);
-        ITeamPlayerJoinBase teamPlayerJoin = playerDetails.getTeamPlayerJoin(draftId);
-        return new PlayerDetailsReadDto(playerDetails, baseStats, teamPlayerJoin);
+        return new PlayerDetailsReadDto(playerDetails, 2020, draftId);
     }
 
     /**
      * Get Player availability by Draft.
      * @return
      */
+    @Transactional
     public List<PlayerAvailabilityDto> getPlayerAvailabilityByDraft(Long draftId) {
         List<IPlayerAvailability> playerAvailabilityList = playerRepository.findAllPlayerAvailabilityBy();
         return playerAvailabilityList.stream()

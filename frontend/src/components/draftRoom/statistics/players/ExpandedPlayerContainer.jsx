@@ -2,13 +2,11 @@ import React, {forwardRef} from "react";
 import DraftRoomPlayersSelected from "./selected/Selected";
 import {
     currentTeamIdSelector,
-    draftSelector,
-    draftTeamsSelector,
+    draftBaseSelector,
     isSlotAvailableSelector
 } from "../../../../store/selectors/DraftSelectors";
 import {stompClientSelector} from "../../../../store/selectors/WebSocketSelectors";
 import {connect} from "react-redux";
-import {updatePlayerAvailabilityAction, updateTeamAction} from "../../../../store/actions";
 import AddBox from "@material-ui/icons/AddBox";
 import ArrowDownward from "@material-ui/icons/ArrowDownward";
 import Check from "@material-ui/icons/Check";
@@ -26,7 +24,6 @@ import Search from "@material-ui/icons/Search";
 import ViewColumn from "@material-ui/icons/ViewColumn";
 import {isBiddingUnderwaySelector, isOnTheBlockSelector,} from "../../../../store/selectors/BlockSelectors";
 import DraftRoomUtils from "../../../../utils/DraftRoomUtils";
-import withStyles from "@material-ui/core/styles/withStyles";
 
 const tableIcons = {
     Add: forwardRef((props, ref) => <AddBox {...props} ref={ref}/>),
@@ -48,24 +45,9 @@ const tableIcons = {
     ViewColumn: forwardRef((props, ref) => <ViewColumn {...props} ref={ref}/>)
 };
 
-const styles = {
-    root: {},
-}
-
 class ExpandedPlayerContainer extends React.Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            showAddToBlock: false,
-        };
-    }
-
-    componentDidMount() {
-        this.props.stompClient.subscribe('/draft/teams', this.receiveTeam);
-    }
-
-    shouldComponentUpdate(nextProps, nextState, nextContext) {
+/*    shouldComponentUpdate(nextProps, nextState, nextContext) {
         console.log("Should Component Update: ", nextProps.draft.status, this.props.draft.status);
         return nextProps.isOnTheBlock !== this.props.isOnTheBlock ||
             nextProps.draft.status !== this.props.draft.status ||
@@ -84,45 +66,44 @@ class ExpandedPlayerContainer extends React.Component {
                 showAddToBlock: this.props.isOnTheBlock && this.props.draft.status === "IN_PROGRESS" && !this.props.isBiddingUnderway
             })
         }
+    }*/
+
+    isAddToBlockHidden = (player) => {
+        const isTeamOnTheBlock = this.props.isOnTheBlock && this.props.draftBase.status === "IN_PROGRESS" && !this.props.isBiddingUnderway;
+        return !player.available || !isTeamOnTheBlock;
     }
 
-    receiveTeam = (payload) => {
-        const team = JSON.parse(payload.body);
-        this.props.updateTeam(team);
-        const draftedPlayer = team.teamPlayerJoins[team.teamPlayerJoins.length - 1].player;
-        this.props.updatePlayerAvailabilityAction(draftedPlayer)
-    };
+    isAddToBlockDisabled = (slotAvailability, player) => {
+        const isSlotAvailableForPlayer = DraftRoomUtils.isSlotAvailableForPlayer(
+            slotAvailability,
+            player.primaryPosition,
+            player.secondaryPosition
+        )
+        return this.isAddToBlockHidden(player) || !isSlotAvailableForPlayer;
+    }
 
     sendAddToBlock = (selectedPlayerId, initialBid) => {
         if (this.props.stompClient) {
             const addToBlockDetails = {
-                draftId: this.props.draft.id,
+                draftId: this.props.draftBase.id,
                 playerId: this.props.player.id,
                 bidderTeamId: this.props.currentTeamId,
                 myTeamPosition: null,
                 price: initialBid,
-                onTheBlockTimer: this.props.draft.onTheBlockTimer,
-                bidTimer: this.props.draft.bidTimer,
+                onTheBlockTimer: this.props.draftBase.onTheBlockTimer,
+                bidTimer: this.props.draftBase.bidTimer,
             };
             this.props.stompClient.send("/app/addToBlock", {}, JSON.stringify(addToBlockDetails));
         }
     };
 
     render() {
-        const {classes} = this.props;
-
         return (
             <DraftRoomPlayersSelected
                 player={this.props.player}
                 sendAddToBlock={this.sendAddToBlock}
-                hideAddToBlock={!this.props.player.available || !this.state.showAddToBlock}
-                isSlotAvailableForPlayer={
-                    DraftRoomUtils.isSlotAvailableForPlayer(
-                        this.props.slotAvailability,
-                        this.props.player.primaryPosition,
-                        this.props.player.secondaryPosition
-                    )
-                }
+                hideAddToBlock={this.isAddToBlockHidden(this.props.player)}
+                disableAddToBlock={this.isAddToBlockDisabled(this.props.slotAvailability, this.props.player)}
             />
         )
     }
@@ -131,9 +112,8 @@ class ExpandedPlayerContainer extends React.Component {
 const mapStateToProps = state => {
     return {
         stompClient: stompClientSelector(state),
-        draft: draftSelector(state),
+        draftBase: draftBaseSelector(state),
         currentTeamId: currentTeamIdSelector(state),
-        teams: draftTeamsSelector(state),
         isOnTheBlock: isOnTheBlockSelector(state),
         slotAvailability: {
             def: isSlotAvailableSelector(state, "def"),
@@ -146,9 +126,4 @@ const mapStateToProps = state => {
     };
 };
 
-const mapDispatchToProps = dispatch => ({
-    updateTeam: (team) => dispatch(updateTeamAction(team)),
-    updatePlayerAvailabilityAction: (player) => dispatch(updatePlayerAvailabilityAction(player)),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(ExpandedPlayerContainer));
+export default connect(mapStateToProps)(ExpandedPlayerContainer);

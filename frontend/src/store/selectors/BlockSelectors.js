@@ -22,3 +22,7 @@ export const leadBidderTeamNameSelector = state => {
 export const isBiddingUnderwaySelector = state => {
     return state.block.data.playerId !== '';
 }
+
+export const onTheBlockPlayerSelector = state => {
+    return state.block.data.player;
+}

@@ -1,3 +1,4 @@
+/*
 import React, {forwardRef} from "react";
 import MaterialTable from "material-table";
 import DraftRoomPlayersSelected from "./selected/Selected";
@@ -260,3 +261,4 @@ const mapDispatchToProps = dispatch => ({
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(DraftRoomPlayers));
+*/
