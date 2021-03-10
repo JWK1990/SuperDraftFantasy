@@ -52,12 +52,11 @@ const styles = {
     root: {},
 }
 
-class UpdatedPlayersContainer extends React.Component {
+class ExpandedPlayerContainer extends React.Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            selectedPlayer: '',
             showAddToBlock: false,
         };
     }
@@ -67,6 +66,7 @@ class UpdatedPlayersContainer extends React.Component {
     }
 
     shouldComponentUpdate(nextProps, nextState, nextContext) {
+        console.log("Should Component Update: ", nextProps.draft.status, this.props.draft.status);
         return nextProps.isOnTheBlock !== this.props.isOnTheBlock ||
             nextProps.draft.status !== this.props.draft.status ||
             nextProps.slotAvailability !== this.props.slotAvailability ||
@@ -74,10 +74,12 @@ class UpdatedPlayersContainer extends React.Component {
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
+        console.log(prevProps.draft.status, this.props.draft.status);
         if (prevProps.isOnTheBlock !== this.props.isOnTheBlock
             || prevProps.draft.status !== this.props.draft.status
             || prevProps.isBiddingUnderway !== this.props.isBiddingUnderway
         ) {
+            console.log("Show Add To Block: ", this.props.isOnTheBlock, this.props.draft.status === "IN_PROGRESS", !this.props.isBiddingUnderway);
             this.setState({
                 showAddToBlock: this.props.isOnTheBlock && this.props.draft.status === "IN_PROGRESS" && !this.props.isBiddingUnderway
             })
@@ -95,7 +97,7 @@ class UpdatedPlayersContainer extends React.Component {
         if (this.props.stompClient) {
             const addToBlockDetails = {
                 draftId: this.props.draft.id,
-                playerId: selectedPlayerId,
+                playerId: this.props.player.id,
                 bidderTeamId: this.props.currentTeamId,
                 myTeamPosition: null,
                 price: initialBid,
@@ -103,12 +105,12 @@ class UpdatedPlayersContainer extends React.Component {
                 bidTimer: this.props.draft.bidTimer,
             };
             this.props.stompClient.send("/app/addToBlock", {}, JSON.stringify(addToBlockDetails));
-            console.log(addToBlockDetails);
         }
     };
 
     render() {
         const {classes} = this.props;
+
         return (
             <DraftRoomPlayersSelected
                 player={this.props.player}
@@ -149,4 +151,4 @@ const mapDispatchToProps = dispatch => ({
     updatePlayerAvailabilityAction: (player) => dispatch(updatePlayerAvailabilityAction(player)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(UpdatedPlayersContainer));
+export default connect(mapStateToProps, mapDispatchToProps)(withStyles(styles)(ExpandedPlayerContainer));

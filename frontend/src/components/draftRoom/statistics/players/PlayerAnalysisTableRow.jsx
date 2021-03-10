@@ -1,8 +1,9 @@
-import {Tooltip} from "@material-ui/core";
+import {Fab, Tooltip} from "@material-ui/core";
 import React from "react";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
+import AddIcon from "@material-ui/icons/Add";
 
 const useStyles = makeStyles((theme) => ({
     rootContainer: {
@@ -10,6 +11,12 @@ const useStyles = makeStyles((theme) => ({
     },
     loadingDiv: {
         width: "100%",
+    },
+    addToBlockButton: {
+        maxHeight: "25px",
+        minHeight: "25px",
+        minWidth: "25px",
+        maxWidth: "25px",
     }
 }));
 
@@ -26,6 +33,11 @@ export default function PlayerAnalysisTableRow(props) {
 
     return (
         <Grid container className={classes.rootContainer} direction={"row"} justify={"flex-start"} alignItems="center">
+            <div className="tinyWidthDiv">
+                <Fab className={classes.addToBlockButton} color="primary" aria-label="add-to-block">
+                    <AddIcon />
+                </Fab>
+            </div>
             <div className="tinyWidthDiv">
                 <Typography>{props.player.id}</Typography>
             </div>
@@ -54,7 +66,7 @@ export default function PlayerAnalysisTableRow(props) {
                 <Typography>{props.player.tackles}</Typography>
             </div>
             <div className="tinyWidthDiv">
-                <Tooltip title={props.player.draftTeamName}>
+                <Tooltip title={props.player.draftTeamName !== null ? props.player.draftTeamName : ""}>
                     <Typography><span>$</span>{props.player.price}</Typography>
                 </Tooltip>
             </div>

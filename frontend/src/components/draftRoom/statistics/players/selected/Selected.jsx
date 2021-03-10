@@ -5,7 +5,6 @@ import Fab from "@material-ui/core/Fab";
 import AddIcon from '@material-ui/icons/Add';
 import {FormControl, InputLabel, MenuItem, Select} from "@material-ui/core";
 import BlockPlayer from "../../../block/details/player/BlockPlayer";
-import DraftRoomUtils from "../../../../../utils/DraftRoomUtils";
 
 const useStyles = makeStyles(theme => ({
     margin: {
@@ -37,6 +36,8 @@ export default function DraftRoomPlayersSelected(props) {
     const isAddToBlockDisabled = () => {
         return props.hideAddToBlock || !props.isSlotAvailableForPlayer;
     }
+
+    console.log(props);
 
     return (
         <Grid container>
