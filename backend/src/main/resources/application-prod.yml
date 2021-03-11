@@ -15,9 +15,9 @@ spring:
 
   datasource:
     platform: postgres
-    url: jdbc:postgresql://superdraftfantasy.cvl5kjlcuelp.ap-southeast-2.rds.amazonaws.com:5432/superdraftfantasy
-    username: sdadmin
-    password: sdadmin123
+    url: ${SPRING_DATASOURCE_URL_PROD}
+    username: ${DB_USERNAME_PROD}
+    password: ${DB_PASSWORD_PROD}
     driverClassName: org.postgresql.Driver
 
 server:
