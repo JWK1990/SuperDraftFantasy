@@ -1,4 +1,4 @@
--- UPDATE THE SEQUENCES.
+/*-- UPDATE THE SEQUENCES.
 SELECT setval('afl_teams_enum_id_seq', (SELECT max(id) FROM afl_teams_enum));
 SELECT setval('team_entity_id_seq', (SELECT max(id) FROM team_entity));
 SELECT setval('team_type_enum_id_seq', (SELECT max(id) FROM team_type_enum));
@@ -42,3 +42,4 @@ INSERT INTO team_entity
 (id, "name", type_id, budget, on_the_block, order_index, user_id, draft_id, status_id, created_on, updated_on)
 VALUES(2, 'Team2', 1, 100, false, 1, 2, 1, 0, '2020-12-01 09:53:01.359', '2020-12-01 09:53:01.363')
 ON CONFLICT DO NOTHING;
+*/
