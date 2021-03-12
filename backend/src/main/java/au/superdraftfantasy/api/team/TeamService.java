@@ -1,14 +1,17 @@
 package au.superdraftfantasy.api.team;
 
 import au.superdraftfantasy.api.block.BlockDto;
-import au.superdraftfantasy.api.player.*;
+import au.superdraftfantasy.api.draft.DraftRepository;
+import au.superdraftfantasy.api.draft.IDraftBase;
+import au.superdraftfantasy.api.player.PlayerAvailabilityDto;
+import au.superdraftfantasy.api.player.PlayerEntity;
+import au.superdraftfantasy.api.player.PlayerRepository;
+import au.superdraftfantasy.api.player.PlayerService;
 import au.superdraftfantasy.api.position.PositionEntity;
 import au.superdraftfantasy.api.position.PositionRepository;
 import au.superdraftfantasy.api.position.PositionTypeEnum;
 import au.superdraftfantasy.api.roster.RosterEntity;
-import au.superdraftfantasy.api.teamPlayerJoin.MyTeamPositionReadDto;
-import au.superdraftfantasy.api.teamPlayerJoin.MyTeamPositionWriteDto;
-import au.superdraftfantasy.api.teamPlayerJoin.TeamPlayerJoinEntity;
+import au.superdraftfantasy.api.teamPlayerJoin.*;
 import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
@@ -17,9 +20,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.NoSuchElementException;
+import java.util.*;
 import java.util.stream.Collectors;
 
 
@@ -32,6 +33,8 @@ public class TeamService {
     private final SimpMessagingTemplate simpMessagingTemplate;
     private final PositionRepository positionRepository;
     private final PlayerService playerService;
+    private final TeamPlayerJoinRepository teamPlayerJoinRepository;
+    private final DraftRepository draftRepository;
 
     public TeamService(
             ModelMapper modelMapper,
@@ -39,7 +42,9 @@ public class TeamService {
             PlayerRepository playerRepository,
             SimpMessagingTemplate simpMessagingTemplate,
             PositionRepository positionRepository,
-            PlayerService playerService
+            PlayerService playerService,
+            TeamPlayerJoinRepository teamPlayerJoinRepository,
+            DraftRepository draftRepository
     ) {
         this.modelMapper = modelMapper;
         this.teamRepository = teamRepository;
@@ -47,6 +52,8 @@ public class TeamService {
         this.simpMessagingTemplate = simpMessagingTemplate;
         this.positionRepository = positionRepository;
         this.playerService = playerService;
+        this.teamPlayerJoinRepository = teamPlayerJoinRepository;
+        this.draftRepository = draftRepository;
     }
 
     /**
@@ -108,20 +115,68 @@ public class TeamService {
     //TODO: Could update to get based on highest rank. For this need to add a rank field so that we're not just using average.
     @Transactional
     public Long getBestAvailablePlayerForTeam(Long draftId, Long teamId) {
-        // TODO: Update so that we only grab the required player from the DB. Not the entire list every time. We could query on available and position.
+        // Get required inputs.
+        List<ITeamPlayerJoinBase> teamPlayerJoinsForTeam = teamPlayerJoinRepository.findByTeam_Id(teamId);
+        IDraftBase draft = draftRepository.findDraftBaseById(draftId)
+                .orElseThrow(() -> new NoSuchElementException("Draft with ID: " + draftId + " could not be found."));
+        RosterEntity draftRoster = draft.getRoster();
+
         List<PlayerAvailabilityDto> playerAvailabilityList = playerService.getPlayerAvailabilityByDraft(draftId);
-        TeamEntity team = teamRepository.findById(teamId).orElseThrow(() -> new NoSuchElementException("Team with id " + teamId + " not found."));
+
+        // Get availability at each position.
+        Map<PositionTypeEnum, Boolean> positionalAvailabilityMap = getPositionalAvailability(draftRoster, teamPlayerJoinsForTeam);
+
         // Get first available Player if bench is free, or if not, get first available Player that has a position with a free slot.
         PlayerAvailabilityDto bestAvailablePlayer = playerAvailabilityList.stream().filter(player ->
                 player.isAvailable() && (
-                        isSlotAvailableForPosition(team, PositionTypeEnum.BENCH)
-                                || isSlotAvailableForPosition(team, player.getPrimaryPosition())
-                                        || (player.getSecondaryPosition() != null && isSlotAvailableForPosition(team, player.getSecondaryPosition()))
+                        positionalAvailabilityMap.get(PositionTypeEnum.BENCH)
+                                || positionalAvailabilityMap.get(player.getPrimaryPosition())
+                                        || (
+                                                player.getSecondaryPosition() != null
+                                                        && positionalAvailabilityMap.get(player.getSecondaryPosition()))
                 )
         )
                 .findFirst()
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Could not fetch best available Player."));
         return bestAvailablePlayer.getId();
+    }
+
+    private Map<PositionTypeEnum, Boolean> getPositionalAvailability(RosterEntity draftRoster, List<ITeamPlayerJoinBase> teamPlayerJoinList) {
+      // Get count of Players in each position for a given Team.
+       Map<PositionTypeEnum, Long> positionCountMap = teamPlayerJoinList.stream()
+                .collect(Collectors.groupingBy(ITeamPlayerJoinBase::getMyTeamPosition, Collectors.counting()));
+       // Map these counts to a boolean indicating whether or not a slot is available at that position.
+       Map<PositionTypeEnum, Boolean> positionalAvailabilityMap = getNewPostionalAvailabilityMap();
+        for (Map.Entry<PositionTypeEnum, Long> mapEntry : positionCountMap.entrySet()) {
+            PositionTypeEnum position = mapEntry.getKey();
+            Long numOfSlotsTakenForPosition = mapEntry.getValue();
+            Long totalNumOfSlotsForPosition = getTotalNumOfSlotsForPosition(position, draftRoster);
+            positionalAvailabilityMap.put(position, numOfSlotsTakenForPosition < totalNumOfSlotsForPosition);
+        }
+       return positionalAvailabilityMap;
+    };
+
+    private Map<PositionTypeEnum, Boolean> getNewPostionalAvailabilityMap() {
+        Map<PositionTypeEnum, Boolean> positionalAvailabilityMap = new HashMap<>();
+        positionalAvailabilityMap.put(PositionTypeEnum.DEF, true);
+        positionalAvailabilityMap.put(PositionTypeEnum.MID, true);
+        positionalAvailabilityMap.put(PositionTypeEnum.RUC, true);
+        positionalAvailabilityMap.put(PositionTypeEnum.FWD, true);
+        positionalAvailabilityMap.put(PositionTypeEnum.BENCH, true);
+        return positionalAvailabilityMap;
+    }
+
+    private Long getTotalNumOfSlotsForPosition(PositionTypeEnum position, RosterEntity draftRoster) {
+        Long totalSlotsForPosition = 0L;
+        switch (position) {
+            case DEF: totalSlotsForPosition = draftRoster.getDef(); break;
+            case MID: totalSlotsForPosition = draftRoster.getMid(); break;
+            case RUC: totalSlotsForPosition = draftRoster.getRuc(); break;
+            case FWD: totalSlotsForPosition = draftRoster.getFwd(); break;
+            case BENCH: totalSlotsForPosition = draftRoster.getBench(); break;
+            default: break;
+        }
+        return totalSlotsForPosition;
     }
 
     private void addPlayer(TeamEntity team, Long playerID, Long price) {

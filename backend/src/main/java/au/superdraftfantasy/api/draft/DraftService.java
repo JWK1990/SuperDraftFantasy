@@ -21,6 +21,7 @@ import javax.transaction.Transactional;
 import javax.validation.constraints.NotBlank;
 import java.util.Collections;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 
 @Service
@@ -185,6 +186,12 @@ public class DraftService {
                 .sorted((team1, team2) -> (int) (team1.getOrderIndex() - team2.getOrderIndex()))
                 .map(TeamEntity::getId)
                 .collect(Collectors.toList());
+    }
+
+    @Transactional
+    public IDraftBase getDraftBase(Long draftId) {
+        return draftRepository.findDraftBaseById(draftId)
+        .orElseThrow(() -> new NoSuchElementException("Draft with ID: " + draftId + " could not be found."));
     }
 
     private void addTeamToDraftAndUpdateStatusIfRequired(DraftEntity draft, TeamEntity team) {

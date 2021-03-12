@@ -9,5 +9,5 @@ import java.util.Optional;
 @Repository
 public interface TeamPlayerJoinRepository extends CrudRepository<TeamPlayerJoinEntity, Long> {
     Optional<TeamPlayerJoinEntity> findById(Long id);
-    List<TeamPlayerJoinEntity> findByTeam_Draft_Id(Long draftId);
+    List<ITeamPlayerJoinBase> findByTeam_Id(Long teamId);
 }

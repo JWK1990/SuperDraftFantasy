@@ -141,7 +141,7 @@ class DraftRoomBlock extends React.Component {
 
     sendBid = () => {
         if (this.props.stompClient) {
-            console.log("Bid Sent: ", payload);
+            console.log("Bid Sent.");
             const bidDetails = {
                 draftId: this.props.draftBase.id,
                 playerId: this.props.block.playerId,
