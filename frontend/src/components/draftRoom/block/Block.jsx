@@ -197,23 +197,18 @@ class DraftRoomBlock extends React.Component {
     // We need to change the timer to be based on endTime - currentTime (rather than a set number).
     // Then when a relevant team update is received, we should increment the bidClockKey to refresh the timer.
     getIsBidDisabledTuple = (bidderId, price, player) => {
-        console.log("BidderId: ", bidderId, price);
         if(this.props.currentTeam.teamPlayerJoins.length >= this.props.numOfPlayerRequired) {
-            console.log("1");
             return [true, "Your team is full."]
         }
 
         if(bidderId === this.props.currentTeam.id) {
-            console.log("2");
             return [true, "You are the lead bidder."];
         }
 
         if(price && this.props.currentTeam.maxBid < price + 1) {
-            console.log("3");
             return [true, "Insufficient budget."]
         }
 
-        console.log("Player: ", this.state.playerDetails);
         if(
             player &&
             !DraftRoomUtils.isSlotAvailableForPlayer(
@@ -222,11 +217,8 @@ class DraftRoomBlock extends React.Component {
                 player.secondaryPosition
             )
         ) {
-            console.log("Tuple Player: ", player);
             return[true, this.getSlotUnavailableText(player)];
         }
-
-        console.log("4");
 
         return [false, "Bid"];
     }
