@@ -11,4 +11,5 @@ public interface DraftRepository extends JpaRepository<DraftEntity, Long> {
     boolean existsByName(String name);
     List<DraftEntity> findDistinctByTeams_User_Username(String username);
     Optional<IDraftBase> findDraftBaseById(Long draftId);
+    DraftEntity getOne(Long draftId);
 }
