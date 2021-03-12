@@ -27,6 +27,8 @@ public interface PlayerRepository extends JpaRepository<PlayerEntity, Long> {
 
     Page<IPlayerBase> findAllBasePageBy(Pageable pageable);
 
+    Page<IPlayerBase> findByTeamPlayerJoins_Team_DraftId(Pageable pageable, Long draftId);
+
     List<IPlayerAvailability> findAllPlayerAvailabilityBy();
 
     @Query(

@@ -13,7 +13,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.function.Function;
-import java.util.stream.Collectors;
 
 @Service
 public class PlayerService {
@@ -54,7 +53,7 @@ public class PlayerService {
     }
 
     /**
-     * Read a list of a subset of Players including Draft specific attributes.
+     * Read a Page of Players for a given Draft.
      * @return
      */
     @Transactional
@@ -73,6 +72,17 @@ public class PlayerService {
                 );
             }
         });
+    }
+
+    /**
+     * Read a page of Drafted Players for a given Draft.
+     * @return
+     */
+    @Transactional
+    public Page<PlayerBaseReadDto> getDraftedPlayersPage(Long draftId, Integer pageNum, Integer pageSize) {
+        Pageable pageable = PageRequest.of(pageNum, pageSize, Sort.by("id"));
+        Page<IPlayerBase> draftedPlayerPage = playerRepository.findByTeamPlayerJoins_Team_DraftId(pageable, draftId);
+        return mapToReadDtoPage(draftedPlayerPage, 2020, draftId);
     }
 
     /**
@@ -100,18 +110,6 @@ public class PlayerService {
     }
 
     /**
-     * Get Player availability by Draft.
-     * @return
-     */
-    @Transactional
-    public List<PlayerAvailabilityDto> getPlayerAvailabilityByDraft(Long draftId) {
-        List<IPlayerAvailability> playerAvailabilityList = playerRepository.findAllPlayerAvailabilityBy();
-        return playerAvailabilityList.stream()
-                .map(player -> new PlayerAvailabilityDto(player, draftId))
-                .collect(Collectors.toList());
-    }
-
-    /**
      * Get the ID of the best available Player in a given Draft.
      * @return
      */
@@ -127,6 +125,19 @@ public class PlayerService {
     @Transactional
     public Long getBestUndraftedPlayerIdWithPositionFilter(Long draftId, List<String> positionExclusionList) {
         return playerRepository.getBestUndraftedPlayerIdWithPositionFilter(draftId, positionExclusionList);
+    }
+
+    private Page<PlayerBaseReadDto> mapToReadDtoPage(Page<IPlayerBase> iPlayerBasePage, Integer year, Long draftId) {
+        return iPlayerBasePage.map(new Function<IPlayerBase, PlayerBaseReadDto>() {
+            @Override
+            public PlayerBaseReadDto apply(IPlayerBase player) {
+                return new PlayerBaseReadDto(
+                        player,
+                        player.getSeasonSummary(year),
+                        player.getTeamPlayerJoin(draftId)
+                );
+            }
+        });
     }
 
 }
