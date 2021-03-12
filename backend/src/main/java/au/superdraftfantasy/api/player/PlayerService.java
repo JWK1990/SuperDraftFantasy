@@ -1,10 +1,7 @@
 package au.superdraftfantasy.api.player;
 
-import au.superdraftfantasy.api.draft.DraftRepository;
 import au.superdraftfantasy.api.seasonSummary.ISeasonSummaryBase;
 import au.superdraftfantasy.api.teamPlayerJoin.ITeamPlayerJoinBase;
-import au.superdraftfantasy.api.teamPlayerJoin.TeamPlayerJoinRepository;
-import org.modelmapper.ModelMapper;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -21,21 +18,12 @@ import java.util.stream.Collectors;
 @Service
 public class PlayerService {
 
-    private final ModelMapper modelMapper;
     private final PlayerRepository playerRepository;
-    private final DraftRepository draftRepository;
-    private final TeamPlayerJoinRepository teamPlayerJoinRepository;
 
     public PlayerService(
-            ModelMapper modelMapper,
-            PlayerRepository playerRepository,
-            DraftRepository draftRepository,
-            TeamPlayerJoinRepository teamPlayerJoinRepository
+            PlayerRepository playerRepository
     ) {
-        this.modelMapper = modelMapper;
         this.playerRepository = playerRepository;
-        this.draftRepository = draftRepository;
-        this.teamPlayerJoinRepository = teamPlayerJoinRepository;
     }
 
     /**
@@ -121,6 +109,24 @@ public class PlayerService {
         return playerAvailabilityList.stream()
                 .map(player -> new PlayerAvailabilityDto(player, draftId))
                 .collect(Collectors.toList());
+    }
+
+    /**
+     * Get the ID of the best available Player in a given Draft.
+     * @return
+     */
+    @Transactional
+    public Long getBestUndraftedPlayerId(Long draftId) {
+        return playerRepository.getBestUndraftedPlayerId(draftId);
+    }
+
+    /**
+     * Get the ID of the best available Player in a given Draft for given Position.
+     * @return
+     */
+    @Transactional
+    public Long getBestUndraftedPlayerIdWithPositionFilter(Long draftId, List<String> positionExclusionList) {
+        return playerRepository.getBestUndraftedPlayerIdWithPositionFilter(draftId, positionExclusionList);
     }
 
 }

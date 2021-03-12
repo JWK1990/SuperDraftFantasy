@@ -1,5 +1,6 @@
 package au.superdraftfantasy.api.teamPlayerJoin;
 
+import au.superdraftfantasy.api.position.PositionTypeEnum;
 import org.springframework.beans.factory.annotation.Value;
 
 public interface ITeamPlayerJoinBase {
@@ -14,5 +15,8 @@ public interface ITeamPlayerJoinBase {
     Long getPlayerId();
 
     Integer getPrice();
+
+    @Value("#{target.myTeamPosition.type}")
+    PositionTypeEnum getMyTeamPosition();
 
 }

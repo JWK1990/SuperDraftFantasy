@@ -93,6 +93,7 @@ class DraftRoomBlock extends React.Component {
     }
 
     receiveStartNextRound = (payload) => {
+        console.log("Start Next Round Received: ", payload);
         const updatedBlock = JSON.parse(payload.body);
         this.props.receiveStartNextRound(updatedBlock);
         if(this.props.draftBase.status !== DraftStatusEnum.IN_PROGRESS) {
@@ -109,6 +110,7 @@ class DraftRoomBlock extends React.Component {
     };
 
     receiveAddToBlock = (payload) => {
+        console.log("Add To Block Received: ", payload);
         const updatedBlock = JSON.parse(payload.body);
         const isBidDisabledTuple = this.getIsBidDisabledTuple(
             updatedBlock.bidderTeamId,
@@ -132,12 +134,14 @@ class DraftRoomBlock extends React.Component {
     };
 
     receiveTeam = (payload) => {
+        console.log("Team Received: ", payload);
         const team = JSON.parse(payload.body);
         this.props.updateTeam(team);
     };
 
     sendBid = () => {
         if (this.props.stompClient) {
+            console.log("Bid Sent.");
             const bidDetails = {
                 draftId: this.props.draftBase.id,
                 playerId: this.props.block.playerId,
@@ -153,6 +157,7 @@ class DraftRoomBlock extends React.Component {
     };
 
     receiveBid = (payload) => {
+        console.log("Bid Received: ", payload);
         const updatedBlock = JSON.parse(payload.body);
         const isBidDisabledTuple = this.getIsBidDisabledTuple(
             updatedBlock.bidderTeamId,
@@ -171,12 +176,8 @@ class DraftRoomBlock extends React.Component {
         });
     };
 
-    receiveUpdatedTeam = (payload) => {
-        const updatedTeam = JSON.parse(payload.body);
-        this.props.updateTeam(updatedTeam);
-    };
-
     receiveStopDraft = (payload) => {
+        console.log("Stop Draft Received.");
         const updatedStatus = payload.body;
         this.props.receiveStopDraft();
         this.setState({
