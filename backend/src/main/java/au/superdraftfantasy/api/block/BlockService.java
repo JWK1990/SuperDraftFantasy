@@ -118,8 +118,7 @@ public class BlockService {
         boolean isDraftComplete = teamList.stream()
                 .allMatch(team -> team.getStatus().equals(TeamStatusEnum.READY));
         if(isDraftComplete) {
-            DraftEntity draft = draftRepository.findById(draftId)
-                    .orElseThrow(() -> new NoSuchElementException("Draft with id " + draftId + " not found."));
+            DraftEntity draft = draftRepository.getOne(draftId);
             draft.setStatus(DraftStatusEnum.COMPLETE);
             draftRepository.save(draft);
             stopDraft(draftId, DraftStatusEnum.COMPLETE.name());
@@ -162,8 +161,7 @@ public class BlockService {
         if(otbUpdateRequired) {
             onTheBlockTeamId = updateOnTheBlockTeam(draftId);
         } else {
-            TeamEntity otbTeam = teamRepository.findDistinctByDraftIdAndOnTheBlock(draftId, true)
-                    .orElseThrow(() -> new NoSuchElementException("No On The Block Coach Found."));
+            TeamEntity otbTeam = teamRepository.findOneByDraftIdAndOnTheBlock(draftId, true);
             onTheBlockTeamId = otbTeam.getId();
         }
         return onTheBlockTeamId;
