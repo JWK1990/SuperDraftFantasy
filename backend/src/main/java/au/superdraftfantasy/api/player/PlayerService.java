@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.function.Function;
+import java.util.stream.Collectors;
 
 @Service
 public class PlayerService {
@@ -83,6 +84,19 @@ public class PlayerService {
         Pageable pageable = PageRequest.of(pageNum, pageSize, Sort.by("id"));
         Page<IPlayerBase> draftedPlayerPage = playerRepository.findByTeamPlayerJoins_Team_DraftId(pageable, draftId);
         return mapToReadDtoPage(draftedPlayerPage, 2020, draftId);
+    }
+
+    /**
+     * Read a page of Available Players for a given Draft.
+     * @return
+     */
+    @Transactional
+    public Page<PlayerBaseReadDto> getAvailablePlayersPage(Long draftId, Integer pageNum, Integer pageSize) {
+        List<IDraftedPlayerId> draftedPlayerIdList = playerRepository.findPlayerIdByTeamPlayerJoins_Team_DraftId(draftId);
+        List<Long> idList = draftedPlayerIdList.stream().map(IDraftedPlayerId::getId).collect(Collectors.toList());
+        Pageable pageable = PageRequest.of(pageNum, pageSize, Sort.by("id"));
+        Page<IPlayerBase> iPlayerBasePage = playerRepository.findByIdNotIn(idList, pageable);
+        return mapToReadDtoPage(iPlayerBasePage, 2020, draftId);
     }
 
     /**

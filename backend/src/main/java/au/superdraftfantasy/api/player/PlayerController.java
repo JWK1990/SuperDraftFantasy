@@ -61,4 +61,13 @@ public class PlayerController {
         return playerService.getDraftedPlayersPage(draftId, Integer.parseInt(pageNum), Integer.parseInt(pageSize));
     }
 
+    @GetMapping(name = "getAvailablePlayersPage", path = "/draft/{draftId}/available")
+    public Page<PlayerBaseReadDto> getAvailablePlayersPage(
+            @PathVariable Long draftId,
+            @RequestParam(required = false) String pageNum,
+            @RequestParam(required = false) String pageSize
+    ) {
+        return playerService.getAvailablePlayersPage(draftId, Integer.parseInt(pageNum), Integer.parseInt(pageSize));
+    }
+
 }

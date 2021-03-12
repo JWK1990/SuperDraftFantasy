@@ -29,18 +29,15 @@ public interface PlayerRepository extends JpaRepository<PlayerEntity, Long> {
 
     Page<IPlayerBase> findByTeamPlayerJoins_Team_DraftId(Pageable pageable, Long draftId);
 
-    List<IPlayerAvailability> findAllPlayerAvailabilityBy();
+    List<IDraftedPlayerId> findPlayerIdByTeamPlayerJoins_Team_DraftId(Long draftId);
 
-    @Query(
-            value = PlayerRepositoryQueries.selectBestUndraftedPlayerId,
-            nativeQuery = true
-    )
+    // TODO: Replace with a query to fetch the Undrafted Players. This is as short term workaround.
+    Page<IPlayerBase> findByIdNotIn(List<Long> draftedPlayersList, Pageable pageable);
+
+    @Query(value = PlayerRepositoryQueries.selectBestUndraftedPlayerId, nativeQuery = true)
     Long getBestUndraftedPlayerId(@Param("draftId") Long draftId);
 
-    @Query(
-            value = PlayerRepositoryQueries.selectBestUndraftedPlayerIdWithPositionFilter,
-            nativeQuery = true
-    )
+    @Query(value = PlayerRepositoryQueries.selectBestUndraftedPlayerIdWithPositionFilter, nativeQuery = true)
     Long getBestUndraftedPlayerIdWithPositionFilter(
             @Param("draftId") Long draftId,
             @Param("positionExclusionList") List<String> positionExclusionList
