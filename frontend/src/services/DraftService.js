@@ -30,8 +30,21 @@ class DraftService {
         return axios.get("/players/draft/" + draftId);
     }
 
-    getPlayersPageByDraft(draftId, pageNum, pageSize) {
-        return axios.get("/players/draft/" + draftId + "/page?pageNum=" + pageNum + "&pageSize=" + pageSize);
+    getPlayersPageByDraft(draftId, pageNum, pageSize, lastNameSearch, positionList, isHideDraftedFilterOn) {
+        let basePath = "/players/draft/" + draftId + "/page";
+
+        // Add Available Filter If Required.
+        if(isHideDraftedFilterOn) {
+            basePath += "/available";
+        }
+
+        // Add PageNum and PageSize Filters.
+        basePath += "?pageNum=" + pageNum + "&pageSize=" + pageSize;
+
+        // Add Search and PositionList Filters.
+        basePath += "&search=" + lastNameSearch;
+        basePath += "&position=" + positionList;
+        return axios.get(basePath);
     }
 
     getPlayerDetailsById(playerId, draftId) {

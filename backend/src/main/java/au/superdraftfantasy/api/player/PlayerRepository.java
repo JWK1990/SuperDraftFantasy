@@ -1,5 +1,6 @@
 package au.superdraftfantasy.api.player;
 
+import au.superdraftfantasy.api.position.PositionTypeEnum;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -25,20 +26,50 @@ public interface PlayerRepository extends JpaRepository<PlayerEntity, Long> {
 
     List<IPlayerBase> findAllBaseBy();
 
-    Page<IPlayerBase> findAllBasePageBy(Pageable pageable);
+    Page<IPlayerBase> findAllBasePageByPositions_TypeInAndLastNameIgnoreCaseContaining(
+            List<PositionTypeEnum> positionList,
+            String search,
+            Pageable pageable
+    );
 
-    List<IPlayerAvailability> findAllPlayerAvailabilityBy();
+    Page<IPlayerBase> findAllBasePageByLastNameIgnoreCaseContaining(
+            String search,
+            Pageable pageable
+    );
 
-    @Query(
-            value = PlayerRepositoryQueries.selectBestUndraftedPlayerId,
-            nativeQuery = true
-    )
+    Page<IPlayerBase> findByTeamPlayerJoins_Team_DraftIdAndPositions_TypeInAndLastNameIgnoreCaseContaining(
+            Long draftId,
+            List<PositionTypeEnum> positionList,
+            String search,
+            Pageable pageable
+    );
+
+    Page<IPlayerBase> findByTeamPlayerJoins_Team_DraftIdAndLastNameIgnoreCaseContaining(
+            Long draftId,
+            String search,
+            Pageable pageable
+    );
+
+    List<IDraftedPlayerId> findPlayerIdByTeamPlayerJoins_Team_DraftId(Long draftId);
+
+    // TODO: Replace with a query to fetch the Undrafted Players. This is as short term workaround.
+    Page<IPlayerBase> findByIdNotInAndLastNameIgnoreCaseContaining(
+            List<Long> draftedPlayersList,
+            String search,
+            Pageable pageable
+    );
+
+    Page<IPlayerBase> findByIdNotInAndPositions_TypeInAndLastNameIgnoreCaseContaining(
+            List<Long> draftedPlayersList,
+            List<PositionTypeEnum> positionList,
+            String search,
+            Pageable pageable
+    );
+
+    @Query(value = PlayerRepositoryQueries.selectBestUndraftedPlayerId, nativeQuery = true)
     Long getBestUndraftedPlayerId(@Param("draftId") Long draftId);
 
-    @Query(
-            value = PlayerRepositoryQueries.selectBestUndraftedPlayerIdWithPositionFilter,
-            nativeQuery = true
-    )
+    @Query(value = PlayerRepositoryQueries.selectBestUndraftedPlayerIdWithPositionFilter, nativeQuery = true)
     Long getBestUndraftedPlayerIdWithPositionFilter(
             @Param("draftId") Long draftId,
             @Param("positionExclusionList") List<String> positionExclusionList

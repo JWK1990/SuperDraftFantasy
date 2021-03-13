@@ -1,5 +1,7 @@
 package au.superdraftfantasy.api.player;
 
+import au.superdraftfantasy.api.position.PositionRepository;
+import au.superdraftfantasy.api.position.PositionTypeEnum;
 import au.superdraftfantasy.api.seasonSummary.ISeasonSummaryBase;
 import au.superdraftfantasy.api.teamPlayerJoin.ITeamPlayerJoinBase;
 import org.springframework.data.domain.Page;
@@ -19,11 +21,14 @@ import java.util.stream.Collectors;
 public class PlayerService {
 
     private final PlayerRepository playerRepository;
+    private final PositionRepository positionRepository;
 
     public PlayerService(
-            PlayerRepository playerRepository
+            PlayerRepository playerRepository,
+            PositionRepository positionRepository
     ) {
         this.playerRepository = playerRepository;
+        this.positionRepository = positionRepository;
     }
 
     /**
@@ -54,25 +59,110 @@ public class PlayerService {
     }
 
     /**
-     * Read a list of a subset of Players including Draft specific attributes.
+     * Read a Page of Players for a given Draft.
      * @return
      */
     @Transactional
-    public Page<PlayerBaseReadDto> getPlayersPageByDraftId(Long draftId, Integer pageNum, Integer pageSize) {
+    public Page<PlayerBaseReadDto> getPlayersPageByDraftId(
+            Long draftId,
+            Integer pageNum,
+            Integer pageSize,
+            String search,
+            String position
+    ) {
         Pageable pageable = PageRequest.of(pageNum, pageSize, Sort.by("id"));
-        Page<IPlayerBase> playersPage = playerRepository.findAllBasePageBy(pageable);
-        // The below is required to add in the specific baseStats and teamPlayerJoins for the PlayerBase.
-        // TODO: See if there is a better way that we can handle this data conversion.
-        return playersPage.map(new Function<IPlayerBase, PlayerBaseReadDto>() {
-            @Override
-            public PlayerBaseReadDto apply(IPlayerBase player) {
-                return new PlayerBaseReadDto(
-                        player,
-                        player.getSeasonSummary(2020),
-                        player.getTeamPlayerJoin(draftId)
-                );
-            }
-        });
+        List<PositionTypeEnum> positionsList = getPositionsFilterList(position);
+        Page<IPlayerBase> playerPage;
+
+        // TODO: Try and get working with FirstName search as well.
+        // Maybe try and use @Query.
+        if(positionsList.size() > 0 ) {
+            playerPage = playerRepository.findAllBasePageByPositions_TypeInAndLastNameIgnoreCaseContaining(
+                    positionsList,
+                    search,
+                    pageable
+            );
+        } else {
+            playerPage = playerRepository.findAllBasePageByLastNameIgnoreCaseContaining(
+                    search,
+                    pageable
+            );
+        }
+
+        return mapToReadDtoPage(playerPage, 2020, draftId);
+    }
+
+    /**
+     * Read a page of Drafted Players for a given Draft.
+     * @return
+     */
+    @Transactional
+    public Page<PlayerBaseReadDto> getDraftedPlayersPage(
+            Long draftId,
+            Integer pageNum,
+            Integer pageSize,
+            String search,
+            String position
+    ) {
+        Pageable pageable = PageRequest.of(pageNum, pageSize, Sort.by("id"));
+        List<PositionTypeEnum> positionsList = getPositionsFilterList(position);
+        Page<IPlayerBase> draftedPlayerPage;
+
+        // TODO: Try and get working with FirstName search as well.
+        // Maybe try and use @Query.
+        if(positionsList.size() > 0 ) {
+            draftedPlayerPage = playerRepository.findByTeamPlayerJoins_Team_DraftIdAndPositions_TypeInAndLastNameIgnoreCaseContaining(
+                    draftId,
+                    positionsList,
+                    search,
+                    pageable
+            );
+        } else {
+            draftedPlayerPage = playerRepository.findByTeamPlayerJoins_Team_DraftIdAndLastNameIgnoreCaseContaining(
+                    draftId,
+                    search,
+                    pageable
+            );
+        }
+
+        return mapToReadDtoPage(draftedPlayerPage, 2020, draftId);
+    }
+
+    /**
+     * Read a page of Available Players for a given Draft.
+     * @return
+     */
+    @Transactional
+    public Page<PlayerBaseReadDto> getAvailablePlayersPage(
+            Long draftId,
+            Integer pageNum,
+            Integer pageSize,
+            String search,
+            String position
+    ) {
+        List<IDraftedPlayerId> draftedPlayerIdList = playerRepository.findPlayerIdByTeamPlayerJoins_Team_DraftId(draftId);
+        List<Long> idList = draftedPlayerIdList.stream().map(IDraftedPlayerId::getId).collect(Collectors.toList());
+        Pageable pageable = PageRequest.of(pageNum, pageSize, Sort.by("id"));
+        List<PositionTypeEnum> positionsList = getPositionsFilterList(position);
+
+        Page<IPlayerBase> availablePlayersPage;
+
+        if(positionsList.size() > 0 ) {
+            availablePlayersPage = playerRepository.findByIdNotInAndPositions_TypeInAndLastNameIgnoreCaseContaining(
+                    idList,
+                    positionsList,
+                    search,
+                    pageable
+            );
+        } else {
+            availablePlayersPage = playerRepository.findByIdNotInAndLastNameIgnoreCaseContaining(
+                    idList,
+                    search,
+                    pageable
+            );
+        }
+
+        return mapToReadDtoPage(availablePlayersPage, 2020, draftId);
     }
 
     /**
@@ -100,18 +190,6 @@ public class PlayerService {
     }
 
     /**
-     * Get Player availability by Draft.
-     * @return
-     */
-    @Transactional
-    public List<PlayerAvailabilityDto> getPlayerAvailabilityByDraft(Long draftId) {
-        List<IPlayerAvailability> playerAvailabilityList = playerRepository.findAllPlayerAvailabilityBy();
-        return playerAvailabilityList.stream()
-                .map(player -> new PlayerAvailabilityDto(player, draftId))
-                .collect(Collectors.toList());
-    }
-
-    /**
      * Get the ID of the best available Player in a given Draft.
      * @return
      */
@@ -127,6 +205,38 @@ public class PlayerService {
     @Transactional
     public Long getBestUndraftedPlayerIdWithPositionFilter(Long draftId, List<String> positionExclusionList) {
         return playerRepository.getBestUndraftedPlayerIdWithPositionFilter(draftId, positionExclusionList);
+    }
+
+    private List<PositionTypeEnum> getPositionsFilterList(String position) {
+        List<PositionTypeEnum> positionsList = new ArrayList<>();
+        if(position != null) {
+            if(position.contains("DEF")) {
+                positionsList.add(PositionTypeEnum.DEF);
+            }
+            if(position.contains("MID")) {
+                positionsList.add(PositionTypeEnum.MID);
+            }
+            if(position.contains("RUC")) {
+                positionsList.add(PositionTypeEnum.RUC);
+            }
+            if(position.contains("FWD")) {
+                positionsList.add(PositionTypeEnum.FWD);
+            }
+        }
+        return positionsList;
+    }
+
+    private Page<PlayerBaseReadDto> mapToReadDtoPage(Page<IPlayerBase> iPlayerBasePage, Integer year, Long draftId) {
+        return iPlayerBasePage.map(new Function<IPlayerBase, PlayerBaseReadDto>() {
+            @Override
+            public PlayerBaseReadDto apply(IPlayerBase player) {
+                return new PlayerBaseReadDto(
+                        player,
+                        player.getSeasonSummary(year),
+                        player.getTeamPlayerJoin(draftId)
+                );
+            }
+        });
     }
 
 }

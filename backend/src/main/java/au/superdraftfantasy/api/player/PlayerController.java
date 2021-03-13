@@ -31,9 +31,51 @@ public class PlayerController {
     public Page<PlayerBaseReadDto> getPlayersPageByDraftId(
             @PathVariable Long draftId,
             @RequestParam(required = false) String pageNum,
-            @RequestParam(required = false) String pageSize
+            @RequestParam(required = false) String pageSize,
+            @RequestParam(required = false) String search,
+            @RequestParam(required = false) String position
     ) {
-        return playerService.getPlayersPageByDraftId(draftId, Integer.parseInt(pageNum), Integer.parseInt(pageSize));
+        return playerService.getPlayersPageByDraftId(
+                draftId,
+                Integer.parseInt(pageNum),
+                Integer.parseInt(pageSize),
+                search,
+                position
+        );
+    }
+
+    @GetMapping(name = "getDraftedPlayersPage", path = "/draft/{draftId}/page/drafted")
+    public Page<PlayerBaseReadDto> getDraftedPlayersPage(
+            @PathVariable Long draftId,
+            @RequestParam(required = false) String pageNum,
+            @RequestParam(required = false) String pageSize,
+            @RequestParam(required = false) String search,
+            @RequestParam(required = false) String position
+    ) {
+        return playerService.getDraftedPlayersPage(
+                draftId,
+                Integer.parseInt(pageNum),
+                Integer.parseInt(pageSize),
+                search,
+                position
+        );
+    }
+
+    @GetMapping(name = "getAvailablePlayersPage", path = "/draft/{draftId}/page/available")
+    public Page<PlayerBaseReadDto> getAvailablePlayersPage(
+            @PathVariable Long draftId,
+            @RequestParam(required = false) String pageNum,
+            @RequestParam(required = false) String pageSize,
+            @RequestParam(required = false) String search,
+            @RequestParam(required = false) String position
+    ) {
+        return playerService.getAvailablePlayersPage(
+                draftId,
+                Integer.parseInt(pageNum),
+                Integer.parseInt(pageSize),
+                search,
+                position
+        );
     }
 
     @GetMapping(name = "getPlayerBaseById", path = "/{playerId}")
