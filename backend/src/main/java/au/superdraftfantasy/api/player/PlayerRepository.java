@@ -1,5 +1,6 @@
 package au.superdraftfantasy.api.player;
 
+import au.superdraftfantasy.api.position.PositionTypeEnum;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -27,12 +28,28 @@ public interface PlayerRepository extends JpaRepository<PlayerEntity, Long> {
 
     Page<IPlayerBase> findAllBasePageBy(Pageable pageable);
 
-    Page<IPlayerBase> findByTeamPlayerJoins_Team_DraftId(Pageable pageable, Long draftId);
+    Page<IPlayerBase> findByTeamPlayerJoins_Team_DraftIdAndPositions_TypeInAndLastNameIgnoreCaseContaining(
+            Long draftId,
+            List<PositionTypeEnum> positionList,
+            String search,
+            Pageable pageable
+    );
+
+    Page<IPlayerBase> findByTeamPlayerJoins_Team_DraftIdAndLastNameIgnoreCaseContaining(
+            Long draftId,
+            String search,
+            Pageable pageable
+    );
 
     List<IDraftedPlayerId> findPlayerIdByTeamPlayerJoins_Team_DraftId(Long draftId);
 
     // TODO: Replace with a query to fetch the Undrafted Players. This is as short term workaround.
-    Page<IPlayerBase> findByIdNotIn(List<Long> draftedPlayersList, Pageable pageable);
+    Page<IPlayerBase> findByIdNotInAndFirstNameContainingOrLastNameContaining(
+            List<Long> draftedPlayersList,
+            String firstNameSearch,
+            String lastNameSearch,
+            Pageable pageable
+    );
 
     @Query(value = PlayerRepositoryQueries.selectBestUndraftedPlayerId, nativeQuery = true)
     Long getBestUndraftedPlayerId(@Param("draftId") Long draftId);

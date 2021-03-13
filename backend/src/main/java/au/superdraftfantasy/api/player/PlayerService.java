@@ -1,5 +1,7 @@
 package au.superdraftfantasy.api.player;
 
+import au.superdraftfantasy.api.position.PositionRepository;
+import au.superdraftfantasy.api.position.PositionTypeEnum;
 import au.superdraftfantasy.api.seasonSummary.ISeasonSummaryBase;
 import au.superdraftfantasy.api.teamPlayerJoin.ITeamPlayerJoinBase;
 import org.springframework.data.domain.Page;
@@ -19,11 +21,14 @@ import java.util.stream.Collectors;
 public class PlayerService {
 
     private final PlayerRepository playerRepository;
+    private final PositionRepository positionRepository;
 
     public PlayerService(
-            PlayerRepository playerRepository
+            PlayerRepository playerRepository,
+            PositionRepository positionRepository
     ) {
         this.playerRepository = playerRepository;
+        this.positionRepository = positionRepository;
     }
 
     /**
@@ -80,9 +85,34 @@ public class PlayerService {
      * @return
      */
     @Transactional
-    public Page<PlayerBaseReadDto> getDraftedPlayersPage(Long draftId, Integer pageNum, Integer pageSize) {
+    public Page<PlayerBaseReadDto> getDraftedPlayersPage(
+            Long draftId,
+            Integer pageNum,
+            Integer pageSize,
+            String search,
+            String position
+    ) {
         Pageable pageable = PageRequest.of(pageNum, pageSize, Sort.by("id"));
-        Page<IPlayerBase> draftedPlayerPage = playerRepository.findByTeamPlayerJoins_Team_DraftId(pageable, draftId);
+        List<PositionTypeEnum> positionsList = getPositionsFilterList(position);
+        Page<IPlayerBase> draftedPlayerPage;
+
+        // TODO: Try and get working with FirstName search as well.
+        // Maybe try and use @Query.
+        if(positionsList.size() > 0 ) {
+            draftedPlayerPage = playerRepository.findByTeamPlayerJoins_Team_DraftIdAndPositions_TypeInAndLastNameIgnoreCaseContaining(
+                    draftId,
+                    positionsList,
+                    search,
+                    pageable
+            );
+        } else {
+            draftedPlayerPage = playerRepository.findByTeamPlayerJoins_Team_DraftIdAndLastNameIgnoreCaseContaining(
+                    draftId,
+                    search,
+                    pageable
+            );
+        }
+
         return mapToReadDtoPage(draftedPlayerPage, 2020, draftId);
     }
 
@@ -91,11 +121,22 @@ public class PlayerService {
      * @return
      */
     @Transactional
-    public Page<PlayerBaseReadDto> getAvailablePlayersPage(Long draftId, Integer pageNum, Integer pageSize) {
+    public Page<PlayerBaseReadDto> getAvailablePlayersPage(
+            Long draftId,
+            Integer pageNum,
+            Integer pageSize,
+            String search,
+            String position
+    ) {
         List<IDraftedPlayerId> draftedPlayerIdList = playerRepository.findPlayerIdByTeamPlayerJoins_Team_DraftId(draftId);
         List<Long> idList = draftedPlayerIdList.stream().map(IDraftedPlayerId::getId).collect(Collectors.toList());
         Pageable pageable = PageRequest.of(pageNum, pageSize, Sort.by("id"));
-        Page<IPlayerBase> iPlayerBasePage = playerRepository.findByIdNotIn(idList, pageable);
+        Page<IPlayerBase> iPlayerBasePage = playerRepository.findByIdNotInAndFirstNameContainingOrLastNameContaining(
+                idList,
+                search,
+                search,
+                pageable
+        );
         return mapToReadDtoPage(iPlayerBasePage, 2020, draftId);
     }
 
@@ -139,6 +180,25 @@ public class PlayerService {
     @Transactional
     public Long getBestUndraftedPlayerIdWithPositionFilter(Long draftId, List<String> positionExclusionList) {
         return playerRepository.getBestUndraftedPlayerIdWithPositionFilter(draftId, positionExclusionList);
+    }
+
+    private List<PositionTypeEnum> getPositionsFilterList(String position) {
+        List<PositionTypeEnum> positionsList = new ArrayList<>();
+        if(position != null) {
+            if(position.contains("DEF")) {
+                positionsList.add(PositionTypeEnum.DEF);
+            }
+            if(position.contains("MID")) {
+                positionsList.add(PositionTypeEnum.MID);
+            }
+            if(position.contains("RUC")) {
+                positionsList.add(PositionTypeEnum.RUC);
+            }
+            if(position.contains("FWD")) {
+                positionsList.add(PositionTypeEnum.FWD);
+            }
+        }
+        return positionsList;
     }
 
     private Page<PlayerBaseReadDto> mapToReadDtoPage(Page<IPlayerBase> iPlayerBasePage, Integer year, Long draftId) {
