@@ -4,8 +4,8 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
-import WillDayImage from "../../../../../../images/WillDay.jpeg";
 import BlockPlayerStatTabPanel from "./stats/BlockPlayerStatTabPanel";
+import PlayerPictureFetcher from "../../../../../shared/imageFetchers/PlayerPictureFetcher";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -34,6 +34,10 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
+function getPlayerPicture(id) {
+    return PlayerPictureFetcher.getPlayerPicture(id);
+}
+
 export default function BlockPlayerCard(props) {
     const classes = useStyles();
 
@@ -45,8 +49,7 @@ export default function BlockPlayerCard(props) {
         <Card className={classes.root} elevation={2}>
             <CardMedia
                 className={classes.playerImage}
-                image={WillDayImage}
-
+                image={getPlayerPicture(props.player.id)}
                 title="Purchase Review Player Image."
             />
             <div className={classes.details}>
