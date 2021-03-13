@@ -1,9 +1,9 @@
 import React from "react";
 import Typography from "@material-ui/core/Typography";
-import ScoreLogo from "../../../../../images/APlusSymbol.svg";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import {makeStyles} from "@material-ui/core/styles";
+import PurchaseReviewSymbolFetcher from "./PurchaseReviewSymbolFetcher";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -27,8 +27,13 @@ const useStyles = makeStyles((theme) => ({
     },
     scoreImage: {
         width: 100,
+        color: "red",
     },
 }));
+
+function getPurchaseReviewSymbol(rating) {
+    return PurchaseReviewSymbolFetcher.getPurchaseReviewSymbol(rating);
+}
 
 export default function PurchaseReviewRatingCard(props) {
     const classes = useStyles();
@@ -41,9 +46,13 @@ export default function PurchaseReviewRatingCard(props) {
                     <Typography variant="subtitle2" align="center" color="textSecondary">
                         Rating:
                     </Typography>
-                    <Typography>{props.purchaseReviewRating}</Typography>
                     <div className={classes.scoreImageDiv}>
-                        <img className={classes.scoreImage} src={ScoreLogo} alt="Purchase Review Score."/>
+                        {props.purchaseReviewRating != null
+                            ? <img className={classes.scoreImage}
+                                   src={getPurchaseReviewSymbol(props.purchaseReviewRating)}
+                                   alt="Purchase Review Score."/>
+                            : null
+                        }
                     </div>
                 </CardContent>
             </div>
