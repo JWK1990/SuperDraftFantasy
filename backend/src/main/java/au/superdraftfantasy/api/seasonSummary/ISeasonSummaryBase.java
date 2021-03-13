@@ -4,6 +4,8 @@ public interface ISeasonSummaryBase {
 
     Long getPlayerId();
 
+    Integer getYear();
+
     Integer getGames();
 
     Integer getAverage();

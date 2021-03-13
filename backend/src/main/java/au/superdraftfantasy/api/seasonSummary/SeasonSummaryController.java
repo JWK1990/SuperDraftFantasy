@@ -2,6 +2,8 @@ package au.superdraftfantasy.api.seasonSummary;
 
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping(path = "/seasonSummary")
 public class SeasonSummaryController {
@@ -12,12 +14,19 @@ public class SeasonSummaryController {
         this.seasonSummaryService = seasonSummaryService;
     }
 
-    @GetMapping(name = "getPlayerDetailsById", path = "/{playerId}/details")
-    public ISeasonSummaryDetails getPlayerDetailsById(
+    @GetMapping(name = "getSeasonSummaryByPlayerId", path = "/{playerId}/details")
+    public ISeasonSummaryDetails getSeasonSummaryByPlayerId(
             @PathVariable Long playerId,
-            @RequestParam String year
+            @RequestParam(required = false) String year
     ) {
         return seasonSummaryService.getSeasonSummaryByPlayerIdAndYear(playerId, Integer.decode(year));
+    }
+
+    @GetMapping(name = "getAllSeasonSummariesByPlayerId", path = "/{playerId}/details/all")
+    public List<ISeasonSummaryDetails> getSeasonSummariesByPlayer(
+            @PathVariable Long playerId
+    ) {
+        return seasonSummaryService.getSeasonSummariesByPlayer(playerId);
     }
 
 }
