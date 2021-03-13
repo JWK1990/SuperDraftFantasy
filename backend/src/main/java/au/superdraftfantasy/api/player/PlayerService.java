@@ -131,13 +131,26 @@ public class PlayerService {
         List<IDraftedPlayerId> draftedPlayerIdList = playerRepository.findPlayerIdByTeamPlayerJoins_Team_DraftId(draftId);
         List<Long> idList = draftedPlayerIdList.stream().map(IDraftedPlayerId::getId).collect(Collectors.toList());
         Pageable pageable = PageRequest.of(pageNum, pageSize, Sort.by("id"));
-        Page<IPlayerBase> iPlayerBasePage = playerRepository.findByIdNotInAndFirstNameContainingOrLastNameContaining(
-                idList,
-                search,
-                search,
-                pageable
-        );
-        return mapToReadDtoPage(iPlayerBasePage, 2020, draftId);
+        List<PositionTypeEnum> positionsList = getPositionsFilterList(position);
+
+        Page<IPlayerBase> availablePlayersPage;
+
+        if(positionsList.size() > 0 ) {
+            availablePlayersPage = playerRepository.findByIdNotInAndPositions_TypeInAndLastNameIgnoreCaseContaining(
+                    idList,
+                    positionsList,
+                    search,
+                    pageable
+            );
+        } else {
+            availablePlayersPage = playerRepository.findByIdNotInAndLastNameIgnoreCaseContaining(
+                    idList,
+                    search,
+                    pageable
+            );
+        }
+
+        return mapToReadDtoPage(availablePlayersPage, 2020, draftId);
     }
 
     /**

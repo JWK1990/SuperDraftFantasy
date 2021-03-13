@@ -44,10 +44,16 @@ public interface PlayerRepository extends JpaRepository<PlayerEntity, Long> {
     List<IDraftedPlayerId> findPlayerIdByTeamPlayerJoins_Team_DraftId(Long draftId);
 
     // TODO: Replace with a query to fetch the Undrafted Players. This is as short term workaround.
-    Page<IPlayerBase> findByIdNotInAndFirstNameContainingOrLastNameContaining(
+    Page<IPlayerBase> findByIdNotInAndLastNameIgnoreCaseContaining(
             List<Long> draftedPlayersList,
-            String firstNameSearch,
-            String lastNameSearch,
+            String search,
+            Pageable pageable
+    );
+
+    Page<IPlayerBase> findByIdNotInAndPositions_TypeInAndLastNameIgnoreCaseContaining(
+            List<Long> draftedPlayersList,
+            List<PositionTypeEnum> positionList,
+            String search,
             Pageable pageable
     );
 
