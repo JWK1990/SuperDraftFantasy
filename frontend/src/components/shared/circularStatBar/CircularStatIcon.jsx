@@ -8,7 +8,7 @@ import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles((theme) => ({
     wrapper: {
-        margin: theme.spacing(1),
+        margin: theme.spacing(2),
         position: 'relative',
     },
     fabProgress: {
@@ -79,7 +79,9 @@ export default function CircularStatIcon(props) {
                     color="primary"
                     size="medium"
                 >
-                    {loading ? "..." : props.statValue}
+                    <Typography>
+                        {loading ? "..." : props.statValue}
+                    </Typography>
                 </Fab>
                 {loading
                     ? (

@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import {
     createMuiTheme,
     MuiThemeProvider,
@@ -11,6 +11,7 @@ import {
 } from "@material-ui/core";
 import Paper from "@material-ui/core/Paper";
 import makeStyles from "@material-ui/core/styles/makeStyles";
+import DraftService from "../../../../../../../services/DraftService";
 
 const theme = createMuiTheme({
     overrides: {
@@ -40,10 +41,24 @@ const useStyles = makeStyles(() => ({
 
 export default function PlayerAnalysisStatsTable(props) {
     const classes = useStyles();
+    const [playerDetails, setPlayerDetails] = useState(null);
 
-    if(!props.player) {
+    useEffect(() => {
+        let mounted = true;
+        DraftService.getSeasonSummaryByPlayerIdAndYear(props.playerId, 2020)
+            .then(playerDetails => {
+                if(mounted) {
+                    setPlayerDetails(playerDetails.data);
+                }
+            })
+        return () => mounted = false;
+    }, [props.playerId])
+
+    if(!playerDetails) {
         return null;
     }
+    console.log("PlayerId:", props.playerId);
+    console.log(playerDetails);
 
     return (
         <MuiThemeProvider theme={theme}>
@@ -55,24 +70,24 @@ export default function PlayerAnalysisStatsTable(props) {
                             <TableCell>K</TableCell>
                             <TableCell>M</TableCell>
                             <TableCell>T</TableCell>
+                            <TableCell>CP%</TableCell>
                             <TableCell>I50</TableCell>
                             <TableCell>CL</TableCell>
                             <TableCell>TOG%</TableCell>
-                            <TableCell>CP</TableCell>
-                            <TableCell>UP</TableCell>
+                            <TableCell>FD</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
                         <TableRow>
                             <TableCell className={classes.rowHeader}>2020</TableCell>
-                            <TableCell>{props.player.kicks}</TableCell>
-                            <TableCell>{props.player.marks}</TableCell>
-                            <TableCell>{props.player.tackles}</TableCell>
-                            <TableCell>{props.player.insideFiftys}</TableCell>
-                            <TableCell>5</TableCell>
-                            <TableCell>2</TableCell>
-                            <TableCell>3</TableCell>
-                            <TableCell>4</TableCell>
+                            <TableCell>{playerDetails.kicks}</TableCell>
+                            <TableCell>{playerDetails.marks}</TableCell>
+                            <TableCell>{playerDetails.tackles}</TableCell>
+                            <TableCell>{Math.round((playerDetails.contestedPossessions/playerDetails.disposals) * 100)}%</TableCell>
+                            <TableCell>{playerDetails.insideFiftys}</TableCell>
+                            <TableCell>{playerDetails.clangers}</TableCell>
+                            <TableCell>{Math.round(playerDetails.timeOnGround)}%</TableCell>
+                            <TableCell>{Math.round((playerDetails.freesFor - playerDetails.freesAgainst) * 10)/10}</TableCell>
                         </TableRow>
                         <TableRow>
                             <TableCell className={classes.rowHeader}>Career</TableCell>
@@ -81,17 +96,6 @@ export default function PlayerAnalysisStatsTable(props) {
                             <TableCell>5</TableCell>
                             <TableCell>7</TableCell>
                             <TableCell>8</TableCell>
-                            <TableCell>2</TableCell>
-                            <TableCell>3</TableCell>
-                            <TableCell>4</TableCell>
-                        </TableRow>
-                        <TableRow>
-                            <TableCell className={classes.rowHeader}>PS</TableCell>
-                            <TableCell>1</TableCell>
-                            <TableCell>2</TableCell>
-                            <TableCell>8</TableCell>
-                            <TableCell>7</TableCell>
-                            <TableCell>5</TableCell>
                             <TableCell>2</TableCell>
                             <TableCell>3</TableCell>
                             <TableCell>4</TableCell>

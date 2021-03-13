@@ -32,8 +32,8 @@ class PlayerCard extends React.Component {
                         <Grid item xs={7} className={classes.playerDetails}>
                             <Typography className={classes.playerName}>
                                 {
-                                    this.props.player.firstName
-                                    + " " + this.props.player.lastName
+                                    this.props.player.firstName.substring(0, 1)
+                                    + ". " + this.props.player.lastName
                                 }
                             </Typography>
                         </Grid>
