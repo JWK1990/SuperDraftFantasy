@@ -7,11 +7,25 @@ export default class PlayerStatFetcher {
         ["FWD", 90]
     ]);
 
+    static positionAveMap = new Map([
+        ["DEF", 80],
+        ["MID", 95],
+        ["RUC", 95],
+        ["FWD", 80]
+    ]);
+
     static positionMaxDisposalsMap = new Map([
         ["DEF", 20],
         ["MID", 30],
         ["RUC", 15],
         ["FWD", 20]
+    ]);
+
+    static positionAveDisposalsMap = new Map([
+        ["DEF", 15],
+        ["MID", 25],
+        ["RUC", 10],
+        ["FWD", 15]
     ]);
 
     static positionMaxDisposalEfficiencyMap = new Map([
@@ -27,9 +41,21 @@ export default class PlayerStatFetcher {
         }
     }
 
+    static getPositionAve(position) {
+        if(position != null) {
+            return this.positionAveMap.get(position);
+        }
+    }
+
     static getPositionMaxDisposals(position) {
         if(position != null) {
             return this.positionMaxDisposalsMap.get(position);
+        }
+    }
+
+    static getPositionDisposalsAverage(position) {
+        if(position != null) {
+            return this.positionAveDisposalsMap.get(position);
         }
     }
 

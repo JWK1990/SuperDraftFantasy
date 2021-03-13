@@ -7,8 +7,8 @@ import {
 } from "../../../../../../../store/selectors/NavigationSelectors";
 import {changeBlockGraphPeriod, changeBlockGraphStat} from "../../../../../../../store/actions/NavigationActions";
 import Box from "@material-ui/core/Box";
-import PlayerAnalysisGraph from "./PlayerAnalysisGraph";
 import withStyles from "@material-ui/core/styles/withStyles";
+import SeasonSummariesGraph from "./SeasonSummariesGraph";
 
 const styles = {
     graphDiv: {
@@ -18,9 +18,9 @@ const styles = {
 }
 
 const statOptionsList = [
-    {id: 1, name: "Ave"},
-    {id: 2, name: "Disp"},
-    {id: 3, name: "Price"},
+    {id: 1, name: "average"},
+    {id: 2, name: "disposals"},
+    {id: 3, name: "price"},
 ];
 
 const periodOptionsList = [
@@ -65,6 +65,7 @@ class PlayerAnalysisGraphsContainer extends React.Component {
                             onChange={this.handleStatChange}
                             helperText=""
                             optionList={statOptionsList}
+                            useNameAsValue={true}
                         />
                         <StatSelector
                             id="player-analysis-graph-period-select"
@@ -72,11 +73,14 @@ class PlayerAnalysisGraphsContainer extends React.Component {
                             onChange={this.handlePeriodChange}
                             helperText=""
                             optionList={periodOptionsList}
+                            useNameAsValue={true}
                         />
                 </Box>
                 <div className={classes.graphDiv}>
-                    <PlayerAnalysisGraph
-                        player={this.props.player}
+                    <SeasonSummariesGraph
+                        playerId={this.props.playerId}
+                        primaryPosition={this.props.primaryPosition}
+                        dataKey={this.props.selectedBlockGraphStat}
                     />
                 </div>
             </>

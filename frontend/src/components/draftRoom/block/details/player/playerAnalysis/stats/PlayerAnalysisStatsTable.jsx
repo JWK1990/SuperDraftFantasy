@@ -57,8 +57,6 @@ export default function PlayerAnalysisStatsTable(props) {
     if(!playerDetails) {
         return null;
     }
-    console.log("PlayerId:", props.playerId);
-    console.log(playerDetails);
 
     return (
         <MuiThemeProvider theme={theme}>

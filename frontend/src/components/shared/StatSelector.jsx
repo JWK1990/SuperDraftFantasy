@@ -14,6 +14,10 @@ const useStyles = makeStyles((theme) => ({
 
 export default function StatSelector(props) {
     const classes = useStyles();
+    let valueKey = "id";
+    if(props.useNameAsValue) {
+        valueKey = "name";
+    }
 
     return (
         <FormControl className={classes.formControl}>
@@ -26,7 +30,7 @@ export default function StatSelector(props) {
                 autoWidth={true}
             >
                 {props.optionList.map((option) => (
-                    <MenuItem key={props.id + "-" + option.id} value={option.id}>
+                    <MenuItem key={props.id + "-" + option.id} value={option[valueKey]}>
                         {option.name}
                     </MenuItem>
                 ))}

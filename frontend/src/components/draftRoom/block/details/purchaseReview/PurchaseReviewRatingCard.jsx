@@ -37,7 +37,6 @@ function getPurchaseReviewSymbol(rating) {
 
 export default function PurchaseReviewRatingCard(props) {
     const classes = useStyles();
-    console.log("Purcahse REview Rating:", props.purchaseReviewRating);
 
     return (
         <Card className={classes.root} elevation={4}>

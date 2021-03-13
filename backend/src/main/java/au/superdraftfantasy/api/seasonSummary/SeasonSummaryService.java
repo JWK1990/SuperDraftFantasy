@@ -3,6 +3,8 @@ package au.superdraftfantasy.api.seasonSummary;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 public class SeasonSummaryService {
 
@@ -19,12 +21,18 @@ public class SeasonSummaryService {
      * @return
      */
     @Transactional
-    public ISeasonSummaryDetails getSeasonSummaryByPlayerIdAndYear(
-            Long playerId,
-            Integer year
-    ) {
+    public ISeasonSummaryDetails getSeasonSummaryByPlayerIdAndYear(Long playerId, Integer year) {
         return seasonSummaryRepository.findByPlayer_IdAndYear(playerId, year)
                 .orElse(null);
+    };
+
+    /**
+     * Read all SeasonSummaries by PlayerId.
+     * @return
+     */
+    @Transactional
+    public List<ISeasonSummaryDetails> getSeasonSummariesByPlayer(Long playerId) {
+        return seasonSummaryRepository.findAllByPlayer_Id(playerId);
     };
 
 }
