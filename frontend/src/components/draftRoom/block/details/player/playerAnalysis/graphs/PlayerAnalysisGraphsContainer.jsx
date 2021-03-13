@@ -19,8 +19,26 @@ const styles = {
 
 const statOptionsList = [
     {id: 1, name: "average"},
-    {id: 2, name: "disposals"},
-    {id: 3, name: "price"},
+    {id: 2, name: "games"},
+    {id: 3, name: "disposals"},
+    {id: 4, name: "price"},
+    {id: 5, name: "disposalEfficiency"},
+    {id: 6, name: "kicks"},
+    {id: 7, name: "handballs"},
+    {id: 8, name: "tackles"},
+    {id: 9, name: "hitouts"},
+    {id: 10, name: "timeOnGround"},
+    {id: 11, name: "marks"},
+    {id: 12, name: "goals"},
+    {id: 13, name: "goalAssists"},
+    {id: 14, name: "clangers"},
+    {id: 15, name: "clearances"},
+    {id: 16, name: "contestedPossessions"},
+    {id: 17, name: "uncontestedPossessions"},
+    {id: 18, name: "onePercenters"},
+    {id: 19, name: "metersGained"},
+    {id: 20, name: "turnovers"},
+    {id: 21, name: "intercepts"},
 ];
 
 const periodOptionsList = [
