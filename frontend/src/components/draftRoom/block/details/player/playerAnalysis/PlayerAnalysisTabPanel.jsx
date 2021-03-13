@@ -6,8 +6,8 @@ import PlayerAnalysisGraphsContainer from "./graphs/PlayerAnalysisGraphsContaine
 export default function PlayerAnalysisTabPanel(props) {
 
     const tabList = [
-        {label: "Stats", component:<PlayerAnalysisStatsTable player={props.player}/>},
-        {label: "Graphs", component: <PlayerAnalysisGraphsContainer player={props.player}/>},
+        {label: "Stats", component:<PlayerAnalysisStatsTable playerId={props.playerId}/>},
+        {label: "Graphs", component: <PlayerAnalysisGraphsContainer playerId={props.playerId}/>},
     ]
 
     return (

@@ -2,13 +2,15 @@ package au.superdraftfantasy.api.seasonSummary;
 
 public interface ISeasonSummaryBase {
 
+    Long getPlayerId();
+
     Integer getGames();
 
-    double getAverage();
+    Integer getAverage();
 
-    double getDisposals();
+    Integer getDisposals();
 
-    double getDisposalEfficiency();
+    Integer getDisposalEfficiency();
 
     double getTackles();
 

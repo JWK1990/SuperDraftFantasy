@@ -47,8 +47,8 @@ class DraftService {
         return axios.get(basePath);
     }
 
-    getPlayerDetailsById(playerId, draftId) {
-        return axios.get("/players/" + playerId + "/details?draftId=" + draftId);
+    getSeasonSummaryByPlayerIdAndYear(playerId, year) {
+        return axios.get("/seasonSummary/" + playerId + "/details?year=" + year);
     }
 
     saveMyTeamLayout(teamId, updatedMyTeamPositions) {
