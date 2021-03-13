@@ -32,6 +32,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function PurchaseReviewRatingCard(props) {
     const classes = useStyles();
+    console.log("Purcahse REview Rating:", props.purchaseReviewRating);
 
     return (
         <Card className={classes.root} elevation={4}>
@@ -40,6 +41,7 @@ export default function PurchaseReviewRatingCard(props) {
                     <Typography variant="subtitle2" align="center" color="textSecondary">
                         Rating:
                     </Typography>
+                    <Typography>{props.purchaseReviewRating}</Typography>
                     <div className={classes.scoreImageDiv}>
                         <img className={classes.scoreImage} src={ScoreLogo} alt="Purchase Review Score."/>
                     </div>
