@@ -1,14 +1,13 @@
 import React, {useEffect, useState} from "react";
 import {Bar, CartesianGrid, ComposedChart, ReferenceLine, ResponsiveContainer, Tooltip, XAxis, YAxis} from "recharts";
-import makeStyles from "@material-ui/core/styles/makeStyles";
 import DraftService from "../../../../../../../services/DraftService";
 import PlayerStatFetcher from "../../../../../../shared/statFetchers/PlayerStatFetcher";
 
-const useStyles = makeStyles((theme) => ({
+/*const useStyles = makeStyles((theme) => ({
     customTooltip: {
         backgroundColor: "grey",
     }
-}));
+}));*/
 
 function getTicks(seasonSummaries) {
     seasonSummaries.sort(function (a, b) {
@@ -39,7 +38,6 @@ function getPositionAverage(position, dataKey) {
     if(dataKey === "average") {
         positionAverage = PlayerStatFetcher.getPositionAve(position);
     } else if(dataKey === "disposals") {
-        console.log(PlayerStatFetcher.getPositionDisposalsAverage(position));
         positionAverage = PlayerStatFetcher.getPositionDisposalsAverage(position);
     }
     return positionAverage;
@@ -47,7 +45,6 @@ function getPositionAverage(position, dataKey) {
 
 
 export default function SeasonSummariesGraph(props) {
-    const classes = useStyles();
     const [seasonSummaries, setSeasonSummaries] = useState(null);
 
     useEffect(() => {
@@ -81,9 +78,6 @@ export default function SeasonSummariesGraph(props) {
         }
         return null;
     };*/
-
-    console.log("Data Key", props);
-
 
     return (
         <ResponsiveContainer width="100%" height="100%">

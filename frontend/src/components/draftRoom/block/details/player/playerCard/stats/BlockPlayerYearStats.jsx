@@ -27,8 +27,6 @@ function getPositionMaxDisposalEfficiency(position) {
 export default function BlockPlayerYearStats(props) {
     const classes = useStyles();
 
-    console.log("Disposals: ", props.player.disposals);
-
     return (
         <div className={classes.statBarDiv}>
             <CircularStatIcon

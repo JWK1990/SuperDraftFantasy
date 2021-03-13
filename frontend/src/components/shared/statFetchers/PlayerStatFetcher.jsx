@@ -54,7 +54,6 @@ export default class PlayerStatFetcher {
     }
 
     static getPositionDisposalsAverage(position) {
-        console.log("Disposals: ", position);
         if(position != null) {
             return this.positionAveDisposalsMap.get(position);
         }

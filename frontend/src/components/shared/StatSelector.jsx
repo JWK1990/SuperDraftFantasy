@@ -16,7 +16,6 @@ export default function StatSelector(props) {
     const classes = useStyles();
     let valueKey = "id";
     if(props.useNameAsValue) {
-        console.log("Use name as value");
         valueKey = "name";
     }
 

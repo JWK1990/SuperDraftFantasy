@@ -60,7 +60,6 @@ class UpdatedPlayerListContainer extends React.PureComponent {
     _loadNextPage = () => {
         this.setState({isNextPageLoading: true}, () => {
             const positionFilter = this.getPositionFilterList();
-            console.log(positionFilter);
             DraftService.getPlayersPageByDraft(
                 this.props.draftId,
                 this.state.items.length/25,
@@ -70,7 +69,6 @@ class UpdatedPlayerListContainer extends React.PureComponent {
                 this.state.isHideDraftedFilterOn,
             )
                 .then(players => {
-                    console.log("Players");
                     this.setState(state => ({
                             /* Players are loaded in batches of 25 and therefore hasNextPage is calculated in batches of 25.
                                If the last batch contained the last player, then hasNextPage is false (hence the 778-25).
