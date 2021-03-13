@@ -31,28 +31,20 @@ public class PlayerController {
     public Page<PlayerBaseReadDto> getPlayersPageByDraftId(
             @PathVariable Long draftId,
             @RequestParam(required = false) String pageNum,
-            @RequestParam(required = false) String pageSize
+            @RequestParam(required = false) String pageSize,
+            @RequestParam(required = false) String search,
+            @RequestParam(required = false) String position
     ) {
-        return playerService.getPlayersPageByDraftId(draftId, Integer.parseInt(pageNum), Integer.parseInt(pageSize));
+        return playerService.getPlayersPageByDraftId(
+                draftId,
+                Integer.parseInt(pageNum),
+                Integer.parseInt(pageSize),
+                search,
+                position
+        );
     }
 
-    @GetMapping(name = "getPlayerBaseById", path = "/{playerId}")
-    public PlayerBaseReadDto getPlayerBaseById(
-            @PathVariable Long playerId,
-            @RequestParam String draftId
-    ) {
-        return playerService.getPlayerBaseById(playerId, Long.decode(draftId));
-    }
-
-    @GetMapping(name = "getPlayerDetailsById", path = "/{playerId}/details")
-    public PlayerDetailsReadDto getPlayerDetailsById(
-            @PathVariable Long playerId,
-            @RequestParam String draftId
-    ) {
-        return playerService.getPlayerDetailsById(playerId, Long.decode(draftId));
-    }
-
-    @GetMapping(name = "getDraftedPlayersPage", path = "/draft/{draftId}/drafted")
+    @GetMapping(name = "getDraftedPlayersPage", path = "/draft/{draftId}/page/drafted")
     public Page<PlayerBaseReadDto> getDraftedPlayersPage(
             @PathVariable Long draftId,
             @RequestParam(required = false) String pageNum,
@@ -69,7 +61,7 @@ public class PlayerController {
         );
     }
 
-    @GetMapping(name = "getAvailablePlayersPage", path = "/draft/{draftId}/available")
+    @GetMapping(name = "getAvailablePlayersPage", path = "/draft/{draftId}/page/available")
     public Page<PlayerBaseReadDto> getAvailablePlayersPage(
             @PathVariable Long draftId,
             @RequestParam(required = false) String pageNum,
@@ -84,6 +76,22 @@ public class PlayerController {
                 search,
                 position
         );
+    }
+
+    @GetMapping(name = "getPlayerBaseById", path = "/{playerId}")
+    public PlayerBaseReadDto getPlayerBaseById(
+            @PathVariable Long playerId,
+            @RequestParam String draftId
+    ) {
+        return playerService.getPlayerBaseById(playerId, Long.decode(draftId));
+    }
+
+    @GetMapping(name = "getPlayerDetailsById", path = "/{playerId}/details")
+    public PlayerDetailsReadDto getPlayerDetailsById(
+            @PathVariable Long playerId,
+            @RequestParam String draftId
+    ) {
+        return playerService.getPlayerDetailsById(playerId, Long.decode(draftId));
     }
 
 }

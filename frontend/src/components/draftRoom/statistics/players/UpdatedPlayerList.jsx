@@ -8,6 +8,7 @@ import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import PlayerAnalysisTableRow from "./PlayerAnalysisTableRow";
 import ExpandedPlayerContainer from "./ExpandedPlayerContainer";
 import DraftRoomPlayersSelected from "./selected/Selected";
+import PlayerAnalysisTableHeader from "./PlayerAnalysisTableHeader";
 
 export default function UpdatedPlayerList({
     // Are there more items to load?
@@ -68,10 +69,12 @@ export default function UpdatedPlayerList({
         )
     };
 
+
     const listRef = React.createRef();
 
     return (
         <div className="playerSearch">
+            <PlayerAnalysisTableHeader />
             <InfiniteLoader
                 isItemLoaded={isItemLoaded}
                 itemCount={itemCount}

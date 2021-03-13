@@ -63,21 +63,33 @@ public class PlayerService {
      * @return
      */
     @Transactional
-    public Page<PlayerBaseReadDto> getPlayersPageByDraftId(Long draftId, Integer pageNum, Integer pageSize) {
+    public Page<PlayerBaseReadDto> getPlayersPageByDraftId(
+            Long draftId,
+            Integer pageNum,
+            Integer pageSize,
+            String search,
+            String position
+    ) {
         Pageable pageable = PageRequest.of(pageNum, pageSize, Sort.by("id"));
-        Page<IPlayerBase> playersPage = playerRepository.findAllBasePageBy(pageable);
-        // The below is required to add in the specific baseStats and teamPlayerJoins for the PlayerBase.
-        // TODO: See if there is a better way that we can handle this data conversion.
-        return playersPage.map(new Function<IPlayerBase, PlayerBaseReadDto>() {
-            @Override
-            public PlayerBaseReadDto apply(IPlayerBase player) {
-                return new PlayerBaseReadDto(
-                        player,
-                        player.getSeasonSummary(2020),
-                        player.getTeamPlayerJoin(draftId)
-                );
-            }
-        });
+        List<PositionTypeEnum> positionsList = getPositionsFilterList(position);
+        Page<IPlayerBase> playerPage;
+
+        // TODO: Try and get working with FirstName search as well.
+        // Maybe try and use @Query.
+        if(positionsList.size() > 0 ) {
+            playerPage = playerRepository.findAllBasePageByPositions_TypeInAndLastNameIgnoreCaseContaining(
+                    positionsList,
+                    search,
+                    pageable
+            );
+        } else {
+            playerPage = playerRepository.findAllBasePageByLastNameIgnoreCaseContaining(
+                    search,
+                    pageable
+            );
+        }
+
+        return mapToReadDtoPage(playerPage, 2020, draftId);
     }
 
     /**

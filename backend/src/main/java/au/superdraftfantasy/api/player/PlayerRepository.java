@@ -26,7 +26,16 @@ public interface PlayerRepository extends JpaRepository<PlayerEntity, Long> {
 
     List<IPlayerBase> findAllBaseBy();
 
-    Page<IPlayerBase> findAllBasePageBy(Pageable pageable);
+    Page<IPlayerBase> findAllBasePageByPositions_TypeInAndLastNameIgnoreCaseContaining(
+            List<PositionTypeEnum> positionList,
+            String search,
+            Pageable pageable
+    );
+
+    Page<IPlayerBase> findAllBasePageByLastNameIgnoreCaseContaining(
+            String search,
+            Pageable pageable
+    );
 
     Page<IPlayerBase> findByTeamPlayerJoins_Team_DraftIdAndPositions_TypeInAndLastNameIgnoreCaseContaining(
             Long draftId,
