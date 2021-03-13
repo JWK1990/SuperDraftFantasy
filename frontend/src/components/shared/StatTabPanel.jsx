@@ -48,6 +48,7 @@ const useStyles = makeStyles(() => ({
     appBar: {
         width: "100%",
         boxShadow: "none",
+        paddingBottom: 10,
     },
     tabs: {
         minHeight: "var(--tab-panel-secondary-height)",
