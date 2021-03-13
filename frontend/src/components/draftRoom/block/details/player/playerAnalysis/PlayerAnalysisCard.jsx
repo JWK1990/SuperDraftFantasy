@@ -32,6 +32,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function PlayerAnalysisCard(props) {
     const classes = useStyles();
+    console.log("Props: ", props);
 
     return (
         <Card className={classes.root} elevation={4}>
@@ -39,6 +40,7 @@ export default function PlayerAnalysisCard(props) {
                 <CardContent className={classes.content}>
                     <PlayerAnalysisTabPanel
                         playerId={props.player.id}
+                        primaryPosition={props.player.primaryPosition}
                     />
                 </CardContent>
             </div>

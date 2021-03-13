@@ -7,7 +7,7 @@ export default function PlayerAnalysisTabPanel(props) {
 
     const tabList = [
         {label: "Stats", component:<PlayerAnalysisStatsTable playerId={props.playerId}/>},
-        {label: "Graphs", component: <PlayerAnalysisGraphsContainer playerId={props.playerId}/>},
+        {label: "Graphs", component: <PlayerAnalysisGraphsContainer playerId={props.playerId} primaryPosition={props.primaryPosition}/>},
     ]
 
     return (
