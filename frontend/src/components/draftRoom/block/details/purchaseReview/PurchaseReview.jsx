@@ -1,13 +1,11 @@
 import React from "react";
 import Grid from "@material-ui/core/Grid";
 import withStyles from "@material-ui/core/styles/withStyles";
-import {connect} from "react-redux";
 import Typography from "@material-ui/core/Typography";
 import {Paper} from "@material-ui/core";
 import PurchaseReviewRatingCard from "./PurchaseReviewRatingCard";
 import PurchaseReviewPlayerCard from "./PurchaseReviewPlayerCard";
 import PurchaseReviewStatsCard from "./PurchaseReviewStatsCard";
-import {lastDraftedPlayerSelector} from "../../../../../store/selectors/DraftSelectors";
 
 const styles = {
     paperRoot: {
@@ -32,8 +30,8 @@ class PurchaseReview extends React.Component {
     render() {
         const {classes} = this.props;
 
-        if(!this.props.lastDraftedPlayerDetails) {
-            return null;
+        if(!this.props.purchaseReviewPlayer) {
+            return <div />
         }
 
         return (
@@ -48,13 +46,17 @@ class PurchaseReview extends React.Component {
                         </Typography>
                     </Grid>
                     <Grid item xs={5}>
-                        <PurchaseReviewPlayerCard player={this.props.lastDraftedPlayerDetails.player}/>
+                        <PurchaseReviewPlayerCard
+                            player={this.props.purchaseReviewPlayer}
+                        />
                     </Grid>
                     <Grid item xs={2}>
                         <PurchaseReviewStatsCard />
                     </Grid>
                     <Grid item xs={3}>
-                        <PurchaseReviewRatingCard />
+                        <PurchaseReviewRatingCard
+                            purchaseReviewRating={this.props.purchaseReviewPlayer.purchaseReviewRating}
+                        />
                     </Grid>
                 </Grid>
             </Paper>
@@ -63,10 +65,4 @@ class PurchaseReview extends React.Component {
 
 }
 
-const mapStateToProps = state => {
-    return {
-        lastDraftedPlayerDetails: lastDraftedPlayerSelector(state),
-    };
-};
-
-export default connect(mapStateToProps)(withStyles(styles)(PurchaseReview));
+export default withStyles(styles)(PurchaseReview);

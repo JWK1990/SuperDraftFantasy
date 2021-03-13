@@ -17,6 +17,8 @@ public interface IPlayerBase {
 
     Integer getJumperNumber();
 
+    Integer getMoneyballPrice();
+
     @Value("#{@playerDataFetcher.getPrimaryPosition(target)}")
     String getPrimaryPosition();
 

@@ -37,4 +37,6 @@ TeamPlayerJoinEntity {
     @JoinColumn(name = "my_team_position_id")
     private PositionEntity myTeamPosition;
 
+    private Integer purchaseReviewRating;
+
 }

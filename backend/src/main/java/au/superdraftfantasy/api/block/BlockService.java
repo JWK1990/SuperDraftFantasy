@@ -5,6 +5,7 @@ import au.superdraftfantasy.api.draft.DraftRepository;
 import au.superdraftfantasy.api.draft.DraftStatusEnum;
 import au.superdraftfantasy.api.futuresScheduler.FuturesScheduler;
 import au.superdraftfantasy.api.futuresScheduler.ScheduledFutureEnum;
+import au.superdraftfantasy.api.player.PlayerBaseReadDto;
 import au.superdraftfantasy.api.player.PlayerDetailsReadDto;
 import au.superdraftfantasy.api.player.PlayerService;
 import au.superdraftfantasy.api.team.*;
@@ -126,6 +127,13 @@ public class BlockService {
         } else {
             startNextRound(blockDto, true);
         }
+
+        // Send PurchaseReview Details.
+        PlayerBaseReadDto playerBaseReadDto = playerService.getPlayerBaseById(
+                blockDto.getPlayerId(),
+                blockDto.getDraftId()
+        );
+        this.simpMessagingTemplate.convertAndSend("/draft/purchaseReviews", playerBaseReadDto);
     }
 
     private void autoAddToBlock(BlockDto blockDto) {

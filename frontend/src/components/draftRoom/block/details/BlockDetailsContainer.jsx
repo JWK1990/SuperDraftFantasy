@@ -20,6 +20,7 @@ function BlockDetailsContainer(props) {
                 <PurchaseReview
                     onTheBlockTeamName={props.onTheBlockTeamName}
                     isOnTheBlock={props.isOnTheBlock}
+                    purchaseReviewPlayer={props.purchaseReviewPlayer}
                 />
                 : props.showBidClock ?
                     <BlockPlayer

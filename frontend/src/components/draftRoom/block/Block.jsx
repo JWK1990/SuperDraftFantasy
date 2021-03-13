@@ -42,6 +42,7 @@ class DraftRoomBlock extends React.Component {
 
     constructor(props) {
         super(props);
+        this._isMounted = false;
 
         this.state = {
             showAddToBlockClock: false,
@@ -57,11 +58,13 @@ class DraftRoomBlock extends React.Component {
     }
 
     componentDidMount() {
+        this._isMounted = true;
         this.props.stompClient.subscribe('/draft/rounds', this.receiveStartNextRound);
         this.props.stompClient.subscribe('/draft/stopDrafts', this.receiveStopDraft);
         this.props.stompClient.subscribe('/draft/addToBlocks', this.receiveAddToBlock);
         this.props.stompClient.subscribe('/draft/bids', this.receiveBid);
         this.props.stompClient.subscribe('/draft/teams', this.receiveTeam);
+        this.props.stompClient.subscribe('/draft/purchaseReviews', this.receivePurchaseReview);
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
@@ -82,6 +85,10 @@ class DraftRoomBlock extends React.Component {
                 })
             }
         }
+    }
+
+    componentWillUnmount() {
+        this._isMounted = false;
     }
 
     getOnTheBlockTeamName = () => {
@@ -176,6 +183,12 @@ class DraftRoomBlock extends React.Component {
         });
     };
 
+    receivePurchaseReview = (payload) => {
+        console.log("Purchase Review Received: ", payload);
+        const purchaseReviewPlayer = JSON.parse(payload.body);
+        this.setState({purchaseReviewPlayer: purchaseReviewPlayer});
+    };
+
     receiveStopDraft = (payload) => {
         console.log("Stop Draft Received.");
         const updatedStatus = payload.body;
@@ -262,6 +275,7 @@ class DraftRoomBlock extends React.Component {
                             commissionerTeamName={this.props.commissionerTeamName}
                             onTheBlockTeamName={this.getOnTheBlockTeamName()}
                             onTheBlockPlayer={this.state.playerDetails}
+                            purchaseReviewPlayer={this.state.purchaseReviewPlayer}
                         />
                     </Grid>
                 </Grid>
