@@ -19,4 +19,6 @@ public interface ITeamPlayerJoinBase {
     @Value("#{target.myTeamPosition.type}")
     PositionTypeEnum getMyTeamPosition();
 
+    String getPurchaseReviewRating();
+
 }

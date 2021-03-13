@@ -17,7 +17,7 @@ public interface PlayerRepository extends JpaRepository<PlayerEntity, Long> {
     // Using find returns the full Entity, use for searching when we might find null, therefore return an Optional.
     // Using get also returns the full Entity, but expects to get something, therefore no need for Optional.
     // Use getOne where possible, as this is the equivalent on EntityManager GetReference.
-    // This should be more performant that fetching the entire Entity.
+    // This should be more performant that fetching the entire Entity, however, can't easily be used for saving the Entity.
     Optional<PlayerEntity> findById(Long playerId);
 
     Optional<IPlayerBase> findPlayerBaseById(Long playerId);

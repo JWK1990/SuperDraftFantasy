@@ -40,6 +40,8 @@ public class PlayerEntity {
 
     private Integer weight;
 
+    private Integer moneyballPrice;
+
     @ManyToMany
     @JoinTable(
             name = "player_position_join",

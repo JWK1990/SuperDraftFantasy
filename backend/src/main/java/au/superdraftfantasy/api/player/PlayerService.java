@@ -142,27 +142,35 @@ public class PlayerService {
     ) {
         List<IDraftedPlayerId> draftedPlayerIdList = playerRepository.findPlayerIdByTeamPlayerJoins_Team_DraftId(draftId);
         List<Long> idList = draftedPlayerIdList.stream().map(IDraftedPlayerId::getId).collect(Collectors.toList());
-        Pageable pageable = PageRequest.of(pageNum, pageSize, Sort.by("id"));
-        List<PositionTypeEnum> positionsList = getPositionsFilterList(position);
 
-        Page<IPlayerBase> availablePlayersPage;
 
-        if(positionsList.size() > 0 ) {
-            availablePlayersPage = playerRepository.findByIdNotInAndPositions_TypeInAndLastNameIgnoreCaseContaining(
-                    idList,
-                    positionsList,
-                    search,
-                    pageable
-            );
+        // If no DraftedPlayers then return full DraftPlayersPage.
+        // Else get AvailablePlayer Page.
+        if(idList.size() < 1) {
+            return getPlayersPageByDraftId(draftId, pageNum, pageSize, search, position);
         } else {
-            availablePlayersPage = playerRepository.findByIdNotInAndLastNameIgnoreCaseContaining(
-                    idList,
-                    search,
-                    pageable
-            );
+            Pageable pageable = PageRequest.of(pageNum, pageSize, Sort.by("id"));
+            List<PositionTypeEnum> positionsList = getPositionsFilterList(position);
+
+            Page<IPlayerBase> availablePlayersPage;
+            if(positionsList.size() > 0 ) {
+                availablePlayersPage = playerRepository.findByIdNotInAndPositions_TypeInAndLastNameIgnoreCaseContaining(
+                        idList,
+                        positionsList,
+                        search,
+                        pageable
+                );
+            } else {
+                availablePlayersPage = playerRepository.findByIdNotInAndLastNameIgnoreCaseContaining(
+                        idList,
+                        search,
+                        pageable
+                );
+            }
+
+            return mapToReadDtoPage(availablePlayersPage, 2020, draftId);
         }
 
-        return mapToReadDtoPage(availablePlayersPage, 2020, draftId);
     }
 
     /**

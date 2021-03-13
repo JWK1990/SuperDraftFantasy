@@ -65,15 +65,22 @@ public class TeamService {
         TeamEntity team = teamRepository.findById(readDto.getBidderTeamId())
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Team with ID '" + readDto.getOnTheBlockTeamId() + "' Not Found."));
         checkIfPlayerAlreadyDrafted(team, readDto.getPlayerId());
-        addPlayer(team, readDto.getPlayerId(), readDto.getPrice());
-        team.setBudget(team.getBudget() - readDto.getPrice());
+        PlayerEntity player =  playerRepository.findById(readDto.getPlayerId())
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Player with ID '" + readDto.getPlayerId() + "' Not Found."));
 
+        // Update Team.
+        // TODO: Update Average PurchaseReviewRating.
+        addPlayer(team, player, readDto.getPrice());
+        team.setBudget(team.getBudget() - readDto.getPrice());
         RosterEntity roster = team.getDraft().getRoster();
         long totalRosterSlots = roster.getDef() + roster.getMid() + roster.getRuc() + roster.getFwd() + roster.getBench();
         if(team.getTeamPlayerJoins().size() >= totalRosterSlots) {
             team.setStatus(TeamStatusEnum.READY);
         }
         teamRepository.save(team);
+
+        // Update Player.
+        // Update Purchsae Review Rating.
         return modelMapper.map(team, TeamReadDto.class);
     }
 
@@ -189,11 +196,22 @@ public class TeamService {
         return totalSlotsForPosition;
     }
 
-    private void addPlayer(TeamEntity team, Long playerID, Long price) {
-        PlayerEntity player =  playerRepository.getOne(playerID);
+    private void addPlayer(TeamEntity team, PlayerEntity player, Long price) {
         PositionEntity myTeamPosition = getMyTeamPosition(team, player);
+
+        Integer purchaseReviewRating = null;
+        if(player.getMoneyballPrice() != null) {
+            purchaseReviewRating = getPurchaseReviewRating(price, player);
+        }
         if(myTeamPosition != null) {
-            TeamPlayerJoinEntity teamPlayerJoin = new TeamPlayerJoinEntity(null, team, player, price, myTeamPosition);
+            TeamPlayerJoinEntity teamPlayerJoin = new TeamPlayerJoinEntity(
+                    null,
+                    team,
+                    player,
+                    price,
+                    myTeamPosition,
+                    purchaseReviewRating
+            );
             team.getTeamPlayerJoins().add(teamPlayerJoin);
         } else {
             throw new RequestRejectedException("There is no space for the selected player in the given team.");
@@ -230,6 +248,29 @@ public class TeamService {
                     .orElseThrow(() -> new NoSuchElementException("Position not found."));
         }
         return position;
+    }
+
+    private Integer getPurchaseReviewRating(Long price, PlayerEntity playerEntity) {
+        // If Team paid $15 and moneyballPrice is $10, priceDifference is $5.
+        // PurchaseReviewRating 0 is F and 5 is A+.
+        Integer priceDifference = (int) (price - playerEntity.getMoneyballPrice());
+        Integer purchaseReviewRating = 3;
+        if(priceDifference > 15) {
+            purchaseReviewRating = 0; // F.
+        } else if(priceDifference > 10) {
+            purchaseReviewRating = 1; // E.
+        } else if(priceDifference > 5) {
+            purchaseReviewRating = 2; // D
+        } else if(priceDifference > -5) {
+            purchaseReviewRating = 3; // C
+        } else if(priceDifference > -10) {
+            purchaseReviewRating = 4; // B
+        } else if(priceDifference > -15) {
+            purchaseReviewRating = 5; // A
+        } else if(priceDifference > -20) {
+            purchaseReviewRating = 6; // A+
+        }
+        return purchaseReviewRating;
     }
 
     private boolean isSlotAvailableForPosition(TeamEntity team, PositionTypeEnum position) {

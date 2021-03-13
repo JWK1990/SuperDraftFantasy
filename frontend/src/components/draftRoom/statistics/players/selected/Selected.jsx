@@ -34,6 +34,10 @@ export default function DraftRoomPlayersSelected(props) {
         setInitialBid(event.target.value);
     };
 
+    if(!props.player) {
+        return null;
+    }
+
     return (
         <Grid container>
             <Grid item xs={1} >

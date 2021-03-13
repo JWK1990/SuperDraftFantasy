@@ -114,6 +114,7 @@ CREATE TABLE player_entity (
     jumper_number SMALLINT,
     height SMALLINT,
     weight SMALLINT,
+    moneyball_price SMALLINT,
 
     CONSTRAINT fk_afl_team_id FOREIGN KEY (afl_team_id) REFERENCES afl_teams_enum(id)
 );
@@ -145,6 +146,7 @@ CREATE TABLE team_player_join_entity (
      player_id INT,
      price SMALLINT,
      my_team_position_id SMALLINT,
+     purchase_review_rating VARCHAR(255),
 
      CONSTRAINT fk_team_id FOREIGN KEY (team_id) REFERENCES team_entity(id),
      CONSTRAINT fk_player_id FOREIGN KEY (player_id) REFERENCES player_entity(id),

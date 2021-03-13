@@ -26,6 +26,7 @@ public class PlayerBaseReadDto {
         this.primaryPosition = playerBase.getPrimaryPosition();
         this.secondaryPosition = playerBase.getSecondaryPosition();
         this.fullPosition = getFullPosition(this.primaryPosition, this.secondaryPosition);
+        this.moneyballPrice = playerBase.getMoneyballPrice();
         if(baseStats != null) {
             this.games = baseStats.getGames();
             this.average = baseStats.getAverage();
@@ -38,6 +39,7 @@ public class PlayerBaseReadDto {
             this.draftTeamId = teamPlayerJoin.getTeamId();
             this.draftTeamName = teamPlayerJoin.getTeamName();
             this.price = teamPlayerJoin.getPrice();
+            this.purchaseReviewRating = teamPlayerJoin.getPurchaseReviewRating();
         } else {
             this.available = true;
         }
@@ -78,6 +80,10 @@ public class PlayerBaseReadDto {
     String draftTeamName;
 
     Integer price;
+
+    Integer moneyballPrice;
+
+    String purchaseReviewRating;
 
     private String getFullPosition(String primaryPosition, String secondaryPosition) {
         String fullPosition = primaryPosition;
