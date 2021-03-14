@@ -88,15 +88,15 @@ export default function GamesGraph(props) {
                 <XAxis dataKey="round" ticks={getTicks(games)} />
                 <YAxis />
                 <Tooltip/>
-                <Bar dataKey={props.dataKey} barSize={20} fill="blue" />
+                <Bar dataKey={props.dataKey} barSize={20} fill="#4df3cc" />
                 <ReferenceLine
                     y={statAverage}
-                    stroke="#0066ff"
+                    stroke="#4df3cc"
                     strokeWidth={2}
                 />
                 {
                     positionAverage != null
-                    ? <ReferenceLine y={positionAverage} stroke="green" strokeWidth={2}/>
+                    ? <ReferenceLine y={positionAverage} stroke="#0066ff" strokeWidth={2}/>
                         : null
                 }
             </ComposedChart>

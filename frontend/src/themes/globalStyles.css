@@ -27,7 +27,19 @@
     --fwd-color-secondary: rgb(144, 238, 144); /* Light Green. */
 
     /* Text Colors. */
-    --text-black: rgba(0, 0, 0, 0.87),
+    --text-black: rgba(0, 0, 0, 0.87);
+
+    /* Team Colours. */
+    --team-one: #6217f4;
+    --team-two: #316bbd;
+    --team-three: #4df3cc;
+    --team-four: #e82b84;
+    --team-five: #1a62b7;
+    --team-six: #ca0716;
+    --team-seven: #27ce65;
+    --team-eight: #3a6b66;
+    --team-nine: #cae117;
+    --team-ten: #139cad;
 }
 
 .commissionerControls {

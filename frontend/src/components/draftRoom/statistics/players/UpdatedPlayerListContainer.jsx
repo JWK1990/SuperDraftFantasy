@@ -18,7 +18,7 @@ const styles = {
         color: "var(--mid-color-primary)!important",
     },
     checkboxRuc: {
-        color: "var(--ruc-color-primary) !important",
+        color: "#FFA500",
     },
     checkboxFwd: {
         color: "var(--fwd-color-primary) !important",
@@ -32,7 +32,7 @@ const styles = {
         paddingRight: 20,
     },
     labelRuc: {
-        color: "var(--ruc-color-primary)",
+        color: "#FFA500",
         paddingRight: 20,
     },
     labelFwd: {

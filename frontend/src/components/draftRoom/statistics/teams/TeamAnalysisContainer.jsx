@@ -1,5 +1,5 @@
 import React from 'react'
-import {draftTeamsNameSelector} from "../../../../store/selectors/DraftSelectors";
+import {draftIdSelector, draftTeamsNameSelector} from "../../../../store/selectors/DraftSelectors";
 import {connect} from "react-redux";
 import TeamViewField from "./fieldView/TeamViewField";
 import {changeDraftStatisticsTeamIdAction} from "../../../../store/actions/NavigationActions";
@@ -17,6 +17,7 @@ const styles = {
     },
     teamStatsContainer: {
         width: "100%",
+        height: "var(--draft-room-second-row-height)",
     },
     // Use the below width to control the size of the TeamFieldView.
     teamFieldViewContainer: {
@@ -46,16 +47,11 @@ class TeamAnalysisContainer extends React.Component {
 
         return (
             <div className={classes.rootContainer}>
-                <Grid container className="rootContainer" spacing={4} direction="row" justify="space-between" alignItems="stretch">
+                <Grid container className={classes.teamStatsContainer} spacing={4} direction="row" justify="space-between" alignItems="stretch">
                     <Grid item xs={7}>
-                        <Grid container spacing={4} direction="row" justify="space-between" alignItems="stretch">
-                            <Grid item xs={12}>
-                                <TeamStatsTableContainer />
-                            </Grid>
-                            <Grid item xs={12}>
-                                <TeamStatsGraphContainer />
-                            </Grid>
-                        </Grid>
+                        <TeamStatsGraphContainer
+                            draftId={this.props.draftId}
+                        />
                     </Grid>
                     {/* Change the below width to change the size of the TeamFieldView. */}
                     <Grid item xs={5}>
@@ -88,7 +84,8 @@ class TeamAnalysisContainer extends React.Component {
 const mapStateToProps = state => {
     return {
         teamNameList: draftTeamsNameSelector(state),
-        selectedTeamId: currentDraftStatisticsTeamIdSelector(state)
+        selectedTeamId: currentDraftStatisticsTeamIdSelector(state),
+        draftId: draftIdSelector(state),
     };
 };
 

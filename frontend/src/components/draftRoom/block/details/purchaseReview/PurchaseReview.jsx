@@ -23,6 +23,16 @@ const styles = {
         width: "228px",
         height: "100%",
     },
+    blackBg: {
+        backgroundColor: "rgb(190,190,190)",
+        height: "100%",
+        paddingTop: "100px",
+    },
+    blackText: {
+        color: "black",
+        align: "center",
+        paddingBottom: "20px",
+    }
 }
 
 class PurchaseReview extends React.Component {
@@ -37,11 +47,11 @@ class PurchaseReview extends React.Component {
         return (
             <Paper elevation={2} className={classes.paperRoot}>
                 <Grid container className={classes.rootContainer} spacing={0} direction="row" justify="flex-start" alignItems="center">
-                    <Grid item xs={2} zeroMinWidth>
-                        <Typography style={{overflowWrap: 'break-word'}} align={"center"}>
+                    <Grid item xs={2} zeroMinWidth className={classes.blackBg}>
+                        <Typography variant={"h5"} style={{overflowWrap: 'break-word'}} align={"center"} className={classes.blackText}>
                             Purchase
                         </Typography>
-                        <Typography style={{overflowWrap: 'break-word'}} align={"center"}>
+                        <Typography variant={"h5"} style={{overflowWrap: 'break-word'}} align={"center"} className={classes.blackText}>
                             Review
                         </Typography>
                     </Grid>

@@ -85,7 +85,7 @@ public class TeamStatsFetcher {
                 .orElse(null);
     }
 
-    public IntSummaryStatistics getAverageSummaryStats(TeamEntity team) {
+    public IntSummaryStatistics getScAverageSummaryStats(TeamEntity team) {
         return team
                 .getTeamPlayerJoins()
                 .stream()
@@ -148,6 +148,17 @@ public class TeamStatsFetcher {
                         && teamPlayerJoin.getPlayer().getScAverage() != 0
                 )
                 .mapToInt(teamPlayerJoin -> teamPlayerJoin.getPlayer().getScAverage())
+                .summaryStatistics();
+    }
+
+    public IntSummaryStatistics getSCStandardPrice(TeamEntity team) {
+        return team
+                .getTeamPlayerJoins()
+                .stream()
+                .filter(teamPlayerJoin -> teamPlayerJoin.getPlayer().getScStandardPrice() != null
+                        && teamPlayerJoin.getPlayer().getScStandardPrice() != 0
+                )
+                .mapToInt(teamPlayerJoin -> teamPlayerJoin.getPlayer().getScStandardPrice())
                 .summaryStatistics();
     }
 

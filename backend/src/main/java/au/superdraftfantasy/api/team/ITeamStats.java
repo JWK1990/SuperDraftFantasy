@@ -1,7 +1,5 @@
 package au.superdraftfantasy.api.team;
 
-import au.superdraftfantasy.api.player.IPlayerForStats;
-import au.superdraftfantasy.api.teamPlayerJoin.ITeamPlayerJoinBase;
 import org.springframework.beans.factory.annotation.Value;
 
 import java.util.IntSummaryStatistics;
@@ -10,9 +8,11 @@ public interface ITeamStats {
 
     Long getId();
 
+    String getName();
+
     Long getBudget();
 
-    @Value("#{@teamStatsFetcher.getMostExpensivePlayer(target)}")
+/*    @Value("#{@teamStatsFetcher.getMostExpensivePlayer(target)}")
     ITeamPlayerJoinBase getMostExpensivePlayer();
 
     @Value("#{@teamStatsFetcher.getBestValuePlayer(target)}")
@@ -21,37 +21,40 @@ public interface ITeamStats {
     @Value("#{@teamStatsFetcher.getWorstValuePlayer(target)}")
     ITeamPlayerJoinBase getWorstValuePlayer();
 
-    @Value("#{@teamStatsFetcher.getMoneyballPriceStats(target)}")
-    IntSummaryStatistics getMoneyballPriceStats();
-
-    @Value("#{@teamStatsFetcher.getPriceDifferenceStats(target)}")
-    IntSummaryStatistics getPriceDifferenceStats();
-
-    @Value("#{@teamStatsFetcher.getRoosterSummaryStats(target)}")
-    IntSummaryStatistics getRoosterSummaryStats();
-
     @Value("#{@teamStatsFetcher.getBiggestRooster(target)}")
     IPlayerForStats getBiggestRooster();
 
     @Value("#{@teamStatsFetcher.getSmallestRooster(target)}")
-    IPlayerForStats getSmallestRooster();
+    IPlayerForStats getSmallestRooster();*/
 
-    @Value("#{@teamStatsFetcher.getAverageSummaryStats(target)}")
-    IntSummaryStatistics getAverageSummaryStats();
+    @Value("#{@teamStatsFetcher.getMoneyballPriceStats(target)}")
+    IntSummaryStatistics getMoneyball();
+
+    @Value("#{@teamStatsFetcher.getPriceDifferenceStats(target)}")
+    IntSummaryStatistics getOversUnders();
+
+    @Value("#{@teamStatsFetcher.getRoosterSummaryStats(target)}")
+    IntSummaryStatistics getRooster();
+
+    @Value("#{@teamStatsFetcher.getScAverageSummaryStats(target)}")
+    IntSummaryStatistics getSupercoach();
 
     @Value("#{@teamStatsFetcher.getPsAverageSummaryStats(target)}")
-    IntSummaryStatistics getPsAverageSummaryStats();
+    IntSummaryStatistics getPreSeason();
 
     @Value("#{@teamStatsFetcher.getDefSummaryStats(target)}")
-    IntSummaryStatistics getDefSummaryStats();
+    IntSummaryStatistics getDef();
 
-    @Value("#{@teamStatsFetcher.getDefSummaryStats(target)}")
-    IntSummaryStatistics getMidSummaryStats();
+    @Value("#{@teamStatsFetcher.getMidSummaryStats(target)}")
+    IntSummaryStatistics getMid();
 
-    @Value("#{@teamStatsFetcher.getDefSummaryStats(target)}")
-    IntSummaryStatistics getRucSummaryStats();
+    @Value("#{@teamStatsFetcher.getRucSummaryStats(target)}")
+    IntSummaryStatistics getRuc();
 
-    @Value("#{@teamStatsFetcher.getDefSummaryStats(target)}")
-    IntSummaryStatistics getFwdSummaryStats();
+    @Value("#{@teamStatsFetcher.getFwdSummaryStats(target)}")
+    IntSummaryStatistics getFwd();
+
+    @Value("#{@teamStatsFetcher.getSCStandardPrice(target)}")
+    IntSummaryStatistics getScStandardPrice();
 
 }

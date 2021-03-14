@@ -24,6 +24,17 @@ const useStyles = makeStyles(theme => ({
     ratingImage: {
         height: 56,
         width: 56,
+    },
+    whiteText: {
+        display: "grid",
+        justifyContent: "center",
+        paddingTop: "100px",
+        alignItems: "center",
+        color: "red",
+        fontWeight: "bold",
+    },
+    blackBg: {
+        backgroundColor: "black",
     }
 }));
 
@@ -40,11 +51,11 @@ export default function DraftRoomPlayersSelected(props) {
 
     return (
         <Grid container>
-            <Grid item xs={1} >
+            <Grid item xs={1} className={props.player.available ? '' : classes.blackBg}>
                 {!props.player.available
-                    ? <Typography>Sold To.</Typography>
+                    ? <Typography variant={"h5"} className={classes.whiteText}>Sold</Typography>
                     : props.getIsAddToBlockHidden()
-                        ? <Typography>Empty</Typography>
+                        ? <Typography></Typography>
                         : (
                             <div className={classes.addToBlockDiv}>
                                 <div className={classes.addToBlockPriceDiv}>
