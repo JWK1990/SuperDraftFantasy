@@ -209,3 +209,25 @@ CREATE TABLE season_summary_entity (
      CONSTRAINT fk_afl_team_id FOREIGN KEY (afl_team_id) REFERENCES afl_teams_enum(id)
 );
 
+CREATE TABLE game_entity (
+    id SERIAL,
+    player_id SMALLINT,
+    year SMALLINT,
+    round SMALLINT,
+    disposals SMALLINT,
+    goals SMALLINT,
+    tackles SMALLINT,
+    hitouts SMALLINT,
+    clearances SMALLINT,
+    average SMALLINT,
+    contested_possessions SMALLINT,
+    uncontested_possessions SMALLINT,
+    disposal_efficiency SMALLINT,
+    meters_gained SMALLINT,
+    intercepts SMALLINT,
+    time_on_ground SMALLINT,
+    hardness_rating SMALLINT,
+
+    CONSTRAINT fk_player_id FOREIGN KEY (player_id) REFERENCES player_entity(id)
+);
+
