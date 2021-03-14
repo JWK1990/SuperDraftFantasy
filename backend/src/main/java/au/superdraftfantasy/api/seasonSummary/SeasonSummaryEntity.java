@@ -35,53 +35,53 @@ public class SeasonSummaryEntity {
 
     private Integer games;
 
-    private double average;
+    private Integer average;
 
-    private double kicks;
+    private Integer kicks;
 
-    private double handballs;
+    private Integer handballs;
 
-    private double disposals;
+    private Integer disposals;
 
-    private double marks;
+    private Integer marks;
 
     private double goals;
 
     private double behinds;
 
-    private double tackles;
+    private Integer tackles;
 
-    private double hitouts;
+    private Integer hitouts;
 
     private double goalAssists;
 
-    private double insideFiftys;
+    private Integer insideFiftys;
 
-    private double clearances;
+    private Integer clearances;
 
-    private double clangers;
+    private Integer clangers;
 
-    private double reboundFiftys;
+    private Integer reboundFiftys;
 
     private double freesFor;
 
     private double freesAgainst;
 
-    private double dreamTeam;
+    private Integer dreamTeam;
 
-    private double contestedPossessions;
+    private Integer contestedPossessions;
 
-    private double uncontestedPossessions;
+    private Integer uncontestedPossessions;
 
-    private double effectiveDisposals;
+    private Integer effectiveDisposals;
 
-    private double disposalEfficiency;
+    private Integer disposalEfficiency;
 
     private double contestedMarks;
 
     private double marksInsideFifty;
 
-    private double onePercenters;
+    private Integer onePercenters;
 
     private double bounces;
 
@@ -89,16 +89,20 @@ public class SeasonSummaryEntity {
 
     private double stoppageClearances;
 
-    private double scoreInvolvements;
+    private Integer scoreInvolvements;
 
-    private double metersGained;
+    private Integer metersGained;
 
-    private double turnovers;
+    private Integer turnovers;
 
-    private double intercepts;
+    private Integer intercepts;
 
     private double tacklesInsideFifty;
 
-    private double timeOnGround;
+    private Integer timeOnGround;
+
+    private Integer hardnessRating;
+
+    private Integer freesRatio;
 
 }
