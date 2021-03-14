@@ -3,5 +3,5 @@ export const initialNavigationState =
         currentTabName: "",
         draftStatisticsTeamId: "",
         blockGraphStat: "average",
-        blockGraphPeriod: "Career",
+        blockGraphPeriod: "2020",
     }

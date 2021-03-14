@@ -9,6 +9,7 @@ import {changeBlockGraphPeriod, changeBlockGraphStat} from "../../../../../../..
 import Box from "@material-ui/core/Box";
 import withStyles from "@material-ui/core/styles/withStyles";
 import SeasonSummariesGraph from "./SeasonSummariesGraph";
+import GamesGraph from "./GamesGraph";
 
 const styles = {
     graphDiv: {
@@ -17,7 +18,24 @@ const styles = {
     }
 }
 
-const statOptionsList = [
+const periodOptionsList = [
+    {id: 1, name: "2020"},
+    {id: 2, name: "Career"},
+];
+
+const statOptionsList2020 = [
+    {id: 1, name: "average"},
+    {id: 2, name: "disposals"},
+    {id: 3, name: "disposalEfficiency"},
+    {id: 4, name: "tackles"},
+    {id: 5, name: "hitouts"},
+    {id: 6, name: "goals"},
+    {id: 7, name: "clearances"},
+    {id: 8, name: "metersGained"},
+    {id: 9, name: "hardnessRating"},
+];
+
+const statOptionsListCareer= [
     {id: 1, name: "average"},
     {id: 2, name: "games"},
     {id: 3, name: "disposals"},
@@ -41,18 +59,20 @@ const statOptionsList = [
     {id: 21, name: "intercepts"},
 ];
 
-const periodOptionsList = [
-    {id: 1, name: "2020"},
-    {id: 2, name: "Career"},
-    {id: 3, name: "Pre-Season"},
-];
-
 class PlayerAnalysisGraphsContainer extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            statOptionsList: statOptionsList2020,
+            selectedStatOption: "average",
+        };
+    }
 
     componentWillMount() {
         // If no Team is selected, set to the first Team in the list.
         if(!this.props.selectedBlockGraphStat) {
-            this.props.changeBlockGraphStat(statOptionsList[0].id);
+            this.props.changeBlockGraphStat(statOptionsList2020[0].id);
         }
         if(!this.props.selectedBlockGraphPeriod) {
             this.props.changeBlockGraphPeriod(periodOptionsList[0].id);
@@ -65,6 +85,11 @@ class PlayerAnalysisGraphsContainer extends React.Component {
 
     handlePeriodChange = (event) => {
         this.props.changeBlockGraphPeriod(event.target.value);
+        if(this.props.selectedBlockGraphPeriod === "2020") {
+            this.setState({statOptionsList: statOptionsList2020});
+        } else {
+            this.setState({statOptionsListCareer: statOptionsListCareer});
+        }
     }
 
     render() {
@@ -82,7 +107,7 @@ class PlayerAnalysisGraphsContainer extends React.Component {
                             value={this.props.selectedBlockGraphStat}
                             onChange={this.handleStatChange}
                             helperText=""
-                            optionList={statOptionsList}
+                            optionList={this.state.statOptionsList}
                             useNameAsValue={true}
                         />
                         <StatSelector
@@ -95,11 +120,18 @@ class PlayerAnalysisGraphsContainer extends React.Component {
                         />
                 </Box>
                 <div className={classes.graphDiv}>
-                    <SeasonSummariesGraph
-                        playerId={this.props.playerId}
-                        primaryPosition={this.props.primaryPosition}
-                        dataKey={this.props.selectedBlockGraphStat}
-                    />
+                    {this.props.selectedBlockGraphPeriod === "2020"
+                    ? <GamesGraph
+                            playerId={this.props.playerId}
+                            primaryPosition={this.props.primaryPosition}
+                            dataKey={this.props.selectedBlockGraphStat}
+                        />
+                        : <SeasonSummariesGraph
+                            playerId={this.props.playerId}
+                            primaryPosition={this.props.primaryPosition}
+                            dataKey={this.props.selectedBlockGraphStat}
+                        />
+                    }
                 </div>
             </>
         )

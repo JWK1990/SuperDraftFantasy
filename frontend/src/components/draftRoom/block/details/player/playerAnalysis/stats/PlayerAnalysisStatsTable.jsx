@@ -25,8 +25,12 @@ const theme = createMuiTheme({
 });
 
 const useStyles = makeStyles(() => ({
-    tableContainer: {
+    mainTable: {
         paddingTop: 20,
+        overflowX: 'auto',
+    },
+    positionTable: {
+        paddingTop: 5,
         overflowX: 'auto',
     },
     rowHeader: {
@@ -60,43 +64,54 @@ export default function PlayerAnalysisStatsTable(props) {
 
     return (
         <MuiThemeProvider theme={theme}>
-            <TableContainer component={Paper} className={classes.tableContainer}>
+            <TableContainer component={Paper} className={classes.mainTable}>
                 <Table aria-label="Player Stat Bar" size={"small"}>
                     <TableHead>
                         <TableRow>
-                            <TableCell/>
-                            <TableCell>K</TableCell>
-                            <TableCell>M</TableCell>
-                            <TableCell>T</TableCell>
+                            <TableCell>DI</TableCell>
+                            <TableCell>KI</TableCell>
+                            <TableCell>HB</TableCell>
+                            <TableCell>MA</TableCell>
+                            <TableCell>TK</TableCell>
+                            <TableCell>GL</TableCell>
+                            <TableCell>CLR</TableCell>
                             <TableCell>CP%</TableCell>
-                            <TableCell>I50</TableCell>
-                            <TableCell>CL</TableCell>
-                            <TableCell>TOG%</TableCell>
-                            <TableCell>FD</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
                         <TableRow>
-                            <TableCell className={classes.rowHeader}>2020</TableCell>
+                            <TableCell>{playerDetails.disposals}</TableCell>
                             <TableCell>{playerDetails.kicks}</TableCell>
+                            <TableCell>{playerDetails.handballs}</TableCell>
                             <TableCell>{playerDetails.marks}</TableCell>
                             <TableCell>{playerDetails.tackles}</TableCell>
+                            <TableCell>{playerDetails.goals}</TableCell>
+                            <TableCell>{playerDetails.clearances}</TableCell>
                             <TableCell>{Math.round((playerDetails.contestedPossessions/playerDetails.disposals) * 100)}%</TableCell>
-                            <TableCell>{playerDetails.insideFiftys}</TableCell>
-                            <TableCell>{playerDetails.clangers}</TableCell>
-                            <TableCell>{Math.round(playerDetails.timeOnGround)}%</TableCell>
-                            <TableCell>{Math.round((playerDetails.freesFor - playerDetails.freesAgainst) * 10)/10}</TableCell>
                         </TableRow>
+                    </TableBody>
+                    <TableHead>
                         <TableRow>
-                            <TableCell className={classes.rowHeader}>Career</TableCell>
-                            <TableCell>70</TableCell>
-                            <TableCell>10</TableCell>
-                            <TableCell>5</TableCell>
-                            <TableCell>7</TableCell>
-                            <TableCell>8</TableCell>
-                            <TableCell>2</TableCell>
-                            <TableCell>3</TableCell>
-                            <TableCell>4</TableCell>
+                            <TableCell>DE</TableCell>
+                            <TableCell>MTG</TableCell>
+                            <TableCell>I50</TableCell>
+                            <TableCell>R50</TableCell>
+                            <TableCell>CLG</TableCell>
+                            <TableCell>CM</TableCell>
+                            <TableCell>HO</TableCell>
+                            <TableCell>TOG</TableCell>
+                        </TableRow>
+                    </TableHead>
+                    <TableBody>
+                        <TableRow>
+                            <TableCell>{playerDetails.disposalEfficiency}%</TableCell>
+                            <TableCell>{playerDetails.metersGained}</TableCell>
+                            <TableCell>{playerDetails.insideFiftys}</TableCell>
+                            <TableCell>{playerDetails.reboundFiftys}</TableCell>
+                            <TableCell>{playerDetails.clangers}</TableCell>
+                            <TableCell>{playerDetails.contestedMarks}</TableCell>
+                            <TableCell>{playerDetails.hitouts}</TableCell>
+                            <TableCell>{Math.round(playerDetails.timeOnGround)}%</TableCell>
                         </TableRow>
                     </TableBody>
                 </Table>
