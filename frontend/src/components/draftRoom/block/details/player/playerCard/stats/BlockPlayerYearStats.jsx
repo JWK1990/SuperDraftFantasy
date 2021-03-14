@@ -16,14 +16,6 @@ function getPositionMaxAve(position) {
     return PlayerStatFetcher.getPositionMaxAve(position)
 }
 
-function getPositionMaxDisposals(position) {
-    return PlayerStatFetcher.getPositionMaxDisposals(position)
-}
-
-function getPositionMaxDisposalEfficiency(position) {
-    return PlayerStatFetcher.getPositionMaxDisposalEfficiency(position)
-}
-
 export default function BlockPlayerYearStats(props) {
     const classes = useStyles();
 
@@ -31,31 +23,35 @@ export default function BlockPlayerYearStats(props) {
         <div className={classes.statBarDiv}>
             <CircularStatIcon
                 statName="AVE"
-                statValue= {getPositionMaxAve(props.player.primaryPosition)}
+                statValue= {props.player.average}
+                maxStatValue= {getPositionMaxAve(props.player.primaryPosition)}
+                showHeader={false}
+                showFooter={true}
+            />
+            {props.player.price == null
+                ? <CircularStatIcon
+                        statName="GM"
+                        statValue= {props.player.games}
+                        maxStatValue= {PlayerStatFetcher.maxGamesPlayed}
+                        showHeader={false}
+                        showFooter={true}
+                    />
+                : null
+            }
+            <CircularStatIcon
+                statName="PS"
+                statValue= {props.player.psAverage}
+                maxStatValue= {getPositionMaxAve(props.player.primaryPosition)}
+                showHeader={false}
+                showFooter={true}
+            />
+            <CircularStatIcon
+                statName="RR"
+                statValue= {props.player.roosterRating}
                 maxStatValue= {10}
                 showHeader={false}
-                showFooter={true}
-            />
-            <CircularStatIcon
-                statName="GM"
-                statValue= {props.player.games}
-                maxStatValue= {PlayerStatFetcher.maxGamesPlayed}
-                showHeader={false}
-                showFooter={true}
-            />
-            <CircularStatIcon
-                statName="DISP"
-                statValue= {props.player.disposals}
-                maxStatValue= {getPositionMaxDisposals(props.player.primaryPosition)}
-                showHeader={false}
-                showFooter={true}
-            />
-            <CircularStatIcon
-                statName="DE%"
-                statValue= {props.player.disposalEfficiency}
-                maxStatValue= {getPositionMaxDisposalEfficiency(props.player.primaryPosition)}
-                showHeader={false}
-                showFooter={true}
+                showFooter={false}
+                showIconFooter={true}
             />
             {props.player.price != null
             ? (<CircularStatIcon

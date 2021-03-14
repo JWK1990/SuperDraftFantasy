@@ -14,6 +14,8 @@ public interface ISeasonSummaryBase {
 
     Integer getDisposalEfficiency();
 
-    double getTackles();
+    Integer getTackles();
+
+    Integer getHardnessRating();
 
 }

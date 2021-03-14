@@ -32,9 +32,9 @@ public class PlayerEntity {
 
     private Integer age;
 
-    private Integer career_games;
+    private Integer careerGames;
 
-    private Integer sc_standard_price;
+    private Integer scStandardPrice;
 
     @NotBlank
     @Enumerated(EnumType.ORDINAL)
@@ -66,6 +66,8 @@ public class PlayerEntity {
     private Integer price2020;
 
     private Integer psAverage;
+
+    private Integer scAverage;
 
     @ManyToMany
     @JoinTable(

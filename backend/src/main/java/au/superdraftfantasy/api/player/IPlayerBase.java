@@ -12,12 +12,20 @@ public interface IPlayerBase {
 
     String getLastName();
 
+    Integer getAge();
+
+    Integer getCareerGames();
+
     @Value("#{@playerDataFetcher.getAflTeam(target)}")
     String getAflTeam();
 
     Integer getJumperNumber();
 
+    Integer getRoosterRating();
+
     Integer getMoneyballPrice();
+
+    Integer getPsAverage();
 
     @Value("#{@playerDataFetcher.getPrimaryPosition(target)}")
     String getPrimaryPosition();

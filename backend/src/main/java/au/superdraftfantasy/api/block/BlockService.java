@@ -49,8 +49,10 @@ public class BlockService {
         Long onTheBlockTeamId = getOnTheBlockTeamId(blockDto.getDraftId(), otbUpdateRequired);
         blockDto.setOnTheBlockTeamId(onTheBlockTeamId);
 
+        Long userEndTime = Instant.now().plusSeconds(blockDto.getOnTheBlockTimer() - 1).toEpochMilli();
         Long endTime = Instant.now().plusSeconds(blockDto.getOnTheBlockTimer()).toEpochMilli();
         blockDto.setEndTime(endTime);
+        blockDto.setUserEndTime(userEndTime);
 
         blockDto.setPrice(1L);
 
@@ -87,8 +89,10 @@ public class BlockService {
         futuresScheduler.stopScheduledFutures(blockDto.getDraftId());
 
         // Set end time for current Bid.
+        Long userEndTime = Instant.now().plusSeconds(blockDto.getBidTimer() - 1).toEpochMilli();
         Long endTime = Instant.now().plusSeconds(blockDto.getBidTimer()).toEpochMilli();
         blockDto.setEndTime(endTime);
+        blockDto.setUserEndTime(userEndTime);
 
         // If AddToBlock then add PlayerDetails.
         if(isAddToBlock) {
@@ -144,7 +148,9 @@ public class BlockService {
         System.out.println("Best available player ID " + bestAvailablePlayerId);
 
         // Set endTime for starting Bid.
+        Long userEndTime = Instant.now().plusSeconds(blockDto.getBidTimer() - 1).toEpochMilli();
         Long endTime = Instant.now().plusSeconds(blockDto.getBidTimer()).toEpochMilli();
+        blockDto.setUserEndTime(userEndTime);
         blockDto.setEndTime(endTime);
 
         // Add PlayerDetails.

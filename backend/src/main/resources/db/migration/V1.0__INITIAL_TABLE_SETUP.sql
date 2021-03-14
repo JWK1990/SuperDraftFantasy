@@ -125,6 +125,7 @@ CREATE TABLE player_entity (
     price_2019 SMALLINT,
     price_2020 SMALLINT,
     ps_average SMALLINT,
+    sc_average SMALLINT,
 
     CONSTRAINT fk_afl_team_id FOREIGN KEY (afl_team_id) REFERENCES afl_teams_enum(id)
 );
@@ -157,6 +158,7 @@ CREATE TABLE team_player_join_entity (
      price SMALLINT,
      my_team_position_id SMALLINT,
      purchase_review_rating VARCHAR(255),
+     price_difference SMALLINT,
 
      CONSTRAINT fk_team_id FOREIGN KEY (team_id) REFERENCES team_entity(id),
      CONSTRAINT fk_player_id FOREIGN KEY (player_id) REFERENCES player_entity(id),

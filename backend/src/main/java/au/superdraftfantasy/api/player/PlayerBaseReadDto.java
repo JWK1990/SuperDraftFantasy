@@ -21,12 +21,16 @@ public class PlayerBaseReadDto {
         this.firstName = playerBase.getFirstName();
         this.lastName = playerBase.getLastName();
         this.fullName = playerBase.getFirstName() + " " + playerBase.getLastName();
+        this.age = playerBase.getAge();
+        this.careerGames = playerBase.getCareerGames();
         this.aflTeam = playerBase.getAflTeam();
         this.jumperNumber = playerBase.getJumperNumber();
         this.primaryPosition = playerBase.getPrimaryPosition();
         this.secondaryPosition = playerBase.getSecondaryPosition();
         this.fullPosition = getFullPosition(this.primaryPosition, this.secondaryPosition);
+        this.roosterRating = playerBase.getRoosterRating();
         this.moneyballPrice = playerBase.getMoneyballPrice();
+        this.psAverage = playerBase.getPsAverage();
         if(baseStats != null) {
             this.games = baseStats.getGames();
             this.average = baseStats.getAverage();
@@ -53,9 +57,19 @@ public class PlayerBaseReadDto {
 
     String fullName;
 
+    Integer age;
+
+    Integer careerGames;
+
     String aflTeam;
 
     Integer jumperNumber;
+
+    Integer roosterRating;
+
+    Integer moneyballPrice;
+
+    Integer psAverage;
 
     String primaryPosition;
 
@@ -80,8 +94,6 @@ public class PlayerBaseReadDto {
     String draftTeamName;
 
     Integer price;
-
-    Integer moneyballPrice;
 
     String purchaseReviewRating;
 

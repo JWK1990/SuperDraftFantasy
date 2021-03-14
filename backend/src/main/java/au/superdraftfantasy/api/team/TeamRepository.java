@@ -11,4 +11,6 @@ public interface TeamRepository extends JpaRepository<TeamEntity, Long> {
     // For example, could use a Projection just to grab the Team Status to check if a Draft is Complete.
     List<TeamEntity> findAllByDraftId(Long draftId);
     Optional<TeamEntity> findDistinctByDraftIdAndOnTheBlock(Long draftId, boolean isOnTheBlock);
+    List<ITeamStats> findAllBaseByDraftId(Long draftId);
+    ITeamStats findBaseById(Long teamID);
 }

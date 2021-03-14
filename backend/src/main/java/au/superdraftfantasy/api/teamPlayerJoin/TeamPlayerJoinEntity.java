@@ -39,4 +39,6 @@ TeamPlayerJoinEntity {
 
     private Integer purchaseReviewRating;
 
+    private Integer priceDifference;
+
 }

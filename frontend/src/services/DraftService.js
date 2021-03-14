@@ -55,6 +55,14 @@ class DraftService {
         return axios.get("/seasonSummary/" + playerId + "/details/all");
     }
 
+    getGamesByPlayerId(playerId) {
+        return axios.get("/games/" + playerId);
+    }
+
+    getTeamStatsByDraftId(draftId) {
+        return axios.get("/teams/" + draftId + "/stats");
+    }
+
     saveMyTeamLayout(teamId, updatedMyTeamPositions) {
         return axios.put("/teams/" + teamId + "/myTeamPositions/", updatedMyTeamPositions);
     }

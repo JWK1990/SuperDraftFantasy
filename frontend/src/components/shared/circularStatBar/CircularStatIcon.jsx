@@ -5,6 +5,7 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 import {green, orange, red, yellow} from '@material-ui/core/colors';
 import Fab from '@material-ui/core/Fab';
 import Typography from "@material-ui/core/Typography";
+import RoosterSymbol from "../../../images/purchaseReviewSymbols/RoosterSymbol.svg";
 
 const useStyles = makeStyles((theme) => ({
     wrapper: {
@@ -36,6 +37,17 @@ const useStyles = makeStyles((theme) => ({
     statButton: {
         boxShadow: "none",
     },
+    roosterImageDiv: {
+        display: 'flex',
+        height: "100%",
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginTop: -5,
+    },
+    roosterImage: {
+        width: 28,
+        height: 28,
+    },
 }));
 
 export default function CircularStatIcon(props) {
@@ -45,9 +57,9 @@ export default function CircularStatIcon(props) {
     // TODO: Could update this to represent how high in the rankings they are.
     const statRanking = props.statValue/props.maxStatValue;
     const barColour = clsx({
-        [classes.greenBar] : statRanking >= 0.85,
-        [classes.yellowBar] : (0.85 > statRanking) && (statRanking >= 0.7),
-        [classes.orangeBar] : (0.70 > statRanking) && (statRanking >= 0.5),
+        [classes.greenBar] : statRanking >= 0.80,
+        [classes.yellowBar] : (0.80 > statRanking) && (statRanking >= 0.65),
+        [classes.orangeBar] : (0.65 > statRanking) && (statRanking >= 0.5),
         [classes.redBar] : 0.5 > statRanking,
     })
 
@@ -110,6 +122,13 @@ export default function CircularStatIcon(props) {
                     >
                         {props.statName}
                     </Typography>
+                ) : null
+            }
+            {props.showIconFooter
+                ? (
+                    <div className={classes.roosterImageDiv}>
+                        <img className={classes.roosterImage} src={RoosterSymbol} alt="Purchase Review Team Logo."/>
+                    </div>
                 ) : null
             }
         </div>

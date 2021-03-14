@@ -6,6 +6,7 @@ import {Paper} from "@material-ui/core";
 import PurchaseReviewRatingCard from "./PurchaseReviewRatingCard";
 import PurchaseReviewPlayerCard from "./PurchaseReviewPlayerCard";
 import PurchaseReviewStatsCard from "./PurchaseReviewStatsCard";
+import PerformanceReviewSymbol from "../../../../../images/PerformanceReviewSymbol.jpg";
 
 const styles = {
     paperRoot: {
@@ -23,6 +24,19 @@ const styles = {
         width: "228px",
         height: "100%",
     },
+    purchaseReviewText: {
+        textAlign: "center",
+    },
+    purchaseReviewImageDiv: {
+        display: 'flex',
+        height: "100%",
+        justifyContent: 'center',
+        alignItems: 'center',
+        paddingTop: -20,
+    },
+    purchaseReviewImage: {
+        width: 160,
+    },
 }
 
 class PurchaseReview extends React.Component {
@@ -37,13 +51,13 @@ class PurchaseReview extends React.Component {
         return (
             <Paper elevation={2} className={classes.paperRoot}>
                 <Grid container className={classes.rootContainer} spacing={0} direction="row" justify="flex-start" alignItems="center">
-                    <Grid item xs={2} zeroMinWidth>
-                        <Typography style={{overflowWrap: 'break-word'}} align={"center"}>
-                            Purchase
-                        </Typography>
-                        <Typography style={{overflowWrap: 'break-word'}} align={"center"}>
-                            Review
-                        </Typography>
+                    <Grid item xs={2} zeroMinWidth className={classes.blackBg}>
+                        <div>
+                            <Typography variant={"subtitle1"} color={"textPrimary"} className={classes.purchaseReviewText}>Purchase Review...</Typography>
+                        </div>
+                        <div className={classes.purchaseReviewImageDiv}>
+                            <img src={PerformanceReviewSymbol} className={classes.purchaseReviewImage} alt={"Purchase Review."}/>
+                        </div>
                     </Grid>
                     <Grid item xs={5}>
                         <PurchaseReviewPlayerCard

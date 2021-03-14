@@ -1,16 +1,16 @@
 export default class PlayerStatFetcher {
 
     static positionMaxAveMap = new Map([
-        ["DEF", 90],
+        ["DEF", 100],
         ["MID", 110],
-        ["RUC", 110],
-        ["FWD", 90]
+        ["RUC", 105],
+        ["FWD", 100]
     ]);
 
     static positionAveMap = new Map([
         ["DEF", 80],
         ["MID", 95],
-        ["RUC", 95],
+        ["RUC", 90],
         ["FWD", 80]
     ]);
 

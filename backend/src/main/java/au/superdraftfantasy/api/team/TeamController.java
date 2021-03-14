@@ -24,4 +24,18 @@ public class TeamController {
         return teamService.updateMyTeamPosition(teamID, updatedMyTeamPositions);
     }
 
+    @GetMapping(name = "getAllTeamStatsByDraft", path = "/{draftId}/stats")
+    public List<ITeamStats> getAllTeamStatsByDraft(
+            @PathVariable final Long draftId
+    ) {
+        return teamService.getAllTeamStatsByDraft(draftId);
+    }
+
+    @GetMapping(name = "getTeamStatsByTeamId", path = "/{teamId}")
+    public ITeamStats getTeamStatsByTeamId(
+            @PathVariable final Long teamId
+    ) {
+        return teamService.getTeamStatsByTeamId(teamId);
+    }
+
 }

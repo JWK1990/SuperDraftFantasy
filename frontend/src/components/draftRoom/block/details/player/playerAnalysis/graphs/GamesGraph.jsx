@@ -14,15 +14,7 @@ function getTicks(seasonSummaries) {
         return a.year - b.year
     })
 
-    const minYear = seasonSummaries[0].year;
-    const maxYear= seasonSummaries[seasonSummaries.length - 1].year;
-    const ticks = [];
-
-    for(let i=0; i <= maxYear - minYear; i++) {
-        const tick = minYear + i;
-        ticks.push(tick);
-    }
-    return ticks;
+    return [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18];
 }
 
 function getAverage(seasonSummaries, dataKey) {
@@ -44,25 +36,25 @@ function getPositionAverage(position, dataKey) {
 }
 
 
-export default function SeasonSummariesGraph(props) {
-    const [seasonSummaries, setSeasonSummaries] = useState(null);
+export default function GamesGraph(props) {
+    const [games, setGames] = useState(null);
 
     useEffect(() => {
         let mounted = true;
-        DraftService.getAllSeasonSummariesByPlayerId(props.playerId)
-            .then(seasonSummaries => {
+        DraftService.getGamesByPlayerId(props.playerId)
+            .then(games => {
                 if(mounted) {
-                    setSeasonSummaries(seasonSummaries.data);
+                    setGames(games.data);
                 }
             })
         return () => mounted = false;
     }, [props.playerId])
 
-    if(!seasonSummaries || seasonSummaries.length < 1) {
+    if(!games || games.length < 1) {
         return null;
     }
 
-    const statAverage = getAverage(seasonSummaries, props.dataKey);
+    const statAverage = getAverage(games, props.dataKey);
 
     const positionAverage = getPositionAverage(props.primaryPosition, props.dataKey);
 
@@ -84,7 +76,7 @@ export default function SeasonSummariesGraph(props) {
             <ComposedChart
                 width={500}
                 height={400}
-                data={seasonSummaries}
+                data={games}
                 margin={{
                     top: 5,
                     right: 10,
@@ -93,7 +85,7 @@ export default function SeasonSummariesGraph(props) {
                 }}
             >
                 <CartesianGrid stroke="#f5f5f5" />
-                <XAxis dataKey="year" ticks={getTicks(seasonSummaries)} />
+                <XAxis dataKey="round" ticks={getTicks(games)} />
                 <YAxis />
                 <Tooltip/>
                 <Bar dataKey={props.dataKey} barSize={20} fill="#4df3cc" />

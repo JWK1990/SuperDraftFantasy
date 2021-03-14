@@ -84,8 +84,7 @@ export default function StatisticsContainer() {
                     aria-label="Draft Room Statistics Tabs"
                 >
                     <Tab label="Players" className={classes.tab} {...a11yProps(0)} />
-                    <Tab label="Analysis" className={classes.tab} {...a11yProps(1)} />
-                    <Tab label="Statistics" className={classes.tab} {...a11yProps(2)} />
+                    <Tab label="Teams" className={classes.tab} {...a11yProps(1)} />
                 </Tabs>
             </AppBar>
             <SwipeableViews
@@ -97,9 +96,6 @@ export default function StatisticsContainer() {
                 </TabPanel>
                 <TabPanel value={value} index={1}>
                     <TeamAnalysisContainer />
-                </TabPanel>
-                <TabPanel value={value} index={2}>
-                    Item Three
                 </TabPanel>
             </SwipeableViews>
         </div>

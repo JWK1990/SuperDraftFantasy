@@ -55,6 +55,24 @@ public class TeamService {
     }
 
     /**
+     * Get a List of Teams in a given Draft.
+     * @param draftId
+     * @return
+     */
+    List<ITeamStats> getAllTeamStatsByDraft(Long draftId) {
+        return teamRepository.findAllBaseByDraftId(draftId);
+    };
+
+    /**
+     * Get a Team in a given Draft.
+     * @param teamId
+     * @return
+     */
+    ITeamStats getTeamStatsByTeamId(Long teamId) {
+        return teamRepository.findBaseById(teamId);
+    };
+
+    /**
      * Adds the current Block Player to a Team when bidding finishes.
      * @param readDto
      * @return
@@ -200,8 +218,11 @@ public class TeamService {
         PositionEntity myTeamPosition = getMyTeamPosition(team, player);
 
         Integer purchaseReviewRating = null;
+        Integer priceDifference = null;
+
         if(player.getMoneyballPrice() != null) {
-            purchaseReviewRating = getPurchaseReviewRating(price, player);
+            priceDifference = (int) (price - player.getMoneyballPrice());
+            purchaseReviewRating = getPurchaseReviewRating(priceDifference, player);
         }
         if(myTeamPosition != null) {
             TeamPlayerJoinEntity teamPlayerJoin = new TeamPlayerJoinEntity(
@@ -210,7 +231,8 @@ public class TeamService {
                     player,
                     price,
                     myTeamPosition,
-                    purchaseReviewRating
+                    purchaseReviewRating,
+                    priceDifference
             );
             team.getTeamPlayerJoins().add(teamPlayerJoin);
         } else {
@@ -250,10 +272,9 @@ public class TeamService {
         return position;
     }
 
-    private Integer getPurchaseReviewRating(Long price, PlayerEntity playerEntity) {
+    private Integer getPurchaseReviewRating(Integer priceDifference, PlayerEntity playerEntity) {
         // If Team paid $15 and moneyballPrice is $10, priceDifference is $5.
         // PurchaseReviewRating 0 is F and 5 is A+.
-        Integer priceDifference = (int) (price - playerEntity.getMoneyballPrice());
         Integer purchaseReviewRating = 3;
         if(priceDifference > 15) {
             purchaseReviewRating = 0; // F.

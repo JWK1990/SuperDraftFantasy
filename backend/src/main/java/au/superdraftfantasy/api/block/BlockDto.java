@@ -30,4 +30,6 @@ public class BlockDto {
 
     private PlayerDetailsReadDto playerDetails;
 
+    private Long userEndTime;
+
 }
