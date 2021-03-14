@@ -50,14 +50,19 @@ public class PlayerEntity {
 
     private Integer moneyballPrice;
 
+    @Column(name="price_2016")
     private Integer price2016;
 
+    @Column(name="price_2017")
     private Integer price2017;
 
+    @Column(name="price_2018")
     private Integer price2018;
 
+    @Column(name="price_2019")
     private Integer price2019;
 
+    @Column(name="price_2020")
     private Integer price2020;
 
     private Integer psAverage;
