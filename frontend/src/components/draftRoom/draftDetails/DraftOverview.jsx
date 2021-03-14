@@ -26,10 +26,7 @@ class DraftOverview extends React.Component {
                     10 Teams, 22 Players
                 </Typography>
                 <Typography variant={"subtitle2"} align={"center"} color={"textSecondary"}>
-                    Ave $ Per Player = $10
-                </Typography>
-                <Typography variant={"subtitle2"} align={"center"} color={"textSecondary"}>
-                    Ave $ Per Player: $10
+                    $300 Budget
                 </Typography>
                 {this.props.isUserCommissioner
                     ? <CommissionerControls />

@@ -20,7 +20,7 @@ const styles = {
     },
     // Use the below width to control the size of the TeamFieldView.
     teamFieldViewContainer: {
-        width: "100%",
+        width: "85%",
     }
 }
 
