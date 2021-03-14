@@ -6,7 +6,6 @@ import {changeDraftStatisticsTeamIdAction} from "../../../../store/actions/Navig
 import {currentDraftStatisticsTeamIdSelector} from "../../../../store/selectors/NavigationSelectors";
 import withStyles from "@material-ui/core/styles/withStyles";
 import Grid from "@material-ui/core/Grid";
-import TeamStatsTableContainer from "./teamStats/table/TeamStatsTableContainer";
 import TeamStatsGraphContainer from "./teamStats/graphs/TeamStatsGraphContainer";
 import StatSelector from "../../../shared/StatSelector";
 

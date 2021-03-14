@@ -1,10 +1,6 @@
 import React from "react";
-import TeamStatsBarChart from "./TeamStatsBarChart";
-import StatTabPanel from "../../../../../shared/StatTabPanel";
 import Box from "@material-ui/core/Box";
 import StatSelector from "../../../../../shared/StatSelector";
-import GamesGraph from "../../../../block/details/player/playerAnalysis/graphs/GamesGraph";
-import SeasonSummariesGraph from "../../../../block/details/player/playerAnalysis/graphs/SeasonSummariesGraph";
 import DraftAnalysisGraph from "./DraftAnalysisGraph";
 import withStyles from "@material-ui/core/styles/withStyles";
 
@@ -29,13 +25,14 @@ class TeamStatsGraphContainer extends React.Component {
     statOptionsList = [
         {id: 1, name: "supercoach"},
         {id: 2, name: "preSeason"},
-        {id: 3, name: "rooster"},
-        {id: 4, name: "oversUnders"},
-        {id: 5, name: "moneyball"},
-        {id: 6, name: "def"},
-        {id: 7, name: "mid"},
-        {id: 8, name: "ruc"},
-        {id: 9, name: "fwd"},
+        {id: 3, name: "purchaseReview"},
+        {id: 4, name: "rooster"},
+        {id: 5, name: "oversUnders"},
+        {id: 6, name: "moneyball"},
+        {id: 7, name: "def"},
+        {id: 8, name: "mid"},
+        {id: 9, name: "ruc"},
+        {id: 10, name: "fwd"},
     ];
 
     statTypeOptionsList = [

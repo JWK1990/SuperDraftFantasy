@@ -16,23 +16,20 @@ export default function DraftAnalysisGraph(props) {
         DraftService.getTeamStatsByDraftId(props.draftId)
             .then(teamStats => {
                 if(mounted) {
-                    const structuredStats = buildDataStructure(teamStats.data);
-                    setTeamStats(structuredStats);
+                    // Filters and transform the data into the correct structure for the Recharts Graph below.
+                    const teamStatsData = teamStats.data;
+                    const mappedTeamStats = teamStatsData.map(team => {
+                        return {
+                            team: team.name,
+                            value: team[props.dataKey][props.statType]
+                        }
+                    })
+                    const sortedMappedTeamStats = mappedTeamStats.sort((a, b) => b.value - a.value);
+                    setTeamStats(sortedMappedTeamStats);
                 }
             })
         return () => mounted = false;
     }, [props.draftId, props.dataKey, props.statType])
-
-    // This function filters and transforms the data into the correct structure for the Recharts Graph below.
-    function buildDataStructure(teamStats) {
-        const mappedTeamStats = teamStats.map(team => {
-            return {
-                team: team.name,
-                value: team[props.dataKey][props.statType]
-            }
-        })
-        return mappedTeamStats.sort((a, b) => b.value - a.value);
-    }
 
     function getAverage(teamStats) {
         let totalValue = 0;

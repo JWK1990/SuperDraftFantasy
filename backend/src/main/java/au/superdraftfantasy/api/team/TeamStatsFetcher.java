@@ -162,4 +162,13 @@ public class TeamStatsFetcher {
                 .summaryStatistics();
     }
 
+    public IntSummaryStatistics getPurchaseReview(TeamEntity team) {
+        return team
+                .getTeamPlayerJoins()
+                .stream()
+                .filter(teamPlayerJoin -> teamPlayerJoin.getPurchaseReviewRating() != null)
+                .mapToInt(TeamPlayerJoinEntity::getPurchaseReviewRating)
+                .summaryStatistics();
+    }
+
 }

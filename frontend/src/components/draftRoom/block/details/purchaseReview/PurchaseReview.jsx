@@ -6,6 +6,7 @@ import {Paper} from "@material-ui/core";
 import PurchaseReviewRatingCard from "./PurchaseReviewRatingCard";
 import PurchaseReviewPlayerCard from "./PurchaseReviewPlayerCard";
 import PurchaseReviewStatsCard from "./PurchaseReviewStatsCard";
+import PerformanceReviewSymbol from "../../../../../images/PerformanceReviewSymbol.jpg";
 
 const styles = {
     paperRoot: {
@@ -23,16 +24,19 @@ const styles = {
         width: "228px",
         height: "100%",
     },
-    blackBg: {
-        backgroundColor: "rgb(190,190,190)",
-        height: "100%",
-        paddingTop: "100px",
+    purchaseReviewText: {
+        textAlign: "center",
     },
-    blackText: {
-        color: "black",
-        align: "center",
-        paddingBottom: "20px",
-    }
+    purchaseReviewImageDiv: {
+        display: 'flex',
+        height: "100%",
+        justifyContent: 'center',
+        alignItems: 'center',
+        paddingTop: -20,
+    },
+    purchaseReviewImage: {
+        width: 160,
+    },
 }
 
 class PurchaseReview extends React.Component {
@@ -48,12 +52,12 @@ class PurchaseReview extends React.Component {
             <Paper elevation={2} className={classes.paperRoot}>
                 <Grid container className={classes.rootContainer} spacing={0} direction="row" justify="flex-start" alignItems="center">
                     <Grid item xs={2} zeroMinWidth className={classes.blackBg}>
-                        <Typography variant={"h5"} style={{overflowWrap: 'break-word'}} align={"center"} className={classes.blackText}>
-                            Purchase
-                        </Typography>
-                        <Typography variant={"h5"} style={{overflowWrap: 'break-word'}} align={"center"} className={classes.blackText}>
-                            Review
-                        </Typography>
+                        <div>
+                            <Typography variant={"subtitle1"} color={"textPrimary"} className={classes.purchaseReviewText}>Purchase Review...</Typography>
+                        </div>
+                        <div className={classes.purchaseReviewImageDiv}>
+                            <img src={PerformanceReviewSymbol} className={classes.purchaseReviewImage} alt={"Purchase Review."}/>
+                        </div>
                     </Grid>
                     <Grid item xs={5}>
                         <PurchaseReviewPlayerCard

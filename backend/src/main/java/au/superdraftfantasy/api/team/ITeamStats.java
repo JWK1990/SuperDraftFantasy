@@ -57,4 +57,7 @@ public interface ITeamStats {
     @Value("#{@teamStatsFetcher.getSCStandardPrice(target)}")
     IntSummaryStatistics getScStandardPrice();
 
+    @Value("#{@teamStatsFetcher.getPurchaseReview(target)}")
+    IntSummaryStatistics getPurchaseReview();
+
 }

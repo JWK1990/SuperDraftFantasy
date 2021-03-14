@@ -118,7 +118,8 @@ public class DraftService {
         draft.setStatus(DraftStatusEnum.IN_PROGRESS);
         draftRepository.save(draft);
 
-        BlockDto blockDto = new BlockDto(
+        BlockDto blockDto =
+                new BlockDto(
                 draftID,
                 null,
                 null,
@@ -128,7 +129,8 @@ public class DraftService {
                 draft.getOnTheBlockTimer(),
                 draft.getBidTimer(),
                 null,
-                null
+                null,
+                        null
         );
         blockService.startNextRound(blockDto, false);
         return draft.getStatus();
