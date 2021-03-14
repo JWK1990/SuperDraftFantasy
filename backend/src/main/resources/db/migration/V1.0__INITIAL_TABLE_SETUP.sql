@@ -125,6 +125,7 @@ CREATE TABLE player_entity (
     price_2019 SMALLINT,
     price_2020 SMALLINT,
     ps_average SMALLINT,
+    sc_average SMALLINT,
 
     CONSTRAINT fk_afl_team_id FOREIGN KEY (afl_team_id) REFERENCES afl_teams_enum(id)
 );

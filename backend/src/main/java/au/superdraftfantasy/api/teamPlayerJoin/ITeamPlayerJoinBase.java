@@ -14,6 +14,12 @@ public interface ITeamPlayerJoinBase {
     @Value("#{target.player.id}")
     Long getPlayerId();
 
+    @Value("#{target.player.firstName}")
+    String getFirstName();
+
+    @Value("#{target.player.lastName}")
+    String getLastName();
+
     Integer getPrice();
 
     @Value("#{target.myTeamPosition.type}")

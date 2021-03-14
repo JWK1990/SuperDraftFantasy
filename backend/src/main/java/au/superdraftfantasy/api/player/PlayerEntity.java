@@ -67,6 +67,8 @@ public class PlayerEntity {
 
     private Integer psAverage;
 
+    private Integer scAverage;
+
     @ManyToMany
     @JoinTable(
             name = "player_position_join",

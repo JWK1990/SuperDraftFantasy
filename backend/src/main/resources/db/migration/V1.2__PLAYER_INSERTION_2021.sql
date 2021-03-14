@@ -1,6 +1,6 @@
 /* Insert Player Entities. */
-INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_games, sc_standard_price, afl_team_id, jumper_number, height, weight, rooster_rating, moneyball_price, price_2016, price_2017, price_2018, price_2019, price_2020, ps_average)
-    SELECT id, first_name, last_name, date_of_birth, age, career_games, sc_standard_price, afl_team_id, jumper_number, height, weight, rooster_rating, moneyball_price, price_2016, price_2017, price_2018, price_2019, price_2020, ps_average
+INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_games, sc_standard_price, afl_team_id, jumper_number, height, weight, rooster_rating, moneyball_price, price_2016, price_2017, price_2018, price_2019, price_2020, ps_average, sc_average)
+    SELECT id, first_name, last_name, date_of_birth, age, career_games, sc_standard_price, afl_team_id, jumper_number, height, weight, rooster_rating, moneyball_price, price_2016, price_2017, price_2018, price_2019, price_2020, ps_average, sc_average
     FROM json_populate_recordset(NULL::player_entity,
         '[
           {
@@ -22,7 +22,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 30,
             "price_2019": 38,
             "price_2020": 53,
-            "ps_average": 102
+            "ps_average": 102,
+            "sc_average": 140
           },
           {
             "id": 2,
@@ -43,7 +44,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 38,
             "price_2019": 41,
             "price_2020": 54,
-            "ps_average": 101
+            "ps_average": 101,
+            "sc_average": 134
           },
           {
             "id": 3,
@@ -64,7 +66,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 21,
             "price_2019": 44,
             "price_2020": 49,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 122
           },
           {
             "id": 4,
@@ -85,7 +88,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 40,
             "price_2019": 51,
             "price_2020": 45,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 122
           },
           {
             "id": 5,
@@ -106,7 +110,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 26,
             "price_2019": 18,
             "price_2020": 9,
-            "ps_average": 90
+            "ps_average": 90,
+            "sc_average": 121
           },
           {
             "id": 6,
@@ -127,7 +132,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 9,
             "price_2019": 15,
             "price_2020": 15,
-            "ps_average": 101
+            "ps_average": 101,
+            "sc_average": 121
           },
           {
             "id": 7,
@@ -148,7 +154,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": 51,
             "price_2020": 53,
-            "ps_average": 158
+            "ps_average": 158,
+            "sc_average": 119
           },
           {
             "id": 8,
@@ -169,7 +176,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 16,
             "price_2019": 51,
             "price_2020": 59,
-            "ps_average": 118
+            "ps_average": 118,
+            "sc_average": 118
           },
           {
             "id": 9,
@@ -190,7 +198,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 13,
             "price_2019": 13,
             "price_2020": 26,
-            "ps_average": 79
+            "ps_average": 79,
+            "sc_average": 118
           },
           {
             "id": 10,
@@ -211,7 +220,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 39,
             "price_2019": 39,
             "price_2020": 30,
-            "ps_average": 126
+            "ps_average": 126,
+            "sc_average": 116
           },
           {
             "id": 11,
@@ -232,7 +242,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 15,
             "price_2019": 50,
             "price_2020": 52,
-            "ps_average": 109
+            "ps_average": 109,
+            "sc_average": 115
           },
           {
             "id": 12,
@@ -253,7 +264,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 47,
             "price_2019": null,
             "price_2020": 53,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 114
           },
           {
             "id": 13,
@@ -274,7 +286,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 32,
             "price_2019": 36,
             "price_2020": 54,
-            "ps_average": 198
+            "ps_average": 198,
+            "sc_average": 113
           },
           {
             "id": 14,
@@ -295,7 +308,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 51,
             "price_2019": 60,
             "price_2020": 54,
-            "ps_average": 94
+            "ps_average": 94,
+            "sc_average": 113
           },
           {
             "id": 15,
@@ -316,7 +330,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 43,
             "price_2019": 38,
             "price_2020": 50,
-            "ps_average": 128
+            "ps_average": 128,
+            "sc_average": 113
           },
           {
             "id": 16,
@@ -337,7 +352,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 4,
             "price_2019": 23,
             "price_2020": 38,
-            "ps_average": 68
+            "ps_average": 68,
+            "sc_average": 112
           },
           {
             "id": 17,
@@ -358,7 +374,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": 15,
-            "ps_average": 71
+            "ps_average": 71,
+            "sc_average": 112
           },
           {
             "id": 18,
@@ -379,7 +396,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 39,
             "price_2019": 41,
             "price_2020": 31,
-            "ps_average": 83
+            "ps_average": 83,
+            "sc_average": 111
           },
           {
             "id": 19,
@@ -400,7 +418,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": 13,
             "price_2020": 20,
-            "ps_average": 49
+            "ps_average": 49,
+            "sc_average": 111
           },
           {
             "id": 20,
@@ -421,7 +440,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 4,
             "price_2019": 1,
             "price_2020": 3,
-            "ps_average": 39
+            "ps_average": 39,
+            "sc_average": 111
           },
           {
             "id": 21,
@@ -442,7 +462,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 33,
             "price_2019": 18,
             "price_2020": 15,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 110
           },
           {
             "id": 22,
@@ -463,7 +484,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 9,
             "price_2019": 35,
             "price_2020": 34,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 109
           },
           {
             "id": 23,
@@ -484,7 +506,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 22,
             "price_2019": 30,
             "price_2020": 12,
-            "ps_average": 8
+            "ps_average": 8,
+            "sc_average": 109
           },
           {
             "id": 24,
@@ -505,7 +528,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 10,
             "price_2019": 7,
             "price_2020": 27,
-            "ps_average": 36
+            "ps_average": 36,
+            "sc_average": 108
           },
           {
             "id": 25,
@@ -526,7 +550,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 3,
             "price_2019": 27,
             "price_2020": 11,
-            "ps_average": 74
+            "ps_average": 74,
+            "sc_average": 107
           },
           {
             "id": 26,
@@ -547,7 +572,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 32,
             "price_2019": 36,
             "price_2020": 2,
-            "ps_average": 49
+            "ps_average": 49,
+            "sc_average": 107
           },
           {
             "id": 27,
@@ -568,7 +594,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 26,
             "price_2019": 10,
             "price_2020": 5,
-            "ps_average": 45
+            "ps_average": 45,
+            "sc_average": 107
           },
           {
             "id": 28,
@@ -589,7 +616,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 13,
             "price_2019": 16,
             "price_2020": 30,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 107
           },
           {
             "id": 29,
@@ -610,7 +638,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 15,
             "price_2019": 15,
             "price_2020": 34,
-            "ps_average": 85
+            "ps_average": 85,
+            "sc_average": 106
           },
           {
             "id": 30,
@@ -631,7 +660,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 2,
             "price_2019": 4,
             "price_2020": 4,
-            "ps_average": 75
+            "ps_average": 75,
+            "sc_average": 106
           },
           {
             "id": 31,
@@ -652,7 +682,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": 5,
             "price_2020": 5,
-            "ps_average": 91
+            "ps_average": 91,
+            "sc_average": 106
           },
           {
             "id": 32,
@@ -673,7 +704,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": 7,
-            "ps_average": 58
+            "ps_average": 58,
+            "sc_average": 106
           },
           {
             "id": 33,
@@ -694,7 +726,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 18,
             "price_2019": 27,
             "price_2020": 26,
-            "ps_average": 96
+            "ps_average": 96,
+            "sc_average": 106
           },
           {
             "id": 34,
@@ -715,7 +748,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": 1,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 105
           },
           {
             "id": 35,
@@ -736,7 +770,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 34,
             "price_2019": 43,
             "price_2020": 36,
-            "ps_average": 99
+            "ps_average": 99,
+            "sc_average": 105
           },
           {
             "id": 36,
@@ -757,7 +792,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 15,
             "price_2019": 15,
             "price_2020": null,
-            "ps_average": 140
+            "ps_average": 140,
+            "sc_average": 105
           },
           {
             "id": 37,
@@ -778,7 +814,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 47,
             "price_2019": 42,
             "price_2020": 47,
-            "ps_average": 70
+            "ps_average": 70,
+            "sc_average": 105
           },
           {
             "id": 38,
@@ -799,7 +836,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 34,
             "price_2019": 28,
             "price_2020": 32,
-            "ps_average": 104
+            "ps_average": 104,
+            "sc_average": 105
           },
           {
             "id": 39,
@@ -820,7 +858,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 31,
             "price_2019": 38,
             "price_2020": 36,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 105
           },
           {
             "id": 40,
@@ -841,7 +880,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 31,
             "price_2019": 42,
             "price_2020": 51,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 105
           },
           {
             "id": 41,
@@ -862,7 +902,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 2,
             "price_2019": null,
             "price_2020": 32,
-            "ps_average": 141
+            "ps_average": 141,
+            "sc_average": 104
           },
           {
             "id": 42,
@@ -883,7 +924,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": 30,
             "price_2020": 46,
-            "ps_average": 170
+            "ps_average": 170,
+            "sc_average": 104
           },
           {
             "id": 43,
@@ -904,7 +946,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 24,
             "price_2019": 15,
             "price_2020": 2,
-            "ps_average": 111
+            "ps_average": 111,
+            "sc_average": 104
           },
           {
             "id": 44,
@@ -925,7 +968,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 68
+            "ps_average": 68,
+            "sc_average": 103
           },
           {
             "id": 45,
@@ -946,7 +990,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": 27,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 103
           },
           {
             "id": 46,
@@ -967,7 +1012,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": 1,
             "price_2020": 28,
-            "ps_average": 73
+            "ps_average": 73,
+            "sc_average": 103
           },
           {
             "id": 47,
@@ -988,7 +1034,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 15,
             "price_2019": 15,
             "price_2020": 43,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 103
           },
           {
             "id": 48,
@@ -1009,7 +1056,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 9,
             "price_2019": 7,
             "price_2020": 31,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 102
           },
           {
             "id": 49,
@@ -1030,7 +1078,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": 11,
-            "ps_average": 85
+            "ps_average": 85,
+            "sc_average": 102
           },
           {
             "id": 50,
@@ -1051,7 +1100,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 35
+            "ps_average": 35,
+            "sc_average": 102
           },
           {
             "id": 51,
@@ -1072,7 +1122,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 110
+            "ps_average": 110,
+            "sc_average": 102
           },
           {
             "id": 52,
@@ -1093,7 +1144,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": 4,
-            "ps_average": 91
+            "ps_average": 91,
+            "sc_average": 102
           },
           {
             "id": 53,
@@ -1114,7 +1166,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 21,
             "price_2019": 15,
             "price_2020": 15,
-            "ps_average": 68
+            "ps_average": 68,
+            "sc_average": 102
           },
           {
             "id": 54,
@@ -1135,7 +1188,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": 4,
             "price_2020": 25,
-            "ps_average": 94
+            "ps_average": 94,
+            "sc_average": 101
           },
           {
             "id": 55,
@@ -1156,7 +1210,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 101
           },
           {
             "id": 56,
@@ -1177,7 +1232,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 3,
             "price_2019": 17,
             "price_2020": 11,
-            "ps_average": 78
+            "ps_average": 78,
+            "sc_average": 101
           },
           {
             "id": 57,
@@ -1198,7 +1254,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": 12,
             "price_2020": 31,
-            "ps_average": 133
+            "ps_average": 133,
+            "sc_average": 101
           },
           {
             "id": 58,
@@ -1219,7 +1276,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": 3,
             "price_2020": 9,
-            "ps_average": 61
+            "ps_average": 61,
+            "sc_average": 101
           },
           {
             "id": 59,
@@ -1240,7 +1298,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 100
           },
           {
             "id": 60,
@@ -1261,7 +1320,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 16,
             "price_2019": 8,
             "price_2020": 9,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 100
           },
           {
             "id": 61,
@@ -1282,7 +1342,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 15,
             "price_2019": 15,
             "price_2020": 33,
-            "ps_average": 30
+            "ps_average": 30,
+            "sc_average": 99
           },
           {
             "id": 62,
@@ -1303,7 +1364,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 31,
             "price_2019": 49,
             "price_2020": 36,
-            "ps_average": 70
+            "ps_average": 70,
+            "sc_average": 98
           },
           {
             "id": 63,
@@ -1324,7 +1386,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 10,
             "price_2019": 29,
             "price_2020": 19,
-            "ps_average": 130
+            "ps_average": 130,
+            "sc_average": 98
           },
           {
             "id": 64,
@@ -1345,7 +1408,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 5,
             "price_2019": null,
             "price_2020": 18,
-            "ps_average": 52
+            "ps_average": 52,
+            "sc_average": 98
           },
           {
             "id": 65,
@@ -1366,7 +1430,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 13,
             "price_2019": 1,
             "price_2020": 1,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 98
           },
           {
             "id": 66,
@@ -1387,7 +1452,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 7,
             "price_2019": 1,
             "price_2020": 2,
-            "ps_average": 86
+            "ps_average": 86,
+            "sc_average": 98
           },
           {
             "id": 67,
@@ -1408,7 +1474,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": 16,
             "price_2020": 1,
-            "ps_average": 165
+            "ps_average": 165,
+            "sc_average": 98
           },
           {
             "id": 68,
@@ -1429,7 +1496,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": 1,
             "price_2020": 1,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 98
           },
           {
             "id": 69,
@@ -1450,7 +1518,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 32,
             "price_2019": 50,
             "price_2020": 53,
-            "ps_average": 69
+            "ps_average": 69,
+            "sc_average": 97
           },
           {
             "id": 70,
@@ -1471,7 +1540,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 97
           },
           {
             "id": 71,
@@ -1492,7 +1562,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 5,
             "price_2019": null,
             "price_2020": 2,
-            "ps_average": 107
+            "ps_average": 107,
+            "sc_average": 97
           },
           {
             "id": 72,
@@ -1513,7 +1584,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 1,
             "price_2019": 2,
             "price_2020": 1,
-            "ps_average": 82
+            "ps_average": 82,
+            "sc_average": 96
           },
           {
             "id": 73,
@@ -1534,7 +1606,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": 35,
             "price_2020": 38,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 96
           },
           {
             "id": 74,
@@ -1555,7 +1628,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 28,
             "price_2019": 21,
             "price_2020": 26,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 96
           },
           {
             "id": 75,
@@ -1576,7 +1650,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 36,
             "price_2019": 29,
             "price_2020": 33,
-            "ps_average": 105
+            "ps_average": 105,
+            "sc_average": 96
           },
           {
             "id": 76,
@@ -1597,7 +1672,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": 19,
             "price_2020": 7,
-            "ps_average": 52
+            "ps_average": 52,
+            "sc_average": 95
           },
           {
             "id": 77,
@@ -1618,7 +1694,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 12,
             "price_2019": 29,
             "price_2020": 1,
-            "ps_average": 44
+            "ps_average": 44,
+            "sc_average": 95
           },
           {
             "id": 78,
@@ -1639,7 +1716,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": 14,
-            "ps_average": 68
+            "ps_average": 68,
+            "sc_average": 95
           },
           {
             "id": 79,
@@ -1660,7 +1738,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 7,
             "price_2019": 5,
             "price_2020": 1,
-            "ps_average": 140
+            "ps_average": 140,
+            "sc_average": 95
           },
           {
             "id": 80,
@@ -1681,7 +1760,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 18,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 46
+            "ps_average": 46,
+            "sc_average": 95
           },
           {
             "id": 81,
@@ -1702,7 +1782,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 4,
             "price_2019": 6,
             "price_2020": 1,
-            "ps_average": 72
+            "ps_average": 72,
+            "sc_average": 95
           },
           {
             "id": 82,
@@ -1723,7 +1804,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 15,
             "price_2019": 38,
             "price_2020": 33,
-            "ps_average": 76
+            "ps_average": 76,
+            "sc_average": 94
           },
           {
             "id": 83,
@@ -1744,7 +1826,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 5,
             "price_2019": 1,
             "price_2020": null,
-            "ps_average": 62
+            "ps_average": 62,
+            "sc_average": 94
           },
           {
             "id": 84,
@@ -1765,7 +1848,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 87
+            "ps_average": 87,
+            "sc_average": 94
           },
           {
             "id": 85,
@@ -1786,7 +1870,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 15,
             "price_2019": 15,
             "price_2020": null,
-            "ps_average": 81
+            "ps_average": 81,
+            "sc_average": 94
           },
           {
             "id": 86,
@@ -1807,7 +1892,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 27,
             "price_2019": 26,
             "price_2020": 16,
-            "ps_average": 66
+            "ps_average": 66,
+            "sc_average": 93
           },
           {
             "id": 87,
@@ -1828,7 +1914,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 15,
             "price_2019": 15,
             "price_2020": 1,
-            "ps_average": 78
+            "ps_average": 78,
+            "sc_average": 93
           },
           {
             "id": 88,
@@ -1849,7 +1936,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 19,
             "price_2019": 6,
             "price_2020": 19,
-            "ps_average": 96
+            "ps_average": 96,
+            "sc_average": 93
           },
           {
             "id": 89,
@@ -1870,7 +1958,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 20,
             "price_2019": 17,
             "price_2020": 19,
-            "ps_average": 103
+            "ps_average": 103,
+            "sc_average": 93
           },
           {
             "id": 90,
@@ -1891,7 +1980,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": 3,
-            "ps_average": 78
+            "ps_average": 78,
+            "sc_average": 93
           },
           {
             "id": 91,
@@ -1912,7 +2002,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 9,
             "price_2019": 6,
             "price_2020": 8,
-            "ps_average": 103
+            "ps_average": 103,
+            "sc_average": 93
           },
           {
             "id": 92,
@@ -1933,7 +2024,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 15,
             "price_2019": null,
             "price_2020": 35,
-            "ps_average": 76
+            "ps_average": 76,
+            "sc_average": 92
           },
           {
             "id": 93,
@@ -1954,7 +2046,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 1,
             "price_2019": null,
             "price_2020": 8,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 92
           },
           {
             "id": 94,
@@ -1975,7 +2068,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": 34,
-            "ps_average": 134
+            "ps_average": 134,
+            "sc_average": 92
           },
           {
             "id": 95,
@@ -1996,7 +2090,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 6,
             "price_2019": 1,
             "price_2020": 23,
-            "ps_average": 36
+            "ps_average": 36,
+            "sc_average": 92
           },
           {
             "id": 96,
@@ -2017,7 +2112,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": 1,
-            "ps_average": 64
+            "ps_average": 64,
+            "sc_average": 92
           },
           {
             "id": 97,
@@ -2038,7 +2134,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": 2,
             "price_2020": 3,
-            "ps_average": 114
+            "ps_average": 114,
+            "sc_average": 91
           },
           {
             "id": 98,
@@ -2059,7 +2156,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 35
+            "ps_average": 35,
+            "sc_average": 91
           },
           {
             "id": 99,
@@ -2080,7 +2178,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 6,
             "price_2019": 6,
             "price_2020": 22,
-            "ps_average": 72
+            "ps_average": 72,
+            "sc_average": 91
           },
           {
             "id": 100,
@@ -2101,7 +2200,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": 3,
             "price_2020": 3,
-            "ps_average": 88
+            "ps_average": 88,
+            "sc_average": 91
           },
           {
             "id": 101,
@@ -2122,7 +2222,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 9,
             "price_2019": 24,
             "price_2020": 9,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 91
           },
           {
             "id": 102,
@@ -2143,7 +2244,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": 2,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 90
           },
           {
             "id": 103,
@@ -2164,7 +2266,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 33,
             "price_2019": 20,
             "price_2020": 7,
-            "ps_average": 121
+            "ps_average": 121,
+            "sc_average": 90
           },
           {
             "id": 104,
@@ -2185,7 +2288,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 10,
             "price_2019": 33,
             "price_2020": 36,
-            "ps_average": 87
+            "ps_average": 87,
+            "sc_average": 90
           },
           {
             "id": 105,
@@ -2206,7 +2310,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 23,
             "price_2019": 19,
             "price_2020": 12,
-            "ps_average": 76
+            "ps_average": 76,
+            "sc_average": 90
           },
           {
             "id": 106,
@@ -2227,7 +2332,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": 2,
             "price_2020": null,
-            "ps_average": 66
+            "ps_average": 66,
+            "sc_average": 90
           },
           {
             "id": 107,
@@ -2248,7 +2354,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": 6,
-            "ps_average": 101
+            "ps_average": 101,
+            "sc_average": 90
           },
           {
             "id": 108,
@@ -2269,7 +2376,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 35,
             "price_2019": 40,
             "price_2020": 37,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 90
           },
           {
             "id": 109,
@@ -2290,7 +2398,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": 14,
             "price_2020": 1,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 89
           },
           {
             "id": 110,
@@ -2311,7 +2420,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 22,
             "price_2019": 30,
             "price_2020": 5,
-            "ps_average": 70
+            "ps_average": 70,
+            "sc_average": 89
           },
           {
             "id": 111,
@@ -2332,7 +2442,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": 20,
             "price_2020": 3,
-            "ps_average": 85
+            "ps_average": 85,
+            "sc_average": 88
           },
           {
             "id": 112,
@@ -2353,7 +2464,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 15,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 28
+            "ps_average": 28,
+            "sc_average": 88
           },
           {
             "id": 113,
@@ -2374,7 +2486,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 14,
             "price_2019": 6,
             "price_2020": 3,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 88
           },
           {
             "id": 114,
@@ -2395,7 +2508,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 33,
             "price_2019": 31,
             "price_2020": 21,
-            "ps_average": 98
+            "ps_average": 98,
+            "sc_average": 88
           },
           {
             "id": 115,
@@ -2416,7 +2530,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": 4,
             "price_2020": 6,
-            "ps_average": 80
+            "ps_average": 80,
+            "sc_average": 88
           },
           {
             "id": 116,
@@ -2437,7 +2552,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 9,
             "price_2019": 5,
             "price_2020": 22,
-            "ps_average": 89
+            "ps_average": 89,
+            "sc_average": 87
           },
           {
             "id": 117,
@@ -2458,7 +2574,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 5,
             "price_2019": 11,
             "price_2020": 24,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 87
           },
           {
             "id": 118,
@@ -2479,7 +2596,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 14,
             "price_2019": 9,
             "price_2020": 18,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 87
           },
           {
             "id": 119,
@@ -2500,7 +2618,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 9,
             "price_2019": 10,
             "price_2020": 10,
-            "ps_average": 98
+            "ps_average": 98,
+            "sc_average": 87
           },
           {
             "id": 120,
@@ -2521,7 +2640,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 54
+            "ps_average": 54,
+            "sc_average": 86
           },
           {
             "id": 121,
@@ -2542,7 +2662,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 127
+            "ps_average": 127,
+            "sc_average": 86
           },
           {
             "id": 122,
@@ -2563,7 +2684,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": 3,
             "price_2020": 10,
-            "ps_average": 98
+            "ps_average": 98,
+            "sc_average": 86
           },
           {
             "id": 123,
@@ -2584,7 +2706,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 92
+            "ps_average": 92,
+            "sc_average": 86
           },
           {
             "id": 124,
@@ -2605,7 +2728,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 1,
             "price_2019": null,
             "price_2020": 1,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 86
           },
           {
             "id": 125,
@@ -2626,7 +2750,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 3,
             "price_2019": 1,
             "price_2020": 19,
-            "ps_average": 77
+            "ps_average": 77,
+            "sc_average": 86
           },
           {
             "id": 126,
@@ -2647,7 +2772,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": 1,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 85
           },
           {
             "id": 127,
@@ -2668,7 +2794,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": 14,
-            "ps_average": 78
+            "ps_average": 78,
+            "sc_average": 85
           },
           {
             "id": 128,
@@ -2689,7 +2816,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": 9,
             "price_2020": 4,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 85
           },
           {
             "id": 129,
@@ -2710,7 +2838,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 85
           },
           {
             "id": 130,
@@ -2731,7 +2860,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 0
+            "ps_average": 0,
+            "sc_average": 85
           },
           {
             "id": 131,
@@ -2752,7 +2882,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 6,
             "price_2019": 15,
             "price_2020": 1,
-            "ps_average": 87
+            "ps_average": 87,
+            "sc_average": 85
           },
           {
             "id": 132,
@@ -2773,7 +2904,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": 4,
             "price_2020": 2,
-            "ps_average": 70
+            "ps_average": 70,
+            "sc_average": 85
           },
           {
             "id": 133,
@@ -2794,7 +2926,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 15,
             "price_2019": 29,
             "price_2020": 20,
-            "ps_average": 74
+            "ps_average": 74,
+            "sc_average": 85
           },
           {
             "id": 134,
@@ -2815,7 +2948,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 1,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 100
+            "ps_average": 100,
+            "sc_average": 85
           },
           {
             "id": 135,
@@ -2836,7 +2970,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": 18,
             "price_2020": 37,
-            "ps_average": 82
+            "ps_average": 82,
+            "sc_average": 85
           },
           {
             "id": 136,
@@ -2857,7 +2992,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 8,
             "price_2019": 8,
             "price_2020": 1,
-            "ps_average": 75
+            "ps_average": 75,
+            "sc_average": 84
           },
           {
             "id": 137,
@@ -2878,7 +3014,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 54
+            "ps_average": 54,
+            "sc_average": 84
           },
           {
             "id": 138,
@@ -2899,7 +3036,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 15,
             "price_2019": 20,
             "price_2020": 16,
-            "ps_average": 50
+            "ps_average": 50,
+            "sc_average": 84
           },
           {
             "id": 139,
@@ -2920,7 +3058,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 24,
             "price_2019": 3,
             "price_2020": 2,
-            "ps_average": 89
+            "ps_average": 89,
+            "sc_average": 84
           },
           {
             "id": 140,
@@ -2941,7 +3080,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 24,
             "price_2019": null,
             "price_2020": 31,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 84
           },
           {
             "id": 141,
@@ -2962,7 +3102,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 7,
             "price_2019": 22,
             "price_2020": 16,
-            "ps_average": 106
+            "ps_average": 106,
+            "sc_average": 84
           },
           {
             "id": 142,
@@ -2983,7 +3124,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 15,
             "price_2019": 21,
             "price_2020": 20,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 84
           },
           {
             "id": 143,
@@ -3004,7 +3146,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": 1,
-            "ps_average": 98
+            "ps_average": 98,
+            "sc_average": 83
           },
           {
             "id": 144,
@@ -3025,7 +3168,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 32,
             "price_2019": 23,
             "price_2020": 34,
-            "ps_average": 132
+            "ps_average": 132,
+            "sc_average": 83
           },
           {
             "id": 145,
@@ -3046,7 +3190,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 21,
             "price_2019": 15,
             "price_2020": 4,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 83
           },
           {
             "id": 146,
@@ -3067,7 +3212,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 17,
             "price_2019": 14,
             "price_2020": 12,
-            "ps_average": 69
+            "ps_average": 69,
+            "sc_average": 83
           },
           {
             "id": 147,
@@ -3088,7 +3234,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 9,
             "price_2019": 2,
             "price_2020": 4,
-            "ps_average": 35
+            "ps_average": 35,
+            "sc_average": 83
           },
           {
             "id": 148,
@@ -3109,7 +3256,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 76
+            "ps_average": 76,
+            "sc_average": 83
           },
           {
             "id": 149,
@@ -3130,7 +3278,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": 14,
             "price_2020": 14,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 83
           },
           {
             "id": 150,
@@ -3151,7 +3300,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 26,
             "price_2019": 9,
             "price_2020": null,
-            "ps_average": 88
+            "ps_average": 88,
+            "sc_average": 83
           },
           {
             "id": 151,
@@ -3172,7 +3322,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": 16,
             "price_2020": 1,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 82
           },
           {
             "id": 152,
@@ -3193,7 +3344,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 28,
             "price_2019": 11,
             "price_2020": 1,
-            "ps_average": 41
+            "ps_average": 41,
+            "sc_average": 82
           },
           {
             "id": 153,
@@ -3214,7 +3366,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": 10,
             "price_2020": 1,
-            "ps_average": 89
+            "ps_average": 89,
+            "sc_average": 82
           },
           {
             "id": 154,
@@ -3235,7 +3388,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 1,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 78
+            "ps_average": 78,
+            "sc_average": 82
           },
           {
             "id": 155,
@@ -3256,7 +3410,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 1,
             "price_2019": 8,
             "price_2020": 16,
-            "ps_average": 80
+            "ps_average": 80,
+            "sc_average": 82
           },
           {
             "id": 156,
@@ -3277,7 +3432,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 17,
             "price_2019": 16,
             "price_2020": 2,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 82
           },
           {
             "id": 157,
@@ -3298,7 +3454,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 89
+            "ps_average": 89,
+            "sc_average": 82
           },
           {
             "id": 158,
@@ -3319,7 +3476,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 2,
             "price_2019": 9,
             "price_2020": 9,
-            "ps_average": 108
+            "ps_average": 108,
+            "sc_average": 82
           },
           {
             "id": 159,
@@ -3340,7 +3498,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 10,
             "price_2019": 10,
             "price_2020": 5,
-            "ps_average": 48
+            "ps_average": 48,
+            "sc_average": 82
           },
           {
             "id": 160,
@@ -3361,7 +3520,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": 1,
-            "ps_average": 120
+            "ps_average": 120,
+            "sc_average": 81
           },
           {
             "id": 161,
@@ -3382,7 +3542,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 12,
             "price_2019": 36,
             "price_2020": 5,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 81
           },
           {
             "id": 162,
@@ -3403,7 +3564,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": 5,
-            "ps_average": 88
+            "ps_average": 88,
+            "sc_average": 81
           },
           {
             "id": 163,
@@ -3424,7 +3586,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": 1,
             "price_2020": 15,
-            "ps_average": 96
+            "ps_average": 96,
+            "sc_average": 81
           },
           {
             "id": 164,
@@ -3445,7 +3608,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 122
+            "ps_average": 122,
+            "sc_average": 81
           },
           {
             "id": 165,
@@ -3466,7 +3630,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 122
+            "ps_average": 122,
+            "sc_average": 81
           },
           {
             "id": 166,
@@ -3487,7 +3652,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 81
           },
           {
             "id": 167,
@@ -3508,7 +3674,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 46
+            "ps_average": 46,
+            "sc_average": 81
           },
           {
             "id": 168,
@@ -3529,7 +3696,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 81
           },
           {
             "id": 169,
@@ -3550,7 +3718,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": 1,
-            "ps_average": 85
+            "ps_average": 85,
+            "sc_average": 81
           },
           {
             "id": 170,
@@ -3571,7 +3740,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 81
           },
           {
             "id": 171,
@@ -3592,7 +3762,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": 3,
             "price_2020": 28,
-            "ps_average": 110
+            "ps_average": 110,
+            "sc_average": 81
           },
           {
             "id": 172,
@@ -3613,7 +3784,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 67
+            "ps_average": 67,
+            "sc_average": 80
           },
           {
             "id": 173,
@@ -3634,7 +3806,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 56
+            "ps_average": 56,
+            "sc_average": 80
           },
           {
             "id": 174,
@@ -3655,7 +3828,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 33,
             "price_2019": 17,
             "price_2020": 1,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 80
           },
           {
             "id": 175,
@@ -3676,7 +3850,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 61
+            "ps_average": 61,
+            "sc_average": 80
           },
           {
             "id": 176,
@@ -3697,7 +3872,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 15,
             "price_2019": 4,
             "price_2020": 2,
-            "ps_average": 43
+            "ps_average": 43,
+            "sc_average": 80
           },
           {
             "id": 177,
@@ -3718,7 +3894,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 6,
             "price_2019": 2,
             "price_2020": null,
-            "ps_average": 56
+            "ps_average": 56,
+            "sc_average": 80
           },
           {
             "id": 178,
@@ -3739,7 +3916,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 94
+            "ps_average": 94,
+            "sc_average": 79
           },
           {
             "id": 179,
@@ -3760,7 +3938,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 39
+            "ps_average": 39,
+            "sc_average": 79
           },
           {
             "id": 180,
@@ -3781,7 +3960,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": 1,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 79
           },
           {
             "id": 181,
@@ -3802,7 +3982,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 21,
             "price_2019": 24,
             "price_2020": 20,
-            "ps_average": 97
+            "ps_average": 97,
+            "sc_average": 79
           },
           {
             "id": 182,
@@ -3823,7 +4004,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 62
+            "ps_average": 62,
+            "sc_average": 78
           },
           {
             "id": 183,
@@ -3844,7 +4026,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": 3,
             "price_2020": null,
-            "ps_average": 66
+            "ps_average": 66,
+            "sc_average": 78
           },
           {
             "id": 184,
@@ -3865,7 +4048,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": 1,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 78
           },
           {
             "id": 185,
@@ -3886,7 +4070,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 5,
             "price_2019": 15,
             "price_2020": 19,
-            "ps_average": 100
+            "ps_average": 100,
+            "sc_average": 78
           },
           {
             "id": 186,
@@ -3907,7 +4092,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": 2,
-            "ps_average": 79
+            "ps_average": 79,
+            "sc_average": 78
           },
           {
             "id": 187,
@@ -3928,7 +4114,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": 8,
             "price_2020": 1,
-            "ps_average": 104
+            "ps_average": 104,
+            "sc_average": 78
           },
           {
             "id": 188,
@@ -3949,7 +4136,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 14,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 123
+            "ps_average": 123,
+            "sc_average": 78
           },
           {
             "id": 189,
@@ -3970,7 +4158,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": 1,
-            "ps_average": 71
+            "ps_average": 71,
+            "sc_average": 78
           },
           {
             "id": 190,
@@ -3991,7 +4180,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": 2,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 78
           },
           {
             "id": 191,
@@ -4012,7 +4202,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 101
+            "ps_average": 101,
+            "sc_average": 78
           },
           {
             "id": 192,
@@ -4033,7 +4224,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 86
+            "ps_average": 86,
+            "sc_average": 78
           },
           {
             "id": 193,
@@ -4054,7 +4246,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": 4,
             "price_2020": 1,
-            "ps_average": 144
+            "ps_average": 144,
+            "sc_average": 78
           },
           {
             "id": 194,
@@ -4075,7 +4268,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 55
+            "ps_average": 55,
+            "sc_average": 77
           },
           {
             "id": 195,
@@ -4096,7 +4290,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 47
+            "ps_average": 47,
+            "sc_average": 77
           },
           {
             "id": 196,
@@ -4117,7 +4312,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": 6,
-            "ps_average": 108
+            "ps_average": 108,
+            "sc_average": 77
           },
           {
             "id": 197,
@@ -4138,7 +4334,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 21,
             "price_2019": null,
             "price_2020": 1,
-            "ps_average": 6
+            "ps_average": 6,
+            "sc_average": 77
           },
           {
             "id": 198,
@@ -4159,7 +4356,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": 1,
             "price_2020": null,
-            "ps_average": 24
+            "ps_average": 24,
+            "sc_average": 77
           },
           {
             "id": 199,
@@ -4180,7 +4378,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 5,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 130
+            "ps_average": 130,
+            "sc_average": 77
           },
           {
             "id": 200,
@@ -4201,7 +4400,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 14
+            "ps_average": 14,
+            "sc_average": 76
           },
           {
             "id": 201,
@@ -4222,7 +4422,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 90
+            "ps_average": 90,
+            "sc_average": 76
           },
           {
             "id": 202,
@@ -4243,7 +4444,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": 1,
-            "ps_average": 93
+            "ps_average": 93,
+            "sc_average": 76
           },
           {
             "id": 203,
@@ -4264,7 +4466,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 1,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 5
+            "ps_average": 5,
+            "sc_average": 76
           },
           {
             "id": 204,
@@ -4285,7 +4488,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 77
+            "ps_average": 77,
+            "sc_average": 76
           },
           {
             "id": 205,
@@ -4306,7 +4510,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 18,
             "price_2019": 7,
             "price_2020": 7,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 76
           },
           {
             "id": 206,
@@ -4327,7 +4532,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 4,
             "price_2019": 15,
             "price_2020": 5,
-            "ps_average": 61
+            "ps_average": 61,
+            "sc_average": 76
           },
           {
             "id": 207,
@@ -4348,7 +4554,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 114
+            "ps_average": 114,
+            "sc_average": 76
           },
           {
             "id": 208,
@@ -4369,7 +4576,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 21,
             "price_2019": 27,
             "price_2020": 5,
-            "ps_average": 73
+            "ps_average": 73,
+            "sc_average": 76
           },
           {
             "id": 209,
@@ -4390,7 +4598,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 82
+            "ps_average": 82,
+            "sc_average": 75
           },
           {
             "id": 210,
@@ -4411,7 +4620,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 62
+            "ps_average": 62,
+            "sc_average": 75
           },
           {
             "id": 211,
@@ -4432,7 +4642,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 41
+            "ps_average": 41,
+            "sc_average": 75
           },
           {
             "id": 212,
@@ -4453,7 +4664,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 0
+            "ps_average": 0,
+            "sc_average": 75
           },
           {
             "id": 213,
@@ -4474,7 +4686,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 87
+            "ps_average": 87,
+            "sc_average": 75
           },
           {
             "id": 214,
@@ -4495,7 +4708,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 3,
             "price_2019": 1,
             "price_2020": null,
-            "ps_average": 38
+            "ps_average": 38,
+            "sc_average": 75
           },
           {
             "id": 215,
@@ -4516,7 +4730,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 56
+            "ps_average": 56,
+            "sc_average": 75
           },
           {
             "id": 216,
@@ -4537,7 +4752,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": 5,
             "price_2020": 1,
-            "ps_average": 134
+            "ps_average": 134,
+            "sc_average": 75
           },
           {
             "id": 217,
@@ -4558,7 +4774,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 75
           },
           {
             "id": 218,
@@ -4579,7 +4796,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 75
           },
           {
             "id": 219,
@@ -4600,7 +4818,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 20
+            "ps_average": 20,
+            "sc_average": 75
           },
           {
             "id": 220,
@@ -4621,7 +4840,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 23,
             "price_2019": 13,
             "price_2020": null,
-            "ps_average": 38
+            "ps_average": 38,
+            "sc_average": 75
           },
           {
             "id": 221,
@@ -4642,7 +4862,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 1,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 63
+            "ps_average": 63,
+            "sc_average": 75
           },
           {
             "id": 222,
@@ -4663,7 +4884,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": 1,
-            "ps_average": 107
+            "ps_average": 107,
+            "sc_average": 74
           },
           {
             "id": 223,
@@ -4684,7 +4906,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 75
+            "ps_average": 75,
+            "sc_average": 74
           },
           {
             "id": 224,
@@ -4705,7 +4928,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 74
           },
           {
             "id": 225,
@@ -4726,7 +4950,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 74
           },
           {
             "id": 226,
@@ -4747,7 +4972,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 74
           },
           {
             "id": 227,
@@ -4768,7 +4994,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 3,
             "price_2019": 1,
             "price_2020": null,
-            "ps_average": 79
+            "ps_average": 79,
+            "sc_average": 74
           },
           {
             "id": 228,
@@ -4789,7 +5016,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 7,
             "price_2019": 1,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 74
           },
           {
             "id": 229,
@@ -4810,7 +5038,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": 1,
             "price_2020": 1,
-            "ps_average": 64
+            "ps_average": 64,
+            "sc_average": 73
           },
           {
             "id": 230,
@@ -4831,7 +5060,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": 5,
             "price_2020": null,
-            "ps_average": 82
+            "ps_average": 82,
+            "sc_average": 73
           },
           {
             "id": 231,
@@ -4852,7 +5082,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 83
+            "ps_average": 83,
+            "sc_average": 73
           },
           {
             "id": 232,
@@ -4873,7 +5104,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 16,
             "price_2019": 11,
             "price_2020": 1,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 73
           },
           {
             "id": 233,
@@ -4894,7 +5126,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": 10,
             "price_2020": null,
-            "ps_average": 81
+            "ps_average": 81,
+            "sc_average": 73
           },
           {
             "id": 234,
@@ -4915,7 +5148,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 73
           },
           {
             "id": 235,
@@ -4936,7 +5170,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 73
           },
           {
             "id": 236,
@@ -4957,7 +5192,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 73
+            "ps_average": 73,
+            "sc_average": 73
           },
           {
             "id": 237,
@@ -4978,7 +5214,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": 2,
             "price_2020": null,
-            "ps_average": 76
+            "ps_average": 76,
+            "sc_average": 73
           },
           {
             "id": 238,
@@ -4999,7 +5236,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 75
+            "ps_average": 75,
+            "sc_average": 73
           },
           {
             "id": 239,
@@ -5020,7 +5258,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 72
           },
           {
             "id": 240,
@@ -5041,7 +5280,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 12,
             "price_2019": 2,
             "price_2020": 24,
-            "ps_average": 73
+            "ps_average": 73,
+            "sc_average": 72
           },
           {
             "id": 241,
@@ -5062,7 +5302,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 92
+            "ps_average": 92,
+            "sc_average": 72
           },
           {
             "id": 242,
@@ -5083,7 +5324,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 65
+            "ps_average": 65,
+            "sc_average": 72
           },
           {
             "id": 243,
@@ -5104,7 +5346,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 72
           },
           {
             "id": 244,
@@ -5125,7 +5368,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 93
+            "ps_average": 93,
+            "sc_average": 72
           },
           {
             "id": 245,
@@ -5146,7 +5390,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 74
+            "ps_average": 74,
+            "sc_average": 72
           },
           {
             "id": 246,
@@ -5167,7 +5412,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 72
           },
           {
             "id": 247,
@@ -5188,7 +5434,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 77
+            "ps_average": 77,
+            "sc_average": 72
           },
           {
             "id": 248,
@@ -5209,7 +5456,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 22
+            "ps_average": 22,
+            "sc_average": 72
           },
           {
             "id": 249,
@@ -5230,7 +5478,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 71
           },
           {
             "id": 250,
@@ -5251,7 +5500,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 85
+            "ps_average": 85,
+            "sc_average": 71
           },
           {
             "id": 251,
@@ -5272,7 +5522,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 122
+            "ps_average": 122,
+            "sc_average": 71
           },
           {
             "id": 252,
@@ -5293,7 +5544,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 71
           },
           {
             "id": 253,
@@ -5314,7 +5566,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 95
+            "ps_average": 95,
+            "sc_average": 71
           },
           {
             "id": 254,
@@ -5335,7 +5588,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 71
           },
           {
             "id": 255,
@@ -5356,7 +5610,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 1,
             "price_2019": null,
             "price_2020": 5,
-            "ps_average": 94
+            "ps_average": 94,
+            "sc_average": 71
           },
           {
             "id": 256,
@@ -5377,7 +5632,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 46
+            "ps_average": 46,
+            "sc_average": 71
           },
           {
             "id": 257,
@@ -5398,7 +5654,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 50
+            "ps_average": 50,
+            "sc_average": 71
           },
           {
             "id": 258,
@@ -5419,7 +5676,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 69
+            "ps_average": 69,
+            "sc_average": 70
           },
           {
             "id": 259,
@@ -5440,7 +5698,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 2,
             "price_2019": 3,
             "price_2020": null,
-            "ps_average": 50
+            "ps_average": 50,
+            "sc_average": 70
           },
           {
             "id": 260,
@@ -5461,7 +5720,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 26,
             "price_2019": 14,
             "price_2020": 10,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 70
           },
           {
             "id": 261,
@@ -5482,7 +5742,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 71
+            "ps_average": 71,
+            "sc_average": 70
           },
           {
             "id": 262,
@@ -5503,7 +5764,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 61
+            "ps_average": 61,
+            "sc_average": 70
           },
           {
             "id": 263,
@@ -5524,7 +5786,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 32,
             "price_2019": 11,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 70
           },
           {
             "id": 264,
@@ -5545,7 +5808,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 70
           },
           {
             "id": 265,
@@ -5566,7 +5830,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": 1,
-            "ps_average": 65
+            "ps_average": 65,
+            "sc_average": 70
           },
           {
             "id": 266,
@@ -5587,7 +5852,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 17,
             "price_2019": 9,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 70
           },
           {
             "id": 267,
@@ -5608,7 +5874,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 70
           },
           {
             "id": 268,
@@ -5629,7 +5896,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 108
+            "ps_average": 108,
+            "sc_average": 70
           },
           {
             "id": 269,
@@ -5650,7 +5918,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 39
+            "ps_average": 39,
+            "sc_average": 70
           },
           {
             "id": 270,
@@ -5671,7 +5940,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 42
+            "ps_average": 42,
+            "sc_average": 70
           },
           {
             "id": 271,
@@ -5692,7 +5962,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": 9,
-            "ps_average": 86
+            "ps_average": 86,
+            "sc_average": 70
           },
           {
             "id": 272,
@@ -5713,7 +5984,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": 1,
             "price_2020": null,
-            "ps_average": 51
+            "ps_average": 51,
+            "sc_average": 69
           },
           {
             "id": 273,
@@ -5734,7 +6006,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 28,
             "price_2019": 7,
             "price_2020": 4,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 69
           },
           {
             "id": 274,
@@ -5755,7 +6028,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 65
+            "ps_average": 65,
+            "sc_average": 69
           },
           {
             "id": 275,
@@ -5776,7 +6050,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 55
+            "ps_average": 55,
+            "sc_average": 69
           },
           {
             "id": 276,
@@ -5797,7 +6072,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 1,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 76
+            "ps_average": 76,
+            "sc_average": 69
           },
           {
             "id": 277,
@@ -5818,7 +6094,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 64
+            "ps_average": 64,
+            "sc_average": 69
           },
           {
             "id": 278,
@@ -5839,7 +6116,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 45
+            "ps_average": 45,
+            "sc_average": 69
           },
           {
             "id": 279,
@@ -5860,7 +6138,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 54
+            "ps_average": 54,
+            "sc_average": 69
           },
           {
             "id": 280,
@@ -5881,7 +6160,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 63
+            "ps_average": 63,
+            "sc_average": 69
           },
           {
             "id": 281,
@@ -5902,7 +6182,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 84
+            "ps_average": 84,
+            "sc_average": 69
           },
           {
             "id": 282,
@@ -5923,7 +6204,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 80
+            "ps_average": 80,
+            "sc_average": 69
           },
           {
             "id": 283,
@@ -5944,7 +6226,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 77
+            "ps_average": 77,
+            "sc_average": 69
           },
           {
             "id": 284,
@@ -5965,7 +6248,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 69
           },
           {
             "id": 285,
@@ -5986,7 +6270,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 69
           },
           {
             "id": 286,
@@ -6007,7 +6292,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 19,
             "price_2019": 12,
             "price_2020": 3,
-            "ps_average": 88
+            "ps_average": 88,
+            "sc_average": 69
           },
           {
             "id": 287,
@@ -6028,7 +6314,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": 2,
-            "ps_average": 36
+            "ps_average": 36,
+            "sc_average": 69
           },
           {
             "id": 288,
@@ -6049,7 +6336,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 1,
             "price_2019": 16,
             "price_2020": 7,
-            "ps_average": 43
+            "ps_average": 43,
+            "sc_average": 69
           },
           {
             "id": 289,
@@ -6070,7 +6358,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 93
+            "ps_average": 93,
+            "sc_average": 68
           },
           {
             "id": 290,
@@ -6091,7 +6380,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 41
+            "ps_average": 41,
+            "sc_average": 68
           },
           {
             "id": 291,
@@ -6112,7 +6402,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 68
           },
           {
             "id": 292,
@@ -6133,7 +6424,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 58
+            "ps_average": 58,
+            "sc_average": 68
           },
           {
             "id": 293,
@@ -6154,7 +6446,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 68
           },
           {
             "id": 294,
@@ -6175,7 +6468,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 24,
             "price_2019": 25,
             "price_2020": 1,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 68
           },
           {
             "id": 295,
@@ -6196,7 +6490,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": 7,
-            "ps_average": 56
+            "ps_average": 56,
+            "sc_average": 68
           },
           {
             "id": 296,
@@ -6217,7 +6512,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 42
+            "ps_average": 42,
+            "sc_average": 67
           },
           {
             "id": 297,
@@ -6238,7 +6534,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": 1,
             "price_2020": null,
-            "ps_average": 31
+            "ps_average": 31,
+            "sc_average": 67
           },
           {
             "id": 298,
@@ -6259,7 +6556,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 69
+            "ps_average": 69,
+            "sc_average": 67
           },
           {
             "id": 299,
@@ -6280,7 +6578,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": 2,
             "price_2020": null,
-            "ps_average": 55
+            "ps_average": 55,
+            "sc_average": 67
           },
           {
             "id": 300,
@@ -6301,7 +6600,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": 2,
-            "ps_average": 79
+            "ps_average": 79,
+            "sc_average": 67
           },
           {
             "id": 301,
@@ -6322,7 +6622,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 67
           },
           {
             "id": 302,
@@ -6343,7 +6644,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 67
           },
           {
             "id": 303,
@@ -6364,7 +6666,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 127
+            "ps_average": 127,
+            "sc_average": 67
           },
           {
             "id": 304,
@@ -6385,7 +6688,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 103
+            "ps_average": 103,
+            "sc_average": 67
           },
           {
             "id": 305,
@@ -6406,7 +6710,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 57
+            "ps_average": 57,
+            "sc_average": 67
           },
           {
             "id": 306,
@@ -6427,7 +6732,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 88
+            "ps_average": 88,
+            "sc_average": 66
           },
           {
             "id": 307,
@@ -6448,7 +6754,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 66
           },
           {
             "id": 308,
@@ -6469,7 +6776,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 66
           },
           {
             "id": 309,
@@ -6490,7 +6798,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 64
+            "ps_average": 64,
+            "sc_average": 66
           },
           {
             "id": 310,
@@ -6511,7 +6820,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 25,
             "price_2019": 25,
             "price_2020": 12,
-            "ps_average": 53
+            "ps_average": 53,
+            "sc_average": 66
           },
           {
             "id": 311,
@@ -6532,7 +6842,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 76
+            "ps_average": 76,
+            "sc_average": 66
           },
           {
             "id": 312,
@@ -6553,7 +6864,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 21,
             "price_2019": 2,
             "price_2020": 5,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 66
           },
           {
             "id": 313,
@@ -6574,7 +6886,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 35
+            "ps_average": 35,
+            "sc_average": 66
           },
           {
             "id": 314,
@@ -6595,7 +6908,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 44
+            "ps_average": 44,
+            "sc_average": 66
           },
           {
             "id": 315,
@@ -6616,7 +6930,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 52
+            "ps_average": 52,
+            "sc_average": 66
           },
           {
             "id": 316,
@@ -6637,7 +6952,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 66
           },
           {
             "id": 317,
@@ -6658,7 +6974,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 44
+            "ps_average": 44,
+            "sc_average": 65
           },
           {
             "id": 318,
@@ -6679,7 +6996,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 65
           },
           {
             "id": 319,
@@ -6700,7 +7018,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 87
+            "ps_average": 87,
+            "sc_average": 65
           },
           {
             "id": 320,
@@ -6721,7 +7040,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 65
           },
           {
             "id": 321,
@@ -6742,7 +7062,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 65
           },
           {
             "id": 322,
@@ -6763,7 +7084,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": 1,
-            "ps_average": 17
+            "ps_average": 17,
+            "sc_average": 65
           },
           {
             "id": 323,
@@ -6784,7 +7106,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 63
+            "ps_average": 63,
+            "sc_average": 65
           },
           {
             "id": 324,
@@ -6805,7 +7128,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 59
+            "ps_average": 59,
+            "sc_average": 65
           },
           {
             "id": 325,
@@ -6826,7 +7150,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": 3,
-            "ps_average": 69
+            "ps_average": 69,
+            "sc_average": 65
           },
           {
             "id": 326,
@@ -6847,7 +7172,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 65
           },
           {
             "id": 327,
@@ -6868,7 +7194,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 7,
             "price_2019": 10,
             "price_2020": 1,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 65
           },
           {
             "id": 328,
@@ -6889,7 +7216,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 49
+            "ps_average": 49,
+            "sc_average": 64
           },
           {
             "id": 329,
@@ -6910,7 +7238,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": 1,
             "price_2020": 1,
-            "ps_average": 72
+            "ps_average": 72,
+            "sc_average": 64
           },
           {
             "id": 330,
@@ -6931,7 +7260,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 64
           },
           {
             "id": 331,
@@ -6952,7 +7282,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 34
+            "ps_average": 34,
+            "sc_average": 64
           },
           {
             "id": 332,
@@ -6973,7 +7304,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 64
           },
           {
             "id": 333,
@@ -6994,7 +7326,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": 1,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 64
           },
           {
             "id": 334,
@@ -7015,7 +7348,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 68
+            "ps_average": 68,
+            "sc_average": 64
           },
           {
             "id": 335,
@@ -7036,7 +7370,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 76
+            "ps_average": 76,
+            "sc_average": 63
           },
           {
             "id": 336,
@@ -7057,7 +7392,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 42
+            "ps_average": 42,
+            "sc_average": 63
           },
           {
             "id": 337,
@@ -7078,7 +7414,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 76
+            "ps_average": 76,
+            "sc_average": 63
           },
           {
             "id": 338,
@@ -7099,7 +7436,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 63
           },
           {
             "id": 339,
@@ -7120,7 +7458,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 1,
             "price_2019": 2,
             "price_2020": 4,
-            "ps_average": 105
+            "ps_average": 105,
+            "sc_average": 63
           },
           {
             "id": 340,
@@ -7141,7 +7480,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 2,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 63
           },
           {
             "id": 341,
@@ -7162,7 +7502,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 105
+            "ps_average": 105,
+            "sc_average": 63
           },
           {
             "id": 342,
@@ -7183,7 +7524,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 63
           },
           {
             "id": 343,
@@ -7204,7 +7546,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 40
+            "ps_average": 40,
+            "sc_average": 63
           },
           {
             "id": 344,
@@ -7225,7 +7568,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 63
           },
           {
             "id": 345,
@@ -7246,7 +7590,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 35
+            "ps_average": 35,
+            "sc_average": 63
           },
           {
             "id": 346,
@@ -7267,7 +7612,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 7,
             "price_2019": 1,
             "price_2020": 1,
-            "ps_average": 101
+            "ps_average": 101,
+            "sc_average": 62
           },
           {
             "id": 347,
@@ -7288,7 +7634,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 43
+            "ps_average": 43,
+            "sc_average": 62
           },
           {
             "id": 348,
@@ -7309,7 +7656,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": 5,
             "price_2020": 3,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 62
           },
           {
             "id": 349,
@@ -7330,7 +7678,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 60
+            "ps_average": 60,
+            "sc_average": 62
           },
           {
             "id": 350,
@@ -7351,7 +7700,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 50
+            "ps_average": 50,
+            "sc_average": 62
           },
           {
             "id": 351,
@@ -7372,7 +7722,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 44
+            "ps_average": 44,
+            "sc_average": 62
           },
           {
             "id": 352,
@@ -7393,7 +7744,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 58
+            "ps_average": 58,
+            "sc_average": 62
           },
           {
             "id": 353,
@@ -7414,7 +7766,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 62
           },
           {
             "id": 354,
@@ -7435,7 +7788,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 6,
             "price_2019": 17,
             "price_2020": 1,
-            "ps_average": 98
+            "ps_average": 98,
+            "sc_average": 62
           },
           {
             "id": 355,
@@ -7456,7 +7810,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 62
           },
           {
             "id": 356,
@@ -7477,7 +7832,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 42
+            "ps_average": 42,
+            "sc_average": 62
           },
           {
             "id": 357,
@@ -7498,7 +7854,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 36
+            "ps_average": 36,
+            "sc_average": 62
           },
           {
             "id": 358,
@@ -7519,7 +7876,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": 1,
-            "ps_average": 91
+            "ps_average": 91,
+            "sc_average": 62
           },
           {
             "id": 359,
@@ -7540,7 +7898,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 62
           },
           {
             "id": 360,
@@ -7561,7 +7920,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 40
+            "ps_average": 40,
+            "sc_average": 61
           },
           {
             "id": 361,
@@ -7582,7 +7942,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 79
+            "ps_average": 79,
+            "sc_average": 61
           },
           {
             "id": 362,
@@ -7603,7 +7964,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 14,
             "price_2019": 7,
             "price_2020": 1,
-            "ps_average": 49
+            "ps_average": 49,
+            "sc_average": 61
           },
           {
             "id": 363,
@@ -7624,7 +7986,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 44
+            "ps_average": 44,
+            "sc_average": 61
           },
           {
             "id": 364,
@@ -7645,7 +8008,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 61
           },
           {
             "id": 365,
@@ -7666,7 +8030,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 46
+            "ps_average": 46,
+            "sc_average": 61
           },
           {
             "id": 366,
@@ -7687,7 +8052,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 7
+            "ps_average": 7,
+            "sc_average": 61
           },
           {
             "id": 367,
@@ -7708,7 +8074,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 3,
             "price_2019": 1,
             "price_2020": null,
-            "ps_average": 28
+            "ps_average": 28,
+            "sc_average": 61
           },
           {
             "id": 368,
@@ -7729,7 +8096,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 58
+            "ps_average": 58,
+            "sc_average": 61
           },
           {
             "id": 369,
@@ -7750,7 +8118,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 61
           },
           {
             "id": 370,
@@ -7771,7 +8140,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 23
+            "ps_average": 23,
+            "sc_average": 61
           },
           {
             "id": 371,
@@ -7792,7 +8162,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 45
+            "ps_average": 45,
+            "sc_average": 61
           },
           {
             "id": 372,
@@ -7813,7 +8184,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 61
           },
           {
             "id": 373,
@@ -7834,7 +8206,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": 1,
-            "ps_average": 52
+            "ps_average": 52,
+            "sc_average": 61
           },
           {
             "id": 374,
@@ -7855,7 +8228,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 93
+            "ps_average": 93,
+            "sc_average": 61
           },
           {
             "id": 375,
@@ -7876,7 +8250,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 105
+            "ps_average": 105,
+            "sc_average": 61
           },
           {
             "id": 376,
@@ -7897,7 +8272,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": 1,
             "price_2020": null,
-            "ps_average": 122
+            "ps_average": 122,
+            "sc_average": 60
           },
           {
             "id": 377,
@@ -7918,7 +8294,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 66
+            "ps_average": 66,
+            "sc_average": 60
           },
           {
             "id": 378,
@@ -7939,7 +8316,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 27
+            "ps_average": 27,
+            "sc_average": 60
           },
           {
             "id": 379,
@@ -7960,7 +8338,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 48
+            "ps_average": 48,
+            "sc_average": 60
           },
           {
             "id": 380,
@@ -7981,7 +8360,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 62
+            "ps_average": 62,
+            "sc_average": 60
           },
           {
             "id": 381,
@@ -8002,7 +8382,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 45
+            "ps_average": 45,
+            "sc_average": 60
           },
           {
             "id": 382,
@@ -8023,7 +8404,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": 1,
             "price_2020": null,
-            "ps_average": 48
+            "ps_average": 48,
+            "sc_average": 60
           },
           {
             "id": 383,
@@ -8044,7 +8426,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 25,
             "price_2019": 17,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 60
           },
           {
             "id": 384,
@@ -8065,7 +8448,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 60
           },
           {
             "id": 385,
@@ -8086,7 +8470,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 22
+            "ps_average": 22,
+            "sc_average": 60
           },
           {
             "id": 386,
@@ -8107,7 +8492,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 33
+            "ps_average": 33,
+            "sc_average": 60
           },
           {
             "id": 387,
@@ -8128,7 +8514,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": 1,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 60
           },
           {
             "id": 388,
@@ -8149,7 +8536,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 7,
             "price_2019": 13,
             "price_2020": 1,
-            "ps_average": 34
+            "ps_average": 34,
+            "sc_average": 60
           },
           {
             "id": 389,
@@ -8170,7 +8558,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": -3
+            "ps_average": -3,
+            "sc_average": 60
           },
           {
             "id": 390,
@@ -8191,7 +8580,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 51
+            "ps_average": 51,
+            "sc_average": 60
           },
           {
             "id": 391,
@@ -8212,7 +8602,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": 1,
-            "ps_average": 25
+            "ps_average": 25,
+            "sc_average": 60
           },
           {
             "id": 392,
@@ -8233,7 +8624,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 60
           },
           {
             "id": 393,
@@ -8254,7 +8646,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": 1,
-            "ps_average": 43
+            "ps_average": 43,
+            "sc_average": 60
           },
           {
             "id": 394,
@@ -8275,7 +8668,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 60
           },
           {
             "id": 395,
@@ -8296,7 +8690,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 62
+            "ps_average": 62,
+            "sc_average": 59
           },
           {
             "id": 396,
@@ -8317,7 +8712,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 4,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 109
+            "ps_average": 109,
+            "sc_average": 59
           },
           {
             "id": 397,
@@ -8338,7 +8734,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 37
+            "ps_average": 37,
+            "sc_average": 59
           },
           {
             "id": 398,
@@ -8359,7 +8756,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 55
+            "ps_average": 55,
+            "sc_average": 59
           },
           {
             "id": 399,
@@ -8380,7 +8778,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 59
           },
           {
             "id": 400,
@@ -8401,7 +8800,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 59
           },
           {
             "id": 401,
@@ -8422,7 +8822,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 59
           },
           {
             "id": 402,
@@ -8443,7 +8844,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 30
+            "ps_average": 30,
+            "sc_average": 59
           },
           {
             "id": 403,
@@ -8464,7 +8866,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 27
+            "ps_average": 27,
+            "sc_average": 59
           },
           {
             "id": 404,
@@ -8485,7 +8888,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 90
+            "ps_average": 90,
+            "sc_average": 59
           },
           {
             "id": 405,
@@ -8506,7 +8910,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 58
+            "ps_average": 58,
+            "sc_average": 58
           },
           {
             "id": 406,
@@ -8527,7 +8932,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 19
+            "ps_average": 19,
+            "sc_average": 58
           },
           {
             "id": 407,
@@ -8548,7 +8954,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 85
+            "ps_average": 85,
+            "sc_average": 58
           },
           {
             "id": 408,
@@ -8569,7 +8976,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 2,
             "price_2019": 1,
             "price_2020": null,
-            "ps_average": 63
+            "ps_average": 63,
+            "sc_average": 58
           },
           {
             "id": 409,
@@ -8590,7 +8998,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 11,
             "price_2019": 8,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 58
           },
           {
             "id": 410,
@@ -8611,7 +9020,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 62
+            "ps_average": 62,
+            "sc_average": 58
           },
           {
             "id": 411,
@@ -8632,7 +9042,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 50
+            "ps_average": 50,
+            "sc_average": 58
           },
           {
             "id": 412,
@@ -8653,7 +9064,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 58
           },
           {
             "id": 413,
@@ -8674,7 +9086,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 79
+            "ps_average": 79,
+            "sc_average": 58
           },
           {
             "id": 414,
@@ -8695,7 +9108,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 58
           },
           {
             "id": 415,
@@ -8716,7 +9130,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 6,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 113
+            "ps_average": 113,
+            "sc_average": 58
           },
           {
             "id": 416,
@@ -8737,7 +9152,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 58
           },
           {
             "id": 417,
@@ -8758,7 +9174,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 55
+            "ps_average": 55,
+            "sc_average": 58
           },
           {
             "id": 418,
@@ -8779,7 +9196,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 32
+            "ps_average": 32,
+            "sc_average": 58
           },
           {
             "id": 419,
@@ -8800,7 +9218,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 57
           },
           {
             "id": 420,
@@ -8821,7 +9240,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 57
           },
           {
             "id": 421,
@@ -8842,7 +9262,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 75
+            "ps_average": 75,
+            "sc_average": 57
           },
           {
             "id": 422,
@@ -8863,7 +9284,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 2,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 57
           },
           {
             "id": 423,
@@ -8884,7 +9306,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 57
           },
           {
             "id": 424,
@@ -8905,7 +9328,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 84
+            "ps_average": 84,
+            "sc_average": 57
           },
           {
             "id": 425,
@@ -8926,7 +9350,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 57
           },
           {
             "id": 426,
@@ -8947,7 +9372,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 55
+            "ps_average": 55,
+            "sc_average": 57
           },
           {
             "id": 427,
@@ -8968,7 +9394,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 0
+            "ps_average": 0,
+            "sc_average": 57
           },
           {
             "id": 428,
@@ -8989,7 +9416,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 79
+            "ps_average": 79,
+            "sc_average": 57
           },
           {
             "id": 429,
@@ -9010,7 +9438,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": 32,
-            "ps_average": 97
+            "ps_average": 97,
+            "sc_average": 57
           },
           {
             "id": 430,
@@ -9031,7 +9460,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 57
           },
           {
             "id": 431,
@@ -9052,7 +9482,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 42
+            "ps_average": 42,
+            "sc_average": 57
           },
           {
             "id": 432,
@@ -9073,7 +9504,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 57
           },
           {
             "id": 433,
@@ -9094,7 +9526,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 63
+            "ps_average": 63,
+            "sc_average": 57
           },
           {
             "id": 434,
@@ -9115,7 +9548,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 57
           },
           {
             "id": 435,
@@ -9136,7 +9570,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 120
+            "ps_average": 120,
+            "sc_average": 56
           },
           {
             "id": 436,
@@ -9157,7 +9592,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 13,
             "price_2019": 1,
             "price_2020": null,
-            "ps_average": 85
+            "ps_average": 85,
+            "sc_average": 56
           },
           {
             "id": 437,
@@ -9178,7 +9614,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 56
           },
           {
             "id": 438,
@@ -9199,7 +9636,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 95
+            "ps_average": 95,
+            "sc_average": 56
           },
           {
             "id": 439,
@@ -9220,7 +9658,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 84
+            "ps_average": 84,
+            "sc_average": 56
           },
           {
             "id": 440,
@@ -9241,7 +9680,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": 1,
             "price_2020": null,
-            "ps_average": 79
+            "ps_average": 79,
+            "sc_average": 56
           },
           {
             "id": 441,
@@ -9262,7 +9702,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": 7,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 56
           },
           {
             "id": 442,
@@ -9283,7 +9724,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 45
+            "ps_average": 45,
+            "sc_average": 56
           },
           {
             "id": 443,
@@ -9304,7 +9746,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 52
+            "ps_average": 52,
+            "sc_average": 56
           },
           {
             "id": 444,
@@ -9325,7 +9768,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 42
+            "ps_average": 42,
+            "sc_average": 56
           },
           {
             "id": 445,
@@ -9346,7 +9790,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 25
+            "ps_average": 25,
+            "sc_average": 56
           },
           {
             "id": 446,
@@ -9367,7 +9812,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 5,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 52
+            "ps_average": 52,
+            "sc_average": 56
           },
           {
             "id": 447,
@@ -9388,7 +9834,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 55
           },
           {
             "id": 448,
@@ -9409,7 +9856,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 55
           },
           {
             "id": 449,
@@ -9430,7 +9878,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 37
+            "ps_average": 37,
+            "sc_average": 55
           },
           {
             "id": 450,
@@ -9451,7 +9900,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": -1
+            "ps_average": -1,
+            "sc_average": 55
           },
           {
             "id": 451,
@@ -9472,7 +9922,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 24
+            "ps_average": 24,
+            "sc_average": 55
           },
           {
             "id": 452,
@@ -9493,7 +9944,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 1,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 55
           },
           {
             "id": 453,
@@ -9514,7 +9966,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 55
           },
           {
             "id": 454,
@@ -9535,7 +9988,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 51
+            "ps_average": 51,
+            "sc_average": 55
           },
           {
             "id": 455,
@@ -9556,7 +10010,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 57
+            "ps_average": 57,
+            "sc_average": 55
           },
           {
             "id": 456,
@@ -9577,7 +10032,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 24
+            "ps_average": 24,
+            "sc_average": 55
           },
           {
             "id": 457,
@@ -9598,7 +10054,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 55
           },
           {
             "id": 458,
@@ -9619,7 +10076,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 54
           },
           {
             "id": 459,
@@ -9640,7 +10098,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 50
+            "ps_average": 50,
+            "sc_average": 54
           },
           {
             "id": 460,
@@ -9661,7 +10120,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 13,
             "price_2019": 2,
             "price_2020": null,
-            "ps_average": 58
+            "ps_average": 58,
+            "sc_average": 54
           },
           {
             "id": 461,
@@ -9682,7 +10142,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 16
+            "ps_average": 16,
+            "sc_average": 54
           },
           {
             "id": 462,
@@ -9703,7 +10164,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 13,
             "price_2019": 2,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 54
           },
           {
             "id": 463,
@@ -9724,7 +10186,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 75
+            "ps_average": 75,
+            "sc_average": 54
           },
           {
             "id": 464,
@@ -9745,7 +10208,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 54
           },
           {
             "id": 465,
@@ -9766,7 +10230,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 67
+            "ps_average": 67,
+            "sc_average": 53
           },
           {
             "id": 466,
@@ -9787,7 +10252,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 53
           },
           {
             "id": 467,
@@ -9808,7 +10274,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 32
+            "ps_average": 32,
+            "sc_average": 53
           },
           {
             "id": 468,
@@ -9829,7 +10296,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 44
+            "ps_average": 44,
+            "sc_average": 53
           },
           {
             "id": 469,
@@ -9850,7 +10318,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 23
+            "ps_average": 23,
+            "sc_average": 53
           },
           {
             "id": 470,
@@ -9871,7 +10340,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 51
+            "ps_average": 51,
+            "sc_average": 53
           },
           {
             "id": 471,
@@ -9892,7 +10362,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 53
           },
           {
             "id": 472,
@@ -9913,7 +10384,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 1,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 53
           },
           {
             "id": 473,
@@ -9934,7 +10406,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 53
           },
           {
             "id": 474,
@@ -9955,7 +10428,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 52
           },
           {
             "id": 475,
@@ -9976,7 +10450,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 52
           },
           {
             "id": 476,
@@ -9997,7 +10472,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 28
+            "ps_average": 28,
+            "sc_average": 52
           },
           {
             "id": 477,
@@ -10018,7 +10494,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 46
+            "ps_average": 46,
+            "sc_average": 52
           },
           {
             "id": 478,
@@ -10039,7 +10516,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 0
+            "ps_average": 0,
+            "sc_average": 52
           },
           {
             "id": 479,
@@ -10060,7 +10538,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": 3,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 52
           },
           {
             "id": 480,
@@ -10081,7 +10560,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 4
+            "ps_average": 4,
+            "sc_average": 52
           },
           {
             "id": 481,
@@ -10102,7 +10582,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 83
+            "ps_average": 83,
+            "sc_average": 52
           },
           {
             "id": 482,
@@ -10123,7 +10604,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 4,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 51
           },
           {
             "id": 483,
@@ -10144,7 +10626,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 75
+            "ps_average": 75,
+            "sc_average": 51
           },
           {
             "id": 484,
@@ -10165,7 +10648,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 51
           },
           {
             "id": 485,
@@ -10186,7 +10670,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 20
+            "ps_average": 20,
+            "sc_average": 51
           },
           {
             "id": 486,
@@ -10207,7 +10692,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 51
           },
           {
             "id": 487,
@@ -10228,7 +10714,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 51
           },
           {
             "id": 488,
@@ -10249,7 +10736,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 1,
             "price_2019": null,
             "price_2020": 1,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 51
           },
           {
             "id": 489,
@@ -10270,7 +10758,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 16
+            "ps_average": 16,
+            "sc_average": 51
           },
           {
             "id": 490,
@@ -10291,7 +10780,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 10,
             "price_2019": 10,
             "price_2020": 4,
-            "ps_average": 68
+            "ps_average": 68,
+            "sc_average": 51
           },
           {
             "id": 491,
@@ -10312,7 +10802,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 3
+            "ps_average": 3,
+            "sc_average": 50
           },
           {
             "id": 492,
@@ -10333,7 +10824,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 119
+            "ps_average": 119,
+            "sc_average": 50
           },
           {
             "id": 493,
@@ -10354,7 +10846,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 69
+            "ps_average": 69,
+            "sc_average": 50
           },
           {
             "id": 494,
@@ -10375,7 +10868,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 123
+            "ps_average": 123,
+            "sc_average": 50
           },
           {
             "id": 495,
@@ -10396,7 +10890,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 50
           },
           {
             "id": 496,
@@ -10417,7 +10912,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 50
           },
           {
             "id": 497,
@@ -10438,7 +10934,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 49
           },
           {
             "id": 498,
@@ -10459,7 +10956,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 49
           },
           {
             "id": 499,
@@ -10480,7 +10978,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 38
+            "ps_average": 38,
+            "sc_average": 49
           },
           {
             "id": 500,
@@ -10501,7 +11000,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 54
+            "ps_average": 54,
+            "sc_average": 49
           },
           {
             "id": 501,
@@ -10522,7 +11022,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 50
+            "ps_average": 50,
+            "sc_average": 49
           },
           {
             "id": 502,
@@ -10543,7 +11044,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 22,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 49
           },
           {
             "id": 503,
@@ -10564,7 +11066,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 1,
             "price_2019": 3,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 48
           },
           {
             "id": 504,
@@ -10585,7 +11088,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 83
+            "ps_average": 83,
+            "sc_average": 48
           },
           {
             "id": 505,
@@ -10606,7 +11110,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 11,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 63
+            "ps_average": 63,
+            "sc_average": 48
           },
           {
             "id": 506,
@@ -10627,7 +11132,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 48
           },
           {
             "id": 507,
@@ -10648,7 +11154,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 48
           },
           {
             "id": 508,
@@ -10669,7 +11176,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 48
           },
           {
             "id": 509,
@@ -10690,7 +11198,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 5,
             "price_2019": 3,
             "price_2020": 26,
-            "ps_average": 107
+            "ps_average": 107,
+            "sc_average": 48
           },
           {
             "id": 510,
@@ -10711,7 +11220,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 70
+            "ps_average": 70,
+            "sc_average": 47
           },
           {
             "id": 511,
@@ -10732,7 +11242,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 45
+            "ps_average": 45,
+            "sc_average": 47
           },
           {
             "id": 512,
@@ -10753,7 +11264,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 47
           },
           {
             "id": 513,
@@ -10774,7 +11286,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 47
           },
           {
             "id": 514,
@@ -10795,7 +11308,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 50
+            "ps_average": 50,
+            "sc_average": 47
           },
           {
             "id": 515,
@@ -10816,7 +11330,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 46
           },
           {
             "id": 516,
@@ -10837,7 +11352,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 109
+            "ps_average": 109,
+            "sc_average": 46
           },
           {
             "id": 517,
@@ -10858,7 +11374,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 46
           },
           {
             "id": 518,
@@ -10879,7 +11396,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 45
           },
           {
             "id": 519,
@@ -10900,7 +11418,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 45
           },
           {
             "id": 520,
@@ -10921,7 +11440,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 45
           },
           {
             "id": 521,
@@ -10942,7 +11462,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 45
           },
           {
             "id": 522,
@@ -10963,7 +11484,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 45
           },
           {
             "id": 523,
@@ -10984,7 +11506,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 44
           },
           {
             "id": 524,
@@ -11005,7 +11528,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 80
+            "ps_average": 80,
+            "sc_average": 44
           },
           {
             "id": 525,
@@ -11026,7 +11550,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 13
+            "ps_average": 13,
+            "sc_average": 44
           },
           {
             "id": 526,
@@ -11047,7 +11572,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 9,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 44
           },
           {
             "id": 527,
@@ -11068,7 +11594,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 59
+            "ps_average": 59,
+            "sc_average": 43
           },
           {
             "id": 528,
@@ -11089,7 +11616,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 47
+            "ps_average": 47,
+            "sc_average": 42
           },
           {
             "id": 529,
@@ -11110,7 +11638,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 42
           },
           {
             "id": 530,
@@ -11131,7 +11660,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 12
+            "ps_average": 12,
+            "sc_average": 42
           },
           {
             "id": 531,
@@ -11152,7 +11682,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 42
           },
           {
             "id": 532,
@@ -11173,7 +11704,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 39
+            "ps_average": 39,
+            "sc_average": 42
           },
           {
             "id": 533,
@@ -11194,7 +11726,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 10
+            "ps_average": 10,
+            "sc_average": 42
           },
           {
             "id": 534,
@@ -11215,7 +11748,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 39
+            "ps_average": 39,
+            "sc_average": 40
           },
           {
             "id": 535,
@@ -11236,7 +11770,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 29
+            "ps_average": 29,
+            "sc_average": 40
           },
           {
             "id": 536,
@@ -11257,7 +11792,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 64
+            "ps_average": 64,
+            "sc_average": 40
           },
           {
             "id": 537,
@@ -11278,7 +11814,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 40
           },
           {
             "id": 538,
@@ -11299,7 +11836,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 42
+            "ps_average": 42,
+            "sc_average": 39
           },
           {
             "id": 539,
@@ -11320,7 +11858,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 26
+            "ps_average": 26,
+            "sc_average": 39
           },
           {
             "id": 540,
@@ -11341,7 +11880,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 39
           },
           {
             "id": 541,
@@ -11362,7 +11902,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 39
           },
           {
             "id": 542,
@@ -11383,7 +11924,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 39
           },
           {
             "id": 543,
@@ -11404,7 +11946,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 54
+            "ps_average": 54,
+            "sc_average": 38
           },
           {
             "id": 544,
@@ -11425,7 +11968,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 37
           },
           {
             "id": 545,
@@ -11446,7 +11990,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 37
           },
           {
             "id": 546,
@@ -11467,7 +12012,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 37
           },
           {
             "id": 547,
@@ -11488,7 +12034,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 90
+            "ps_average": 90,
+            "sc_average": 36
           },
           {
             "id": 548,
@@ -11509,7 +12056,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 28
+            "ps_average": 28,
+            "sc_average": 36
           },
           {
             "id": 549,
@@ -11530,7 +12078,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 36
           },
           {
             "id": 550,
@@ -11551,7 +12100,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 36
           },
           {
             "id": 551,
@@ -11572,7 +12122,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 11
+            "ps_average": 11,
+            "sc_average": 36
           },
           {
             "id": 552,
@@ -11593,7 +12144,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 43
+            "ps_average": 43,
+            "sc_average": 35
           },
           {
             "id": 553,
@@ -11614,7 +12166,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 1,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 35
           },
           {
             "id": 554,
@@ -11635,7 +12188,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 51
+            "ps_average": 51,
+            "sc_average": 35
           },
           {
             "id": 555,
@@ -11656,7 +12210,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 107
+            "ps_average": 107,
+            "sc_average": 35
           },
           {
             "id": 556,
@@ -11677,7 +12232,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 34
           },
           {
             "id": 557,
@@ -11698,7 +12254,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 34
           },
           {
             "id": 558,
@@ -11719,7 +12276,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 34
           },
           {
             "id": 559,
@@ -11740,7 +12298,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 34
+            "ps_average": 34,
+            "sc_average": 34
           },
           {
             "id": 560,
@@ -11761,7 +12320,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 89
+            "ps_average": 89,
+            "sc_average": 34
           },
           {
             "id": 561,
@@ -11782,7 +12342,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 38
+            "ps_average": 38,
+            "sc_average": 33
           },
           {
             "id": 562,
@@ -11803,7 +12364,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 77
+            "ps_average": 77,
+            "sc_average": 33
           },
           {
             "id": 563,
@@ -11824,7 +12386,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 33
           },
           {
             "id": 564,
@@ -11845,7 +12408,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 32
           },
           {
             "id": 565,
@@ -11866,7 +12430,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 52
+            "ps_average": 52,
+            "sc_average": 30
           },
           {
             "id": 566,
@@ -11887,7 +12452,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 65
+            "ps_average": 65,
+            "sc_average": 30
           },
           {
             "id": 567,
@@ -11908,7 +12474,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 8
+            "ps_average": 8,
+            "sc_average": 30
           },
           {
             "id": 568,
@@ -11929,7 +12496,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 82
+            "ps_average": 82,
+            "sc_average": 30
           },
           {
             "id": 569,
@@ -11950,7 +12518,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 29
           },
           {
             "id": 570,
@@ -11971,7 +12540,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 29
           },
           {
             "id": 571,
@@ -11992,7 +12562,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 1,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 28
           },
           {
             "id": 572,
@@ -12013,7 +12584,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 27
           },
           {
             "id": 573,
@@ -12034,7 +12606,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 9
+            "ps_average": 9,
+            "sc_average": 26
           },
           {
             "id": 574,
@@ -12055,7 +12628,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": 15,
             "price_2020": 5,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 26
           },
           {
             "id": 575,
@@ -12076,7 +12650,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 2,
             "price_2019": 8,
             "price_2020": 23,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 24
           },
           {
             "id": 576,
@@ -12097,7 +12672,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 22
           },
           {
             "id": 577,
@@ -12118,7 +12694,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 22
           },
           {
             "id": 578,
@@ -12139,7 +12716,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 16
           },
           {
             "id": 579,
@@ -12160,7 +12738,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 15
           },
           {
             "id": 580,
@@ -12181,7 +12760,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 16
+            "ps_average": 16,
+            "sc_average": 10
           },
           {
             "id": 581,
@@ -12202,7 +12782,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": 0
           },
           {
             "id": 582,
@@ -12223,7 +12804,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 583,
@@ -12244,7 +12826,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 584,
@@ -12265,7 +12848,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 585,
@@ -12286,7 +12870,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 586,
@@ -12307,7 +12892,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 587,
@@ -12328,7 +12914,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 11
+            "ps_average": 11,
+            "sc_average": null
           },
           {
             "id": 588,
@@ -12349,7 +12936,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 77
+            "ps_average": 77,
+            "sc_average": null
           },
           {
             "id": 589,
@@ -12370,7 +12958,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 13
+            "ps_average": 13,
+            "sc_average": null
           },
           {
             "id": 590,
@@ -12391,7 +12980,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 0
+            "ps_average": 0,
+            "sc_average": null
           },
           {
             "id": 591,
@@ -12412,7 +13002,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 592,
@@ -12433,7 +13024,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 31
+            "ps_average": 31,
+            "sc_average": null
           },
           {
             "id": 593,
@@ -12454,7 +13046,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 594,
@@ -12475,7 +13068,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 29
+            "ps_average": 29,
+            "sc_average": null
           },
           {
             "id": 595,
@@ -12496,7 +13090,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 596,
@@ -12517,7 +13112,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 81
+            "ps_average": 81,
+            "sc_average": null
           },
           {
             "id": 597,
@@ -12538,7 +13134,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 80
+            "ps_average": 80,
+            "sc_average": null
           },
           {
             "id": 598,
@@ -12559,7 +13156,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 49
+            "ps_average": 49,
+            "sc_average": null
           },
           {
             "id": 599,
@@ -12580,7 +13178,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 600,
@@ -12601,7 +13200,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 62
+            "ps_average": 62,
+            "sc_average": null
           },
           {
             "id": 601,
@@ -12622,7 +13222,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 29
+            "ps_average": 29,
+            "sc_average": null
           },
           {
             "id": 602,
@@ -12643,7 +13244,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 68
+            "ps_average": 68,
+            "sc_average": null
           },
           {
             "id": 603,
@@ -12664,7 +13266,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 7
+            "ps_average": 7,
+            "sc_average": null
           },
           {
             "id": 604,
@@ -12685,7 +13288,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 605,
@@ -12706,7 +13310,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 85
+            "ps_average": 85,
+            "sc_average": null
           },
           {
             "id": 606,
@@ -12727,7 +13332,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 607,
@@ -12748,7 +13354,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 608,
@@ -12769,7 +13376,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 59
+            "ps_average": 59,
+            "sc_average": null
           },
           {
             "id": 609,
@@ -12790,7 +13398,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 16
+            "ps_average": 16,
+            "sc_average": null
           },
           {
             "id": 610,
@@ -12811,7 +13420,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 611,
@@ -12832,7 +13442,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 612,
@@ -12853,7 +13464,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 613,
@@ -12874,7 +13486,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 614,
@@ -12895,7 +13508,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 59
+            "ps_average": 59,
+            "sc_average": null
           },
           {
             "id": 615,
@@ -12916,7 +13530,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 616,
@@ -12937,7 +13552,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 16
+            "ps_average": 16,
+            "sc_average": null
           },
           {
             "id": 617,
@@ -12958,7 +13574,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 618,
@@ -12979,7 +13596,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 619,
@@ -13000,7 +13618,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 620,
@@ -13021,7 +13640,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 621,
@@ -13042,7 +13662,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 32
+            "ps_average": 32,
+            "sc_average": null
           },
           {
             "id": 622,
@@ -13063,7 +13684,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 623,
@@ -13084,7 +13706,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 8,
             "price_2019": 8,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 624,
@@ -13105,7 +13728,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 625,
@@ -13126,7 +13750,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 34
+            "ps_average": 34,
+            "sc_average": null
           },
           {
             "id": 626,
@@ -13147,7 +13772,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 40
+            "ps_average": 40,
+            "sc_average": null
           },
           {
             "id": 627,
@@ -13168,7 +13794,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 109
+            "ps_average": 109,
+            "sc_average": null
           },
           {
             "id": 628,
@@ -13189,7 +13816,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 629,
@@ -13210,7 +13838,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 630,
@@ -13231,7 +13860,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 38
+            "ps_average": 38,
+            "sc_average": null
           },
           {
             "id": 631,
@@ -13252,7 +13882,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 632,
@@ -13273,7 +13904,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 633,
@@ -13294,7 +13926,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 634,
@@ -13315,7 +13948,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 635,
@@ -13336,7 +13970,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 29,
             "price_2019": 23,
             "price_2020": 4,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 636,
@@ -13357,7 +13992,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 637,
@@ -13378,7 +14014,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 638,
@@ -13399,7 +14036,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 639,
@@ -13420,7 +14058,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 640,
@@ -13441,7 +14080,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 641,
@@ -13462,7 +14102,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 642,
@@ -13483,7 +14124,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 643,
@@ -13504,7 +14146,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 644,
@@ -13525,7 +14168,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 645,
@@ -13546,7 +14190,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 646,
@@ -13567,7 +14212,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 647,
@@ -13588,7 +14234,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 77
+            "ps_average": 77,
+            "sc_average": null
           },
           {
             "id": 648,
@@ -13609,7 +14256,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 57
+            "ps_average": 57,
+            "sc_average": null
           },
           {
             "id": 649,
@@ -13630,7 +14278,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 650,
@@ -13651,7 +14300,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 7
+            "ps_average": 7,
+            "sc_average": null
           },
           {
             "id": 651,
@@ -13672,7 +14322,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 47
+            "ps_average": 47,
+            "sc_average": null
           },
           {
             "id": 652,
@@ -13693,7 +14344,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 653,
@@ -13714,7 +14366,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 654,
@@ -13735,7 +14388,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 655,
@@ -13756,7 +14410,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 656,
@@ -13777,7 +14432,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 657,
@@ -13798,7 +14454,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 77
+            "ps_average": 77,
+            "sc_average": null
           },
           {
             "id": 658,
@@ -13819,7 +14476,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 659,
@@ -13840,7 +14498,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 660,
@@ -13861,7 +14520,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 661,
@@ -13882,7 +14542,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 662,
@@ -13903,7 +14564,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 663,
@@ -13924,7 +14586,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 43
+            "ps_average": 43,
+            "sc_average": null
           },
           {
             "id": 664,
@@ -13945,7 +14608,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 43
+            "ps_average": 43,
+            "sc_average": null
           },
           {
             "id": 665,
@@ -13966,7 +14630,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 37
+            "ps_average": 37,
+            "sc_average": null
           },
           {
             "id": 666,
@@ -13987,7 +14652,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 667,
@@ -14008,7 +14674,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 668,
@@ -14029,7 +14696,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 37
+            "ps_average": 37,
+            "sc_average": null
           },
           {
             "id": 669,
@@ -14050,7 +14718,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 670,
@@ -14071,7 +14740,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 130
+            "ps_average": 130,
+            "sc_average": null
           },
           {
             "id": 671,
@@ -14092,7 +14762,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 672,
@@ -14113,7 +14784,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 673,
@@ -14134,7 +14806,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 21
+            "ps_average": 21,
+            "sc_average": null
           },
           {
             "id": 674,
@@ -14155,7 +14828,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 675,
@@ -14176,7 +14850,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 676,
@@ -14197,7 +14872,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 677,
@@ -14218,7 +14894,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 678,
@@ -14239,7 +14916,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 9,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 679,
@@ -14260,7 +14938,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 26
+            "ps_average": 26,
+            "sc_average": null
           },
           {
             "id": 680,
@@ -14281,7 +14960,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 681,
@@ -14302,7 +14982,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 682,
@@ -14323,7 +15004,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 61
+            "ps_average": 61,
+            "sc_average": null
           },
           {
             "id": 683,
@@ -14344,7 +15026,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 684,
@@ -14365,7 +15048,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 685,
@@ -14386,7 +15070,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 686,
@@ -14407,7 +15092,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 19
+            "ps_average": 19,
+            "sc_average": null
           },
           {
             "id": 687,
@@ -14428,7 +15114,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 688,
@@ -14449,7 +15136,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 689,
@@ -14470,7 +15158,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 35
+            "ps_average": 35,
+            "sc_average": null
           },
           {
             "id": 690,
@@ -14491,7 +15180,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 691,
@@ -14512,7 +15202,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 25
+            "ps_average": 25,
+            "sc_average": null
           },
           {
             "id": 692,
@@ -14533,7 +15224,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 75
+            "ps_average": 75,
+            "sc_average": null
           },
           {
             "id": 693,
@@ -14554,7 +15246,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 694,
@@ -14575,7 +15268,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 695,
@@ -14596,7 +15290,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 696,
@@ -14617,7 +15312,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 697,
@@ -14638,7 +15334,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 698,
@@ -14659,7 +15356,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 699,
@@ -14680,7 +15378,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 700,
@@ -14701,7 +15400,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 701,
@@ -14722,7 +15422,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 702,
@@ -14743,7 +15444,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 703,
@@ -14764,7 +15466,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 704,
@@ -14785,7 +15488,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 705,
@@ -14806,7 +15510,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 706,
@@ -14827,7 +15532,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 707,
@@ -14848,7 +15554,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 708,
@@ -14869,7 +15576,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 709,
@@ -14890,7 +15598,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 710,
@@ -14911,7 +15620,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 711,
@@ -14932,7 +15642,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 712,
@@ -14953,7 +15664,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 71
+            "ps_average": 71,
+            "sc_average": null
           },
           {
             "id": 713,
@@ -14974,7 +15686,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 714,
@@ -14995,7 +15708,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 715,
@@ -15016,7 +15730,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 3
+            "ps_average": 3,
+            "sc_average": null
           },
           {
             "id": 716,
@@ -15037,7 +15752,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 717,
@@ -15058,7 +15774,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 19
+            "ps_average": 19,
+            "sc_average": null
           },
           {
             "id": 718,
@@ -15079,7 +15796,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 719,
@@ -15100,7 +15818,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 57
+            "ps_average": 57,
+            "sc_average": null
           },
           {
             "id": 720,
@@ -15121,7 +15840,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 721,
@@ -15142,7 +15862,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 722,
@@ -15163,7 +15884,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 723,
@@ -15184,7 +15906,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 724,
@@ -15205,7 +15928,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 725,
@@ -15226,7 +15950,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 726,
@@ -15247,7 +15972,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 727,
@@ -15268,7 +15994,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 728,
@@ -15289,7 +16016,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 729,
@@ -15310,7 +16038,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 730,
@@ -15331,7 +16060,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 63
+            "ps_average": 63,
+            "sc_average": null
           },
           {
             "id": 731,
@@ -15352,7 +16082,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 732,
@@ -15373,7 +16104,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 733,
@@ -15394,7 +16126,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 734,
@@ -15415,7 +16148,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 79
+            "ps_average": 79,
+            "sc_average": null
           },
           {
             "id": 735,
@@ -15436,7 +16170,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 52
+            "ps_average": 52,
+            "sc_average": null
           },
           {
             "id": 736,
@@ -15457,7 +16192,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 737,
@@ -15478,7 +16214,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 738,
@@ -15499,7 +16236,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": -2
+            "ps_average": -2,
+            "sc_average": null
           },
           {
             "id": 739,
@@ -15520,7 +16258,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 740,
@@ -15541,7 +16280,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 741,
@@ -15562,7 +16302,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 742,
@@ -15583,7 +16324,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 1,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 743,
@@ -15604,7 +16346,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 8
+            "ps_average": 8,
+            "sc_average": null
           },
           {
             "id": 744,
@@ -15625,7 +16368,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 745,
@@ -15646,7 +16390,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 746,
@@ -15667,7 +16412,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 747,
@@ -15688,7 +16434,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 748,
@@ -15709,7 +16456,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 749,
@@ -15730,7 +16478,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 750,
@@ -15751,7 +16500,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 751,
@@ -15772,7 +16522,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 752,
@@ -15793,7 +16544,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 753,
@@ -15814,7 +16566,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 12
+            "ps_average": 12,
+            "sc_average": null
           },
           {
             "id": 754,
@@ -15835,7 +16588,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 755,
@@ -15856,7 +16610,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 756,
@@ -15877,7 +16632,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 757,
@@ -15898,7 +16654,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 758,
@@ -15919,7 +16676,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 27
+            "ps_average": 27,
+            "sc_average": null
           },
           {
             "id": 759,
@@ -15940,7 +16698,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 22
+            "ps_average": 22,
+            "sc_average": null
           },
           {
             "id": 760,
@@ -15961,7 +16720,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 761,
@@ -15982,7 +16742,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 76
+            "ps_average": 76,
+            "sc_average": null
           },
           {
             "id": 762,
@@ -16003,7 +16764,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 2,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 111
+            "ps_average": 111,
+            "sc_average": null
           },
           {
             "id": 763,
@@ -16024,7 +16786,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 764,
@@ -16045,7 +16808,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 765,
@@ -16066,7 +16830,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 766,
@@ -16087,7 +16852,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 16
+            "ps_average": 16,
+            "sc_average": null
           },
           {
             "id": 767,
@@ -16108,7 +16874,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 768,
@@ -16129,7 +16896,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 769,
@@ -16150,7 +16918,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 770,
@@ -16171,7 +16940,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 13
+            "ps_average": 13,
+            "sc_average": null
           },
           {
             "id": 771,
@@ -16192,7 +16962,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": 1,
             "price_2019": 8,
             "price_2020": null,
-            "ps_average": 72
+            "ps_average": 72,
+            "sc_average": null
           },
           {
             "id": 772,
@@ -16213,7 +16984,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 773,
@@ -16234,7 +17006,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 774,
@@ -16255,7 +17028,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 775,
@@ -16276,7 +17050,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 776,
@@ -16297,7 +17072,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 11
+            "ps_average": 11,
+            "sc_average": null
           },
           {
             "id": 777,
@@ -16318,7 +17094,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": null
+            "ps_average": null,
+            "sc_average": null
           },
           {
             "id": 778,
@@ -16339,7 +17116,8 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
             "price_2018": null,
             "price_2019": null,
             "price_2020": null,
-            "ps_average": 89
+            "ps_average": 89,
+            "sc_average": null
           }
         ]'
     );

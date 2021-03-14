@@ -59,8 +59,17 @@ public class TeamService {
      * @param draftId
      * @return
      */
-    List<ITeamStats> getTeamsByDraft(Long draftId) {
+    List<ITeamStats> getAllTeamStatsByDraft(Long draftId) {
         return teamRepository.findAllBaseByDraftId(draftId);
+    };
+
+    /**
+     * Get a Team in a given Draft.
+     * @param teamId
+     * @return
+     */
+    ITeamStats getTeamStatsByTeamId(Long teamId) {
+        return teamRepository.findBaseById(teamId);
     };
 
     /**

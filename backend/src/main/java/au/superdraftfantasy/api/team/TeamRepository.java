@@ -12,4 +12,5 @@ public interface TeamRepository extends JpaRepository<TeamEntity, Long> {
     List<TeamEntity> findAllByDraftId(Long draftId);
     Optional<TeamEntity> findDistinctByDraftIdAndOnTheBlock(Long draftId, boolean isOnTheBlock);
     List<ITeamStats> findAllBaseByDraftId(Long draftId);
+    ITeamStats findBaseById(Long teamID);
 }
