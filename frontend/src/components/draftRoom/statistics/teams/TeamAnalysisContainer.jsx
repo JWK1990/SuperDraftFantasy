@@ -13,6 +13,7 @@ import StatSelector from "../../../shared/StatSelector";
 const styles = {
     rootContainer: {
         height: "100%",
+        paddingTop: 20,
     },
     teamStatsContainer: {
         width: "100%",
@@ -44,19 +45,8 @@ class TeamAnalysisContainer extends React.Component {
         }
 
         return (
-            <div className="teamAnalysis">
+            <div className={classes.rootContainer}>
                 <Grid container className="rootContainer" spacing={4} direction="row" justify="space-between" alignItems="stretch">
-                    <Grid item xs={12}>
-                        <div className="centered-div">
-                            <StatSelector
-                                id="draft-team-analysis-select"
-                                value={this.props.selectedTeamId}
-                                onChange={this.handleTeamChange}
-                                helperText="Select Team To Analyse."
-                                optionList={this.props.teamNameList}
-                            />
-                        </div>
-                    </Grid>
                     <Grid item xs={7}>
                         <Grid container spacing={4} direction="row" justify="space-between" alignItems="stretch">
                             <Grid item xs={12}>
@@ -69,9 +59,24 @@ class TeamAnalysisContainer extends React.Component {
                     </Grid>
                     {/* Change the below width to change the size of the TeamFieldView. */}
                     <Grid item xs={5}>
-                        <div className={classes.teamFieldViewContainer}>
-                            <TeamViewField />
-                        </div>
+                        <Grid container>
+                            <Grid item xs={12}>
+                                <div className="centered-div">
+                                    <StatSelector
+                                        id="draft-team-analysis-select"
+                                        value={this.props.selectedTeamId}
+                                        onChange={this.handleTeamChange}
+                                        helperText="Select Team To Analyse."
+                                        optionList={this.props.teamNameList}
+                                    />
+                                </div>
+                            </Grid>
+                            <Grid item xs={12}>
+                                <div className={classes.teamFieldViewContainer}>
+                                    <TeamViewField />
+                                </div>
+                            </Grid>
+                        </Grid>
                     </Grid>
                 </Grid>
             </div>

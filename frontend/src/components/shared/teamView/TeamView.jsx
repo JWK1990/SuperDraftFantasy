@@ -235,6 +235,7 @@ class TeamView extends React.Component {
                             numOfPlayerRequired={this.props.numOfPlayersRequired}
                             draggableStyles={draggableStyles}
                             isDraggingDisabled={this.props.isDraggingDisabled}
+                            type={this.props.type}
                         />
                         <DroppablePositionContainer
                             droppableId="droppableMids"
@@ -246,6 +247,7 @@ class TeamView extends React.Component {
                             numOfPlayerRequired={this.props.numOfPlayersRequired}
                             draggableStyles={draggableStyles}
                             isDraggingDisabled={this.props.isDraggingDisabled}
+                            type={this.props.type}
                         />
                         <DroppablePositionContainer
                             droppableId="droppableRucs"
@@ -257,6 +259,7 @@ class TeamView extends React.Component {
                             numOfPlayerRequired={this.props.numOfPlayersRequired}
                             draggableStyles={draggableStyles}
                             isDraggingDisabled={this.props.isDraggingDisabled}
+                            type={this.props.type}
                         />
                         <DroppablePositionContainer
                             droppableId="droppableFwds"
@@ -268,6 +271,7 @@ class TeamView extends React.Component {
                             numOfPlayerRequired={this.props.numOfPlayersRequired}
                             draggableStyles={draggableStyles}
                             isDraggingDisabled={this.props.isDraggingDisabled}
+                            type={this.props.type}
                         />
                     </ConditionalWrapper>
                     <ConditionalWrapper
@@ -284,6 +288,7 @@ class TeamView extends React.Component {
                                 numOfPlayerRequired={this.props.numOfPlayersRequired}
                                 draggableStyles={draggableStyles}
                                 isDraggingDisabled={this.props.isDraggingDisabled}
+                                type={this.props.type}
                             />
                     </ConditionalWrapper>
                 </DragDropContext>

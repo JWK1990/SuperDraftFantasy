@@ -43,6 +43,7 @@ class DraggablePlayerContainer extends React.Component {
                             player={this.props.item.dynamicSlotData.player}
                             price={this.props.item.dynamicSlotData.price}
                             position={this.props.item.position}
+                            type={this.props.type}
                         />
                     </div>
                 )}
