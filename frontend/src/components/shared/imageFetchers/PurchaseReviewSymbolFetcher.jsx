@@ -4,7 +4,7 @@ import DSymbol from "../../../images/purchaseReviewSymbols/DSymbol.svg";
 import CSymbol from "../../../images/purchaseReviewSymbols/CSymbol.svg";
 import BSymbol from "../../../images/purchaseReviewSymbols/BSymbol.svg";
 import ASymbol from "../../../images/purchaseReviewSymbols/ASymbol.svg";
-import APlusSymbol from "../../../images/purchaseReviewSymbols/APlusSymbol.svg";
+import OaklandAsSymbol from "../../../images/purchaseReviewSymbols/OaklandAsSymbol.png";
 
 export default class PurchaseReviewSymbolFetcher {
 
@@ -15,7 +15,7 @@ export default class PurchaseReviewSymbolFetcher {
         ["3", CSymbol],
         ["4", BSymbol],
         ["5", ASymbol],
-        ["6", APlusSymbol],
+        ["6", OaklandAsSymbol],
     ]);
 
     static getPurchaseReviewSymbol(rating) {
