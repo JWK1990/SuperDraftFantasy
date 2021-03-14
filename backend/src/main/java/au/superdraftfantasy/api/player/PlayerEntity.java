@@ -30,6 +30,12 @@ public class PlayerEntity {
 
     private LocalDate dateOfBirth;
 
+    private Integer age;
+
+    private Integer career_games;
+
+    private Integer sc_standard_price;
+
     @NotBlank
     @Enumerated(EnumType.ORDINAL)
     private AflTeamEnum aflTeamId;
@@ -40,7 +46,26 @@ public class PlayerEntity {
 
     private Integer weight;
 
+    private Integer roosterRating;
+
     private Integer moneyballPrice;
+
+    @Column(name="price_2016")
+    private Integer price2016;
+
+    @Column(name="price_2017")
+    private Integer price2017;
+
+    @Column(name="price_2018")
+    private Integer price2018;
+
+    @Column(name="price_2019")
+    private Integer price2019;
+
+    @Column(name="price_2020")
+    private Integer price2020;
+
+    private Integer psAverage;
 
     @ManyToMany
     @JoinTable(

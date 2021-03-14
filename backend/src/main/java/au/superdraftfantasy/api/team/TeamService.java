@@ -266,9 +266,9 @@ public class TeamService {
         } else if(priceDifference > -10) {
             purchaseReviewRating = 4; // B
         } else if(priceDifference > -15) {
-            purchaseReviewRating = 5; // A
-        } else if(priceDifference > -20) {
-            purchaseReviewRating = 6; // A+
+            purchaseReviewRating = 5;
+        } else {
+            purchaseReviewRating = 6;
         }
         return purchaseReviewRating;
     }
