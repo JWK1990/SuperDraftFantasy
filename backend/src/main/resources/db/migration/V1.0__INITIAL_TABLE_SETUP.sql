@@ -157,6 +157,7 @@ CREATE TABLE team_player_join_entity (
      price SMALLINT,
      my_team_position_id SMALLINT,
      purchase_review_rating VARCHAR(255),
+     price_difference SMALLINT,
 
      CONSTRAINT fk_team_id FOREIGN KEY (team_id) REFERENCES team_entity(id),
      CONSTRAINT fk_player_id FOREIGN KEY (player_id) REFERENCES player_entity(id),

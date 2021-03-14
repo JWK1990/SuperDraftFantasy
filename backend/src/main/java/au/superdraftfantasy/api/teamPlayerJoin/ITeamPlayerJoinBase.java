@@ -21,4 +21,6 @@ public interface ITeamPlayerJoinBase {
 
     String getPurchaseReviewRating();
 
+    Integer getPriceDifference();
+
 }
