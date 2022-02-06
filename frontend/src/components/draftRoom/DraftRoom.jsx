@@ -11,6 +11,7 @@ import {withStyles} from "@material-ui/core";
 import TeamViewList from "./myTeam/TeamViewList";
 import StatisticsContainer from "./statistics/StatisticsContainer";
 import DraftDetailsContainer from "./draftDetails/DraftDetailsContainer";
+import TeamListV2 from "./myTeam/TeamListV2";
 
 const styles = {
     rootContainer: {
@@ -67,7 +68,7 @@ class DraftRoom extends React.Component {
                 <Grid container spacing={1} direction="row" justify="space-between" alignItems="stretch"
                       className={classes.rootContainer}>
                     <Grid item xs={2}>
-                        <Grid container spacing={1}>
+                        <Grid container spacing={1} direction={"column"} justifyContent={"space-between"}>
                             <Grid item xs={12}>
                                 <DraftDetailsContainer/>
                             </Grid>
@@ -87,8 +88,10 @@ class DraftRoom extends React.Component {
                         </Grid>
                     </Grid>
                     <Grid item xs={2}>
-                        <Grid item xs={12}>
-                            <TeamViewList/>
+                        <Grid container spacing={1} style={{height: "100%"}}>
+                            <Grid item xs={12}>
+                                <TeamListV2/>
+                            </Grid>
                         </Grid>
                     </Grid>
                 </Grid>

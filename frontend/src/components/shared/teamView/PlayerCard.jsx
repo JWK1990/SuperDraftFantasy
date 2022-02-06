@@ -1,19 +1,43 @@
 import React from "react";
-import {Typography} from "@material-ui/core";
+import {Paper, Typography} from "@material-ui/core";
 import withStyles from "@material-ui/core/styles/withStyles";
 import Grid from "@material-ui/core/Grid";
 
 const styles = {
-    playerDetailsContainer: {
+    paperRoot: {
+        // Ensures that the player card expands to take up the remaining space.
         height: "100%",
+    },
+    defContainer: {
+        backgroundColor: "red",
+    },
+    midContainer: {
+        backgroundColor: "blue",
+    },
+    rucContainer: {
+        backgroundColor: "green",
+    },
+    fwdContainer: {
+        backgroundColor: "yellow",
+    },
+    benchContainer: {
+        backgroundColor: "grey",
     },
     playerDetails: {
         display: "grid",
         alignItems: "center",
-        justifyContent: "center",
+        justifyContent: "left",
     },
     playerName: {
         fontWeight: "bold",
+        fontSize: "1vw",
+        paddingLeft: "10px",
+    },
+    playerPosition: {
+        fontSize: "1vw",
+    },
+    playerPrice: {
+        fontSize: "1vw",
     }
 }
 
@@ -26,51 +50,57 @@ class PlayerCard extends React.Component {
     render() {
         const {classes} = this.props;
 
+        const getPositionClass = () => {
+            switch(this.props.slot.slotPosition) {
+                case "DEF":
+                    return classes.defContainer;
+                case "MID":
+                    return classes.midContainer;
+                case "RUC":
+                    return classes.rucContainer;
+                case "FWD":
+                    return classes.fwdContainer;
+                default:
+                    return classes.benchContainer;
+            }
+        }
+
         if(!this.props.player) {
-            return null;
+            return (
+                <Grid item xs={12}>
+                    <Paper elevation={5} className={[classes.paperRoot, getPositionClass()]}>
+                        &nbsp;
+                    </Paper>
+                </Grid>
+            )
         }
 
         return (
-            this.props.type !== "field" ?
-                <Grid container className={classes.playerDetailsContainer}>
-                    <Grid item xs={7} className={classes.playerDetails}>
-                        <Typography className={classes.playerName}>
-                            {
-                                this.props.player.firstName.substring(0, 1)
-                                + ". " + this.props.player.lastName
-                            }
-                        </Typography>
-                    </Grid>
-                    <Grid item xs={4} className={classes.playerDetails}>
-                        <Typography>
-                            {this.props.player.primaryPosition}
-                            {this.props.player.secondaryPosition ?
-                                "/" + this.props.player.secondaryPosition
-                                : ""
-                            }
-                        </Typography>
-                    </Grid>
-                    <Grid item xs={1} className={classes.playerDetails}>
-                        <Typography>
-                            {" $" + this.props.price}
-                        </Typography>
-                    </Grid>
-                </Grid>
-                : <Grid container className={classes.playerDetailsContainer}>
-                        <Grid item xs={12} className={classes.playerDetails}>
+            <Grid item xs={12}>
+                <Paper elevation={5} className={[classes.paperRoot, getPositionClass()]}>
+                    <Grid container>
+                        <Grid item xs={7} className={classes.playerDetails}>
                             <Typography className={classes.playerName}>
-                                {
-                                    this.props.player.firstName.substring(0, 1)
-                                    + ". " + this.props.player.lastName
+                                {this.props.player.firstName.substring(0, 1) + ". " + this.props.player.lastName}
+                            </Typography>
+                        </Grid>
+                        <Grid item xs={3} className={classes.playerDetails}>
+                            <Typography className={classes.playerPosition}>
+                                {this.props.player.primaryPosition.substring(0,1)}
+                                {this.props.player.secondaryPosition.substring(0,1) ?
+                                    "/" + this.props.player.secondaryPosition.substring(0,1)
+                                    : ""
                                 }
                             </Typography>
                         </Grid>
-                        <Grid item xs={12} className={classes.playerDetails}>
-                            <Typography>
-                                {" $" + this.props.price}
+                        <Grid item xs={2} className={classes.playerDetails}>
+                            <Typography className={classes.playerPrice}>
+                                {"$" + this.props.price}
                             </Typography>
                         </Grid>
                     </Grid>
+                </Paper>
+            </Grid>
         )
     }
 

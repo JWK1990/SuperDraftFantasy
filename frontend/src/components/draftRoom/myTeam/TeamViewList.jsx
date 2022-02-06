@@ -2,6 +2,7 @@ import React from 'react';
 import TeamView from "../../shared/teamView/TeamView";
 import {currentTeamIdSelector} from "../../../store/selectors/DraftSelectors";
 import {connect} from "react-redux";
+import TeamListV2 from "./TeamListV2";
 
 const grid = 4;
 
@@ -84,15 +85,7 @@ class TeamViewList extends React.Component {
 
     render() {
         return (
-            <div className="myTeam">
-                <TeamView
-                    type={"list"}
-                    styles={styles}
-                    functions={functions}
-                    teamId={this.props.teamId}
-                    isDraggingDisabled={false}
-                />
-            </div>
+            <TeamListV2></TeamListV2>
         )
     }
 
