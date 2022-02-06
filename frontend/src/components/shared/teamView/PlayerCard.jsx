@@ -8,6 +8,12 @@ const styles = {
         // Ensures that the player card expands to take up the remaining space.
         height: "100%",
     },
+    gridItem: {
+        padding: 2,
+    },
+    gridContainer: {
+        height: "100%",
+    },
     defContainer: {
         backgroundColor: "red",
     },
@@ -67,7 +73,7 @@ class PlayerCard extends React.Component {
 
         if(!this.props.player) {
             return (
-                <Grid item xs={12}>
+                <Grid item xs={12} className={classes.gridItem}>
                     <Paper elevation={5} className={[classes.paperRoot, getPositionClass()]}>
                         &nbsp;
                     </Paper>
@@ -76,9 +82,9 @@ class PlayerCard extends React.Component {
         }
 
         return (
-            <Grid item xs={12}>
+            <Grid item xs={12} className={classes.gridItem}>
                 <Paper elevation={5} className={[classes.paperRoot, getPositionClass()]}>
-                    <Grid container>
+                    <Grid container className={classes.gridContainer}>
                         <Grid item xs={7} className={classes.playerDetails}>
                             <Typography className={classes.playerName}>
                                 {this.props.player.firstName.substring(0, 1) + ". " + this.props.player.lastName}

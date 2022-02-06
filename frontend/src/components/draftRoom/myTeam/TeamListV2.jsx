@@ -85,7 +85,7 @@ class TeamListV2 extends React.Component {
         });
 
         return (
-            <Grid container spacing={0.5} className={classes.mainContainer}>
+            <Grid container className={classes.mainContainer}>
                 {
                     this.fieldLayout.map(slot => {
                         return <PlayerCard

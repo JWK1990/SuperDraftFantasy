@@ -8,7 +8,6 @@ import Grid from "@material-ui/core/Grid";
 import {stompClientSelector} from "../../store/selectors/WebSocketSelectors";
 import ConfigurationUtils from "../../utils/ConfigurationUtils";
 import {withStyles} from "@material-ui/core";
-import TeamViewList from "./myTeam/TeamViewList";
 import StatisticsContainer from "./statistics/StatisticsContainer";
 import DraftDetailsContainer from "./draftDetails/DraftDetailsContainer";
 import TeamListV2 from "./myTeam/TeamListV2";
