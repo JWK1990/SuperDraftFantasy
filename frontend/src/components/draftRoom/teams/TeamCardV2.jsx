@@ -1,8 +1,5 @@
 import React from 'react';
 import {makeStyles} from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
@@ -69,7 +66,8 @@ export default function TeamCardV2(props) {
                     <img
                         className={classes.teamLogo}
                         src={require("../../../images/AustralianFlagLogo.jpg")}
-                        title="Team Logo"
+                        title={"Team Logo"}
+                        alt={"Team Logo"}
                     />
                 </Grid>
                 <Grid item xs={8}>
@@ -93,42 +91,5 @@ export default function TeamCardV2(props) {
                 </Grid>
             </Grid>
         </Paper>
-        /*
-        <Paper elevation={5} className={classes.root}>
-            <Card className={classes.root}>
-                <CardMedia
-                    className={classes.teamLogo}
-                    image={require("../../../images/AustralianFlagLogo.jpg")}
-                    title="Team Logo"
-                />
-                <div className={classes.teamDetailsDiv}>
-                    <CardContent className={classes.teamDetailsContent}>
-                        <Typography className={classes.teamName}>
-                            {props.team.name}
-                        </Typography>
-                        <Typography color="textSecondary" className={classes.userName}>
-                            {props.team.user.username}
-                        </Typography>
-                        <Typography color="textSecondary" className={classes.details}>
-                            ${props.team.budget} remaining
-                        </Typography>
-                        <Typography color="textSecondary" className={classes.details}>
-                            {props.team.teamPlayerJoins.length}/{props.numOfPlayersRequired} players
-                        </Typography>
-                    </CardContent>
-                </div>
-                <div className={classes.budgetDiv}>
-                    <CardContent className={classes.budgetContent}>
-                        <Typography color="textSecondary" className={classes.details}>
-                            Max Bid
-                        </Typography>
-                        <Typography className={classes.maxBid}>
-                            ${props.team.maxBid}
-                        </Typography>
-                    </CardContent>
-                </div>
-            </Card>
-        </Paper>
-        */
     );
 }
