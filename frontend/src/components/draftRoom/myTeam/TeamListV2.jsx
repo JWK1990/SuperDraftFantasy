@@ -6,7 +6,10 @@ import withStyles from "@material-ui/core/styles/withStyles";
 const styles = {
     mainContainer: {
         height: "100%",
-    }
+    },
+    gridItem: {
+        padding: 2,
+    },
 }
 
 const buildFieldLayout = () => {
@@ -85,14 +88,18 @@ class TeamListV2 extends React.Component {
         });
 
         return (
-            <Grid container className={classes.mainContainer}>
+            <Grid container item className={classes.mainContainer}>
                 {
                     this.fieldLayout.map(slot => {
-                        return <PlayerCard
-                            slot={slot}
-                            player={slot.player}
-                            price={slot.player != null ? slot.player.price : null}
-                        />
+                        return (
+                            <Grid item xs={12} className={classes.gridItem}>
+                                <PlayerCard
+                                    slot={slot}
+                                    player={slot.player}
+                                    price={slot.player != null ? slot.player.price : null}
+                                />
+                            </Grid>
+                        )
                     })
                 }
             </Grid>

@@ -3,7 +3,6 @@ import DraftRoomBlock from "./block/Block";
 import {connectWebSocketAction, getDraftAction} from "../../store/actions";
 import {connect} from "react-redux";
 import {draftSelector} from "../../store/selectors/DraftSelectors"
-import DraftRoomTeams from "./teams/Teams";
 import Grid from "@material-ui/core/Grid";
 import {stompClientSelector} from "../../store/selectors/WebSocketSelectors";
 import ConfigurationUtils from "../../utils/ConfigurationUtils";
@@ -11,6 +10,7 @@ import {withStyles} from "@material-ui/core";
 import StatisticsContainer from "./statistics/StatisticsContainer";
 import DraftDetailsContainer from "./draftDetails/DraftDetailsContainer";
 import TeamListV2 from "./myTeam/TeamListV2";
+import TeamsV2 from "./teams/TeamsV2";
 
 const styles = {
     rootContainer: {
@@ -64,20 +64,20 @@ class DraftRoom extends React.Component {
 
         return (
             <>
-                <Grid container spacing={1} direction="row" justify="space-between" alignItems="stretch"
+                <Grid container spacing={1}
                       className={classes.rootContainer}>
-                    <Grid item xs={2}>
-                        <Grid container spacing={1} direction={"column"} justifyContent={"space-between"}>
+                    <Grid container item xs={2}>
+                        <Grid container spacing={1} style={{height: "100%"}}>
                             <Grid item xs={12}>
                                 <DraftDetailsContainer/>
                             </Grid>
                             <Grid item xs={12}>
-                                <DraftRoomTeams/>
+                                <TeamsV2/>
                             </Grid>
                         </Grid>
                     </Grid>
                     <Grid item xs={8}>
-                        <Grid container spacing={1}>
+                        <Grid container item spacing={1}>
                             <Grid item xs={12}>
                                 <DraftRoomBlock/>
                             </Grid>
@@ -87,7 +87,7 @@ class DraftRoom extends React.Component {
                         </Grid>
                     </Grid>
                     <Grid item xs={2}>
-                        <Grid container spacing={1} style={{height: "100%"}}>
+                        <Grid container item spacing={1} style={{height: "100%"}}>
                             <Grid item xs={12}>
                                 <TeamListV2/>
                             </Grid>
