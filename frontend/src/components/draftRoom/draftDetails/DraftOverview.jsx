@@ -23,15 +23,13 @@ class DraftOverview extends React.Component {
                     WAFL Draft 2021
                 </Typography>
                 <Typography variant={"subtitle2"} align={"center"} color={"textSecondary"}>
-                    10 Teams, 22 Players
+                    10 Teams, 22 Players, $300 Budget
                 </Typography>
-                <Typography variant={"subtitle2"} align={"center"} color={"textSecondary"}>
-                    $300 Budget
-                </Typography>
-                {this.props.isUserCommissioner
-                    ? <CommissionerControls />
-                    : null
-                }
+                    {
+                        this.props.isUserCommissioner
+                            ? <CommissionerControls />
+                            : null
+                    }
             </div>
 
         )

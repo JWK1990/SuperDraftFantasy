@@ -70,7 +70,7 @@ class PlayerCard extends React.Component {
 
         if(!this.props.player) {
             return (
-                <Paper elevation={1} className={[classes.paperRoot, getPositionClass()]}>
+                <Paper elevation={3} className={[classes.paperRoot, getPositionClass()]}>
                     &nbsp;
                 </Paper>
             )

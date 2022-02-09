@@ -245,41 +245,39 @@ class DraftRoomBlock extends React.Component {
     render() {
         const {classes} = this.props;
         return (
-            <div className="block">
-                <Grid container className={classes.rootContainer} spacing={1} direction="row" justify="space-between" alignItems="stretch">
-                    <Grid item xs={2} className={classes.gridItem}>
-                        <ClockContainer
-                            showAddToBlockClock={this.state.showAddToBlockClock}
-                            showBidClock={this.state.showBidClock}
-                            onTheBlockTimer={this.props.draftBase.onTheBlockTimer}
-                            bidTimer={this.props.draftBase.bidTimer}
-                            addToBlockClockTimeRemaining={this.state.addToBlockClockTimeRemaining}
-                            bidClockTimeRemaining={this.state.bidClockTimeRemaining}
-                            addToBlockClockKey={this.state.addToBlockClockKey}
-                            bidClockKey={this.state.bidClockKey}
-                            isBidClockDisabled={this.state.isBidClockDisabled}
-                            sendBid={this.sendBid}
-                            currentPrice={this.props.block.price}
-                            bidClockText={this.state.bidClockText}
-                            isOnTheBlock={this.props.isOnTheBlock}
-                            onTheBlockTeamName={this.getOnTheBlockTeamName()}
-                            isLeadBidder={this.props.isLeadBidder}
-                            leadBidderTeamName={this.props.leadBidderTeamName}
-                        />
-                    </Grid>
-                    <Grid item xs={10} className={classes.gridItem}>
-                        <BlockPlayerContainer
-                            isOnTheBlock={this.props.isOnTheBlock}
-                            showAddToBlockClock={this.state.showAddToBlockClock}
-                            showBidClock={this.state.showBidClock}
-                            commissionerTeamName={this.props.commissionerTeamName}
-                            onTheBlockTeamName={this.getOnTheBlockTeamName()}
-                            onTheBlockPlayer={this.state.playerDetails}
-                            purchaseReviewPlayer={this.state.purchaseReviewPlayer}
-                        />
-                    </Grid>
+            <Grid container className={classes.rootContainer} spacing={1} direction="row" justify="space-between" alignItems="stretch">
+                <Grid item xs={2} className={classes.gridItem}>
+                    <ClockContainer
+                        showAddToBlockClock={this.state.showAddToBlockClock}
+                        showBidClock={this.state.showBidClock}
+                        onTheBlockTimer={this.props.draftBase.onTheBlockTimer}
+                        bidTimer={this.props.draftBase.bidTimer}
+                        addToBlockClockTimeRemaining={this.state.addToBlockClockTimeRemaining}
+                        bidClockTimeRemaining={this.state.bidClockTimeRemaining}
+                        addToBlockClockKey={this.state.addToBlockClockKey}
+                        bidClockKey={this.state.bidClockKey}
+                        isBidClockDisabled={this.state.isBidClockDisabled}
+                        sendBid={this.sendBid}
+                        currentPrice={this.props.block.price}
+                        bidClockText={this.state.bidClockText}
+                        isOnTheBlock={this.props.isOnTheBlock}
+                        onTheBlockTeamName={this.getOnTheBlockTeamName()}
+                        isLeadBidder={this.props.isLeadBidder}
+                        leadBidderTeamName={this.props.leadBidderTeamName}
+                    />
                 </Grid>
-            </div>
+                <Grid item xs={10} className={classes.gridItem}>
+                    <BlockPlayerContainer
+                        isOnTheBlock={this.props.isOnTheBlock}
+                        showAddToBlockClock={this.state.showAddToBlockClock}
+                        showBidClock={this.state.showBidClock}
+                        commissionerTeamName={this.props.commissionerTeamName}
+                        onTheBlockTeamName={this.getOnTheBlockTeamName()}
+                        onTheBlockPlayer={this.state.playerDetails}
+                        purchaseReviewPlayer={this.state.purchaseReviewPlayer}
+                    />
+                </Grid>
+            </Grid>
         );
     }
 }

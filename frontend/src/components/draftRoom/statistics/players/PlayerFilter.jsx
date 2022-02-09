@@ -6,7 +6,6 @@ import {Checkbox, FormControlLabel, Switch, TextField} from "@material-ui/core";
 import withStyles from "@material-ui/core/styles/withStyles";
 import Grid from "@material-ui/core/Grid";
 import PlayerListV3 from "./PlayerListV3";
-import PlayerFilter from "./PlayerFilter";
 
 const styles = {
     filterDiv: {
@@ -40,14 +39,9 @@ const styles = {
         color: "var(--fwd-color-primary)",
         paddingRight: 20,
     },
-    flexColScroll: {
-        flexGrow: 1,
-        overflow: "auto",
-        minHeight: "100%",
-    }
 }
 
-class UpdatedPlayerListContainer extends React.PureComponent {
+class PlayerFilter extends React.PureComponent {
     state = {
         hasNextPage: true,
         isNextPageLoading: false,
@@ -150,16 +144,80 @@ class UpdatedPlayerListContainer extends React.PureComponent {
         const {classes} = this.props;
 
         return(
-            <Grid item xs={12} className={"flexColScroll"}>
-                <PlayerListV3
-                    //hasNextPage={hasNextPage}
-                    //isNextPageLoading={isNextPageLoading}
-                    //items={items}
-                    //loadNextPage={this._loadNextPage}
-                    //expandedPanelIndex={expandedPanelIndex}
-                    //handleChange={this.handleExpandedPanelChange}
-                    //isHideDraftedFilterOn={isHideDraftedFilterOn}
-                />
+            <Grid container item>
+                <Grid item xs={5}>
+                    <TextField
+                        id="outlined-basic"
+                        label="Search Name"
+                        variant="outlined"
+                        value={this.state.lastNameSearch}
+                        onChange={this.handleSearchChange}
+                    />
+                </Grid>
+                <Grid item xs={5}>
+                    <FormControlLabel
+                            control={
+                                <Checkbox
+                                    className={classes.checkboxDef}
+                                    checked={this.state.checkedDEF}
+                                    onChange={this.handlePositionFilterChange}
+                                    name="checkedDEF"
+                                />
+                            }
+                            className={classes.labelDef}
+                            label="DEF"
+                        />
+                        <FormControlLabel
+                            control={
+                                <Checkbox
+                                    className={classes.checkboxMid}
+                                    checked={this.state.checkedMID}
+                                    onChange={this.handlePositionFilterChange}
+                                    name="checkedMID"
+                                />
+                            }
+                            className={classes.labelMid}
+                            label="MID"
+                        />
+                        <FormControlLabel
+                            control={
+                                <Checkbox
+                                    className={classes.checkboxRuc}
+                                    checked={this.state.checkedRUC}
+                                    onChange={this.handlePositionFilterChange}
+                                    name="checkedRUC"
+                                />
+                            }
+                            className={classes.labelRuc}
+                            label="RUC"
+                        />
+                        <FormControlLabel
+                            control={
+                                <Checkbox
+                                    className={classes.checkboxFwd}
+                                    checked={this.state.checkedFWD}
+                                    onChange={this.handlePositionFilterChange}
+                                    name="checkedFWD"
+                                />
+                            }
+                            className={classes.labelFwd}
+                            label="FWD"
+                        />
+                </Grid>
+                <Grid item xs={2}>
+                    <FormControlLabel
+                        control={
+                            <Switch
+                                checked={this.state.isHideDraftedFilterOn}
+                                onChange={this.handleSwitchChange}
+                                name="hideDraftedFilter"
+                                color="primary"
+                            />
+                        }
+                        label="Hide Drafted"
+                        labelPlacement="start"
+                    />
+                </Grid>
             </Grid>
         )
     }
@@ -171,4 +229,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps)(withStyles(styles)(UpdatedPlayerListContainer));
+export default connect(mapStateToProps)(withStyles(styles)(PlayerFilter));

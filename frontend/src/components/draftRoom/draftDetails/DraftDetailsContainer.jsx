@@ -11,11 +11,7 @@ export default function DraftDetailsContainer() {
     ]
 
     return (
-        <div className="commissionerControls">
-                <StatTabPanel
-                    tabList={tabList}
-                />
-        </div>
+        <StatTabPanel tabList={tabList}/>
     )
 
 }

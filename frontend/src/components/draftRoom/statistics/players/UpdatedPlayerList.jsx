@@ -9,6 +9,7 @@ import PlayerAnalysisTableRow from "./PlayerAnalysisTableRow";
 import ExpandedPlayerContainer from "./ExpandedPlayerContainer";
 import DraftRoomPlayersSelected from "./selected/Selected";
 import PlayerAnalysisTableHeader from "./PlayerAnalysisTableHeader";
+import Grid from "@material-ui/core/Grid";
 
 export default function UpdatedPlayerList({
     // Are there more items to load?
@@ -73,39 +74,43 @@ export default function UpdatedPlayerList({
     const listRef = React.createRef();
 
     return (
-        <div className="playerSearch">
-            <PlayerAnalysisTableHeader />
-            <InfiniteLoader
-                isItemLoaded={isItemLoaded}
-                itemCount={itemCount}
-                loadMoreItems={loadMoreItems}
-            >
-                {({ onItemsRendered, ref }) => (
-                    <AutoSizer>
-                        {({height, width}) => (
-                            <VariableSizeList
-                                className="playerList"
-                                height={height}
-                                width={width}
-                                itemCount={itemCount}
-                                itemSize={getItemSize}
-                                onItemsRendered={onItemsRendered}
-                                ref={list => {
-                                    /* The below code is required to be able to access the listRef externally
-                                        for calling resetAfterIndex to recalculate the row heights when they are expanded.
-                                        See comment from bvaughn here
-                                        https://github.com/bvaughn/react-window/issues/324#issuecomment-528887341.
-                                    */
-                                    ref(list); // Give InfiniteLoader a reference to the list
-                                    listRef.current = list; // Set our own ref to it as well.
-                                }}
-                            >
-                                {PlayerRow}
-                            </VariableSizeList>
-                        )}
-                    </AutoSizer>
-                )}
-            </InfiniteLoader>
-        </div>
+        <Grid container item style={{height: "100%"}}>
+            <Grid item xs={12}>
+                <PlayerAnalysisTableHeader />
+            </Grid>
+            <Grid item xs={12}>
+                <InfiniteLoader
+                    isItemLoaded={isItemLoaded}
+                    itemCount={itemCount}
+                    loadMoreItems={loadMoreItems}
+                >
+                    {({ onItemsRendered, ref }) => (
+                        <AutoSizer>
+                            {({height, width}) => (
+                                <VariableSizeList
+                                    className="playerList"
+                                    height={height}
+                                    width={width}
+                                    itemCount={itemCount}
+                                    itemSize={getItemSize}
+                                    onItemsRendered={onItemsRendered}
+                                    ref={list => {
+                                        /* The below code is required to be able to access the listRef externally
+                                            for calling resetAfterIndex to recalculate the row heights when they are expanded.
+                                            See comment from bvaughn here
+                                            https://github.com/bvaughn/react-window/issues/324#issuecomment-528887341.
+                                        */
+                                        ref(list); // Give InfiniteLoader a reference to the list
+                                        listRef.current = list; // Set our own ref to it as well.
+                                    }}
+                                >
+                                    {PlayerRow}
+                                </VariableSizeList>
+                            )}
+                        </AutoSizer>
+                    )}
+                </InfiniteLoader>
+            </Grid>
+        </Grid>
     )
 };

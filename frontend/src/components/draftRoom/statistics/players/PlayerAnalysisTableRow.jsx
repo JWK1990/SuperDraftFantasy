@@ -1,4 +1,4 @@
-import {Tooltip} from "@material-ui/core";
+import {TableCell, TableRow, Tooltip} from "@material-ui/core";
 import React from "react";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import Grid from "@material-ui/core/Grid";
@@ -26,50 +26,20 @@ const useStyles = makeStyles((theme) => ({
 
 export default function PlayerAnalysisTableRow(props) {
     const classes = useStyles();
-
-    if(!props.player) {
-        return (
-            <div className="loadingDiv">
-                <Typography>Loading Players...</Typography>
-            </div>
-        )
-    }
-
+    console.log(props.player);
     return (
-            <Grid container className={props.player.available ? classes.rootContainer : classes.rootContainerGrey} direction={"row"} justify={"flex-start"} alignItems="center">
-                <div className="tinyWidthDiv">
-                    <Typography>{props.player.id}</Typography>
-                </div>
-                <div className={"largeWidthDiv"}>
-                    <Typography>{props.player.fullName}</Typography>
-                </div>
-                <div className={"smallWidthDiv"}>
-                    <Typography>{props.player.aflTeam}</Typography>
-                </div>
-                <div className={"smallWidthDiv"}>
-                    <Typography>{props.player.fullPosition}</Typography>
-                </div>
-                <div className="tinyWidthDiv">
-                    <Typography>{props.player.average}</Typography>
-                </div>
-                <div className="tinyWidthDiv">
-                    <Typography>{props.player.games}</Typography>
-                </div>
-                <div className="tinyWidthDiv">
-                    <Typography>{props.player.disposals}</Typography>
-                </div>
-                <div className="tinyWidthDiv">
-                    <Typography>{props.player.disposalEfficiency}</Typography>
-                </div>
-                <div className="tinyWidthDiv">
-                    <Typography>{props.player.tackles}</Typography>
-                </div>
-                <div className="tinyWidthDiv">
-                    <Tooltip title={props.player.draftTeamName !== null ? props.player.draftTeamName : ""}>
-                        <Typography><span>$</span>{props.player.price}</Typography>
-                    </Tooltip>
-                </div>
-            </Grid>
+        <TableRow key={props.player.id}>
+            <TableCell component="th" scope="row">{props.player.id}</TableCell>
+            <TableCell align="left">{props.player.fullName}</TableCell>
+            <TableCell align="center">{props.player.fullPosition}</TableCell>
+            <TableCell align="center">{props.player.aflTeam}</TableCell>
+            <TableCell align="center">{props.player.average}</TableCell>
+            <TableCell align="center">{props.player.disposals} &nbsp;({props.player.disposalEfficiency}%)</TableCell>
+            <TableCell align="center">{props.player.age}</TableCell>
+            <TableCell align="center">{props.player.price}</TableCell>
+            <TableCell align="center">{props.player.price}</TableCell>
+
+        </TableRow>
     )
 
 }

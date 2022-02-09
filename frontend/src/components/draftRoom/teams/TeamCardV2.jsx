@@ -56,7 +56,7 @@ export default function TeamCardV2(props) {
 
     const classes = useStyles();
     if(props.team === "VACANT") {
-        return <Paper elevation={1} className={classes.root}> &nbsp; </Paper>
+        return <Paper elevation={3} className={classes.root}> &nbsp; </Paper>
     }
     // TODO: Add ellipsis to text that goes too wide.
     return (

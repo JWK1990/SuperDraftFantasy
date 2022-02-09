@@ -7,14 +7,17 @@ import Grid from "@material-ui/core/Grid";
 import {stompClientSelector} from "../../store/selectors/WebSocketSelectors";
 import ConfigurationUtils from "../../utils/ConfigurationUtils";
 import {withStyles} from "@material-ui/core";
-import StatisticsContainer from "./statistics/StatisticsContainer";
 import DraftDetailsContainer from "./draftDetails/DraftDetailsContainer";
 import TeamListV2 from "./myTeam/TeamListV2";
 import TeamsV2 from "./teams/TeamsV2";
+import PlayerFilter from "./statistics/players/PlayerFilter";
+import PlayerListV3 from "./statistics/players/PlayerListV3";
 
 const styles = {
     rootContainer: {
         height: "100%",
+        width: "100%",
+        overflow: "hidden",
     },
 };
 
@@ -63,38 +66,29 @@ class DraftRoom extends React.Component {
         }
 
         return (
-            <>
-                <Grid container spacing={1}
-                      className={classes.rootContainer}>
-                    <Grid container item xs={2}>
-                        <Grid container spacing={1} style={{height: "100%"}}>
-                            <Grid item xs={12}>
-                                <DraftDetailsContainer/>
-                            </Grid>
-                            <Grid item xs={12}>
-                                <TeamsV2/>
-                            </Grid>
-                        </Grid>
+            <Grid container spacing={1} className={classes.rootContainer}>
+                <Grid container item xs={2} spacing={1} style={{height: "100%", maxHeight: "100vh", overflow: "auto"}}>
+                    <Grid item xs={12}>
+                        <DraftDetailsContainer/>
                     </Grid>
-                    <Grid item xs={8}>
-                        <Grid container item spacing={1}>
-                            <Grid item xs={12}>
-                                <DraftRoomBlock/>
-                            </Grid>
-                            <Grid item xs={12}>
-                                <StatisticsContainer/>
-                            </Grid>
-                        </Grid>
-                    </Grid>
-                    <Grid item xs={2}>
-                        <Grid container item spacing={1} style={{height: "100%"}}>
-                            <Grid item xs={12}>
-                                <TeamListV2/>
-                            </Grid>
-                        </Grid>
+                    <Grid item xs={12}>
+                        <TeamsV2/>
                     </Grid>
                 </Grid>
-            </>
+                <Grid container item xs={8} spacing={1} style={{height: "100%", maxHeight: "100vh", overflow: "auto"}}>
+                    <Grid item xs={12} style={{height: "20%"}}>
+                        <DraftRoomBlock/>
+                    </Grid>
+                    <Grid item xs={12} style={{height: "80%"}}>
+                        <PlayerListV3/>
+                    </Grid>
+                </Grid>
+                <Grid container item xs={2} spacing={1} style={{height: "100%", maxHeight: "100vh", overflow: "auto"}}>
+                    <Grid item xs={12}>
+                        <TeamListV2/>
+                    </Grid>
+                </Grid>
+            </Grid>
         )
     }
 
