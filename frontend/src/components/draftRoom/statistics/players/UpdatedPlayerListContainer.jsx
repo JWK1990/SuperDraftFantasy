@@ -2,11 +2,10 @@ import React from "react";
 import DraftService from "../../../../services/DraftService";
 import {draftIdSelector} from "../../../../store/selectors/DraftSelectors";
 import {connect} from "react-redux";
-import {Checkbox, FormControlLabel, Switch, TextField} from "@material-ui/core";
 import withStyles from "@material-ui/core/styles/withStyles";
 import Grid from "@material-ui/core/Grid";
-import PlayerListV3 from "./PlayerListV3";
 import PlayerFilter from "./PlayerFilter";
+import UpdatedPlayerList from "./UpdatedPlayerList";
 
 const styles = {
     filterDiv: {
@@ -150,16 +149,19 @@ class UpdatedPlayerListContainer extends React.PureComponent {
         const {classes} = this.props;
 
         return(
-            <Grid item xs={12} className={"flexColScroll"}>
-                <PlayerListV3
-                    //hasNextPage={hasNextPage}
-                    //isNextPageLoading={isNextPageLoading}
-                    //items={items}
-                    //loadNextPage={this._loadNextPage}
-                    //expandedPanelIndex={expandedPanelIndex}
-                    //handleChange={this.handleExpandedPanelChange}
-                    //isHideDraftedFilterOn={isHideDraftedFilterOn}
-                />
+            <Grid container>
+                <Grid item xs={12}>
+                    <PlayerFilter/>
+                </Grid>
+                <Grid item xs={12}>
+                    <UpdatedPlayerList
+                        hasNextPage={hasNextPage}
+                        isNextPageLoading={isNextPageLoading}
+                        items={items}
+                        loadNextPage={this._loadNextPage}
+                        isHideDraftedFilterOn={isHideDraftedFilterOn}
+                    />
+                </Grid>
             </Grid>
         )
     }

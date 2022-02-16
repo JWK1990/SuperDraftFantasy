@@ -2,17 +2,33 @@ import React from "react";
 import DraftService from "../../../../services/DraftService";
 import {draftIdSelector} from "../../../../store/selectors/DraftSelectors";
 import {connect} from "react-redux";
-import {Checkbox, FormControlLabel, Switch, TextField} from "@material-ui/core";
+import {Checkbox, createMuiTheme, FormControlLabel, MuiThemeProvider, Switch, TextField} from "@material-ui/core";
 import withStyles from "@material-ui/core/styles/withStyles";
 import Grid from "@material-ui/core/Grid";
-import PlayerListV3 from "./PlayerListV3";
+
+const theme = createMuiTheme({
+    overrides: {
+        MuiFormControlLabel: {
+            label: {
+                fontSize: "1vw",
+            }
+        },
+        MuiSvgIcon: {
+            fontSizeSmall: "1vw",
+        }
+    }
+});
 
 const styles = {
+    mainContainer: {
+      height: "var(--draft-room-player-filter-height)"
+    },
     filterDiv: {
         height: "100%",
     },
     checkboxDef: {
         color: "var(--def-color-primary) !important",
+        fontSize: "10px",
     },
     checkboxMid: {
         color: "var(--mid-color-primary)!important",
@@ -25,19 +41,15 @@ const styles = {
     },
     labelDef: {
         color: "var(--def-color-primary)",
-        paddingRight: 20,
     },
     labelMid: {
         color: "var(--mid-color-primary)",
-        paddingRight: 20,
     },
     labelRuc: {
         color: "#FFA500",
-        paddingRight: 20,
     },
     labelFwd: {
         color: "var(--fwd-color-primary)",
-        paddingRight: 20,
     },
 }
 
@@ -144,81 +156,88 @@ class PlayerFilter extends React.PureComponent {
         const {classes} = this.props;
 
         return(
-            <Grid container item>
-                <Grid item xs={5}>
-                    <TextField
-                        id="outlined-basic"
-                        label="Search Name"
-                        variant="outlined"
-                        value={this.state.lastNameSearch}
-                        onChange={this.handleSearchChange}
-                    />
-                </Grid>
-                <Grid item xs={5}>
-                    <FormControlLabel
-                            control={
-                                <Checkbox
-                                    className={classes.checkboxDef}
-                                    checked={this.state.checkedDEF}
-                                    onChange={this.handlePositionFilterChange}
-                                    name="checkedDEF"
-                                />
-                            }
-                            className={classes.labelDef}
-                            label="DEF"
+            <MuiThemeProvider theme={theme}>
+                <Grid container item className={classes.mainContainer}>
+                    <Grid item xs={5}>
+                        <TextField
+                            id="outlined-basic"
+                            label="Search Name"
+                            variant="outlined"
+                            value={this.state.lastNameSearch}
+                            onChange={this.handleSearchChange}
+                            size={"small"}
                         />
+                    </Grid>
+                    <Grid item xs={5}>
                         <FormControlLabel
-                            control={
-                                <Checkbox
-                                    className={classes.checkboxMid}
-                                    checked={this.state.checkedMID}
-                                    onChange={this.handlePositionFilterChange}
-                                    name="checkedMID"
-                                />
-                            }
-                            className={classes.labelMid}
-                            label="MID"
-                        />
-                        <FormControlLabel
-                            control={
-                                <Checkbox
-                                    className={classes.checkboxRuc}
-                                    checked={this.state.checkedRUC}
-                                    onChange={this.handlePositionFilterChange}
-                                    name="checkedRUC"
-                                />
-                            }
-                            className={classes.labelRuc}
-                            label="RUC"
-                        />
-                        <FormControlLabel
-                            control={
-                                <Checkbox
-                                    className={classes.checkboxFwd}
-                                    checked={this.state.checkedFWD}
-                                    onChange={this.handlePositionFilterChange}
-                                    name="checkedFWD"
-                                />
-                            }
-                            className={classes.labelFwd}
-                            label="FWD"
-                        />
-                </Grid>
-                <Grid item xs={2}>
-                    <FormControlLabel
-                        control={
-                            <Switch
-                                checked={this.state.isHideDraftedFilterOn}
-                                onChange={this.handleSwitchChange}
-                                name="hideDraftedFilter"
-                                color="primary"
+                                control={
+                                    <Checkbox
+                                        className={classes.checkboxDef}
+                                        checked={this.state.checkedDEF}
+                                        onChange={this.handlePositionFilterChange}
+                                        name="checkedDEF"
+                                        size={"small"}
+                                    />
+                                }
+                                className={classes.labelDef}
+                                label="DEF"
                             />
-                        }
-                        label="Hide Drafted"
-                        labelPlacement="start"
-                    />
+                            <FormControlLabel
+                                control={
+                                    <Checkbox
+                                        className={classes.checkboxMid}
+                                        checked={this.state.checkedMID}
+                                        onChange={this.handlePositionFilterChange}
+                                        name="checkedMID"
+                                        size={"small"}
+                                    />
+                                }
+                                className={classes.labelMid}
+                                label="MID"
+                            />
+                            <FormControlLabel
+                                control={
+                                    <Checkbox
+                                        className={classes.checkboxRuc}
+                                        checked={this.state.checkedRUC}
+                                        onChange={this.handlePositionFilterChange}
+                                        name="checkedRUC"
+                                        size={"small"}
+                                    />
+                                }
+                                className={classes.labelRuc}
+                                label="RUC"
+                            />
+                            <FormControlLabel
+                                control={
+                                    <Checkbox
+                                        className={classes.checkboxFwd}
+                                        checked={this.state.checkedFWD}
+                                        onChange={this.handlePositionFilterChange}
+                                        name="checkedFWD"
+                                        size={"small"}
+                                    />
+                                }
+                                className={classes.labelFwd}
+                                label="FWD"
+                            />
+                    </Grid>
+                    <Grid item xs={2}>
+                        <FormControlLabel
+                            control={
+                                <Switch
+                                    checked={this.state.isHideDraftedFilterOn}
+                                    onChange={this.handleSwitchChange}
+                                    name="hideDraftedFilter"
+                                    color="primary"
+                                />
+                            }
+                            label="Hide Drafted"
+                            labelPlacement="start"
+                        />
+                    </Grid>
                 </Grid>
-            </Grid>
+            </MuiThemeProvider>
         )
     }
 }

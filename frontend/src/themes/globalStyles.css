@@ -1,4 +1,8 @@
 :root {
+    /* Grid Heights. */
+    --draft-room-block-height: 200px;
+    --draft-room-player-filter-height: 40px;
+    --draft-room-player-list-height: calc(100vh - var(--draft-room-block-height) - var(--draft-room-player-filter-height));
     /* Colours. */
     --highlight-color: greenyellow;
     --hover-color: lightblue;

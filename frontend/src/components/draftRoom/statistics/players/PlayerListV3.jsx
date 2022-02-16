@@ -1,33 +1,10 @@
-import React, {Component} from "react";
-import {VariableSizeList} from "react-window";
-import AutoSizer from "react-virtualized-auto-sizer";
-import InfiniteLoader from "react-window-infinite-loader";
-import {
-    Accordion,
-    AccordionDetails,
-    AccordionSummary,
-    Table,
-    TableBody, TableCell,
-    TableContainer,
-    TableHead, TableRow
-} from "@material-ui/core";
-import Typography from "@material-ui/core/Typography";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import React from "react";
+import {Table, TableBody, TableCell, TableContainer, TableHead, TableRow} from "@material-ui/core";
 import PlayerAnalysisTableRow from "./PlayerAnalysisTableRow";
-import ExpandedPlayerContainer from "./ExpandedPlayerContainer";
-import DraftRoomPlayersSelected from "./selected/Selected";
-import PlayerAnalysisTableHeader from "./PlayerAnalysisTableHeader";
 import Grid from "@material-ui/core/Grid";
 import DraftService from "../../../../services/DraftService";
 import Paper from "@material-ui/core/Paper";
-import withStyles from "@material-ui/core/styles/withStyles";
 import PlayerFilter from "./PlayerFilter";
-
-const styles = {
-    table: {
-        minWidth: 650,
-    },
-};
 
 class PlayerListV3 extends React.Component {
 
@@ -68,12 +45,12 @@ class PlayerListV3 extends React.Component {
 
         return (
             <Grid container  style={{height: "100%"}}>
-                <Grid item xs={12} style={{height: "5%"}}>
+                <Grid item xs={12}>
                     <PlayerFilter/>
                 </Grid>
-                <Grid item xs={12} style={{height: "95%"}}>
+                <Grid item xs={12} style={{height: "calc(100vh - 240px)"}}>
                     <TableContainer component={Paper} style={{maxHeight: "100%", overflowY: "scroll"}}>
-                        <Table className={classes.table} stickyHeader aria-label="players table">
+                        <Table stickyHeader aria-label="players table">
                             <TableHead>
                                 <TableRow>
                                     <TableCell>ID</TableCell>
@@ -102,15 +79,4 @@ class PlayerListV3 extends React.Component {
     }
 }
 
-// Render an item or a loading indicator.
-// TODO: Work out how to better handle slotAvailability to allow AddToBlock for each row.
-class PlayerRow extends React.Component {
-
-    constructor(props) {
-        super(props);
-    }
-
-
-}
-
-export default withStyles(styles)(PlayerListV3);
+export default PlayerListV3;

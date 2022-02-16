@@ -1,8 +1,6 @@
-import {TableCell, TableRow, Tooltip} from "@material-ui/core";
+import {TableCell, TableRow} from "@material-ui/core";
 import React from "react";
 import makeStyles from "@material-ui/core/styles/makeStyles";
-import Grid from "@material-ui/core/Grid";
-import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles((theme) => ({
     rootContainer: {
@@ -38,7 +36,6 @@ export default function PlayerAnalysisTableRow(props) {
             <TableCell align="center">{props.player.age}</TableCell>
             <TableCell align="center">{props.player.price}</TableCell>
             <TableCell align="center">{props.player.price}</TableCell>
-
         </TableRow>
     )
 

@@ -30,12 +30,9 @@ import BlockPlayerContainer from "./details/BlockDetailsContainer";
 
 const styles = theme => ({
     rootContainer: {
-        height: "100%",
+        height: "var(--draft-room-block-height)",
+        overflow: "hidden",
     },
-    // TODO: Potentially add maxHeight or height of 100% to all Grid Items.
-    gridItem: {
-        maxHeight: "100%",
-    }
 });
 
 class DraftRoomBlock extends React.Component {

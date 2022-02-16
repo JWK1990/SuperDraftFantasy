@@ -1,15 +1,24 @@
 import React from "react";
-import {VariableSizeList} from "react-window";
+import {FixedSizeList} from "react-window";
 import AutoSizer from "react-virtualized-auto-sizer";
 import InfiniteLoader from "react-window-infinite-loader";
-import {Accordion, AccordionDetails, AccordionSummary} from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import PlayerAnalysisTableRow from "./PlayerAnalysisTableRow";
-import ExpandedPlayerContainer from "./ExpandedPlayerContainer";
-import DraftRoomPlayersSelected from "./selected/Selected";
-import PlayerAnalysisTableHeader from "./PlayerAnalysisTableHeader";
+import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
+import makeStyles from "@material-ui/core/styles/makeStyles";
+
+const useStyles = makeStyles((theme) => ({
+    centerAlign: {
+        display: "grid",
+        alignItems: "center",
+        justifyContent: "center",
+    },
+    leftAlign: {
+        display: "grid",
+        alignItems: "center",
+        justifyContent: "left",
+    },
+}));
 
 export default function UpdatedPlayerList({
     // Are there more items to load?
@@ -22,10 +31,6 @@ export default function UpdatedPlayerList({
     items,
     // Callback function responsible for loading the next page of items.
     loadNextPage,
-    // Update the expandedPanelIndex index.
-    expandedPanelIndex,
-    // Handle click of panel.
-    handleChange,
 }) {
     // If there are more items to be loaded then add an extra row to hold a loading indicator.
     const itemCount = hasNextPage ? items.length + 1 : items.length;
@@ -37,80 +42,63 @@ export default function UpdatedPlayerList({
     // Every row is loaded except for our loading indicator row.
     const isItemLoaded = index => !hasNextPage || index < items.length;
 
-    const getItemSize = index => {
-        // Expanded row height is var(--player-card-height) + 50px (non-expanded row) + 42px (additional padding).
-        return (items.length > 0 && index === expandedPanelIndex) ? 332 : 50;
-    }
+    const classes = useStyles();
+    const rowHeight = 50;
 
     // Render an item or a loading indicator.
     // TODO: Work out how to better handle slotAvailability to allow AddToBlock for each row.
     const PlayerRow = ({ index, style }) => {
+        const player = items[index];
         return (
-                <Accordion
-                    style={style} key={index}
-                    expanded={expandedPanelIndex === index}
-                    onChange={handleChange(index, listRef)}
-                    TransitionProps={{unmountOnExit: true}}
-                >
-                    <AccordionSummary
-                        expandIcon={<ExpandMoreIcon />}
-                        aria-controls="player-content"
-                        id="player-header"
-                    >
-                        {
-                            !isItemLoaded(index)
-                                ? <Typography>Loading Players...</Typography>
-                                : <PlayerAnalysisTableRow player={items[index]} />
-                        }
-                    </AccordionSummary>
-                    <AccordionDetails>
-                        <ExpandedPlayerContainer component={DraftRoomPlayersSelected} player={items[index]}/>
-                    </AccordionDetails>
-                </Accordion>
+            !isItemLoaded(index)
+                ? <Typography>Loading Players...</Typography>
+                : <Grid container item key={player.id} style={style}>
+                    <Grid item xs={1} className={classes.centerAlign}>{player.id}</Grid>
+                    <Grid item xs={3} className={classes.leftAlign}>{player.fullName}</Grid>
+                    <Grid item xs={2} className={classes.leftAlign}>{player.fullPosition}</Grid>
+                    <Grid item xs={1} className={classes.leftAlign}>{player.aflTeam}</Grid>
+                    <Grid item xs={1} className={classes.centerAlign}>{player.average}</Grid>
+                    <Grid item xs={2} className={classes.centerAlign}>{player.disposals} &nbsp;({player.disposalEfficiency}%)</Grid>
+                    <Grid item xs={1} className={classes.centerAlign}>{player.age}</Grid>
+                    <Grid item xs={1} className={classes.centerAlign}>$10</Grid>
+                </Grid>
         )
     };
 
-
-    const listRef = React.createRef();
-
     return (
-        <Grid container item style={{height: "100%"}}>
-            <Grid item xs={12}>
-                <PlayerAnalysisTableHeader />
+        <Grid container component={Paper} direction={"column"} style={{height: "var(--draft-room-player-list-height)"}}>
+            <Grid container item style={{paddingRight: "15.33px", height: rowHeight}}>
+                <Grid item xs={1} className={classes.centerAlign}>ID</Grid>
+                <Grid item xs={3} className={classes.leftAlign}>Name</Grid>
+                <Grid item xs={2} className={classes.leftAlign}>Pos</Grid>
+                <Grid item xs={1} className={classes.leftAlign}>Team</Grid>
+                <Grid item xs={1} className={classes.centerAlign}>SC</Grid>
+                <Grid item xs={2} className={classes.centerAlign}>Disp (DE)</Grid>
+                <Grid item xs={1} className={classes.centerAlign}>Age</Grid>
+                <Grid item xs={1} className={classes.centerAlign}>$ ('20)</Grid>
             </Grid>
-            <Grid item xs={12}>
-                <InfiniteLoader
-                    isItemLoaded={isItemLoaded}
-                    itemCount={itemCount}
-                    loadMoreItems={loadMoreItems}
-                >
-                    {({ onItemsRendered, ref }) => (
-                        <AutoSizer>
-                            {({height, width}) => (
-                                <VariableSizeList
-                                    className="playerList"
-                                    height={height}
-                                    width={width}
-                                    itemCount={itemCount}
-                                    itemSize={getItemSize}
-                                    onItemsRendered={onItemsRendered}
-                                    ref={list => {
-                                        /* The below code is required to be able to access the listRef externally
-                                            for calling resetAfterIndex to recalculate the row heights when they are expanded.
-                                            See comment from bvaughn here
-                                            https://github.com/bvaughn/react-window/issues/324#issuecomment-528887341.
-                                        */
-                                        ref(list); // Give InfiniteLoader a reference to the list
-                                        listRef.current = list; // Set our own ref to it as well.
-                                    }}
-                                >
-                                    {PlayerRow}
-                                </VariableSizeList>
-                            )}
-                        </AutoSizer>
-                    )}
-                </InfiniteLoader>
-            </Grid>
+            <InfiniteLoader
+                isItemLoaded={isItemLoaded}
+                itemCount={itemCount}
+                loadMoreItems={loadMoreItems}
+            >
+                {({ onItemsRendered, ref }) => (
+                    <AutoSizer>
+                        {({height, width}) => (
+                            <FixedSizeList
+                                height={height - rowHeight} // Minus rowHeight to cater for header row.
+                                width={width}
+                                itemCount={itemCount}
+                                itemSize={rowHeight}
+                                onItemsRendered={onItemsRendered}
+                                ref={ref}
+                            >
+                                {PlayerRow}
+                            </FixedSizeList>
+                        )}
+                    </AutoSizer>
+                )}
+            </InfiniteLoader>
         </Grid>
     )
 };

@@ -10,8 +10,7 @@ import {withStyles} from "@material-ui/core";
 import DraftDetailsContainer from "./draftDetails/DraftDetailsContainer";
 import TeamListV2 from "./myTeam/TeamListV2";
 import TeamsV2 from "./teams/TeamsV2";
-import PlayerFilter from "./statistics/players/PlayerFilter";
-import PlayerListV3 from "./statistics/players/PlayerListV3";
+import UpdatedPlayerListContainer from "./statistics/players/UpdatedPlayerListContainer";
 
 const styles = {
     rootContainer: {
@@ -67,7 +66,7 @@ class DraftRoom extends React.Component {
 
         return (
             <Grid container spacing={1} className={classes.rootContainer}>
-                <Grid container item xs={2} spacing={1} style={{height: "100%", maxHeight: "100vh", overflow: "auto"}}>
+                <Grid container item xs={2} style={{height: "100%", maxHeight: "100vh", overflow: "auto"}}>
                     <Grid item xs={12}>
                         <DraftDetailsContainer/>
                     </Grid>
@@ -75,15 +74,15 @@ class DraftRoom extends React.Component {
                         <TeamsV2/>
                     </Grid>
                 </Grid>
-                <Grid container item xs={8} spacing={1} style={{height: "100%", maxHeight: "100vh", overflow: "auto"}}>
-                    <Grid item xs={12} style={{height: "20%"}}>
+                <Grid container item xs={8} style={{height: "100%", maxHeight: "100vh"}}>
+                    <Grid item xs={12}>
                         <DraftRoomBlock/>
                     </Grid>
-                    <Grid item xs={12} style={{height: "80%"}}>
-                        <PlayerListV3/>
+                    <Grid item xs={12}>
+                        <UpdatedPlayerListContainer/>
                     </Grid>
                 </Grid>
-                <Grid container item xs={2} spacing={1} style={{height: "100%", maxHeight: "100vh", overflow: "auto"}}>
+                <Grid container item xs={2} style={{height: "100%", maxHeight: "100vh", overflow: "auto"}}>
                     <Grid item xs={12}>
                         <TeamListV2/>
                     </Grid>
