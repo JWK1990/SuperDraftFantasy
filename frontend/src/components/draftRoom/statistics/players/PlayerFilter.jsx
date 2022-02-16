@@ -54,105 +54,8 @@ const styles = {
 }
 
 class PlayerFilter extends React.PureComponent {
-    state = {
-        hasNextPage: true,
-        isNextPageLoading: false,
-        items: [],
-        expandedPanelIndex: false,
-        lastNameSearch: '',
-        positionFilter: '',
-        isHideDraftedFilterOn: true,
-        typingTimer: null,
-        checkedDEF: false,
-        checkedMID: false,
-        checkedRUC: false,
-        checkedFWD: false,
-    };
-
-    _loadNextPage = () => {
-        this.setState({isNextPageLoading: true}, () => {
-            const positionFilter = this.getPositionFilterList();
-            DraftService.getPlayersPageByDraft(
-                this.props.draftId,
-                this.state.items.length/25,
-                25,
-                this.state.lastNameSearch,
-                positionFilter,
-                this.state.isHideDraftedFilterOn,
-            )
-                .then(players => {
-                    this.setState(state => ({
-                            /* Players are loaded in batches of 25 and therefore hasNextPage is calculated in batches of 25.
-                               If the last batch contained the last player, then hasNextPage is false (hence the 778-25).
-                            */
-                            hasNextPage: state.items.length < (players.data.totalElements - 25),
-                            isNextPageLoading: false,
-                            items: [...state.items].concat(players.data.content),
-                        }));
-                    }
-                );
-        });
-    };
-
-    getPositionFilterList() {
-        let positionFilter = "";
-        if(this.state.checkedDEF) {
-            positionFilter += "DEF"
-        }
-        if(this.state.checkedMID) {
-            positionFilter += "MID"
-        }
-        if(this.state.checkedRUC) {
-            positionFilter += "RUC"
-        }
-        if(this.state.checkedFWD) {
-            positionFilter += "FWD"
-        }
-        return positionFilter;
-    }
-
-    handleExpandedPanelChange = (panelId, listRef) => (event, isExpanded) => {
-        const previouslyExpandedPanelIndex = this.state.expandedPanelIndex;
-        this.setState({expandedPanelIndex: isExpanded ? panelId : false})
-        // Required to recalculate the rowHeights when rows are expanded.
-        if(listRef.current) {
-            // Recalculate rowHeights from the first row that was affected by the expansion change.
-            const startIndex = previouslyExpandedPanelIndex < panelId ? previouslyExpandedPanelIndex : panelId;
-            listRef.current.resetAfterIndex(startIndex);
-        }
-    };
-
-    handleSwitchChange = (event) => {
-        this.setState({
-            isHideDraftedFilterOn: event.target.checked,
-            items: [],
-        });
-        this._loadNextPage();
-    }
-
-    handleSearchChange = (event) => {
-        this.setState({lastNameSearch: event.target.value})
-        clearTimeout(this.state.typingTimer);
-        const typingTimer = setTimeout(() => {
-            this.triggerItemsUpdate();
-            }, 500)
-        this.setState({typingTimer: typingTimer});
-    }
-
-    handlePositionFilterChange = (event) => {
-        this.setState({ ...this.state, [event.target.name]: event.target.checked });
-        this.triggerItemsUpdate();
-    }
-
-    triggerItemsUpdate = () => {
-        this.setState({
-            items: [],
-        });
-        this._loadNextPage();
-    }
 
     render() {
-        const { hasNextPage, isNextPageLoading, items, expandedPanelIndex, isHideDraftedFilterOn } = this.state;
         const {classes} = this.props;
 
         return(
@@ -163,8 +66,8 @@ class PlayerFilter extends React.PureComponent {
                             id="outlined-basic"
                             label="Search Name"
                             variant="outlined"
-                            value={this.state.lastNameSearch}
-                            onChange={this.handleSearchChange}
+                            value={this.props.lastNameSearch}
+                            onChange={this.props.triggerSearchChange}
                             size={"small"}
                         />
                     </Grid>
@@ -173,8 +76,8 @@ class PlayerFilter extends React.PureComponent {
                                 control={
                                     <Checkbox
                                         className={classes.checkboxDef}
-                                        checked={this.state.checkedDEF}
-                                        onChange={this.handlePositionFilterChange}
+                                        checked={this.props.checkedDEF}
+                                        onChange={this.props.triggerPositionFilterChange}
                                         name="checkedDEF"
                                         size={"small"}
                                     />
@@ -186,8 +89,8 @@ class PlayerFilter extends React.PureComponent {
                                 control={
                                     <Checkbox
                                         className={classes.checkboxMid}
-                                        checked={this.state.checkedMID}
-                                        onChange={this.handlePositionFilterChange}
+                                        checked={this.props.checkedMID}
+                                        onChange={this.props.triggerPositionFilterChange}
                                         name="checkedMID"
                                         size={"small"}
                                     />
@@ -199,8 +102,8 @@ class PlayerFilter extends React.PureComponent {
                                 control={
                                     <Checkbox
                                         className={classes.checkboxRuc}
-                                        checked={this.state.checkedRUC}
-                                        onChange={this.handlePositionFilterChange}
+                                        checked={this.props.checkedRUC}
+                                        onChange={this.props.triggerPositionFilterChange}
                                         name="checkedRUC"
                                         size={"small"}
                                     />
@@ -212,8 +115,8 @@ class PlayerFilter extends React.PureComponent {
                                 control={
                                     <Checkbox
                                         className={classes.checkboxFwd}
-                                        checked={this.state.checkedFWD}
-                                        onChange={this.handlePositionFilterChange}
+                                        checked={this.props.checkedFWD}
+                                        onChange={this.props.triggerPositionFilterChange}
                                         name="checkedFWD"
                                         size={"small"}
                                     />
@@ -226,8 +129,8 @@ class PlayerFilter extends React.PureComponent {
                         <FormControlLabel
                             control={
                                 <Switch
-                                    checked={this.state.isHideDraftedFilterOn}
-                                    onChange={this.handleSwitchChange}
+                                    checked={this.props.isHideDraftedFilterOn}
+                                    onChange={this.props.triggerSwitchChange}
                                     name="hideDraftedFilter"
                                     color="primary"
                                 />

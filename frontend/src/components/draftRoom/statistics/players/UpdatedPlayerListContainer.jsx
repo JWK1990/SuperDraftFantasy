@@ -2,49 +2,9 @@ import React from "react";
 import DraftService from "../../../../services/DraftService";
 import {draftIdSelector} from "../../../../store/selectors/DraftSelectors";
 import {connect} from "react-redux";
-import withStyles from "@material-ui/core/styles/withStyles";
 import Grid from "@material-ui/core/Grid";
 import PlayerFilter from "./PlayerFilter";
 import UpdatedPlayerList from "./UpdatedPlayerList";
-
-const styles = {
-    filterDiv: {
-        height: "100%",
-    },
-    checkboxDef: {
-        color: "var(--def-color-primary) !important",
-    },
-    checkboxMid: {
-        color: "var(--mid-color-primary)!important",
-    },
-    checkboxRuc: {
-        color: "#FFA500",
-    },
-    checkboxFwd: {
-        color: "var(--fwd-color-primary) !important",
-    },
-    labelDef: {
-        color: "var(--def-color-primary)",
-        paddingRight: 20,
-    },
-    labelMid: {
-        color: "var(--mid-color-primary)",
-        paddingRight: 20,
-    },
-    labelRuc: {
-        color: "#FFA500",
-        paddingRight: 20,
-    },
-    labelFwd: {
-        color: "var(--fwd-color-primary)",
-        paddingRight: 20,
-    },
-    flexColScroll: {
-        flexGrow: 1,
-        overflow: "auto",
-        minHeight: "100%",
-    }
-}
 
 class UpdatedPlayerListContainer extends React.PureComponent {
     state = {
@@ -104,17 +64,6 @@ class UpdatedPlayerListContainer extends React.PureComponent {
         return positionFilter;
     }
 
-    handleExpandedPanelChange = (panelId, listRef) => (event, isExpanded) => {
-        const previouslyExpandedPanelIndex = this.state.expandedPanelIndex;
-        this.setState({expandedPanelIndex: isExpanded ? panelId : false})
-        // Required to recalculate the rowHeights when rows are expanded.
-        if(listRef.current) {
-            // Recalculate rowHeights from the first row that was affected by the expansion change.
-            const startIndex = previouslyExpandedPanelIndex < panelId ? previouslyExpandedPanelIndex : panelId;
-            listRef.current.resetAfterIndex(startIndex);
-        }
-    };
-
     handleSwitchChange = (event) => {
         this.setState({
             isHideDraftedFilterOn: event.target.checked,
@@ -124,6 +73,7 @@ class UpdatedPlayerListContainer extends React.PureComponent {
     }
 
     handleSearchChange = (event) => {
+        console.log(event);
         this.setState({lastNameSearch: event.target.value})
         clearTimeout(this.state.typingTimer);
         const typingTimer = setTimeout(() => {
@@ -145,13 +95,22 @@ class UpdatedPlayerListContainer extends React.PureComponent {
     }
 
     render() {
-        const { hasNextPage, isNextPageLoading, items, expandedPanelIndex, isHideDraftedFilterOn } = this.state;
-        const {classes} = this.props;
+        const { hasNextPage, isNextPageLoading, items, isHideDraftedFilterOn } = this.state;
 
         return(
             <Grid container>
                 <Grid item xs={12}>
-                    <PlayerFilter/>
+                    <PlayerFilter
+                        lastNameSearch={this.state.lastNameSearch}
+                        checkedDEF={this.state.checkedDEF}
+                        checkedMID={this.state.checkedMID}
+                        checkedRUC={this.state.checkedRUC}
+                        checkedFWD={this.state.checkedFWD}
+                        isHideDraftedFilterOn={this.state.isHideDraftedFilterOn}
+                        triggerPositionFilterChange={this.handlePositionFilterChange}
+                        triggerSearchChange={this.handleSearchChange}
+                        triggerSwitchChange={this.handleSwitchChange}
+                    />
                 </Grid>
                 <Grid item xs={12}>
                     <UpdatedPlayerList
@@ -173,4 +132,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps)(withStyles(styles)(UpdatedPlayerListContainer));
+export default connect(mapStateToProps)(UpdatedPlayerListContainer);
