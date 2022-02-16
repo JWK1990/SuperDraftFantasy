@@ -63,7 +63,7 @@ class TeamsV2 extends React.Component {
                             <Grid item xs={12} className={classes.gridItem}>
                                 <TeamCardV2
                                     team={slot.content.team}
-                                    numOfPlayersRequired={10}
+                                    numOfPlayersRequired={this.props.numOfPlayersRequired}
                                 />
                             </Grid>
                         )

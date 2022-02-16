@@ -6,8 +6,12 @@ import Typography from "@material-ui/core/Typography";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import makeStyles from "@material-ui/core/styles/makeStyles";
+import PlayerRow from "./PlayerRow";
 
 const useStyles = makeStyles((theme) => ({
+    header: {
+        fontWeight: "bold",
+    },
     centerAlign: {
         display: "grid",
         alignItems: "center",
@@ -45,37 +49,26 @@ export default function UpdatedPlayerList({
     const classes = useStyles();
     const rowHeight = 50;
 
-    // Render an item or a loading indicator.
-    // TODO: Work out how to better handle slotAvailability to allow AddToBlock for each row.
-    const PlayerRow = ({ index, style }) => {
+    const PlayerRowContainer = ({ index, style }) => {
         const player = items[index];
         return (
             !isItemLoaded(index)
                 ? <Typography>Loading Players...</Typography>
-                : <Grid container item key={player.id} style={style}>
-                    <Grid item xs={1} className={classes.centerAlign}>{player.id}</Grid>
-                    <Grid item xs={3} className={classes.leftAlign}>{player.fullName}</Grid>
-                    <Grid item xs={2} className={classes.leftAlign}>{player.fullPosition}</Grid>
-                    <Grid item xs={1} className={classes.leftAlign}>{player.aflTeam}</Grid>
-                    <Grid item xs={1} className={classes.centerAlign}>{player.average}</Grid>
-                    <Grid item xs={2} className={classes.centerAlign}>{player.disposals} &nbsp;({player.disposalEfficiency}%)</Grid>
-                    <Grid item xs={1} className={classes.centerAlign}>{player.age}</Grid>
-                    <Grid item xs={1} className={classes.centerAlign}>$10</Grid>
-                </Grid>
+                : <PlayerRow sizingStyle={style} player={player}/>
         )
     };
 
     return (
         <Grid container component={Paper} direction={"column"} style={{height: "var(--draft-room-player-list-height)"}}>
             <Grid container item style={{paddingRight: "15.33px", height: rowHeight}}>
-                <Grid item xs={1} className={classes.centerAlign}>ID</Grid>
-                <Grid item xs={3} className={classes.leftAlign}>Name</Grid>
-                <Grid item xs={2} className={classes.leftAlign}>Pos</Grid>
-                <Grid item xs={1} className={classes.leftAlign}>Team</Grid>
-                <Grid item xs={1} className={classes.centerAlign}>SC</Grid>
-                <Grid item xs={2} className={classes.centerAlign}>Disp (DE)</Grid>
-                <Grid item xs={1} className={classes.centerAlign}>Age</Grid>
-                <Grid item xs={1} className={classes.centerAlign}>$ ('20)</Grid>
+                <Grid item xs={1} className={[classes.centerAlign, classes.header]}>&nbsp;</Grid>
+                <Grid item xs={3} className={[classes.leftAlign, classes.header]}>Name</Grid>
+                <Grid item xs={2} className={[classes.leftAlign, classes.header]}>Pos</Grid>
+                <Grid item xs={1} className={[classes.leftAlign, classes.header]}>Team</Grid>
+                <Grid item xs={1} className={[classes.centerAlign, classes.header]}>SC</Grid>
+                <Grid item xs={2} className={[classes.centerAlign, classes.header]}>Disp (DE)</Grid>
+                <Grid item xs={1} className={[classes.centerAlign, classes.header]}>Age</Grid>
+                <Grid item xs={1} className={[classes.centerAlign, classes.header]}>$ ('20)</Grid>
             </Grid>
             <InfiniteLoader
                 isItemLoaded={isItemLoaded}
@@ -93,7 +86,7 @@ export default function UpdatedPlayerList({
                                 onItemsRendered={onItemsRendered}
                                 ref={ref}
                             >
-                                {PlayerRow}
+                                {PlayerRowContainer}
                             </FixedSizeList>
                         )}
                     </AutoSizer>

@@ -1,5 +1,4 @@
 import React from "react";
-import DraftService from "../../../../services/DraftService";
 import {draftIdSelector} from "../../../../store/selectors/DraftSelectors";
 import {connect} from "react-redux";
 import {Checkbox, createMuiTheme, FormControlLabel, MuiThemeProvider, Switch, TextField} from "@material-ui/core";
