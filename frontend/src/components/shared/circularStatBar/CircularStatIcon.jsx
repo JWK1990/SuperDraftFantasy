@@ -9,7 +9,7 @@ import RoosterSymbol from "../../../images/purchaseReviewSymbols/RoosterSymbol.s
 
 const useStyles = makeStyles((theme) => ({
     wrapper: {
-        margin: theme.spacing(2),
+        margin: theme.spacing(1),
         position: 'relative',
     },
     fabProgress: {
@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
         color: red[500],
     },
     title: {
-        fontSize: 16,
+        fontSize: 14,
         fontWeight: "bold",
     },
     statButton: {

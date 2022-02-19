@@ -34,6 +34,6 @@ public class PlayerRepositoryQueries {
             "\t\tleft join position_entity pose\n" +
             "\t\t\ton pose.id = ppj.position_id \n" +
             "\twhere pose.\"type\" not IN :positionExclusionList\n" +
-            "\tand filtered_tpje.draft_id is NULL;\n" +
+            "\tand filtered_tpje.draft_id is NULL\n" +
             "\tand pe.is_active is true;";
 }

@@ -25,8 +25,6 @@ const useStyles = makeStyles((theme) => ({
     controls: {
         display: 'flex',
         alignItems: 'center',
-        paddingLeft: theme.spacing(1),
-        paddingBottom: theme.spacing(1),
     },
     playIcon: {
         height: 38,

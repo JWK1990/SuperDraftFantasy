@@ -12,10 +12,6 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-function getPositionMaxAve(position) {
-    return PlayerStatFetcher.getPositionMaxAve(position)
-}
-
 export default function BlockPlayerYearStats(props) {
     const classes = useStyles();
 
@@ -24,7 +20,7 @@ export default function BlockPlayerYearStats(props) {
             <CircularStatIcon
                 statName="AVE"
                 statValue= {props.player.average}
-                maxStatValue= {getPositionMaxAve(props.player.primaryPosition)}
+                maxStatValue= {PlayerStatFetcher.getPositionMaxAve(props.player.primaryPosition)}
                 showHeader={false}
                 showFooter={true}
             />
@@ -39,9 +35,9 @@ export default function BlockPlayerYearStats(props) {
                 : null
             }
             <CircularStatIcon
-                statName="PS"
-                statValue= {props.player.psAverage}
-                maxStatValue= {getPositionMaxAve(props.player.primaryPosition)}
+                statName="DISP"
+                statValue= {props.player.disposals}
+                maxStatValue= {PlayerStatFetcher.getPositionDisposalsAverage(props.player.primaryPosition)}
                 showHeader={false}
                 showFooter={true}
             />

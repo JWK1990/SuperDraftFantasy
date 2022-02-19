@@ -70,3 +70,9 @@ html, body, #root, .App {
     width: 25%;
     min-width: 250px;
 }
+
+/* Removes CartesianGrid lines from the top and bottom of Recharts graphs. */
+.recharts-wrapper .recharts-cartesian-grid-horizontal line:nth-last-child(2),
+.recharts-wrapper .recharts-cartesian-grid-horizontal line:last-child {
+    stroke-opacity: 0;
+}
