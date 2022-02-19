@@ -3,7 +3,7 @@ ALTER TABLE player_entity ADD rooster_rating_2021 int2 NULL;
 ALTER TABLE player_entity ADD price_2021 int2 NULL;
 ALTER TABLE player_entity ADD sd_team_id_2021 int2 NULL;
 
-/* Insert Player Entities. */
+/* Define Player Entities. */
 with player_entities_import_json (import_json) as (
     values
         ('[
@@ -19410,6 +19410,7 @@ with player_entities_import_json (import_json) as (
         ]'::json)
 )
 
+/* Insert Player Entities. */
 INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_games, sc_standard_price, afl_team_id,
                           jumper_number, height, weight, rooster_rating, moneyball_price, price_2016, price_2017,
                           price_2018, price_2019, price_2020, ps_average, sc_average,

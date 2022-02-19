@@ -103,6 +103,6 @@ public class SeasonSummaryEntity {
 
     private Integer hardnessRating;
 
-    private Integer freesRatio;
+    private double freesRatio;
 
 }

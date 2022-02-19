@@ -131,7 +131,7 @@ CREATE TABLE player_entity (
 );
 
 CREATE TABLE player_draft_entity (
-    player_id INT,
+    player_id INT PRIMARY KEY,
     origin VARCHAR(255),
     round SMALLINT,
     pick SMALLINT,
@@ -205,7 +205,7 @@ CREATE TABLE season_summary_entity (
      tackles_inside_fifty DECIMAL(4,1),
      time_on_ground SMALLINT,
      hardness_rating SMALLINT,
-     frees_ratio SMALLINT,
+     frees_ratio DECIMAL(4,1),
 
      CONSTRAINT fk_player_id FOREIGN KEY (player_id) REFERENCES player_entity(id),
      CONSTRAINT fk_afl_team_id FOREIGN KEY (afl_team_id) REFERENCES afl_teams_enum(id)
@@ -215,21 +215,36 @@ CREATE TABLE game_entity (
     id SERIAL,
     player_id SMALLINT,
     year SMALLINT,
+    afl_team_id SMALLINT,
     round SMALLINT,
+    opponent_afl_team_id SMALLINT,
+    result VARCHAR(255),
+    kicks SMALLINT,
+    handballs SMALLINT,
     disposals SMALLINT,
+    marks SMALLINT,
     goals SMALLINT,
+    behinds SMALLINT,
     tackles SMALLINT,
     hitouts SMALLINT,
     clearances SMALLINT,
+    clangers SMALLINT,
+    rebound_fiftys SMALLINT,
+    inside_fiftys SMALLINT,
+    dream_team SMALLINT,
     average SMALLINT,
     contested_possessions SMALLINT,
     uncontested_possessions SMALLINT,
     disposal_efficiency SMALLINT,
+    center_clearances SMALLINT,
     meters_gained SMALLINT,
+    turnovers SMALLINT,
     intercepts SMALLINT,
     time_on_ground SMALLINT,
     hardness_rating SMALLINT,
 
-    CONSTRAINT fk_player_id FOREIGN KEY (player_id) REFERENCES player_entity(id)
+    CONSTRAINT fk_player_id FOREIGN KEY (player_id) REFERENCES player_entity(id),
+    CONSTRAINT fk_afl_team_id FOREIGN KEY (afl_team_id) REFERENCES afl_teams_enum(id),
+    CONSTRAINT fk_opponent_afl_team_id FOREIGN KEY (opponent_afl_team_id) REFERENCES afl_teams_enum(id)
 );
 
