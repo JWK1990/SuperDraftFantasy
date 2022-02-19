@@ -1,7 +1,5 @@
-/* Add Additional Columns. */
-ALTER TABLE player_entity ADD rooster_rating_2021 int2 NULL;
-ALTER TABLE player_entity ADD price_2021 int2 NULL;
-ALTER TABLE player_entity ADD sd_team_id_2021 int2 NULL;
+/* Set All Existing Player Entities To Inactive. */
+UPDATE player_entity SET is_active = false;
 
 /* Define Player Entities. */
 with player_entities_import_json (import_json) as (
@@ -30,7 +28,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 121,
             "rooster_rating_2021": 3,
             "price_2021": 60,
-            "sd_team_id_2021": 9
+            "sd_team_id_2021": 9,
+            "is_active": true
           },
           {
             "id": 2,
@@ -55,7 +54,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 102,
             "rooster_rating_2021": 6,
             "price_2021": 55,
-            "sd_team_id_2021": 1
+            "sd_team_id_2021": 1,
+            "is_active": true
           },
           {
             "id": 3,
@@ -80,7 +80,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 107,
             "rooster_rating_2021": 8,
             "price_2021": 55,
-            "sd_team_id_2021": 9
+            "sd_team_id_2021": 9,
+            "is_active": true
           },
           {
             "id": 4,
@@ -105,7 +106,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 126,
             "rooster_rating_2021": 2,
             "price_2021": 51,
-            "sd_team_id_2021": 4
+            "sd_team_id_2021": 4,
+            "is_active": true
           },
           {
             "id": 5,
@@ -130,7 +132,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 79,
             "rooster_rating_2021": 8,
             "price_2021": 40,
-            "sd_team_id_2021": 1
+            "sd_team_id_2021": 1,
+            "is_active": true
           },
           {
             "id": 6,
@@ -155,7 +158,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 126,
             "rooster_rating_2021": 7,
             "price_2021": 45,
-            "sd_team_id_2021": 5
+            "sd_team_id_2021": 5,
+            "is_active": true
           },
           {
             "id": 7,
@@ -180,7 +184,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 130,
             "rooster_rating_2021": 5,
             "price_2021": 54,
-            "sd_team_id_2021": 9
+            "sd_team_id_2021": 9,
+            "is_active": true
           },
           {
             "id": 8,
@@ -205,7 +210,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 115,
             "rooster_rating_2021": 8,
             "price_2021": 58,
-            "sd_team_id_2021": 5
+            "sd_team_id_2021": 5,
+            "is_active": true
           },
           {
             "id": 9,
@@ -230,7 +236,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 115,
             "rooster_rating_2021": 6,
             "price_2021": 46,
-            "sd_team_id_2021": 5
+            "sd_team_id_2021": 5,
+            "is_active": true
           },
           {
             "id": 10,
@@ -255,7 +262,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 115,
             "rooster_rating_2021": 6,
             "price_2021": 48,
-            "sd_team_id_2021": 6
+            "sd_team_id_2021": 6,
+            "is_active": true
           },
           {
             "id": 11,
@@ -280,7 +288,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 107,
             "rooster_rating_2021": 7,
             "price_2021": 49,
-            "sd_team_id_2021": 4
+            "sd_team_id_2021": 4,
+            "is_active": true
           },
           {
             "id": 12,
@@ -305,7 +314,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 117,
             "rooster_rating_2021": 5,
             "price_2021": 48,
-            "sd_team_id_2021": 3
+            "sd_team_id_2021": 3,
+            "is_active": true
           },
           {
             "id": 13,
@@ -330,7 +340,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 120,
             "rooster_rating_2021": 9,
             "price_2021": 53,
-            "sd_team_id_2021": 9
+            "sd_team_id_2021": 9,
+            "is_active": true
           },
           {
             "id": 14,
@@ -355,7 +366,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 103,
             "rooster_rating_2021": 5,
             "price_2021": 57,
-            "sd_team_id_2021": 2
+            "sd_team_id_2021": 2,
+            "is_active": true
           },
           {
             "id": 15,
@@ -380,7 +392,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 100,
             "rooster_rating_2021": 4,
             "price_2021": 45,
-            "sd_team_id_2021": 8
+            "sd_team_id_2021": 8,
+            "is_active": true
           },
           {
             "id": 16,
@@ -405,7 +418,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 101,
             "rooster_rating_2021": 5,
             "price_2021": 20,
-            "sd_team_id_2021": 3
+            "sd_team_id_2021": 3,
+            "is_active": true
           },
           {
             "id": 17,
@@ -430,7 +444,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 87,
             "rooster_rating_2021": 7,
             "price_2021": 33,
-            "sd_team_id_2021": 5
+            "sd_team_id_2021": 5,
+            "is_active": true
           },
           {
             "id": 18,
@@ -455,7 +470,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": 5,
             "price_2021": 36,
-            "sd_team_id_2021": 6
+            "sd_team_id_2021": 6,
+            "is_active": true
           },
           {
             "id": 19,
@@ -480,7 +496,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 116,
             "rooster_rating_2021": 6,
             "price_2021": 33,
-            "sd_team_id_2021": 3
+            "sd_team_id_2021": 3,
+            "is_active": true
           },
           {
             "id": 20,
@@ -505,7 +522,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 115,
             "rooster_rating_2021": 6,
             "price_2021": 18,
-            "sd_team_id_2021": 8
+            "sd_team_id_2021": 8,
+            "is_active": true
           },
           {
             "id": 21,
@@ -530,7 +548,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 95,
             "rooster_rating_2021": 6,
             "price_2021": 30,
-            "sd_team_id_2021": 6
+            "sd_team_id_2021": 6,
+            "is_active": true
           },
           {
             "id": 22,
@@ -555,7 +574,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 99,
             "rooster_rating_2021": 5,
             "price_2021": 21,
-            "sd_team_id_2021": 5
+            "sd_team_id_2021": 5,
+            "is_active": true
           },
           {
             "id": 23,
@@ -580,7 +600,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 87,
             "rooster_rating_2021": 8,
             "price_2021": 32,
-            "sd_team_id_2021": 2
+            "sd_team_id_2021": 2,
+            "is_active": true
           },
           {
             "id": 24,
@@ -605,7 +626,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 106,
             "rooster_rating_2021": 9,
             "price_2021": 18,
-            "sd_team_id_2021": 7
+            "sd_team_id_2021": 7,
+            "is_active": true
           },
           {
             "id": 25,
@@ -630,7 +652,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 94,
             "rooster_rating_2021": 7,
             "price_2021": 31,
-            "sd_team_id_2021": 7
+            "sd_team_id_2021": 7,
+            "is_active": true
           },
           {
             "id": 26,
@@ -655,7 +678,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 91,
             "rooster_rating_2021": 6,
             "price_2021": 20,
-            "sd_team_id_2021": 7
+            "sd_team_id_2021": 7,
+            "is_active": true
           },
           {
             "id": 28,
@@ -680,7 +704,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 99,
             "rooster_rating_2021": 6,
             "price_2021": 1,
-            "sd_team_id_2021": 4
+            "sd_team_id_2021": 4,
+            "is_active": true
           },
           {
             "id": 29,
@@ -705,7 +730,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 91,
             "rooster_rating_2021": 7,
             "price_2021": 38,
-            "sd_team_id_2021": 6
+            "sd_team_id_2021": 6,
+            "is_active": true
           },
           {
             "id": 30,
@@ -730,7 +756,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 93,
             "rooster_rating_2021": 7,
             "price_2021": 19,
-            "sd_team_id_2021": 5
+            "sd_team_id_2021": 5,
+            "is_active": true
           },
           {
             "id": 31,
@@ -755,7 +782,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 125,
             "rooster_rating_2021": 8,
             "price_2021": 20,
-            "sd_team_id_2021": 1
+            "sd_team_id_2021": 1,
+            "is_active": true
           },
           {
             "id": 32,
@@ -780,7 +808,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 96,
             "rooster_rating_2021": 4,
             "price_2021": 7,
-            "sd_team_id_2021": 10
+            "sd_team_id_2021": 10,
+            "is_active": true
           },
           {
             "id": 33,
@@ -805,7 +834,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 109,
             "rooster_rating_2021": 8,
             "price_2021": 22,
-            "sd_team_id_2021": 8
+            "sd_team_id_2021": 8,
+            "is_active": true
           },
           {
             "id": 34,
@@ -830,7 +860,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 82,
             "rooster_rating_2021": 6,
             "price_2021": 12,
-            "sd_team_id_2021": 8
+            "sd_team_id_2021": 8,
+            "is_active": true
           },
           {
             "id": 35,
@@ -855,7 +886,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 116,
             "rooster_rating_2021": 6,
             "price_2021": 45,
-            "sd_team_id_2021": 10
+            "sd_team_id_2021": 10,
+            "is_active": true
           },
           {
             "id": 36,
@@ -880,7 +912,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 103,
             "rooster_rating_2021": 5,
             "price_2021": 25,
-            "sd_team_id_2021": 1
+            "sd_team_id_2021": 1,
+            "is_active": true
           },
           {
             "id": 37,
@@ -905,7 +938,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 93,
             "rooster_rating_2021": 7,
             "price_2021": 46,
-            "sd_team_id_2021": 9
+            "sd_team_id_2021": 9,
+            "is_active": true
           },
           {
             "id": 38,
@@ -930,7 +964,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 90,
             "rooster_rating_2021": 6,
             "price_2021": 30,
-            "sd_team_id_2021": 1
+            "sd_team_id_2021": 1,
+            "is_active": true
           },
           {
             "id": 39,
@@ -955,7 +990,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 91,
             "rooster_rating_2021": 5,
             "price_2021": 32,
-            "sd_team_id_2021": 8
+            "sd_team_id_2021": 8,
+            "is_active": true
           },
           {
             "id": 40,
@@ -980,7 +1016,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 94,
             "rooster_rating_2021": 5,
             "price_2021": 34,
-            "sd_team_id_2021": 3
+            "sd_team_id_2021": 3,
+            "is_active": true
           },
           {
             "id": 41,
@@ -1005,7 +1042,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 94,
             "rooster_rating_2021": 5,
             "price_2021": 46,
-            "sd_team_id_2021": 6
+            "sd_team_id_2021": 6,
+            "is_active": true
           },
           {
             "id": 42,
@@ -1030,7 +1068,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 99,
             "rooster_rating_2021": 6,
             "price_2021": 45,
-            "sd_team_id_2021": 2
+            "sd_team_id_2021": 2,
+            "is_active": true
           },
           {
             "id": 43,
@@ -1055,7 +1094,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 113,
             "rooster_rating_2021": 4,
             "price_2021": 21,
-            "sd_team_id_2021": 1
+            "sd_team_id_2021": 1,
+            "is_active": true
           },
           {
             "id": 44,
@@ -1080,7 +1120,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 110,
             "rooster_rating_2021": 5,
             "price_2021": 15,
-            "sd_team_id_2021": 10
+            "sd_team_id_2021": 10,
+            "is_active": true
           },
           {
             "id": 45,
@@ -1105,7 +1146,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 99,
             "rooster_rating_2021": 5,
             "price_2021": 31,
-            "sd_team_id_2021": 3
+            "sd_team_id_2021": 3,
+            "is_active": true
           },
           {
             "id": 46,
@@ -1130,7 +1172,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 101,
             "rooster_rating_2021": 6,
             "price_2021": 23,
-            "sd_team_id_2021": 4
+            "sd_team_id_2021": 4,
+            "is_active": true
           },
           {
             "id": 47,
@@ -1155,7 +1198,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": 6,
             "price_2021": 1,
-            "sd_team_id_2021": 5
+            "sd_team_id_2021": 5,
+            "is_active": true
           },
           {
             "id": 48,
@@ -1180,7 +1224,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 109,
             "rooster_rating_2021": 4,
             "price_2021": 22,
-            "sd_team_id_2021": 3
+            "sd_team_id_2021": 3,
+            "is_active": true
           },
           {
             "id": 49,
@@ -1205,7 +1250,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 87,
             "rooster_rating_2021": 7,
             "price_2021": 11,
-            "sd_team_id_2021": 1
+            "sd_team_id_2021": 1,
+            "is_active": true
           },
           {
             "id": 50,
@@ -1230,7 +1276,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 31,
             "rooster_rating_2021": 4,
             "price_2021": 2,
-            "sd_team_id_2021": 3
+            "sd_team_id_2021": 3,
+            "is_active": true
           },
           {
             "id": 51,
@@ -1255,7 +1302,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 100,
             "rooster_rating_2021": 7,
             "price_2021": 23,
-            "sd_team_id_2021": 5
+            "sd_team_id_2021": 5,
+            "is_active": true
           },
           {
             "id": 53,
@@ -1280,7 +1328,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 72,
             "rooster_rating_2021": 6,
             "price_2021": 21,
-            "sd_team_id_2021": 2
+            "sd_team_id_2021": 2,
+            "is_active": true
           },
           {
             "id": 54,
@@ -1305,7 +1354,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 107,
             "rooster_rating_2021": 6,
             "price_2021": 1,
-            "sd_team_id_2021": 3
+            "sd_team_id_2021": 3,
+            "is_active": true
           },
           {
             "id": 55,
@@ -1330,7 +1380,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 64,
             "rooster_rating_2021": 8,
             "price_2021": 12,
-            "sd_team_id_2021": 7
+            "sd_team_id_2021": 7,
+            "is_active": true
           },
           {
             "id": 56,
@@ -1355,7 +1406,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 112,
             "rooster_rating_2021": 5,
             "price_2021": 45,
-            "sd_team_id_2021": 10
+            "sd_team_id_2021": 10,
+            "is_active": true
           },
           {
             "id": 57,
@@ -1380,7 +1432,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 108,
             "rooster_rating_2021": 6,
             "price_2021": 26,
-            "sd_team_id_2021": 6
+            "sd_team_id_2021": 6,
+            "is_active": true
           },
           {
             "id": 58,
@@ -1405,7 +1458,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 117,
             "rooster_rating_2021": 6,
             "price_2021": 24,
-            "sd_team_id_2021": 6
+            "sd_team_id_2021": 6,
+            "is_active": true
           },
           {
             "id": 59,
@@ -1430,7 +1484,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": 5,
             "price_2021": 1,
-            "sd_team_id_2021": 9
+            "sd_team_id_2021": 9,
+            "is_active": true
           },
           {
             "id": 60,
@@ -1455,7 +1510,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 86,
             "rooster_rating_2021": 5,
             "price_2021": 12,
-            "sd_team_id_2021": 7
+            "sd_team_id_2021": 7,
+            "is_active": true
           },
           {
             "id": 61,
@@ -1480,7 +1536,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 64,
             "rooster_rating_2021": 6,
             "price_2021": 34,
-            "sd_team_id_2021": 7
+            "sd_team_id_2021": 7,
+            "is_active": true
           },
           {
             "id": 62,
@@ -1505,7 +1562,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 60,
             "rooster_rating_2021": 5,
             "price_2021": 30,
-            "sd_team_id_2021": 2
+            "sd_team_id_2021": 2,
+            "is_active": true
           },
           {
             "id": 63,
@@ -1530,7 +1588,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 105,
             "rooster_rating_2021": 7,
             "price_2021": 28,
-            "sd_team_id_2021": 6
+            "sd_team_id_2021": 6,
+            "is_active": true
           },
           {
             "id": 64,
@@ -1555,7 +1614,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 77,
             "rooster_rating_2021": 4,
             "price_2021": 14,
-            "sd_team_id_2021": 8
+            "sd_team_id_2021": 8,
+            "is_active": true
           },
           {
             "id": 65,
@@ -1580,7 +1640,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 84,
             "rooster_rating_2021": 5,
             "price_2021": 2,
-            "sd_team_id_2021": 7
+            "sd_team_id_2021": 7,
+            "is_active": true
           },
           {
             "id": 66,
@@ -1605,7 +1666,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 83,
             "rooster_rating_2021": 6,
             "price_2021": 25,
-            "sd_team_id_2021": 2
+            "sd_team_id_2021": 2,
+            "is_active": true
           },
           {
             "id": 67,
@@ -1630,7 +1692,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 98,
             "rooster_rating_2021": 7,
             "price_2021": 37,
-            "sd_team_id_2021": 10
+            "sd_team_id_2021": 10,
+            "is_active": true
           },
           {
             "id": 68,
@@ -1655,7 +1718,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 86,
             "rooster_rating_2021": 4,
             "price_2021": 1,
-            "sd_team_id_2021": 5
+            "sd_team_id_2021": 5,
+            "is_active": true
           },
           {
             "id": 69,
@@ -1680,7 +1744,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 84,
             "rooster_rating_2021": 6,
             "price_2021": 40,
-            "sd_team_id_2021": 4
+            "sd_team_id_2021": 4,
+            "is_active": true
           },
           {
             "id": 70,
@@ -1705,7 +1770,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 60,
             "rooster_rating_2021": 6,
             "price_2021": 3,
-            "sd_team_id_2021": 3
+            "sd_team_id_2021": 3,
+            "is_active": true
           },
           {
             "id": 71,
@@ -1730,7 +1796,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 92,
             "rooster_rating_2021": 4,
             "price_2021": 27,
-            "sd_team_id_2021": 2
+            "sd_team_id_2021": 2,
+            "is_active": true
           },
           {
             "id": 72,
@@ -1755,7 +1822,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 82,
             "rooster_rating_2021": 4,
             "price_2021": 11,
-            "sd_team_id_2021": 5
+            "sd_team_id_2021": 5,
+            "is_active": true
           },
           {
             "id": 73,
@@ -1780,7 +1848,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 85,
             "rooster_rating_2021": 6,
             "price_2021": 23,
-            "sd_team_id_2021": 2
+            "sd_team_id_2021": 2,
+            "is_active": true
           },
           {
             "id": 74,
@@ -1805,7 +1874,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 93,
             "rooster_rating_2021": 5,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 75,
@@ -1830,7 +1900,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 106,
             "rooster_rating_2021": 6,
             "price_2021": 30,
-            "sd_team_id_2021": 3
+            "sd_team_id_2021": 3,
+            "is_active": true
           },
           {
             "id": 76,
@@ -1855,7 +1926,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 86,
             "rooster_rating_2021": 6,
             "price_2021": 2,
-            "sd_team_id_2021": 1
+            "sd_team_id_2021": 1,
+            "is_active": true
           },
           {
             "id": 77,
@@ -1880,7 +1952,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 74,
             "rooster_rating_2021": 7,
             "price_2021": 8,
-            "sd_team_id_2021": 8
+            "sd_team_id_2021": 8,
+            "is_active": true
           },
           {
             "id": 78,
@@ -1905,7 +1978,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 93,
             "rooster_rating_2021": 7,
             "price_2021": 2,
-            "sd_team_id_2021": 7
+            "sd_team_id_2021": 7,
+            "is_active": true
           },
           {
             "id": 79,
@@ -1930,7 +2004,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 86,
             "rooster_rating_2021": 6,
             "price_2021": 20,
-            "sd_team_id_2021": 4
+            "sd_team_id_2021": 4,
+            "is_active": true
           },
           {
             "id": 80,
@@ -1955,7 +2030,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 68,
             "rooster_rating_2021": 7,
             "price_2021": 15,
-            "sd_team_id_2021": 1
+            "sd_team_id_2021": 1,
+            "is_active": true
           },
           {
             "id": 81,
@@ -1980,7 +2056,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 85,
             "rooster_rating_2021": 6,
             "price_2021": 1,
-            "sd_team_id_2021": 6
+            "sd_team_id_2021": 6,
+            "is_active": true
           },
           {
             "id": 82,
@@ -2005,7 +2082,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 85,
             "rooster_rating_2021": 6,
             "price_2021": 36,
-            "sd_team_id_2021": 4
+            "sd_team_id_2021": 4,
+            "is_active": true
           },
           {
             "id": 83,
@@ -2030,7 +2108,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 94,
             "rooster_rating_2021": 7,
             "price_2021": 5,
-            "sd_team_id_2021": 2
+            "sd_team_id_2021": 2,
+            "is_active": true
           },
           {
             "id": 84,
@@ -2055,7 +2134,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 91,
             "rooster_rating_2021": 7,
             "price_2021": 2,
-            "sd_team_id_2021": 1
+            "sd_team_id_2021": 1,
+            "is_active": true
           },
           {
             "id": 85,
@@ -2080,7 +2160,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 87,
             "rooster_rating_2021": 4,
             "price_2021": 2,
-            "sd_team_id_2021": 8
+            "sd_team_id_2021": 8,
+            "is_active": true
           },
           {
             "id": 86,
@@ -2105,7 +2186,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 83,
             "rooster_rating_2021": 6,
             "price_2021": 9,
-            "sd_team_id_2021": 7
+            "sd_team_id_2021": 7,
+            "is_active": true
           },
           {
             "id": 87,
@@ -2130,7 +2212,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 100,
             "rooster_rating_2021": 6,
             "price_2021": 2,
-            "sd_team_id_2021": 10
+            "sd_team_id_2021": 10,
+            "is_active": true
           },
           {
             "id": 88,
@@ -2155,7 +2238,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 107,
             "rooster_rating_2021": 5,
             "price_2021": 15,
-            "sd_team_id_2021": 7
+            "sd_team_id_2021": 7,
+            "is_active": true
           },
           {
             "id": 89,
@@ -2180,7 +2264,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 90,
             "rooster_rating_2021": 7,
             "price_2021": 21,
-            "sd_team_id_2021": 3
+            "sd_team_id_2021": 3,
+            "is_active": true
           },
           {
             "id": 90,
@@ -2205,7 +2290,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 97,
             "rooster_rating_2021": 5,
             "price_2021": 12,
-            "sd_team_id_2021": 8
+            "sd_team_id_2021": 8,
+            "is_active": true
           },
           {
             "id": 91,
@@ -2230,7 +2316,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 87,
             "rooster_rating_2021": 5,
             "price_2021": 10,
-            "sd_team_id_2021": 4
+            "sd_team_id_2021": 4,
+            "is_active": true
           },
           {
             "id": 92,
@@ -2255,7 +2342,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 98,
             "rooster_rating_2021": 7,
             "price_2021": 25,
-            "sd_team_id_2021": 7
+            "sd_team_id_2021": 7,
+            "is_active": true
           },
           {
             "id": 93,
@@ -2280,7 +2368,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 92,
             "rooster_rating_2021": 8,
             "price_2021": 1,
-            "sd_team_id_2021": 2
+            "sd_team_id_2021": 2,
+            "is_active": true
           },
           {
             "id": 94,
@@ -2305,7 +2394,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 85,
             "rooster_rating_2021": 7,
             "price_2021": 25,
-            "sd_team_id_2021": 8
+            "sd_team_id_2021": 8,
+            "is_active": true
           },
           {
             "id": 95,
@@ -2330,7 +2420,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 79,
             "rooster_rating_2021": 9,
             "price_2021": 18,
-            "sd_team_id_2021": 3
+            "sd_team_id_2021": 3,
+            "is_active": true
           },
           {
             "id": 96,
@@ -2355,7 +2446,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 90,
             "rooster_rating_2021": 6,
             "price_2021": 1,
-            "sd_team_id_2021": 5
+            "sd_team_id_2021": 5,
+            "is_active": true
           },
           {
             "id": 97,
@@ -2380,7 +2472,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 50,
             "rooster_rating_2021": 7,
             "price_2021": 23,
-            "sd_team_id_2021": 8
+            "sd_team_id_2021": 8,
+            "is_active": true
           },
           {
             "id": 99,
@@ -2405,7 +2498,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 98,
             "rooster_rating_2021": 4,
             "price_2021": 7,
-            "sd_team_id_2021": 4
+            "sd_team_id_2021": 4,
+            "is_active": true
           },
           {
             "id": 100,
@@ -2430,7 +2524,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 83,
             "rooster_rating_2021": 6,
             "price_2021": 1,
-            "sd_team_id_2021": 5
+            "sd_team_id_2021": 5,
+            "is_active": true
           },
           {
             "id": 101,
@@ -2455,7 +2550,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 97,
             "rooster_rating_2021": 7,
             "price_2021": 5,
-            "sd_team_id_2021": 7
+            "sd_team_id_2021": 7,
+            "is_active": true
           },
           {
             "id": 102,
@@ -2480,7 +2576,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 90,
             "rooster_rating_2021": 6,
             "price_2021": 16,
-            "sd_team_id_2021": 7
+            "sd_team_id_2021": 7,
+            "is_active": true
           },
           {
             "id": 103,
@@ -2505,7 +2602,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 82,
             "rooster_rating_2021": 7,
             "price_2021": 7,
-            "sd_team_id_2021": 9
+            "sd_team_id_2021": 9,
+            "is_active": true
           },
           {
             "id": 104,
@@ -2530,7 +2628,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 91,
             "rooster_rating_2021": 5,
             "price_2021": 3,
-            "sd_team_id_2021": 7
+            "sd_team_id_2021": 7,
+            "is_active": true
           },
           {
             "id": 105,
@@ -2555,7 +2654,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 89,
             "rooster_rating_2021": 5,
             "price_2021": 3,
-            "sd_team_id_2021": 6
+            "sd_team_id_2021": 6,
+            "is_active": true
           },
           {
             "id": 106,
@@ -2580,7 +2680,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 62,
             "rooster_rating_2021": 8,
             "price_2021": 1,
-            "sd_team_id_2021": 10
+            "sd_team_id_2021": 10,
+            "is_active": true
           },
           {
             "id": 108,
@@ -2605,7 +2706,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 87,
             "rooster_rating_2021": 6,
             "price_2021": 6,
-            "sd_team_id_2021": 3
+            "sd_team_id_2021": 3,
+            "is_active": true
           },
           {
             "id": 109,
@@ -2630,7 +2732,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 50,
             "rooster_rating_2021": 5,
             "price_2021": 1,
-            "sd_team_id_2021": 9
+            "sd_team_id_2021": 9,
+            "is_active": true
           },
           {
             "id": 110,
@@ -2655,7 +2758,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 98,
             "rooster_rating_2021": 6,
             "price_2021": 1,
-            "sd_team_id_2021": 5
+            "sd_team_id_2021": 5,
+            "is_active": true
           },
           {
             "id": 111,
@@ -2680,7 +2784,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 95,
             "rooster_rating_2021": 5,
             "price_2021": 10,
-            "sd_team_id_2021": 8
+            "sd_team_id_2021": 8,
+            "is_active": true
           },
           {
             "id": 112,
@@ -2705,7 +2810,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 87,
             "rooster_rating_2021": 8,
             "price_2021": 3,
-            "sd_team_id_2021": 3
+            "sd_team_id_2021": 3,
+            "is_active": true
           },
           {
             "id": 113,
@@ -2730,7 +2836,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 93,
             "rooster_rating_2021": 5,
             "price_2021": 2,
-            "sd_team_id_2021": 9
+            "sd_team_id_2021": 9,
+            "is_active": true
           },
           {
             "id": 114,
@@ -2755,7 +2862,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 97,
             "rooster_rating_2021": 7,
             "price_2021": 16,
-            "sd_team_id_2021": 3
+            "sd_team_id_2021": 3,
+            "is_active": true
           },
           {
             "id": 115,
@@ -2780,7 +2888,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 73,
             "rooster_rating_2021": 6,
             "price_2021": 6,
-            "sd_team_id_2021": 10
+            "sd_team_id_2021": 10,
+            "is_active": true
           },
           {
             "id": 116,
@@ -2805,7 +2914,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 117,
             "rooster_rating_2021": 6,
             "price_2021": 2,
-            "sd_team_id_2021": 9
+            "sd_team_id_2021": 9,
+            "is_active": true
           },
           {
             "id": 117,
@@ -2830,7 +2940,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 85,
             "rooster_rating_2021": 4,
             "price_2021": 7,
-            "sd_team_id_2021": 8
+            "sd_team_id_2021": 8,
+            "is_active": true
           },
           {
             "id": 118,
@@ -2855,7 +2966,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 97,
             "rooster_rating_2021": 5,
             "price_2021": 5,
-            "sd_team_id_2021": 8
+            "sd_team_id_2021": 8,
+            "is_active": true
           },
           {
             "id": 119,
@@ -2880,7 +2992,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 82,
             "rooster_rating_2021": 6,
             "price_2021": 1,
-            "sd_team_id_2021": 2
+            "sd_team_id_2021": 2,
+            "is_active": true
           },
           {
             "id": 120,
@@ -2905,7 +3018,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 84,
             "rooster_rating_2021": 7,
             "price_2021": 20,
-            "sd_team_id_2021": 4
+            "sd_team_id_2021": 4,
+            "is_active": true
           },
           {
             "id": 121,
@@ -2930,7 +3044,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 80,
             "rooster_rating_2021": 5,
             "price_2021": 19,
-            "sd_team_id_2021": 10
+            "sd_team_id_2021": 10,
+            "is_active": true
           },
           {
             "id": 122,
@@ -2955,7 +3070,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 74,
             "rooster_rating_2021": 8,
             "price_2021": 1,
-            "sd_team_id_2021": 2
+            "sd_team_id_2021": 2,
+            "is_active": true
           },
           {
             "id": 124,
@@ -2980,7 +3096,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 65,
             "rooster_rating_2021": 7,
             "price_2021": 1,
-            "sd_team_id_2021": 5
+            "sd_team_id_2021": 5,
+            "is_active": true
           },
           {
             "id": 125,
@@ -3005,7 +3122,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 85,
             "rooster_rating_2021": 6,
             "price_2021": 14,
-            "sd_team_id_2021": 8
+            "sd_team_id_2021": 8,
+            "is_active": true
           },
           {
             "id": 127,
@@ -3030,7 +3148,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 100,
             "rooster_rating_2021": 7,
             "price_2021": 2,
-            "sd_team_id_2021": 9
+            "sd_team_id_2021": 9,
+            "is_active": true
           },
           {
             "id": 128,
@@ -3055,7 +3174,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 85,
             "rooster_rating_2021": 6,
             "price_2021": 4,
-            "sd_team_id_2021": 3
+            "sd_team_id_2021": 3,
+            "is_active": true
           },
           {
             "id": 129,
@@ -3080,7 +3200,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 73,
             "rooster_rating_2021": 7,
             "price_2021": 1,
-            "sd_team_id_2021": 1
+            "sd_team_id_2021": 1,
+            "is_active": true
           },
           {
             "id": 131,
@@ -3105,7 +3226,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 89,
             "rooster_rating_2021": 6,
             "price_2021": 23,
-            "sd_team_id_2021": 10
+            "sd_team_id_2021": 10,
+            "is_active": true
           },
           {
             "id": 132,
@@ -3130,7 +3252,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 78,
             "rooster_rating_2021": 6,
             "price_2021": 1,
-            "sd_team_id_2021": 2
+            "sd_team_id_2021": 2,
+            "is_active": true
           },
           {
             "id": 133,
@@ -3155,7 +3278,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 64,
             "rooster_rating_2021": 7,
             "price_2021": 1,
-            "sd_team_id_2021": 6
+            "sd_team_id_2021": 6,
+            "is_active": true
           },
           {
             "id": 134,
@@ -3180,7 +3304,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 67,
             "rooster_rating_2021": 6,
             "price_2021": 9,
-            "sd_team_id_2021": 7
+            "sd_team_id_2021": 7,
+            "is_active": true
           },
           {
             "id": 135,
@@ -3205,7 +3330,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 85,
             "rooster_rating_2021": 5,
             "price_2021": 24,
-            "sd_team_id_2021": 7
+            "sd_team_id_2021": 7,
+            "is_active": true
           },
           {
             "id": 136,
@@ -3230,7 +3356,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 64,
             "rooster_rating_2021": 6,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 137,
@@ -3255,7 +3382,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 83,
             "rooster_rating_2021": 6,
             "price_2021": 3,
-            "sd_team_id_2021": 9
+            "sd_team_id_2021": 9,
+            "is_active": true
           },
           {
             "id": 138,
@@ -3280,7 +3408,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 90,
             "rooster_rating_2021": 5,
             "price_2021": 7,
-            "sd_team_id_2021": 10
+            "sd_team_id_2021": 10,
+            "is_active": true
           },
           {
             "id": 139,
@@ -3305,7 +3434,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 90,
             "rooster_rating_2021": 5,
             "price_2021": 1,
-            "sd_team_id_2021": 6
+            "sd_team_id_2021": 6,
+            "is_active": true
           },
           {
             "id": 141,
@@ -3330,7 +3460,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 96,
             "rooster_rating_2021": 6,
             "price_2021": 13,
-            "sd_team_id_2021": 7
+            "sd_team_id_2021": 7,
+            "is_active": true
           },
           {
             "id": 142,
@@ -3355,7 +3486,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 92,
             "rooster_rating_2021": 9,
             "price_2021": 11,
-            "sd_team_id_2021": 7
+            "sd_team_id_2021": 7,
+            "is_active": true
           },
           {
             "id": 143,
@@ -3380,7 +3512,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 76,
             "rooster_rating_2021": 6,
             "price_2021": 13,
-            "sd_team_id_2021": 10
+            "sd_team_id_2021": 10,
+            "is_active": true
           },
           {
             "id": 144,
@@ -3405,7 +3538,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 90,
             "rooster_rating_2021": 5,
             "price_2021": 23,
-            "sd_team_id_2021": 8
+            "sd_team_id_2021": 8,
+            "is_active": true
           },
           {
             "id": 145,
@@ -3430,7 +3564,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 57,
             "rooster_rating_2021": 5,
             "price_2021": 1,
-            "sd_team_id_2021": 3
+            "sd_team_id_2021": 3,
+            "is_active": true
           },
           {
             "id": 146,
@@ -3455,7 +3590,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 76,
             "rooster_rating_2021": 10,
             "price_2021": 2,
-            "sd_team_id_2021": 8
+            "sd_team_id_2021": 8,
+            "is_active": true
           },
           {
             "id": 147,
@@ -3480,7 +3616,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 68,
             "rooster_rating_2021": 6,
             "price_2021": 3,
-            "sd_team_id_2021": 6
+            "sd_team_id_2021": 6,
+            "is_active": true
           },
           {
             "id": 148,
@@ -3505,7 +3642,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 95,
             "rooster_rating_2021": 4,
             "price_2021": 1,
-            "sd_team_id_2021": 6
+            "sd_team_id_2021": 6,
+            "is_active": true
           },
           {
             "id": 149,
@@ -3530,7 +3668,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": 7,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 151,
@@ -3555,7 +3694,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 71,
             "rooster_rating_2021": 7,
             "price_2021": 1,
-            "sd_team_id_2021": 3
+            "sd_team_id_2021": 3,
+            "is_active": true
           },
           {
             "id": 152,
@@ -3580,7 +3720,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 76,
             "rooster_rating_2021": 8,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 153,
@@ -3605,7 +3746,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 75,
             "rooster_rating_2021": 7,
             "price_2021": 17,
-            "sd_team_id_2021": 7
+            "sd_team_id_2021": 7,
+            "is_active": true
           },
           {
             "id": 154,
@@ -3630,7 +3772,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 84,
             "rooster_rating_2021": 9,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 155,
@@ -3655,7 +3798,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 69,
             "rooster_rating_2021": 7,
             "price_2021": 1,
-            "sd_team_id_2021": 9
+            "sd_team_id_2021": 9,
+            "is_active": true
           },
           {
             "id": 156,
@@ -3680,7 +3824,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 22,
             "rooster_rating_2021": 8,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 157,
@@ -3705,7 +3850,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 75,
             "rooster_rating_2021": 8,
             "price_2021": 2,
-            "sd_team_id_2021": 1
+            "sd_team_id_2021": 1,
+            "is_active": true
           },
           {
             "id": 158,
@@ -3730,7 +3876,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 84,
             "rooster_rating_2021": 8,
             "price_2021": 1,
-            "sd_team_id_2021": 5
+            "sd_team_id_2021": 5,
+            "is_active": true
           },
           {
             "id": 159,
@@ -3755,7 +3902,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 90,
             "rooster_rating_2021": 7,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 160,
@@ -3780,7 +3928,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 79,
             "rooster_rating_2021": 7,
             "price_2021": 1,
-            "sd_team_id_2021": 9
+            "sd_team_id_2021": 9,
+            "is_active": true
           },
           {
             "id": 161,
@@ -3805,7 +3954,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 71,
             "rooster_rating_2021": 6,
             "price_2021": 1,
-            "sd_team_id_2021": 3
+            "sd_team_id_2021": 3,
+            "is_active": true
           },
           {
             "id": 162,
@@ -3830,7 +3980,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 75,
             "rooster_rating_2021": 6,
             "price_2021": 2,
-            "sd_team_id_2021": 4
+            "sd_team_id_2021": 4,
+            "is_active": true
           },
           {
             "id": 163,
@@ -3855,7 +4006,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 74,
             "rooster_rating_2021": 8,
             "price_2021": 18,
-            "sd_team_id_2021": 1
+            "sd_team_id_2021": 1,
+            "is_active": true
           },
           {
             "id": 164,
@@ -3880,7 +4032,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 70,
             "rooster_rating_2021": 7,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 165,
@@ -3905,7 +4058,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 85,
             "rooster_rating_2021": 7,
             "price_2021": 12,
-            "sd_team_id_2021": 10
+            "sd_team_id_2021": 10,
+            "is_active": true
           },
           {
             "id": 166,
@@ -3930,7 +4084,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": 5,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 167,
@@ -3955,7 +4110,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 103,
             "rooster_rating_2021": 8,
             "price_2021": 1,
-            "sd_team_id_2021": 2
+            "sd_team_id_2021": 2,
+            "is_active": true
           },
           {
             "id": 168,
@@ -3980,7 +4136,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 81,
             "rooster_rating_2021": 8,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 169,
@@ -4005,7 +4162,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 87,
             "rooster_rating_2021": 7,
             "price_2021": 3,
-            "sd_team_id_2021": 1
+            "sd_team_id_2021": 1,
+            "is_active": true
           },
           {
             "id": 170,
@@ -4030,7 +4188,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 83,
             "rooster_rating_2021": 7,
             "price_2021": 6,
-            "sd_team_id_2021": 6
+            "sd_team_id_2021": 6,
+            "is_active": true
           },
           {
             "id": 171,
@@ -4055,7 +4214,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 74,
             "rooster_rating_2021": 8,
             "price_2021": 1,
-            "sd_team_id_2021": 9
+            "sd_team_id_2021": 9,
+            "is_active": true
           },
           {
             "id": 172,
@@ -4080,7 +4240,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 63,
             "rooster_rating_2021": 6,
             "price_2021": 1,
-            "sd_team_id_2021": 5
+            "sd_team_id_2021": 5,
+            "is_active": true
           },
           {
             "id": 173,
@@ -4105,7 +4266,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 68,
             "rooster_rating_2021": 6,
             "price_2021": 4,
-            "sd_team_id_2021": 4
+            "sd_team_id_2021": 4,
+            "is_active": true
           },
           {
             "id": 174,
@@ -4130,7 +4292,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": 8,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 175,
@@ -4155,7 +4318,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 81,
             "rooster_rating_2021": 8,
             "price_2021": 2,
-            "sd_team_id_2021": 2
+            "sd_team_id_2021": 2,
+            "is_active": true
           },
           {
             "id": 176,
@@ -4180,7 +4344,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 70,
             "rooster_rating_2021": 7,
             "price_2021": 3,
-            "sd_team_id_2021": 3
+            "sd_team_id_2021": 3,
+            "is_active": true
           },
           {
             "id": 177,
@@ -4205,7 +4370,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 96,
             "rooster_rating_2021": 8,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 178,
@@ -4230,7 +4396,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 92,
             "rooster_rating_2021": 6,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 179,
@@ -4255,7 +4422,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 73,
             "rooster_rating_2021": 0,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 181,
@@ -4280,7 +4448,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 79,
             "rooster_rating_2021": 8,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 182,
@@ -4305,7 +4474,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 64,
             "rooster_rating_2021": 7,
             "price_2021": 1,
-            "sd_team_id_2021": 6
+            "sd_team_id_2021": 6,
+            "is_active": true
           },
           {
             "id": 183,
@@ -4330,7 +4500,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 70,
             "rooster_rating_2021": 7,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 184,
@@ -4355,7 +4526,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 118,
             "rooster_rating_2021": 5,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 185,
@@ -4380,7 +4552,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 85,
             "rooster_rating_2021": 5,
             "price_2021": 8,
-            "sd_team_id_2021": 4
+            "sd_team_id_2021": 4,
+            "is_active": true
           },
           {
             "id": 186,
@@ -4405,7 +4578,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 75,
             "rooster_rating_2021": 7,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 187,
@@ -4430,7 +4604,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 75,
             "rooster_rating_2021": 5,
             "price_2021": 17,
-            "sd_team_id_2021": 2
+            "sd_team_id_2021": 2,
+            "is_active": true
           },
           {
             "id": 188,
@@ -4455,7 +4630,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 89,
             "rooster_rating_2021": 7,
             "price_2021": 2,
-            "sd_team_id_2021": 4
+            "sd_team_id_2021": 4,
+            "is_active": true
           },
           {
             "id": 189,
@@ -4480,7 +4656,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 90,
             "rooster_rating_2021": 6,
             "price_2021": 1,
-            "sd_team_id_2021": 4
+            "sd_team_id_2021": 4,
+            "is_active": true
           },
           {
             "id": 191,
@@ -4505,7 +4682,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 85,
             "rooster_rating_2021": 6,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 192,
@@ -4530,7 +4708,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 62,
             "rooster_rating_2021": 6,
             "price_2021": 1,
-            "sd_team_id_2021": 4
+            "sd_team_id_2021": 4,
+            "is_active": true
           },
           {
             "id": 193,
@@ -4555,7 +4734,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 78,
             "rooster_rating_2021": 8,
             "price_2021": 1,
-            "sd_team_id_2021": 1
+            "sd_team_id_2021": 1,
+            "is_active": true
           },
           {
             "id": 194,
@@ -4580,7 +4760,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 84,
             "rooster_rating_2021": 7,
             "price_2021": 1,
-            "sd_team_id_2021": 9
+            "sd_team_id_2021": 9,
+            "is_active": true
           },
           {
             "id": 195,
@@ -4605,7 +4786,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 53,
             "rooster_rating_2021": 7,
             "price_2021": 1,
-            "sd_team_id_2021": 5
+            "sd_team_id_2021": 5,
+            "is_active": true
           },
           {
             "id": 196,
@@ -4630,7 +4812,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 66,
             "rooster_rating_2021": 8,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 197,
@@ -4655,7 +4838,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 73,
             "rooster_rating_2021": 6,
             "price_2021": 1,
-            "sd_team_id_2021": 3
+            "sd_team_id_2021": 3,
+            "is_active": true
           },
           {
             "id": 198,
@@ -4680,7 +4864,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 82,
             "rooster_rating_2021": 5,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 199,
@@ -4705,7 +4890,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 86,
             "rooster_rating_2021": 6,
             "price_2021": 8,
-            "sd_team_id_2021": 1
+            "sd_team_id_2021": 1,
+            "is_active": true
           },
           {
             "id": 200,
@@ -4730,7 +4916,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 61,
             "rooster_rating_2021": 7,
             "price_2021": 1,
-            "sd_team_id_2021": 4
+            "sd_team_id_2021": 4,
+            "is_active": true
           },
           {
             "id": 201,
@@ -4755,7 +4942,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 83,
             "rooster_rating_2021": 7,
             "price_2021": 11,
-            "sd_team_id_2021": 10
+            "sd_team_id_2021": 10,
+            "is_active": true
           },
           {
             "id": 202,
@@ -4780,7 +4968,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 83,
             "rooster_rating_2021": 7,
             "price_2021": 1,
-            "sd_team_id_2021": 6
+            "sd_team_id_2021": 6,
+            "is_active": true
           },
           {
             "id": 203,
@@ -4805,7 +4994,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 12,
             "rooster_rating_2021": 8,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 204,
@@ -4830,7 +5020,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 76,
             "rooster_rating_2021": 6,
             "price_2021": 1,
-            "sd_team_id_2021": 2
+            "sd_team_id_2021": 2,
+            "is_active": true
           },
           {
             "id": 205,
@@ -4855,7 +5046,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 70,
             "rooster_rating_2021": 6,
             "price_2021": 1,
-            "sd_team_id_2021": 2
+            "sd_team_id_2021": 2,
+            "is_active": true
           },
           {
             "id": 206,
@@ -4880,7 +5072,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 76,
             "rooster_rating_2021": 6,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 207,
@@ -4905,7 +5098,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 75,
             "rooster_rating_2021": 6,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 208,
@@ -4930,7 +5124,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 92,
             "rooster_rating_2021": 8,
             "price_2021": 6,
-            "sd_team_id_2021": 7
+            "sd_team_id_2021": 7,
+            "is_active": true
           },
           {
             "id": 209,
@@ -4955,7 +5150,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 68,
             "rooster_rating_2021": 7,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 211,
@@ -4980,7 +5176,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 72,
             "rooster_rating_2021": 5,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 214,
@@ -5005,7 +5202,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 67,
             "rooster_rating_2021": 8,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 215,
@@ -5030,7 +5228,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 63,
             "rooster_rating_2021": 7,
             "price_2021": 1,
-            "sd_team_id_2021": 3
+            "sd_team_id_2021": 3,
+            "is_active": true
           },
           {
             "id": 216,
@@ -5055,7 +5254,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 70,
             "rooster_rating_2021": 6,
             "price_2021": 18,
-            "sd_team_id_2021": 10
+            "sd_team_id_2021": 10,
+            "is_active": true
           },
           {
             "id": 217,
@@ -5080,7 +5280,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 63,
             "rooster_rating_2021": 6,
             "price_2021": 1,
-            "sd_team_id_2021": 5
+            "sd_team_id_2021": 5,
+            "is_active": true
           },
           {
             "id": 218,
@@ -5105,7 +5306,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": 6,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 219,
@@ -5130,7 +5332,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 67,
             "rooster_rating_2021": 7,
             "price_2021": 1,
-            "sd_team_id_2021": 3
+            "sd_team_id_2021": 3,
+            "is_active": true
           },
           {
             "id": 220,
@@ -5155,7 +5358,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 89,
             "rooster_rating_2021": 6,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 221,
@@ -5180,7 +5384,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 94,
             "rooster_rating_2021": 5,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 222,
@@ -5205,7 +5410,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 71,
             "rooster_rating_2021": 5,
             "price_2021": 1,
-            "sd_team_id_2021": 5
+            "sd_team_id_2021": 5,
+            "is_active": true
           },
           {
             "id": 223,
@@ -5230,7 +5436,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 74,
             "rooster_rating_2021": 7,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 225,
@@ -5255,7 +5462,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 84,
             "rooster_rating_2021": 8,
             "price_2021": 1,
-            "sd_team_id_2021": 9
+            "sd_team_id_2021": 9,
+            "is_active": true
           },
           {
             "id": 226,
@@ -5280,7 +5488,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 59,
             "rooster_rating_2021": 7,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 227,
@@ -5305,7 +5514,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 90,
             "rooster_rating_2021": 8,
             "price_2021": 1,
-            "sd_team_id_2021": 6
+            "sd_team_id_2021": 6,
+            "is_active": true
           },
           {
             "id": 228,
@@ -5330,7 +5540,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 72,
             "rooster_rating_2021": 6,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 229,
@@ -5355,7 +5566,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 73,
             "rooster_rating_2021": 7,
             "price_2021": 1,
-            "sd_team_id_2021": 5
+            "sd_team_id_2021": 5,
+            "is_active": true
           },
           {
             "id": 230,
@@ -5380,7 +5592,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 65,
             "rooster_rating_2021": 7,
             "price_2021": 5,
-            "sd_team_id_2021": 7
+            "sd_team_id_2021": 7,
+            "is_active": true
           },
           {
             "id": 231,
@@ -5405,7 +5618,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 77,
             "rooster_rating_2021": 5,
             "price_2021": 3,
-            "sd_team_id_2021": 4
+            "sd_team_id_2021": 4,
+            "is_active": true
           },
           {
             "id": 232,
@@ -5430,7 +5644,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 105,
             "rooster_rating_2021": 7,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 233,
@@ -5455,7 +5670,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 75,
             "rooster_rating_2021": 7,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 235,
@@ -5480,7 +5696,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 84,
             "rooster_rating_2021": 6,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 236,
@@ -5505,7 +5722,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 75,
             "rooster_rating_2021": 9,
             "price_2021": 3,
-            "sd_team_id_2021": 1
+            "sd_team_id_2021": 1,
+            "is_active": true
           },
           {
             "id": 238,
@@ -5530,7 +5748,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 73,
             "rooster_rating_2021": 7,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 240,
@@ -5555,7 +5774,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 77,
             "rooster_rating_2021": 6,
             "price_2021": 3,
-            "sd_team_id_2021": 4
+            "sd_team_id_2021": 4,
+            "is_active": true
           },
           {
             "id": 241,
@@ -5580,7 +5800,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 90,
             "rooster_rating_2021": 7,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 242,
@@ -5605,7 +5826,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 79,
             "rooster_rating_2021": 8,
             "price_2021": 1,
-            "sd_team_id_2021": 10
+            "sd_team_id_2021": 10,
+            "is_active": true
           },
           {
             "id": 243,
@@ -5630,7 +5852,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 56,
             "rooster_rating_2021": 8,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 245,
@@ -5655,7 +5878,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 59,
             "rooster_rating_2021": 6,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 246,
@@ -5680,7 +5904,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 74,
             "rooster_rating_2021": 6,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 247,
@@ -5705,7 +5930,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 52,
             "rooster_rating_2021": 7,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 248,
@@ -5730,7 +5956,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": 6,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 250,
@@ -5755,7 +5982,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 81,
             "rooster_rating_2021": 7,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 251,
@@ -5780,7 +6008,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 63,
             "rooster_rating_2021": 6,
             "price_2021": 1,
-            "sd_team_id_2021": 1
+            "sd_team_id_2021": 1,
+            "is_active": true
           },
           {
             "id": 252,
@@ -5805,7 +6034,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 37,
             "rooster_rating_2021": 7,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 253,
@@ -5830,7 +6060,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 61,
             "rooster_rating_2021": 6,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 254,
@@ -5855,7 +6086,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 80,
             "rooster_rating_2021": 7,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 255,
@@ -5880,7 +6112,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 79,
             "rooster_rating_2021": 7,
             "price_2021": 1,
-            "sd_team_id_2021": 9
+            "sd_team_id_2021": 9,
+            "is_active": true
           },
           {
             "id": 256,
@@ -5905,7 +6138,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 63,
             "rooster_rating_2021": 2,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 260,
@@ -5930,7 +6164,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 57,
             "rooster_rating_2021": 6,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 261,
@@ -5955,7 +6190,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 76,
             "rooster_rating_2021": 5,
             "price_2021": 1,
-            "sd_team_id_2021": 6
+            "sd_team_id_2021": 6,
+            "is_active": true
           },
           {
             "id": 262,
@@ -5980,7 +6216,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 71,
             "rooster_rating_2021": 6,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 263,
@@ -6005,7 +6242,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 56,
             "rooster_rating_2021": 6,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 264,
@@ -6030,7 +6268,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 59,
             "rooster_rating_2021": 7,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 265,
@@ -6055,7 +6294,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 45,
             "rooster_rating_2021": 6,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 267,
@@ -6080,7 +6320,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 60,
             "rooster_rating_2021": 6,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 268,
@@ -6105,7 +6346,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 77,
             "rooster_rating_2021": 6,
             "price_2021": 1,
-            "sd_team_id_2021": 4
+            "sd_team_id_2021": 4,
+            "is_active": true
           },
           {
             "id": 269,
@@ -6130,7 +6372,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 42,
             "rooster_rating_2021": 7,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 270,
@@ -6155,7 +6398,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 67,
             "rooster_rating_2021": 7,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 271,
@@ -6180,7 +6424,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 73,
             "rooster_rating_2021": 6,
             "price_2021": 1,
-            "sd_team_id_2021": 9
+            "sd_team_id_2021": 9,
+            "is_active": true
           },
           {
             "id": 273,
@@ -6205,7 +6450,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 67,
             "rooster_rating_2021": 7,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 274,
@@ -6230,7 +6476,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 91,
             "rooster_rating_2021": 7,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 275,
@@ -6255,7 +6502,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 57,
             "rooster_rating_2021": 5,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 277,
@@ -6280,7 +6528,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 80,
             "rooster_rating_2021": 7,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 278,
@@ -6305,7 +6554,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 63,
             "rooster_rating_2021": 5,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 279,
@@ -6330,7 +6580,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 77,
             "rooster_rating_2021": 6,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 280,
@@ -6355,7 +6606,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 63,
             "rooster_rating_2021": 6,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 281,
@@ -6380,7 +6632,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 57,
             "rooster_rating_2021": 6,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 282,
@@ -6405,7 +6658,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 70,
             "rooster_rating_2021": 6,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 283,
@@ -6430,7 +6684,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 69,
             "rooster_rating_2021": 6,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 284,
@@ -6455,7 +6710,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 55,
             "rooster_rating_2021": 6,
             "price_2021": 1,
-            "sd_team_id_2021": 6
+            "sd_team_id_2021": 6,
+            "is_active": true
           },
           {
             "id": 285,
@@ -6480,7 +6736,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 54,
             "rooster_rating_2021": 7,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 286,
@@ -6505,7 +6762,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 91,
             "rooster_rating_2021": 6,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 287,
@@ -6530,7 +6788,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 80,
             "rooster_rating_2021": 8,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 288,
@@ -6555,7 +6814,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 46,
             "rooster_rating_2021": 7,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 290,
@@ -6580,7 +6840,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 60,
             "rooster_rating_2021": 6,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 291,
@@ -6605,7 +6866,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 64,
             "rooster_rating_2021": 7,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 292,
@@ -6630,7 +6892,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 67,
             "rooster_rating_2021": 4,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 294,
@@ -6655,7 +6918,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 65,
             "rooster_rating_2021": 7,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 295,
@@ -6680,7 +6944,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 66,
             "rooster_rating_2021": 7,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 296,
@@ -6705,7 +6970,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 66,
             "rooster_rating_2021": 6,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 297,
@@ -6730,7 +6996,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 64,
             "rooster_rating_2021": 7,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 298,
@@ -6755,7 +7022,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 90,
             "rooster_rating_2021": 5,
             "price_2021": 1,
-            "sd_team_id_2021": 4
+            "sd_team_id_2021": 4,
+            "is_active": true
           },
           {
             "id": 299,
@@ -6780,7 +7048,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 79,
             "rooster_rating_2021": 5,
             "price_2021": 1,
-            "sd_team_id_2021": 8
+            "sd_team_id_2021": 8,
+            "is_active": true
           },
           {
             "id": 300,
@@ -6805,7 +7074,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 69,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 301,
@@ -6830,7 +7100,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 52,
             "rooster_rating_2021": 6,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 302,
@@ -6855,7 +7126,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 46,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 303,
@@ -6880,7 +7152,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 64,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 304,
@@ -6905,7 +7178,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 82,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 305,
@@ -6930,7 +7204,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 85,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 306,
@@ -6955,7 +7230,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 55,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 307,
@@ -6980,7 +7256,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 58,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 309,
@@ -7005,7 +7282,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 69,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 310,
@@ -7030,7 +7308,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 99,
             "rooster_rating_2021": null,
             "price_2021": 1,
-            "sd_team_id_2021": 4
+            "sd_team_id_2021": 4,
+            "is_active": true
           },
           {
             "id": 311,
@@ -7055,7 +7334,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 71,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 312,
@@ -7080,7 +7360,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 69,
             "rooster_rating_2021": null,
             "price_2021": 5,
-            "sd_team_id_2021": 9
+            "sd_team_id_2021": 9,
+            "is_active": true
           },
           {
             "id": 313,
@@ -7105,7 +7386,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 53,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 314,
@@ -7130,7 +7412,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 54,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 315,
@@ -7155,7 +7438,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 62,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 317,
@@ -7180,7 +7464,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 50,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 318,
@@ -7205,7 +7490,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 319,
@@ -7230,7 +7516,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 68,
             "rooster_rating_2021": null,
             "price_2021": 8,
-            "sd_team_id_2021": 10
+            "sd_team_id_2021": 10,
+            "is_active": true
           },
           {
             "id": 320,
@@ -7255,7 +7542,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 50,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 322,
@@ -7280,7 +7568,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 68,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 323,
@@ -7305,7 +7594,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 76,
             "rooster_rating_2021": null,
             "price_2021": 1,
-            "sd_team_id_2021": 2
+            "sd_team_id_2021": 2,
+            "is_active": true
           },
           {
             "id": 324,
@@ -7330,7 +7620,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 65,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 325,
@@ -7355,7 +7646,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 59,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 328,
@@ -7380,7 +7672,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 76,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 329,
@@ -7405,7 +7698,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 86,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 330,
@@ -7430,7 +7724,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 43,
             "rooster_rating_2021": null,
             "price_2021": 1,
-            "sd_team_id_2021": 8
+            "sd_team_id_2021": 8,
+            "is_active": true
           },
           {
             "id": 331,
@@ -7455,7 +7750,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 81,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 332,
@@ -7480,7 +7776,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 64,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 333,
@@ -7505,7 +7802,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 60,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 334,
@@ -7530,7 +7828,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 66,
             "rooster_rating_2021": null,
             "price_2021": 1,
-            "sd_team_id_2021": 9
+            "sd_team_id_2021": 9,
+            "is_active": true
           },
           {
             "id": 335,
@@ -7555,7 +7854,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 56,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 336,
@@ -7580,7 +7880,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 60,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 337,
@@ -7605,7 +7906,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 63,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 338,
@@ -7630,7 +7932,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 55,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 339,
@@ -7655,7 +7958,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 73,
             "rooster_rating_2021": null,
             "price_2021": 1,
-            "sd_team_id_2021": 6
+            "sd_team_id_2021": 6,
+            "is_active": true
           },
           {
             "id": 342,
@@ -7680,7 +7984,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 343,
@@ -7705,7 +8010,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 53,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 344,
@@ -7730,7 +8036,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 31,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 345,
@@ -7755,7 +8062,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 64,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 346,
@@ -7780,7 +8088,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 74,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 347,
@@ -7805,7 +8114,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 49,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 348,
@@ -7830,7 +8140,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 101,
             "rooster_rating_2021": null,
             "price_2021": 1,
-            "sd_team_id_2021": 2
+            "sd_team_id_2021": 2,
+            "is_active": true
           },
           {
             "id": 349,
@@ -7855,7 +8166,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 93,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 350,
@@ -7880,7 +8192,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 63,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 351,
@@ -7905,7 +8218,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 56,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 352,
@@ -7930,7 +8244,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 66,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 353,
@@ -7955,7 +8270,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 354,
@@ -7980,7 +8296,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 70,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 355,
@@ -8005,7 +8322,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 54,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 356,
@@ -8030,7 +8348,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 74,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 357,
@@ -8055,7 +8374,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 53,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 358,
@@ -8080,7 +8400,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 78,
             "rooster_rating_2021": null,
             "price_2021": 10,
-            "sd_team_id_2021": 10
+            "sd_team_id_2021": 10,
+            "is_active": true
           },
           {
             "id": 359,
@@ -8105,7 +8426,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 24,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 360,
@@ -8130,7 +8452,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 56,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 361,
@@ -8155,7 +8478,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 56,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 362,
@@ -8180,7 +8504,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 44,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 363,
@@ -8205,7 +8530,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 70,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 364,
@@ -8230,7 +8556,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 365,
@@ -8255,7 +8582,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 66,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 366,
@@ -8280,7 +8608,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 65,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 367,
@@ -8305,7 +8634,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 69,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 368,
@@ -8330,7 +8660,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 62,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 369,
@@ -8355,7 +8686,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 54,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 370,
@@ -8380,7 +8712,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 55,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 371,
@@ -8405,7 +8738,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 57,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 372,
@@ -8430,7 +8764,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 76,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 373,
@@ -8455,7 +8790,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 80,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 374,
@@ -8480,7 +8816,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 55,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 375,
@@ -8505,7 +8842,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 56,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 376,
@@ -8530,7 +8868,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 87,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 377,
@@ -8555,7 +8894,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 77,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 378,
@@ -8580,7 +8920,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 67,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 379,
@@ -8605,7 +8946,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 48,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 380,
@@ -8630,7 +8972,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 62,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 381,
@@ -8655,7 +8998,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 68,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 382,
@@ -8680,7 +9024,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 56,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 384,
@@ -8705,7 +9050,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 58,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 385,
@@ -8730,7 +9076,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 68,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 386,
@@ -8755,7 +9102,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 59,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 388,
@@ -8780,7 +9128,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 81,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 389,
@@ -8805,7 +9154,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 77,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 390,
@@ -8830,7 +9180,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 70,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 391,
@@ -8855,7 +9206,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 71,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 392,
@@ -8880,7 +9232,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 60,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 393,
@@ -8905,7 +9258,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 56,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 394,
@@ -8930,7 +9284,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 58,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 395,
@@ -8955,7 +9310,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 60,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 396,
@@ -8980,7 +9336,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 71,
             "rooster_rating_2021": null,
             "price_2021": 1,
-            "sd_team_id_2021": 10
+            "sd_team_id_2021": 10,
+            "is_active": true
           },
           {
             "id": 397,
@@ -9005,7 +9362,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 58,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 398,
@@ -9030,7 +9388,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 49,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 399,
@@ -9055,7 +9414,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 49,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 400,
@@ -9080,7 +9440,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 59,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 401,
@@ -9105,7 +9466,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 60,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 402,
@@ -9130,7 +9492,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 72,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 403,
@@ -9155,7 +9518,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 53,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 404,
@@ -9180,7 +9544,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 58,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 405,
@@ -9205,7 +9570,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 52,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 406,
@@ -9230,7 +9596,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 48,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 407,
@@ -9255,7 +9622,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 48,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 409,
@@ -9280,7 +9648,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 76,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 410,
@@ -9305,7 +9674,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 77,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 411,
@@ -9330,7 +9700,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 72,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 412,
@@ -9355,7 +9726,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 69,
             "rooster_rating_2021": null,
             "price_2021": 49,
-            "sd_team_id_2021": 4
+            "sd_team_id_2021": 4,
+            "is_active": true
           },
           {
             "id": 413,
@@ -9380,7 +9752,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 71,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 414,
@@ -9405,7 +9778,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 72,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 415,
@@ -9430,7 +9804,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 76,
             "rooster_rating_2021": null,
             "price_2021": 1,
-            "sd_team_id_2021": 8
+            "sd_team_id_2021": 8,
+            "is_active": true
           },
           {
             "id": 416,
@@ -9455,7 +9830,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 60,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 417,
@@ -9480,7 +9856,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 8,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 418,
@@ -9505,7 +9882,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 45,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 420,
@@ -9530,7 +9908,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 421,
@@ -9555,7 +9934,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 70,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 424,
@@ -9580,7 +9960,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 51,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 425,
@@ -9605,7 +9986,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 60,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 426,
@@ -9630,7 +10012,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 67,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 428,
@@ -9655,7 +10038,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 66,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 429,
@@ -9680,7 +10064,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 59,
             "rooster_rating_2021": null,
             "price_2021": 1,
-            "sd_team_id_2021": 4
+            "sd_team_id_2021": 4,
+            "is_active": true
           },
           {
             "id": 430,
@@ -9705,7 +10090,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 19,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 431,
@@ -9730,7 +10116,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 59,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 432,
@@ -9755,7 +10142,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 434,
@@ -9780,7 +10168,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 41,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 435,
@@ -9805,7 +10194,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 73,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 436,
@@ -9830,7 +10220,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 75,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 437,
@@ -9855,7 +10246,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 55,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 438,
@@ -9880,7 +10272,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 92,
             "rooster_rating_2021": null,
             "price_2021": 1,
-            "sd_team_id_2021": 9
+            "sd_team_id_2021": 9,
+            "is_active": true
           },
           {
             "id": 439,
@@ -9905,7 +10298,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 57,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 440,
@@ -9930,7 +10324,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 60,
             "rooster_rating_2021": null,
             "price_2021": 2,
-            "sd_team_id_2021": 6
+            "sd_team_id_2021": 6,
+            "is_active": true
           },
           {
             "id": 441,
@@ -9955,7 +10350,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 65,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 442,
@@ -9980,7 +10376,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 53,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 443,
@@ -10005,7 +10402,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 72,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 444,
@@ -10030,7 +10428,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 59,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 446,
@@ -10055,7 +10454,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 86,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 447,
@@ -10080,7 +10480,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 59,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 449,
@@ -10105,7 +10506,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 47,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 452,
@@ -10130,7 +10532,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 52,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 454,
@@ -10155,7 +10558,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 66,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 455,
@@ -10180,7 +10584,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 60,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 456,
@@ -10205,7 +10610,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 60,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 458,
@@ -10230,7 +10636,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 53,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 459,
@@ -10255,7 +10662,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 104,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 463,
@@ -10280,7 +10688,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 84,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 465,
@@ -10305,7 +10714,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 77,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 466,
@@ -10330,7 +10740,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 67,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 467,
@@ -10355,7 +10766,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 53,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 468,
@@ -10380,7 +10792,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 53,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 469,
@@ -10405,7 +10818,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 45,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 470,
@@ -10430,7 +10844,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 44,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 471,
@@ -10455,7 +10870,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 54,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 472,
@@ -10480,7 +10896,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 59,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 473,
@@ -10505,7 +10922,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 92,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 474,
@@ -10530,7 +10948,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 61,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 475,
@@ -10555,7 +10974,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 77,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 476,
@@ -10580,7 +11000,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 48,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 477,
@@ -10605,7 +11026,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 29,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 478,
@@ -10630,7 +11052,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 33,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 479,
@@ -10655,7 +11078,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 75,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 480,
@@ -10680,7 +11104,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 50,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 481,
@@ -10705,7 +11130,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 77,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 482,
@@ -10730,7 +11156,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 46,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 483,
@@ -10755,7 +11182,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 67,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 484,
@@ -10780,7 +11208,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 30,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 485,
@@ -10805,7 +11234,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 59,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 486,
@@ -10830,7 +11260,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 57,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 487,
@@ -10855,7 +11286,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 42,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 489,
@@ -10880,7 +11312,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 55,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 490,
@@ -10905,7 +11338,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 57,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 491,
@@ -10930,7 +11364,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 40,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 492,
@@ -10955,7 +11390,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 62,
             "rooster_rating_2021": null,
             "price_2021": 6,
-            "sd_team_id_2021": 2
+            "sd_team_id_2021": 2,
+            "is_active": true
           },
           {
             "id": 493,
@@ -10980,7 +11416,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 60,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 494,
@@ -11005,7 +11442,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 84,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 495,
@@ -11030,7 +11468,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 43,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 496,
@@ -11055,7 +11494,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 38,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 497,
@@ -11080,7 +11520,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 49,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 498,
@@ -11105,7 +11546,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 56,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 499,
@@ -11130,7 +11572,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 56,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 500,
@@ -11155,7 +11598,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 55,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 501,
@@ -11180,7 +11624,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 60,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 502,
@@ -11205,7 +11650,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 31,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 503,
@@ -11230,7 +11676,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 72,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 504,
@@ -11255,7 +11702,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 62,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 505,
@@ -11280,7 +11728,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 76,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 507,
@@ -11305,7 +11754,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 66,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 508,
@@ -11330,7 +11780,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 45,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 509,
@@ -11355,7 +11806,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 108,
             "rooster_rating_2021": null,
             "price_2021": 11,
-            "sd_team_id_2021": 7
+            "sd_team_id_2021": 7,
+            "is_active": true
           },
           {
             "id": 510,
@@ -11380,7 +11832,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 57,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 511,
@@ -11405,7 +11858,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 38,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 512,
@@ -11430,7 +11884,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 52,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 513,
@@ -11455,7 +11910,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 62,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 514,
@@ -11480,7 +11936,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 54,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 515,
@@ -11505,7 +11962,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 53,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 517,
@@ -11530,7 +11988,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 521,
@@ -11555,7 +12014,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 522,
@@ -11580,7 +12040,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 523,
@@ -11605,7 +12066,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 32,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 525,
@@ -11630,7 +12092,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 50,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 527,
@@ -11655,7 +12118,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 43,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 528,
@@ -11680,7 +12144,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 58,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 529,
@@ -11705,7 +12170,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 55,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 530,
@@ -11730,7 +12196,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 49,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 532,
@@ -11755,7 +12222,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 65,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 533,
@@ -11780,7 +12248,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 71,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 534,
@@ -11805,7 +12274,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 91,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 535,
@@ -11830,7 +12300,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 54,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 536,
@@ -11855,7 +12326,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 57,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 538,
@@ -11880,7 +12352,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 43,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 539,
@@ -11905,7 +12378,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 48,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 540,
@@ -11930,7 +12404,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 60,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 541,
@@ -11955,7 +12430,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 42,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 542,
@@ -11980,7 +12456,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 101,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 543,
@@ -12005,7 +12482,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 56,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 545,
@@ -12030,7 +12508,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 66,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 546,
@@ -12055,7 +12534,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 547,
@@ -12080,7 +12560,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 52,
             "rooster_rating_2021": null,
             "price_2021": 5,
-            "sd_team_id_2021": 10
+            "sd_team_id_2021": 10,
+            "is_active": true
           },
           {
             "id": 548,
@@ -12105,7 +12586,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 57,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 549,
@@ -12130,7 +12612,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 55,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 551,
@@ -12155,7 +12638,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 22,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 554,
@@ -12180,7 +12664,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 47,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 555,
@@ -12205,7 +12690,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 65,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 557,
@@ -12230,7 +12716,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 41,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 558,
@@ -12255,7 +12742,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 50,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 559,
@@ -12280,7 +12768,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 42,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 560,
@@ -12305,7 +12794,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 67,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 561,
@@ -12330,7 +12820,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 54,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 562,
@@ -12355,7 +12846,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 50,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 564,
@@ -12380,7 +12872,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 63,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 566,
@@ -12405,7 +12898,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 48,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 571,
@@ -12430,7 +12924,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 74,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 572,
@@ -12455,7 +12950,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 18,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 573,
@@ -12480,7 +12976,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 575,
@@ -12505,7 +13002,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 88,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 576,
@@ -12530,7 +13028,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 53,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 577,
@@ -12555,7 +13054,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 55,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 578,
@@ -12580,7 +13080,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 50,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 579,
@@ -12605,7 +13106,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 55,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 580,
@@ -12630,7 +13132,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 68,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 581,
@@ -12655,7 +13158,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 59,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 583,
@@ -12680,7 +13184,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 585,
@@ -12705,7 +13210,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 586,
@@ -12730,7 +13236,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 587,
@@ -12755,7 +13262,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 588,
@@ -12780,7 +13288,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 61,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 589,
@@ -12805,7 +13314,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 46,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 590,
@@ -12830,7 +13340,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 51,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 591,
@@ -12855,7 +13366,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 592,
@@ -12880,7 +13392,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 62,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 594,
@@ -12905,7 +13418,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 76,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 595,
@@ -12930,7 +13444,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 596,
@@ -12955,7 +13470,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 72,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 597,
@@ -12980,7 +13496,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 42,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 598,
@@ -13005,7 +13522,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 50,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 600,
@@ -13030,7 +13548,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 45,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 601,
@@ -13055,7 +13574,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 51,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 603,
@@ -13080,7 +13600,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 58,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 605,
@@ -13105,7 +13626,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 54,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 606,
@@ -13130,7 +13652,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 608,
@@ -13155,7 +13678,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 7,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 609,
@@ -13180,7 +13704,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 56,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 610,
@@ -13205,7 +13730,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 612,
@@ -13230,7 +13756,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 50,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 613,
@@ -13255,7 +13782,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 614,
@@ -13280,7 +13808,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 66,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 615,
@@ -13305,7 +13834,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 616,
@@ -13330,7 +13860,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 57,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 617,
@@ -13355,7 +13886,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 35,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 618,
@@ -13380,7 +13912,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 42,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 619,
@@ -13405,7 +13938,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 620,
@@ -13430,7 +13964,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 48,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 621,
@@ -13455,7 +13990,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 57,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 622,
@@ -13480,7 +14016,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 623,
@@ -13505,7 +14042,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 52,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 624,
@@ -13530,7 +14068,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 62,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 625,
@@ -13555,7 +14094,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 27,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 626,
@@ -13580,7 +14120,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 44,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 627,
@@ -13605,7 +14146,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 84,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 628,
@@ -13630,7 +14172,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 33,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 629,
@@ -13655,7 +14198,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 50,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 630,
@@ -13680,7 +14224,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 28,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 631,
@@ -13705,7 +14250,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 632,
@@ -13730,7 +14276,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 633,
@@ -13755,7 +14302,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 87,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 634,
@@ -13780,7 +14328,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 48,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 635,
@@ -13805,7 +14354,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 84,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 636,
@@ -13830,7 +14380,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 41,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 638,
@@ -13855,7 +14406,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 50,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 641,
@@ -13880,7 +14432,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 41,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 644,
@@ -13905,7 +14458,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 37,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 645,
@@ -13930,7 +14484,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 646,
@@ -13955,7 +14510,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 42,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 647,
@@ -13980,7 +14536,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 76,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 648,
@@ -14005,7 +14562,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 72,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 649,
@@ -14030,7 +14588,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 650,
@@ -14055,7 +14614,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 40,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 651,
@@ -14080,7 +14640,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 68,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 652,
@@ -14105,7 +14666,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 653,
@@ -14130,7 +14692,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 654,
@@ -14155,7 +14718,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 60,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 658,
@@ -14180,7 +14744,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 659,
@@ -14205,7 +14770,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 26,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 660,
@@ -14230,7 +14796,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 35,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 663,
@@ -14255,7 +14822,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 49,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 664,
@@ -14280,7 +14848,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 55,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 666,
@@ -14305,7 +14874,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 42,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 668,
@@ -14330,7 +14900,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 39,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 669,
@@ -14355,7 +14926,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 36,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 670,
@@ -14380,7 +14952,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 53,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 671,
@@ -14405,7 +14978,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 52,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 672,
@@ -14430,7 +15004,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 673,
@@ -14455,7 +15030,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 37,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 674,
@@ -14480,7 +15056,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 675,
@@ -14505,7 +15082,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 38,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 676,
@@ -14530,7 +15108,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 57,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 677,
@@ -14555,7 +15134,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 48,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 678,
@@ -14580,7 +15160,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 679,
@@ -14605,7 +15186,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 37,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 680,
@@ -14630,7 +15212,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 681,
@@ -14655,7 +15238,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 39,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 682,
@@ -14680,7 +15264,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 53,
             "rooster_rating_2021": null,
             "price_2021": 15,
-            "sd_team_id_2021": 1
+            "sd_team_id_2021": 1,
+            "is_active": true
           },
           {
             "id": 683,
@@ -14705,7 +15290,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 684,
@@ -14730,7 +15316,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 685,
@@ -14755,7 +15342,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 686,
@@ -14780,7 +15368,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 65,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 687,
@@ -14805,7 +15394,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 688,
@@ -14830,7 +15420,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 689,
@@ -14855,7 +15446,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 47,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 691,
@@ -14880,7 +15472,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 692,
@@ -14905,7 +15498,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 48,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 695,
@@ -14930,7 +15524,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 49,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 696,
@@ -14955,7 +15550,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 698,
@@ -14980,7 +15576,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 45,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 699,
@@ -15005,7 +15602,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 700,
@@ -15030,7 +15628,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 701,
@@ -15055,7 +15654,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 702,
@@ -15080,7 +15680,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 704,
@@ -15105,7 +15706,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 705,
@@ -15130,7 +15732,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 707,
@@ -15155,7 +15758,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 708,
@@ -15180,7 +15784,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 710,
@@ -15205,7 +15810,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 37,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 711,
@@ -15230,7 +15836,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 712,
@@ -15255,7 +15862,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 56,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 713,
@@ -15280,7 +15888,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 20,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 715,
@@ -15305,7 +15914,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 49,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 716,
@@ -15330,7 +15940,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 53,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 717,
@@ -15355,7 +15966,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 48,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 718,
@@ -15380,7 +15992,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 60,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 719,
@@ -15405,7 +16018,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 68,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 720,
@@ -15430,7 +16044,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 45,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 721,
@@ -15455,7 +16070,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 42,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 724,
@@ -15480,7 +16096,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 82,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 725,
@@ -15505,7 +16122,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 53,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 726,
@@ -15530,7 +16148,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 23,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 727,
@@ -15555,7 +16174,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 728,
@@ -15580,7 +16200,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 30,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 729,
@@ -15605,7 +16226,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 730,
@@ -15630,7 +16252,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 58,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 731,
@@ -15655,7 +16278,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": -1,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 732,
@@ -15680,7 +16304,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 733,
@@ -15705,7 +16330,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 734,
@@ -15730,7 +16356,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 49,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 735,
@@ -15755,7 +16382,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 36,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 736,
@@ -15780,7 +16408,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 737,
@@ -15805,7 +16434,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 740,
@@ -15830,7 +16460,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 741,
@@ -15855,7 +16486,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 743,
@@ -15880,7 +16512,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 12,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 744,
@@ -15905,7 +16538,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 52,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 745,
@@ -15930,7 +16564,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 44,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 746,
@@ -15955,7 +16590,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 747,
@@ -15980,7 +16616,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 748,
@@ -16005,7 +16642,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 58,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 749,
@@ -16030,7 +16668,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 44,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 750,
@@ -16055,7 +16694,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 59,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 751,
@@ -16080,7 +16720,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 66,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 753,
@@ -16105,7 +16746,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 61,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 755,
@@ -16130,7 +16772,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 758,
@@ -16155,7 +16798,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 44,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 759,
@@ -16180,7 +16824,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 760,
@@ -16205,7 +16850,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 761,
@@ -16230,7 +16876,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 49,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 763,
@@ -16255,7 +16902,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 47,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 764,
@@ -16280,7 +16928,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 765,
@@ -16305,7 +16954,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 768,
@@ -16330,7 +16980,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 42,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 769,
@@ -16355,7 +17006,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 770,
@@ -16380,7 +17032,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 53,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 771,
@@ -16405,7 +17058,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 67,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 772,
@@ -16430,7 +17084,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 773,
@@ -16455,7 +17110,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 22,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 774,
@@ -16480,7 +17136,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 30,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 775,
@@ -16505,7 +17162,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 41,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 776,
@@ -16530,7 +17188,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 31,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 777,
@@ -16555,7 +17214,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 13,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 778,
@@ -16580,7 +17240,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 81,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 779,
@@ -16605,7 +17266,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 780,
@@ -16630,7 +17292,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 781,
@@ -16655,7 +17318,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 782,
@@ -16680,7 +17344,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 783,
@@ -16705,7 +17370,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 784,
@@ -16730,7 +17396,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 785,
@@ -16755,7 +17422,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 786,
@@ -16780,7 +17448,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 787,
@@ -16805,7 +17474,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 788,
@@ -16830,7 +17500,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 789,
@@ -16855,7 +17526,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 790,
@@ -16880,7 +17552,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 791,
@@ -16905,7 +17578,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 792,
@@ -16930,7 +17604,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 793,
@@ -16955,7 +17630,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 794,
@@ -16980,7 +17656,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 795,
@@ -17005,7 +17682,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 796,
@@ -17030,7 +17708,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 797,
@@ -17055,7 +17734,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 798,
@@ -17080,7 +17760,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 799,
@@ -17105,7 +17786,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 800,
@@ -17130,7 +17812,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 801,
@@ -17155,7 +17838,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 802,
@@ -17180,7 +17864,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 803,
@@ -17205,7 +17890,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 804,
@@ -17230,7 +17916,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 805,
@@ -17255,7 +17942,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 806,
@@ -17280,7 +17968,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 807,
@@ -17305,7 +17994,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 808,
@@ -17330,7 +18020,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 809,
@@ -17355,7 +18046,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 63,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 810,
@@ -17380,7 +18072,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 811,
@@ -17405,7 +18098,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 812,
@@ -17430,7 +18124,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 813,
@@ -17455,7 +18150,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 814,
@@ -17480,7 +18176,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 815,
@@ -17505,7 +18202,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 816,
@@ -17530,7 +18228,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 817,
@@ -17555,7 +18254,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 818,
@@ -17580,7 +18280,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 819,
@@ -17605,7 +18306,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 820,
@@ -17630,7 +18332,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 821,
@@ -17655,7 +18358,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 822,
@@ -17680,7 +18384,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 823,
@@ -17705,7 +18410,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 824,
@@ -17730,7 +18436,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 825,
@@ -17755,7 +18462,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 826,
@@ -17780,7 +18488,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 67,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 827,
@@ -17805,7 +18514,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 828,
@@ -17830,7 +18540,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 829,
@@ -17855,7 +18566,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 830,
@@ -17880,7 +18592,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 831,
@@ -17905,7 +18618,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 832,
@@ -17930,7 +18644,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 833,
@@ -17955,7 +18670,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 834,
@@ -17980,7 +18696,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 835,
@@ -18005,7 +18722,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 836,
@@ -18030,7 +18748,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 837,
@@ -18055,7 +18774,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 838,
@@ -18080,7 +18800,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 839,
@@ -18105,7 +18826,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 53,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 840,
@@ -18130,7 +18852,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 3,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 841,
@@ -18155,7 +18878,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 842,
@@ -18180,7 +18904,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 843,
@@ -18205,7 +18930,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 844,
@@ -18230,7 +18956,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 845,
@@ -18255,7 +18982,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 846,
@@ -18280,7 +19008,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 847,
@@ -18305,7 +19034,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 848,
@@ -18330,7 +19060,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 57,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 849,
@@ -18355,7 +19086,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 850,
@@ -18380,7 +19112,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 53,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 851,
@@ -18405,7 +19138,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 852,
@@ -18430,7 +19164,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 853,
@@ -18455,7 +19190,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 854,
@@ -18480,7 +19216,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 62,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 855,
@@ -18505,7 +19242,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 856,
@@ -18530,7 +19268,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 43,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 857,
@@ -18555,7 +19294,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 858,
@@ -18580,7 +19320,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 859,
@@ -18605,7 +19346,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 860,
@@ -18630,7 +19372,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 861,
@@ -18655,7 +19398,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 862,
@@ -18680,7 +19424,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 863,
@@ -18705,7 +19450,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 68,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 864,
@@ -18730,7 +19476,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 865,
@@ -18755,7 +19502,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 866,
@@ -18780,7 +19528,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 867,
@@ -18805,7 +19554,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": 1,
-            "sd_team_id_2021": 6
+            "sd_team_id_2021": 6,
+            "is_active": true
           },
           {
             "id": 868,
@@ -18830,7 +19580,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 869,
@@ -18855,7 +19606,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 870,
@@ -18880,7 +19632,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 871,
@@ -18905,7 +19658,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 872,
@@ -18930,7 +19684,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 873,
@@ -18955,7 +19710,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 874,
@@ -18980,7 +19736,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 875,
@@ -19005,7 +19762,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 876,
@@ -19030,7 +19788,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 877,
@@ -19055,7 +19814,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 878,
@@ -19080,7 +19840,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 879,
@@ -19105,7 +19866,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 880,
@@ -19130,7 +19892,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 881,
@@ -19155,7 +19918,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 51,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 882,
@@ -19180,7 +19944,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 883,
@@ -19205,7 +19970,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 884,
@@ -19230,7 +19996,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 885,
@@ -19255,7 +20022,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 886,
@@ -19280,7 +20048,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 887,
@@ -19305,7 +20074,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 888,
@@ -19330,7 +20100,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 563,
@@ -19355,7 +20126,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 65,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 694,
@@ -19380,7 +20152,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": null,
             "rooster_rating_2021": null,
             "price_2021": null,
-            "sd_team_id_2021": null
+            "sd_team_id_2021": null,
+            "is_active": true
           },
           {
             "id": 52,
@@ -19405,7 +20178,8 @@ with player_entities_import_json (import_json) as (
             "sc_average": 63,
             "rooster_rating_2021": 4,
             "price_2021": 27,
-            "sd_team_id_2021": 5
+            "sd_team_id_2021": 5,
+            "is_active": true
           }
         ]'::json)
 )
@@ -19414,11 +20188,11 @@ with player_entities_import_json (import_json) as (
 INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_games, sc_standard_price, afl_team_id,
                           jumper_number, height, weight, rooster_rating, moneyball_price, price_2016, price_2017,
                           price_2018, price_2019, price_2020, ps_average, sc_average,
-                          rooster_rating_2021, price_2021, sd_team_id_2021)
+                          rooster_rating_2021, price_2021, sd_team_id_2021, is_active)
 SELECT id, first_name, last_name, date_of_birth, age, career_games, sc_standard_price, afl_team_id,
        jumper_number, height, weight, rooster_rating, moneyball_price, price_2016, price_2017,
        price_2018, price_2019, price_2020, ps_average, sc_average,
-       rooster_rating_2021, price_2021, sd_team_id_2021
+       rooster_rating_2021, price_2021, sd_team_id_2021, is_active
 FROM player_entities_import_json
     CROSS JOIN LATERAL json_populate_recordset(NULL::player_entity, import_json)
 ON CONFLICT (id) DO UPDATE
@@ -19435,4 +20209,5 @@ ON CONFLICT (id) DO UPDATE
         sc_average = excluded.sc_average,
         rooster_rating_2021 = excluded.rooster_rating_2021,
         price_2021 = excluded.price_2021,
-        sd_team_id_2021 = excluded.sd_team_id_2021;
+        sd_team_id_2021 = excluded.sd_team_id_2021,
+        is_active = excluded.is_active;
