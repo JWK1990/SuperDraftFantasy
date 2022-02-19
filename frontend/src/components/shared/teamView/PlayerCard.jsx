@@ -26,7 +26,7 @@ const styles = {
     benchContainer: {
         backgroundColor: "grey",
     },
-    playerDetails: {
+    playerNameContainer: {
         display: "grid",
         alignItems: "center",
         justifyContent: "left",
@@ -35,6 +35,11 @@ const styles = {
         fontWeight: "bold",
         fontSize: "1vw",
         paddingLeft: "10px",
+    },
+    playerDetailsContainer: {
+        display: "grid",
+        alignItems: "center",
+        justifyContent: "center",
     },
     playerPosition: {
         fontSize: "1vw",
@@ -79,21 +84,22 @@ class PlayerCard extends React.Component {
         return (
             <Paper elevation={3} className={[classes.paperRoot, getPositionClass()]}>
                 <Grid container className={classes.gridContainer}>
-                    <Grid item xs={7} className={classes.playerDetails}>
+                    <Grid item xs={7} className={classes.playerNameContainer}>
                         <Typography className={classes.playerName}>
                             {this.props.player.firstName.substring(0, 1) + ". " + this.props.player.lastName}
                         </Typography>
                     </Grid>
-                    <Grid item xs={3} className={classes.playerDetails}>
+                    <Grid item xs={3} className={classes.playerDetailsContainer}>
                         <Typography className={classes.playerPosition}>
                             {this.props.player.primaryPosition.substring(0,1)}
-                            {this.props.player.secondaryPosition.substring(0,1) ?
-                                "/" + this.props.player.secondaryPosition.substring(0,1)
+                            {
+                                this.props.player.secondaryPosition !== null
+                                ? "-" + this.props.player.secondaryPosition.substring(0,1)
                                 : ""
                             }
                         </Typography>
                     </Grid>
-                    <Grid item xs={2} className={classes.playerDetails}>
+                    <Grid item xs={2} className={classes.playerDetailsContainer}>
                         <Typography className={classes.playerPrice}>
                             {"$" + this.props.price}
                         </Typography>

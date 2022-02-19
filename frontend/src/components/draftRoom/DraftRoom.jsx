@@ -8,9 +8,9 @@ import {stompClientSelector} from "../../store/selectors/WebSocketSelectors";
 import ConfigurationUtils from "../../utils/ConfigurationUtils";
 import {withStyles} from "@material-ui/core";
 import DraftDetailsContainer from "./draftDetails/DraftDetailsContainer";
-import TeamListV2 from "./myTeam/TeamListV2";
 import TeamsV2 from "./teams/TeamsV2";
 import UpdatedPlayerListContainer from "./statistics/players/UpdatedPlayerListContainer";
+import MyTeamContainer from "./myTeam/MyTeamContainer";
 
 const styles = {
     rootContainer: {
@@ -84,7 +84,7 @@ class DraftRoom extends React.Component {
                 </Grid>
                 <Grid container item xs={2} style={{height: "100%", maxHeight: "100vh", overflow: "auto"}}>
                     <Grid item xs={12}>
-                        <TeamListV2/>
+                        <MyTeamContainer/>
                     </Grid>
                 </Grid>
             </Grid>

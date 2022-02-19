@@ -18,6 +18,7 @@ const buildFieldLayout = () => {
         let defSlot = {
             slotId: i,
             player: null,
+            price: null,
             vacant: true,
             slotPosition: "DEF",
         }
@@ -27,6 +28,7 @@ const buildFieldLayout = () => {
         let midSlot = {
             slotId: i,
             player: null,
+            price: null,
             vacant: true,
             slotPosition: "MID",
         }
@@ -36,6 +38,7 @@ const buildFieldLayout = () => {
         let rucSlot = {
             slotId: i,
             player: null,
+            price: null,
             vacant: true,
             slotPosition: "RUC",
         }
@@ -45,6 +48,7 @@ const buildFieldLayout = () => {
         let fwdSlot = {
             slotId: i,
             player: null,
+            price: null,
             vacant: true,
             slotPosition: "FWD",
         }
@@ -54,6 +58,7 @@ const buildFieldLayout = () => {
         let benchSlot = {
             slotId: i,
             player: null,
+            price: null,
             vacant: true,
             slotPosition: "BENCH",
         }
@@ -62,41 +67,61 @@ const buildFieldLayout = () => {
     return fieldLayout;
 }
 
-const addPlayerToField = (field, player) => {
-    const slotIndex = field.findIndex(slot => {
-        return slot.slotPosition === player.primaryPosition && slot.vacant === true;
-    })
-    field[slotIndex] = {...field[slotIndex], player: player, vacant: false};
-}
+class MyTeamList extends React.Component {
 
-class TeamListV2 extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            myTeamList: buildFieldLayout(),
+        }
+    }
 
-    playerList = [
-        {firstName: "Jarryd", lastName: "Roughead", primaryPosition: "FWD", secondaryPosition: "RUC", price: 10},
-        {firstName: "Cyril", lastName: "Rioli", primaryPosition: "FWD", secondaryPosition: "MID", price: 10},
-        {firstName: "Tom", lastName: "Mitchell", primaryPosition: "MID", secondaryPosition: "", price: 10},
-        {firstName: "Sam", lastName: "Mitchell", primaryPosition: "MID", secondaryPosition: "", price: 10},
-    ]
+    componentDidMount() {
+        this.props.teamPlayerJoinList.forEach(teamPlayerJoin => {
+            this.addPlayerToMyTeamList(
+                teamPlayerJoin.player,
+                teamPlayerJoin.myTeamPositionType,
+                teamPlayerJoin.price,
+            );
+        });
+    }
 
-    fieldLayout = buildFieldLayout();
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if(this.props.teamPlayerJoinList.length > prevProps.teamPlayerJoinList.length) {
+            const newTeamPlayerJoin = this.props.teamPlayerJoinList[this.props.teamPlayerJoinList.length - 1];
+            this.addPlayerToMyTeamList(
+                newTeamPlayerJoin.player,
+                newTeamPlayerJoin.myTeamPositionType,
+                newTeamPlayerJoin.price
+            );
+        }
+    }
+
+    addPlayerToMyTeamList = (player, myTeamPosition, price) => {
+        let slotIndex = this.state.myTeamList.findIndex(slot => {
+            return slot.slotPosition === myTeamPosition && slot.vacant === true;
+        })
+        if(slotIndex === null || slotIndex < 0) {
+            slotIndex = this.state.myTeamList.length - 1;
+        }
+        const {myTeamList} = this.state;
+        myTeamList[slotIndex] =  {...myTeamList[slotIndex], player: player, price: price, vacant: false};
+        this.setState({myTeamList});
+    }
 
     render() {
         const {classes} = this.props;
 
-        this.playerList.forEach(player => {
-            addPlayerToField(this.fieldLayout, player);
-        });
-
         return (
             <Grid container item className={classes.mainContainer}>
                 {
-                    this.fieldLayout.map(slot => {
+                    this.state.myTeamList.map(slot => {
                         return (
                             <Grid item xs={12} className={classes.gridItem}>
                                 <PlayerCard
                                     slot={slot}
                                     player={slot.player}
-                                    price={slot.player != null ? slot.player.price : null}
+                                    price={slot.price}
                                 />
                             </Grid>
                         )
@@ -107,4 +132,4 @@ class TeamListV2 extends React.Component {
     }
 }
 
-export default withStyles(styles)(TeamListV2);
+export default withStyles(styles)(MyTeamList);
