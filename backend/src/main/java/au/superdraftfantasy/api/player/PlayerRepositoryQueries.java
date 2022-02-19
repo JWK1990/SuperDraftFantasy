@@ -14,7 +14,8 @@ public class PlayerRepositoryQueries {
             "\t\t\twhere te.draft_id = :draftId\n" +
             "\t\t) as filtered_tpje\n" +
             "\t\ton filtered_tpje.player_id = pe.id\n" +
-            "\twhere filtered_tpje.draft_id is NULL;";
+            "\twhere filtered_tpje.draft_id is NULL\n" +
+            "\tand pe.is_active is true;";
 
     /* Select Best Undrafted Player In A Given Draft Excluding Given Positions. */
     public static final String selectBestUndraftedPlayerIdWithPositionFilter = "" +
@@ -33,5 +34,6 @@ public class PlayerRepositoryQueries {
             "\t\tleft join position_entity pose\n" +
             "\t\t\ton pose.id = ppj.position_id \n" +
             "\twhere pose.\"type\" not IN :positionExclusionList\n" +
-            "\tand filtered_tpje.draft_id is NULL;";
+            "\tand filtered_tpje.draft_id is NULL;\n" +
+            "\tand pe.is_active is true;";
 }
