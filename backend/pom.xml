@@ -168,6 +168,15 @@
           <skipTests>true</skipTests> 
         </configuration> 
       </plugin>
+      <!-- Flyway Plugin - Used for running flyway scripts for tasks such as cleaning the DB. -->
+      <plugin>
+        <groupId>org.flywaydb</groupId>
+        <artifactId>flyway-maven-plugin</artifactId>
+        <version>8.5.0</version>
+        <configuration>
+          <configFiles>${project.basedir}/src/main/resources/flyway.conf</configFiles>
+        </configuration>
+      </plugin>
       <!-- Frontend Maven Plugin Start for building the FE as part of the BE Build. -->
       <!-- See guide here https://medium.com/@itzgeoff/including-react-in-your-spring-boot-maven-build-ae3b8f8826e -->
       <!--
