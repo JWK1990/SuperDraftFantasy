@@ -50,7 +50,7 @@ public class PlayerService {
         playerList.forEach((player) -> {
             PlayerBaseReadDto readDto = new PlayerBaseReadDto(
                     player,
-                    player.getSeasonSummary(2020),
+                    player.getSeasonSummary(2021), // TODO - Change hardcoding for 2021 to be dynamic.
                     player.getTeamPlayerJoin(draftId)
             );
             readDtoList.add(readDto);
@@ -89,7 +89,8 @@ public class PlayerService {
             );
         }
 
-        return mapToReadDtoPage(playerPage, 2020, draftId);
+        // TODO - Change hardcoding for 2021 to be dynamic.
+        return mapToReadDtoPage(playerPage, 2021, draftId);
     }
 
     /**
@@ -124,8 +125,8 @@ public class PlayerService {
                     pageable
             );
         }
-
-        return mapToReadDtoPage(draftedPlayerPage, 2020, draftId);
+        // TODO - Change hardcoding for 2021 to be dynamic.
+        return mapToReadDtoPage(draftedPlayerPage, 2021, draftId);
     }
 
     /**
@@ -168,7 +169,8 @@ public class PlayerService {
                 );
             }
 
-            return mapToReadDtoPage(availablePlayersPage, 2020, draftId);
+            // TODO - Change hardcoding for 2021 to be dynamic.
+            return mapToReadDtoPage(availablePlayersPage, 2021, draftId);
         }
 
     }
@@ -181,7 +183,7 @@ public class PlayerService {
     public PlayerBaseReadDto getPlayerBaseById(Long playerId, Long draftId) {
         IPlayerBase playerBase = playerRepository.findPlayerBaseById(playerId)
                 .orElseThrow(() -> new NoSuchElementException("Player with id " + playerId + " not found."));
-        ISeasonSummaryBase baseStats = playerBase.getSeasonSummary(2020);
+        ISeasonSummaryBase baseStats = playerBase.getSeasonSummary(2021); // TODO - Change hardcoding for 2021 to be dynamic.
         ITeamPlayerJoinBase teamPlayerJoin = playerBase.getTeamPlayerJoin(draftId);
         return new PlayerBaseReadDto(playerBase, baseStats, teamPlayerJoin);
     }
@@ -194,7 +196,7 @@ public class PlayerService {
     public PlayerDetailsReadDto getPlayerDetailsById(Long playerId, Long draftId) {
         IPlayerDetails playerDetails = playerRepository.findPlayerDetailsById(playerId)
                 .orElseThrow(() -> new NoSuchElementException("Player with id " + playerId + " not found."));
-        return new PlayerDetailsReadDto(playerDetails, 2020, draftId);
+        return new PlayerDetailsReadDto(playerDetails, 2021, draftId); // TODO - Change hardcoding for 2021 to be dynamic.
     }
 
     /**
