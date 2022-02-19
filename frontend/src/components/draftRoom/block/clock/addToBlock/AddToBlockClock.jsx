@@ -6,6 +6,7 @@ const styles = {
     rootDiv: {
         display: "grid",
         justifyContent: "center",
+        height: "100%",
     },
     secondsSymbol: {
         fontSize: 16,

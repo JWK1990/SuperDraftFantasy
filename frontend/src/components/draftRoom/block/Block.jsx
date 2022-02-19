@@ -208,15 +208,15 @@ class DraftRoomBlock extends React.Component {
     // Then when a relevant team update is received, we should increment the bidClockKey to refresh the timer.
     getIsBidDisabledTuple = (bidderId, price, player) => {
         if(this.props.currentTeam.teamPlayerJoins.length >= this.props.numOfPlayerRequired) {
-            return [true, "Your team is full."]
+            return [true, "Your team is full. Kein Glück!"]
         }
 
         if(bidderId === this.props.currentTeam.id) {
-            return [true, "You are the lead bidder."];
+            return [true, "You are the lead bidder. Daumen Drück!"];
         }
 
         if(price && this.props.currentTeam.maxBid < price + 1) {
-            return [true, "Insufficient budget."]
+            return [true, "Insufficient budget. Kein Glück!"]
         }
 
         if(
@@ -230,7 +230,7 @@ class DraftRoomBlock extends React.Component {
             return[true, this.getSlotUnavailableText(player)];
         }
 
-        return [false, "Bid"];
+        return [false, "Click To Bid!"];
     }
 
     getSlotUnavailableText(player) {
@@ -242,7 +242,9 @@ class DraftRoomBlock extends React.Component {
     render() {
         const {classes} = this.props;
         return (
-            <Grid container className={classes.rootContainer} spacing={1} direction="row" justify="space-between" alignItems="stretch">
+            <Grid container className={classes.rootContainer} spacing={2} direction="row"
+                  justify="space-between" alignItems="stretch"
+            >
                 <Grid item xs={2} className={classes.gridItem}>
                     <ClockContainer
                         showAddToBlockClock={this.state.showAddToBlockClock}

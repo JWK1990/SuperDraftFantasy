@@ -28,10 +28,10 @@ export default function BlockPlayer(props) {
     return (
         <Grid container className={classes.rootContainer} spacing={0} direction="row" justify="flex-start" alignItems="center">
             <Grid item xs={7}>
-                <BlockPlayerCard player={props.player}/>
+                {/*<BlockPlayerCard player={props.player}/>*/}
             </Grid>
             <Grid item xs={5}>
-                <PlayerAnalysisCard player={props.player}/>
+                {/*<PlayerAnalysisCard player={props.player}/>*/}
             </Grid>
         </Grid>
     )
