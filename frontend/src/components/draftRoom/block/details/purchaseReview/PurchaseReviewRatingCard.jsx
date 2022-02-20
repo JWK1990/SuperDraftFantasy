@@ -10,7 +10,7 @@ import Test2 from "../../../../../images/Test2.png";
 const useStyles = makeStyles((theme) => ({
     rootContainer: {
         height: 'calc(var(--draft-room-block-height) - 20px)',
-        backgroundImage: `url(${Test2})`,
+        // backgroundImage: `url(${Test2})`,
     },
     details: {
         display: 'flex',
@@ -61,7 +61,7 @@ export default function PurchaseReviewRatingCard(props) {
 
     return (
         <Grid container alignItems={"center"} justify={"flex-start"}
-              component={Paper} elevation={2} className={classes.rootContainer}
+              component={Paper} elevation={0} className={classes.rootContainer}
         >
             <Grid item xs={4}>
                 <Typography variant={"subtitle2"} align={"center"}>Sold To</Typography>
@@ -82,15 +82,22 @@ export default function PurchaseReviewRatingCard(props) {
             <Grid item xs={4}>
                 <Typography variant={"subtitle2"} align={"center"}>$ 🠉🠋</Typography>
                 <Typography variant="h3" align={"center"} color="textPrimary" className={classes.price}>
-                    <sup className={classes.textSymbol}>🠉</sup>
-                    {props.player.price - 10} {/* TODO - Add previous year price here. */}
+                    {
+                        props.player.price > props.player.price2021
+                            ? <><sup className={classes.textSymbol} style={{color: "green"}}>🠉</sup>
+                                {props.player.price - props.player.price2021}</>
+                            : props.player.price < props.player.price2021
+                                ? <><sup className={classes.textSymbol} style={{color: "red"}}>🠋</sup>
+                                    {props.player.price2021 - props.player.price}</>
+                                : <sup className={classes.textSymbol}>-</sup>
+                    }
                 </Typography>
             </Grid>
             <Grid item xs={4}>
                 <Typography variant={"subtitle2"} align={"center"}>Rank</Typography>
                 <Typography variant="h3" align={"center"} color="textPrimary" className={classes.price}>
                     <sup className={classes.textSymbol}># </sup>
-                    25 {/* TODO - Add previous year price here. */}
+                    25 {/* TODO - Add value rank here. */}
                 </Typography>
             </Grid>
             <Grid item xs={4}>
