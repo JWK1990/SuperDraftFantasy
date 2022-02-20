@@ -7,6 +7,7 @@ import PurchaseReviewRatingCard from "./PurchaseReviewRatingCard";
 import PurchaseReviewPlayerCard from "./PurchaseReviewPlayerCard";
 import PurchaseReviewStatsCard from "./PurchaseReviewStatsCard";
 import PerformanceReviewSymbol from "../../../../../images/PerformanceReviewSymbol.jpg";
+import BlockPlayerCard from "../player/playerCard/BlockPlayerCard";
 
 const styles = {
     paperRoot: {
@@ -49,31 +50,21 @@ class PurchaseReview extends React.Component {
         }
 
         return (
-            <Paper elevation={2} className={classes.paperRoot}>
-                <Grid container className={classes.rootContainer} spacing={0} direction="row" justify="flex-start" alignItems="center">
-                    <Grid item xs={2} zeroMinWidth className={classes.blackBg}>
-                        <div>
-                            <Typography variant={"subtitle1"} color={"textPrimary"} className={classes.purchaseReviewText}>Purchase Review...</Typography>
-                        </div>
-                        <div className={classes.purchaseReviewImageDiv}>
-                            <img src={PerformanceReviewSymbol} className={classes.purchaseReviewImage} alt={"Purchase Review."}/>
-                        </div>
-                    </Grid>
-                    <Grid item xs={5}>
-                        <PurchaseReviewPlayerCard
-                            player={this.props.purchaseReviewPlayer}
-                        />
-                    </Grid>
-                    <Grid item xs={2}>
-                        <PurchaseReviewStatsCard />
-                    </Grid>
-                    <Grid item xs={3}>
-                        <PurchaseReviewRatingCard
-                            purchaseReviewRating={this.props.purchaseReviewPlayer.purchaseReviewRating}
-                        />
-                    </Grid>
+            <Grid container className={classes.rootContainer} spacing={0}
+                  justify="flex-start" alignItems="center"
+            >
+                <Grid item xs={6}>
+                    <BlockPlayerCard
+                        player={this.props.purchaseReviewPlayer}
+                        isPurchaseReview={true}
+                    />
                 </Grid>
-            </Paper>
+                <Grid item xs={6}>
+                    <PurchaseReviewRatingCard
+                        player={this.props.purchaseReviewPlayer}
+                    />
+                </Grid>
+            </Grid>
         )
     }
 

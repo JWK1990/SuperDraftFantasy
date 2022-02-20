@@ -49,15 +49,17 @@ export default function BlockPlayerYearStats(props) {
                 showFooter={false}
                 showIconFooter={true}
             />
-            {props.player.price != null
-            ? (<CircularStatIcon
-                    statName="Price"
-                    statValue= {props.player.price}
-                    maxStatValue= {PlayerStatFetcher.maxPrice}
-                    showHeader={false}
-                    showFooter={true}
-                />)
-            : null
+            {props.player.price == null
+                ? (
+                    <CircularStatIcon
+                        statName="Price"
+                        statValue= {props.player.price != null ? this.props.player.price : "0"}
+                        maxStatValue= {PlayerStatFetcher.maxPrice}
+                        showHeader={false}
+                        showFooter={true}
+                    />
+                )
+                : null
             }
         </div>
     )

@@ -5,7 +5,7 @@ import SCAverageGraph from "./playerAnalysis/graphs/SCAverageGraph";
 
 export default function BlockPlayer(props) {
     return (
-        <Grid container spacing={0} direction="row"
+        <Grid container spacing={2} direction="row"
               justify="flex-start" alignItems="center" style={{height: "100%"}}
         >
             <Grid item xs={7}>

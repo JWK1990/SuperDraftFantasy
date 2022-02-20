@@ -1,14 +1,16 @@
 import React from "react";
 import Typography from "@material-ui/core/Typography";
-import Card from "@material-ui/core/Card";
-import CardContent from "@material-ui/core/CardContent";
 import {makeStyles} from "@material-ui/core/styles";
 import PurchaseReviewSymbolFetcher from "../../../../shared/imageFetchers/PurchaseReviewSymbolFetcher";
+import Grid from "@material-ui/core/Grid";
+import {Paper} from "@material-ui/core";
+import TeamLogoFetcher from "../../../../shared/imageFetchers/TeamLogoFetcher";
+import Test2 from "../../../../../images/Test2.png";
 
 const useStyles = makeStyles((theme) => ({
-    root: {
-        display: 'flex',
-        height: 'var(--player-card-height)',
+    rootContainer: {
+        height: 'calc(var(--draft-room-block-height) - 20px)',
+        backgroundImage: `url(${Test2})`,
     },
     details: {
         display: 'flex',
@@ -19,43 +21,108 @@ const useStyles = makeStyles((theme) => ({
     content: {
         flex: '1 0 auto',
     },
-    scoreImageDiv: {
-        display: 'flex',
-        height: "100%",
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
     scoreImage: {
-        width: 100,
-        color: "red",
+        width: "62px",
+        height: "62px",
     },
+    teamLogo: {
+        width: "62px",
+        height: "62px",
+    },
+    smallIcon: {
+        fontSize: 14,
+        color: "grey",
+    },
+    textSymbol: {
+        fontSize: 20,
+        color: "grey",
+        fontWeight: "bold",
+    },
+    price: {
+        lineHeight: "50px",
+    },
+    imageDiv: {
+        textAlign: "center",
+    }
 }));
 
 function getPurchaseReviewSymbol(rating) {
     return PurchaseReviewSymbolFetcher.getPurchaseReviewSymbol(rating);
 }
 
+function Tag() {
+    return null;
+}
+
 export default function PurchaseReviewRatingCard(props) {
     const classes = useStyles();
 
-    return (
-        <Card className={classes.root} elevation={4}>
-            <div className={classes.details}>
-                <CardContent className={classes.content}>
-                    <Typography variant="subtitle2" align="center" color="textSecondary">
-                        Rating:
-                    </Typography>
-                    <div className={classes.scoreImageDiv}>
-                        {props.purchaseReviewRating != null
-                            ? <img className={classes.scoreImage}
-                                   src={getPurchaseReviewSymbol(props.purchaseReviewRating)}
-                                   alt="Purchase Review Score."/>
-                            : null
-                        }
-                    </div>
-                </CardContent>
-            </div>
-        </Card>
-    )
+    console.log("PRP: ", props.player);
 
+    return (
+        <Grid container alignItems={"center"} justify={"flex-start"}
+              component={Paper} elevation={2} className={classes.rootContainer}
+        >
+            <Grid item xs={4}>
+                <Typography variant={"subtitle2"} align={"center"}>Sold To</Typography>
+                <div className={classes.imageDiv}>
+                    <img className={classes.teamLogo}
+                         src={TeamLogoFetcher.getTeamLogo(props.player.draftTeamId)}
+                         alt="Team Logo."
+                    />
+                </div>
+            </Grid>
+            <Grid item xs={4}>
+                <Typography variant={"subtitle2"} align={"center"}>Sold For</Typography>
+                <Typography variant="h3" align={"center"} color="textPrimary" className={classes.price}>
+                    <sup className={classes.textSymbol}>$</sup>
+                    {props.player.price}
+                </Typography>
+            </Grid>
+            <Grid item xs={4}>
+                <Typography variant={"subtitle2"} align={"center"}>$ 🠉🠋</Typography>
+                <Typography variant="h3" align={"center"} color="textPrimary" className={classes.price}>
+                    <sup className={classes.textSymbol}>🠉</sup>
+                    {props.player.price - 10} {/* TODO - Add previous year price here. */}
+                </Typography>
+            </Grid>
+            <Grid item xs={4}>
+                <Typography variant={"subtitle2"} align={"center"}>Rank</Typography>
+                <Typography variant="h3" align={"center"} color="textPrimary" className={classes.price}>
+                    <sup className={classes.textSymbol}># </sup>
+                    25 {/* TODO - Add previous year price here. */}
+                </Typography>
+            </Grid>
+            <Grid item xs={4}>
+                {props.player.purchaseReviewRating != null
+                    ? (
+                        <>
+                            <Typography variant={"subtitle2"} align={"center"}>Moneyball Rating</Typography>
+                            <div className={classes.imageDiv}>
+                                <img className={classes.scoreImage}
+                                     src={getPurchaseReviewSymbol(props.player.purchaseReviewRating)}
+                                     alt="Purchase Review Score."
+                                />
+                            </div>
+                        </>
+                    )
+                    : null }
+            </Grid>
+            <Grid item xs={4}>
+                {props.player.purchaseReviewRating != null
+                    ? (
+                        <>
+                            <Typography variant={"subtitle2"} align={"center"}>PP Rating</Typography>
+                            <div className={classes.imageDiv}>
+                                <img className={classes.scoreImage}
+                                     src={getPurchaseReviewSymbol(props.player.purchaseReviewRating)}
+                                     alt="Purchase Review Score."
+                                />
+                            </div>
+                        </>
+                    )
+                    : null }
+                </Grid>
+        </Grid>
+    )
 }
