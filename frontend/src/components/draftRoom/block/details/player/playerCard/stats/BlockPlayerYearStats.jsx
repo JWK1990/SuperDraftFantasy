@@ -41,6 +41,18 @@ export default function BlockPlayerYearStats(props) {
                 showHeader={false}
                 showFooter={true}
             />
+            {props.player.price == null
+                ? (
+                    <CircularStatIcon
+                        statName="DE"
+                        statValue= {props.player.disposalEfficiency != null ? props.player.disposalEfficiency : "-"}
+                        maxStatValue= {100}
+                        showHeader={false}
+                        showFooter={true}
+                    />
+                )
+                : null
+            }
             <CircularStatIcon
                 statName="RR"
                 statValue= {props.player.roosterRating}
@@ -49,18 +61,6 @@ export default function BlockPlayerYearStats(props) {
                 showFooter={false}
                 showIconFooter={true}
             />
-            {props.player.price == null
-                ? (
-                    <CircularStatIcon
-                        statName="Price"
-                        statValue= {props.player.price != null ? this.props.player.price : "0"}
-                        maxStatValue= {PlayerStatFetcher.maxPrice}
-                        showHeader={false}
-                        showFooter={true}
-                    />
-                )
-                : null
-            }
         </div>
     )
 
