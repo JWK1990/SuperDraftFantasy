@@ -27,6 +27,8 @@ public interface IPlayerBase {
 
     Integer getPsAverage();
 
+    Integer getPrice2021();
+
     @Value("#{@playerDataFetcher.getPrimaryPosition(target)}")
     String getPrimaryPosition();
 
