@@ -49,7 +49,10 @@ const useStyles = makeStyles((theme) => ({
         fontSize: "1.5vw",
         textAlign: "center",
         padding: "5px 0 5px 0",
-    }
+    },
+    gridItem: {
+        padding: 2,
+    },
 }));
 
 export default function TeamCardV2(props) {
@@ -60,36 +63,38 @@ export default function TeamCardV2(props) {
     }
     // TODO: Add ellipsis to text that goes too wide.
     return (
-        <Paper elevation={3} className={classes.root}>
-            <Grid container spacing={1} alignItems={"center"}>
-                <Grid item xs={1} className={classes.teamLogo}>
-                    <img
-                        className={classes.teamLogo}
-                        src={require("../../../images/AustralianFlagLogo.jpg")}
-                        title={"Team Logo"}
-                        alt={"Team Logo"}
-                    />
+        <Grid item xs={12} className={classes.gridItem}>
+            <Paper elevation={3} className={classes.root}>
+                <Grid container spacing={1} alignItems={"center"}>
+                    <Grid item xs={1} className={classes.teamLogo}>
+                        <img
+                            className={classes.teamLogo}
+                            src={require("../../../images/AustralianFlagLogo.jpg")}
+                            title={"Team Logo"}
+                            alt={"Team Logo"}
+                        />
+                    </Grid>
+                    <Grid item xs={8}>
+                        <Typography className={classes.teamName}>
+                            {props.team.name}
+                        </Typography>
+                        <Typography color="textSecondary" className={classes.userName}>
+                            {props.team.user.username}
+                        </Typography>
+                        <Typography color="textSecondary" className={classes.teamDetails}>
+                            {props.team.teamPlayerJoins.length}/{props.numOfPlayersRequired} - ${props.team.budget} remaining
+                        </Typography>
+                    </Grid>
+                    <Grid item xs={3}>
+                        <Typography color="textSecondary" className={classes.maxBidHeading}>
+                            Max Bid
+                        </Typography>
+                        <Typography className={classes.maxBid}>
+                            ${props.team.maxBid}
+                        </Typography>
+                    </Grid>
                 </Grid>
-                <Grid item xs={8}>
-                    <Typography className={classes.teamName}>
-                        {props.team.name}
-                    </Typography>
-                    <Typography color="textSecondary" className={classes.userName}>
-                        {props.team.user.username}
-                    </Typography>
-                    <Typography color="textSecondary" className={classes.teamDetails}>
-                        {props.team.teamPlayerJoins.length}/{props.numOfPlayersRequired} - ${props.team.budget} remaining
-                    </Typography>
-                </Grid>
-                <Grid item xs={3}>
-                    <Typography color="textSecondary" className={classes.maxBidHeading}>
-                        Max Bid
-                    </Typography>
-                    <Typography className={classes.maxBid}>
-                        ${props.team.maxBid}
-                    </Typography>
-                </Grid>
-            </Grid>
-        </Paper>
+            </Paper>
+        </Grid>
     );
 }

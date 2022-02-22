@@ -17,9 +17,6 @@ const styles = {
     mainContainer: {
         height: "100%",
     },
-    gridItem: {
-        padding: 2,
-    },
 }
 
 const getSortableTeamList = (teamList, numOfSlots) => {
@@ -58,14 +55,13 @@ class TeamsV2 extends React.Component {
         return (
             <Grid container item className={classes.mainContainer}>
                 {
-                    this.state.sortableTeamList.map(slot => {
+                    this.state.sortableTeamList.map((slot, index) => {
                         return (
-                            <Grid item xs={12} className={classes.gridItem}>
-                                <TeamCardV2
-                                    team={slot.content.team}
-                                    numOfPlayersRequired={this.props.numOfPlayersRequired}
-                                />
-                            </Grid>
+                            <TeamCardV2
+                                key={index}
+                                team={slot.content.team}
+                                numOfPlayersRequired={this.props.numOfPlayersRequired}
+                            />
                         )
                     })
                 }

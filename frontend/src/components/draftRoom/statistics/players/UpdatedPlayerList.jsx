@@ -61,14 +61,14 @@ export default function UpdatedPlayerList({
     return (
         <Grid container component={Paper} direction={"column"} style={{height: "var(--draft-room-player-list-height)"}}>
             <Grid container item style={{paddingRight: "15.33px", height: rowHeight}}>
-                <Grid item xs={1} className={[classes.centerAlign, classes.header]}>&nbsp;</Grid>
-                <Grid item xs={3} className={[classes.leftAlign, classes.header]}>Name</Grid>
-                <Grid item xs={2} className={[classes.leftAlign, classes.header]}>Pos</Grid>
-                <Grid item xs={1} className={[classes.leftAlign, classes.header]}>Team</Grid>
-                <Grid item xs={1} className={[classes.centerAlign, classes.header]}>SC</Grid>
-                <Grid item xs={2} className={[classes.centerAlign, classes.header]}>Disp (DE)</Grid>
-                <Grid item xs={1} className={[classes.centerAlign, classes.header]}>Age</Grid>
-                <Grid item xs={1} className={[classes.centerAlign, classes.header]}>$ ('20)</Grid>
+                <Grid item xs={1} className={[classes.centerAlign, classes.header].join(' ')}>&nbsp;</Grid>
+                <Grid item xs={3} className={[classes.leftAlign, classes.header].join(' ')}>Name</Grid>
+                <Grid item xs={2} className={[classes.leftAlign, classes.header].join(' ')}>Pos</Grid>
+                <Grid item xs={1} className={[classes.leftAlign, classes.header].join(' ')}>Team</Grid>
+                <Grid item xs={1} className={[classes.centerAlign, classes.header].join(' ')}>SC</Grid>
+                <Grid item xs={2} className={[classes.centerAlign, classes.header].join(' ')}>Disp (DE)</Grid>
+                <Grid item xs={1} className={[classes.centerAlign, classes.header].join(' ')}>Age</Grid>
+                <Grid item xs={1} className={[classes.centerAlign, classes.header].join(' ')}>$ ('20)</Grid>
             </Grid>
             <InfiniteLoader
                 isItemLoaded={isItemLoaded}
