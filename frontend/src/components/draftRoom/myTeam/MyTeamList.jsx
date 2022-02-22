@@ -13,12 +13,6 @@ const styles = {
     mainContainer: {
         height: "100%",
     },
-    gridItem: {
-        padding: 2,
-    },
-    hidden: {
-        display: "green",
-    },
 }
 
 const buildFieldLayout = () => {
@@ -97,7 +91,6 @@ class MyTeamList extends React.Component {
                 teamPlayerJoin.price,
             );
         });
-        console.log(this.state.myTeamList);
     }
 
     getSnapshotBeforeUpdate(prevProps, prevState) {
@@ -110,7 +103,10 @@ class MyTeamList extends React.Component {
                 newTeamPlayerJoin.price
             );
         }
+        return null;
     }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {};
 
     addPlayerToMyTeamList = (player, slotId, price) => {
         let slotIndex = this.state.myTeamList.findIndex(slot => slot.id === slotId);
@@ -155,7 +151,6 @@ class MyTeamList extends React.Component {
     }
 
     handleSlotClick = (slot) => {
-        console.log("Slot Click.");
         // If no change was previously underway, set selected player and slot.
         if(this.state.selectedPlayer === null) {
             this.setState({selectedPlayer: slot.player})
@@ -184,10 +179,6 @@ class MyTeamList extends React.Component {
             });
         }
         this.props.updateMyTeamPosition(this.props.team.id, updatedPlayerPositions);
-    }
-
-    isButtonHidden = (slot) => {
-        return !slot.isVacant && !this.props.isLeadBidder;
     }
 
     shouldShowButton = (slot) => {
@@ -228,23 +219,18 @@ class MyTeamList extends React.Component {
         return (
             <Grid container item className={classes.mainContainer}>
                 {
-                    this.state.myTeamList.map(slot => {
+                    this.state.myTeamList.map((slot, index) => {
                         return (
-                            <>
-                                <Button
-                                    onClick={() => this.handleSlotClick(slot)}
-                                    disabled={!this.shouldShowButton(slot)}
-                                />
-                                <Grid item xs={12} className={classes.gridItem}>
-                                    <PlayerCard
-                                        slot={slot}
-                                        player={slot.player}
-                                        price={slot.price}
-                                        isSelected={this.getIsSelected(slot)}
-                                        isGreyedOut={this.isButtonGreyedOut(slot)}
-                                    />
-                                </Grid>
-                            </>
+                            <PlayerCard
+                                key={index}
+                                slot={slot}
+                                player={slot.player}
+                                price={slot.price}
+                                isSelected={this.getIsSelected(slot)}
+                                isGreyedOut={this.isButtonGreyedOut(slot)}
+                                shouldShowButton={this.shouldShowButton(slot)}
+                                handleSlotClick={this.handleSlotClick}
+                            />
                         )
                     })
                 }

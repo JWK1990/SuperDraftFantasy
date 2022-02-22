@@ -2,6 +2,7 @@ import React from "react";
 import {Paper, Typography} from "@material-ui/core";
 import withStyles from "@material-ui/core/styles/withStyles";
 import Grid from "@material-ui/core/Grid";
+import Button from "@material-ui/core/Button";
 
 const styles = {
     paperRoot: {
@@ -53,7 +54,10 @@ const styles = {
     greyedOut: {
         backgroundColor: "lightgrey",
         opacity: 0.25,
-    }
+    },
+    gridItem: {
+        padding: 2,
+    },
 }
 
 class PlayerCard extends React.Component {
@@ -82,49 +86,66 @@ class PlayerCard extends React.Component {
 
         if(!this.props.player) {
             return (
+                <Grid item xs={12} className={classes.gridItem}>
+                    <Paper elevation={3}
+                           className={[
+                               classes.paperRoot,
+                               getPositionClass(),
+                               this.props.isGreyedOut ? classes.greyedOut : '',
+                           ].join(' ')}
+                    >
+                        <Button
+                            onClick={() => this.props.handleSlotClick(this.props.slot)}
+                            disabled={!this.props.shouldShowButton}
+                            style={{width: "100%", height: "100%", padding: "0px"}}
+                        >
+                            &nbsp;
+                        </Button>
+                    </Paper>
+                </Grid>
+            )
+        }
+        return (
+            <Grid item xs={12} className={classes.gridItem}>
                 <Paper elevation={3}
                        className={[
                            classes.paperRoot,
                            getPositionClass(),
+                           this.props.isSelected ? classes.selected : '',
                            this.props.isGreyedOut ? classes.greyedOut : '',
-                       ]}
+                       ].join(' ')}
                 >
-                    &nbsp;
+                    <Button
+                        onClick={() => this.props.handleSlotClick(this.props.slot)}
+                        disabled={!this.props.shouldShowButton}
+                        style={{width: "100%", height: "100%", padding: "0px"}}
+                    >
+                    <Grid container className={classes.gridContainer}>
+                        <Grid item xs={7} className={classes.playerNameContainer}>
+                            <Typography className={classes.playerName}>
+                                {this.props.player.firstName.substring(0, 1) + ". " + this.props.player.lastName}
+                            </Typography>
+                        </Grid>
+                        <Grid item xs={3} className={classes.playerDetailsContainer}>
+                            <Typography className={classes.playerPosition}>
+                                {this.props.player.primaryPosition.substring(0,1)}
+                                {
+                                    this.props.player.secondaryPosition !== null
+                                    ? "-" + this.props.player.secondaryPosition.substring(0,1)
+                                    : ""
+                                }
+                            </Typography>
+                        </Grid>
+                        <Grid item xs={2} className={classes.playerDetailsContainer}>
+                            <Typography className={classes.playerPrice}>
+                                {"$" + this.props.price}
+                            </Typography>
+                        </Grid>
+                    </Grid>
+                    </Button>
+
                 </Paper>
-            )
-        }
-        return (
-            <Paper elevation={3}
-                   className={[
-                       classes.paperRoot,
-                       getPositionClass(),
-                       this.props.isSelected ? classes.selected : '',
-                       this.props.isGreyedOut ? classes.greyedOut : '',
-                   ]}
-            >
-                <Grid container className={classes.gridContainer}>
-                    <Grid item xs={7} className={classes.playerNameContainer}>
-                        <Typography className={classes.playerName}>
-                            {this.props.player.firstName.substring(0, 1) + ". " + this.props.player.lastName}
-                        </Typography>
-                    </Grid>
-                    <Grid item xs={3} className={classes.playerDetailsContainer}>
-                        <Typography className={classes.playerPosition}>
-                            {this.props.player.primaryPosition.substring(0,1)}
-                            {
-                                this.props.player.secondaryPosition !== null
-                                ? "-" + this.props.player.secondaryPosition.substring(0,1)
-                                : ""
-                            }
-                        </Typography>
-                    </Grid>
-                    <Grid item xs={2} className={classes.playerDetailsContainer}>
-                        <Typography className={classes.playerPrice}>
-                            {"$" + this.props.price}
-                        </Typography>
-                    </Grid>
-                </Grid>
-            </Paper>
+            </Grid>
         )
     }
 
