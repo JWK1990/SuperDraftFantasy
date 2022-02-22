@@ -2,7 +2,6 @@ import React from "react";
 import PlayerCard from "../../shared/teamView/PlayerCard";
 import Grid from "@material-ui/core/Grid";
 import withStyles from "@material-ui/core/styles/withStyles";
-import Button from "@material-ui/core/Button";
 import {updateMyTeamPositionAction, updateMyTeamPositionSuccessAction} from "../../../store/actions";
 import {currentTeamIdSelector, draftRosterSelector, draftTeamSelector} from "../../../store/selectors/DraftSelectors";
 import {stompClientSelector} from "../../../store/selectors/WebSocketSelectors";

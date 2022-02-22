@@ -240,7 +240,6 @@ public class PlayerService {
         return iPlayerBasePage.map(new Function<IPlayerBase, PlayerBaseReadDto>() {
             @Override
             public PlayerBaseReadDto apply(IPlayerBase player) {
-                System.out.println(player.getFirstName() + " " + player.getLastName());
                 return new PlayerBaseReadDto(
                         player,
                         player.getSeasonSummary(year),
