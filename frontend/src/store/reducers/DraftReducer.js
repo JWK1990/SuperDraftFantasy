@@ -115,17 +115,20 @@ export function draftReducer(state = initialDraftState, action) {
                     teams: state.data.teams.map((team) => (
                         team.id !== action.payload.teamId
                             ? team
-                        : {...team, teamPlayerJoins: team.teamPlayerJoins.map(teamPlayerJoin => (
-                            // Try and find playerId in List of updated playerIds.
-                            action.payload.myTeamPositions.findIndex(myTeamPosition => myTeamPosition.playerId === teamPlayerJoin.player.id) === -1
-                                ? teamPlayerJoin
-                                : {...teamPlayerJoin,
-                                    myTeamPositionType:
-                                        action.payload.myTeamPositions[
-                                            action.payload.myTeamPositions.findIndex(player => player.playerId === teamPlayerJoin.player.id)
-                                            ].myTeamPosition
-                            }))
-                        }
+                        : {...team, teamPlayerJoins: team.teamPlayerJoins.map(teamPlayerJoin => {
+                            const updatedTeamPlayerJoin = action.payload.myTeamPositions[
+                                action.payload.myTeamPositions.findIndex(player => player.playerId === teamPlayerJoin.player.id)
+                            ];
+                            return (
+                                // Try and find playerId in List of updated playerIds.
+                                action.payload.myTeamPositions.findIndex(myTeamPosition => myTeamPosition.playerId === teamPlayerJoin.player.id) === -1
+                                    ? teamPlayerJoin
+                                    : {...teamPlayerJoin,
+                                        myTeamPositionType: updatedTeamPlayerJoin.myTeamPosition,
+                                        slotId: updatedTeamPlayerJoin.slotId
+                                }
+                            )
+                        })}
                     ))
                 }
             }

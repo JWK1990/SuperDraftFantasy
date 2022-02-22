@@ -41,4 +41,6 @@ TeamPlayerJoinEntity {
 
     private Integer priceDifference;
 
+    private String slotId;
+
 }

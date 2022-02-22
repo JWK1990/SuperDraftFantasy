@@ -1,7 +1,7 @@
 package au.superdraftfantasy.api.team;
 
-import au.superdraftfantasy.api.teamPlayerJoin.MyTeamPositionReadDto;
 import au.superdraftfantasy.api.teamPlayerJoin.MyTeamPositionWriteDto;
+import au.superdraftfantasy.api.teamPlayerJoin.TeamPlayerJoinReadDto;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,7 +17,7 @@ public class TeamController {
     }
 
     @PutMapping(name = "updateMyTeamPositions", path = "{teamID}/myTeamPositions")
-    public MyTeamPositionReadDto updateMyTeamPositions(
+    public List<TeamPlayerJoinReadDto> updateMyTeamPositions(
             @PathVariable final Long teamID,
             @RequestBody final List<MyTeamPositionWriteDto> updatedMyTeamPositions
     ) {

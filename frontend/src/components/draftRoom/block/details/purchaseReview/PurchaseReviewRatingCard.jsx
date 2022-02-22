@@ -57,8 +57,6 @@ function Tag() {
 export default function PurchaseReviewRatingCard(props) {
     const classes = useStyles();
 
-    console.log("PRP: ", props.player);
-
     return (
         <Grid container alignItems={"center"} justify={"flex-start"}
               component={Paper} elevation={0} className={classes.rootContainer}

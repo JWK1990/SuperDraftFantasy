@@ -4,7 +4,6 @@ import {
     currentTeamIdSelector,
     draftRosterSelector,
     draftTeamSelector,
-    numOfPlayersRequiredSelector
 } from "../../../store/selectors/DraftSelectors";
 import {stompClientSelector} from "../../../store/selectors/WebSocketSelectors";
 import {isLeadBidderSelector} from "../../../store/selectors/BlockSelectors";
@@ -19,9 +18,15 @@ class MyTeamContainer extends React.Component {
             myTeamList: [],
             isDropDisabled: true,
             isDragging: false,
+            isPositionChangeDisabled: true,
             errorText: '',
+            isPositionChangeUnderway: false,
+            selectedPlayerId: null,
+            selectedSlotPosition: null,
         };
     }
+
+    // this.props.isDraggingDisabled || this.props.item.dynamicSlotData.isVacant || this.props.isLeadBidder
 
     componentWillMount() {
         // this.setState({myTeamList: this.getInitialMyTeamList(this.props.roster, this.props.team.teamPlayerJoins)});
@@ -112,13 +117,61 @@ class MyTeamContainer extends React.Component {
         return !isDropPositionValid || this.props.isLeadBidder;
     };
 
+    handleSlotClick = (slot) => {
+        console.log("Slot Click.");
+        // If no change was previously underway, set selected player id and slot position.
+        if(this.state.isPositionChangeUnderway === false) {
+            this.setState({selectedPlayerId: slot.player.id})
+            this.setState({selectedSlotPosition: slot.slotPosition})
+            this.setState({isPositionChangeUnderway: true})
+        } else {
+            // Else, switch players between slots.
+            this.handlePositionChange(slot);
+
+        }
+    }
+
+    handlePositionChange = (slot) => {
+        let updatedPlayerPositions = [{playerId: this.state.selectedPlayerId, myTeamPosition: slot.slotPosition}];
+        // If 2 players switched positions, also update the destinationPlayer's position in the DB.
+        if(slot.player != null) {
+            updatedPlayerPositions.push({playerId: slot.player.id, myTeamPosition: this.state.selectedSlotPosition});
+        }
+        this.props.updateMyTeamPosition(this.props.team.id, updatedPlayerPositions);
+
+        // Unset selected player and slot.
+        this.setState({selectedPlayerId: null})
+        this.setState({selectedSlotPosition: null})
+        this.setState({isPositionChangeUnderway: false})
+    }
+
+    componentDidMount() {
+        this.props.stompClient.subscribe('/draft/updateMyTeamPositions', this.receiveUpdatedMyTeamPosition)
+    }
+
+    receiveUpdatedMyTeamPosition = (payload) => {
+        const updatedData = JSON.parse(payload.body);
+        this.props.updateMyTeamPositionSuccess(updatedData);
+        const {myTeamList} = this.state;
+        updatedData.myTeamPositions.forEach(myTeamPositionUpdate => {
+            const updatedPlayer = myTeamList.find(player => player.id === myTeamPositionUpdate.playerId);
+            console.log(updatedPlayer);
+            updatedPlayer.myTeamPositionType = myTeamPositionUpdate.myTeamPosition;
+        });
+        this.setState({myTeamList});
+    }
+
     render() {
         return (
             <MyTeamList
                 isDraggingDisabled={this.props.isDraggingDisabled}
                 isDropDisabled={this.isDropDisabled("DEF")}
                 teamPlayerJoinList={this.props.team.teamPlayerJoins}
-                numOfPlayerRequired={this.props.numOfPlayersRequired}
+                isLeadBidder={this.props.isLeadBidder}
+                isPositionChangeUnderway={this.state.isPositionChangeUnderway}
+                selectedPlayerId={this.state.selectedPlayerId}
+                selectedSlotPosition={this.state.selectedSlotPosition}
+                handleSlotClick={this.handleSlotClick}
             />
         );
     }
@@ -133,7 +186,6 @@ const mapStateToProps = (state, props) => {
     const currentTeamId = currentTeamIdSelector(state);
     return {
         roster: draftRosterSelector(state),
-        numOfPlayersRequired: numOfPlayersRequiredSelector(state),
         stompClient: stompClientSelector(state),
         isLeadBidder: isLeadBidderSelector(state),
         team: draftTeamSelector(state, currentTeamId),

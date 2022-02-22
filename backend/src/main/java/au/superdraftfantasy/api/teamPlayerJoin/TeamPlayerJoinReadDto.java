@@ -27,4 +27,6 @@ public class TeamPlayerJoinReadDto {
         return myTeamPosition.getType().name();
     }
 
+    private String slotId;
+
 }

@@ -11,6 +11,7 @@ import DraftDetailsContainer from "./draftDetails/DraftDetailsContainer";
 import TeamsV2 from "./teams/TeamsV2";
 import UpdatedPlayerListContainer from "./statistics/players/UpdatedPlayerListContainer";
 import MyTeamContainer from "./myTeam/MyTeamContainer";
+import MyTeamList from "./myTeam/MyTeamList";
 
 const styles = {
     rootContainer: {
@@ -84,7 +85,7 @@ class DraftRoom extends React.Component {
                 </Grid>
                 <Grid container item xs={2} style={{height: "100%", maxHeight: "100vh", overflow: "auto"}}>
                     <Grid item xs={12}>
-                        <MyTeamContainer/>
+                        <MyTeamList/>
                     </Grid>
                 </Grid>
             </Grid>

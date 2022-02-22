@@ -224,11 +224,11 @@ export const UPDATE_MY_TEAM_POSITION_STARTED = 'UPDATE_MY_TEAM_POSITION_STARTED'
 export const UPDATE_MY_TEAM_POSITION_SUCCESS = 'UPDATE_MY_TEAM_POSITION_SUCCESS';
 export const UPDATE_MY_TEAM_POSITION_FAILURE = 'UPDATE_MY_TEAM_POSITION_FAILURE';
 
-export const updateMyTeamPositionAction = (teamId, playerId, position) => {
+export const updateMyTeamPositionAction = (teamId, updatedMyTeamPositions) => {
     return dispatch => {
         dispatch(updateMyTeamPositionStartedAction());
 
-        DraftService.saveMyTeamLayout(teamId, playerId, position)
+        DraftService.saveMyTeamLayout(teamId, updatedMyTeamPositions)
             .catch(err => {
                 dispatch(updateMyTeamPositionFailureAction(err.message))
             })

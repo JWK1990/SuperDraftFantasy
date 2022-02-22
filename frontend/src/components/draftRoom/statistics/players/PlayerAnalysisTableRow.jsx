@@ -24,7 +24,6 @@ const useStyles = makeStyles((theme) => ({
 
 export default function PlayerAnalysisTableRow(props) {
     const classes = useStyles();
-    console.log(props.player);
     return (
         <TableRow key={props.player.id}>
             <TableCell component="th" scope="row">{props.player.id}</TableCell>

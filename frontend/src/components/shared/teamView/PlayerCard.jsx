@@ -46,13 +46,20 @@ const styles = {
     },
     playerPrice: {
         fontSize: "1vw",
+    },
+    selected: {
+        backgroundColor: "pink",
+    },
+    greyedOut: {
+        backgroundColor: "lightgrey",
+        opacity: 0.25,
     }
 }
 
 class PlayerCard extends React.Component {
 
     shouldComponentUpdate(nextProps, nextState, nextContext) {
-        return nextProps.player !== this.props.player;
+        return true; // nextProps.player !== this.props.player;
     }
 
     render() {
@@ -75,14 +82,26 @@ class PlayerCard extends React.Component {
 
         if(!this.props.player) {
             return (
-                <Paper elevation={3} className={[classes.paperRoot, getPositionClass()]}>
+                <Paper elevation={3}
+                       className={[
+                           classes.paperRoot,
+                           getPositionClass(),
+                           this.props.isGreyedOut ? classes.greyedOut : '',
+                       ]}
+                >
                     &nbsp;
                 </Paper>
             )
         }
-
         return (
-            <Paper elevation={3} className={[classes.paperRoot, getPositionClass()]}>
+            <Paper elevation={3}
+                   className={[
+                       classes.paperRoot,
+                       getPositionClass(),
+                       this.props.isSelected ? classes.selected : '',
+                       this.props.isGreyedOut ? classes.greyedOut : '',
+                   ]}
+            >
                 <Grid container className={classes.gridContainer}>
                     <Grid item xs={7} className={classes.playerNameContainer}>
                         <Typography className={classes.playerName}>

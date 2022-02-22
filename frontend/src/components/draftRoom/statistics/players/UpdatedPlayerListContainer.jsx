@@ -73,7 +73,6 @@ class UpdatedPlayerListContainer extends React.PureComponent {
     }
 
     handleSearchChange = (event) => {
-        console.log(event);
         this.setState({lastNameSearch: event.target.value})
         clearTimeout(this.state.typingTimer);
         const typingTimer = setTimeout(() => {

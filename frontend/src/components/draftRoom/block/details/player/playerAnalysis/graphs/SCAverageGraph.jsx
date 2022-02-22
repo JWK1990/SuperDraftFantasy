@@ -49,7 +49,6 @@ export default function SCAverageGraph(props) {
             .then(games => {
                 if(mounted) {
                     const fullGameList = getFullGamesList(games.data);
-                    console.log(fullGameList);
                     setGames(fullGameList);
                 }
             })
@@ -82,7 +81,6 @@ export default function SCAverageGraph(props) {
             }
             fullGamesList.push(currentGame);
         }
-        console.log(fullGamesList);
         return fullGamesList;
     }
 
@@ -118,7 +116,6 @@ export default function SCAverageGraph(props) {
                              barSize={10}
                              fill="#4df3cc"
                              onMouseOver={(data) => {
-                                 console.log(data);
                                  setposData(data);
                              }}
                         >
