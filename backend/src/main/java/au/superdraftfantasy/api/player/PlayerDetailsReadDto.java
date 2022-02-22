@@ -53,32 +53,31 @@ public class PlayerDetailsReadDto extends PlayerBaseReadDto {
         }
     }
 
-    double kicks;
-    double handballs;
-    double marks;
-    double goals;
-    double behinds;
-    double hitouts;
-    double goalAssists;
-    double insideFiftys;
-    double clearances;
-    double clangers;
-    double reboundFiftys;
-    double freesFor;
-    double freesAgainst;
-    double contestedPossessions;
-    double uncontestedPossessions;
-    double contestedMarks;
-    double marksInsideFifty;
-    double onePercenters;
-    double bounces;
-    double centerClearances;
-    double stoppageClearances;
-    double scoreInvolvements;
-    double metersGained;
-    double turnovers;
-    double intercepts;
-    double tacklesInsideFifty;
-    double timeOnGround;
-
+    Integer kicks;
+    Integer handballs;
+    Integer marks;
+    Double goals;
+    Double behinds;
+    Integer hitouts;
+    Double goalAssists;
+    Integer insideFiftys;
+    Integer clearances;
+    Integer clangers;
+    Integer reboundFiftys;
+    Double freesFor;
+    Double freesAgainst;
+    Integer contestedPossessions;
+    Integer uncontestedPossessions;
+    Double contestedMarks;
+    Double marksInsideFifty;
+    Integer onePercenters;
+    Double bounces;
+    Double centerClearances;
+    Double stoppageClearances;
+    Integer scoreInvolvements;
+    Integer metersGained;
+    Integer turnovers;
+    Integer intercepts;
+    Double tacklesInsideFifty;
+    Integer timeOnGround;
 }

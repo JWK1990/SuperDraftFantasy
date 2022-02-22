@@ -82,15 +82,15 @@ public class PlayerBaseReadDto {
 
     Integer games;
 
-    double average;
+    Integer average;
 
-    double disposals;
+    Integer disposals;
 
-    double disposalEfficiency;
+    Integer disposalEfficiency;
 
-    double tackles;
+    Integer tackles;
 
-    boolean available;
+    Boolean available;
 
     Long draftTeamId;
 

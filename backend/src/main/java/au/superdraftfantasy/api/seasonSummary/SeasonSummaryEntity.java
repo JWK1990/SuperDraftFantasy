@@ -45,15 +45,15 @@ public class SeasonSummaryEntity {
 
     private Integer marks;
 
-    private double goals;
+    private Double goals;
 
-    private double behinds;
+    private Double behinds;
 
     private Integer tackles;
 
     private Integer hitouts;
 
-    private double goalAssists;
+    private Double goalAssists;
 
     private Integer insideFiftys;
 
@@ -63,9 +63,9 @@ public class SeasonSummaryEntity {
 
     private Integer reboundFiftys;
 
-    private double freesFor;
+    private Double freesFor;
 
-    private double freesAgainst;
+    private Double freesAgainst;
 
     private Integer dreamTeam;
 
@@ -77,17 +77,17 @@ public class SeasonSummaryEntity {
 
     private Integer disposalEfficiency;
 
-    private double contestedMarks;
+    private Double contestedMarks;
 
-    private double marksInsideFifty;
+    private Double marksInsideFifty;
 
     private Integer onePercenters;
 
-    private double bounces;
+    private Double bounces;
 
-    private double centerClearances;
+    private Double centerClearances;
 
-    private double stoppageClearances;
+    private Double stoppageClearances;
 
     private Integer scoreInvolvements;
 
@@ -97,7 +97,7 @@ public class SeasonSummaryEntity {
 
     private Integer intercepts;
 
-    private double tacklesInsideFifty;
+    private Double tacklesInsideFifty;
 
     private Integer timeOnGround;
 
