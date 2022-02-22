@@ -1,8 +1,18 @@
 import React from "react";
-import {Paper, Typography} from "@material-ui/core";
+import {createMuiTheme, MuiThemeProvider, Paper, Typography} from "@material-ui/core";
 import withStyles from "@material-ui/core/styles/withStyles";
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
+
+const theme = createMuiTheme({
+    overrides: {
+        MuiButtonBase: {
+            root: {
+                //cursor: "url(Insert url to 32px x 32px icon here.), auto"
+            }
+        }
+    }
+})
 
 const styles = {
     paperRoot: {
@@ -106,46 +116,48 @@ class PlayerCard extends React.Component {
             )
         }
         return (
-            <Grid item xs={12} className={classes.gridItem}>
-                <Paper elevation={3}
-                       className={[
-                           classes.paperRoot,
-                           getPositionClass(),
-                           this.props.isSelected ? classes.selected : '',
-                           this.props.isGreyedOut ? classes.greyedOut : '',
-                       ].join(' ')}
-                >
-                    <Button
-                        onClick={() => this.props.handleSlotClick(this.props.slot)}
-                        disabled={!this.props.shouldShowButton}
-                        style={{width: "100%", height: "100%", padding: "0px"}}
+            <MuiThemeProvider theme={theme}>
+                <Grid item xs={12} className={classes.gridItem}>
+                    <Paper elevation={3}
+                           className={[
+                               classes.paperRoot,
+                               getPositionClass(),
+                               this.props.isSelected ? classes.selected : '',
+                               this.props.isGreyedOut ? classes.greyedOut : '',
+                           ].join(' ')}
                     >
-                    <Grid container className={classes.gridContainer}>
-                        <Grid item xs={7} className={classes.playerNameContainer}>
-                            <Typography className={classes.playerName}>
-                                {this.props.player.firstName.substring(0, 1) + ". " + this.props.player.lastName}
-                            </Typography>
+                        <Button
+                            onClick={() => this.props.handleSlotClick(this.props.slot)}
+                            disabled={!this.props.shouldShowButton}
+                            style={{width: "100%", height: "100%", padding: "0px"}}
+                        >
+                        <Grid container className={classes.gridContainer}>
+                            <Grid item xs={7} className={classes.playerNameContainer}>
+                                <Typography className={classes.playerName}>
+                                    {this.props.player.firstName.substring(0, 1) + ". " + this.props.player.lastName}
+                                </Typography>
+                            </Grid>
+                            <Grid item xs={3} className={classes.playerDetailsContainer}>
+                                <Typography className={classes.playerPosition}>
+                                    {this.props.player.primaryPosition.substring(0,1)}
+                                    {
+                                        this.props.player.secondaryPosition !== null
+                                        ? "-" + this.props.player.secondaryPosition.substring(0,1)
+                                        : ""
+                                    }
+                                </Typography>
+                            </Grid>
+                            <Grid item xs={2} className={classes.playerDetailsContainer}>
+                                <Typography className={classes.playerPrice}>
+                                    {"$" + this.props.price}
+                                </Typography>
+                            </Grid>
                         </Grid>
-                        <Grid item xs={3} className={classes.playerDetailsContainer}>
-                            <Typography className={classes.playerPosition}>
-                                {this.props.player.primaryPosition.substring(0,1)}
-                                {
-                                    this.props.player.secondaryPosition !== null
-                                    ? "-" + this.props.player.secondaryPosition.substring(0,1)
-                                    : ""
-                                }
-                            </Typography>
-                        </Grid>
-                        <Grid item xs={2} className={classes.playerDetailsContainer}>
-                            <Typography className={classes.playerPrice}>
-                                {"$" + this.props.price}
-                            </Typography>
-                        </Grid>
-                    </Grid>
-                    </Button>
+                        </Button>
 
-                </Paper>
-            </Grid>
+                    </Paper>
+                </Grid>
+            </MuiThemeProvider>
         )
     }
 
