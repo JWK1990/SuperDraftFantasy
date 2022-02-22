@@ -151,12 +151,16 @@ class MyTeamList extends React.Component {
     }
 
     handleSlotClick = (slot) => {
-        // If no change was previously underway, set selected player and slot.
-        if(this.state.selectedPlayer === null) {
+        // If the team has somehow clicked whilst they are the lead bidder, clear the selected player and slot.
+        if(this.props.isLeadBidder) {
+            this.setState({selectedPlayer: null})
+            this.setState({selectedSlotPosition: null})
+            this.setState({selectedSlotId: null})
+        } else if(this.state.selectedPlayer === null) {
+            // If no change was previously underway, set selected player and slot.
             this.setState({selectedPlayer: slot.player})
             this.setState({selectedSlotPosition: slot.slotPosition})
             this.setState({selectedSlotId: slot.id})
-            this.setState({isPositionChangeUnderway: true})
         } else {
             // Else, switch players between slots.
             this.handlePositionChange(slot);
@@ -209,6 +213,7 @@ class MyTeamList extends React.Component {
 
         const isValidOccupiedSlot = !slot.isVacant && (
             (this.state.selectedPlayer.primaryPosition || this.state.secondaryPosition) === (slot.player.primaryPosition || slot.player.secondaryPosition)
+            || (this.state.selectedSlotPosition === "BENCH" && slot.slotPosition === "BENCH")
         );
 
         return isDifferentSlot && (isValidVacantSlot || isValidOccupiedSlot);
