@@ -20964,11 +20964,11 @@ with player_entities_import_json (import_json) as (
 INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_games, sc_standard_price, afl_team_id,
                           jumper_number, height, weight, rooster_rating, moneyball_price, price_2016, price_2017,
                           price_2018, price_2019, price_2020, ps_average, sc_average,
-                          rooster_rating_2021, price_2021, sd_team_id_2021, is_active)
+                          rooster_rating_2021, price_2021, sd_team_id_2021, is_active, rank)
 SELECT id, first_name, last_name, date_of_birth, age, career_games, sc_standard_price, afl_team_id,
        jumper_number, height, weight, rooster_rating, moneyball_price, price_2016, price_2017,
        price_2018, price_2019, price_2020, ps_average, sc_average,
-       rooster_rating_2021, price_2021, sd_team_id_2021, is_active
+       rooster_rating_2021, price_2021, sd_team_id_2021, is_active, rank
 FROM player_entities_import_json
     CROSS JOIN LATERAL json_populate_recordset(NULL::player_entity, import_json)
 ON CONFLICT (id) DO UPDATE
@@ -20986,4 +20986,5 @@ ON CONFLICT (id) DO UPDATE
         rooster_rating_2021 = excluded.rooster_rating_2021,
         price_2021 = excluded.price_2021,
         sd_team_id_2021 = excluded.sd_team_id_2021,
-        is_active = excluded.is_active;
+        is_active = excluded.is_active,
+        rank = excluded.rank;
