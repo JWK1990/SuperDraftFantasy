@@ -42,8 +42,9 @@ function a11yProps(index) {
 }
 
 const useStyles = makeStyles(() => ({
-    rootStatTabPanelDiv: {
-        height: "100%",
+    rootDiv: {
+        maxHeight: "var(--draft-room-block-height)",
+        overflow: "hidden",
     },
     appBar: {
         width: "100%",
@@ -86,7 +87,7 @@ export default function StatTabPanel(props) {
     };
 
     return (
-        <div className={classes.rootStatTabPanelDiv}>
+        <div className={classes.rootDiv}>
             <AppBar className={classes.appBar} position="static" color="transparent">
                 <Tabs
                     value={value}

@@ -14,67 +14,12 @@ const styles = {
     },
 }
 
-const buildFieldLayout = () => {
-    let fieldLayout = [];
-    for(let i= 0; i < 5; i++) {
-        let defSlot = {
-            id: "DEF" + i,
-            player: null,
-            price: null,
-            isVacant: true,
-            slotPosition: "DEF",
-        }
-        fieldLayout.push(defSlot);
-    }
-    for(let i= 0; i < 7; i++) {
-        let midSlot = {
-            id: "MID" + i,
-            player: null,
-            price: null,
-            isVacant: true,
-            slotPosition: "MID",
-        }
-        fieldLayout.push(midSlot);
-    }
-    for(let i= 0; i < 1; i++) {
-        let rucSlot = {
-            id: "RUC" + i,
-            player: null,
-            price: null,
-            isVacant: true,
-            slotPosition: "RUC",
-        }
-        fieldLayout.push(rucSlot);
-    }
-    for(let i= 0; i < 5; i++) {
-        let fwdSlot = {
-            id: "FWD" + i,
-            player: null,
-            price: null,
-            isVacant: true,
-            slotPosition: "FWD",
-        }
-        fieldLayout.push(fwdSlot);
-    }
-    for(let i= 0; i < 4; i++) {
-        let benchSlot = {
-            id: "BENCH" + i,
-            player: null,
-            price: null,
-            isVacant: true,
-            slotPosition: "BENCH",
-        }
-        fieldLayout.push(benchSlot);
-    }
-    return fieldLayout;
-}
-
 class MyTeamList extends React.Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            myTeamList: buildFieldLayout(),
+            teamList: [],
             selectedPlayer: null,
             selectedSlotPosition: null,
             selectedSlotId: null,
@@ -82,50 +27,24 @@ class MyTeamList extends React.Component {
     }
 
     componentDidMount() {
+        this.setState({teamList: this.props.teamList});
         this.props.stompClient.subscribe('/draft/updateMyTeamPositions', this.receiveUpdatedMyTeamPosition)
-        this.props.team.teamPlayerJoins.forEach(teamPlayerJoin => {
-            this.addPlayerToMyTeamList(
-                teamPlayerJoin.player,
-                teamPlayerJoin.slotId,
-                teamPlayerJoin.price,
-            );
-        });
     }
 
-    getSnapshotBeforeUpdate(prevProps, prevState) {
-        const updatedTeamPlayerJoins = this.props.team.teamPlayerJoins;
-        if (prevProps.team.teamPlayerJoins.length !== updatedTeamPlayerJoins.length) {
-            const newTeamPlayerJoin = updatedTeamPlayerJoins[updatedTeamPlayerJoins.length - 1];
-            this.addPlayerToMyTeamList(
-                newTeamPlayerJoin.player,
-                newTeamPlayerJoin.slotId,
-                newTeamPlayerJoin.price
-            );
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if(prevProps.teamList.length !== this.props.teamList.length) {
+            this.setState({teamList: this.props.teamList});
         }
-        return null;
-    }
-
-    componentDidUpdate(prevProps, prevState, snapshot) {};
-
-    addPlayerToMyTeamList = (player, slotId, price) => {
-        let slotIndex = this.state.myTeamList.findIndex(slot => slot.id === slotId);
-        // The below if check is just in case the slotIndex isn't set.
-        if(slotIndex === null || slotIndex < 0) {
-            slotIndex = this.state.myTeamList.length - 1;
-        }
-        const {myTeamList} = this.state;
-        myTeamList[slotIndex] =  {...myTeamList[slotIndex], player: player, price: price, isVacant: false};
-        this.setState({myTeamList});
-    }
+    };
 
     receiveUpdatedMyTeamPosition = (payload) => {
         // Emit success event.
         const updatedData = JSON.parse(payload.body);
         this.props.updateMyTeamPositionSuccess(updatedData);
-        // Update myTeamList in state.
-        const {myTeamList} = this.state;
+        // Update teamList in state.
+        const {teamList} = this.state;
         // Clear the source slot (if player was switched with a isVacant slot, we need to manually clear the source slot).
-        const sourceSlot = myTeamList.find(slot => slot.id === this.state.selectedSlotId);
+        const sourceSlot = this.state.teamList.find(slot => slot.id === this.state.selectedSlotId);
         sourceSlot.player = null;
         sourceSlot.price = null;
         sourceSlot.isVacant = true;
@@ -135,12 +54,12 @@ class MyTeamList extends React.Component {
         this.setState({selectedSlotId: null})
         // Add moved players to their new slots.
         updatedData.forEach(update => {
-            const updatedSlot = myTeamList.find(slot => slot.id === update.slotId);
+            const updatedSlot = teamList.find(slot => slot.id === update.slotId);
             updatedSlot.player = update.player;
             updatedSlot.price = update.price;
             updatedSlot.isVacant = false;
         });
-        this.setState({myTeamList});
+        this.setState({teamList});
     }
 
     getIsSelected = (slot) => {
@@ -167,6 +86,7 @@ class MyTeamList extends React.Component {
     }
 
     handlePositionChange = (slot) => {
+        console.log("Handle.");
         // The previously selected player (in the state) should be updated based on the currently selected slot.
         let updatedPlayerPositions = [{
             playerId: this.state.selectedPlayer.id,
@@ -181,7 +101,8 @@ class MyTeamList extends React.Component {
                 slotId: this.state.selectedSlotId,
             });
         }
-        this.props.updateMyTeamPosition(this.props.team.id, updatedPlayerPositions);
+        console.log(updatedPlayerPositions);
+        this.props.updateMyTeamPosition(this.props.teamId, updatedPlayerPositions);
     }
 
     shouldShowButton = (slot) => {
@@ -223,7 +144,7 @@ class MyTeamList extends React.Component {
         return (
             <Grid container item className={classes.mainContainer}>
                 {
-                    this.state.myTeamList.map((slot, index) => {
+                    this.props.teamList.map((slot, index) => {
                         return (
                             <PlayerCard
                                 key={index}
@@ -249,12 +170,9 @@ const mapDispatchToProps = dispatch => ({
 })
 
 const mapStateToProps = (state, props) => {
-    const currentTeamId = currentTeamIdSelector(state);
     return {
-        roster: draftRosterSelector(state),
         stompClient: stompClientSelector(state),
         isLeadBidder: isLeadBidderSelector(state),
-        team: draftTeamSelector(state, currentTeamId),
     };
 };
 

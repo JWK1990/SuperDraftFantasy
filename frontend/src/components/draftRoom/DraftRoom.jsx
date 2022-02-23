@@ -2,7 +2,7 @@ import React from "react";
 import DraftRoomBlock from "./block/Block";
 import {connectWebSocketAction, getDraftAction} from "../../store/actions";
 import {connect} from "react-redux";
-import {draftSelector} from "../../store/selectors/DraftSelectors"
+import {currentTeamIdSelector, draftSelector} from "../../store/selectors/DraftSelectors"
 import Grid from "@material-ui/core/Grid";
 import {stompClientSelector} from "../../store/selectors/WebSocketSelectors";
 import ConfigurationUtils from "../../utils/ConfigurationUtils";
@@ -10,8 +10,7 @@ import {withStyles} from "@material-ui/core";
 import DraftDetailsContainer from "./draftDetails/DraftDetailsContainer";
 import TeamsV2 from "./teams/TeamsV2";
 import UpdatedPlayerListContainer from "./statistics/players/UpdatedPlayerListContainer";
-import MyTeamContainer from "./myTeam/MyTeamContainer";
-import MyTeamList from "./myTeam/MyTeamList";
+import TeamListContainer from "./myTeam/TeamListContainer";
 
 const styles = {
     rootContainer: {
@@ -85,7 +84,7 @@ class DraftRoom extends React.Component {
                 </Grid>
                 <Grid container item xs={2} style={{height: "100%", maxHeight: "100vh", overflow: "auto"}}>
                     <Grid item xs={12}>
-                        <MyTeamList/>
+                        <TeamListContainer teamId={1}/>
                     </Grid>
                 </Grid>
             </Grid>

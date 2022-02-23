@@ -12,6 +12,8 @@ import {onTheBlockTeamIdSelector} from "../../../store/selectors/BlockSelectors"
 import Grid from "@material-ui/core/Grid";
 import withStyles from "@material-ui/core/styles/withStyles";
 import TeamCardV2 from "./TeamCardV2";
+import MyTeamList from "../myTeam/MyTeamList";
+import TeamListContainer from "../myTeam/TeamListContainer";
 
 const styles = {
     mainContainer: {
@@ -36,7 +38,8 @@ class TeamsV2 extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            sortableTeamList: getSortableTeamList(props.teams, props.draft.numOfTeams)
+            sortableTeamList: getSortableTeamList(props.teams, props.draft.numOfTeams),
+            selectedTeamId: null,
         };
     }
 
@@ -50,23 +53,34 @@ class TeamsV2 extends React.Component {
         }
     }
 
+    handleTeamClick = (teamId) => {
+        this.setState({selectedTeamId: teamId});
+        console.log(teamId);
+    }
+
     render() {
         const {classes} = this.props;
-        return (
-            <Grid container item className={classes.mainContainer}>
-                {
-                    this.state.sortableTeamList.map((slot, index) => {
-                        return (
-                            <TeamCardV2
-                                key={index}
-                                team={slot.content.team}
-                                numOfPlayersRequired={this.props.numOfPlayersRequired}
-                            />
-                        )
-                    })
-                }
-            </Grid>
-        );
+        if(this.state.selectedTeamId === null) {
+            return (
+                <Grid container item className={classes.mainContainer}>
+                    {
+                        this.state.sortableTeamList.map((slot, index) => {
+                            return (
+                                <TeamCardV2
+                                    key={index}
+                                    team={slot.content.team}
+                                    numOfPlayersRequired={this.props.numOfPlayersRequired}
+                                    handleTeamClick={this.handleTeamClick}
+                                />
+                            )
+                        })
+                    }
+                </Grid>
+            );
+        } else {
+            return <TeamListContainer teamId={this.state.selectedTeamId} />
+        }
+
     }
 }
 
