@@ -24,15 +24,15 @@ public interface PlayerRepository extends JpaRepository<PlayerEntity, Long> {
 
     Optional<IPlayerDetails> findPlayerDetailsById(Long playerId);
 
-    List<IPlayerBase> findAllBaseByIsActiveIsTrue();
+    List<IPlayerBase> findAllBaseByIsActiveIsTrueOrderByRank();
 
-    Page<IPlayerBase> findAllBasePageByIsActiveIsTrueAndPositions_TypeInAndLastNameIgnoreCaseContaining(
+    Page<IPlayerBase> findAllBasePageByIsActiveIsTrueAndPositions_TypeInAndLastNameIgnoreCaseContainingOrderByRank(
             List<PositionTypeEnum> positionList,
             String search,
             Pageable pageable
     );
 
-    Page<IPlayerBase> findAllBasePageByIsActiveIsTrueAndLastNameIgnoreCaseContaining(
+    Page<IPlayerBase> findAllBasePageByIsActiveIsTrueAndLastNameIgnoreCaseContainingOrderByRank(
             String search,
             Pageable pageable
     );
@@ -53,13 +53,13 @@ public interface PlayerRepository extends JpaRepository<PlayerEntity, Long> {
     List<IDraftedPlayerId> findPlayerIdByTeamPlayerJoins_Team_DraftId(Long draftId);
 
     // TODO: Replace with a query to fetch the Undrafted Players. This is as short term workaround.
-    Page<IPlayerBase> findByIsActiveIsTrueAndIdNotInAndLastNameIgnoreCaseContaining(
+    Page<IPlayerBase> findByIsActiveIsTrueAndIdNotInAndLastNameIgnoreCaseContainingOrderByRank(
             List<Long> draftedPlayersList,
             String search,
             Pageable pageable
     );
 
-    Page<IPlayerBase> findByIsActiveIsTrueAndIdNotInAndPositions_TypeInAndLastNameIgnoreCaseContaining(
+    Page<IPlayerBase> findByIsActiveIsTrueAndIdNotInAndPositions_TypeInAndLastNameIgnoreCaseContainingOrderByRank(
             List<Long> draftedPlayersList,
             List<PositionTypeEnum> positionList,
             String search,

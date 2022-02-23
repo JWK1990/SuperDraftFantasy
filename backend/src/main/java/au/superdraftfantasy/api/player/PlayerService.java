@@ -32,7 +32,7 @@ public class PlayerService {
      * @return
      */
     public List<IPlayerBase> getAllPlayers() {
-        return playerRepository.findAllBaseByIsActiveIsTrue();
+        return playerRepository.findAllBaseByIsActiveIsTrueOrderByRank();
     }
 
     /**
@@ -41,7 +41,7 @@ public class PlayerService {
      */
     @Transactional
     public List<PlayerBaseReadDto> getAllPlayersByDraft(Long draftId) {
-        List<IPlayerBase> playerList = playerRepository.findAllBaseByIsActiveIsTrue();
+        List<IPlayerBase> playerList = playerRepository.findAllBaseByIsActiveIsTrueOrderByRank();
         List<PlayerBaseReadDto> readDtoList = new ArrayList<>();
         playerList.forEach((player) -> {
             PlayerBaseReadDto readDto = new PlayerBaseReadDto(
@@ -73,13 +73,13 @@ public class PlayerService {
         // TODO: Try and get working with FirstName search as well.
         // Maybe try and use @Query.
         if(positionsList.size() > 0 ) {
-            playerPage = playerRepository.findAllBasePageByIsActiveIsTrueAndPositions_TypeInAndLastNameIgnoreCaseContaining(
+            playerPage = playerRepository.findAllBasePageByIsActiveIsTrueAndPositions_TypeInAndLastNameIgnoreCaseContainingOrderByRank(
                     positionsList,
                     search,
                     pageable
             );
         } else {
-            playerPage = playerRepository.findAllBasePageByIsActiveIsTrueAndLastNameIgnoreCaseContaining(
+            playerPage = playerRepository.findAllBasePageByIsActiveIsTrueAndLastNameIgnoreCaseContainingOrderByRank(
                     search,
                     pageable
             );
@@ -151,14 +151,14 @@ public class PlayerService {
 
             Page<IPlayerBase> availablePlayersPage;
             if(positionsList.size() > 0 ) {
-                availablePlayersPage = playerRepository.findByIsActiveIsTrueAndIdNotInAndPositions_TypeInAndLastNameIgnoreCaseContaining(
+                availablePlayersPage = playerRepository.findByIsActiveIsTrueAndIdNotInAndPositions_TypeInAndLastNameIgnoreCaseContainingOrderByRank(
                         idList,
                         positionsList,
                         search,
                         pageable
                 );
             } else {
-                availablePlayersPage = playerRepository.findByIsActiveIsTrueAndIdNotInAndLastNameIgnoreCaseContaining(
+                availablePlayersPage = playerRepository.findByIsActiveIsTrueAndIdNotInAndLastNameIgnoreCaseContainingOrderByRank(
                         idList,
                         search,
                         pageable
