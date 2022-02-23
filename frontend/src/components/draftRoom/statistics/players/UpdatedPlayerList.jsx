@@ -68,7 +68,7 @@ export default function UpdatedPlayerList({
                 <Grid item xs={1} className={[classes.centerAlign, classes.header].join(' ')}>SC</Grid>
                 <Grid item xs={2} className={[classes.centerAlign, classes.header].join(' ')}>Disp (DE)</Grid>
                 <Grid item xs={1} className={[classes.centerAlign, classes.header].join(' ')}>Age</Grid>
-                <Grid item xs={1} className={[classes.centerAlign, classes.header].join(' ')}>$ ('20)</Grid>
+                <Grid item xs={1} className={[classes.centerAlign, classes.header].join(' ')}>$ ('21)</Grid>
             </Grid>
             <InfiniteLoader
                 isItemLoaded={isItemLoaded}

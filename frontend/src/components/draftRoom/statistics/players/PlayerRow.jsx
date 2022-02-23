@@ -87,7 +87,7 @@ class PlayerRow extends React.Component {
                     <Grid item xs={1} className={classes.centerAlign}>{this.props.player.average}</Grid>
                     <Grid item xs={2} className={classes.centerAlign}>{this.props.player.disposals} &nbsp;({this.props.player.disposalEfficiency}%)</Grid>
                     <Grid item xs={1} className={classes.centerAlign}>{this.props.player.age}</Grid>
-                    <Grid item xs={1} className={classes.centerAlign}>$10</Grid>
+                    <Grid item xs={1} className={classes.centerAlign}>{this.props.player.price2021}</Grid>
             </Grid>
         )
     }
