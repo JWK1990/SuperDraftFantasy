@@ -29,6 +29,8 @@ public interface IPlayerBase {
 
     Integer getPrice2021();
 
+    Integer getRank();
+
     @Value("#{@playerDataFetcher.getPrimaryPosition(target)}")
     String getPrimaryPosition();
 

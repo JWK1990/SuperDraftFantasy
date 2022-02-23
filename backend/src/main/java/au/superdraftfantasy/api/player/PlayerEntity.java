@@ -80,6 +80,8 @@ public class PlayerEntity {
 
     private Boolean isActive;
 
+    private Integer rank;
+
     @ManyToMany
     @JoinTable(
             name = "player_position_join",

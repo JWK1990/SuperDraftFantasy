@@ -32,6 +32,7 @@ public class PlayerBaseReadDto {
         this.moneyballPrice = playerBase.getMoneyballPrice();
         this.psAverage = playerBase.getPsAverage();
         this.price2021 = playerBase.getPrice2021();
+        this.rank = playerBase.getRank();
         if(baseStats != null) {
             this.games = baseStats.getGames();
             this.average = baseStats.getAverage();
@@ -73,6 +74,8 @@ public class PlayerBaseReadDto {
     Integer psAverage;
 
     Integer price2021;
+
+    Integer rank;
 
     String primaryPosition;
 

@@ -29,7 +29,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 3,
             "price_2021": 60,
             "sd_team_id_2021": 9,
-            "is_active": true
+            "is_active": true,
+            "rank": 5
           },
           {
             "id": 2,
@@ -55,7 +56,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 55,
             "sd_team_id_2021": 1,
-            "is_active": true
+            "is_active": true,
+            "rank": 36
           },
           {
             "id": 3,
@@ -81,7 +83,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 8,
             "price_2021": 55,
             "sd_team_id_2021": 9,
-            "is_active": true
+            "is_active": true,
+            "rank": 26
           },
           {
             "id": 4,
@@ -107,7 +110,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 2,
             "price_2021": 51,
             "sd_team_id_2021": 4,
-            "is_active": true
+            "is_active": true,
+            "rank": 2
           },
           {
             "id": 5,
@@ -133,7 +137,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 8,
             "price_2021": 40,
             "sd_team_id_2021": 1,
-            "is_active": true
+            "is_active": true,
+            "rank": 176
           },
           {
             "id": 6,
@@ -159,7 +164,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": 45,
             "sd_team_id_2021": 5,
-            "is_active": true
+            "is_active": true,
+            "rank": 3
           },
           {
             "id": 7,
@@ -185,7 +191,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 5,
             "price_2021": 54,
             "sd_team_id_2021": 9,
-            "is_active": true
+            "is_active": true,
+            "rank": 1
           },
           {
             "id": 8,
@@ -211,7 +218,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 8,
             "price_2021": 58,
             "sd_team_id_2021": 5,
-            "is_active": true
+            "is_active": true,
+            "rank": 13
           },
           {
             "id": 9,
@@ -237,7 +245,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 46,
             "sd_team_id_2021": 5,
-            "is_active": true
+            "is_active": true,
+            "rank": 16
           },
           {
             "id": 10,
@@ -263,7 +272,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 48,
             "sd_team_id_2021": 6,
-            "is_active": true
+            "is_active": true,
+            "rank": 14
           },
           {
             "id": 11,
@@ -289,7 +299,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": 49,
             "sd_team_id_2021": 4,
-            "is_active": true
+            "is_active": true,
+            "rank": 25
           },
           {
             "id": 12,
@@ -315,7 +326,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 5,
             "price_2021": 48,
             "sd_team_id_2021": 3,
-            "is_active": true
+            "is_active": true,
+            "rank": 8
           },
           {
             "id": 13,
@@ -341,7 +353,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 9,
             "price_2021": 53,
             "sd_team_id_2021": 9,
-            "is_active": true
+            "is_active": true,
+            "rank": 6
           },
           {
             "id": 14,
@@ -367,7 +380,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 5,
             "price_2021": 57,
             "sd_team_id_2021": 2,
-            "is_active": true
+            "is_active": true,
+            "rank": 33
           },
           {
             "id": 15,
@@ -393,7 +407,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 4,
             "price_2021": 45,
             "sd_team_id_2021": 8,
-            "is_active": true
+            "is_active": true,
+            "rank": 42
           },
           {
             "id": 16,
@@ -419,7 +434,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 5,
             "price_2021": 20,
             "sd_team_id_2021": 3,
-            "is_active": true
+            "is_active": true,
+            "rank": 38
           },
           {
             "id": 17,
@@ -445,7 +461,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": 33,
             "sd_team_id_2021": 5,
-            "is_active": true
+            "is_active": true,
+            "rank": 111
           },
           {
             "id": 18,
@@ -471,7 +488,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 5,
             "price_2021": 36,
             "sd_team_id_2021": 6,
-            "is_active": true
+            "is_active": true,
+            "rank": 638
           },
           {
             "id": 19,
@@ -497,7 +515,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 33,
             "sd_team_id_2021": 3,
-            "is_active": true
+            "is_active": true,
+            "rank": 12
           },
           {
             "id": 20,
@@ -523,7 +542,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 18,
             "sd_team_id_2021": 8,
-            "is_active": true
+            "is_active": true,
+            "rank": 15
           },
           {
             "id": 21,
@@ -549,7 +569,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 30,
             "sd_team_id_2021": 6,
-            "is_active": true
+            "is_active": true,
+            "rank": 61
           },
           {
             "id": 22,
@@ -575,7 +596,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 5,
             "price_2021": 21,
             "sd_team_id_2021": 5,
-            "is_active": true
+            "is_active": true,
+            "rank": 45
           },
           {
             "id": 23,
@@ -601,7 +623,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 8,
             "price_2021": 32,
             "sd_team_id_2021": 2,
-            "is_active": true
+            "is_active": true,
+            "rank": 113
           },
           {
             "id": 24,
@@ -627,7 +650,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 9,
             "price_2021": 18,
             "sd_team_id_2021": 7,
-            "is_active": true
+            "is_active": true,
+            "rank": 28
           },
           {
             "id": 25,
@@ -653,7 +677,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": 31,
             "sd_team_id_2021": 7,
-            "is_active": true
+            "is_active": true,
+            "rank": 65
           },
           {
             "id": 26,
@@ -679,7 +704,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 20,
             "sd_team_id_2021": 7,
-            "is_active": true
+            "is_active": true,
+            "rank": 86
           },
           {
             "id": 28,
@@ -705,7 +731,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 1,
             "sd_team_id_2021": 4,
-            "is_active": true
+            "is_active": true,
+            "rank": 49
           },
           {
             "id": 29,
@@ -731,7 +758,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": 38,
             "sd_team_id_2021": 6,
-            "is_active": true
+            "is_active": true,
+            "rank": 82
           },
           {
             "id": 30,
@@ -757,7 +785,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": 19,
             "sd_team_id_2021": 5,
-            "is_active": true
+            "is_active": true,
+            "rank": 69
           },
           {
             "id": 31,
@@ -783,7 +812,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 8,
             "price_2021": 20,
             "sd_team_id_2021": 1,
-            "is_active": true
+            "is_active": true,
+            "rank": 4
           },
           {
             "id": 32,
@@ -809,7 +839,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 4,
             "price_2021": 7,
             "sd_team_id_2021": 10,
-            "is_active": true
+            "is_active": true,
+            "rank": 58
           },
           {
             "id": 33,
@@ -835,7 +866,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 8,
             "price_2021": 22,
             "sd_team_id_2021": 8,
-            "is_active": true
+            "is_active": true,
+            "rank": 21
           },
           {
             "id": 34,
@@ -861,7 +893,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 12,
             "sd_team_id_2021": 8,
-            "is_active": true
+            "is_active": true,
+            "rank": 155
           },
           {
             "id": 35,
@@ -887,7 +920,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 45,
             "sd_team_id_2021": 10,
-            "is_active": true
+            "is_active": true,
+            "rank": 11
           },
           {
             "id": 36,
@@ -913,7 +947,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 5,
             "price_2021": 25,
             "sd_team_id_2021": 1,
-            "is_active": true
+            "is_active": true,
+            "rank": 35
           },
           {
             "id": 37,
@@ -939,7 +974,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": 46,
             "sd_team_id_2021": 9,
-            "is_active": true
+            "is_active": true,
+            "rank": 74
           },
           {
             "id": 38,
@@ -965,7 +1001,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 30,
             "sd_team_id_2021": 1,
-            "is_active": true
+            "is_active": true,
+            "rank": 97
           },
           {
             "id": 39,
@@ -991,7 +1028,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 5,
             "price_2021": 32,
             "sd_team_id_2021": 8,
-            "is_active": true
+            "is_active": true,
+            "rank": 89
           },
           {
             "id": 40,
@@ -1017,7 +1055,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 5,
             "price_2021": 34,
             "sd_team_id_2021": 3,
-            "is_active": true
+            "is_active": true,
+            "rank": 68
           },
           {
             "id": 41,
@@ -1043,7 +1082,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 5,
             "price_2021": 46,
             "sd_team_id_2021": 6,
-            "is_active": true
+            "is_active": true,
+            "rank": 64
           },
           {
             "id": 42,
@@ -1069,7 +1109,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 45,
             "sd_team_id_2021": 2,
-            "is_active": true
+            "is_active": true,
+            "rank": 46
           },
           {
             "id": 43,
@@ -1095,7 +1136,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 4,
             "price_2021": 21,
             "sd_team_id_2021": 1,
-            "is_active": true
+            "is_active": true,
+            "rank": 17
           },
           {
             "id": 44,
@@ -1121,7 +1163,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 5,
             "price_2021": 15,
             "sd_team_id_2021": 10,
-            "is_active": true
+            "is_active": true,
+            "rank": 19
           },
           {
             "id": 45,
@@ -1147,7 +1190,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 5,
             "price_2021": 31,
             "sd_team_id_2021": 3,
-            "is_active": true
+            "is_active": true,
+            "rank": 48
           },
           {
             "id": 46,
@@ -1173,7 +1217,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 23,
             "sd_team_id_2021": 4,
-            "is_active": true
+            "is_active": true,
+            "rank": 39
           },
           {
             "id": 47,
@@ -1199,7 +1244,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 1,
             "sd_team_id_2021": 5,
-            "is_active": true
+            "is_active": true,
+            "rank": 739
           },
           {
             "id": 48,
@@ -1225,7 +1271,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 4,
             "price_2021": 22,
             "sd_team_id_2021": 3,
-            "is_active": true
+            "is_active": true,
+            "rank": 20
           },
           {
             "id": 49,
@@ -1251,7 +1298,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": 11,
             "sd_team_id_2021": 1,
-            "is_active": true
+            "is_active": true,
+            "rank": 109
           },
           {
             "id": 50,
@@ -1277,7 +1325,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 4,
             "price_2021": 2,
             "sd_team_id_2021": 3,
-            "is_active": true
+            "is_active": true,
+            "rank": 575
           },
           {
             "id": 51,
@@ -1303,7 +1352,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": 23,
             "sd_team_id_2021": 5,
-            "is_active": true
+            "is_active": true,
+            "rank": 44
           },
           {
             "id": 53,
@@ -1329,7 +1379,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 21,
             "sd_team_id_2021": 2,
-            "is_active": true
+            "is_active": true,
+            "rank": 244
           },
           {
             "id": 54,
@@ -1355,7 +1406,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 1,
             "sd_team_id_2021": 3,
-            "is_active": true
+            "is_active": true,
+            "rank": 24
           },
           {
             "id": 55,
@@ -1381,7 +1433,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 8,
             "price_2021": 12,
             "sd_team_id_2021": 7,
-            "is_active": true
+            "is_active": true,
+            "rank": 323
           },
           {
             "id": 56,
@@ -1407,7 +1460,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 5,
             "price_2021": 45,
             "sd_team_id_2021": 10,
-            "is_active": true
+            "is_active": true,
+            "rank": 18
           },
           {
             "id": 57,
@@ -1433,7 +1487,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 26,
             "sd_team_id_2021": 6,
-            "is_active": true
+            "is_active": true,
+            "rank": 22
           },
           {
             "id": 58,
@@ -1459,7 +1514,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 24,
             "sd_team_id_2021": 6,
-            "is_active": true
+            "is_active": true,
+            "rank": 10
           },
           {
             "id": 59,
@@ -1485,7 +1541,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 5,
             "price_2021": 1,
             "sd_team_id_2021": 9,
-            "is_active": true
+            "is_active": true,
+            "rank": 707
           },
           {
             "id": 60,
@@ -1511,7 +1568,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 5,
             "price_2021": 12,
             "sd_team_id_2021": 7,
-            "is_active": true
+            "is_active": true,
+            "rank": 122
           },
           {
             "id": 61,
@@ -1537,7 +1595,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 34,
             "sd_team_id_2021": 7,
-            "is_active": true
+            "is_active": true,
+            "rank": 327
           },
           {
             "id": 62,
@@ -1563,7 +1622,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 5,
             "price_2021": 30,
             "sd_team_id_2021": 2,
-            "is_active": true
+            "is_active": true,
+            "rank": 359
           },
           {
             "id": 63,
@@ -1589,7 +1649,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": 28,
             "sd_team_id_2021": 6,
-            "is_active": true
+            "is_active": true,
+            "rank": 30
           },
           {
             "id": 64,
@@ -1615,7 +1676,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 4,
             "price_2021": 14,
             "sd_team_id_2021": 8,
-            "is_active": true
+            "is_active": true,
+            "rank": 188
           },
           {
             "id": 65,
@@ -1641,7 +1703,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 5,
             "price_2021": 2,
             "sd_team_id_2021": 7,
-            "is_active": true
+            "is_active": true,
+            "rank": 144
           },
           {
             "id": 66,
@@ -1667,7 +1730,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 25,
             "sd_team_id_2021": 2,
-            "is_active": true
+            "is_active": true,
+            "rank": 153
           },
           {
             "id": 67,
@@ -1693,7 +1757,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": 37,
             "sd_team_id_2021": 10,
-            "is_active": true
+            "is_active": true,
+            "rank": 53
           },
           {
             "id": 68,
@@ -1719,7 +1784,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 4,
             "price_2021": 1,
             "sd_team_id_2021": 5,
-            "is_active": true
+            "is_active": true,
+            "rank": 121
           },
           {
             "id": 69,
@@ -1745,7 +1811,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 40,
             "sd_team_id_2021": 4,
-            "is_active": true
+            "is_active": true,
+            "rank": 138
           },
           {
             "id": 70,
@@ -1771,7 +1838,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 3,
             "sd_team_id_2021": 3,
-            "is_active": true
+            "is_active": true,
+            "rank": 366
           },
           {
             "id": 71,
@@ -1797,7 +1865,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 4,
             "price_2021": 27,
             "sd_team_id_2021": 2,
-            "is_active": true
+            "is_active": true,
+            "rank": 78
           },
           {
             "id": 72,
@@ -1823,7 +1892,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 4,
             "price_2021": 11,
             "sd_team_id_2021": 5,
-            "is_active": true
+            "is_active": true,
+            "rank": 156
           },
           {
             "id": 73,
@@ -1849,7 +1919,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 23,
             "sd_team_id_2021": 2,
-            "is_active": true
+            "is_active": true,
+            "rank": 129
           },
           {
             "id": 74,
@@ -1875,7 +1946,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 5,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 72
           },
           {
             "id": 75,
@@ -1901,7 +1973,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 30,
             "sd_team_id_2021": 3,
-            "is_active": true
+            "is_active": true,
+            "rank": 29
           },
           {
             "id": 76,
@@ -1927,7 +2000,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 2,
             "sd_team_id_2021": 1,
-            "is_active": true
+            "is_active": true,
+            "rank": 117
           },
           {
             "id": 77,
@@ -1953,7 +2027,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": 8,
             "sd_team_id_2021": 8,
-            "is_active": true
+            "is_active": true,
+            "rank": 223
           },
           {
             "id": 78,
@@ -1979,7 +2054,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": 2,
             "sd_team_id_2021": 7,
-            "is_active": true
+            "is_active": true,
+            "rank": 73
           },
           {
             "id": 79,
@@ -2005,7 +2081,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 20,
             "sd_team_id_2021": 4,
-            "is_active": true
+            "is_active": true,
+            "rank": 119
           },
           {
             "id": 80,
@@ -2031,7 +2108,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": 15,
             "sd_team_id_2021": 1,
-            "is_active": true
+            "is_active": true,
+            "rank": 281
           },
           {
             "id": 81,
@@ -2057,7 +2135,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 1,
             "sd_team_id_2021": 6,
-            "is_active": true
+            "is_active": true,
+            "rank": 130
           },
           {
             "id": 82,
@@ -2083,7 +2162,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 36,
             "sd_team_id_2021": 4,
-            "is_active": true
+            "is_active": true,
+            "rank": 127
           },
           {
             "id": 83,
@@ -2109,7 +2189,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": 5,
             "sd_team_id_2021": 2,
-            "is_active": true
+            "is_active": true,
+            "rank": 66
           },
           {
             "id": 84,
@@ -2135,7 +2216,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": 2,
             "sd_team_id_2021": 1,
-            "is_active": true
+            "is_active": true,
+            "rank": 87
           },
           {
             "id": 85,
@@ -2161,7 +2243,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 4,
             "price_2021": 2,
             "sd_team_id_2021": 8,
-            "is_active": true
+            "is_active": true,
+            "rank": 114
           },
           {
             "id": 86,
@@ -2187,7 +2270,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 9,
             "sd_team_id_2021": 7,
-            "is_active": true
+            "is_active": true,
+            "rank": 150
           },
           {
             "id": 87,
@@ -2213,7 +2297,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 2,
             "sd_team_id_2021": 10,
-            "is_active": true
+            "is_active": true,
+            "rank": 43
           },
           {
             "id": 88,
@@ -2239,7 +2324,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 5,
             "price_2021": 15,
             "sd_team_id_2021": 7,
-            "is_active": true
+            "is_active": true,
+            "rank": 27
           },
           {
             "id": 89,
@@ -2265,7 +2351,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": 21,
             "sd_team_id_2021": 3,
-            "is_active": true
+            "is_active": true,
+            "rank": 98
           },
           {
             "id": 90,
@@ -2291,7 +2378,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 5,
             "price_2021": 12,
             "sd_team_id_2021": 8,
-            "is_active": true
+            "is_active": true,
+            "rank": 56
           },
           {
             "id": 91,
@@ -2317,7 +2405,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 5,
             "price_2021": 10,
             "sd_team_id_2021": 4,
-            "is_active": true
+            "is_active": true,
+            "rank": 115
           },
           {
             "id": 92,
@@ -2343,7 +2432,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": 25,
             "sd_team_id_2021": 7,
-            "is_active": true
+            "is_active": true,
+            "rank": 50
           },
           {
             "id": 93,
@@ -2369,7 +2459,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 8,
             "price_2021": 1,
             "sd_team_id_2021": 2,
-            "is_active": true
+            "is_active": true,
+            "rank": 77
           },
           {
             "id": 94,
@@ -2395,7 +2486,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": 25,
             "sd_team_id_2021": 8,
-            "is_active": true
+            "is_active": true,
+            "rank": 128
           },
           {
             "id": 95,
@@ -2421,7 +2513,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 9,
             "price_2021": 18,
             "sd_team_id_2021": 3,
-            "is_active": true
+            "is_active": true,
+            "rank": 178
           },
           {
             "id": 96,
@@ -2447,7 +2540,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 1,
             "sd_team_id_2021": 5,
-            "is_active": true
+            "is_active": true,
+            "rank": 99
           },
           {
             "id": 97,
@@ -2473,7 +2567,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": 23,
             "sd_team_id_2021": 8,
-            "is_active": true
+            "is_active": true,
+            "rank": 482
           },
           {
             "id": 99,
@@ -2499,7 +2594,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 4,
             "price_2021": 7,
             "sd_team_id_2021": 4,
-            "is_active": true
+            "is_active": true,
+            "rank": 51
           },
           {
             "id": 100,
@@ -2525,7 +2621,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 1,
             "sd_team_id_2021": 5,
-            "is_active": true
+            "is_active": true,
+            "rank": 152
           },
           {
             "id": 101,
@@ -2551,7 +2648,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": 5,
             "sd_team_id_2021": 7,
-            "is_active": true
+            "is_active": true,
+            "rank": 54
           },
           {
             "id": 102,
@@ -2577,7 +2675,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 16,
             "sd_team_id_2021": 7,
-            "is_active": true
+            "is_active": true,
+            "rank": 91
           },
           {
             "id": 103,
@@ -2603,7 +2702,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": 7,
             "sd_team_id_2021": 9,
-            "is_active": true
+            "is_active": true,
+            "rank": 157
           },
           {
             "id": 104,
@@ -2629,7 +2729,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 5,
             "price_2021": 3,
             "sd_team_id_2021": 7,
-            "is_active": true
+            "is_active": true,
+            "rank": 84
           },
           {
             "id": 105,
@@ -2655,7 +2756,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 5,
             "price_2021": 3,
             "sd_team_id_2021": 6,
-            "is_active": true
+            "is_active": true,
+            "rank": 104
           },
           {
             "id": 106,
@@ -2681,7 +2783,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 8,
             "price_2021": 1,
             "sd_team_id_2021": 10,
-            "is_active": true
+            "is_active": true,
+            "rank": 351
           },
           {
             "id": 108,
@@ -2707,7 +2810,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 6,
             "sd_team_id_2021": 3,
-            "is_active": true
+            "is_active": true,
+            "rank": 116
           },
           {
             "id": 109,
@@ -2733,7 +2837,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 5,
             "price_2021": 1,
             "sd_team_id_2021": 9,
-            "is_active": true
+            "is_active": true,
+            "rank": 492
           },
           {
             "id": 110,
@@ -2759,7 +2864,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 1,
             "sd_team_id_2021": 5,
-            "is_active": true
+            "is_active": true,
+            "rank": 52
           },
           {
             "id": 111,
@@ -2785,7 +2891,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 5,
             "price_2021": 10,
             "sd_team_id_2021": 8,
-            "is_active": true
+            "is_active": true,
+            "rank": 62
           },
           {
             "id": 112,
@@ -2811,7 +2918,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 8,
             "price_2021": 3,
             "sd_team_id_2021": 3,
-            "is_active": true
+            "is_active": true,
+            "rank": 108
           },
           {
             "id": 113,
@@ -2837,7 +2945,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 5,
             "price_2021": 2,
             "sd_team_id_2021": 9,
-            "is_active": true
+            "is_active": true,
+            "rank": 71
           },
           {
             "id": 114,
@@ -2863,7 +2972,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": 16,
             "sd_team_id_2021": 3,
-            "is_active": true
+            "is_active": true,
+            "rank": 57
           },
           {
             "id": 115,
@@ -2889,7 +2999,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 6,
             "sd_team_id_2021": 10,
-            "is_active": true
+            "is_active": true,
+            "rank": 235
           },
           {
             "id": 116,
@@ -2915,7 +3026,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 2,
             "sd_team_id_2021": 9,
-            "is_active": true
+            "is_active": true,
+            "rank": 9
           },
           {
             "id": 117,
@@ -2941,7 +3053,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 4,
             "price_2021": 7,
             "sd_team_id_2021": 8,
-            "is_active": true
+            "is_active": true,
+            "rank": 132
           },
           {
             "id": 118,
@@ -2967,7 +3080,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 5,
             "price_2021": 5,
             "sd_team_id_2021": 8,
-            "is_active": true
+            "is_active": true,
+            "rank": 55
           },
           {
             "id": 119,
@@ -2993,7 +3107,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 1,
             "sd_team_id_2021": 2,
-            "is_active": true
+            "is_active": true,
+            "rank": 160
           },
           {
             "id": 120,
@@ -3019,7 +3134,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": 20,
             "sd_team_id_2021": 4,
-            "is_active": true
+            "is_active": true,
+            "rank": 137
           },
           {
             "id": 121,
@@ -3045,7 +3161,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 5,
             "price_2021": 19,
             "sd_team_id_2021": 10,
-            "is_active": true
+            "is_active": true,
+            "rank": 168
           },
           {
             "id": 122,
@@ -3071,7 +3188,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 8,
             "price_2021": 1,
             "sd_team_id_2021": 2,
-            "is_active": true
+            "is_active": true,
+            "rank": 222
           },
           {
             "id": 124,
@@ -3097,7 +3215,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": 1,
             "sd_team_id_2021": 5,
-            "is_active": true
+            "is_active": true,
+            "rank": 318
           },
           {
             "id": 125,
@@ -3123,7 +3242,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 14,
             "sd_team_id_2021": 8,
-            "is_active": true
+            "is_active": true,
+            "rank": 134
           },
           {
             "id": 127,
@@ -3149,7 +3269,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": 2,
             "sd_team_id_2021": 9,
-            "is_active": true
+            "is_active": true,
+            "rank": 41
           },
           {
             "id": 128,
@@ -3175,7 +3296,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 4,
             "sd_team_id_2021": 3,
-            "is_active": true
+            "is_active": true,
+            "rank": 126
           },
           {
             "id": 129,
@@ -3201,7 +3323,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": 1,
             "sd_team_id_2021": 1,
-            "is_active": true
+            "is_active": true,
+            "rank": 230
           },
           {
             "id": 131,
@@ -3227,7 +3350,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 23,
             "sd_team_id_2021": 10,
-            "is_active": true
+            "is_active": true,
+            "rank": 103
           },
           {
             "id": 132,
@@ -3253,7 +3377,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 1,
             "sd_team_id_2021": 2,
-            "is_active": true
+            "is_active": true,
+            "rank": 180
           },
           {
             "id": 133,
@@ -3279,7 +3404,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": 1,
             "sd_team_id_2021": 6,
-            "is_active": true
+            "is_active": true,
+            "rank": 326
           },
           {
             "id": 134,
@@ -3305,7 +3431,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 9,
             "sd_team_id_2021": 7,
-            "is_active": true
+            "is_active": true,
+            "rank": 296
           },
           {
             "id": 135,
@@ -3331,7 +3458,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 5,
             "price_2021": 24,
             "sd_team_id_2021": 7,
-            "is_active": true
+            "is_active": true,
+            "rank": 135
           },
           {
             "id": 136,
@@ -3357,7 +3485,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 319
           },
           {
             "id": 137,
@@ -3383,7 +3512,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 3,
             "sd_team_id_2021": 9,
-            "is_active": true
+            "is_active": true,
+            "rank": 151
           },
           {
             "id": 138,
@@ -3409,7 +3539,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 5,
             "price_2021": 7,
             "sd_team_id_2021": 10,
-            "is_active": true
+            "is_active": true,
+            "rank": 92
           },
           {
             "id": 139,
@@ -3435,7 +3566,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 5,
             "price_2021": 1,
             "sd_team_id_2021": 6,
-            "is_active": true
+            "is_active": true,
+            "rank": 94
           },
           {
             "id": 141,
@@ -3461,7 +3593,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 13,
             "sd_team_id_2021": 7,
-            "is_active": true
+            "is_active": true,
+            "rank": 60
           },
           {
             "id": 142,
@@ -3487,7 +3620,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 9,
             "price_2021": 11,
             "sd_team_id_2021": 7,
-            "is_active": true
+            "is_active": true,
+            "rank": 81
           },
           {
             "id": 143,
@@ -3513,7 +3647,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 13,
             "sd_team_id_2021": 10,
-            "is_active": true
+            "is_active": true,
+            "rank": 199
           },
           {
             "id": 144,
@@ -3539,7 +3674,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 5,
             "price_2021": 23,
             "sd_team_id_2021": 8,
-            "is_active": true
+            "is_active": true,
+            "rank": 95
           },
           {
             "id": 145,
@@ -3565,7 +3701,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 5,
             "price_2021": 1,
             "sd_team_id_2021": 3,
-            "is_active": true
+            "is_active": true,
+            "rank": 407
           },
           {
             "id": 146,
@@ -3591,7 +3728,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 10,
             "price_2021": 2,
             "sd_team_id_2021": 8,
-            "is_active": true
+            "is_active": true,
+            "rank": 203
           },
           {
             "id": 147,
@@ -3617,7 +3755,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 3,
             "sd_team_id_2021": 6,
-            "is_active": true
+            "is_active": true,
+            "rank": 280
           },
           {
             "id": 148,
@@ -3643,7 +3782,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 4,
             "price_2021": 1,
             "sd_team_id_2021": 6,
-            "is_active": true
+            "is_active": true,
+            "rank": 63
           },
           {
             "id": 149,
@@ -3669,7 +3809,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 698
           },
           {
             "id": 151,
@@ -3695,7 +3836,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": 1,
             "sd_team_id_2021": 3,
-            "is_active": true
+            "is_active": true,
+            "rank": 248
           },
           {
             "id": 152,
@@ -3721,7 +3863,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 8,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 196
           },
           {
             "id": 153,
@@ -3747,7 +3890,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": 17,
             "sd_team_id_2021": 7,
-            "is_active": true
+            "is_active": true,
+            "rank": 210
           },
           {
             "id": 154,
@@ -3773,7 +3917,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 9,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 141
           },
           {
             "id": 155,
@@ -3799,7 +3944,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": 1,
             "sd_team_id_2021": 9,
-            "is_active": true
+            "is_active": true,
+            "rank": 267
           },
           {
             "id": 156,
@@ -3825,7 +3971,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 8,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 588
           },
           {
             "id": 157,
@@ -3851,7 +3998,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 8,
             "price_2021": 2,
             "sd_team_id_2021": 1,
-            "is_active": true
+            "is_active": true,
+            "rank": 214
           },
           {
             "id": 158,
@@ -3877,7 +4025,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 8,
             "price_2021": 1,
             "sd_team_id_2021": 5,
-            "is_active": true
+            "is_active": true,
+            "rank": 146
           },
           {
             "id": 159,
@@ -3903,7 +4052,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 101
           },
           {
             "id": 160,
@@ -3929,7 +4079,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": 1,
             "sd_team_id_2021": 9,
-            "is_active": true
+            "is_active": true,
+            "rank": 173
           },
           {
             "id": 161,
@@ -3955,7 +4106,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 1,
             "sd_team_id_2021": 3,
-            "is_active": true
+            "is_active": true,
+            "rank": 247
           },
           {
             "id": 162,
@@ -3981,7 +4133,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 2,
             "sd_team_id_2021": 4,
-            "is_active": true
+            "is_active": true,
+            "rank": 209
           },
           {
             "id": 163,
@@ -4007,7 +4160,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 8,
             "price_2021": 18,
             "sd_team_id_2021": 1,
-            "is_active": true
+            "is_active": true,
+            "rank": 220
           },
           {
             "id": 164,
@@ -4033,7 +4187,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 257
           },
           {
             "id": 165,
@@ -4059,7 +4214,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": 12,
             "sd_team_id_2021": 10,
-            "is_active": true
+            "is_active": true,
+            "rank": 124
           },
           {
             "id": 166,
@@ -4085,7 +4241,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 5,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 653
           },
           {
             "id": 167,
@@ -4111,7 +4268,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 8,
             "price_2021": 1,
             "sd_team_id_2021": 2,
-            "is_active": true
+            "is_active": true,
+            "rank": 34
           },
           {
             "id": 168,
@@ -4137,7 +4295,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 8,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 164
           },
           {
             "id": 169,
@@ -4163,7 +4322,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": 3,
             "sd_team_id_2021": 1,
-            "is_active": true
+            "is_active": true,
+            "rank": 112
           },
           {
             "id": 170,
@@ -4189,7 +4349,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": 6,
             "sd_team_id_2021": 6,
-            "is_active": true
+            "is_active": true,
+            "rank": 154
           },
           {
             "id": 171,
@@ -4215,7 +4376,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 8,
             "price_2021": 1,
             "sd_team_id_2021": 9,
-            "is_active": true
+            "is_active": true,
+            "rank": 226
           },
           {
             "id": 172,
@@ -4241,7 +4403,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 1,
             "sd_team_id_2021": 5,
-            "is_active": true
+            "is_active": true,
+            "rank": 329
           },
           {
             "id": 173,
@@ -4267,7 +4430,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 4,
             "sd_team_id_2021": 4,
-            "is_active": true
+            "is_active": true,
+            "rank": 275
           },
           {
             "id": 174,
@@ -4293,7 +4457,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 8,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 667
           },
           {
             "id": 175,
@@ -4319,7 +4484,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 8,
             "price_2021": 2,
             "sd_team_id_2021": 2,
-            "is_active": true
+            "is_active": true,
+            "rank": 165
           },
           {
             "id": 176,
@@ -4345,7 +4511,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": 3,
             "sd_team_id_2021": 3,
-            "is_active": true
+            "is_active": true,
+            "rank": 262
           },
           {
             "id": 177,
@@ -4371,7 +4538,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 8,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 59
           },
           {
             "id": 178,
@@ -4397,7 +4565,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 75
           },
           {
             "id": 179,
@@ -4423,7 +4592,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 0,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 228
           },
           {
             "id": 181,
@@ -4449,7 +4619,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 8,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 179
           },
           {
             "id": 182,
@@ -4475,7 +4646,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": 1,
             "sd_team_id_2021": 6,
-            "is_active": true
+            "is_active": true,
+            "rank": 320
           },
           {
             "id": 183,
@@ -4501,7 +4673,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 258
           },
           {
             "id": 184,
@@ -4527,7 +4700,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 5,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 7
           },
           {
             "id": 185,
@@ -4553,7 +4727,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 5,
             "price_2021": 8,
             "sd_team_id_2021": 4,
-            "is_active": true
+            "is_active": true,
+            "rank": 125
           },
           {
             "id": 186,
@@ -4579,7 +4754,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 211
           },
           {
             "id": 187,
@@ -4605,7 +4781,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 5,
             "price_2021": 17,
             "sd_team_id_2021": 2,
-            "is_active": true
+            "is_active": true,
+            "rank": 212
           },
           {
             "id": 188,
@@ -4631,7 +4808,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": 2,
             "sd_team_id_2021": 4,
-            "is_active": true
+            "is_active": true,
+            "rank": 102
           },
           {
             "id": 189,
@@ -4657,7 +4835,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 1,
             "sd_team_id_2021": 4,
-            "is_active": true
+            "is_active": true,
+            "rank": 96
           },
           {
             "id": 191,
@@ -4683,7 +4862,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 131
           },
           {
             "id": 192,
@@ -4709,7 +4889,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 1,
             "sd_team_id_2021": 4,
-            "is_active": true
+            "is_active": true,
+            "rank": 350
           },
           {
             "id": 193,
@@ -4735,7 +4916,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 8,
             "price_2021": 1,
             "sd_team_id_2021": 1,
-            "is_active": true
+            "is_active": true,
+            "rank": 181
           },
           {
             "id": 194,
@@ -4761,7 +4943,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": 1,
             "sd_team_id_2021": 9,
-            "is_active": true
+            "is_active": true,
+            "rank": 136
           },
           {
             "id": 195,
@@ -4787,7 +4970,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": 1,
             "sd_team_id_2021": 5,
-            "is_active": true
+            "is_active": true,
+            "rank": 451
           },
           {
             "id": 196,
@@ -4813,7 +4997,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 8,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 302
           },
           {
             "id": 197,
@@ -4839,7 +5024,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 1,
             "sd_team_id_2021": 3,
-            "is_active": true
+            "is_active": true,
+            "rank": 232
           },
           {
             "id": 198,
@@ -4865,7 +5051,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 5,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 161
           },
           {
             "id": 199,
@@ -4891,7 +5078,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 8,
             "sd_team_id_2021": 1,
-            "is_active": true
+            "is_active": true,
+            "rank": 120
           },
           {
             "id": 200,
@@ -4917,7 +5105,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": 1,
             "sd_team_id_2021": 4,
-            "is_active": true
+            "is_active": true,
+            "rank": 352
           },
           {
             "id": 201,
@@ -4943,7 +5132,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": 11,
             "sd_team_id_2021": 10,
-            "is_active": true
+            "is_active": true,
+            "rank": 148
           },
           {
             "id": 202,
@@ -4969,7 +5159,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": 1,
             "sd_team_id_2021": 6,
-            "is_active": true
+            "is_active": true,
+            "rank": 149
           },
           {
             "id": 203,
@@ -4995,7 +5186,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 8,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 595
           },
           {
             "id": 204,
@@ -5021,7 +5213,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 1,
             "sd_team_id_2021": 2,
-            "is_active": true
+            "is_active": true,
+            "rank": 200
           },
           {
             "id": 205,
@@ -5047,7 +5240,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 1,
             "sd_team_id_2021": 2,
-            "is_active": true
+            "is_active": true,
+            "rank": 259
           },
           {
             "id": 206,
@@ -5073,7 +5267,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 207
           },
           {
             "id": 207,
@@ -5099,7 +5294,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 216
           },
           {
             "id": 208,
@@ -5125,7 +5321,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 8,
             "price_2021": 6,
             "sd_team_id_2021": 7,
-            "is_active": true
+            "is_active": true,
+            "rank": 80
           },
           {
             "id": 209,
@@ -5151,7 +5348,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 272
           },
           {
             "id": 211,
@@ -5177,7 +5375,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 5,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 238
           },
           {
             "id": 214,
@@ -5203,7 +5402,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 8,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 291
           },
           {
             "id": 215,
@@ -5229,7 +5429,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": 1,
             "sd_team_id_2021": 3,
-            "is_active": true
+            "is_active": true,
+            "rank": 337
           },
           {
             "id": 216,
@@ -5255,7 +5456,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 18,
             "sd_team_id_2021": 10,
-            "is_active": true
+            "is_active": true,
+            "rank": 263
           },
           {
             "id": 217,
@@ -5281,7 +5483,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 1,
             "sd_team_id_2021": 5,
-            "is_active": true
+            "is_active": true,
+            "rank": 338
           },
           {
             "id": 218,
@@ -5307,7 +5510,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 745
           },
           {
             "id": 219,
@@ -5333,7 +5537,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": 1,
             "sd_team_id_2021": 3,
-            "is_active": true
+            "is_active": true,
+            "rank": 293
           },
           {
             "id": 220,
@@ -5359,7 +5564,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 105
           },
           {
             "id": 221,
@@ -5385,7 +5591,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 5,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 67
           },
           {
             "id": 222,
@@ -5411,7 +5618,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 5,
             "price_2021": 1,
             "sd_team_id_2021": 5,
-            "is_active": true
+            "is_active": true,
+            "rank": 249
           },
           {
             "id": 223,
@@ -5437,7 +5645,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 221
           },
           {
             "id": 225,
@@ -5463,7 +5672,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 8,
             "price_2021": 1,
             "sd_team_id_2021": 9,
-            "is_active": true
+            "is_active": true,
+            "rank": 145
           },
           {
             "id": 226,
@@ -5489,7 +5699,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 384
           },
           {
             "id": 227,
@@ -5515,7 +5726,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 8,
             "price_2021": 1,
             "sd_team_id_2021": 6,
-            "is_active": true
+            "is_active": true,
+            "rank": 100
           },
           {
             "id": 228,
@@ -5541,7 +5753,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 245
           },
           {
             "id": 229,
@@ -5567,7 +5780,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": 1,
             "sd_team_id_2021": 5,
-            "is_active": true
+            "is_active": true,
+            "rank": 229
           },
           {
             "id": 230,
@@ -5593,7 +5807,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": 5,
             "sd_team_id_2021": 7,
-            "is_active": true
+            "is_active": true,
+            "rank": 309
           },
           {
             "id": 231,
@@ -5619,7 +5834,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 5,
             "price_2021": 3,
             "sd_team_id_2021": 4,
-            "is_active": true
+            "is_active": true,
+            "rank": 187
           },
           {
             "id": 232,
@@ -5645,7 +5861,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 31
           },
           {
             "id": 233,
@@ -5671,7 +5888,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 213
           },
           {
             "id": 235,
@@ -5697,7 +5915,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 143
           },
           {
             "id": 236,
@@ -5723,7 +5942,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 9,
             "price_2021": 3,
             "sd_team_id_2021": 1,
-            "is_active": true
+            "is_active": true,
+            "rank": 215
           },
           {
             "id": 238,
@@ -5749,7 +5969,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 234
           },
           {
             "id": 240,
@@ -5775,7 +5996,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 3,
             "sd_team_id_2021": 4,
-            "is_active": true
+            "is_active": true,
+            "rank": 185
           },
           {
             "id": 241,
@@ -5801,7 +6023,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 90
           },
           {
             "id": 242,
@@ -5827,7 +6050,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 8,
             "price_2021": 1,
             "sd_team_id_2021": 10,
-            "is_active": true
+            "is_active": true,
+            "rank": 174
           },
           {
             "id": 243,
@@ -5853,7 +6077,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 8,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 420
           },
           {
             "id": 245,
@@ -5879,7 +6104,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 380
           },
           {
             "id": 246,
@@ -5905,7 +6131,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 224
           },
           {
             "id": 247,
@@ -5931,7 +6158,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 475
           },
           {
             "id": 248,
@@ -5957,7 +6185,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 729
           },
           {
             "id": 250,
@@ -5983,7 +6212,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 162
           },
           {
             "id": 251,
@@ -6009,7 +6239,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 1,
             "sd_team_id_2021": 1,
-            "is_active": true
+            "is_active": true,
+            "rank": 332
           },
           {
             "id": 252,
@@ -6035,7 +6266,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 566
           },
           {
             "id": 253,
@@ -6061,7 +6293,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 355
           },
           {
             "id": 254,
@@ -6087,7 +6320,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 170
           },
           {
             "id": 255,
@@ -6113,7 +6347,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": 1,
             "sd_team_id_2021": 9,
-            "is_active": true
+            "is_active": true,
+            "rank": 177
           },
           {
             "id": 256,
@@ -6139,7 +6374,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 2,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 336
           },
           {
             "id": 260,
@@ -6165,7 +6401,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 404
           },
           {
             "id": 261,
@@ -6191,7 +6428,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 5,
             "price_2021": 1,
             "sd_team_id_2021": 6,
-            "is_active": true
+            "is_active": true,
+            "rank": 198
           },
           {
             "id": 262,
@@ -6217,7 +6455,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 250
           },
           {
             "id": 263,
@@ -6243,7 +6482,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 422
           },
           {
             "id": 264,
@@ -6269,7 +6509,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 381
           },
           {
             "id": 265,
@@ -6295,7 +6536,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 525
           },
           {
             "id": 267,
@@ -6321,7 +6563,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 368
           },
           {
             "id": 268,
@@ -6347,7 +6590,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 1,
             "sd_team_id_2021": 4,
-            "is_active": true
+            "is_active": true,
+            "rank": 192
           },
           {
             "id": 269,
@@ -6373,7 +6617,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 548
           },
           {
             "id": 270,
@@ -6399,7 +6644,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 292
           },
           {
             "id": 271,
@@ -6425,7 +6671,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 1,
             "sd_team_id_2021": 9,
-            "is_active": true
+            "is_active": true,
+            "rank": 233
           },
           {
             "id": 273,
@@ -6451,7 +6698,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 288
           },
           {
             "id": 274,
@@ -6477,7 +6725,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 83
           },
           {
             "id": 275,
@@ -6503,7 +6752,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 5,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 406
           },
           {
             "id": 277,
@@ -6529,7 +6779,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 169
           },
           {
             "id": 278,
@@ -6555,7 +6806,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 5,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 333
           },
           {
             "id": 279,
@@ -6581,7 +6833,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 190
           },
           {
             "id": 280,
@@ -6607,7 +6860,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 335
           },
           {
             "id": 281,
@@ -6633,7 +6887,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 410
           },
           {
             "id": 282,
@@ -6659,7 +6914,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 261
           },
           {
             "id": 283,
@@ -6685,7 +6941,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 271
           },
           {
             "id": 284,
@@ -6711,7 +6968,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 1,
             "sd_team_id_2021": 6,
-            "is_active": true
+            "is_active": true,
+            "rank": 439
           },
           {
             "id": 285,
@@ -6737,7 +6995,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 447
           },
           {
             "id": 286,
@@ -6763,7 +7022,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 88
           },
           {
             "id": 287,
@@ -6789,7 +7049,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 8,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 172
           },
           {
             "id": 288,
@@ -6815,7 +7076,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 522
           },
           {
             "id": 290,
@@ -6841,7 +7103,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 358
           },
           {
             "id": 291,
@@ -6867,7 +7130,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 322
           },
           {
             "id": 292,
@@ -6893,7 +7157,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 4,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 290
           },
           {
             "id": 294,
@@ -6919,7 +7184,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 313
           },
           {
             "id": 295,
@@ -6945,7 +7211,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 305
           },
           {
             "id": 296,
@@ -6971,7 +7238,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 297
           },
           {
             "id": 297,
@@ -6997,7 +7265,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 321
           },
           {
             "id": 298,
@@ -7023,7 +7292,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 5,
             "price_2021": 1,
             "sd_team_id_2021": 4,
-            "is_active": true
+            "is_active": true,
+            "rank": 93
           },
           {
             "id": 299,
@@ -7049,7 +7319,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 5,
             "price_2021": 1,
             "sd_team_id_2021": 8,
-            "is_active": true
+            "is_active": true,
+            "rank": 175
           },
           {
             "id": 300,
@@ -7075,7 +7346,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 266
           },
           {
             "id": 301,
@@ -7101,7 +7373,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 471
           },
           {
             "id": 302,
@@ -7127,7 +7400,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 521
           },
           {
             "id": 303,
@@ -7153,7 +7427,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 325
           },
           {
             "id": 304,
@@ -7179,7 +7454,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 158
           },
           {
             "id": 305,
@@ -7205,7 +7481,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 133
           },
           {
             "id": 306,
@@ -7231,7 +7508,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 428
           },
           {
             "id": 307,
@@ -7257,7 +7535,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 391
           },
           {
             "id": 309,
@@ -7283,7 +7562,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 265
           },
           {
             "id": 310,
@@ -7309,7 +7589,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": 1,
             "sd_team_id_2021": 4,
-            "is_active": true
+            "is_active": true,
+            "rank": 47
           },
           {
             "id": 311,
@@ -7335,7 +7616,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 251
           },
           {
             "id": 312,
@@ -7361,7 +7643,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": 5,
             "sd_team_id_2021": 9,
-            "is_active": true
+            "is_active": true,
+            "rank": 270
           },
           {
             "id": 313,
@@ -7387,7 +7670,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 458
           },
           {
             "id": 314,
@@ -7413,7 +7697,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 446
           },
           {
             "id": 315,
@@ -7439,7 +7724,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 348
           },
           {
             "id": 317,
@@ -7465,7 +7751,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 481
           },
           {
             "id": 318,
@@ -7491,7 +7778,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 622
           },
           {
             "id": 319,
@@ -7517,7 +7805,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": 8,
             "sd_team_id_2021": 10,
-            "is_active": true
+            "is_active": true,
+            "rank": 273
           },
           {
             "id": 320,
@@ -7543,7 +7832,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 484
           },
           {
             "id": 322,
@@ -7569,7 +7859,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 277
           },
           {
             "id": 323,
@@ -7595,7 +7886,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": 1,
             "sd_team_id_2021": 2,
-            "is_active": true
+            "is_active": true,
+            "rank": 204
           },
           {
             "id": 324,
@@ -7621,7 +7913,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 315
           },
           {
             "id": 325,
@@ -7647,7 +7940,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 388
           },
           {
             "id": 328,
@@ -7673,7 +7967,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 195
           },
           {
             "id": 329,
@@ -7699,7 +7994,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 118
           },
           {
             "id": 330,
@@ -7725,7 +8021,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": 1,
             "sd_team_id_2021": 8,
-            "is_active": true
+            "is_active": true,
+            "rank": 537
           },
           {
             "id": 331,
@@ -7751,7 +8048,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 163
           },
           {
             "id": 332,
@@ -7777,7 +8075,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 324
           },
           {
             "id": 333,
@@ -7803,7 +8102,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 369
           },
           {
             "id": 334,
@@ -7829,7 +8129,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": 1,
             "sd_team_id_2021": 9,
-            "is_active": true
+            "is_active": true,
+            "rank": 307
           },
           {
             "id": 335,
@@ -7855,7 +8156,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 416
           },
           {
             "id": 336,
@@ -7881,7 +8183,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 360
           },
           {
             "id": 337,
@@ -7907,7 +8210,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 330
           },
           {
             "id": 338,
@@ -7933,7 +8237,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 431
           },
           {
             "id": 339,
@@ -7959,7 +8264,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": 1,
             "sd_team_id_2021": 6,
-            "is_active": true
+            "is_active": true,
+            "rank": 231
           },
           {
             "id": 342,
@@ -7985,7 +8291,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 725
           },
           {
             "id": 343,
@@ -8011,7 +8318,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 465
           },
           {
             "id": 344,
@@ -8037,7 +8345,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 576
           },
           {
             "id": 345,
@@ -8063,7 +8372,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 328
           },
           {
             "id": 346,
@@ -8089,7 +8399,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 219
           },
           {
             "id": 347,
@@ -8115,7 +8426,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 494
           },
           {
             "id": 348,
@@ -8141,7 +8453,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": 1,
             "sd_team_id_2021": 2,
-            "is_active": true
+            "is_active": true,
+            "rank": 37
           },
           {
             "id": 349,
@@ -8167,7 +8480,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 70
           },
           {
             "id": 350,
@@ -8193,7 +8507,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 334
           },
           {
             "id": 351,
@@ -8219,7 +8534,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 424
           },
           {
             "id": 352,
@@ -8245,7 +8561,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 303
           },
           {
             "id": 353,
@@ -8271,7 +8588,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 721
           },
           {
             "id": 354,
@@ -8297,7 +8615,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 264
           },
           {
             "id": 355,
@@ -8323,7 +8642,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 448
           },
           {
             "id": 356,
@@ -8349,7 +8669,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 225
           },
           {
             "id": 357,
@@ -8375,7 +8696,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 464
           },
           {
             "id": 358,
@@ -8401,7 +8723,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": 10,
             "sd_team_id_2021": 10,
-            "is_active": true
+            "is_active": true,
+            "rank": 182
           },
           {
             "id": 359,
@@ -8427,7 +8750,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 586
           },
           {
             "id": 360,
@@ -8453,7 +8777,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 414
           },
           {
             "id": 361,
@@ -8479,7 +8804,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 415
           },
           {
             "id": 362,
@@ -8505,7 +8831,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 530
           },
           {
             "id": 363,
@@ -8531,7 +8858,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 256
           },
           {
             "id": 364,
@@ -8557,7 +8885,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 648
           },
           {
             "id": 365,
@@ -8583,7 +8912,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 299
           },
           {
             "id": 366,
@@ -8609,7 +8939,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 310
           },
           {
             "id": 367,
@@ -8635,7 +8966,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 268
           },
           {
             "id": 368,
@@ -8661,7 +8993,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 346
           },
           {
             "id": 369,
@@ -8687,7 +9020,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 445
           },
           {
             "id": 370,
@@ -8713,7 +9047,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 437
           },
           {
             "id": 371,
@@ -8739,7 +9074,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 413
           },
           {
             "id": 372,
@@ -8765,7 +9101,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 206
           },
           {
             "id": 373,
@@ -8791,7 +9128,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 171
           },
           {
             "id": 374,
@@ -8817,7 +9155,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 440
           },
           {
             "id": 375,
@@ -8843,7 +9182,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 427
           },
           {
             "id": 376,
@@ -8869,7 +9209,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 107
           },
           {
             "id": 377,
@@ -8895,7 +9236,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 183
           },
           {
             "id": 378,
@@ -8921,7 +9263,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 284
           },
           {
             "id": 379,
@@ -8947,7 +9290,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 504
           },
           {
             "id": 380,
@@ -8973,7 +9317,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 342
           },
           {
             "id": 381,
@@ -8999,7 +9344,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 274
           },
           {
             "id": 382,
@@ -9025,7 +9371,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 421
           },
           {
             "id": 384,
@@ -9051,7 +9398,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 393
           },
           {
             "id": 385,
@@ -9077,7 +9425,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 279
           },
           {
             "id": 386,
@@ -9103,7 +9452,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 379
           },
           {
             "id": 388,
@@ -9129,7 +9479,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 166
           },
           {
             "id": 389,
@@ -9155,7 +9506,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 191
           },
           {
             "id": 390,
@@ -9181,7 +9533,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 260
           },
           {
             "id": 391,
@@ -9207,7 +9560,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 253
           },
           {
             "id": 392,
@@ -9233,7 +9587,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 374
           },
           {
             "id": 393,
@@ -9259,7 +9614,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 426
           },
           {
             "id": 394,
@@ -9285,7 +9641,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 397
           },
           {
             "id": 395,
@@ -9311,7 +9668,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 357
           },
           {
             "id": 396,
@@ -9337,7 +9695,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": 1,
             "sd_team_id_2021": 10,
-            "is_active": true
+            "is_active": true,
+            "rank": 246
           },
           {
             "id": 397,
@@ -9363,7 +9722,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 392
           },
           {
             "id": 398,
@@ -9389,7 +9749,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 496
           },
           {
             "id": 399,
@@ -9415,7 +9776,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 497
           },
           {
             "id": 400,
@@ -9441,7 +9803,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 378
           },
           {
             "id": 401,
@@ -9467,7 +9830,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 367
           },
           {
             "id": 402,
@@ -9493,7 +9857,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 243
           },
           {
             "id": 403,
@@ -9519,7 +9884,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 466
           },
           {
             "id": 404,
@@ -9545,7 +9911,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 398
           },
           {
             "id": 405,
@@ -9571,7 +9938,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 469
           },
           {
             "id": 406,
@@ -9597,7 +9965,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 505
           },
           {
             "id": 407,
@@ -9623,7 +9992,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 507
           },
           {
             "id": 409,
@@ -9649,7 +10019,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 202
           },
           {
             "id": 410,
@@ -9675,7 +10046,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 189
           },
           {
             "id": 411,
@@ -9701,7 +10073,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 240
           },
           {
             "id": 412,
@@ -9727,7 +10100,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": 49,
             "sd_team_id_2021": 4,
-            "is_active": true
+            "is_active": true,
+            "rank": 269
           },
           {
             "id": 413,
@@ -9753,7 +10127,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 252
           },
           {
             "id": 414,
@@ -9779,7 +10154,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 241
           },
           {
             "id": 415,
@@ -9805,7 +10181,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": 1,
             "sd_team_id_2021": 8,
-            "is_active": true
+            "is_active": true,
+            "rank": 205
           },
           {
             "id": 416,
@@ -9831,7 +10208,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 371
           },
           {
             "id": 417,
@@ -9857,7 +10235,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 597
           },
           {
             "id": 418,
@@ -9883,7 +10262,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 528
           },
           {
             "id": 420,
@@ -9909,7 +10289,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 608
           },
           {
             "id": 421,
@@ -9935,7 +10316,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 255
           },
           {
             "id": 424,
@@ -9961,7 +10343,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 479
           },
           {
             "id": 425,
@@ -9987,7 +10370,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 361
           },
           {
             "id": 426,
@@ -10013,7 +10397,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 287
           },
           {
             "id": 428,
@@ -10039,7 +10424,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 300
           },
           {
             "id": 429,
@@ -10065,7 +10451,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": 1,
             "sd_team_id_2021": 4,
-            "is_active": true
+            "is_active": true,
+            "rank": 382
           },
           {
             "id": 430,
@@ -10091,7 +10478,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 592
           },
           {
             "id": 431,
@@ -10117,7 +10505,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 386
           },
           {
             "id": 432,
@@ -10143,7 +10532,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 748
           },
           {
             "id": 434,
@@ -10169,7 +10559,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 554
           },
           {
             "id": 435,
@@ -10195,7 +10586,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 227
           },
           {
             "id": 436,
@@ -10221,7 +10613,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 208
           },
           {
             "id": 437,
@@ -10247,7 +10640,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 429
           },
           {
             "id": 438,
@@ -10273,7 +10667,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": 1,
             "sd_team_id_2021": 9,
-            "is_active": true
+            "is_active": true,
+            "rank": 76
           },
           {
             "id": 439,
@@ -10299,7 +10694,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 405
           },
           {
             "id": 440,
@@ -10325,7 +10721,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": 2,
             "sd_team_id_2021": 6,
-            "is_active": true
+            "is_active": true,
+            "rank": 362
           },
           {
             "id": 441,
@@ -10351,7 +10748,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 311
           },
           {
             "id": 442,
@@ -10377,7 +10775,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 456
           },
           {
             "id": 443,
@@ -10403,7 +10802,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 242
           },
           {
             "id": 444,
@@ -10429,7 +10829,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 385
           },
           {
             "id": 446,
@@ -10455,7 +10856,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 123
           },
           {
             "id": 447,
@@ -10481,7 +10883,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 376
           },
           {
             "id": 449,
@@ -10507,7 +10910,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 515
           },
           {
             "id": 452,
@@ -10533,7 +10937,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 474
           },
           {
             "id": 454,
@@ -10559,7 +10964,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 304
           },
           {
             "id": 455,
@@ -10585,7 +10991,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 373
           },
           {
             "id": 456,
@@ -10611,7 +11018,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 375
           },
           {
             "id": 458,
@@ -10637,7 +11045,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 454
           },
           {
             "id": 459,
@@ -10663,7 +11072,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 32
           },
           {
             "id": 463,
@@ -10689,7 +11099,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 147
           },
           {
             "id": 465,
@@ -10715,7 +11126,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 186
           },
           {
             "id": 466,
@@ -10741,7 +11153,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 286
           },
           {
             "id": 467,
@@ -10767,7 +11180,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 453
           },
           {
             "id": 468,
@@ -10793,7 +11207,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 455
           },
           {
             "id": 469,
@@ -10819,7 +11234,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 524
           },
           {
             "id": 470,
@@ -10845,7 +11261,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 532
           },
           {
             "id": 471,
@@ -10871,7 +11288,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 443
           },
           {
             "id": 472,
@@ -10897,7 +11315,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 383
           },
           {
             "id": 473,
@@ -10923,7 +11342,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 79
           },
           {
             "id": 474,
@@ -10949,7 +11369,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 353
           },
           {
             "id": 475,
@@ -10975,7 +11396,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 184
           },
           {
             "id": 476,
@@ -11001,7 +11423,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 510
           },
           {
             "id": 477,
@@ -11027,7 +11450,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 582
           },
           {
             "id": 478,
@@ -11053,7 +11477,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 573
           },
           {
             "id": 479,
@@ -11079,7 +11504,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 217
           },
           {
             "id": 480,
@@ -11105,7 +11531,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 493
           },
           {
             "id": 481,
@@ -11131,7 +11558,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 193
           },
           {
             "id": 482,
@@ -11157,7 +11585,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 519
           },
           {
             "id": 483,
@@ -11183,7 +11612,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 285
           },
           {
             "id": 484,
@@ -11209,7 +11639,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 579
           },
           {
             "id": 485,
@@ -11235,7 +11666,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 377
           },
           {
             "id": 486,
@@ -11261,7 +11693,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 402
           },
           {
             "id": 487,
@@ -11287,7 +11720,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 543
           },
           {
             "id": 489,
@@ -11313,7 +11747,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 436
           },
           {
             "id": 490,
@@ -11339,7 +11774,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 409
           },
           {
             "id": 491,
@@ -11365,7 +11801,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 556
           },
           {
             "id": 492,
@@ -11391,7 +11828,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": 6,
             "sd_team_id_2021": 2,
-            "is_active": true
+            "is_active": true,
+            "rank": 344
           },
           {
             "id": 493,
@@ -11417,7 +11855,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 364
           },
           {
             "id": 494,
@@ -11443,7 +11882,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 142
           },
           {
             "id": 495,
@@ -11469,7 +11909,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 539
           },
           {
             "id": 496,
@@ -11495,7 +11936,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 562
           },
           {
             "id": 497,
@@ -11521,7 +11963,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 495
           },
           {
             "id": 498,
@@ -11547,7 +11990,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 419
           },
           {
             "id": 499,
@@ -11573,7 +12017,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 423
           },
           {
             "id": 500,
@@ -11599,7 +12044,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 432
           },
           {
             "id": 501,
@@ -11625,7 +12071,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 365
           },
           {
             "id": 502,
@@ -11651,7 +12098,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 577
           },
           {
             "id": 503,
@@ -11677,7 +12125,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 237
           },
           {
             "id": 504,
@@ -11703,7 +12152,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 343
           },
           {
             "id": 505,
@@ -11729,7 +12179,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 197
           },
           {
             "id": 507,
@@ -11755,7 +12206,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 306
           },
           {
             "id": 508,
@@ -11781,7 +12233,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 529
           },
           {
             "id": 509,
@@ -11807,7 +12260,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": 11,
             "sd_team_id_2021": 7,
-            "is_active": true
+            "is_active": true,
+            "rank": 23
           },
           {
             "id": 510,
@@ -11833,7 +12287,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 399
           },
           {
             "id": 511,
@@ -11859,7 +12314,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 560
           },
           {
             "id": 512,
@@ -11885,7 +12341,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 473
           },
           {
             "id": 513,
@@ -11911,7 +12368,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 349
           },
           {
             "id": 514,
@@ -11937,7 +12395,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 449
           },
           {
             "id": 515,
@@ -11963,7 +12422,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 450
           },
           {
             "id": 517,
@@ -11989,7 +12449,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 724
           },
           {
             "id": 521,
@@ -12015,7 +12476,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 722
           },
           {
             "id": 522,
@@ -12041,7 +12503,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 770
           },
           {
             "id": 523,
@@ -12067,7 +12530,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 574
           },
           {
             "id": 525,
@@ -12093,7 +12557,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 491
           },
           {
             "id": 527,
@@ -12119,7 +12584,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 538
           },
           {
             "id": 528,
@@ -12145,7 +12611,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 394
           },
           {
             "id": 529,
@@ -12171,7 +12638,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 434
           },
           {
             "id": 530,
@@ -12197,7 +12665,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 499
           },
           {
             "id": 532,
@@ -12223,7 +12692,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 314
           },
           {
             "id": 533,
@@ -12249,7 +12719,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 254
           },
           {
             "id": 534,
@@ -12275,7 +12746,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 85
           },
           {
             "id": 535,
@@ -12301,7 +12773,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 444
           },
           {
             "id": 536,
@@ -12327,7 +12800,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 412
           },
           {
             "id": 538,
@@ -12353,7 +12827,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 536
           },
           {
             "id": 539,
@@ -12379,7 +12854,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 514
           },
           {
             "id": 540,
@@ -12405,7 +12881,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 372
           },
           {
             "id": 541,
@@ -12431,7 +12908,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 549
           },
           {
             "id": 542,
@@ -12457,7 +12935,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 40
           },
           {
             "id": 543,
@@ -12483,7 +12962,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 418
           },
           {
             "id": 545,
@@ -12509,7 +12989,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 301
           },
           {
             "id": 546,
@@ -12535,7 +13016,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 685
           },
           {
             "id": 547,
@@ -12561,7 +13043,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": 5,
             "sd_team_id_2021": 10,
-            "is_active": true
+            "is_active": true,
+            "rank": 468
           },
           {
             "id": 548,
@@ -12587,7 +13070,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 400
           },
           {
             "id": 549,
@@ -12613,7 +13097,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 430
           },
           {
             "id": 551,
@@ -12639,7 +13124,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 589
           },
           {
             "id": 554,
@@ -12665,7 +13151,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 517
           },
           {
             "id": 555,
@@ -12691,7 +13178,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 317
           },
           {
             "id": 557,
@@ -12717,7 +13205,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 551
           },
           {
             "id": 558,
@@ -12743,7 +13232,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 487
           },
           {
             "id": 559,
@@ -12769,7 +13259,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 545
           },
           {
             "id": 560,
@@ -12795,7 +13286,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 294
           },
           {
             "id": 561,
@@ -12821,7 +13313,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 441
           },
           {
             "id": 562,
@@ -12847,7 +13340,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 488
           },
           {
             "id": 564,
@@ -12873,7 +13367,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 340
           },
           {
             "id": 566,
@@ -12899,7 +13394,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 509
           },
           {
             "id": 571,
@@ -12925,7 +13421,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 218
           },
           {
             "id": 572,
@@ -12951,7 +13448,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 593
           },
           {
             "id": 573,
@@ -12977,7 +13475,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 614
           },
           {
             "id": 575,
@@ -13003,7 +13502,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 106
           },
           {
             "id": 576,
@@ -13029,7 +13529,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 452
           },
           {
             "id": 577,
@@ -13055,7 +13556,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 435
           },
           {
             "id": 578,
@@ -13081,7 +13583,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 490
           },
           {
             "id": 579,
@@ -13107,7 +13610,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 438
           },
           {
             "id": 580,
@@ -13133,7 +13637,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 276
           },
           {
             "id": 581,
@@ -13159,7 +13664,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 389
           },
           {
             "id": 583,
@@ -13185,7 +13691,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 604
           },
           {
             "id": 585,
@@ -13211,7 +13718,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 607
           },
           {
             "id": 586,
@@ -13237,7 +13745,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 610
           },
           {
             "id": 587,
@@ -13263,7 +13772,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 613
           },
           {
             "id": 588,
@@ -13289,7 +13799,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 354
           },
           {
             "id": 589,
@@ -13315,7 +13826,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 520
           },
           {
             "id": 590,
@@ -13341,7 +13853,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 477
           },
           {
             "id": 591,
@@ -13367,7 +13880,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 618
           },
           {
             "id": 592,
@@ -13393,7 +13907,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 341
           },
           {
             "id": 594,
@@ -13419,7 +13934,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 194
           },
           {
             "id": 595,
@@ -13445,7 +13961,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 620
           },
           {
             "id": 596,
@@ -13471,7 +13988,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 236
           },
           {
             "id": 597,
@@ -13497,7 +14015,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 541
           },
           {
             "id": 598,
@@ -13523,7 +14042,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 483
           },
           {
             "id": 600,
@@ -13549,7 +14069,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 523
           },
           {
             "id": 601,
@@ -13575,7 +14096,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 478
           },
           {
             "id": 603,
@@ -13601,7 +14123,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 390
           },
           {
             "id": 605,
@@ -13627,7 +14150,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 442
           },
           {
             "id": 606,
@@ -13653,7 +14177,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 628
           },
           {
             "id": 608,
@@ -13679,7 +14204,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 598
           },
           {
             "id": 609,
@@ -13705,7 +14231,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 417
           },
           {
             "id": 610,
@@ -13731,7 +14258,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 630
           },
           {
             "id": 612,
@@ -13757,7 +14285,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 485
           },
           {
             "id": 613,
@@ -13783,7 +14312,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 634
           },
           {
             "id": 614,
@@ -13809,7 +14339,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 298
           },
           {
             "id": 615,
@@ -13835,7 +14366,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 635
           },
           {
             "id": 616,
@@ -13861,7 +14393,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 401
           },
           {
             "id": 617,
@@ -13887,7 +14420,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 570
           },
           {
             "id": 618,
@@ -13913,7 +14447,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 542
           },
           {
             "id": 619,
@@ -13939,7 +14474,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 636
           },
           {
             "id": 620,
@@ -13965,7 +14501,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 506
           },
           {
             "id": 621,
@@ -13991,7 +14528,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 403
           },
           {
             "id": 622,
@@ -14017,7 +14555,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 639
           },
           {
             "id": 623,
@@ -14043,7 +14582,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 470
           },
           {
             "id": 624,
@@ -14069,7 +14609,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 345
           },
           {
             "id": 625,
@@ -14095,7 +14636,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 584
           },
           {
             "id": 626,
@@ -14121,7 +14663,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 531
           },
           {
             "id": 627,
@@ -14147,7 +14690,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 139
           },
           {
             "id": 628,
@@ -14173,7 +14717,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 572
           },
           {
             "id": 629,
@@ -14199,7 +14744,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 486
           },
           {
             "id": 630,
@@ -14225,7 +14771,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 583
           },
           {
             "id": 631,
@@ -14251,7 +14798,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 650
           },
           {
             "id": 632,
@@ -14277,7 +14825,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 652
           },
           {
             "id": 633,
@@ -14303,7 +14852,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 110
           },
           {
             "id": 634,
@@ -14329,7 +14879,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 508
           },
           {
             "id": 635,
@@ -14355,7 +14906,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 140
           },
           {
             "id": 636,
@@ -14381,7 +14933,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 552
           },
           {
             "id": 638,
@@ -14407,7 +14960,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 489
           },
           {
             "id": 641,
@@ -14433,7 +14987,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 553
           },
           {
             "id": 644,
@@ -14459,7 +15014,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 563
           },
           {
             "id": 645,
@@ -14485,7 +15041,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 656
           },
           {
             "id": 646,
@@ -14511,7 +15068,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 544
           },
           {
             "id": 647,
@@ -14537,7 +15095,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 201
           },
           {
             "id": 648,
@@ -14563,7 +15122,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 239
           },
           {
             "id": 649,
@@ -14589,7 +15149,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 659
           },
           {
             "id": 650,
@@ -14615,7 +15176,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 557
           },
           {
             "id": 651,
@@ -14641,7 +15203,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 278
           },
           {
             "id": 652,
@@ -14667,7 +15230,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 661
           },
           {
             "id": 653,
@@ -14693,7 +15257,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 663
           },
           {
             "id": 654,
@@ -14719,7 +15284,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 363
           },
           {
             "id": 658,
@@ -14745,7 +15311,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 669
           },
           {
             "id": 659,
@@ -14771,7 +15338,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 585
           },
           {
             "id": 660,
@@ -14797,7 +15365,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 571
           },
           {
             "id": 663,
@@ -14823,7 +15392,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 498
           },
           {
             "id": 664,
@@ -14849,7 +15419,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 433
           },
           {
             "id": 666,
@@ -14875,7 +15446,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 546
           },
           {
             "id": 668,
@@ -14901,7 +15473,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 558
           },
           {
             "id": 669,
@@ -14927,7 +15500,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 568
           },
           {
             "id": 670,
@@ -14953,7 +15527,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 457
           },
           {
             "id": 671,
@@ -14979,7 +15554,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 472
           },
           {
             "id": 672,
@@ -15005,7 +15581,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 677
           },
           {
             "id": 673,
@@ -15031,7 +15608,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 564
           },
           {
             "id": 674,
@@ -15057,7 +15635,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 680
           },
           {
             "id": 675,
@@ -15083,7 +15662,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 561
           },
           {
             "id": 676,
@@ -15109,7 +15689,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 408
           },
           {
             "id": 677,
@@ -15135,7 +15716,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 511
           },
           {
             "id": 678,
@@ -15161,7 +15743,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 683
           },
           {
             "id": 679,
@@ -15187,7 +15770,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 565
           },
           {
             "id": 680,
@@ -15213,7 +15797,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 686
           },
           {
             "id": 681,
@@ -15239,7 +15824,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 559
           },
           {
             "id": 682,
@@ -15265,7 +15851,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": 15,
             "sd_team_id_2021": 1,
-            "is_active": true
+            "is_active": true,
+            "rank": 459
           },
           {
             "id": 683,
@@ -15291,7 +15878,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 690
           },
           {
             "id": 684,
@@ -15317,7 +15905,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 691
           },
           {
             "id": 685,
@@ -15343,7 +15932,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 692
           },
           {
             "id": 686,
@@ -15369,7 +15959,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 312
           },
           {
             "id": 687,
@@ -15395,7 +15986,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 693
           },
           {
             "id": 688,
@@ -15421,7 +16013,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 694
           },
           {
             "id": 689,
@@ -15447,7 +16040,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 516
           },
           {
             "id": 691,
@@ -15473,7 +16067,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 696
           },
           {
             "id": 692,
@@ -15499,7 +16094,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 512
           },
           {
             "id": 695,
@@ -15525,7 +16121,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 500
           },
           {
             "id": 696,
@@ -15551,7 +16148,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 700
           },
           {
             "id": 698,
@@ -15577,7 +16175,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 526
           },
           {
             "id": 699,
@@ -15603,7 +16202,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 706
           },
           {
             "id": 700,
@@ -15629,7 +16229,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 709
           },
           {
             "id": 701,
@@ -15655,7 +16256,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 710
           },
           {
             "id": 702,
@@ -15681,7 +16283,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 711
           },
           {
             "id": 704,
@@ -15707,7 +16310,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 712
           },
           {
             "id": 705,
@@ -15733,7 +16337,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 713
           },
           {
             "id": 707,
@@ -15759,7 +16364,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 714
           },
           {
             "id": 708,
@@ -15785,7 +16391,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 716
           },
           {
             "id": 710,
@@ -15811,7 +16418,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 567
           },
           {
             "id": 711,
@@ -15837,7 +16445,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 720
           },
           {
             "id": 712,
@@ -15863,7 +16472,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 425
           },
           {
             "id": 713,
@@ -15889,7 +16499,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 591
           },
           {
             "id": 715,
@@ -15915,7 +16526,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 501
           },
           {
             "id": 716,
@@ -15941,7 +16553,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 462
           },
           {
             "id": 717,
@@ -15967,7 +16580,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 513
           },
           {
             "id": 718,
@@ -15993,7 +16607,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 370
           },
           {
             "id": 719,
@@ -16019,7 +16634,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 282
           },
           {
             "id": 720,
@@ -16045,7 +16661,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 527
           },
           {
             "id": 721,
@@ -16071,7 +16688,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 547
           },
           {
             "id": 724,
@@ -16097,7 +16715,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 159
           },
           {
             "id": 725,
@@ -16123,7 +16742,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 463
           },
           {
             "id": 726,
@@ -16149,7 +16769,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 587
           },
           {
             "id": 727,
@@ -16175,7 +16796,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 730
           },
           {
             "id": 728,
@@ -16201,7 +16823,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 580
           },
           {
             "id": 729,
@@ -16227,7 +16850,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 732
           },
           {
             "id": 730,
@@ -16253,7 +16877,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 395
           },
           {
             "id": 731,
@@ -16279,7 +16904,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 600
           },
           {
             "id": 732,
@@ -16305,7 +16931,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 733
           },
           {
             "id": 733,
@@ -16331,7 +16958,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 734
           },
           {
             "id": 734,
@@ -16357,7 +16985,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 502
           },
           {
             "id": 735,
@@ -16383,7 +17012,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 569
           },
           {
             "id": 736,
@@ -16409,7 +17039,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 736
           },
           {
             "id": 737,
@@ -16435,7 +17066,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 737
           },
           {
             "id": 740,
@@ -16461,7 +17093,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 742
           },
           {
             "id": 741,
@@ -16487,7 +17120,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 743
           },
           {
             "id": 743,
@@ -16513,7 +17147,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 596
           },
           {
             "id": 744,
@@ -16539,7 +17174,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 476
           },
           {
             "id": 745,
@@ -16565,7 +17201,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 533
           },
           {
             "id": 746,
@@ -16591,7 +17228,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 749
           },
           {
             "id": 747,
@@ -16617,7 +17255,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 750
           },
           {
             "id": 748,
@@ -16643,7 +17282,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 396
           },
           {
             "id": 749,
@@ -16669,7 +17309,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 534
           },
           {
             "id": 750,
@@ -16695,7 +17336,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 387
           },
           {
             "id": 751,
@@ -16721,7 +17363,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 308
           },
           {
             "id": 753,
@@ -16747,7 +17390,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 356
           },
           {
             "id": 755,
@@ -16773,7 +17417,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 752
           },
           {
             "id": 758,
@@ -16799,7 +17444,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 535
           },
           {
             "id": 759,
@@ -16825,7 +17471,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 753
           },
           {
             "id": 760,
@@ -16851,7 +17498,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 754
           },
           {
             "id": 761,
@@ -16877,7 +17525,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 503
           },
           {
             "id": 763,
@@ -16903,7 +17552,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 518
           },
           {
             "id": 764,
@@ -16929,7 +17579,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 758
           },
           {
             "id": 765,
@@ -16955,7 +17606,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 760
           },
           {
             "id": 768,
@@ -16981,7 +17633,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 550
           },
           {
             "id": 769,
@@ -17007,7 +17660,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 764
           },
           {
             "id": 770,
@@ -17033,7 +17687,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 467
           },
           {
             "id": 771,
@@ -17059,7 +17714,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 295
           },
           {
             "id": 772,
@@ -17085,7 +17741,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 768
           },
           {
             "id": 773,
@@ -17111,7 +17768,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 590
           },
           {
             "id": 774,
@@ -17137,7 +17795,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 581
           },
           {
             "id": 775,
@@ -17163,7 +17822,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 555
           },
           {
             "id": 776,
@@ -17189,7 +17849,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 578
           },
           {
             "id": 777,
@@ -17215,7 +17876,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 594
           },
           {
             "id": 778,
@@ -17241,7 +17903,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 167
           },
           {
             "id": 779,
@@ -17267,7 +17930,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 601
           },
           {
             "id": 780,
@@ -17293,7 +17957,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 602
           },
           {
             "id": 781,
@@ -17319,7 +17984,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 603
           },
           {
             "id": 782,
@@ -17345,7 +18011,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 605
           },
           {
             "id": 783,
@@ -17371,7 +18038,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 606
           },
           {
             "id": 784,
@@ -17397,7 +18065,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 609
           },
           {
             "id": 785,
@@ -17423,7 +18092,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 611
           },
           {
             "id": 786,
@@ -17449,7 +18119,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 612
           },
           {
             "id": 787,
@@ -17475,7 +18146,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 615
           },
           {
             "id": 788,
@@ -17501,7 +18173,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 616
           },
           {
             "id": 789,
@@ -17527,7 +18200,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 617
           },
           {
             "id": 790,
@@ -17553,7 +18227,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 619
           },
           {
             "id": 791,
@@ -17579,7 +18254,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 621
           },
           {
             "id": 792,
@@ -17605,7 +18281,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 623
           },
           {
             "id": 793,
@@ -17631,7 +18308,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 624
           },
           {
             "id": 794,
@@ -17657,7 +18335,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 625
           },
           {
             "id": 795,
@@ -17683,7 +18362,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 626
           },
           {
             "id": 796,
@@ -17709,7 +18389,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 627
           },
           {
             "id": 797,
@@ -17735,7 +18416,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 629
           },
           {
             "id": 798,
@@ -17761,7 +18443,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 631
           },
           {
             "id": 799,
@@ -17787,7 +18470,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 632
           },
           {
             "id": 800,
@@ -17813,7 +18497,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 633
           },
           {
             "id": 801,
@@ -17839,7 +18524,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 637
           },
           {
             "id": 802,
@@ -17865,7 +18551,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 640
           },
           {
             "id": 803,
@@ -17891,7 +18578,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 641
           },
           {
             "id": 804,
@@ -17917,7 +18605,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 642
           },
           {
             "id": 805,
@@ -17943,7 +18632,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 643
           },
           {
             "id": 806,
@@ -17969,7 +18659,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 644
           },
           {
             "id": 807,
@@ -17995,7 +18686,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 645
           },
           {
             "id": 808,
@@ -18021,7 +18713,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 646
           },
           {
             "id": 809,
@@ -18047,7 +18740,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 331
           },
           {
             "id": 810,
@@ -18073,7 +18767,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 647
           },
           {
             "id": 811,
@@ -18099,7 +18794,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 649
           },
           {
             "id": 812,
@@ -18125,7 +18821,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 651
           },
           {
             "id": 813,
@@ -18151,7 +18848,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 654
           },
           {
             "id": 814,
@@ -18177,7 +18875,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 655
           },
           {
             "id": 815,
@@ -18203,7 +18902,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 657
           },
           {
             "id": 816,
@@ -18229,7 +18929,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 658
           },
           {
             "id": 817,
@@ -18255,7 +18956,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 660
           },
           {
             "id": 818,
@@ -18281,7 +18983,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 662
           },
           {
             "id": 819,
@@ -18307,7 +19010,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 664
           },
           {
             "id": 820,
@@ -18333,7 +19037,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 665
           },
           {
             "id": 821,
@@ -18359,7 +19064,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 666
           },
           {
             "id": 822,
@@ -18385,7 +19091,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 668
           },
           {
             "id": 823,
@@ -18411,7 +19118,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 670
           },
           {
             "id": 824,
@@ -18437,7 +19145,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 671
           },
           {
             "id": 825,
@@ -18463,7 +19172,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 672
           },
           {
             "id": 826,
@@ -18489,7 +19199,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 289
           },
           {
             "id": 827,
@@ -18515,7 +19226,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 673
           },
           {
             "id": 828,
@@ -18541,7 +19253,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 674
           },
           {
             "id": 829,
@@ -18567,7 +19280,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 675
           },
           {
             "id": 830,
@@ -18593,7 +19307,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 676
           },
           {
             "id": 831,
@@ -18619,7 +19334,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 678
           },
           {
             "id": 832,
@@ -18645,7 +19361,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 679
           },
           {
             "id": 833,
@@ -18671,7 +19388,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 681
           },
           {
             "id": 834,
@@ -18697,7 +19415,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 682
           },
           {
             "id": 835,
@@ -18723,7 +19442,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 684
           },
           {
             "id": 836,
@@ -18749,7 +19469,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 687
           },
           {
             "id": 837,
@@ -18775,7 +19496,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 688
           },
           {
             "id": 838,
@@ -18801,7 +19523,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 689
           },
           {
             "id": 839,
@@ -18827,7 +19550,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 460
           },
           {
             "id": 840,
@@ -18853,7 +19577,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 599
           },
           {
             "id": 841,
@@ -18879,7 +19604,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 695
           },
           {
             "id": 842,
@@ -18905,7 +19631,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 699
           },
           {
             "id": 843,
@@ -18931,7 +19658,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 701
           },
           {
             "id": 844,
@@ -18957,7 +19685,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 702
           },
           {
             "id": 845,
@@ -18983,7 +19712,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 703
           },
           {
             "id": 846,
@@ -19009,7 +19739,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 704
           },
           {
             "id": 847,
@@ -19035,7 +19766,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 705
           },
           {
             "id": 848,
@@ -19061,7 +19793,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 411
           },
           {
             "id": 849,
@@ -19087,7 +19820,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 708
           },
           {
             "id": 850,
@@ -19113,7 +19847,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 461
           },
           {
             "id": 851,
@@ -19139,7 +19874,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 715
           },
           {
             "id": 852,
@@ -19165,7 +19901,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 717
           },
           {
             "id": 853,
@@ -19191,7 +19928,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 718
           },
           {
             "id": 854,
@@ -19217,7 +19955,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 347
           },
           {
             "id": 855,
@@ -19243,7 +19982,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 719
           },
           {
             "id": 856,
@@ -19269,7 +20009,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 540
           },
           {
             "id": 857,
@@ -19295,7 +20036,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 723
           },
           {
             "id": 858,
@@ -19321,7 +20063,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 726
           },
           {
             "id": 859,
@@ -19347,7 +20090,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 727
           },
           {
             "id": 860,
@@ -19373,7 +20117,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 728
           },
           {
             "id": 861,
@@ -19399,7 +20144,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 731
           },
           {
             "id": 862,
@@ -19425,7 +20171,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 735
           },
           {
             "id": 863,
@@ -19451,7 +20198,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 283
           },
           {
             "id": 864,
@@ -19477,7 +20225,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 738
           },
           {
             "id": 865,
@@ -19503,7 +20252,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 740
           },
           {
             "id": 866,
@@ -19529,7 +20279,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 741
           },
           {
             "id": 867,
@@ -19555,7 +20306,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": 1,
             "sd_team_id_2021": 6,
-            "is_active": true
+            "is_active": true,
+            "rank": 744
           },
           {
             "id": 868,
@@ -19581,7 +20333,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 746
           },
           {
             "id": 869,
@@ -19607,7 +20360,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 747
           },
           {
             "id": 870,
@@ -19633,7 +20387,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 751
           },
           {
             "id": 871,
@@ -19659,7 +20414,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 755
           },
           {
             "id": 872,
@@ -19685,7 +20441,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 756
           },
           {
             "id": 873,
@@ -19711,7 +20468,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 757
           },
           {
             "id": 874,
@@ -19737,7 +20495,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 759
           },
           {
             "id": 875,
@@ -19763,7 +20522,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 761
           },
           {
             "id": 876,
@@ -19789,7 +20549,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 762
           },
           {
             "id": 877,
@@ -19815,7 +20576,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 763
           },
           {
             "id": 878,
@@ -19841,7 +20603,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 765
           },
           {
             "id": 879,
@@ -19867,7 +20630,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 766
           },
           {
             "id": 880,
@@ -19893,7 +20657,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 767
           },
           {
             "id": 881,
@@ -19919,7 +20684,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 480
           },
           {
             "id": 882,
@@ -19945,7 +20711,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 769
           },
           {
             "id": 883,
@@ -19971,7 +20738,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 771
           },
           {
             "id": 884,
@@ -19997,7 +20765,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 772
           },
           {
             "id": 885,
@@ -20023,7 +20792,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 773
           },
           {
             "id": 886,
@@ -20049,7 +20819,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 774
           },
           {
             "id": 887,
@@ -20075,7 +20846,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 775
           },
           {
             "id": 888,
@@ -20101,7 +20873,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 776
           },
           {
             "id": 563,
@@ -20127,7 +20900,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 316
           },
           {
             "id": 694,
@@ -20153,7 +20927,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true
+            "is_active": true,
+            "rank": 697
           },
           {
             "id": 52,
@@ -20179,7 +20954,8 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 4,
             "price_2021": 27,
             "sd_team_id_2021": 5,
-            "is_active": true
+            "is_active": true,
+            "rank": 339
           }
         ]'::json)
 )

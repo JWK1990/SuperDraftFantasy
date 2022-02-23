@@ -32,6 +32,8 @@ public class PlayerReadDto {
 
     String fullPosition;
 
+    Integer rank;
+
     public String getFullName() {
         return this.firstName + " " + this.lastName;
     }
