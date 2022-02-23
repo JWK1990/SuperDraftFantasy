@@ -1,6 +1,5 @@
 package au.superdraftfantasy.api.player;
 
-import au.superdraftfantasy.api.position.PositionRepository;
 import au.superdraftfantasy.api.position.PositionTypeEnum;
 import au.superdraftfantasy.api.seasonSummary.ISeasonSummaryBase;
 import au.superdraftfantasy.api.teamPlayerJoin.ITeamPlayerJoinBase;
@@ -21,14 +20,11 @@ import java.util.stream.Collectors;
 public class PlayerService {
 
     private final PlayerRepository playerRepository;
-    private final PositionRepository positionRepository;
 
     public PlayerService(
-            PlayerRepository playerRepository,
-            PositionRepository positionRepository
+            PlayerRepository playerRepository
     ) {
         this.playerRepository = playerRepository;
-        this.positionRepository = positionRepository;
     }
 
     /**
