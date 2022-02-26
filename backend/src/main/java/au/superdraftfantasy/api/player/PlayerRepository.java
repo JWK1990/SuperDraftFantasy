@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 @Repository
 public interface PlayerRepository extends JpaRepository<PlayerEntity, Long> {
@@ -35,6 +36,19 @@ public interface PlayerRepository extends JpaRepository<PlayerEntity, Long> {
     Page<IPlayerBase> findAllBasePageByIsActiveIsTrueAndLastNameIgnoreCaseContainingOrderByRank(
             String search,
             Pageable pageable
+    );
+
+    Page<IPlayerBase> findAllBasePageByIsActiveIsTrueAndPositions_TypeInAndLastNameIgnoreCaseContainingAndIdInOrderByRank(
+            List<PositionTypeEnum> positionList,
+            String search,
+            Pageable pageable,
+            Set<Long> watchlistIdSet
+    );
+
+    Page<IPlayerBase> findAllBasePageByIsActiveIsTrueAndLastNameIgnoreCaseContainingAndIdInOrderByRank(
+            String search,
+            Pageable pageable,
+            Set<Long> watchlistIdSet
     );
 
     Page<IPlayerBase> findByTeamPlayerJoins_Team_DraftIdAndPositions_TypeInAndLastNameIgnoreCaseContaining(
@@ -64,6 +78,22 @@ public interface PlayerRepository extends JpaRepository<PlayerEntity, Long> {
             List<PositionTypeEnum> positionList,
             String search,
             Pageable pageable
+    );
+
+    // TODO: Replace with a query to fetch the Undrafted Players. This is as short term workaround.
+    Page<IPlayerBase> findByIsActiveIsTrueAndIdNotInAndLastNameIgnoreCaseContainingAndIdInOrderByRank(
+            List<Long> draftedPlayersList,
+            String search,
+            Pageable pageable,
+            Set<Long> watchlistPlayerIdList
+    );
+
+    Page<IPlayerBase> findByIsActiveIsTrueAndIdNotInAndPositions_TypeInAndLastNameIgnoreCaseContainingAndIdInOrderByRank(
+            List<Long> draftedPlayersList,
+            List<PositionTypeEnum> positionList,
+            String search,
+            Pageable pageable,
+            Set<Long> watchlistPlayerIdList
     );
 
     @Query(value = PlayerRepositoryQueries.selectBestUndraftedPlayerId, nativeQuery = true)

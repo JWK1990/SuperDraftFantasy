@@ -60,7 +60,7 @@ class PlayerFilter extends React.PureComponent {
         return(
             <MuiThemeProvider theme={theme}>
                 <Grid container item className={classes.mainContainer}>
-                    <Grid item xs={5}>
+                    <Grid item xs={4}>
                         <TextField
                             id="outlined-basic"
                             label="Search Name"
@@ -70,7 +70,7 @@ class PlayerFilter extends React.PureComponent {
                             size={"small"}
                         />
                     </Grid>
-                    <Grid item xs={5}>
+                    <Grid item xs={4}>
                         <FormControlLabel
                                 control={
                                     <Checkbox
@@ -129,12 +129,26 @@ class PlayerFilter extends React.PureComponent {
                             control={
                                 <Switch
                                     checked={this.props.isHideDraftedFilterOn}
-                                    onChange={this.props.triggerSwitchChange}
+                                    onChange={this.props.triggerHideDraftedSwitchChange}
                                     name="hideDraftedFilter"
                                     color="primary"
                                 />
                             }
                             label="Hide Drafted"
+                            labelPlacement="start"
+                        />
+                    </Grid>
+                    <Grid item xs={2}>
+                        <FormControlLabel
+                            control={
+                                <Switch
+                                    checked={this.props.isShowWatchlistFilterOn}
+                                    onChange={this.props.triggerShowWatchlistSwitchChange}
+                                    name="showWatchlistFilter"
+                                    color="primary"
+                                />
+                            }
+                            label="Show Watchlist"
                             labelPlacement="start"
                         />
                     </Grid>

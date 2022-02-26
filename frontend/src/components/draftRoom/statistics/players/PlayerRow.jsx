@@ -9,7 +9,7 @@ import {connect} from "react-redux";
 import {isBiddingUnderwaySelector, isOnTheBlockSelector,} from "../../../../store/selectors/BlockSelectors";
 import DraftRoomUtils from "../../../../utils/DraftRoomUtils";
 import Grid from "@material-ui/core/Grid";
-import {IconButton} from "@material-ui/core";
+import {Checkbox, IconButton} from "@material-ui/core";
 import AddIcon from "@material-ui/icons/Add";
 import withStyles from "@material-ui/core/styles/withStyles";
 
@@ -35,6 +35,10 @@ const styles = () => ({
 
 class PlayerRow extends React.Component {
 
+    constructor(props) {
+        super(props);
+    }
+
     shouldComponentUpdate(nextProps, nextState, nextContext) {
         return nextProps.isOnTheBlock !== this.props.isOnTheBlock ||
             nextProps.draftBase.status !== this.props.draftBase.status ||
@@ -56,7 +60,7 @@ class PlayerRow extends React.Component {
     }
 
     sendAddToBlock = (selectedPlayerId, initialBid) => {
-        console.log("Bid");
+        console.log("Add To Block Sent.");
         if (this.props.stompClient) {
             const addToBlockDetails = {
                 draftId: this.props.draftBase.id,
@@ -77,10 +81,16 @@ class PlayerRow extends React.Component {
         return (
             <Grid container item key={this.props.player.id} style={this.props.sizingStyle} className={this.props.player.price ? classes.isDrafted : ''}>
                     <Grid item xs={1} >
+                        <Checkbox
+                            color={"primary"}
+                            onChange={(event) => this.props.triggerWatchlistChange(this.props.player.id)}
+                            checked={this.props.isOnWatchlist}
+                        />
                         <IconButton color={"primary"}
                                     onClick={() => this.sendAddToBlock(this.props.player.id, 1)}
                                     hidden={this.getIsAddToBlockHidden()}
                                     disabled={this.getIsAddToBlockDisabled()}
+                                    style={{paddingLeft: "4px"}}
                         >
                             <AddIcon />
                         </IconButton>

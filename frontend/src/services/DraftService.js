@@ -30,7 +30,7 @@ class DraftService {
         return axios.get("/players/draft/" + draftId);
     }
 
-    getPlayersPageByDraft(draftId, pageNum, pageSize, lastNameSearch, positionList, isHideDraftedFilterOn) {
+    getPlayersPageByDraft(draftId, pageNum, pageSize, lastNameSearch, positionList, isHideDraftedFilterOn, isShowWatchlistFilterOn) {
         let basePath = "/players/draft/" + draftId + "/page";
 
         // Add Available Filter If Required.
@@ -39,7 +39,7 @@ class DraftService {
         }
 
         // Add PageNum and PageSize Filters.
-        basePath += "?pageNum=" + pageNum + "&pageSize=" + pageSize;
+        basePath += "?pageNum=" + pageNum + "&pageSize=" + pageSize + "&isWatchlistOn=" + isShowWatchlistFilterOn;
 
         // Add Search and PositionList Filters.
         basePath += "&search=" + lastNameSearch;
@@ -65,6 +65,18 @@ class DraftService {
 
     saveMyTeamLayout(teamId, updatedMyTeamPositions) {
         return axios.put("/teams/" + teamId + "/myTeamPositions/", updatedMyTeamPositions);
+    }
+
+    getWatchlistForTeamId(teamId) {
+        return axios.get("/watchlist?teamId=" + teamId);
+    }
+
+    addPlayerToWatchlistForTeamId(playerId, teamId) {
+        return axios.put("/watchlist/add?teamId=" + teamId + "&playerId=" + playerId);
+    }
+
+    removePlayerFromWatchlistForTeamId(playerId, teamId) {
+        return axios.put("/watchlist/remove?teamId=" + teamId + "&playerId=" + playerId);
     }
 
 }

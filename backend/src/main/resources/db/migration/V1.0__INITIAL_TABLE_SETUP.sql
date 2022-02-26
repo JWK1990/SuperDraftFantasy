@@ -254,3 +254,12 @@ CREATE TABLE game_entity (
     CONSTRAINT fk_opponent_afl_team_id FOREIGN KEY (opponent_afl_team_id) REFERENCES afl_teams_enum(id)
 );
 
+CREATE TABLE watchlist_join_entity (
+     id SERIAL,
+     team_id INT,
+     player_id INT,
+
+     CONSTRAINT fk_team_id FOREIGN KEY (team_id) REFERENCES team_entity(id),
+     CONSTRAINT fk_player_id FOREIGN KEY (player_id) REFERENCES player_entity(id)
+);
+

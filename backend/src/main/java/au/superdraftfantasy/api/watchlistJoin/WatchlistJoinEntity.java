@@ -1,7 +1,6 @@
-package au.superdraftfantasy.api.teamPlayerJoin;
+package au.superdraftfantasy.api.watchlistJoin;
 
 import au.superdraftfantasy.api.player.PlayerEntity;
-import au.superdraftfantasy.api.position.PositionEntity;
 import au.superdraftfantasy.api.team.TeamEntity;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
@@ -14,7 +13,7 @@ import javax.persistence.*;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class TeamPlayerJoinEntity {
+public class WatchlistJoinEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,24 +21,12 @@ public class TeamPlayerJoinEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "team_id")
-    @JsonBackReference(value="team-teamPlayerJoin")
+    @JsonBackReference(value="team-watchlistJoin")
     private TeamEntity team;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "player_id")
-    @JsonBackReference(value="player-teamPlayerJoin")
+    @JsonBackReference(value="player-watchlistJoin")
     private PlayerEntity player;
-
-    Long price;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "my_team_position_id")
-    private PositionEntity myTeamPosition;
-
-    private Integer purchaseReviewRating;
-
-    private Integer priceDifference;
-
-    private String slotId;
 
 }

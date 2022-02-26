@@ -58,7 +58,7 @@ function BidClockContainer(props) {
                                     <span>
                                         <Button
                                             variant="contained"
-                                            color="green"
+                                            color="primary"
                                             disabled={true}
                                         >
                                             <span style={{color: "green"}}>You Lead!</span>

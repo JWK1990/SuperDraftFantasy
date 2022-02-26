@@ -8,20 +8,25 @@ import UpdatedPlayerList from "./UpdatedPlayerList";
 import {stompClientSelector} from "../../../../store/selectors/WebSocketSelectors";
 
 class UpdatedPlayerListContainer extends React.PureComponent {
-    state = {
-        hasNextPage: true,
-        isNextPageLoading: false,
-        items: [],
-        expandedPanelIndex: false,
-        lastNameSearch: '',
-        positionFilter: '',
-        isHideDraftedFilterOn: true,
-        typingTimer: null,
-        checkedDEF: false,
-        checkedMID: false,
-        checkedRUC: false,
-        checkedFWD: false,
-    };
+
+    constructor(props){
+        super(props);
+        this.state = {
+            hasNextPage: true,
+            isNextPageLoading: false,
+            items: [],
+            expandedPanelIndex: false,
+            lastNameSearch: '',
+            positionFilter: '',
+            isHideDraftedFilterOn: true,
+            typingTimer: null,
+            checkedDEF: false,
+            checkedMID: false,
+            checkedRUC: false,
+            checkedFWD: false,
+            isShowWatchlistFilterOn: false,
+        };
+    }
 
     componentDidMount() {
         this.props.stompClient.subscribe('/draft/purchaseReviews', this.receivePurchaseReview);
@@ -47,6 +52,7 @@ class UpdatedPlayerListContainer extends React.PureComponent {
                 this.state.lastNameSearch,
                 positionFilter,
                 this.state.isHideDraftedFilterOn,
+                this.state.isShowWatchlistFilterOn,
             )
                 .then(players => {
                     this.setState(state => ({
@@ -79,9 +85,17 @@ class UpdatedPlayerListContainer extends React.PureComponent {
         return positionFilter;
     }
 
-    handleSwitchChange = (event) => {
+    handleHideDraftedSwitchChange = (event) => {
         this.setState({
             isHideDraftedFilterOn: event.target.checked,
+            items: [],
+        });
+        this._loadNextPage();
+    }
+
+    handleShowWatchlistSwitchChange = (event) => {
+        this.setState({
+            isShowWatchlistFilterOn: event.target.checked,
             items: [],
         });
         this._loadNextPage();
@@ -121,9 +135,11 @@ class UpdatedPlayerListContainer extends React.PureComponent {
                         checkedRUC={this.state.checkedRUC}
                         checkedFWD={this.state.checkedFWD}
                         isHideDraftedFilterOn={this.state.isHideDraftedFilterOn}
+                        isShowWatchlistFilterOn={this.state.isShowWatchlistFilterOn}
                         triggerPositionFilterChange={this.handlePositionFilterChange}
                         triggerSearchChange={this.handleSearchChange}
-                        triggerSwitchChange={this.handleSwitchChange}
+                        triggerHideDraftedSwitchChange={this.handleHideDraftedSwitchChange}
+                        triggerShowWatchlistSwitchChange={this.handleShowWatchlistSwitchChange}
                     />
                 </Grid>
                 <Grid item xs={12}>
@@ -133,6 +149,8 @@ class UpdatedPlayerListContainer extends React.PureComponent {
                         items={items}
                         loadNextPage={this._loadNextPage}
                         isHideDraftedFilterOn={isHideDraftedFilterOn}
+                        isShowWatchlistFilterOn={this.state.isShowWatchlistFilterOn}
+                        teamId={this.props.teamId}
                     />
                 </Grid>
             </Grid>

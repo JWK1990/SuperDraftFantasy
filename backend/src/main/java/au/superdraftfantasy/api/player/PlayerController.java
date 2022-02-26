@@ -33,14 +33,16 @@ public class PlayerController {
             @RequestParam(required = false) String pageNum,
             @RequestParam(required = false) String pageSize,
             @RequestParam(required = false) String search,
-            @RequestParam(required = false) String position
+            @RequestParam(required = false) String position,
+            @RequestParam(required = false) Boolean isWatchlistOn
     ) {
         return playerService.getPlayersPageByDraftId(
                 draftId,
                 Integer.parseInt(pageNum),
                 Integer.parseInt(pageSize),
                 search,
-                position
+                position,
+                isWatchlistOn
         );
     }
 
@@ -67,14 +69,16 @@ public class PlayerController {
             @RequestParam(required = false) String pageNum,
             @RequestParam(required = false) String pageSize,
             @RequestParam(required = false) String search,
-            @RequestParam(required = false) String position
+            @RequestParam(required = false) String position,
+            @RequestParam(required = false) Boolean isWatchlistOn
     ) {
         return playerService.getAvailablePlayersPage(
                 draftId,
                 Integer.parseInt(pageNum),
                 Integer.parseInt(pageSize),
                 search,
-                position
+                position,
+                isWatchlistOn
         );
     }
 

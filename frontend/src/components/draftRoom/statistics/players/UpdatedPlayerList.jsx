@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {FixedSizeList} from "react-window";
 import AutoSizer from "react-virtualized-auto-sizer";
 import InfiniteLoader from "react-window-infinite-loader";
@@ -7,6 +7,7 @@ import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import PlayerRow from "./PlayerRow";
+import draftService from "../../../../services/DraftService";
 
 const useStyles = makeStyles((theme) => ({
     header: {
@@ -35,6 +36,8 @@ export default function UpdatedPlayerList({
     items,
     // Callback function responsible for loading the next page of items.
     loadNextPage,
+    // Team Id for the current team which is used for fetching the Watchlist Player Ids.
+    teamId,
 }) {
     // If there are more items to be loaded then add an extra row to hold a loading indicator.
     const itemCount = hasNextPage ? items.length + 1 : items.length;
@@ -49,12 +52,41 @@ export default function UpdatedPlayerList({
     const classes = useStyles();
     const rowHeight = 50;
 
+    const [watchlistPlayerIds, setWatchlistPlayerIds] = React.useState();
+
+    // A good explanation of how useEffect works can be found here https://medium.com/@timtan93/states-and-componentdidmount-in-functional-components-with-hooks-cac5484d22ad.
+    useEffect(() => {
+        draftService.getWatchlistForTeamId(teamId)
+            .then(response => {
+                setWatchlistPlayerIds(response.data);
+            });
+    }, []);
+
+    const getIsOnWatchlist = (playerId) => {
+        return watchlistPlayerIds.indexOf(playerId) > -1;
+    }
+
+    const handleWatchlistChange = (playerId) => {
+        if(getIsOnWatchlist(playerId)) {
+            draftService.removePlayerFromWatchlistForTeamId(playerId, teamId)
+                .then(response => setWatchlistPlayerIds(response.data));
+        } else {
+            draftService.addPlayerToWatchlistForTeamId(playerId, teamId)
+                .then(response => setWatchlistPlayerIds(response.data));
+        }
+    }
+
     const PlayerRowContainer = ({ index, style }) => {
         const player = items[index];
         return (
             !isItemLoaded(index)
                 ? <Typography>Loading Players...</Typography>
-                : <PlayerRow sizingStyle={style} player={player}/>
+                : <PlayerRow
+                    sizingStyle={style}
+                    player={player}
+                    isOnWatchlist={getIsOnWatchlist(player.id)}
+                    triggerWatchlistChange={handleWatchlistChange}
+                />
         )
     };
 

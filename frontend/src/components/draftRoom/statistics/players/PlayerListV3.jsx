@@ -30,6 +30,7 @@ class PlayerListV3 extends React.Component {
                 "", // this.state.lastNameSearch,
                 "", // positionFilter,
                 true, // this.state.isHideDraftedFilterOn,
+                false, //this.state.isShowWatchlistFilterOn.
             )
                 .then(players => {
                         this.setState(state => ({
