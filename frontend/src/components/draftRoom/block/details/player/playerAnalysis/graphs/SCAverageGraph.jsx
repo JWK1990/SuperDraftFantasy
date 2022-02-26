@@ -12,8 +12,7 @@ import {
 } from "recharts";
 import DraftService from "../../../../../../../services/DraftService";
 import PlayerStatFetcher from "../../../../../../shared/statFetchers/PlayerStatFetcher";
-import {Card, Paper} from "@material-ui/core";
-import CardContent from "@material-ui/core/CardContent";
+import {Paper} from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 
@@ -41,7 +40,6 @@ const CustomTooltip = ({ active, payload, label }) => {
 
 export default function SCAverageGraph(props) {
     const [games, setGames] = useState(null);
-    const [posData, setposData] = useState({});
 
     useEffect(() => {
         let mounted = true;
@@ -115,12 +113,9 @@ export default function SCAverageGraph(props) {
                         <Bar dataKey={"average"}
                              barSize={10}
                              fill="#4df3cc"
-                             onMouseOver={(data) => {
-                                 setposData(data);
-                             }}
                         >
                             {games.map((entry, index) => (
-                                <Cell fill={
+                                <Cell key={index} fill={
                                     entry.average >= 150 ? 'gold'
                                         : entry.average >= 100 ? 'green'
                                             : entry.average >= 80 ? 'lightblue'

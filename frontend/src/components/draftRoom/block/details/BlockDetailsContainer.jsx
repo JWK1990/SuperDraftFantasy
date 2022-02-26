@@ -12,7 +12,6 @@ const styles = {
 };
 
 function BlockDetailsContainer(props) {
-    const {classes} = props;
 
     return(
         <>

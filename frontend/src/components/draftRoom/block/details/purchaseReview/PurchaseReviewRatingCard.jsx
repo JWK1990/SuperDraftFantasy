@@ -5,7 +5,6 @@ import PurchaseReviewSymbolFetcher from "../../../../shared/imageFetchers/Purcha
 import Grid from "@material-ui/core/Grid";
 import {Paper} from "@material-ui/core";
 import TeamLogoFetcher from "../../../../shared/imageFetchers/TeamLogoFetcher";
-import Test2 from "../../../../../images/Test2.png";
 
 const useStyles = makeStyles((theme) => ({
     rootContainer: {
@@ -48,10 +47,6 @@ const useStyles = makeStyles((theme) => ({
 
 function getPurchaseReviewSymbol(rating) {
     return PurchaseReviewSymbolFetcher.getPurchaseReviewSymbol(rating);
-}
-
-function Tag() {
-    return null;
 }
 
 export default function PurchaseReviewRatingCard(props) {

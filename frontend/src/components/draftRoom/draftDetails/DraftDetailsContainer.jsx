@@ -2,7 +2,6 @@ import React from "react";
 import DraftHistory from "./DraftHistory";
 import StatTabPanel from "../../shared/StatTabPanel";
 import DraftOverview from "./DraftOverview";
-import Grid from "@material-ui/core/Grid";
 
 export default function DraftDetailsContainer() {
 

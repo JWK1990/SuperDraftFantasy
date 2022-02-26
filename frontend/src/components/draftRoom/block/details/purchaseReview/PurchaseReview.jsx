@@ -1,12 +1,7 @@
 import React from "react";
 import Grid from "@material-ui/core/Grid";
 import withStyles from "@material-ui/core/styles/withStyles";
-import Typography from "@material-ui/core/Typography";
-import {Paper} from "@material-ui/core";
 import PurchaseReviewRatingCard from "./PurchaseReviewRatingCard";
-import PurchaseReviewPlayerCard from "./PurchaseReviewPlayerCard";
-import PurchaseReviewStatsCard from "./PurchaseReviewStatsCard";
-import PerformanceReviewSymbol from "../../../../../images/PerformanceReviewSymbol.jpg";
 import BlockPlayerCard from "../player/playerCard/BlockPlayerCard";
 
 const styles = {

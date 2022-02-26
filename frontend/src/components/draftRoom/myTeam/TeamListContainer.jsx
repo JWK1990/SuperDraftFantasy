@@ -112,7 +112,6 @@ class TeamListContainer extends React.Component {
     }
 
     render() {
-        const {classes} = this.props;
         return (
             <MyTeamList
                 teamId={this.props.teamId}
