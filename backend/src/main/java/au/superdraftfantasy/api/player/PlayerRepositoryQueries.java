@@ -4,7 +4,7 @@ public class PlayerRepositoryQueries {
 
     /* Select Best Undrafted Player In A Given Draft. */
     public static final String selectBestUndraftedPlayerId = "" +
-            "SELECT MIN(pe.id) as id\n" +
+            "SELECT pe.id\n" +
             "\tFrom player_entity pe \n" +
             "\t\tleft join(\n" +
             "\t\t\tselect *\n" +
@@ -15,11 +15,12 @@ public class PlayerRepositoryQueries {
             "\t\t) as filtered_tpje\n" +
             "\t\ton filtered_tpje.player_id = pe.id\n" +
             "\twhere filtered_tpje.draft_id is NULL\n" +
-            "\tand pe.is_active is true;";
+            "\tand pe.is_active is true\n" +
+            "\torder by pe.rank limit 1;";
 
     /* Select Best Undrafted Player In A Given Draft Excluding Given Positions. */
     public static final String selectBestUndraftedPlayerIdWithPositionFilter = "" +
-            "SELECT MIN(pe.id) as id\n" +
+            "SELECT *\n" +
             "\tFrom player_entity pe \n" +
             "\t\tleft join player_position_join ppj\n" +
             "\t\t\tON PE.id = ppj.player_id\n" +
@@ -35,5 +36,6 @@ public class PlayerRepositoryQueries {
             "\t\t\ton pose.id = ppj.position_id \n" +
             "\twhere pose.\"type\" not IN :positionExclusionList\n" +
             "\tand filtered_tpje.draft_id is NULL\n" +
-            "\tand pe.is_active is true;";
+            "\tand pe.is_active is true\n" +
+            "\torder by pe.rank limit 1;";
 }
