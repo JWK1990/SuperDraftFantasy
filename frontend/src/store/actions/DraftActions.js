@@ -239,9 +239,9 @@ export const updateMyTeamPositionStartedAction = () => ({
     type: UPDATE_MY_TEAM_POSITION_STARTED
 });
 
-export const updateMyTeamPositionSuccessAction = myTeamPosition => ({
+export const updateMyTeamPositionSuccessAction = myTeamPositions => ({
     type: UPDATE_MY_TEAM_POSITION_SUCCESS,
-    payload: myTeamPosition
+    payload: myTeamPositions
 });
 
 export const updateMyTeamPositionFailureAction = error => ({

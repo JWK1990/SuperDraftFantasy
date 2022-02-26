@@ -9,7 +9,12 @@ const theme = createMuiTheme({
         MuiButtonBase: {
             root: {
                 //cursor: "url(Insert url to 32px x 32px icon here.), auto"
-            }
+            },
+        },
+    },
+    typography: {
+        button: {
+            textTransform: "none",
         }
     }
 })
@@ -67,6 +72,10 @@ const styles = {
     },
     gridItem: {
         padding: 2,
+        // Required to stop text opacity changing when button is disabled.
+        "& .Mui-disabled": {
+            color: "black"
+        }
     },
 }
 
@@ -108,6 +117,7 @@ class PlayerCard extends React.Component {
                             onClick={() => this.props.handleSlotClick(this.props.slot)}
                             disabled={!this.props.shouldShowButton}
                             style={{width: "100%", height: "100%", padding: "0px"}}
+                            className={classes.button}
                         >
                             &nbsp;
                         </Button>

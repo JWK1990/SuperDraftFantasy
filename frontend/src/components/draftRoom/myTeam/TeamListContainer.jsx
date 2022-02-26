@@ -73,44 +73,42 @@ class TeamListContainer extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            teamList: this.fieldLayout,
+            teamList: [],
         }
     }
 
     componentDidMount() {
-        this.props.team.teamPlayerJoins.forEach(teamPlayerJoin => {
+        const teamList = this.buildMyTeamList(this.props.team.teamPlayerJoins);
+        this.setState({teamList: teamList});
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if(prevProps.team.teamPlayerJoins !== this.props.team.teamPlayerJoins) {
+            const teamList = this.buildMyTeamList(this.props.team.teamPlayerJoins);
+            this.setState({teamList: teamList});
+        }
+    };
+
+    buildMyTeamList = (teamPlayerJoins) => {
+        const fieldLayout = buildFieldLayout();
+        teamPlayerJoins.forEach(teamPlayerJoin => {
             this.addPlayerToMyTeamList(
+                fieldLayout,
                 teamPlayerJoin.player,
                 teamPlayerJoin.slotId,
                 teamPlayerJoin.price,
             );
         });
+        return fieldLayout;
     }
 
-    getSnapshotBeforeUpdate(prevProps, prevState) {
-        const updatedTeamPlayerJoins = this.props.team.teamPlayerJoins;
-        if (prevProps.team.teamPlayerJoins.length !== updatedTeamPlayerJoins.length) {
-            const newTeamPlayerJoin = updatedTeamPlayerJoins[updatedTeamPlayerJoins.length - 1];
-            this.addPlayerToMyTeamList(
-                newTeamPlayerJoin.player,
-                newTeamPlayerJoin.slotId,
-                newTeamPlayerJoin.price
-            );
-        }
-        return null;
-    }
-
-    componentDidUpdate(prevProps, prevState, snapshot) {};
-
-    addPlayerToMyTeamList = (player, slotId, price) => {
-        let slotIndex = this.state.teamList.findIndex(slot => slot.id === slotId);
+    addPlayerToMyTeamList = (fieldLayout, player, slotId, price) => {
+        let slotIndex = fieldLayout.findIndex(slot => slot.id === slotId);
         // The below if check is just in case the slotIndex isn't set.
         if(slotIndex === null || slotIndex < 0) {
-            slotIndex = this.state.teamList.length - 1;
+            slotIndex = fieldLayout.length - 1;
         }
-        const {teamList} = this.state;
-        teamList[slotIndex] =  {...teamList[slotIndex], player: player, price: price, isVacant: false};
-        this.setState({teamList});
+        fieldLayout[slotIndex] =  {...fieldLayout[slotIndex], player: player, price: price, isVacant: false};
     }
 
     render() {
@@ -119,6 +117,7 @@ class TeamListContainer extends React.Component {
             <MyTeamList
                 teamId={this.props.teamId}
                 teamList={this.state.teamList}
+                isDisabled={this.props.isDisabled}
             />
         )
     }

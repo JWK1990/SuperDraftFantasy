@@ -107,7 +107,7 @@ public class TeamService {
      * @param writeDto
      * @return
      */
-    public List<TeamPlayerJoinReadDto> updateMyTeamPosition(final Long teamId, List<MyTeamPositionWriteDto> writeDto) {
+    public MyTeamPositionReadDto updateMyTeamPosition(final Long teamId, List<MyTeamPositionWriteDto> writeDto) {
         TeamEntity team = teamRepository.findById(teamId)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Team with ID '" + teamId + "' Not Found."));
 
@@ -126,8 +126,9 @@ public class TeamService {
         });
         teamRepository.save(team);
 
-        this.simpMessagingTemplate.convertAndSend("/draft/updateMyTeamPositions", updatedTeamPlayerJoins);
-        return updatedTeamPlayerJoins;
+        MyTeamPositionReadDto myTeamPositionReadDto = new MyTeamPositionReadDto(teamId, updatedTeamPlayerJoins);
+        this.simpMessagingTemplate.convertAndSend("/draft/updateMyTeamPositions", myTeamPositionReadDto);
+        return myTeamPositionReadDto;
     }
 
     /**

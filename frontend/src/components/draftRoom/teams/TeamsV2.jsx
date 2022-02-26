@@ -14,9 +14,24 @@ import withStyles from "@material-ui/core/styles/withStyles";
 import TeamCardV2 from "./TeamCardV2";
 import MyTeamList from "../myTeam/MyTeamList";
 import TeamListContainer from "../myTeam/TeamListContainer";
+import Typography from "@material-ui/core/Typography";
 
 const styles = {
     mainContainer: {
+        height: "100%",
+    },
+    selectedTeamContainer: {
+        height: "100%",
+        minHeight: "var(--draft-room-player-list-height)",
+    },
+    // Added in order to make TeamListContainer stretch to remaining space.
+    // https://stackoverflow.com/questions/65815511/make-child-of-material-ui-grid-item-stretch-to-fit-the-remaining-height-of-the-p.
+    gridItem: {
+        display: "flex",
+        flexDirection: "column"
+    },
+    fullHeightCard: {
+        display: 'flex',
         height: "100%",
     },
 }
@@ -54,8 +69,9 @@ class TeamsV2 extends React.Component {
     }
 
     handleTeamClick = (teamId) => {
-        this.setState({selectedTeamId: teamId});
-        console.log(teamId);
+        const updatedTeamId = !this.state.selectedTeamId ? teamId: null;
+        this.setState({selectedTeamId: updatedTeamId});
+        console.log(updatedTeamId);
     }
 
     render() {
@@ -71,6 +87,7 @@ class TeamsV2 extends React.Component {
                                     team={slot.content.team}
                                     numOfPlayersRequired={this.props.numOfPlayersRequired}
                                     handleTeamClick={this.handleTeamClick}
+                                    isSelected={false}
                                 />
                             )
                         })
@@ -78,7 +95,29 @@ class TeamsV2 extends React.Component {
                 </Grid>
             );
         } else {
-            return <TeamListContainer teamId={this.state.selectedTeamId} />
+            return (
+                <Grid container justify="space-between" alignItems="stretch" className={classes.selectedTeamContainer}>
+                    <Grid item xs={12} className={classes.gridItem}>
+                        {
+                            /* This div is required in order to limit the height of the TeamCard.
+                            It follows the stackoverflow example above except we use the div instead of Typography.
+                            */
+                        }
+                        <div>
+                            <TeamCardV2
+                                team={this.state.sortableTeamList[0].content.team}
+                                numOfPlayersRequired={this.props.numOfPlayersRequired}
+                                handleTeamClick={this.handleTeamClick}
+                                isSelected={true}
+                            />
+                        </div>
+                        <TeamListContainer
+                            teamId={this.state.selectedTeamId}
+                            isDisabled={true}
+                        />
+                    </Grid>
+                </Grid>
+            )
         }
 
     }

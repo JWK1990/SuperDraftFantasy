@@ -3,7 +3,6 @@ import PlayerCard from "../../shared/teamView/PlayerCard";
 import Grid from "@material-ui/core/Grid";
 import withStyles from "@material-ui/core/styles/withStyles";
 import {updateMyTeamPositionAction, updateMyTeamPositionSuccessAction} from "../../../store/actions";
-import {currentTeamIdSelector, draftRosterSelector, draftTeamSelector} from "../../../store/selectors/DraftSelectors";
 import {stompClientSelector} from "../../../store/selectors/WebSocketSelectors";
 import {isLeadBidderSelector} from "../../../store/selectors/BlockSelectors";
 import {connect} from "react-redux";
@@ -28,11 +27,13 @@ class MyTeamList extends React.Component {
 
     componentDidMount() {
         this.setState({teamList: this.props.teamList});
-        this.props.stompClient.subscribe('/draft/updateMyTeamPositions', this.receiveUpdatedMyTeamPosition)
+        if(!this.props.isDisabled) {
+            this.props.stompClient.subscribe('/draft/updateMyTeamPositions', this.receiveUpdatedMyTeamPosition)
+        }
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
-        if(prevProps.teamList.length !== this.props.teamList.length) {
+        if(prevProps.teamList !== this.props.teamList) {
             this.setState({teamList: this.props.teamList});
         }
     };
@@ -41,25 +42,10 @@ class MyTeamList extends React.Component {
         // Emit success event.
         const updatedData = JSON.parse(payload.body);
         this.props.updateMyTeamPositionSuccess(updatedData);
-        // Update teamList in state.
-        const {teamList} = this.state;
-        // Clear the source slot (if player was switched with a isVacant slot, we need to manually clear the source slot).
-        const sourceSlot = this.state.teamList.find(slot => slot.id === this.state.selectedSlotId);
-        sourceSlot.player = null;
-        sourceSlot.price = null;
-        sourceSlot.isVacant = true;
         // Clear the selected player and slot from the state.
         this.setState({selectedPlayer: null})
         this.setState({selectedSlotPosition: null})
         this.setState({selectedSlotId: null})
-        // Add moved players to their new slots.
-        updatedData.forEach(update => {
-            const updatedSlot = teamList.find(slot => slot.id === update.slotId);
-            updatedSlot.player = update.player;
-            updatedSlot.price = update.price;
-            updatedSlot.isVacant = false;
-        });
-        this.setState({teamList});
     }
 
     getIsSelected = (slot) => {
@@ -101,13 +87,14 @@ class MyTeamList extends React.Component {
                 slotId: this.state.selectedSlotId,
             });
         }
-        console.log(updatedPlayerPositions);
         this.props.updateMyTeamPosition(this.props.teamId, updatedPlayerPositions);
     }
 
     shouldShowButton = (slot) => {
         let showButton;
-        if(this.state.selectedPlayer !== null) {
+        if(this.props.isDisabled) {
+            showButton = false;
+        }else if(this.state.selectedPlayer !== null) {
             showButton = this.isValidDestination(slot);
         } else {
             showButton = !slot.isVacant && !this.props.isLeadBidder;

@@ -84,7 +84,7 @@ class DraftRoom extends React.Component {
                 </Grid>
                 <Grid container item xs={2} style={{height: "100%", maxHeight: "100vh", overflow: "auto"}}>
                     <Grid item xs={12}>
-                        <TeamListContainer teamId={1}/>
+                        <TeamListContainer teamId={1} isDisabled={false}/>
                     </Grid>
                 </Grid>
             </Grid>

@@ -16,6 +16,8 @@ const theme = createMuiTheme({
 
 const useStyles = makeStyles((theme) => ({
     root: {
+        // Ensures that each card takes up the max available height.
+        // This reduces the empty vertical space between the cards.
         display: 'flex',
         height: "100%",
     },
@@ -69,6 +71,9 @@ const useStyles = makeStyles((theme) => ({
     gridItem: {
         padding: 2,
     },
+    selected: {
+        backgroundColor: "rgba(102, 255, 0, 0.75)",
+    }
 }));
 
 export default function TeamCardV2(props) {
@@ -83,7 +88,7 @@ export default function TeamCardV2(props) {
     return (
         <MuiThemeProvider theme={theme}>
             <Grid item xs={12} className={classes.gridItem}>
-                <Paper elevation={3} className={classes.root}>
+                <Paper elevation={3} className={[classes.root, props.isSelected ? classes.selected : ''].join(' ')}>
                     <Button
                         style={{width: "100%", height: "100%", padding: "0px"}}
                         onClick={() => props.handleTeamClick(props.team.id)}
