@@ -5,6 +5,7 @@ import {connect} from "react-redux";
 import Grid from "@material-ui/core/Grid";
 import PlayerFilter from "./PlayerFilter";
 import UpdatedPlayerList from "./UpdatedPlayerList";
+import {stompClientSelector} from "../../../../store/selectors/WebSocketSelectors";
 
 class UpdatedPlayerListContainer extends React.PureComponent {
     state = {
@@ -21,6 +22,20 @@ class UpdatedPlayerListContainer extends React.PureComponent {
         checkedRUC: false,
         checkedFWD: false,
     };
+
+    componentDidMount() {
+        this.props.stompClient.subscribe('/draft/purchaseReviews', this.receivePurchaseReview);
+    }
+
+    receivePurchaseReview = (payload) => {
+        // We manually remove the most recently drafted player from the list if isHideDraftedFilterOn is true.
+        if(this.state.isHideDraftedFilterOn) {
+            const purchaseReviewPlayer = JSON.parse(payload.body);
+            const {items} = this.state;
+            const updatedItems = items.filter(item => item.id !== purchaseReviewPlayer.id);
+            this.setState({items: updatedItems})
+        }
+    }
 
     _loadNextPage = () => {
         this.setState({isNextPageLoading: true}, () => {
@@ -128,6 +143,7 @@ class UpdatedPlayerListContainer extends React.PureComponent {
 const mapStateToProps = state => {
     return {
         draftId: draftIdSelector(state),
+        stompClient: stompClientSelector(state),
     }
 }
 

@@ -1,12 +1,11 @@
 import React from 'react';
-import {makeStyles, MuiThemeProvider, useTheme} from '@material-ui/core/styles';
+import {makeStyles, MuiThemeProvider} from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
 import {createMuiTheme} from "@material-ui/core";
 import {connect} from "react-redux";
-import {stompClientSelector} from "../../../store/selectors/WebSocketSelectors";
 import {draftTeamSelector} from "../../../store/selectors/DraftSelectors";
 
 const theme = createMuiTheme({
@@ -133,7 +132,6 @@ function TeamCardV2(props) {
 }
 
 const mapStateToProps = (state, props) => {
-    console.log("Team ID: ", props.teamId)
     return {
         team: draftTeamSelector(state, props.teamId),
     };

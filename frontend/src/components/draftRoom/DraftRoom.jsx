@@ -2,7 +2,7 @@ import React from "react";
 import DraftRoomBlock from "./block/Block";
 import {connectWebSocketAction, getDraftAction} from "../../store/actions";
 import {connect} from "react-redux";
-import {currentTeamIdSelector, draftSelector} from "../../store/selectors/DraftSelectors"
+import {draftSelector} from "../../store/selectors/DraftSelectors"
 import Grid from "@material-ui/core/Grid";
 import {stompClientSelector} from "../../store/selectors/WebSocketSelectors";
 import ConfigurationUtils from "../../utils/ConfigurationUtils";
@@ -67,8 +67,6 @@ class DraftRoom extends React.Component {
         if (!this.state.isStompClientConnected || !this.state.isDraftDataLoaded || !this.state.currentTeamId) {
             return <div />
         }
-
-        console.log(this.props.draft);
 
         return (
             <Grid container spacing={1} className={classes.rootContainer}>
