@@ -107,7 +107,6 @@ export function draftReducer(state = initialDraftState, action) {
         case UPDATE_MY_TEAM_POSITION_SUCCESS:
             const {teams} = state.data;
             const updatedTeams = teams.map((team) => {
-                console.log("Team IDs: ", team.id, action.payload.teamId);
                 return team.id !== action.payload.teamId
                     ? team
                     : {
@@ -115,9 +114,6 @@ export function draftReducer(state = initialDraftState, action) {
                         teamPlayerJoins: team.teamPlayerJoins.map(currentTpj => {
                             const updatedTpj = action.payload.teamPlayerJoins
                                 .find(updatedTpj => updatedTpj.player.id === currentTpj.player.id);
-                            if(updatedTpj) {
-                                console.log("Updated TPJ: ", updatedTpj);
-                            }
                             return (
                                 // Try and find playerId in List of updated playerIds.
                                 !updatedTpj
@@ -127,7 +123,6 @@ export function draftReducer(state = initialDraftState, action) {
                         })
                     }
             });
-            console.log(updatedTeams);
 
             return {
                 ...state,

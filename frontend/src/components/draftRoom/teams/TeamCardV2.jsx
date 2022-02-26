@@ -5,6 +5,9 @@ import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
 import {createMuiTheme} from "@material-ui/core";
+import {connect} from "react-redux";
+import {stompClientSelector} from "../../../store/selectors/WebSocketSelectors";
+import {draftTeamSelector} from "../../../store/selectors/DraftSelectors";
 
 const theme = createMuiTheme({
     typography: {
@@ -76,7 +79,7 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-export default function TeamCardV2(props) {
+function TeamCardV2(props) {
 
     const classes = useStyles();
 
@@ -128,3 +131,12 @@ export default function TeamCardV2(props) {
         </MuiThemeProvider>
     );
 }
+
+const mapStateToProps = (state, props) => {
+    console.log("Team ID: ", props.teamId)
+    return {
+        team: draftTeamSelector(state, props.teamId),
+    };
+};
+
+export default connect(mapStateToProps)(TeamCardV2);

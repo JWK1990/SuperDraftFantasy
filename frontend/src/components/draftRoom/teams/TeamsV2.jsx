@@ -12,9 +12,7 @@ import {onTheBlockTeamIdSelector} from "../../../store/selectors/BlockSelectors"
 import Grid from "@material-ui/core/Grid";
 import withStyles from "@material-ui/core/styles/withStyles";
 import TeamCardV2 from "./TeamCardV2";
-import MyTeamList from "../myTeam/MyTeamList";
 import TeamListContainer from "../myTeam/TeamListContainer";
-import Typography from "@material-ui/core/Typography";
 
 const styles = {
     mainContainer: {
@@ -71,7 +69,6 @@ class TeamsV2 extends React.Component {
     handleTeamClick = (teamId) => {
         const updatedTeamId = !this.state.selectedTeamId ? teamId: null;
         this.setState({selectedTeamId: updatedTeamId});
-        console.log(updatedTeamId);
     }
 
     render() {
@@ -84,7 +81,7 @@ class TeamsV2 extends React.Component {
                             return (
                                 <TeamCardV2
                                     key={index}
-                                    team={slot.content.team}
+                                    teamId={slot.content.team.id}
                                     numOfPlayersRequired={this.props.numOfPlayersRequired}
                                     handleTeamClick={this.handleTeamClick}
                                     isSelected={false}
@@ -105,7 +102,7 @@ class TeamsV2 extends React.Component {
                         }
                         <div>
                             <TeamCardV2
-                                team={this.state.sortableTeamList[0].content.team}
+                                teamId={this.state.selectedTeamId}
                                 numOfPlayersRequired={this.props.numOfPlayersRequired}
                                 handleTeamClick={this.handleTeamClick}
                                 isSelected={true}

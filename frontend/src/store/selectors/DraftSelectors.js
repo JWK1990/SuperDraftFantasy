@@ -57,6 +57,6 @@ export const isSlotAvailableSelector = (state, position) => {
     const totalSlots = draftRosterSelector(state)[position];
     const filledSlots = currentTeamSelector(state).teamPlayerJoins.filter(
         player => player.myTeamPositionType === PositionTypeEnum[position]
-    ).length;
-    return filledSlots < totalSlots;
+    );
+    return filledSlots.length < totalSlots;
 }

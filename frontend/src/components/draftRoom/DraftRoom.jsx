@@ -11,6 +11,7 @@ import DraftDetailsContainer from "./draftDetails/DraftDetailsContainer";
 import TeamsV2 from "./teams/TeamsV2";
 import UpdatedPlayerListContainer from "./statistics/players/UpdatedPlayerListContainer";
 import TeamListContainer from "./myTeam/TeamListContainer";
+import {userIdSelector} from "../../store/selectors/UserSelectors";
 
 const styles = {
     rootContainer: {
@@ -31,6 +32,7 @@ class DraftRoom extends React.Component {
             isStompClientConnected: false,
             isPlayerDataLoaded: false,
             isDraftDataLoaded: false,
+            currentTeamId: null,
         };
     }
 
@@ -40,8 +42,10 @@ class DraftRoom extends React.Component {
     }
 
     async componentDidUpdate(prevProps, prevState, snapshot) {
-        if(this.props.draft !== prevProps.draft) {
+        if(this.props.draft !== prevProps.draft && this.props.userId !== null) {
             this.setState({isDraftDataLoaded: true});
+            const currentTeam = this.props.draft.teams.find(team => team.user.id === this.props.userId);
+            this.setState({currentTeamId: currentTeam.id})
         }
         if(this.props.stompClient != null && this.props.stompClient !== prevProps.stompClient) {
             if(this.props.stompClient.connected) {
@@ -60,9 +64,11 @@ class DraftRoom extends React.Component {
     render() {
         const {classes} = this.props;
 
-        if (!this.state.isStompClientConnected || !this.state.isDraftDataLoaded) {
+        if (!this.state.isStompClientConnected || !this.state.isDraftDataLoaded || !this.state.currentTeamId) {
             return <div />
         }
+
+        console.log(this.props.draft);
 
         return (
             <Grid container spacing={1} className={classes.rootContainer}>
@@ -84,7 +90,7 @@ class DraftRoom extends React.Component {
                 </Grid>
                 <Grid container item xs={2} style={{height: "100%", maxHeight: "100vh", overflow: "auto"}}>
                     <Grid item xs={12}>
-                        <TeamListContainer teamId={1} isDisabled={false}/>
+                        <TeamListContainer teamId={this.state.currentTeamId} isDisabled={false}/>
                     </Grid>
                 </Grid>
             </Grid>
@@ -97,6 +103,7 @@ const mapStateToProps = state => {
     return {
         draft: draftSelector(state),
         stompClient: stompClientSelector(state),
+        userId: userIdSelector(state),
     };
 };
 

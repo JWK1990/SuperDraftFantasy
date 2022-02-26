@@ -72,7 +72,6 @@ class MyTeamList extends React.Component {
     }
 
     handlePositionChange = (slot) => {
-        console.log("Handle.");
         // The previously selected player (in the state) should be updated based on the currently selected slot.
         let updatedPlayerPositions = [{
             playerId: this.state.selectedPlayer.id,
@@ -115,12 +114,22 @@ class MyTeamList extends React.Component {
 
         const isValidVacantSlot = slot.isVacant && (
             slot.slotPosition === "BENCH"
-            || slot.slotPosition === (this.state.selectedPlayer.primaryPosition || this.state.selectedPlayer.secondaryPosition)
+            || slot.slotPosition === this.state.selectedPlayer.primaryPosition
+            || slot.slotPosition === this.state.selectedPlayer.secondaryPosition
         );
 
+        const sourceSlotPosition = this.state.selectedSlotPosition;
+        const destinationSlotPosition = slot.slotPosition;
         const isValidOccupiedSlot = !slot.isVacant && (
-            (this.state.selectedPlayer.primaryPosition || this.state.secondaryPosition) === (slot.player.primaryPosition || slot.player.secondaryPosition)
-            || (this.state.selectedSlotPosition === "BENCH" && slot.slotPosition === "BENCH")
+            (
+                destinationSlotPosition === this.state.selectedPlayer.primaryPosition
+                || destinationSlotPosition === this.state.selectedPlayer.secondaryPosition
+                || destinationSlotPosition === "BENCH"
+            ) && (
+                sourceSlotPosition === slot.player.primaryPosition
+                || sourceSlotPosition === slot.player.secondaryPosition
+                || sourceSlotPosition === "BENCH"
+            )
         );
 
         return isDifferentSlot && (isValidVacantSlot || isValidOccupiedSlot);
