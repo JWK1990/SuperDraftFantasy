@@ -27,6 +27,10 @@ const styles = () => ({
         alignItems: "center",
         justifyContent: "left",
     },
+    isDrafted: {
+        backgroundColor: "rgba(220, 220, 220, 0.75)",
+        color: "rgba(0, 0, 0, 0.5)"
+    }
 });
 
 class PlayerRow extends React.Component {
@@ -71,7 +75,7 @@ class PlayerRow extends React.Component {
         const {classes} = this.props;
 
         return (
-            <Grid container item key={this.props.player.id} style={this.props.sizingStyle}>
+            <Grid container item key={this.props.player.id} style={this.props.sizingStyle} className={this.props.player.price ? classes.isDrafted : ''}>
                     <Grid item xs={1} >
                         <IconButton color={"primary"}
                                     onClick={() => this.sendAddToBlock(this.props.player.id, 1)}
@@ -82,12 +86,13 @@ class PlayerRow extends React.Component {
                         </IconButton>
                     </Grid>
                     <Grid item xs={3} className={classes.leftAlign}>{this.props.player.fullName}</Grid>
-                    <Grid item xs={2} className={classes.leftAlign}>{this.props.player.fullPosition}</Grid>
                     <Grid item xs={1} className={classes.leftAlign}>{this.props.player.aflTeam}</Grid>
-                    <Grid item xs={1} className={classes.centerAlign}>{this.props.player.average}</Grid>
-                    <Grid item xs={2} className={classes.centerAlign}>{this.props.player.disposals} &nbsp;({this.props.player.disposalEfficiency}%)</Grid>
+                    <Grid item xs={2} className={classes.leftAlign}>{this.props.player.fullPosition}</Grid>
+                    <Grid item xs={1} className={classes.centerAlign}>{this.props.player.average ? this.props.player.average : "-"}</Grid>
+                    <Grid item xs={1} className={classes.centerAlign}>{this.props.player.disposals ? this.props.player.disposals + " (" + this.props.player.disposalEfficiency + "%)" : "-"}</Grid>
                     <Grid item xs={1} className={classes.centerAlign}>{this.props.player.age}</Grid>
-                    <Grid item xs={1} className={classes.centerAlign}>{this.props.player.price2021}</Grid>
+                    <Grid item xs={1} className={classes.centerAlign}>{this.props.player.price2021 ? "$" + this.props.player.price2021 : "-"}</Grid>
+                    <Grid item xs={1} className={classes.centerAlign}>{this.props.player.price ? "$" + this.props.player.price : "-"}</Grid>
             </Grid>
         )
     }
