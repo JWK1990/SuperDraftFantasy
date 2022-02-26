@@ -20,7 +20,7 @@ public class PlayerRepositoryQueries {
 
     /* Select Best Undrafted Player In A Given Draft Excluding Given Positions. */
     public static final String selectBestUndraftedPlayerIdWithPositionFilter = "" +
-            "SELECT *\n" +
+            "SELECT pe.id\n" +
             "\tFrom player_entity pe \n" +
             "\t\tleft join player_position_join ppj\n" +
             "\t\t\tON PE.id = ppj.player_id\n" +
