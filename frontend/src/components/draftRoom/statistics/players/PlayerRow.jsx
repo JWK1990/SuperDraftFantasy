@@ -9,9 +9,10 @@ import {connect} from "react-redux";
 import {isBiddingUnderwaySelector, isOnTheBlockSelector,} from "../../../../store/selectors/BlockSelectors";
 import DraftRoomUtils from "../../../../utils/DraftRoomUtils";
 import Grid from "@material-ui/core/Grid";
-import {Checkbox, IconButton} from "@material-ui/core";
+import {Checkbox, createMuiTheme, IconButton, Input, InputAdornment, MuiThemeProvider} from "@material-ui/core";
 import AddIcon from "@material-ui/icons/Add";
 import withStyles from "@material-ui/core/styles/withStyles";
+import ImportedPlayerListUtils from "../../../../utils/ImportedPlayerListUtils";
 
 const styles = () => ({
     header: {
@@ -30,19 +31,35 @@ const styles = () => ({
     isDrafted: {
         backgroundColor: "rgba(220, 220, 220, 0.75)",
         color: "rgba(0, 0, 0, 0.5)"
-    }
+    },
+    myBudgetInput: {
+        '&:hover': {
+            background: "rgba(255, 255, 0, 0.5)",
+        },
+    },
+    inputAdornmentCenter: {
+        // Helps to center the adornment.
+        marginLeft: "30%",
+        // Reduces the gap between the adornment and the price.
+        marginRight: 0,
+    },
 });
 
 class PlayerRow extends React.Component {
 
     constructor(props) {
         super(props);
+        this.state = {
+            myBudget: this.props.player.budget,
+            typingTimer: null,
+        }
     }
 
     shouldComponentUpdate(nextProps, nextState, nextContext) {
-        return nextProps.isOnTheBlock !== this.props.isOnTheBlock ||
-            nextProps.draftBase.status !== this.props.draftBase.status ||
-            nextProps.slotAvailability !== this.props.slotAvailability;
+        return nextProps.isOnTheBlock !== this.props.isOnTheBlock
+            || nextProps.draftBase.status !== this.props.draftBase.status
+            || nextProps.slotAvailability !== this.props.slotAvailability
+            || nextState.myBudget !== this.state.myBudget;
     }
 
     getIsAddToBlockHidden = () => {
@@ -75,36 +92,55 @@ class PlayerRow extends React.Component {
         }
     };
 
+    handleMyBudgetChange = (myBudget, playerId) => {
+        this.setState({myBudget: myBudget})
+        clearTimeout(this.state.typingTimer);
+        const typingTimer = setTimeout(() => {
+            ImportedPlayerListUtils.setMyBudgetForPlayer(myBudget, playerId);
+        }, 1000)
+        this.setState({typingTimer: typingTimer});
+    }
+
     render() {
         const {classes} = this.props;
 
         return (
-            <Grid container item key={this.props.player.id} style={this.props.sizingStyle} className={this.props.player.price ? classes.isDrafted : ''}>
-                    <Grid item xs={1} >
-                        <Checkbox
-                            color={"primary"}
-                            onChange={(event) => this.props.triggerWatchlistChange(this.props.player.id)}
-                            checked={this.props.isOnWatchlist}
-                        />
-                        <IconButton color={"primary"}
-                                    onClick={() => this.sendAddToBlock(this.props.player.id, 1)}
-                                    hidden={this.getIsAddToBlockHidden()}
-                                    disabled={this.getIsAddToBlockDisabled()}
-                                    style={{paddingLeft: "4px"}}
-                        >
-                            <AddIcon />
-                        </IconButton>
-                    </Grid>
-                    <Grid item xs={3} className={classes.leftAlign}>{this.props.player.fullName}</Grid>
-                    <Grid item xs={1} className={classes.leftAlign}>{this.props.player.aflTeam}</Grid>
-                    <Grid item xs={1} className={classes.leftAlign}>{this.props.player.fullPosition}</Grid>
-                    <Grid item xs={1} className={classes.centerAlign}>{this.props.player.average ? this.props.player.average : "-"}</Grid>
-                    <Grid item xs={1} className={classes.centerAlign}>{this.props.player.disposals ? this.props.player.disposals + " (" + this.props.player.disposalEfficiency + "%)" : "-"}</Grid>
-                    <Grid item xs={1} className={classes.centerAlign}>{this.props.player.age}</Grid>
-                    <Grid item xs={1} className={classes.centerAlign}>{this.props.player.price2021 ? "$" + this.props.player.price2021 : "-"}</Grid>
-                    <Grid item xs={1} className={classes.centerAlign}>{this.props.player.price ? "$" + this.props.player.price : "-"}</Grid>
-                    <Grid item xs={1} className={classes.centerAlign}>{this.props.player.budget ? "$" + this.props.player.budget : "-"}</Grid>
-            </Grid>
+        <Grid container item key={this.props.player.id} style={this.props.sizingStyle} className={this.props.player.price ? classes.isDrafted : ''}>
+                <Grid item xs={1} >
+                    <Checkbox
+                        color={"primary"}
+                        onChange={(event) => this.props.triggerWatchlistChange(this.props.player.id)}
+                        checked={this.props.isOnWatchlist}
+                    />
+                    <IconButton color={"primary"}
+                                onClick={() => this.sendAddToBlock(this.props.player.id, 1)}
+                                hidden={this.getIsAddToBlockHidden()}
+                                disabled={this.getIsAddToBlockDisabled()}
+                                style={{paddingLeft: "4px"}}
+                    >
+                        <AddIcon />
+                    </IconButton>
+                </Grid>
+                <Grid item xs={3} className={classes.leftAlign}>{this.props.player.fullName}</Grid>
+                <Grid item xs={1} className={classes.leftAlign}>{this.props.player.aflTeam}</Grid>
+                <Grid item xs={1} className={classes.leftAlign}>{this.props.player.fullPosition}</Grid>
+                <Grid item xs={1} className={classes.centerAlign}>{this.props.player.average ? this.props.player.average : "-"}</Grid>
+                <Grid item xs={1} className={classes.centerAlign}>{this.props.player.disposals ? this.props.player.disposals + " (" + this.props.player.disposalEfficiency + "%)" : "-"}</Grid>
+                <Grid item xs={1} className={classes.centerAlign}>{this.props.player.age}</Grid>
+                <Grid item xs={1} className={classes.centerAlign}>{this.props.player.price2021 ? "$" + this.props.player.price2021 : "-"}</Grid>
+                <Grid item xs={1} className={classes.centerAlign}>{this.props.player.price ? "$" + this.props.player.price : "-"}</Grid>
+                <Grid item xs={1} className={classes.centerAlign}>
+                    <Input
+                        id="myBudget"
+                        value={this.state.myBudget}
+                        onChange={(event) => this.handleMyBudgetChange(event.target.value, this.props.player.id)}
+                        startAdornment={<InputAdornment position="start" classes={{positionStart: classes.inputAdornmentCenter}}><span style={{color: "black"}}>$</span></InputAdornment>}
+                        disableUnderline={"false"}
+                        className={classes.myBudgetInput}
+                    />
+
+                </Grid>
+        </Grid>
         )
     }
 }

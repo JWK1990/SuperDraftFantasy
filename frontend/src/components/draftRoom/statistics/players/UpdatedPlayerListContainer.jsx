@@ -90,12 +90,14 @@ class UpdatedPlayerListContainer extends React.PureComponent {
     mapInMyBudgetData(playerList) {
         const updatedPlayerList = [...playerList];
         const myBudgetDataList = ImportedPlayerListUtils.getMyBudgets();
-        myBudgetDataList.forEach(myBudgetData => {
-            const playerIndex = playerList.findIndex(player => player.id === myBudgetData.id);
-            if(playerIndex > - 1) {
-                updatedPlayerList[playerIndex].budget = myBudgetData.myBudget;
-            }
-        })
+        if(myBudgetDataList && myBudgetDataList.length > 0) {
+            myBudgetDataList.forEach(myBudgetData => {
+                const playerIndex = playerList.findIndex(player => player.id === myBudgetData.id);
+                if(playerIndex > - 1) {
+                    updatedPlayerList[playerIndex].budget = myBudgetData.myBudget;
+                }
+            })
+        }
         return updatedPlayerList;
     }
 

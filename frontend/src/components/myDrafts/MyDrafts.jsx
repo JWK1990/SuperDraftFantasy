@@ -8,7 +8,7 @@ import CsvParserUtils from "../../utils/CsvParserUtils";
 import Button from "@material-ui/core/Button";
 import ImportedPlayerListUtils from "../../utils/ImportedPlayerListUtils";
 import {userIdSelector} from "../../store/selectors/UserSelectors";
-import {Table, TableBody, TableCell, TableContainer, TableHead, TableRow} from "@material-ui/core";
+import {CircularProgress, Table, TableBody, TableCell, TableContainer, TableHead, TableRow} from "@material-ui/core";
 import Paper from "@material-ui/core/Paper";
 import draftService from "../../services/DraftService";
 
@@ -18,7 +18,8 @@ class MyDrafts extends React.Component {
         super(props);
         this.state = {
             selectedDraft: '',
-            redirectPath: null
+            redirectPath: null,
+            isUploading: false,
         };
     }
 
@@ -38,6 +39,7 @@ class MyDrafts extends React.Component {
     }
 
     uploadPlayerList(file, draftId) {
+        this.setState({isUploading: true});
         CsvParserUtils.parseCsvFilesToJson(file)
             .then(uploadedData => {
                 const watchlist = [];
@@ -57,6 +59,10 @@ class MyDrafts extends React.Component {
                 this.updateWatchlist(watchlist, draftId);
                 // We clear the value here to ensure that a new file can be uploaded without refreshing the page.
                 this.fileUploadRef.current.value = '';
+                // We use a setTimeout of 2 seconds here to at least show the loading spinner for a little bit.
+                setTimeout(() => {
+                    this.setState({isUploading: false});
+                }, 2000)
             });
     }
 
@@ -127,7 +133,16 @@ class MyDrafts extends React.Component {
                                                     component="label"
                                                     color="primary"
                                                 >
-                                                    Upload
+                                                    {
+                                                        this.state.isUploading
+                                                            ? (
+                                                                <CircularProgress
+                                                                    size={20}
+                                                                    style={{color: "rgb(8,255,8)"}}
+                                                                />
+                                                            )
+                                                            : 'Upload'
+                                                    }
                                                     <input
                                                         type="file"
                                                         hidden

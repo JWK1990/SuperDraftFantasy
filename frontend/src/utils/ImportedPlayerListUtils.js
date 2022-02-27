@@ -7,11 +7,26 @@ class ImportedPlayerListUtils {
 
     getMyBudgets() {
         const myBudgetsString = localStorage.getItem('myBudgets');
-        return JSON.parse(myBudgetsString);
+        return myBudgetsString ? JSON.parse(myBudgetsString) : [];
     }
 
     removeMyBudgets() {
         localStorage.removeItem('myBudgets');
+    }
+
+    setMyBudgetForPlayer(myBudget, playerId) {
+        const currentMyBudgetList = this.getMyBudgets();
+        const updatedMyBudgetList = currentMyBudgetList.length > 0 ? [...this.getMyBudgets()] : [];
+        const currentMyBudgetIndex = updatedMyBudgetList.findIndex(myBudgetData => myBudgetData.id === playerId);
+        if(currentMyBudgetIndex > -1) {
+            updatedMyBudgetList[currentMyBudgetIndex].myBudget = myBudget;
+        } else {
+            updatedMyBudgetList.push({
+                id: playerId,
+                myBudget: myBudget,
+            })
+        }
+        this.setMyBudgets(updatedMyBudgetList);
     }
 
 }
