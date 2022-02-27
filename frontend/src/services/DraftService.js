@@ -79,6 +79,10 @@ class DraftService {
         return axios.put("/watchlist/remove?teamId=" + teamId + "&playerId=" + playerId);
     }
 
+    addPlayerListToWatchlistForTeamId(playerList, teamId) {
+        return axios.post("/watchlist/add?teamId=" + teamId, playerList);
+    }
+
 }
 
 export default new DraftService();

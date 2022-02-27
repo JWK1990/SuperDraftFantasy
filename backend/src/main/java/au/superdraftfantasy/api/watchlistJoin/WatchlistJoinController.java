@@ -37,4 +37,12 @@ public class WatchlistJoinController {
         return watchlistJoinService.removePlayerFromWatchlistForTeamId(teamId, playerId);
     }
 
+    @PostMapping(name = "addPlayerListToWatchlistForTeamId", path="/add")
+    private Set<Long> addPlayerListToWatchlistForTeamId(
+            @RequestParam final Long teamId,
+            @RequestBody final Set<Long> playerIdSet
+    ) {
+        return watchlistJoinService.addPlayerListToWatchlistForTeamId(teamId, playerIdSet);
+    }
+
 }
