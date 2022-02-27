@@ -34,7 +34,9 @@ const styles = () => ({
     },
     myBudgetInput: {
         '&:hover': {
-            background: "rgba(255, 255, 0, 0.5)",
+            textDecoration: "underline",
+            fontWeight: "bold",
+            color: "grey",
         },
     },
     inputAdornmentCenter: {
@@ -43,6 +45,11 @@ const styles = () => ({
         // Reduces the gap between the adornment and the price.
         marginRight: 0,
     },
+    playerContainer: {
+        '&:hover': {
+            background: "rgba(255, 255, 0, 0.5)",
+        }
+    }
 });
 
 class PlayerRow extends React.Component {
@@ -105,7 +112,10 @@ class PlayerRow extends React.Component {
         const {classes} = this.props;
 
         return (
-        <Grid container item key={this.props.player.id} style={this.props.sizingStyle} className={this.props.player.price ? classes.isDrafted : ''}>
+        <Grid container item
+              key={this.props.player.id}
+              style={this.props.sizingStyle}
+              className={[this.props.player.price ? classes.isDrafted : '', classes.playerContainer]}>
                 <Grid item xs={1} >
                     <Checkbox
                         color={"primary"}
@@ -137,6 +147,7 @@ class PlayerRow extends React.Component {
                         startAdornment={<InputAdornment position="start" classes={{positionStart: classes.inputAdornmentCenter}}><span style={{color: "black"}}>$</span></InputAdornment>}
                         disableUnderline={"false"}
                         className={classes.myBudgetInput}
+                        autoComplete={"off"}
                     />
 
                 </Grid>
