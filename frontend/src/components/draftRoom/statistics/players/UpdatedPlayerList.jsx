@@ -96,12 +96,13 @@ export default function UpdatedPlayerList({
                 <Grid item xs={1} className={[classes.centerAlign, classes.header].join(' ')}>&nbsp;</Grid>
                 <Grid item xs={3} className={[classes.leftAlign, classes.header].join(' ')}>Name</Grid>
                 <Grid item xs={1} className={[classes.leftAlign, classes.header].join(' ')}>Team</Grid>
-                <Grid item xs={2} className={[classes.leftAlign, classes.header].join(' ')}>Pos</Grid>
+                <Grid item xs={1} className={[classes.leftAlign, classes.header].join(' ')}>Pos</Grid>
                 <Grid item xs={1} className={[classes.centerAlign, classes.header].join(' ')}>SC</Grid>
                 <Grid item xs={1} className={[classes.centerAlign, classes.header].join(' ')}>Disp (DE)</Grid>
                 <Grid item xs={1} className={[classes.centerAlign, classes.header].join(' ')}>Age</Grid>
                 <Grid item xs={1} className={[classes.centerAlign, classes.header].join(' ')}>$ ('21)</Grid>
                 <Grid item xs={1} className={[classes.centerAlign, classes.header].join(' ')}>$ ('22)</Grid>
+                <Grid item xs={1} className={[classes.centerAlign, classes.header].join(' ')}>Budget</Grid>
             </Grid>
             <InfiniteLoader
                 isItemLoaded={isItemLoaded}

@@ -97,12 +97,13 @@ class PlayerRow extends React.Component {
                     </Grid>
                     <Grid item xs={3} className={classes.leftAlign}>{this.props.player.fullName}</Grid>
                     <Grid item xs={1} className={classes.leftAlign}>{this.props.player.aflTeam}</Grid>
-                    <Grid item xs={2} className={classes.leftAlign}>{this.props.player.fullPosition}</Grid>
+                    <Grid item xs={1} className={classes.leftAlign}>{this.props.player.fullPosition}</Grid>
                     <Grid item xs={1} className={classes.centerAlign}>{this.props.player.average ? this.props.player.average : "-"}</Grid>
                     <Grid item xs={1} className={classes.centerAlign}>{this.props.player.disposals ? this.props.player.disposals + " (" + this.props.player.disposalEfficiency + "%)" : "-"}</Grid>
                     <Grid item xs={1} className={classes.centerAlign}>{this.props.player.age}</Grid>
                     <Grid item xs={1} className={classes.centerAlign}>{this.props.player.price2021 ? "$" + this.props.player.price2021 : "-"}</Grid>
                     <Grid item xs={1} className={classes.centerAlign}>{this.props.player.price ? "$" + this.props.player.price : "-"}</Grid>
+                    <Grid item xs={1} className={classes.centerAlign}>{this.props.player.budget ? "$" + this.props.player.budget : "-"}</Grid>
             </Grid>
         )
     }

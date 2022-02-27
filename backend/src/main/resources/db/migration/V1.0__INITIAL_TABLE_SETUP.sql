@@ -157,7 +157,7 @@ CREATE TABLE player_position_join (
 );
 
 CREATE TABLE team_player_join_entity (
-     id SERIAL,
+     id SERIAL PRIMARY KEY,
      team_id INT,
      player_id INT,
      price SMALLINT,
@@ -172,7 +172,7 @@ CREATE TABLE team_player_join_entity (
 );
 
 CREATE TABLE season_summary_entity (
-     id SERIAL,
+     id SERIAL PRIMARY KEY,
      player_id SMALLINT,
      afl_team_id SMALLINT,
      year SMALLINT,
@@ -218,7 +218,7 @@ CREATE TABLE season_summary_entity (
 );
 
 CREATE TABLE game_entity (
-    id SERIAL,
+    id SERIAL PRIMARY KEY,
     player_id SMALLINT,
     year SMALLINT,
     afl_team_id SMALLINT,
@@ -255,7 +255,7 @@ CREATE TABLE game_entity (
 );
 
 CREATE TABLE watchlist_join_entity (
-     id SERIAL,
+     id SERIAL PRIMARY KEY,
      team_id INT,
      player_id INT,
 

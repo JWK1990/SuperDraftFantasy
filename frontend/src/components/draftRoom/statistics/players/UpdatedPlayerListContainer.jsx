@@ -6,6 +6,7 @@ import Grid from "@material-ui/core/Grid";
 import PlayerFilter from "./PlayerFilter";
 import UpdatedPlayerList from "./UpdatedPlayerList";
 import {stompClientSelector} from "../../../../store/selectors/WebSocketSelectors";
+import ImportedPlayerListUtils from "../../../../utils/ImportedPlayerListUtils";
 
 class UpdatedPlayerListContainer extends React.PureComponent {
 
@@ -55,13 +56,14 @@ class UpdatedPlayerListContainer extends React.PureComponent {
                 this.state.isShowWatchlistFilterOn,
             )
                 .then(players => {
+                    const playersWithMyBudgetData = this.mapInMyBudgetData(players.data.content);
                     this.setState(state => ({
                             /* Players are loaded in batches of 25 and therefore hasNextPage is calculated in batches of 25.
                                If the last batch contained the last player, then hasNextPage is false (hence the 778-25).
                             */
                             hasNextPage: state.items.length < (players.data.totalElements - 25),
                             isNextPageLoading: false,
-                            items: [...state.items].concat(players.data.content),
+                            items: [...state.items].concat(playersWithMyBudgetData),
                         }));
                     }
                 );
@@ -83,6 +85,18 @@ class UpdatedPlayerListContainer extends React.PureComponent {
             positionFilter += "FWD"
         }
         return positionFilter;
+    }
+
+    mapInMyBudgetData(playerList) {
+        const updatedPlayerList = [...playerList];
+        const myBudgetDataList = ImportedPlayerListUtils.getMyBudgets();
+        myBudgetDataList.forEach(myBudgetData => {
+            const playerIndex = playerList.findIndex(player => player.id === myBudgetData.id);
+            if(playerIndex > - 1) {
+                updatedPlayerList[playerIndex].budget = myBudgetData.myBudget;
+            }
+        })
+        return updatedPlayerList;
     }
 
     handleHideDraftedSwitchChange = (event) => {
