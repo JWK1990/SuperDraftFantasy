@@ -8,6 +8,7 @@ import Grid from "@material-ui/core/Grid";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import PlayerRow from "./PlayerRow";
 import draftService from "../../../../services/DraftService";
+import PlayerDetails from "./PlayerDetails";
 
 const useStyles = makeStyles((theme) => ({
     header: {
@@ -23,6 +24,9 @@ const useStyles = makeStyles((theme) => ({
         alignItems: "center",
         justifyContent: "left",
     },
+    greyedOut: {
+        opacity: 0.4,
+    }
 }));
 
 export default function UpdatedPlayerList({
@@ -51,8 +55,11 @@ export default function UpdatedPlayerList({
 
     const classes = useStyles();
     const rowHeight = 50;
+    const containerRef = React.useRef(null);
 
-    const [watchlistPlayerIds, setWatchlistPlayerIds] = React.useState();
+    const [watchlistPlayerIds, setWatchlistPlayerIds] = React.useState(null);
+    const [selectedPlayerId, setSelectedPlayerId] = React.useState(null);
+    const [anchorElement, setAnchorElement] = React.useState(null);
 
     // A good explanation of how useEffect works can be found here https://medium.com/@timtan93/states-and-componentdidmount-in-functional-components-with-hooks-cac5484d22ad.
     useEffect(() => {
@@ -76,6 +83,24 @@ export default function UpdatedPlayerList({
         }
     }
 
+    const handleOpenPlayerDetails = (event, playerId) => {
+        setSelectedPlayerId(playerId);
+        // Set the AnchorElement to be the Grid Container, even though the click originated in the PlayerRow.
+        setAnchorElement(containerRef.current);
+    };
+
+    const handleClosePlayerDetails = (event) => {
+        // This is triggered on a click outside of the Player Details Popper.
+        // If the click was inside of the Grid Container, we close the Popper.
+        // If the click was outside of the Grid Container, we keep the Popper open.
+        // This stops the Popper being closed when a Coach bids.
+        const wasClickInsideGridContainer = containerRef.current.contains(event.target);
+        if(wasClickInsideGridContainer) {
+            setSelectedPlayerId(null);
+            setAnchorElement(null);
+        }
+    };
+
     const PlayerRowContainer = ({ index, style }) => {
         const player = items[index];
         return (
@@ -86,46 +111,61 @@ export default function UpdatedPlayerList({
                     player={player}
                     isOnWatchlist={getIsOnWatchlist(player.id)}
                     triggerWatchlistChange={handleWatchlistChange}
+                    triggerOpenPlayerDetails={handleOpenPlayerDetails}
                 />
         )
     };
 
     return (
-        <Grid container component={Paper} direction={"column"} style={{height: "var(--draft-room-player-list-height)"}}>
-            <Grid container item style={{paddingRight: "15.33px", height: rowHeight}}>
-                <Grid item xs={1} className={[classes.centerAlign, classes.header].join(' ')}>&nbsp;</Grid>
-                <Grid item xs={3} className={[classes.leftAlign, classes.header].join(' ')}>Name</Grid>
-                <Grid item xs={1} className={[classes.leftAlign, classes.header].join(' ')}>Team</Grid>
-                <Grid item xs={1} className={[classes.leftAlign, classes.header].join(' ')}>Pos</Grid>
-                <Grid item xs={1} className={[classes.centerAlign, classes.header].join(' ')}>SC</Grid>
-                <Grid item xs={1} className={[classes.centerAlign, classes.header].join(' ')}>Disp (DE)</Grid>
-                <Grid item xs={1} className={[classes.centerAlign, classes.header].join(' ')}>Age</Grid>
-                <Grid item xs={1} className={[classes.centerAlign, classes.header].join(' ')}>$ ('21)</Grid>
-                <Grid item xs={1} className={[classes.centerAlign, classes.header].join(' ')}>$ ('22)</Grid>
-                <Grid item xs={1} className={[classes.centerAlign, classes.header].join(' ')}>Budget</Grid>
-            </Grid>
-            <InfiniteLoader
-                isItemLoaded={isItemLoaded}
-                itemCount={itemCount}
-                loadMoreItems={loadMoreItems}
-            >
-                {({ onItemsRendered, ref }) => (
-                    <AutoSizer>
-                        {({height, width}) => (
-                            <FixedSizeList
-                                height={height - rowHeight} // Minus rowHeight to cater for header row.
-                                width={width}
-                                itemCount={itemCount}
-                                itemSize={rowHeight}
-                                onItemsRendered={onItemsRendered}
-                                ref={ref}
-                            >
-                                {PlayerRowContainer}
-                            </FixedSizeList>
+        <>
+            <div className={anchorElement !== null ? classes.greyedOut : ''}>
+                <Grid container component={Paper} direction={"column"}
+                      style={{height: "var(--draft-room-player-list-height)"}}
+                      ref={containerRef}
+                >
+                    <Grid container item style={{paddingRight: "15.33px", height: rowHeight}}>
+                        <Grid item xs={1} className={[classes.centerAlign, classes.header].join(' ')}>&nbsp;</Grid>
+                        <Grid item xs={3} className={[classes.leftAlign, classes.header].join(' ')}>Name</Grid>
+                        <Grid item xs={1} className={[classes.leftAlign, classes.header].join(' ')}>Team</Grid>
+                        <Grid item xs={1} className={[classes.leftAlign, classes.header].join(' ')}>Pos</Grid>
+                        <Grid item xs={1} className={[classes.centerAlign, classes.header].join(' ')}>SC</Grid>
+                        <Grid item xs={1} className={[classes.centerAlign, classes.header].join(' ')}>Disp (DE)</Grid>
+                        <Grid item xs={1} className={[classes.centerAlign, classes.header].join(' ')}>Age</Grid>
+                        <Grid item xs={1} className={[classes.centerAlign, classes.header].join(' ')}>$ ('21)</Grid>
+                        <Grid item xs={1} className={[classes.centerAlign, classes.header].join(' ')}>$ ('22)</Grid>
+                        <Grid item xs={1} className={[classes.centerAlign, classes.header].join(' ')}>Budget</Grid>
+                    </Grid>
+                    <InfiniteLoader
+                        isItemLoaded={isItemLoaded}
+                        itemCount={itemCount}
+                        loadMoreItems={loadMoreItems}
+                    >
+                        {({ onItemsRendered, ref }) => (
+                            <AutoSizer>
+                                {({height, width}) => (
+                                    <FixedSizeList
+                                        height={height - rowHeight} // Minus rowHeight to cater for header row.
+                                        width={width}
+                                        itemCount={itemCount}
+                                        itemSize={rowHeight}
+                                        onItemsRendered={onItemsRendered}
+                                        ref={ref}
+                                    >
+                                        {PlayerRowContainer}
+                                    </FixedSizeList>
+                                )}
+                            </AutoSizer>
                         )}
-                    </AutoSizer>
-                )}
-            </InfiniteLoader>
-        </Grid>
+                    </InfiniteLoader>
+                </Grid>
+            </div>
+            <div>
+                <PlayerDetails
+                    playerId={selectedPlayerId}
+                    triggerPlayerDetailsClose={handleClosePlayerDetails}
+                    anchorElement={anchorElement}
+                />
+            </div>
+        </>
     )
 };
