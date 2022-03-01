@@ -5,7 +5,6 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import PlayerPictureFetcher from "../../../../../shared/imageFetchers/PlayerPictureFetcher";
-import BlockPlayerYearStats from "./stats/BlockPlayerYearStats";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -69,7 +68,7 @@ export default function BlockPlayerCard(props) {
                     </Typography>
                 </CardContent>
                 <div className={classes.controls}>
-                    <BlockPlayerYearStats player={props.player}/>
+                    {props.statsComponent}
                 </div>
             </div>
         </Card>
