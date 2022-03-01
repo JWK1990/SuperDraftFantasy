@@ -8,7 +8,7 @@ import Grid from "@material-ui/core/Grid";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import PlayerRow from "./PlayerRow";
 import draftService from "../../../../services/DraftService";
-import PlayerDetails from "./PlayerDetails";
+import PlayerDetailsPopper from "./PlayerDetailsPopper";
 
 const useStyles = makeStyles((theme) => ({
     header: {
@@ -58,7 +58,7 @@ export default function UpdatedPlayerList({
     const containerRef = React.useRef(null);
 
     const [watchlistPlayerIds, setWatchlistPlayerIds] = React.useState(null);
-    const [selectedPlayerId, setSelectedPlayerId] = React.useState(null);
+    const [selectedPlayer, setSelectedPlayer] = React.useState(null);
     const [anchorElement, setAnchorElement] = React.useState(null);
 
     // A good explanation of how useEffect works can be found here https://medium.com/@timtan93/states-and-componentdidmount-in-functional-components-with-hooks-cac5484d22ad.
@@ -67,7 +67,9 @@ export default function UpdatedPlayerList({
             .then(response => {
                 setWatchlistPlayerIds(response.data);
             });
-    }, []);
+    }, [teamId]);
+
+
 
     const getIsOnWatchlist = (playerId) => {
         return watchlistPlayerIds.indexOf(playerId) > -1;
@@ -83,22 +85,15 @@ export default function UpdatedPlayerList({
         }
     }
 
-    const handleOpenPlayerDetails = (event, playerId) => {
-        setSelectedPlayerId(playerId);
+    const handleOpenPlayerDetails = (player) => {
+        setSelectedPlayer(player);
         // Set the AnchorElement to be the Grid Container, even though the click originated in the PlayerRow.
         setAnchorElement(containerRef.current);
     };
 
-    const handleClosePlayerDetails = (event) => {
-        // This is triggered on a click outside of the Player Details Popper.
-        // If the click was inside of the Grid Container, we close the Popper.
-        // If the click was outside of the Grid Container, we keep the Popper open.
-        // This stops the Popper being closed when a Coach bids.
-        const wasClickInsideGridContainer = containerRef.current.contains(event.target);
-        if(wasClickInsideGridContainer) {
-            setSelectedPlayerId(null);
+    const handleClosePlayerDetails = () => {
+            setSelectedPlayer(null);
             setAnchorElement(null);
-        }
     };
 
     const PlayerRowContainer = ({ index, style }) => {
@@ -160,9 +155,9 @@ export default function UpdatedPlayerList({
                 </Grid>
             </div>
             <div>
-                <PlayerDetails
-                    playerId={selectedPlayerId}
-                    triggerPlayerDetailsClose={handleClosePlayerDetails}
+                <PlayerDetailsPopper
+                    player={selectedPlayer}
+                    triggerClosePlayerDetails={handleClosePlayerDetails}
                     anchorElement={anchorElement}
                 />
             </div>

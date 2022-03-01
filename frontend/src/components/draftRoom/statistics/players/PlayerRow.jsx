@@ -9,11 +9,10 @@ import {connect} from "react-redux";
 import {isBiddingUnderwaySelector, isOnTheBlockSelector,} from "../../../../store/selectors/BlockSelectors";
 import DraftRoomUtils from "../../../../utils/DraftRoomUtils";
 import Grid from "@material-ui/core/Grid";
-import {Checkbox, createMuiTheme, IconButton, Input, InputAdornment, MuiThemeProvider} from "@material-ui/core";
+import {Checkbox, IconButton, Input, InputAdornment} from "@material-ui/core";
 import AddIcon from "@material-ui/icons/Add";
 import withStyles from "@material-ui/core/styles/withStyles";
 import ImportedPlayerListUtils from "../../../../utils/ImportedPlayerListUtils";
-import PlayerDetails from "./PlayerDetails";
 
 const styles = () => ({
     header: {
@@ -144,7 +143,7 @@ class PlayerRow extends React.Component {
                 <Grid item xs={1} className={classes.centerAlign}>{this.props.player.price2021 ? "$" + this.props.player.price2021 : "-"}</Grid>
                 <Grid item xs={1} className={classes.centerAlign}>
                     <IconButton color={"primary"}
-                                onClick={(event) => this.props.triggerOpenPlayerDetails(event, this.props.player.id)}
+                                onClick={() => this.props.triggerOpenPlayerDetails(this.props.player)}
                     >
                         <AddIcon />
                     </IconButton>
