@@ -5,7 +5,10 @@ import CancelIcon from "@material-ui/icons/Cancel";
 import Typography from "@material-ui/core/Typography";
 import React from "react";
 import withStyles from "@material-ui/core/styles/withStyles";
-import SCAverageGraph from "../../block/details/player/playerAnalysis/graphs/SCAverageGraph";
+import BlockPlayerCard from "../../block/details/player/playerCard/BlockPlayerCard";
+import PlayerDetailsYearStats from "../../block/details/player/playerCard/stats/PlayerDetailsYearStats";
+import SeasonSummaryGraph from "../../block/details/player/playerAnalysis/graphs/SeasonSummaryGraph";
+import CareerSummaryGraph from "../../block/details/player/playerAnalysis/CareerSummaryGraph";
 
 const styles = {
     container: {
@@ -50,11 +53,17 @@ class PlayerDetailsCard extends React.Component {
                 </Grid>
                 {/* Row 2. */}
                 <Grid item xs={7}>
+                    <BlockPlayerCard
+                        player={this.props.player}
+                        statsComponent={<PlayerDetailsYearStats player={this.props.player}/>}
+                    />
                 </Grid>
                 <Grid item xs={5}>
-                    <SCAverageGraph
+                    <SeasonSummaryGraph
                         playerId={this.props.player.id}
                         primaryPosition={this.props.player.primaryPosition}
+                        dataKey={"average"}
+                        title={"SC Scores 2021"}
                     />
                 </Grid>
                 {/* Row 3. */}
@@ -62,9 +71,11 @@ class PlayerDetailsCard extends React.Component {
                     <Typography>Add Stats Here.</Typography>
                 </Grid>
                 <Grid item xs={5}>
-                    <SCAverageGraph
+                    <CareerSummaryGraph
                         playerId={this.props.player.id}
                         primaryPosition={this.props.player.primaryPosition}
+                        dataKey={"average"}
+                        title={"SC Average - Career"}
                     />
                 </Grid>
                 {/* Row 4. */}
@@ -72,9 +83,11 @@ class PlayerDetailsCard extends React.Component {
                     <Typography>Add More Stats Here.</Typography>
                 </Grid>
                 <Grid item xs={5}>
-                    <SCAverageGraph
+                    <CareerSummaryGraph
                         playerId={this.props.player.id}
                         primaryPosition={this.props.player.primaryPosition}
+                        dataKey={"average"}
+                        title={"SC Average - Career"}
                     />
                 </Grid>
             </Grid>
