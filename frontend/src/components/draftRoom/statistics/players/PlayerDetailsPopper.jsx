@@ -1,22 +1,7 @@
 import React, {useState} from "react";
 import {ClickAwayListener} from "@material-ui/core";
-import withStyles from "@material-ui/core/styles/withStyles";
 import PlayerDetailsCard from "./PlayerDetailsCard";
 import {usePopper} from "react-popper";
-
-
-const styles = {
-    box: {
-        position: 'fixed',
-        width: 200,
-        top: '50%',
-        left: '50%',
-        transform: 'translate(-50%, -50%)',
-        border: '1px solid',
-        p: 1,
-        bgcolor: 'background.paper',
-    }
-}
 
 const PlayerDetailsPopper = (props) => {
     const [popperElement, setPopperElement] = useState(null);
@@ -89,4 +74,4 @@ const PlayerDetailsPopper = (props) => {
     );
 };
 
-export default withStyles(styles)(PlayerDetailsPopper);
+export default PlayerDetailsPopper;
