@@ -30,7 +30,7 @@ const CustomTooltip = ({ active, payload, label }) => {
     if (active && payload && payload.length) {
         return (
             <Paper style={{width: "160px", textAlign: "center"}}>
-                <Typography variant={"subtitle2"}>{`Year ${label} - ${payload[0].value} Points`}</Typography>
+                <Typography variant={"subtitle2"}>{`${label} - ${payload[0].value} Points`}</Typography>
             </Paper>
         );
     }
@@ -112,7 +112,7 @@ export default function CareerSummaryGraph(props) {
                     >
                         <CartesianGrid stroke="grey" strokeDasharray="2 2" vertical={false}/>
                         <XAxis dataKey="year" tick={false} height={5} />
-                        <YAxis ticks={[50, 100, 150]} tick={{ fontSize: 10 }}/>
+                        <YAxis ticks={props.ticks} tick={{ fontSize: 10 }}/>
                         <Tooltip content={<CustomTooltip />} position={{ x: 50, y: 0 }}/>
                         <Bar dataKey={props.dataKey}
                              barSize={10}
