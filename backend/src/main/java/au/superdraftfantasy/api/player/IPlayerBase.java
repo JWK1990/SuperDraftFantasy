@@ -31,6 +31,14 @@ public interface IPlayerBase {
 
     Integer getRank();
 
+    Integer getCareerPrice();
+
+    Integer getCareerActualValue();
+
+    Integer getCareerPriceOverUnder();
+
+    Integer getCareerPriceOverUnderPercentage();
+
     @Value("#{@playerDataFetcher.getPrimaryPosition(target)}")
     String getPrimaryPosition();
 

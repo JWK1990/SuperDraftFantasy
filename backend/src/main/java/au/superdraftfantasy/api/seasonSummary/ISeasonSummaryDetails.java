@@ -28,4 +28,5 @@ public interface ISeasonSummaryDetails extends ISeasonSummaryBase {
     Integer getIntercepts();
     Double getTacklesInsideFifty();
     Integer getTimeOnGround();
+
 }

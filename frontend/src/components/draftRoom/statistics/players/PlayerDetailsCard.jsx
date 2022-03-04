@@ -76,6 +76,7 @@ class PlayerDetailsCard extends React.Component {
                         primaryPosition={this.props.player.primaryPosition}
                         dataKey={"average"}
                         title={"SC Average - Career"}
+                        ticks={[50, 100, 150]}
                     />
                 </Grid>
                 {/* Row 4. */}
@@ -86,8 +87,9 @@ class PlayerDetailsCard extends React.Component {
                     <CareerSummaryGraph
                         playerId={this.props.player.id}
                         primaryPosition={this.props.player.primaryPosition}
-                        dataKey={"average"}
-                        title={"SC Average - Career"}
+                        dataKey={"price"}
+                        title={"$ - Career"}
+                        ticks={[0, 20, 40, 60]}
                     />
                 </Grid>
             </Grid>

@@ -14,7 +14,7 @@ public class PlayerBaseReadDto {
 
     public PlayerBaseReadDto(
             IPlayerBase playerBase,
-            ISeasonSummaryBase baseStats,
+            ISeasonSummaryBase seasonSummaryBase,
             ITeamPlayerJoinBase teamPlayerJoin
     ) {
         this.id = playerBase.getId();
@@ -33,12 +33,15 @@ public class PlayerBaseReadDto {
         this.psAverage = playerBase.getPsAverage();
         this.price2021 = playerBase.getPrice2021();
         this.rank = playerBase.getRank();
-        if(baseStats != null) {
-            this.games = baseStats.getGames();
-            this.average = baseStats.getAverage();
-            this.disposals = baseStats.getDisposals();
-            this.disposalEfficiency = baseStats.getDisposalEfficiency();
-            this.tackles = baseStats.getTackles();
+        this.careerPrice = playerBase.getCareerPrice();
+        this.careerActualValue = playerBase.getCareerActualValue();
+        this.careerPriceOverUnder = playerBase.getCareerPriceOverUnder();
+        this.careerPriceOverUnderPercentage = playerBase.getCareerPriceOverUnderPercentage();
+        if(seasonSummaryBase != null) {
+            this.games = seasonSummaryBase.getGames();
+            this.average = seasonSummaryBase.getAverage();
+            this.disposals = seasonSummaryBase.getDisposals();
+            this.disposalEfficiency = seasonSummaryBase.getDisposalEfficiency();
         }
         if(teamPlayerJoin != null) {
             this.available = false;
@@ -77,6 +80,14 @@ public class PlayerBaseReadDto {
 
     Integer rank;
 
+    Integer careerPrice;
+
+    Integer careerActualValue;
+
+    Integer careerPriceOverUnder;
+
+    Integer careerPriceOverUnderPercentage;
+
     String primaryPosition;
 
     String secondaryPosition;
@@ -90,8 +101,6 @@ public class PlayerBaseReadDto {
     Integer disposals;
 
     Integer disposalEfficiency;
-
-    Integer tackles;
 
     Boolean available;
 
@@ -110,6 +119,5 @@ public class PlayerBaseReadDto {
         }
         return fullPosition;
     }
-
 
 }

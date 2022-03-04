@@ -131,6 +131,10 @@ CREATE TABLE player_entity (
     sd_team_id_2021 SMALLINT,
     is_active BOOLEAN,
     rank SMALLINT,
+    career_price SMALLINT,
+    career_actual_value SMALLINT,
+    career_price_over_under SMALLINT,
+    career_price_over_under_percentage SMALLINT,
 
     CONSTRAINT fk_afl_team_id FOREIGN KEY (afl_team_id) REFERENCES afl_teams_enum(id)
 );

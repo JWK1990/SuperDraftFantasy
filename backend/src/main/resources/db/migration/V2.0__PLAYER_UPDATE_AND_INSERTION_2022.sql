@@ -29,8 +29,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 3,
             "price_2021": 60,
             "sd_team_id_2021": 9,
-            "is_active": true,
-            "rank": 5
+            "is_active": 1,
+            "rank": 5,
+            "career_price": 44,
+            "career_actual_value": 42,
+            "career_price_over_under": 2,
+            "career_price_over_under_percentage": 4
           },
           {
             "id": 2,
@@ -56,8 +60,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 55,
             "sd_team_id_2021": 1,
-            "is_active": true,
-            "rank": 36
+            "is_active": 1,
+            "rank": 36,
+            "career_price": 38,
+            "career_actual_value": 39,
+            "career_price_over_under": -1,
+            "career_price_over_under_percentage": -3
           },
           {
             "id": 3,
@@ -83,8 +91,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 8,
             "price_2021": 55,
             "sd_team_id_2021": 9,
-            "is_active": true,
-            "rank": 26
+            "is_active": 1,
+            "rank": 26,
+            "career_price": 37,
+            "career_actual_value": 37,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": 1
           },
           {
             "id": 4,
@@ -110,8 +122,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 2,
             "price_2021": 51,
             "sd_team_id_2021": 4,
-            "is_active": true,
-            "rank": 2
+            "is_active": 1,
+            "rank": 2,
+            "career_price": 39,
+            "career_actual_value": 45,
+            "career_price_over_under": -6,
+            "career_price_over_under_percentage": -16
           },
           {
             "id": 5,
@@ -137,8 +153,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 8,
             "price_2021": 40,
             "sd_team_id_2021": 1,
-            "is_active": true,
-            "rank": 176
+            "is_active": 1,
+            "rank": 176,
+            "career_price": 20,
+            "career_actual_value": 17,
+            "career_price_over_under": 4,
+            "career_price_over_under_percentage": 17
           },
           {
             "id": 6,
@@ -164,8 +184,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": 45,
             "sd_team_id_2021": 5,
-            "is_active": true,
-            "rank": 3
+            "is_active": 1,
+            "rank": 3,
+            "career_price": 18,
+            "career_actual_value": 31,
+            "career_price_over_under": -13,
+            "career_price_over_under_percentage": -73
           },
           {
             "id": 7,
@@ -191,8 +215,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 5,
             "price_2021": 54,
             "sd_team_id_2021": 9,
-            "is_active": true,
-            "rank": 1
+            "is_active": 1,
+            "rank": 1,
+            "career_price": 34,
+            "career_actual_value": 41,
+            "career_price_over_under": -7,
+            "career_price_over_under_percentage": -20
           },
           {
             "id": 8,
@@ -218,8 +246,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 8,
             "price_2021": 58,
             "sd_team_id_2021": 5,
-            "is_active": true,
-            "rank": 13
+            "is_active": 1,
+            "rank": 13,
+            "career_price": 30,
+            "career_actual_value": 29,
+            "career_price_over_under": 1,
+            "career_price_over_under_percentage": 2
           },
           {
             "id": 9,
@@ -245,8 +277,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 46,
             "sd_team_id_2021": 5,
-            "is_active": true,
-            "rank": 16
+            "is_active": 1,
+            "rank": 16,
+            "career_price": 23,
+            "career_actual_value": 21,
+            "career_price_over_under": 2,
+            "career_price_over_under_percentage": 10
           },
           {
             "id": 10,
@@ -272,8 +308,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 48,
             "sd_team_id_2021": 6,
-            "is_active": true,
-            "rank": 14
+            "is_active": 1,
+            "rank": 14,
+            "career_price": 32,
+            "career_actual_value": 37,
+            "career_price_over_under": -5,
+            "career_price_over_under_percentage": -14
           },
           {
             "id": 11,
@@ -299,8 +339,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": 49,
             "sd_team_id_2021": 4,
-            "is_active": true,
-            "rank": 25
+            "is_active": 1,
+            "rank": 25,
+            "career_price": 30,
+            "career_actual_value": 34,
+            "career_price_over_under": -4,
+            "career_price_over_under_percentage": -13
           },
           {
             "id": 12,
@@ -326,8 +370,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 5,
             "price_2021": 48,
             "sd_team_id_2021": 3,
-            "is_active": true,
-            "rank": 8
+            "is_active": 1,
+            "rank": 8,
+            "career_price": 34,
+            "career_actual_value": 37,
+            "career_price_over_under": -3,
+            "career_price_over_under_percentage": -8
           },
           {
             "id": 13,
@@ -353,8 +401,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 9,
             "price_2021": 53,
             "sd_team_id_2021": 9,
-            "is_active": true,
-            "rank": 6
+            "is_active": 1,
+            "rank": 6,
+            "career_price": 36,
+            "career_actual_value": 35,
+            "career_price_over_under": 1,
+            "career_price_over_under_percentage": 4
           },
           {
             "id": 14,
@@ -380,8 +432,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 5,
             "price_2021": 57,
             "sd_team_id_2021": 2,
-            "is_active": true,
-            "rank": 33
+            "is_active": 1,
+            "rank": 33,
+            "career_price": 51,
+            "career_actual_value": 49,
+            "career_price_over_under": 2,
+            "career_price_over_under_percentage": 3
           },
           {
             "id": 15,
@@ -407,8 +463,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 4,
             "price_2021": 45,
             "sd_team_id_2021": 8,
-            "is_active": true,
-            "rank": 42
+            "is_active": 1,
+            "rank": 42,
+            "career_price": 43,
+            "career_actual_value": 38,
+            "career_price_over_under": 5,
+            "career_price_over_under_percentage": 11
           },
           {
             "id": 16,
@@ -434,8 +494,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 5,
             "price_2021": 20,
             "sd_team_id_2021": 3,
-            "is_active": true,
-            "rank": 38
+            "is_active": 1,
+            "rank": 38,
+            "career_price": 31,
+            "career_actual_value": 28,
+            "career_price_over_under": 3,
+            "career_price_over_under_percentage": 11
           },
           {
             "id": 17,
@@ -461,8 +525,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": 33,
             "sd_team_id_2021": 5,
-            "is_active": true,
-            "rank": 111
+            "is_active": 1,
+            "rank": 111,
+            "career_price": 19,
+            "career_actual_value": 15,
+            "career_price_over_under": 4,
+            "career_price_over_under_percentage": 22
           },
           {
             "id": 18,
@@ -488,8 +556,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 5,
             "price_2021": 36,
             "sd_team_id_2021": 6,
-            "is_active": true,
-            "rank": 638
+            "is_active": 1,
+            "rank": 638,
+            "career_price": 25,
+            "career_actual_value": 29,
+            "career_price_over_under": -3,
+            "career_price_over_under_percentage": -13
           },
           {
             "id": 19,
@@ -515,8 +587,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 33,
             "sd_team_id_2021": 3,
-            "is_active": true,
-            "rank": 12
+            "is_active": 1,
+            "rank": 12,
+            "career_price": 15,
+            "career_actual_value": 26,
+            "career_price_over_under": -11,
+            "career_price_over_under_percentage": -72
           },
           {
             "id": 20,
@@ -542,8 +618,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 18,
             "sd_team_id_2021": 8,
-            "is_active": true,
-            "rank": 15
+            "is_active": 1,
+            "rank": 15,
+            "career_price": 11,
+            "career_actual_value": 20,
+            "career_price_over_under": -9,
+            "career_price_over_under_percentage": -76
           },
           {
             "id": 21,
@@ -569,8 +649,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 30,
             "sd_team_id_2021": 6,
-            "is_active": true,
-            "rank": 61
+            "is_active": 1,
+            "rank": 61,
+            "career_price": 20,
+            "career_actual_value": 25,
+            "career_price_over_under": -5,
+            "career_price_over_under_percentage": -23
           },
           {
             "id": 22,
@@ -596,8 +680,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 5,
             "price_2021": 21,
             "sd_team_id_2021": 5,
-            "is_active": true,
-            "rank": 45
+            "is_active": 1,
+            "rank": 45,
+            "career_price": 18,
+            "career_actual_value": 26,
+            "career_price_over_under": -8,
+            "career_price_over_under_percentage": -44
           },
           {
             "id": 23,
@@ -623,8 +711,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 8,
             "price_2021": 32,
             "sd_team_id_2021": 2,
-            "is_active": true,
-            "rank": 113
+            "is_active": 1,
+            "rank": 113,
+            "career_price": 25,
+            "career_actual_value": 26,
+            "career_price_over_under": -1,
+            "career_price_over_under_percentage": -5
           },
           {
             "id": 24,
@@ -650,8 +742,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 9,
             "price_2021": 18,
             "sd_team_id_2021": 7,
-            "is_active": true,
-            "rank": 28
+            "is_active": 1,
+            "rank": 28,
+            "career_price": 17,
+            "career_actual_value": 22,
+            "career_price_over_under": -5,
+            "career_price_over_under_percentage": -28
           },
           {
             "id": 25,
@@ -677,8 +773,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": 31,
             "sd_team_id_2021": 7,
-            "is_active": true,
-            "rank": 65
+            "is_active": 1,
+            "rank": 65,
+            "career_price": 12,
+            "career_actual_value": 18,
+            "career_price_over_under": -6,
+            "career_price_over_under_percentage": -50
           },
           {
             "id": 26,
@@ -704,8 +804,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 20,
             "sd_team_id_2021": 7,
-            "is_active": true,
-            "rank": 86
+            "is_active": 1,
+            "rank": 86,
+            "career_price": 19,
+            "career_actual_value": 20,
+            "career_price_over_under": -1,
+            "career_price_over_under_percentage": -4
           },
           {
             "id": 28,
@@ -731,8 +835,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 1,
             "sd_team_id_2021": 4,
-            "is_active": true,
-            "rank": 49
+            "is_active": 1,
+            "rank": 49,
+            "career_price": 25,
+            "career_actual_value": 25,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": 0
           },
           {
             "id": 29,
@@ -758,8 +866,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": 38,
             "sd_team_id_2021": 6,
-            "is_active": true,
-            "rank": 82
+            "is_active": 1,
+            "rank": 82,
+            "career_price": 20,
+            "career_actual_value": 23,
+            "career_price_over_under": -2,
+            "career_price_over_under_percentage": -12
           },
           {
             "id": 30,
@@ -785,8 +897,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": 19,
             "sd_team_id_2021": 5,
-            "is_active": true,
-            "rank": 69
+            "is_active": 1,
+            "rank": 69,
+            "career_price": 7,
+            "career_actual_value": 16,
+            "career_price_over_under": -9,
+            "career_price_over_under_percentage": -117
           },
           {
             "id": 31,
@@ -812,8 +928,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 8,
             "price_2021": 20,
             "sd_team_id_2021": 1,
-            "is_active": true,
-            "rank": 4
+            "is_active": 1,
+            "rank": 4,
+            "career_price": 8,
+            "career_actual_value": 18,
+            "career_price_over_under": -10,
+            "career_price_over_under_percentage": -122
           },
           {
             "id": 32,
@@ -839,8 +959,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 4,
             "price_2021": 7,
             "sd_team_id_2021": 10,
-            "is_active": true,
-            "rank": 58
+            "is_active": 1,
+            "rank": 58,
+            "career_price": 7,
+            "career_actual_value": 11,
+            "career_price_over_under": -4,
+            "career_price_over_under_percentage": -57
           },
           {
             "id": 33,
@@ -866,8 +990,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 8,
             "price_2021": 22,
             "sd_team_id_2021": 8,
-            "is_active": true,
-            "rank": 21
+            "is_active": 1,
+            "rank": 21,
+            "career_price": 24,
+            "career_actual_value": 31,
+            "career_price_over_under": -7,
+            "career_price_over_under_percentage": -28
           },
           {
             "id": 34,
@@ -893,8 +1021,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 12,
             "sd_team_id_2021": 8,
-            "is_active": true,
-            "rank": 155
+            "is_active": 1,
+            "rank": 155,
+            "career_price": 7,
+            "career_actual_value": 13,
+            "career_price_over_under": -7,
+            "career_price_over_under_percentage": -100
           },
           {
             "id": 35,
@@ -920,8 +1052,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 45,
             "sd_team_id_2021": 10,
-            "is_active": true,
-            "rank": 11
+            "is_active": 1,
+            "rank": 11,
+            "career_price": 36,
+            "career_actual_value": 34,
+            "career_price_over_under": 1,
+            "career_price_over_under_percentage": 3
           },
           {
             "id": 36,
@@ -947,8 +1083,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 5,
             "price_2021": 25,
             "sd_team_id_2021": 1,
-            "is_active": true,
-            "rank": 35
+            "is_active": 1,
+            "rank": 35,
+            "career_price": 20,
+            "career_actual_value": 12,
+            "career_price_over_under": 8,
+            "career_price_over_under_percentage": 41
           },
           {
             "id": 37,
@@ -974,8 +1114,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": 46,
             "sd_team_id_2021": 9,
-            "is_active": true,
-            "rank": 74
+            "is_active": 1,
+            "rank": 74,
+            "career_price": 43,
+            "career_actual_value": 34,
+            "career_price_over_under": 9,
+            "career_price_over_under_percentage": 22
           },
           {
             "id": 38,
@@ -1001,8 +1145,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 30,
             "sd_team_id_2021": 1,
-            "is_active": true,
-            "rank": 97
+            "is_active": 1,
+            "rank": 97,
+            "career_price": 39,
+            "career_actual_value": 34,
+            "career_price_over_under": 6,
+            "career_price_over_under_percentage": 15
           },
           {
             "id": 39,
@@ -1028,8 +1176,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 5,
             "price_2021": 32,
             "sd_team_id_2021": 8,
-            "is_active": true,
-            "rank": 89
+            "is_active": 1,
+            "rank": 89,
+            "career_price": 30,
+            "career_actual_value": 29,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": 1
           },
           {
             "id": 40,
@@ -1055,8 +1207,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 5,
             "price_2021": 34,
             "sd_team_id_2021": 3,
-            "is_active": true,
-            "rank": 68
+            "is_active": 1,
+            "rank": 68,
+            "career_price": 32,
+            "career_actual_value": 28,
+            "career_price_over_under": 4,
+            "career_price_over_under_percentage": 13
           },
           {
             "id": 41,
@@ -1082,8 +1238,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 5,
             "price_2021": 46,
             "sd_team_id_2021": 6,
-            "is_active": true,
-            "rank": 64
+            "is_active": 1,
+            "rank": 64,
+            "career_price": 22,
+            "career_actual_value": 12,
+            "career_price_over_under": 10,
+            "career_price_over_under_percentage": 45
           },
           {
             "id": 42,
@@ -1109,8 +1269,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 45,
             "sd_team_id_2021": 2,
-            "is_active": true,
-            "rank": 46
+            "is_active": 1,
+            "rank": 46,
+            "career_price": 40,
+            "career_actual_value": 36,
+            "career_price_over_under": 5,
+            "career_price_over_under_percentage": 12
           },
           {
             "id": 43,
@@ -1136,8 +1300,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 4,
             "price_2021": 21,
             "sd_team_id_2021": 1,
-            "is_active": true,
-            "rank": 17
+            "is_active": 1,
+            "rank": 17,
+            "career_price": 16,
+            "career_actual_value": 23,
+            "career_price_over_under": -7,
+            "career_price_over_under_percentage": -40
           },
           {
             "id": 44,
@@ -1163,8 +1331,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 5,
             "price_2021": 15,
             "sd_team_id_2021": 10,
-            "is_active": true,
-            "rank": 19
+            "is_active": 1,
+            "rank": 19,
+            "career_price": 7,
+            "career_actual_value": 14,
+            "career_price_over_under": -7,
+            "career_price_over_under_percentage": -90
           },
           {
             "id": 45,
@@ -1190,8 +1362,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 5,
             "price_2021": 31,
             "sd_team_id_2021": 3,
-            "is_active": true,
-            "rank": 48
+            "is_active": 1,
+            "rank": 48,
+            "career_price": 29,
+            "career_actual_value": 20,
+            "career_price_over_under": 9,
+            "career_price_over_under_percentage": 31
           },
           {
             "id": 46,
@@ -1217,8 +1393,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 23,
             "sd_team_id_2021": 4,
-            "is_active": true,
-            "rank": 39
+            "is_active": 1,
+            "rank": 39,
+            "career_price": 17,
+            "career_actual_value": 21,
+            "career_price_over_under": -4,
+            "career_price_over_under_percentage": -21
           },
           {
             "id": 47,
@@ -1244,8 +1424,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 1,
             "sd_team_id_2021": 5,
-            "is_active": true,
-            "rank": 739
+            "is_active": 1,
+            "rank": 739,
+            "career_price": 24,
+            "career_actual_value": 28,
+            "career_price_over_under": -4,
+            "career_price_over_under_percentage": -15
           },
           {
             "id": 48,
@@ -1271,8 +1455,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 4,
             "price_2021": 22,
             "sd_team_id_2021": 3,
-            "is_active": true,
-            "rank": 20
+            "is_active": 1,
+            "rank": 20,
+            "career_price": 12,
+            "career_actual_value": 19,
+            "career_price_over_under": -7,
+            "career_price_over_under_percentage": -60
           },
           {
             "id": 49,
@@ -1298,8 +1486,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": 11,
             "sd_team_id_2021": 1,
-            "is_active": true,
-            "rank": 109
+            "is_active": 1,
+            "rank": 109,
+            "career_price": 11,
+            "career_actual_value": 5,
+            "career_price_over_under": 7,
+            "career_price_over_under_percentage": 59
           },
           {
             "id": 50,
@@ -1325,8 +1517,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 4,
             "price_2021": 2,
             "sd_team_id_2021": 3,
-            "is_active": true,
-            "rank": 575
+            "is_active": 1,
+            "rank": 575,
+            "career_price": 2,
+            "career_actual_value": 0,
+            "career_price_over_under": 2,
+            "career_price_over_under_percentage": 100
           },
           {
             "id": 51,
@@ -1352,8 +1548,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": 23,
             "sd_team_id_2021": 5,
-            "is_active": true,
-            "rank": 44
+            "is_active": 1,
+            "rank": 44,
+            "career_price": 23,
+            "career_actual_value": 26,
+            "career_price_over_under": -3,
+            "career_price_over_under_percentage": -13
           },
           {
             "id": 53,
@@ -1379,8 +1579,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 21,
             "sd_team_id_2021": 2,
-            "is_active": true,
-            "rank": 244
+            "is_active": 1,
+            "rank": 244,
+            "career_price": 18,
+            "career_actual_value": 18,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": -2
           },
           {
             "id": 54,
@@ -1406,8 +1610,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 1,
             "sd_team_id_2021": 3,
-            "is_active": true,
-            "rank": 24
+            "is_active": 1,
+            "rank": 24,
+            "career_price": 17,
+            "career_actual_value": 21,
+            "career_price_over_under": -4,
+            "career_price_over_under_percentage": -24
           },
           {
             "id": 55,
@@ -1433,8 +1641,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 8,
             "price_2021": 12,
             "sd_team_id_2021": 7,
-            "is_active": true,
-            "rank": 323
+            "is_active": 1,
+            "rank": 323,
+            "career_price": 7,
+            "career_actual_value": 0,
+            "career_price_over_under": 7,
+            "career_price_over_under_percentage": 100
           },
           {
             "id": 56,
@@ -1460,8 +1672,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 5,
             "price_2021": 45,
             "sd_team_id_2021": 10,
-            "is_active": true,
-            "rank": 18
+            "is_active": 1,
+            "rank": 18,
+            "career_price": 19,
+            "career_actual_value": 15,
+            "career_price_over_under": 4,
+            "career_price_over_under_percentage": 19
           },
           {
             "id": 57,
@@ -1487,8 +1703,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 26,
             "sd_team_id_2021": 6,
-            "is_active": true,
-            "rank": 22
+            "is_active": 1,
+            "rank": 22,
+            "career_price": 23,
+            "career_actual_value": 29,
+            "career_price_over_under": -6,
+            "career_price_over_under_percentage": -28
           },
           {
             "id": 58,
@@ -1514,8 +1734,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 24,
             "sd_team_id_2021": 6,
-            "is_active": true,
-            "rank": 10
+            "is_active": 1,
+            "rank": 10,
+            "career_price": 12,
+            "career_actual_value": 25,
+            "career_price_over_under": -13,
+            "career_price_over_under_percentage": -108
           },
           {
             "id": 59,
@@ -1541,8 +1765,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 5,
             "price_2021": 1,
             "sd_team_id_2021": 9,
-            "is_active": true,
-            "rank": 707
+            "is_active": 1,
+            "rank": 707,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 60,
@@ -1568,8 +1796,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 5,
             "price_2021": 12,
             "sd_team_id_2021": 7,
-            "is_active": true,
-            "rank": 122
+            "is_active": 1,
+            "rank": 122,
+            "career_price": 13,
+            "career_actual_value": 12,
+            "career_price_over_under": 2,
+            "career_price_over_under_percentage": 13
           },
           {
             "id": 61,
@@ -1595,8 +1827,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 34,
             "sd_team_id_2021": 7,
-            "is_active": true,
-            "rank": 327
+            "is_active": 1,
+            "rank": 327,
+            "career_price": 15,
+            "career_actual_value": 12,
+            "career_price_over_under": 3,
+            "career_price_over_under_percentage": 17
           },
           {
             "id": 62,
@@ -1622,8 +1858,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 5,
             "price_2021": 30,
             "sd_team_id_2021": 2,
-            "is_active": true,
-            "rank": 359
+            "is_active": 1,
+            "rank": 359,
+            "career_price": 26,
+            "career_actual_value": 19,
+            "career_price_over_under": 7,
+            "career_price_over_under_percentage": 26
           },
           {
             "id": 63,
@@ -1649,8 +1889,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": 28,
             "sd_team_id_2021": 6,
-            "is_active": true,
-            "rank": 30
+            "is_active": 1,
+            "rank": 30,
+            "career_price": 15,
+            "career_actual_value": 18,
+            "career_price_over_under": -3,
+            "career_price_over_under_percentage": -16
           },
           {
             "id": 64,
@@ -1676,8 +1920,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 4,
             "price_2021": 14,
             "sd_team_id_2021": 8,
-            "is_active": true,
-            "rank": 188
+            "is_active": 1,
+            "rank": 188,
+            "career_price": 10,
+            "career_actual_value": 4,
+            "career_price_over_under": 6,
+            "career_price_over_under_percentage": 57
           },
           {
             "id": 65,
@@ -1703,8 +1951,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 5,
             "price_2021": 2,
             "sd_team_id_2021": 7,
-            "is_active": true,
-            "rank": 144
+            "is_active": 1,
+            "rank": 144,
+            "career_price": 10,
+            "career_actual_value": 16,
+            "career_price_over_under": -6,
+            "career_price_over_under_percentage": -64
           },
           {
             "id": 66,
@@ -1730,8 +1982,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 25,
             "sd_team_id_2021": 2,
-            "is_active": true,
-            "rank": 153
+            "is_active": 1,
+            "rank": 153,
+            "career_price": 8,
+            "career_actual_value": 7,
+            "career_price_over_under": 1,
+            "career_price_over_under_percentage": 13
           },
           {
             "id": 67,
@@ -1757,8 +2013,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": 37,
             "sd_team_id_2021": 10,
-            "is_active": true,
-            "rank": 53
+            "is_active": 1,
+            "rank": 53,
+            "career_price": 18,
+            "career_actual_value": 15,
+            "career_price_over_under": 3,
+            "career_price_over_under_percentage": 15
           },
           {
             "id": 68,
@@ -1784,8 +2044,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 4,
             "price_2021": 1,
             "sd_team_id_2021": 5,
-            "is_active": true,
-            "rank": 121
+            "is_active": 1,
+            "rank": 121,
+            "career_price": 1,
+            "career_actual_value": 2,
+            "career_price_over_under": -1,
+            "career_price_over_under_percentage": -67
           },
           {
             "id": 69,
@@ -1811,8 +2075,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 40,
             "sd_team_id_2021": 4,
-            "is_active": true,
-            "rank": 138
+            "is_active": 1,
+            "rank": 138,
+            "career_price": 36,
+            "career_actual_value": 28,
+            "career_price_over_under": 8,
+            "career_price_over_under_percentage": 22
           },
           {
             "id": 70,
@@ -1838,8 +2106,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 3,
             "sd_team_id_2021": 3,
-            "is_active": true,
-            "rank": 366
+            "is_active": 1,
+            "rank": 366,
+            "career_price": 2,
+            "career_actual_value": 0,
+            "career_price_over_under": 2,
+            "career_price_over_under_percentage": 100
           },
           {
             "id": 71,
@@ -1865,8 +2137,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 4,
             "price_2021": 27,
             "sd_team_id_2021": 2,
-            "is_active": true,
-            "rank": 78
+            "is_active": 1,
+            "rank": 78,
+            "career_price": 11,
+            "career_actual_value": 12,
+            "career_price_over_under": -1,
+            "career_price_over_under_percentage": -9
           },
           {
             "id": 72,
@@ -1892,8 +2168,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 4,
             "price_2021": 11,
             "sd_team_id_2021": 5,
-            "is_active": true,
-            "rank": 156
+            "is_active": 1,
+            "rank": 156,
+            "career_price": 9,
+            "career_actual_value": 8,
+            "career_price_over_under": 2,
+            "career_price_over_under_percentage": 20
           },
           {
             "id": 73,
@@ -1919,8 +2199,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 23,
             "sd_team_id_2021": 2,
-            "is_active": true,
-            "rank": 129
+            "is_active": 1,
+            "rank": 129,
+            "career_price": 32,
+            "career_actual_value": 19,
+            "career_price_over_under": 13,
+            "career_price_over_under_percentage": 42
           },
           {
             "id": 74,
@@ -1946,8 +2230,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 5,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 72
+            "is_active": 1,
+            "rank": 72,
+            "career_price": 26,
+            "career_actual_value": 27,
+            "career_price_over_under": -1,
+            "career_price_over_under_percentage": -5
           },
           {
             "id": 75,
@@ -1973,8 +2261,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 30,
             "sd_team_id_2021": 3,
-            "is_active": true,
-            "rank": 29
+            "is_active": 1,
+            "rank": 29,
+            "career_price": 29,
+            "career_actual_value": 31,
+            "career_price_over_under": -2,
+            "career_price_over_under_percentage": -8
           },
           {
             "id": 76,
@@ -2000,8 +2292,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 2,
             "sd_team_id_2021": 1,
-            "is_active": true,
-            "rank": 117
+            "is_active": 1,
+            "rank": 117,
+            "career_price": 7,
+            "career_actual_value": 12,
+            "career_price_over_under": -6,
+            "career_price_over_under_percentage": -87
           },
           {
             "id": 77,
@@ -2027,8 +2323,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": 8,
             "sd_team_id_2021": 8,
-            "is_active": true,
-            "rank": 223
+            "is_active": 1,
+            "rank": 223,
+            "career_price": 12,
+            "career_actual_value": 13,
+            "career_price_over_under": -1,
+            "career_price_over_under_percentage": -9
           },
           {
             "id": 78,
@@ -2054,8 +2354,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": 2,
             "sd_team_id_2021": 7,
-            "is_active": true,
-            "rank": 73
+            "is_active": 1,
+            "rank": 73,
+            "career_price": 9,
+            "career_actual_value": 7,
+            "career_price_over_under": 1,
+            "career_price_over_under_percentage": 16
           },
           {
             "id": 79,
@@ -2081,8 +2385,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 20,
             "sd_team_id_2021": 4,
-            "is_active": true,
-            "rank": 119
+            "is_active": 1,
+            "rank": 119,
+            "career_price": 9,
+            "career_actual_value": 9,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": -2
           },
           {
             "id": 80,
@@ -2108,8 +2416,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": 15,
             "sd_team_id_2021": 1,
-            "is_active": true,
-            "rank": 281
+            "is_active": 1,
+            "rank": 281,
+            "career_price": 17,
+            "career_actual_value": 0,
+            "career_price_over_under": 17,
+            "career_price_over_under_percentage": 100
           },
           {
             "id": 81,
@@ -2135,8 +2447,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 1,
             "sd_team_id_2021": 6,
-            "is_active": true,
-            "rank": 130
+            "is_active": 1,
+            "rank": 130,
+            "career_price": 3,
+            "career_actual_value": 5,
+            "career_price_over_under": -2,
+            "career_price_over_under_percentage": -58
           },
           {
             "id": 82,
@@ -2162,8 +2478,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 36,
             "sd_team_id_2021": 4,
-            "is_active": true,
-            "rank": 127
+            "is_active": 1,
+            "rank": 127,
+            "career_price": 23,
+            "career_actual_value": 19,
+            "career_price_over_under": 4,
+            "career_price_over_under_percentage": 17
           },
           {
             "id": 83,
@@ -2189,8 +2509,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": 5,
             "sd_team_id_2021": 2,
-            "is_active": true,
-            "rank": 66
+            "is_active": 1,
+            "rank": 66,
+            "career_price": 8,
+            "career_actual_value": 8,
+            "career_price_over_under": 1,
+            "career_price_over_under_percentage": 9
           },
           {
             "id": 84,
@@ -2216,8 +2540,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": 2,
             "sd_team_id_2021": 1,
-            "is_active": true,
-            "rank": 87
+            "is_active": 1,
+            "rank": 87,
+            "career_price": 2,
+            "career_actual_value": 11,
+            "career_price_over_under": -9,
+            "career_price_over_under_percentage": -450
           },
           {
             "id": 85,
@@ -2243,8 +2571,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 4,
             "price_2021": 2,
             "sd_team_id_2021": 8,
-            "is_active": true,
-            "rank": 114
+            "is_active": 1,
+            "rank": 114,
+            "career_price": 11,
+            "career_actual_value": 7,
+            "career_price_over_under": 4,
+            "career_price_over_under_percentage": 34
           },
           {
             "id": 86,
@@ -2270,8 +2602,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 9,
             "sd_team_id_2021": 7,
-            "is_active": true,
-            "rank": 150
+            "is_active": 1,
+            "rank": 150,
+            "career_price": 17,
+            "career_actual_value": 10,
+            "career_price_over_under": 7,
+            "career_price_over_under_percentage": 39
           },
           {
             "id": 87,
@@ -2297,8 +2633,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 2,
             "sd_team_id_2021": 10,
-            "is_active": true,
-            "rank": 43
+            "is_active": 1,
+            "rank": 43,
+            "career_price": 14,
+            "career_actual_value": 20,
+            "career_price_over_under": -6,
+            "career_price_over_under_percentage": -43
           },
           {
             "id": 88,
@@ -2324,8 +2664,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 5,
             "price_2021": 15,
             "sd_team_id_2021": 7,
-            "is_active": true,
-            "rank": 27
+            "is_active": 1,
+            "rank": 27,
+            "career_price": 12,
+            "career_actual_value": 17,
+            "career_price_over_under": -5,
+            "career_price_over_under_percentage": -45
           },
           {
             "id": 89,
@@ -2351,8 +2695,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": 21,
             "sd_team_id_2021": 3,
-            "is_active": true,
-            "rank": 98
+            "is_active": 1,
+            "rank": 98,
+            "career_price": 16,
+            "career_actual_value": 19,
+            "career_price_over_under": -3,
+            "career_price_over_under_percentage": -20
           },
           {
             "id": 90,
@@ -2378,8 +2726,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 5,
             "price_2021": 12,
             "sd_team_id_2021": 8,
-            "is_active": true,
-            "rank": 56
+            "is_active": 1,
+            "rank": 56,
+            "career_price": 8,
+            "career_actual_value": 20,
+            "career_price_over_under": -13,
+            "career_price_over_under_percentage": -167
           },
           {
             "id": 91,
@@ -2405,8 +2757,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 5,
             "price_2021": 10,
             "sd_team_id_2021": 4,
-            "is_active": true,
-            "rank": 115
+            "is_active": 1,
+            "rank": 115,
+            "career_price": 8,
+            "career_actual_value": 5,
+            "career_price_over_under": 4,
+            "career_price_over_under_percentage": 45
           },
           {
             "id": 92,
@@ -2432,8 +2788,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": 25,
             "sd_team_id_2021": 7,
-            "is_active": true,
-            "rank": 50
+            "is_active": 1,
+            "rank": 50,
+            "career_price": 22,
+            "career_actual_value": 31,
+            "career_price_over_under": -8,
+            "career_price_over_under_percentage": -38
           },
           {
             "id": 93,
@@ -2459,8 +2819,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 8,
             "price_2021": 1,
             "sd_team_id_2021": 2,
-            "is_active": true,
-            "rank": 77
+            "is_active": 1,
+            "rank": 77,
+            "career_price": 3,
+            "career_actual_value": 7,
+            "career_price_over_under": -4,
+            "career_price_over_under_percentage": -125
           },
           {
             "id": 94,
@@ -2486,8 +2850,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": 25,
             "sd_team_id_2021": 8,
-            "is_active": true,
-            "rank": 128
+            "is_active": 1,
+            "rank": 128,
+            "career_price": 30,
+            "career_actual_value": 12,
+            "career_price_over_under": 18,
+            "career_price_over_under_percentage": 61
           },
           {
             "id": 95,
@@ -2513,8 +2881,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 9,
             "price_2021": 18,
             "sd_team_id_2021": 3,
-            "is_active": true,
-            "rank": 178
+            "is_active": 1,
+            "rank": 178,
+            "career_price": 10,
+            "career_actual_value": 11,
+            "career_price_over_under": -1,
+            "career_price_over_under_percentage": -12
           },
           {
             "id": 96,
@@ -2540,8 +2912,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 1,
             "sd_team_id_2021": 5,
-            "is_active": true,
-            "rank": 99
+            "is_active": 1,
+            "rank": 99,
+            "career_price": 1,
+            "career_actual_value": 15,
+            "career_price_over_under": -14,
+            "career_price_over_under_percentage": -1350
           },
           {
             "id": 97,
@@ -2567,8 +2943,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": 23,
             "sd_team_id_2021": 8,
-            "is_active": true,
-            "rank": 482
+            "is_active": 1,
+            "rank": 482,
+            "career_price": 9,
+            "career_actual_value": 5,
+            "career_price_over_under": 4,
+            "career_price_over_under_percentage": 43
           },
           {
             "id": 99,
@@ -2594,8 +2974,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 4,
             "price_2021": 7,
             "sd_team_id_2021": 4,
-            "is_active": true,
-            "rank": 51
+            "is_active": 1,
+            "rank": 51,
+            "career_price": 9,
+            "career_actual_value": 10,
+            "career_price_over_under": -1,
+            "career_price_over_under_percentage": -9
           },
           {
             "id": 100,
@@ -2621,8 +3005,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 1,
             "sd_team_id_2021": 5,
-            "is_active": true,
-            "rank": 152
+            "is_active": 1,
+            "rank": 152,
+            "career_price": 2,
+            "career_actual_value": 6,
+            "career_price_over_under": -4,
+            "career_price_over_under_percentage": -171
           },
           {
             "id": 101,
@@ -2648,8 +3036,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": 5,
             "sd_team_id_2021": 7,
-            "is_active": true,
-            "rank": 54
+            "is_active": 1,
+            "rank": 54,
+            "career_price": 13,
+            "career_actual_value": 13,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": 1
           },
           {
             "id": 102,
@@ -2675,8 +3067,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 16,
             "sd_team_id_2021": 7,
-            "is_active": true,
-            "rank": 91
+            "is_active": 1,
+            "rank": 91,
+            "career_price": 9,
+            "career_actual_value": 12,
+            "career_price_over_under": -3,
+            "career_price_over_under_percentage": -28
           },
           {
             "id": 103,
@@ -2702,8 +3098,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": 7,
             "sd_team_id_2021": 9,
-            "is_active": true,
-            "rank": 157
+            "is_active": 1,
+            "rank": 157,
+            "career_price": 24,
+            "career_actual_value": 23,
+            "career_price_over_under": 1,
+            "career_price_over_under_percentage": 4
           },
           {
             "id": 104,
@@ -2729,8 +3129,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 5,
             "price_2021": 3,
             "sd_team_id_2021": 7,
-            "is_active": true,
-            "rank": 84
+            "is_active": 1,
+            "rank": 84,
+            "career_price": 14,
+            "career_actual_value": 17,
+            "career_price_over_under": -3,
+            "career_price_over_under_percentage": -20
           },
           {
             "id": 105,
@@ -2756,8 +3160,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 5,
             "price_2021": 3,
             "sd_team_id_2021": 6,
-            "is_active": true,
-            "rank": 104
+            "is_active": 1,
+            "rank": 104,
+            "career_price": 12,
+            "career_actual_value": 14,
+            "career_price_over_under": -3,
+            "career_price_over_under_percentage": -23
           },
           {
             "id": 106,
@@ -2783,8 +3191,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 8,
             "price_2021": 1,
             "sd_team_id_2021": 10,
-            "is_active": true,
-            "rank": 351
+            "is_active": 1,
+            "rank": 351,
+            "career_price": 2,
+            "career_actual_value": 0,
+            "career_price_over_under": 2,
+            "career_price_over_under_percentage": 100
           },
           {
             "id": 108,
@@ -2810,8 +3222,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 6,
             "sd_team_id_2021": 3,
-            "is_active": true,
-            "rank": 116
+            "is_active": 1,
+            "rank": 116,
+            "career_price": 23,
+            "career_actual_value": 21,
+            "career_price_over_under": 3,
+            "career_price_over_under_percentage": 11
           },
           {
             "id": 109,
@@ -2837,8 +3253,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 5,
             "price_2021": 1,
             "sd_team_id_2021": 9,
-            "is_active": true,
-            "rank": 492
+            "is_active": 1,
+            "rank": 492,
+            "career_price": 3,
+            "career_actual_value": 6,
+            "career_price_over_under": -3,
+            "career_price_over_under_percentage": -84
           },
           {
             "id": 110,
@@ -2864,8 +3284,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 1,
             "sd_team_id_2021": 5,
-            "is_active": true,
-            "rank": 52
+            "is_active": 1,
+            "rank": 52,
+            "career_price": 27,
+            "career_actual_value": 26,
+            "career_price_over_under": 1,
+            "career_price_over_under_percentage": 4
           },
           {
             "id": 111,
@@ -2891,8 +3315,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 5,
             "price_2021": 10,
             "sd_team_id_2021": 8,
-            "is_active": true,
-            "rank": 62
+            "is_active": 1,
+            "rank": 62,
+            "career_price": 9,
+            "career_actual_value": 8,
+            "career_price_over_under": 1,
+            "career_price_over_under_percentage": 9
           },
           {
             "id": 112,
@@ -2918,8 +3346,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 8,
             "price_2021": 3,
             "sd_team_id_2021": 3,
-            "is_active": true,
-            "rank": 108
+            "is_active": 1,
+            "rank": 108,
+            "career_price": 12,
+            "career_actual_value": 4,
+            "career_price_over_under": 8,
+            "career_price_over_under_percentage": 67
           },
           {
             "id": 113,
@@ -2945,8 +3377,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 5,
             "price_2021": 2,
             "sd_team_id_2021": 9,
-            "is_active": true,
-            "rank": 71
+            "is_active": 1,
+            "rank": 71,
+            "career_price": 6,
+            "career_actual_value": 8,
+            "career_price_over_under": -2,
+            "career_price_over_under_percentage": -28
           },
           {
             "id": 114,
@@ -2972,8 +3408,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": 16,
             "sd_team_id_2021": 3,
-            "is_active": true,
-            "rank": 57
+            "is_active": 1,
+            "rank": 57,
+            "career_price": 29,
+            "career_actual_value": 27,
+            "career_price_over_under": 2,
+            "career_price_over_under_percentage": 8
           },
           {
             "id": 115,
@@ -2999,8 +3439,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 6,
             "sd_team_id_2021": 10,
-            "is_active": true,
-            "rank": 235
+            "is_active": 1,
+            "rank": 235,
+            "career_price": 5,
+            "career_actual_value": 11,
+            "career_price_over_under": -6,
+            "career_price_over_under_percentage": -113
           },
           {
             "id": 116,
@@ -3026,8 +3470,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 2,
             "sd_team_id_2021": 9,
-            "is_active": true,
-            "rank": 9
+            "is_active": 1,
+            "rank": 9,
+            "career_price": 10,
+            "career_actual_value": 18,
+            "career_price_over_under": -9,
+            "career_price_over_under_percentage": -89
           },
           {
             "id": 117,
@@ -3053,8 +3501,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 4,
             "price_2021": 7,
             "sd_team_id_2021": 8,
-            "is_active": true,
-            "rank": 132
+            "is_active": 1,
+            "rank": 132,
+            "career_price": 14,
+            "career_actual_value": 15,
+            "career_price_over_under": -1,
+            "career_price_over_under_percentage": -8
           },
           {
             "id": 118,
@@ -3080,8 +3532,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 5,
             "price_2021": 5,
             "sd_team_id_2021": 8,
-            "is_active": true,
-            "rank": 55
+            "is_active": 1,
+            "rank": 55,
+            "career_price": 9,
+            "career_actual_value": 11,
+            "career_price_over_under": -2,
+            "career_price_over_under_percentage": -21
           },
           {
             "id": 119,
@@ -3107,8 +3563,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 1,
             "sd_team_id_2021": 2,
-            "is_active": true,
-            "rank": 160
+            "is_active": 1,
+            "rank": 160,
+            "career_price": 6,
+            "career_actual_value": 5,
+            "career_price_over_under": 2,
+            "career_price_over_under_percentage": 26
           },
           {
             "id": 120,
@@ -3134,8 +3594,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": 20,
             "sd_team_id_2021": 4,
-            "is_active": true,
-            "rank": 137
+            "is_active": 1,
+            "rank": 137,
+            "career_price": 20,
+            "career_actual_value": 11,
+            "career_price_over_under": 9,
+            "career_price_over_under_percentage": 45
           },
           {
             "id": 121,
@@ -3161,8 +3625,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 5,
             "price_2021": 19,
             "sd_team_id_2021": 10,
-            "is_active": true,
-            "rank": 168
+            "is_active": 1,
+            "rank": 168,
+            "career_price": 19,
+            "career_actual_value": 6,
+            "career_price_over_under": 13,
+            "career_price_over_under_percentage": 68
           },
           {
             "id": 122,
@@ -3188,8 +3656,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 8,
             "price_2021": 1,
             "sd_team_id_2021": 2,
-            "is_active": true,
-            "rank": 222
+            "is_active": 1,
+            "rank": 222,
+            "career_price": 7,
+            "career_actual_value": 7,
+            "career_price_over_under": -1,
+            "career_price_over_under_percentage": -9
           },
           {
             "id": 124,
@@ -3215,8 +3687,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": 1,
             "sd_team_id_2021": 5,
-            "is_active": true,
-            "rank": 318
+            "is_active": 1,
+            "rank": 318,
+            "career_price": 2,
+            "career_actual_value": 3,
+            "career_price_over_under": -1,
+            "career_price_over_under_percentage": -33
           },
           {
             "id": 125,
@@ -3242,8 +3718,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 14,
             "sd_team_id_2021": 8,
-            "is_active": true,
-            "rank": 134
+            "is_active": 1,
+            "rank": 134,
+            "career_price": 6,
+            "career_actual_value": 6,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": -7
           },
           {
             "id": 127,
@@ -3269,8 +3749,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": 2,
             "sd_team_id_2021": 9,
-            "is_active": true,
-            "rank": 41
+            "is_active": 1,
+            "rank": 41,
+            "career_price": 8,
+            "career_actual_value": 17,
+            "career_price_over_under": -9,
+            "career_price_over_under_percentage": -106
           },
           {
             "id": 128,
@@ -3296,8 +3780,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 4,
             "sd_team_id_2021": 3,
-            "is_active": true,
-            "rank": 126
+            "is_active": 1,
+            "rank": 126,
+            "career_price": 6,
+            "career_actual_value": 5,
+            "career_price_over_under": 1,
+            "career_price_over_under_percentage": 12
           },
           {
             "id": 129,
@@ -3323,8 +3811,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": 1,
             "sd_team_id_2021": 1,
-            "is_active": true,
-            "rank": 230
+            "is_active": 1,
+            "rank": 230,
+            "career_price": 2,
+            "career_actual_value": 0,
+            "career_price_over_under": 2,
+            "career_price_over_under_percentage": 100
           },
           {
             "id": 131,
@@ -3350,8 +3842,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 23,
             "sd_team_id_2021": 10,
-            "is_active": true,
-            "rank": 103
+            "is_active": 1,
+            "rank": 103,
+            "career_price": 11,
+            "career_actual_value": 9,
+            "career_price_over_under": 2,
+            "career_price_over_under_percentage": 18
           },
           {
             "id": 132,
@@ -3377,8 +3873,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 1,
             "sd_team_id_2021": 2,
-            "is_active": true,
-            "rank": 180
+            "is_active": 1,
+            "rank": 180,
+            "career_price": 2,
+            "career_actual_value": 5,
+            "career_price_over_under": -2,
+            "career_price_over_under_percentage": -100
           },
           {
             "id": 133,
@@ -3404,8 +3904,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": 1,
             "sd_team_id_2021": 6,
-            "is_active": true,
-            "rank": 326
+            "is_active": 1,
+            "rank": 326,
+            "career_price": 17,
+            "career_actual_value": 8,
+            "career_price_over_under": 8,
+            "career_price_over_under_percentage": 50
           },
           {
             "id": 134,
@@ -3431,8 +3935,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 9,
             "sd_team_id_2021": 7,
-            "is_active": true,
-            "rank": 296
+            "is_active": 1,
+            "rank": 296,
+            "career_price": 5,
+            "career_actual_value": 4,
+            "career_price_over_under": 2,
+            "career_price_over_under_percentage": 30
           },
           {
             "id": 135,
@@ -3458,8 +3966,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 5,
             "price_2021": 24,
             "sd_team_id_2021": 7,
-            "is_active": true,
-            "rank": 135
+            "is_active": 1,
+            "rank": 135,
+            "career_price": 22,
+            "career_actual_value": 17,
+            "career_price_over_under": 4,
+            "career_price_over_under_percentage": 19
           },
           {
             "id": 136,
@@ -3485,8 +3997,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 319
+            "is_active": 1,
+            "rank": 319,
+            "career_price": 5,
+            "career_actual_value": 6,
+            "career_price_over_under": -1,
+            "career_price_over_under_percentage": -22
           },
           {
             "id": 137,
@@ -3512,8 +4028,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 3,
             "sd_team_id_2021": 9,
-            "is_active": true,
-            "rank": 151
+            "is_active": 1,
+            "rank": 151,
+            "career_price": 3,
+            "career_actual_value": 5,
+            "career_price_over_under": -2,
+            "career_price_over_under_percentage": -67
           },
           {
             "id": 138,
@@ -3539,8 +4059,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 5,
             "price_2021": 7,
             "sd_team_id_2021": 10,
-            "is_active": true,
-            "rank": 92
+            "is_active": 1,
+            "rank": 92,
+            "career_price": 13,
+            "career_actual_value": 12,
+            "career_price_over_under": 1,
+            "career_price_over_under_percentage": 9
           },
           {
             "id": 139,
@@ -3566,8 +4090,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 5,
             "price_2021": 1,
             "sd_team_id_2021": 6,
-            "is_active": true,
-            "rank": 94
+            "is_active": 1,
+            "rank": 94,
+            "career_price": 6,
+            "career_actual_value": 11,
+            "career_price_over_under": -5,
+            "career_price_over_under_percentage": -73
           },
           {
             "id": 141,
@@ -3593,8 +4121,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 13,
             "sd_team_id_2021": 7,
-            "is_active": true,
-            "rank": 60
+            "is_active": 1,
+            "rank": 60,
+            "career_price": 15,
+            "career_actual_value": 16,
+            "career_price_over_under": -2,
+            "career_price_over_under_percentage": -10
           },
           {
             "id": 142,
@@ -3620,8 +4152,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 9,
             "price_2021": 11,
             "sd_team_id_2021": 7,
-            "is_active": true,
-            "rank": 81
+            "is_active": 1,
+            "rank": 81,
+            "career_price": 20,
+            "career_actual_value": 12,
+            "career_price_over_under": 8,
+            "career_price_over_under_percentage": 39
           },
           {
             "id": 143,
@@ -3647,8 +4183,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 13,
             "sd_team_id_2021": 10,
-            "is_active": true,
-            "rank": 199
+            "is_active": 1,
+            "rank": 199,
+            "career_price": 7,
+            "career_actual_value": 3,
+            "career_price_over_under": 5,
+            "career_price_over_under_percentage": 64
           },
           {
             "id": 144,
@@ -3674,8 +4214,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 5,
             "price_2021": 23,
             "sd_team_id_2021": 8,
-            "is_active": true,
-            "rank": 95
+            "is_active": 1,
+            "rank": 95,
+            "career_price": 23,
+            "career_actual_value": 14,
+            "career_price_over_under": 9,
+            "career_price_over_under_percentage": 39
           },
           {
             "id": 145,
@@ -3701,8 +4245,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 5,
             "price_2021": 1,
             "sd_team_id_2021": 3,
-            "is_active": true,
-            "rank": 407
+            "is_active": 1,
+            "rank": 407,
+            "career_price": 14,
+            "career_actual_value": 10,
+            "career_price_over_under": 4,
+            "career_price_over_under_percentage": 30
           },
           {
             "id": 146,
@@ -3728,8 +4276,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 10,
             "price_2021": 2,
             "sd_team_id_2021": 8,
-            "is_active": true,
-            "rank": 203
+            "is_active": 1,
+            "rank": 203,
+            "career_price": 11,
+            "career_actual_value": 9,
+            "career_price_over_under": 2,
+            "career_price_over_under_percentage": 20
           },
           {
             "id": 147,
@@ -3755,8 +4307,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 3,
             "sd_team_id_2021": 6,
-            "is_active": true,
-            "rank": 280
+            "is_active": 1,
+            "rank": 280,
+            "career_price": 4,
+            "career_actual_value": 3,
+            "career_price_over_under": 1,
+            "career_price_over_under_percentage": 14
           },
           {
             "id": 148,
@@ -3782,8 +4338,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 4,
             "price_2021": 1,
             "sd_team_id_2021": 6,
-            "is_active": true,
-            "rank": 63
+            "is_active": 1,
+            "rank": 63,
+            "career_price": 1,
+            "career_actual_value": 6,
+            "career_price_over_under": -5,
+            "career_price_over_under_percentage": -500
           },
           {
             "id": 149,
@@ -3809,8 +4369,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 698
+            "is_active": 1,
+            "rank": 698,
+            "career_price": 14,
+            "career_actual_value": 3,
+            "career_price_over_under": 12,
+            "career_price_over_under_percentage": 82
           },
           {
             "id": 151,
@@ -3836,8 +4400,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": 1,
             "sd_team_id_2021": 3,
-            "is_active": true,
-            "rank": 248
+            "is_active": 1,
+            "rank": 248,
+            "career_price": 7,
+            "career_actual_value": 5,
+            "career_price_over_under": 1,
+            "career_price_over_under_percentage": 22
           },
           {
             "id": 152,
@@ -3863,8 +4431,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 8,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 196
+            "is_active": 1,
+            "rank": 196,
+            "career_price": 20,
+            "career_actual_value": 15,
+            "career_price_over_under": 5,
+            "career_price_over_under_percentage": 24
           },
           {
             "id": 153,
@@ -3890,8 +4462,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": 17,
             "sd_team_id_2021": 7,
-            "is_active": true,
-            "rank": 210
+            "is_active": 1,
+            "rank": 210,
+            "career_price": 7,
+            "career_actual_value": 5,
+            "career_price_over_under": 2,
+            "career_price_over_under_percentage": 22
           },
           {
             "id": 154,
@@ -3917,8 +4493,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 9,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 141
+            "is_active": 1,
+            "rank": 141,
+            "career_price": 1,
+            "career_actual_value": 0,
+            "career_price_over_under": 1,
+            "career_price_over_under_percentage": 100
           },
           {
             "id": 155,
@@ -3944,8 +4524,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": 1,
             "sd_team_id_2021": 9,
-            "is_active": true,
-            "rank": 267
+            "is_active": 1,
+            "rank": 267,
+            "career_price": 5,
+            "career_actual_value": 4,
+            "career_price_over_under": 2,
+            "career_price_over_under_percentage": 30
           },
           {
             "id": 156,
@@ -3971,8 +4555,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 8,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 588
+            "is_active": 1,
+            "rank": 588,
+            "career_price": 16,
+            "career_actual_value": 15,
+            "career_price_over_under": 1,
+            "career_price_over_under_percentage": 8
           },
           {
             "id": 157,
@@ -3998,8 +4586,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 8,
             "price_2021": 2,
             "sd_team_id_2021": 1,
-            "is_active": true,
-            "rank": 214
+            "is_active": 1,
+            "rank": 214,
+            "career_price": 2,
+            "career_actual_value": 0,
+            "career_price_over_under": 2,
+            "career_price_over_under_percentage": 100
           },
           {
             "id": 158,
@@ -4025,8 +4617,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 8,
             "price_2021": 1,
             "sd_team_id_2021": 5,
-            "is_active": true,
-            "rank": 146
+            "is_active": 1,
+            "rank": 146,
+            "career_price": 11,
+            "career_actual_value": 8,
+            "career_price_over_under": 4,
+            "career_price_over_under_percentage": 32
           },
           {
             "id": 159,
@@ -4052,8 +4648,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 101
+            "is_active": 1,
+            "rank": 101,
+            "career_price": 11,
+            "career_actual_value": 13,
+            "career_price_over_under": -2,
+            "career_price_over_under_percentage": -16
           },
           {
             "id": 160,
@@ -4079,8 +4679,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": 1,
             "sd_team_id_2021": 9,
-            "is_active": true,
-            "rank": 173
+            "is_active": 1,
+            "rank": 173,
+            "career_price": 1,
+            "career_actual_value": 1,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": 0
           },
           {
             "id": 161,
@@ -4106,8 +4710,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 1,
             "sd_team_id_2021": 3,
-            "is_active": true,
-            "rank": 247
+            "is_active": 1,
+            "rank": 247,
+            "career_price": 10,
+            "career_actual_value": 5,
+            "career_price_over_under": 5,
+            "career_price_over_under_percentage": 47
           },
           {
             "id": 162,
@@ -4133,8 +4741,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 2,
             "sd_team_id_2021": 4,
-            "is_active": true,
-            "rank": 209
+            "is_active": 1,
+            "rank": 209,
+            "career_price": 4,
+            "career_actual_value": 1,
+            "career_price_over_under": 3,
+            "career_price_over_under_percentage": 71
           },
           {
             "id": 163,
@@ -4160,8 +4772,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 8,
             "price_2021": 18,
             "sd_team_id_2021": 1,
-            "is_active": true,
-            "rank": 220
+            "is_active": 1,
+            "rank": 220,
+            "career_price": 11,
+            "career_actual_value": 1,
+            "career_price_over_under": 11,
+            "career_price_over_under_percentage": 94
           },
           {
             "id": 164,
@@ -4187,8 +4803,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 257
+            "is_active": 1,
+            "rank": 257,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 165,
@@ -4214,8 +4834,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": 12,
             "sd_team_id_2021": 10,
-            "is_active": true,
-            "rank": 124
+            "is_active": 1,
+            "rank": 124,
+            "career_price": 12,
+            "career_actual_value": 4,
+            "career_price_over_under": 8,
+            "career_price_over_under_percentage": 67
           },
           {
             "id": 166,
@@ -4241,8 +4865,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 5,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 653
+            "is_active": 1,
+            "rank": 653,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 167,
@@ -4268,8 +4896,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 8,
             "price_2021": 1,
             "sd_team_id_2021": 2,
-            "is_active": true,
-            "rank": 34
+            "is_active": 1,
+            "rank": 34,
+            "career_price": 1,
+            "career_actual_value": 26,
+            "career_price_over_under": -25,
+            "career_price_over_under_percentage": -2500
           },
           {
             "id": 168,
@@ -4295,8 +4927,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 8,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 164
+            "is_active": 1,
+            "rank": 164,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 169,
@@ -4322,8 +4958,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": 3,
             "sd_team_id_2021": 1,
-            "is_active": true,
-            "rank": 112
+            "is_active": 1,
+            "rank": 112,
+            "career_price": 2,
+            "career_actual_value": 11,
+            "career_price_over_under": -9,
+            "career_price_over_under_percentage": -450
           },
           {
             "id": 170,
@@ -4349,8 +4989,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": 6,
             "sd_team_id_2021": 6,
-            "is_active": true,
-            "rank": 154
+            "is_active": 1,
+            "rank": 154,
+            "career_price": 6,
+            "career_actual_value": 1,
+            "career_price_over_under": 5,
+            "career_price_over_under_percentage": 83
           },
           {
             "id": 171,
@@ -4376,8 +5020,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 8,
             "price_2021": 1,
             "sd_team_id_2021": 9,
-            "is_active": true,
-            "rank": 226
+            "is_active": 1,
+            "rank": 226,
+            "career_price": 8,
+            "career_actual_value": 4,
+            "career_price_over_under": 4,
+            "career_price_over_under_percentage": 52
           },
           {
             "id": 172,
@@ -4403,8 +5051,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 1,
             "sd_team_id_2021": 5,
-            "is_active": true,
-            "rank": 329
+            "is_active": 1,
+            "rank": 329,
+            "career_price": 1,
+            "career_actual_value": 0,
+            "career_price_over_under": 1,
+            "career_price_over_under_percentage": 100
           },
           {
             "id": 173,
@@ -4430,8 +5082,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 4,
             "sd_team_id_2021": 4,
-            "is_active": true,
-            "rank": 275
+            "is_active": 1,
+            "rank": 275,
+            "career_price": 4,
+            "career_actual_value": 0,
+            "career_price_over_under": 4,
+            "career_price_over_under_percentage": 100
           },
           {
             "id": 174,
@@ -4457,8 +5113,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 8,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 667
+            "is_active": 1,
+            "rank": 667,
+            "career_price": 17,
+            "career_actual_value": 15,
+            "career_price_over_under": 2,
+            "career_price_over_under_percentage": 10
           },
           {
             "id": 175,
@@ -4484,8 +5144,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 8,
             "price_2021": 2,
             "sd_team_id_2021": 2,
-            "is_active": true,
-            "rank": 165
+            "is_active": 1,
+            "rank": 165,
+            "career_price": 2,
+            "career_actual_value": 3,
+            "career_price_over_under": -1,
+            "career_price_over_under_percentage": -50
           },
           {
             "id": 176,
@@ -4511,8 +5175,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": 3,
             "sd_team_id_2021": 3,
-            "is_active": true,
-            "rank": 262
+            "is_active": 1,
+            "rank": 262,
+            "career_price": 6,
+            "career_actual_value": 2,
+            "career_price_over_under": 4,
+            "career_price_over_under_percentage": 63
           },
           {
             "id": 177,
@@ -4538,8 +5206,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 8,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 59
+            "is_active": 1,
+            "rank": 59,
+            "career_price": 3,
+            "career_actual_value": 2,
+            "career_price_over_under": 1,
+            "career_price_over_under_percentage": 30
           },
           {
             "id": 178,
@@ -4565,8 +5237,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 75
+            "is_active": 1,
+            "rank": 75,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 179,
@@ -4592,8 +5268,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 0,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 228
+            "is_active": 1,
+            "rank": 228,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 181,
@@ -4619,8 +5299,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 8,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 179
+            "is_active": 1,
+            "rank": 179,
+            "career_price": 14,
+            "career_actual_value": 18,
+            "career_price_over_under": -4,
+            "career_price_over_under_percentage": -28
           },
           {
             "id": 182,
@@ -4646,8 +5330,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": 1,
             "sd_team_id_2021": 6,
-            "is_active": true,
-            "rank": 320
+            "is_active": 1,
+            "rank": 320,
+            "career_price": 1,
+            "career_actual_value": 0,
+            "career_price_over_under": 1,
+            "career_price_over_under_percentage": 100
           },
           {
             "id": 183,
@@ -4673,8 +5361,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 258
+            "is_active": 1,
+            "rank": 258,
+            "career_price": 3,
+            "career_actual_value": 0,
+            "career_price_over_under": 3,
+            "career_price_over_under_percentage": 100
           },
           {
             "id": 184,
@@ -4700,8 +5392,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 5,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 7
+            "is_active": 1,
+            "rank": 7,
+            "career_price": 1,
+            "career_actual_value": 0,
+            "career_price_over_under": 1,
+            "career_price_over_under_percentage": 100
           },
           {
             "id": 185,
@@ -4727,8 +5423,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 5,
             "price_2021": 8,
             "sd_team_id_2021": 4,
-            "is_active": true,
-            "rank": 125
+            "is_active": 1,
+            "rank": 125,
+            "career_price": 9,
+            "career_actual_value": 6,
+            "career_price_over_under": 3,
+            "career_price_over_under_percentage": 31
           },
           {
             "id": 186,
@@ -4754,8 +5454,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 211
+            "is_active": 1,
+            "rank": 211,
+            "career_price": 2,
+            "career_actual_value": 0,
+            "career_price_over_under": 2,
+            "career_price_over_under_percentage": 100
           },
           {
             "id": 187,
@@ -4781,8 +5485,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 5,
             "price_2021": 17,
             "sd_team_id_2021": 2,
-            "is_active": true,
-            "rank": 212
+            "is_active": 1,
+            "rank": 212,
+            "career_price": 9,
+            "career_actual_value": 1,
+            "career_price_over_under": 8,
+            "career_price_over_under_percentage": 88
           },
           {
             "id": 188,
@@ -4808,8 +5516,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": 2,
             "sd_team_id_2021": 4,
-            "is_active": true,
-            "rank": 102
+            "is_active": 1,
+            "rank": 102,
+            "career_price": 8,
+            "career_actual_value": 7,
+            "career_price_over_under": 2,
+            "career_price_over_under_percentage": 19
           },
           {
             "id": 189,
@@ -4835,8 +5547,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 1,
             "sd_team_id_2021": 4,
-            "is_active": true,
-            "rank": 96
+            "is_active": 1,
+            "rank": 96,
+            "career_price": 1,
+            "career_actual_value": 7,
+            "career_price_over_under": -6,
+            "career_price_over_under_percentage": -600
           },
           {
             "id": 191,
@@ -4862,8 +5578,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 131
+            "is_active": 1,
+            "rank": 131,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 192,
@@ -4889,8 +5609,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 1,
             "sd_team_id_2021": 4,
-            "is_active": true,
-            "rank": 350
+            "is_active": 1,
+            "rank": 350,
+            "career_price": 1,
+            "career_actual_value": 0,
+            "career_price_over_under": 1,
+            "career_price_over_under_percentage": 100
           },
           {
             "id": 193,
@@ -4916,8 +5640,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 8,
             "price_2021": 1,
             "sd_team_id_2021": 1,
-            "is_active": true,
-            "rank": 181
+            "is_active": 1,
+            "rank": 181,
+            "career_price": 3,
+            "career_actual_value": 2,
+            "career_price_over_under": 1,
+            "career_price_over_under_percentage": 18
           },
           {
             "id": 194,
@@ -4943,8 +5671,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": 1,
             "sd_team_id_2021": 9,
-            "is_active": true,
-            "rank": 136
+            "is_active": 1,
+            "rank": 136,
+            "career_price": 1,
+            "career_actual_value": 3,
+            "career_price_over_under": -2,
+            "career_price_over_under_percentage": -200
           },
           {
             "id": 195,
@@ -4970,8 +5702,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": 1,
             "sd_team_id_2021": 5,
-            "is_active": true,
-            "rank": 451
+            "is_active": 1,
+            "rank": 451,
+            "career_price": 1,
+            "career_actual_value": 0,
+            "career_price_over_under": 1,
+            "career_price_over_under_percentage": 100
           },
           {
             "id": 196,
@@ -4997,8 +5733,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 8,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 302
+            "is_active": 1,
+            "rank": 302,
+            "career_price": 6,
+            "career_actual_value": 2,
+            "career_price_over_under": 4,
+            "career_price_over_under_percentage": 67
           },
           {
             "id": 197,
@@ -5024,8 +5764,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 1,
             "sd_team_id_2021": 3,
-            "is_active": true,
-            "rank": 232
+            "is_active": 1,
+            "rank": 232,
+            "career_price": 5,
+            "career_actual_value": 3,
+            "career_price_over_under": 2,
+            "career_price_over_under_percentage": 44
           },
           {
             "id": 198,
@@ -5051,8 +5795,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 5,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 161
+            "is_active": 1,
+            "rank": 161,
+            "career_price": 5,
+            "career_actual_value": 0,
+            "career_price_over_under": 5,
+            "career_price_over_under_percentage": 100
           },
           {
             "id": 199,
@@ -5078,8 +5826,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 8,
             "sd_team_id_2021": 1,
-            "is_active": true,
-            "rank": 120
+            "is_active": 1,
+            "rank": 120,
+            "career_price": 7,
+            "career_actual_value": 3,
+            "career_price_over_under": 4,
+            "career_price_over_under_percentage": 62
           },
           {
             "id": 200,
@@ -5105,8 +5857,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": 1,
             "sd_team_id_2021": 4,
-            "is_active": true,
-            "rank": 352
+            "is_active": 1,
+            "rank": 352,
+            "career_price": 1,
+            "career_actual_value": 0,
+            "career_price_over_under": 1,
+            "career_price_over_under_percentage": 100
           },
           {
             "id": 201,
@@ -5132,8 +5888,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": 11,
             "sd_team_id_2021": 10,
-            "is_active": true,
-            "rank": 148
+            "is_active": 1,
+            "rank": 148,
+            "career_price": 11,
+            "career_actual_value": 10,
+            "career_price_over_under": 1,
+            "career_price_over_under_percentage": 9
           },
           {
             "id": 202,
@@ -5159,8 +5919,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": 1,
             "sd_team_id_2021": 6,
-            "is_active": true,
-            "rank": 149
+            "is_active": 1,
+            "rank": 149,
+            "career_price": 1,
+            "career_actual_value": 3,
+            "career_price_over_under": -2,
+            "career_price_over_under_percentage": -150
           },
           {
             "id": 203,
@@ -5186,8 +5950,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 8,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 595
+            "is_active": 1,
+            "rank": 595,
+            "career_price": 1,
+            "career_actual_value": 0,
+            "career_price_over_under": 1,
+            "career_price_over_under_percentage": 100
           },
           {
             "id": 204,
@@ -5213,8 +5981,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 1,
             "sd_team_id_2021": 2,
-            "is_active": true,
-            "rank": 200
+            "is_active": 1,
+            "rank": 200,
+            "career_price": 1,
+            "career_actual_value": 0,
+            "career_price_over_under": 1,
+            "career_price_over_under_percentage": 100
           },
           {
             "id": 205,
@@ -5240,8 +6012,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 1,
             "sd_team_id_2021": 2,
-            "is_active": true,
-            "rank": 259
+            "is_active": 1,
+            "rank": 259,
+            "career_price": 7,
+            "career_actual_value": 7,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": -3
           },
           {
             "id": 206,
@@ -5267,8 +6043,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 207
+            "is_active": 1,
+            "rank": 207,
+            "career_price": 9,
+            "career_actual_value": 13,
+            "career_price_over_under": -4,
+            "career_price_over_under_percentage": -42
           },
           {
             "id": 207,
@@ -5294,8 +6074,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 216
+            "is_active": 1,
+            "rank": 216,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 208,
@@ -5321,8 +6105,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 8,
             "price_2021": 6,
             "sd_team_id_2021": 7,
-            "is_active": true,
-            "rank": 80
+            "is_active": 1,
+            "rank": 80,
+            "career_price": 19,
+            "career_actual_value": 20,
+            "career_price_over_under": -1,
+            "career_price_over_under_percentage": -6
           },
           {
             "id": 209,
@@ -5348,8 +6136,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 272
+            "is_active": 1,
+            "rank": 272,
+            "career_price": 1,
+            "career_actual_value": 0,
+            "career_price_over_under": 1,
+            "career_price_over_under_percentage": 100
           },
           {
             "id": 211,
@@ -5375,8 +6167,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 5,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 238
+            "is_active": 1,
+            "rank": 238,
+            "career_price": 1,
+            "career_actual_value": 0,
+            "career_price_over_under": 1,
+            "career_price_over_under_percentage": 100
           },
           {
             "id": 214,
@@ -5402,8 +6198,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 8,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 291
+            "is_active": 1,
+            "rank": 291,
+            "career_price": 8,
+            "career_actual_value": 6,
+            "career_price_over_under": 2,
+            "career_price_over_under_percentage": 26
           },
           {
             "id": 215,
@@ -5429,8 +6229,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": 1,
             "sd_team_id_2021": 3,
-            "is_active": true,
-            "rank": 337
+            "is_active": 1,
+            "rank": 337,
+            "career_price": 1,
+            "career_actual_value": 0,
+            "career_price_over_under": 1,
+            "career_price_over_under_percentage": 100
           },
           {
             "id": 216,
@@ -5456,8 +6260,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 18,
             "sd_team_id_2021": 10,
-            "is_active": true,
-            "rank": 263
+            "is_active": 1,
+            "rank": 263,
+            "career_price": 8,
+            "career_actual_value": 1,
+            "career_price_over_under": 7,
+            "career_price_over_under_percentage": 83
           },
           {
             "id": 217,
@@ -5483,8 +6291,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 1,
             "sd_team_id_2021": 5,
-            "is_active": true,
-            "rank": 338
+            "is_active": 1,
+            "rank": 338,
+            "career_price": 1,
+            "career_actual_value": 0,
+            "career_price_over_under": 1,
+            "career_price_over_under_percentage": 100
           },
           {
             "id": 218,
@@ -5510,8 +6322,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 745
+            "is_active": 1,
+            "rank": 745,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 219,
@@ -5537,8 +6353,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": 1,
             "sd_team_id_2021": 3,
-            "is_active": true,
-            "rank": 293
+            "is_active": 1,
+            "rank": 293,
+            "career_price": 1,
+            "career_actual_value": 0,
+            "career_price_over_under": 1,
+            "career_price_over_under_percentage": 100
           },
           {
             "id": 220,
@@ -5564,8 +6384,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 105
+            "is_active": 1,
+            "rank": 105,
+            "career_price": 13,
+            "career_actual_value": 8,
+            "career_price_over_under": 5,
+            "career_price_over_under_percentage": 39
           },
           {
             "id": 221,
@@ -5591,8 +6415,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 5,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 67
+            "is_active": 1,
+            "rank": 67,
+            "career_price": 5,
+            "career_actual_value": 0,
+            "career_price_over_under": 5,
+            "career_price_over_under_percentage": 100
           },
           {
             "id": 222,
@@ -5618,8 +6446,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 5,
             "price_2021": 1,
             "sd_team_id_2021": 5,
-            "is_active": true,
-            "rank": 249
+            "is_active": 1,
+            "rank": 249,
+            "career_price": 1,
+            "career_actual_value": 0,
+            "career_price_over_under": 1,
+            "career_price_over_under_percentage": 100
           },
           {
             "id": 223,
@@ -5645,8 +6477,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 221
+            "is_active": 1,
+            "rank": 221,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 225,
@@ -5672,8 +6508,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 8,
             "price_2021": 1,
             "sd_team_id_2021": 9,
-            "is_active": true,
-            "rank": 145
+            "is_active": 1,
+            "rank": 145,
+            "career_price": 1,
+            "career_actual_value": 6,
+            "career_price_over_under": -5,
+            "career_price_over_under_percentage": -500
           },
           {
             "id": 226,
@@ -5699,8 +6539,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 384
+            "is_active": 1,
+            "rank": 384,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 227,
@@ -5726,8 +6570,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 8,
             "price_2021": 1,
             "sd_team_id_2021": 6,
-            "is_active": true,
-            "rank": 100
+            "is_active": 1,
+            "rank": 100,
+            "career_price": 4,
+            "career_actual_value": 7,
+            "career_price_over_under": -3,
+            "career_price_over_under_percentage": -87
           },
           {
             "id": 228,
@@ -5753,8 +6601,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 245
+            "is_active": 1,
+            "rank": 245,
+            "career_price": 4,
+            "career_actual_value": 3,
+            "career_price_over_under": 1,
+            "career_price_over_under_percentage": 25
           },
           {
             "id": 229,
@@ -5780,8 +6632,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": 1,
             "sd_team_id_2021": 5,
-            "is_active": true,
-            "rank": 229
+            "is_active": 1,
+            "rank": 229,
+            "career_price": 1,
+            "career_actual_value": 1,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": -33
           },
           {
             "id": 230,
@@ -5807,8 +6663,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": 5,
             "sd_team_id_2021": 7,
-            "is_active": true,
-            "rank": 309
+            "is_active": 1,
+            "rank": 309,
+            "career_price": 5,
+            "career_actual_value": 0,
+            "career_price_over_under": 5,
+            "career_price_over_under_percentage": 100
           },
           {
             "id": 231,
@@ -5834,8 +6694,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 5,
             "price_2021": 3,
             "sd_team_id_2021": 4,
-            "is_active": true,
-            "rank": 187
+            "is_active": 1,
+            "rank": 187,
+            "career_price": 3,
+            "career_actual_value": 0,
+            "career_price_over_under": 3,
+            "career_price_over_under_percentage": 100
           },
           {
             "id": 232,
@@ -5861,8 +6725,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 31
+            "is_active": 1,
+            "rank": 31,
+            "career_price": 13,
+            "career_actual_value": 8,
+            "career_price_over_under": 5,
+            "career_price_over_under_percentage": 35
           },
           {
             "id": 233,
@@ -5888,8 +6756,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 213
+            "is_active": 1,
+            "rank": 213,
+            "career_price": 6,
+            "career_actual_value": 0,
+            "career_price_over_under": 6,
+            "career_price_over_under_percentage": 100
           },
           {
             "id": 235,
@@ -5915,8 +6787,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 143
+            "is_active": 1,
+            "rank": 143,
+            "career_price": 1,
+            "career_actual_value": 0,
+            "career_price_over_under": 1,
+            "career_price_over_under_percentage": 100
           },
           {
             "id": 236,
@@ -5942,8 +6818,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 9,
             "price_2021": 3,
             "sd_team_id_2021": 1,
-            "is_active": true,
-            "rank": 215
+            "is_active": 1,
+            "rank": 215,
+            "career_price": 3,
+            "career_actual_value": 0,
+            "career_price_over_under": 3,
+            "career_price_over_under_percentage": 100
           },
           {
             "id": 238,
@@ -5969,8 +6849,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 234
+            "is_active": 1,
+            "rank": 234,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 240,
@@ -5996,8 +6880,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 3,
             "sd_team_id_2021": 4,
-            "is_active": true,
-            "rank": 185
+            "is_active": 1,
+            "rank": 185,
+            "career_price": 7,
+            "career_actual_value": 4,
+            "career_price_over_under": 3,
+            "career_price_over_under_percentage": 41
           },
           {
             "id": 241,
@@ -6023,8 +6911,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 90
+            "is_active": 1,
+            "rank": 90,
+            "career_price": 7,
+            "career_actual_value": 0,
+            "career_price_over_under": 7,
+            "career_price_over_under_percentage": 100
           },
           {
             "id": 242,
@@ -6050,8 +6942,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 8,
             "price_2021": 1,
             "sd_team_id_2021": 10,
-            "is_active": true,
-            "rank": 174
+            "is_active": 1,
+            "rank": 174,
+            "career_price": 1,
+            "career_actual_value": 0,
+            "career_price_over_under": 1,
+            "career_price_over_under_percentage": 100
           },
           {
             "id": 243,
@@ -6077,8 +6973,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 8,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 420
+            "is_active": 1,
+            "rank": 420,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 245,
@@ -6104,8 +7004,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 380
+            "is_active": 1,
+            "rank": 380,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 246,
@@ -6131,8 +7035,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 224
+            "is_active": 1,
+            "rank": 224,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 247,
@@ -6158,8 +7066,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 475
+            "is_active": 1,
+            "rank": 475,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 248,
@@ -6185,8 +7097,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 729
+            "is_active": 1,
+            "rank": 729,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 250,
@@ -6212,8 +7128,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 162
+            "is_active": 1,
+            "rank": 162,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 251,
@@ -6239,8 +7159,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 1,
             "sd_team_id_2021": 1,
-            "is_active": true,
-            "rank": 332
+            "is_active": 1,
+            "rank": 332,
+            "career_price": 1,
+            "career_actual_value": 0,
+            "career_price_over_under": 1,
+            "career_price_over_under_percentage": 100
           },
           {
             "id": 252,
@@ -6266,8 +7190,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 566
+            "is_active": 1,
+            "rank": 566,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 253,
@@ -6293,8 +7221,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 355
+            "is_active": 1,
+            "rank": 355,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 254,
@@ -6320,8 +7252,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 170
+            "is_active": 1,
+            "rank": 170,
+            "career_price": 10,
+            "career_actual_value": 4,
+            "career_price_over_under": 6,
+            "career_price_over_under_percentage": 57
           },
           {
             "id": 255,
@@ -6347,8 +7283,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": 1,
             "sd_team_id_2021": 9,
-            "is_active": true,
-            "rank": 177
+            "is_active": 1,
+            "rank": 177,
+            "career_price": 2,
+            "career_actual_value": 2,
+            "career_price_over_under": 1,
+            "career_price_over_under_percentage": 29
           },
           {
             "id": 256,
@@ -6374,8 +7314,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 2,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 336
+            "is_active": 1,
+            "rank": 336,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 260,
@@ -6401,8 +7345,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 404
+            "is_active": 1,
+            "rank": 404,
+            "career_price": 22,
+            "career_actual_value": 14,
+            "career_price_over_under": 8,
+            "career_price_over_under_percentage": 35
           },
           {
             "id": 261,
@@ -6428,8 +7376,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 5,
             "price_2021": 1,
             "sd_team_id_2021": 6,
-            "is_active": true,
-            "rank": 198
+            "is_active": 1,
+            "rank": 198,
+            "career_price": 1,
+            "career_actual_value": 0,
+            "career_price_over_under": 1,
+            "career_price_over_under_percentage": 100
           },
           {
             "id": 262,
@@ -6455,8 +7407,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 250
+            "is_active": 1,
+            "rank": 250,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 263,
@@ -6482,8 +7438,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 422
+            "is_active": 1,
+            "rank": 422,
+            "career_price": 22,
+            "career_actual_value": 15,
+            "career_price_over_under": 7,
+            "career_price_over_under_percentage": 33
           },
           {
             "id": 264,
@@ -6509,8 +7469,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 381
+            "is_active": 1,
+            "rank": 381,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 265,
@@ -6536,8 +7500,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 525
+            "is_active": 1,
+            "rank": 525,
+            "career_price": 1,
+            "career_actual_value": 0,
+            "career_price_over_under": 1,
+            "career_price_over_under_percentage": 100
           },
           {
             "id": 267,
@@ -6563,8 +7531,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 368
+            "is_active": 1,
+            "rank": 368,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 268,
@@ -6590,8 +7562,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 1,
             "sd_team_id_2021": 4,
-            "is_active": true,
-            "rank": 192
+            "is_active": 1,
+            "rank": 192,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 269,
@@ -6617,8 +7593,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 548
+            "is_active": 1,
+            "rank": 548,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 270,
@@ -6644,8 +7624,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 292
+            "is_active": 1,
+            "rank": 292,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 271,
@@ -6671,8 +7655,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 1,
             "sd_team_id_2021": 9,
-            "is_active": true,
-            "rank": 233
+            "is_active": 1,
+            "rank": 233,
+            "career_price": 5,
+            "career_actual_value": 0,
+            "career_price_over_under": 5,
+            "career_price_over_under_percentage": 100
           },
           {
             "id": 273,
@@ -6698,8 +7686,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 288
+            "is_active": 1,
+            "rank": 288,
+            "career_price": 25,
+            "career_actual_value": 17,
+            "career_price_over_under": 8,
+            "career_price_over_under_percentage": 32
           },
           {
             "id": 274,
@@ -6725,8 +7717,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 83
+            "is_active": 1,
+            "rank": 83,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 275,
@@ -6752,8 +7748,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 5,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 406
+            "is_active": 1,
+            "rank": 406,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 277,
@@ -6779,8 +7779,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 169
+            "is_active": 1,
+            "rank": 169,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 278,
@@ -6806,8 +7810,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 5,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 333
+            "is_active": 1,
+            "rank": 333,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 279,
@@ -6833,8 +7841,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 190
+            "is_active": 1,
+            "rank": 190,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 280,
@@ -6860,8 +7872,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 335
+            "is_active": 1,
+            "rank": 335,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 281,
@@ -6887,8 +7903,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 410
+            "is_active": 1,
+            "rank": 410,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 282,
@@ -6914,8 +7934,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 261
+            "is_active": 1,
+            "rank": 261,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 283,
@@ -6941,8 +7965,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 271
+            "is_active": 1,
+            "rank": 271,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 284,
@@ -6968,8 +7996,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": 1,
             "sd_team_id_2021": 6,
-            "is_active": true,
-            "rank": 439
+            "is_active": 1,
+            "rank": 439,
+            "career_price": 1,
+            "career_actual_value": 0,
+            "career_price_over_under": 1,
+            "career_price_over_under_percentage": 100
           },
           {
             "id": 285,
@@ -6995,8 +8027,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 447
+            "is_active": 1,
+            "rank": 447,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 286,
@@ -7022,8 +8058,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 88
+            "is_active": 1,
+            "rank": 88,
+            "career_price": 10,
+            "career_actual_value": 13,
+            "career_price_over_under": -3,
+            "career_price_over_under_percentage": -31
           },
           {
             "id": 287,
@@ -7049,8 +8089,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 8,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 172
+            "is_active": 1,
+            "rank": 172,
+            "career_price": 2,
+            "career_actual_value": 0,
+            "career_price_over_under": 2,
+            "career_price_over_under_percentage": 100
           },
           {
             "id": 288,
@@ -7076,8 +8120,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 522
+            "is_active": 1,
+            "rank": 522,
+            "career_price": 8,
+            "career_actual_value": 9,
+            "career_price_over_under": -1,
+            "career_price_over_under_percentage": -10
           },
           {
             "id": 290,
@@ -7103,8 +8151,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 358
+            "is_active": 1,
+            "rank": 358,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 291,
@@ -7130,8 +8182,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 322
+            "is_active": 1,
+            "rank": 322,
+            "career_price": 2,
+            "career_actual_value": 0,
+            "career_price_over_under": 2,
+            "career_price_over_under_percentage": 100
           },
           {
             "id": 292,
@@ -7157,8 +8213,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 4,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 290
+            "is_active": 1,
+            "rank": 290,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 294,
@@ -7184,8 +8244,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 313
+            "is_active": 1,
+            "rank": 313,
+            "career_price": 13,
+            "career_actual_value": 8,
+            "career_price_over_under": 5,
+            "career_price_over_under_percentage": 39
           },
           {
             "id": 295,
@@ -7211,8 +8275,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 305
+            "is_active": 1,
+            "rank": 305,
+            "career_price": 7,
+            "career_actual_value": 0,
+            "career_price_over_under": 7,
+            "career_price_over_under_percentage": 100
           },
           {
             "id": 296,
@@ -7238,8 +8306,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 297
+            "is_active": 1,
+            "rank": 297,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 297,
@@ -7265,8 +8337,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 7,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 321
+            "is_active": 1,
+            "rank": 321,
+            "career_price": 1,
+            "career_actual_value": 0,
+            "career_price_over_under": 1,
+            "career_price_over_under_percentage": 100
           },
           {
             "id": 298,
@@ -7292,8 +8368,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 5,
             "price_2021": 1,
             "sd_team_id_2021": 4,
-            "is_active": true,
-            "rank": 93
+            "is_active": 1,
+            "rank": 93,
+            "career_price": 1,
+            "career_actual_value": 14,
+            "career_price_over_under": -13,
+            "career_price_over_under_percentage": -1300
           },
           {
             "id": 299,
@@ -7319,8 +8399,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 5,
             "price_2021": 1,
             "sd_team_id_2021": 8,
-            "is_active": true,
-            "rank": 175
+            "is_active": 1,
+            "rank": 175,
+            "career_price": 3,
+            "career_actual_value": 2,
+            "career_price_over_under": 2,
+            "career_price_over_under_percentage": 50
           },
           {
             "id": 300,
@@ -7346,8 +8430,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 266
+            "is_active": 1,
+            "rank": 266,
+            "career_price": 2,
+            "career_actual_value": 0,
+            "career_price_over_under": 2,
+            "career_price_over_under_percentage": 100
           },
           {
             "id": 301,
@@ -7373,8 +8461,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 6,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 471
+            "is_active": 1,
+            "rank": 471,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 302,
@@ -7400,8 +8492,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 521
+            "is_active": 1,
+            "rank": 521,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 303,
@@ -7427,8 +8523,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 325
+            "is_active": 1,
+            "rank": 325,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 304,
@@ -7454,8 +8554,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 158
+            "is_active": 1,
+            "rank": 158,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 305,
@@ -7481,8 +8585,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 133
+            "is_active": 1,
+            "rank": 133,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 306,
@@ -7508,8 +8616,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 428
+            "is_active": 1,
+            "rank": 428,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 307,
@@ -7535,8 +8647,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 391
+            "is_active": 1,
+            "rank": 391,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 309,
@@ -7562,8 +8678,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 265
+            "is_active": 1,
+            "rank": 265,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 310,
@@ -7589,8 +8709,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": 1,
             "sd_team_id_2021": 4,
-            "is_active": true,
-            "rank": 47
+            "is_active": 1,
+            "rank": 47,
+            "career_price": 15,
+            "career_actual_value": 21,
+            "career_price_over_under": -6,
+            "career_price_over_under_percentage": -37
           },
           {
             "id": 311,
@@ -7616,8 +8740,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 251
+            "is_active": 1,
+            "rank": 251,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 312,
@@ -7643,8 +8771,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": 5,
             "sd_team_id_2021": 9,
-            "is_active": true,
-            "rank": 270
+            "is_active": 1,
+            "rank": 270,
+            "career_price": 14,
+            "career_actual_value": 9,
+            "career_price_over_under": 5,
+            "career_price_over_under_percentage": 36
           },
           {
             "id": 313,
@@ -7670,8 +8802,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 458
+            "is_active": 1,
+            "rank": 458,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 314,
@@ -7697,8 +8833,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 446
+            "is_active": 1,
+            "rank": 446,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 315,
@@ -7724,8 +8864,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 348
+            "is_active": 1,
+            "rank": 348,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 317,
@@ -7751,8 +8895,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 481
+            "is_active": 1,
+            "rank": 481,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 318,
@@ -7778,8 +8926,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 622
+            "is_active": 1,
+            "rank": 622,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 319,
@@ -7805,8 +8957,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": 8,
             "sd_team_id_2021": 10,
-            "is_active": true,
-            "rank": 273
+            "is_active": 1,
+            "rank": 273,
+            "career_price": 8,
+            "career_actual_value": 0,
+            "career_price_over_under": 8,
+            "career_price_over_under_percentage": 100
           },
           {
             "id": 320,
@@ -7832,8 +8988,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 484
+            "is_active": 1,
+            "rank": 484,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 322,
@@ -7859,8 +9019,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 277
+            "is_active": 1,
+            "rank": 277,
+            "career_price": 1,
+            "career_actual_value": 0,
+            "career_price_over_under": 1,
+            "career_price_over_under_percentage": 100
           },
           {
             "id": 323,
@@ -7886,8 +9050,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": 1,
             "sd_team_id_2021": 2,
-            "is_active": true,
-            "rank": 204
+            "is_active": 1,
+            "rank": 204,
+            "career_price": 1,
+            "career_actual_value": 0,
+            "career_price_over_under": 1,
+            "career_price_over_under_percentage": 100
           },
           {
             "id": 324,
@@ -7913,8 +9081,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 315
+            "is_active": 1,
+            "rank": 315,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 325,
@@ -7940,8 +9112,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 388
+            "is_active": 1,
+            "rank": 388,
+            "career_price": 3,
+            "career_actual_value": 0,
+            "career_price_over_under": 3,
+            "career_price_over_under_percentage": 100
           },
           {
             "id": 328,
@@ -7967,8 +9143,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 195
+            "is_active": 1,
+            "rank": 195,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 329,
@@ -7994,8 +9174,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 118
+            "is_active": 1,
+            "rank": 118,
+            "career_price": 1,
+            "career_actual_value": 10,
+            "career_price_over_under": -9,
+            "career_price_over_under_percentage": -850
           },
           {
             "id": 330,
@@ -8021,8 +9205,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": 1,
             "sd_team_id_2021": 8,
-            "is_active": true,
-            "rank": 537
+            "is_active": 1,
+            "rank": 537,
+            "career_price": 1,
+            "career_actual_value": 0,
+            "career_price_over_under": 1,
+            "career_price_over_under_percentage": 100
           },
           {
             "id": 331,
@@ -8048,8 +9236,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 163
+            "is_active": 1,
+            "rank": 163,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 332,
@@ -8075,8 +9267,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 324
+            "is_active": 1,
+            "rank": 324,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 333,
@@ -8102,8 +9298,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 369
+            "is_active": 1,
+            "rank": 369,
+            "career_price": 1,
+            "career_actual_value": 0,
+            "career_price_over_under": 1,
+            "career_price_over_under_percentage": 100
           },
           {
             "id": 334,
@@ -8129,8 +9329,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": 1,
             "sd_team_id_2021": 9,
-            "is_active": true,
-            "rank": 307
+            "is_active": 1,
+            "rank": 307,
+            "career_price": 1,
+            "career_actual_value": 0,
+            "career_price_over_under": 1,
+            "career_price_over_under_percentage": 100
           },
           {
             "id": 335,
@@ -8156,8 +9360,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 416
+            "is_active": 1,
+            "rank": 416,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 336,
@@ -8183,8 +9391,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 360
+            "is_active": 1,
+            "rank": 360,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 337,
@@ -8210,8 +9422,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 330
+            "is_active": 1,
+            "rank": 330,
+            "career_price": 1,
+            "career_actual_value": 0,
+            "career_price_over_under": 1,
+            "career_price_over_under_percentage": 100
           },
           {
             "id": 338,
@@ -8237,8 +9453,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 431
+            "is_active": 1,
+            "rank": 431,
+            "career_price": 5,
+            "career_actual_value": 2,
+            "career_price_over_under": 4,
+            "career_price_over_under_percentage": 70
           },
           {
             "id": 339,
@@ -8264,8 +9484,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": 1,
             "sd_team_id_2021": 6,
-            "is_active": true,
-            "rank": 231
+            "is_active": 1,
+            "rank": 231,
+            "career_price": 2,
+            "career_actual_value": 1,
+            "career_price_over_under": 1,
+            "career_price_over_under_percentage": 38
           },
           {
             "id": 342,
@@ -8291,8 +9515,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 725
+            "is_active": 1,
+            "rank": 725,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 343,
@@ -8318,8 +9546,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 465
+            "is_active": 1,
+            "rank": 465,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 344,
@@ -8345,8 +9577,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 576
+            "is_active": 1,
+            "rank": 576,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 345,
@@ -8372,8 +9608,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 328
+            "is_active": 1,
+            "rank": 328,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 346,
@@ -8399,8 +9639,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 219
+            "is_active": 1,
+            "rank": 219,
+            "career_price": 7,
+            "career_actual_value": 5,
+            "career_price_over_under": 3,
+            "career_price_over_under_percentage": 35
           },
           {
             "id": 347,
@@ -8426,8 +9670,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 494
+            "is_active": 1,
+            "rank": 494,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 348,
@@ -8453,8 +9701,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": 1,
             "sd_team_id_2021": 2,
-            "is_active": true,
-            "rank": 37
+            "is_active": 1,
+            "rank": 37,
+            "career_price": 4,
+            "career_actual_value": 7,
+            "career_price_over_under": -3,
+            "career_price_over_under_percentage": -89
           },
           {
             "id": 349,
@@ -8480,8 +9732,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 70
+            "is_active": 1,
+            "rank": 70,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 350,
@@ -8507,8 +9763,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 334
+            "is_active": 1,
+            "rank": 334,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 351,
@@ -8534,8 +9794,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 424
+            "is_active": 1,
+            "rank": 424,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 352,
@@ -8561,8 +9825,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 303
+            "is_active": 1,
+            "rank": 303,
+            "career_price": 7,
+            "career_actual_value": 8,
+            "career_price_over_under": -1,
+            "career_price_over_under_percentage": -15
           },
           {
             "id": 353,
@@ -8588,8 +9856,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 721
+            "is_active": 1,
+            "rank": 721,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 354,
@@ -8615,8 +9887,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 264
+            "is_active": 1,
+            "rank": 264,
+            "career_price": 11,
+            "career_actual_value": 9,
+            "career_price_over_under": 2,
+            "career_price_over_under_percentage": 20
           },
           {
             "id": 355,
@@ -8642,8 +9918,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 448
+            "is_active": 1,
+            "rank": 448,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 356,
@@ -8669,8 +9949,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 225
+            "is_active": 1,
+            "rank": 225,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 357,
@@ -8696,8 +9980,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 464
+            "is_active": 1,
+            "rank": 464,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 358,
@@ -8723,8 +10011,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": 10,
             "sd_team_id_2021": 10,
-            "is_active": true,
-            "rank": 182
+            "is_active": 1,
+            "rank": 182,
+            "career_price": 6,
+            "career_actual_value": 2,
+            "career_price_over_under": 4,
+            "career_price_over_under_percentage": 64
           },
           {
             "id": 359,
@@ -8750,8 +10042,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 586
+            "is_active": 1,
+            "rank": 586,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 360,
@@ -8777,8 +10073,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 414
+            "is_active": 1,
+            "rank": 414,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 361,
@@ -8804,8 +10104,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 415
+            "is_active": 1,
+            "rank": 415,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 362,
@@ -8831,8 +10135,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 530
+            "is_active": 1,
+            "rank": 530,
+            "career_price": 7,
+            "career_actual_value": 2,
+            "career_price_over_under": 5,
+            "career_price_over_under_percentage": 68
           },
           {
             "id": 363,
@@ -8858,8 +10166,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 256
+            "is_active": 1,
+            "rank": 256,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 364,
@@ -8885,8 +10197,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 648
+            "is_active": 1,
+            "rank": 648,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 365,
@@ -8912,8 +10228,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 299
+            "is_active": 1,
+            "rank": 299,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 366,
@@ -8939,8 +10259,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 310
+            "is_active": 1,
+            "rank": 310,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 367,
@@ -8966,8 +10290,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 268
+            "is_active": 1,
+            "rank": 268,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 368,
@@ -8993,8 +10321,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 346
+            "is_active": 1,
+            "rank": 346,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 369,
@@ -9020,8 +10352,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 445
+            "is_active": 1,
+            "rank": 445,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 370,
@@ -9047,8 +10383,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 437
+            "is_active": 1,
+            "rank": 437,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 371,
@@ -9074,8 +10414,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 413
+            "is_active": 1,
+            "rank": 413,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 372,
@@ -9101,8 +10445,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 206
+            "is_active": 1,
+            "rank": 206,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 373,
@@ -9128,8 +10476,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 171
+            "is_active": 1,
+            "rank": 171,
+            "career_price": 1,
+            "career_actual_value": 0,
+            "career_price_over_under": 1,
+            "career_price_over_under_percentage": 100
           },
           {
             "id": 374,
@@ -9155,8 +10507,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 440
+            "is_active": 1,
+            "rank": 440,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 375,
@@ -9182,8 +10538,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 427
+            "is_active": 1,
+            "rank": 427,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 376,
@@ -9209,8 +10569,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 107
+            "is_active": 1,
+            "rank": 107,
+            "career_price": 1,
+            "career_actual_value": 0,
+            "career_price_over_under": 1,
+            "career_price_over_under_percentage": 100
           },
           {
             "id": 377,
@@ -9236,8 +10600,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 183
+            "is_active": 1,
+            "rank": 183,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 378,
@@ -9263,8 +10631,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 284
+            "is_active": 1,
+            "rank": 284,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 379,
@@ -9290,8 +10662,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 504
+            "is_active": 1,
+            "rank": 504,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 380,
@@ -9317,8 +10693,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 342
+            "is_active": 1,
+            "rank": 342,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 381,
@@ -9344,8 +10724,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 274
+            "is_active": 1,
+            "rank": 274,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 382,
@@ -9371,8 +10755,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 421
+            "is_active": 1,
+            "rank": 421,
+            "career_price": 1,
+            "career_actual_value": 0,
+            "career_price_over_under": 1,
+            "career_price_over_under_percentage": 100
           },
           {
             "id": 384,
@@ -9398,8 +10786,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 393
+            "is_active": 1,
+            "rank": 393,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 385,
@@ -9425,8 +10817,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 279
+            "is_active": 1,
+            "rank": 279,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 386,
@@ -9452,8 +10848,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 379
+            "is_active": 1,
+            "rank": 379,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 388,
@@ -9479,8 +10879,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 166
+            "is_active": 1,
+            "rank": 166,
+            "career_price": 11,
+            "career_actual_value": 13,
+            "career_price_over_under": -1,
+            "career_price_over_under_percentage": -11
           },
           {
             "id": 389,
@@ -9506,8 +10910,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 191
+            "is_active": 1,
+            "rank": 191,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 390,
@@ -9533,8 +10941,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 260
+            "is_active": 1,
+            "rank": 260,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 391,
@@ -9560,8 +10972,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 253
+            "is_active": 1,
+            "rank": 253,
+            "career_price": 1,
+            "career_actual_value": 0,
+            "career_price_over_under": 1,
+            "career_price_over_under_percentage": 100
           },
           {
             "id": 392,
@@ -9587,8 +11003,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 374
+            "is_active": 1,
+            "rank": 374,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 393,
@@ -9614,8 +11034,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 426
+            "is_active": 1,
+            "rank": 426,
+            "career_price": 1,
+            "career_actual_value": 0,
+            "career_price_over_under": 1,
+            "career_price_over_under_percentage": 100
           },
           {
             "id": 394,
@@ -9641,8 +11065,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 397
+            "is_active": 1,
+            "rank": 397,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 395,
@@ -9668,8 +11096,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 357
+            "is_active": 1,
+            "rank": 357,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 396,
@@ -9695,8 +11127,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": 1,
             "sd_team_id_2021": 10,
-            "is_active": true,
-            "rank": 246
+            "is_active": 1,
+            "rank": 246,
+            "career_price": 3,
+            "career_actual_value": 0,
+            "career_price_over_under": 3,
+            "career_price_over_under_percentage": 100
           },
           {
             "id": 397,
@@ -9722,8 +11158,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 392
+            "is_active": 1,
+            "rank": 392,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 398,
@@ -9749,8 +11189,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 496
+            "is_active": 1,
+            "rank": 496,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 399,
@@ -9776,8 +11220,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 497
+            "is_active": 1,
+            "rank": 497,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 400,
@@ -9803,8 +11251,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 378
+            "is_active": 1,
+            "rank": 378,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 401,
@@ -9830,8 +11282,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 367
+            "is_active": 1,
+            "rank": 367,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 402,
@@ -9857,8 +11313,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 243
+            "is_active": 1,
+            "rank": 243,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 403,
@@ -9884,8 +11344,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 466
+            "is_active": 1,
+            "rank": 466,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 404,
@@ -9911,8 +11375,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 398
+            "is_active": 1,
+            "rank": 398,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 405,
@@ -9938,8 +11406,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 469
+            "is_active": 1,
+            "rank": 469,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 406,
@@ -9965,8 +11437,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 505
+            "is_active": 1,
+            "rank": 505,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 407,
@@ -9992,8 +11468,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 507
+            "is_active": 1,
+            "rank": 507,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 409,
@@ -10019,8 +11499,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 202
+            "is_active": 1,
+            "rank": 202,
+            "career_price": 6,
+            "career_actual_value": 5,
+            "career_price_over_under": 1,
+            "career_price_over_under_percentage": 22
           },
           {
             "id": 410,
@@ -10046,8 +11530,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 189
+            "is_active": 1,
+            "rank": 189,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 411,
@@ -10073,8 +11561,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 240
+            "is_active": 1,
+            "rank": 240,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 412,
@@ -10100,8 +11592,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": 49,
             "sd_team_id_2021": 4,
-            "is_active": true,
-            "rank": 269
+            "is_active": 1,
+            "rank": 269,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 413,
@@ -10127,8 +11623,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 252
+            "is_active": 1,
+            "rank": 252,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 414,
@@ -10154,8 +11654,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 241
+            "is_active": 1,
+            "rank": 241,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 415,
@@ -10181,8 +11685,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": 1,
             "sd_team_id_2021": 8,
-            "is_active": true,
-            "rank": 205
+            "is_active": 1,
+            "rank": 205,
+            "career_price": 1,
+            "career_actual_value": 1,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": 0
           },
           {
             "id": 416,
@@ -10208,8 +11716,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 371
+            "is_active": 1,
+            "rank": 371,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 417,
@@ -10235,8 +11747,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 597
+            "is_active": 1,
+            "rank": 597,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 418,
@@ -10262,8 +11778,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 528
+            "is_active": 1,
+            "rank": 528,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 420,
@@ -10289,8 +11809,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 608
+            "is_active": 1,
+            "rank": 608,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 421,
@@ -10316,8 +11840,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 255
+            "is_active": 1,
+            "rank": 255,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 424,
@@ -10343,8 +11871,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 479
+            "is_active": 1,
+            "rank": 479,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 425,
@@ -10370,8 +11902,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 361
+            "is_active": 1,
+            "rank": 361,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 426,
@@ -10397,8 +11933,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 287
+            "is_active": 1,
+            "rank": 287,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 428,
@@ -10424,8 +11964,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 300
+            "is_active": 1,
+            "rank": 300,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 429,
@@ -10451,8 +11995,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": 1,
             "sd_team_id_2021": 4,
-            "is_active": true,
-            "rank": 382
+            "is_active": 1,
+            "rank": 382,
+            "career_price": 17,
+            "career_actual_value": 0,
+            "career_price_over_under": 17,
+            "career_price_over_under_percentage": 100
           },
           {
             "id": 430,
@@ -10478,8 +12026,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 592
+            "is_active": 1,
+            "rank": 592,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 431,
@@ -10505,8 +12057,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 386
+            "is_active": 1,
+            "rank": 386,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 432,
@@ -10532,8 +12088,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 748
+            "is_active": 1,
+            "rank": 748,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 434,
@@ -10559,8 +12119,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 554
+            "is_active": 1,
+            "rank": 554,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 435,
@@ -10586,8 +12150,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 227
+            "is_active": 1,
+            "rank": 227,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 436,
@@ -10613,8 +12181,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 208
+            "is_active": 1,
+            "rank": 208,
+            "career_price": 7,
+            "career_actual_value": 0,
+            "career_price_over_under": 7,
+            "career_price_over_under_percentage": 100
           },
           {
             "id": 437,
@@ -10640,8 +12212,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 429
+            "is_active": 1,
+            "rank": 429,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 438,
@@ -10667,8 +12243,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": 1,
             "sd_team_id_2021": 9,
-            "is_active": true,
-            "rank": 76
+            "is_active": 1,
+            "rank": 76,
+            "career_price": 1,
+            "career_actual_value": 21,
+            "career_price_over_under": -20,
+            "career_price_over_under_percentage": -2000
           },
           {
             "id": 439,
@@ -10694,8 +12274,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 405
+            "is_active": 1,
+            "rank": 405,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 440,
@@ -10721,8 +12305,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": 2,
             "sd_team_id_2021": 6,
-            "is_active": true,
-            "rank": 362
+            "is_active": 1,
+            "rank": 362,
+            "career_price": 2,
+            "career_actual_value": 0,
+            "career_price_over_under": 2,
+            "career_price_over_under_percentage": 100
           },
           {
             "id": 441,
@@ -10748,8 +12336,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 311
+            "is_active": 1,
+            "rank": 311,
+            "career_price": 7,
+            "career_actual_value": 0,
+            "career_price_over_under": 7,
+            "career_price_over_under_percentage": 100
           },
           {
             "id": 442,
@@ -10775,8 +12367,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 456
+            "is_active": 1,
+            "rank": 456,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 443,
@@ -10802,8 +12398,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 242
+            "is_active": 1,
+            "rank": 242,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 444,
@@ -10829,8 +12429,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 385
+            "is_active": 1,
+            "rank": 385,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 446,
@@ -10856,8 +12460,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 123
+            "is_active": 1,
+            "rank": 123,
+            "career_price": 4,
+            "career_actual_value": 6,
+            "career_price_over_under": -3,
+            "career_price_over_under_percentage": -71
           },
           {
             "id": 447,
@@ -10883,8 +12491,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 376
+            "is_active": 1,
+            "rank": 376,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 449,
@@ -10910,8 +12522,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 515
+            "is_active": 1,
+            "rank": 515,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 452,
@@ -10937,8 +12553,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 474
+            "is_active": 1,
+            "rank": 474,
+            "career_price": 1,
+            "career_actual_value": 0,
+            "career_price_over_under": 1,
+            "career_price_over_under_percentage": 100
           },
           {
             "id": 454,
@@ -10964,8 +12584,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 304
+            "is_active": 1,
+            "rank": 304,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 455,
@@ -10991,8 +12615,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 373
+            "is_active": 1,
+            "rank": 373,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 456,
@@ -11018,8 +12646,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 375
+            "is_active": 1,
+            "rank": 375,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 458,
@@ -11045,8 +12677,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 454
+            "is_active": 1,
+            "rank": 454,
+            "career_price": 1,
+            "career_actual_value": 0,
+            "career_price_over_under": 1,
+            "career_price_over_under_percentage": 100
           },
           {
             "id": 459,
@@ -11072,8 +12708,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 32
+            "is_active": 1,
+            "rank": 32,
+            "career_price": 9,
+            "career_actual_value": 10,
+            "career_price_over_under": -1,
+            "career_price_over_under_percentage": -12
           },
           {
             "id": 463,
@@ -11099,8 +12739,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 147
+            "is_active": 1,
+            "rank": 147,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 465,
@@ -11126,8 +12770,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 186
+            "is_active": 1,
+            "rank": 186,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 466,
@@ -11153,8 +12801,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 286
+            "is_active": 1,
+            "rank": 286,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 467,
@@ -11180,8 +12832,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 453
+            "is_active": 1,
+            "rank": 453,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 468,
@@ -11207,8 +12863,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 455
+            "is_active": 1,
+            "rank": 455,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 469,
@@ -11234,8 +12894,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 524
+            "is_active": 1,
+            "rank": 524,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 470,
@@ -11261,8 +12925,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 532
+            "is_active": 1,
+            "rank": 532,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 471,
@@ -11288,8 +12956,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 443
+            "is_active": 1,
+            "rank": 443,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 472,
@@ -11315,8 +12987,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 383
+            "is_active": 1,
+            "rank": 383,
+            "career_price": 1,
+            "career_actual_value": 0,
+            "career_price_over_under": 1,
+            "career_price_over_under_percentage": 100
           },
           {
             "id": 473,
@@ -11342,8 +13018,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 79
+            "is_active": 1,
+            "rank": 79,
+            "career_price": 6,
+            "career_actual_value": 0,
+            "career_price_over_under": 6,
+            "career_price_over_under_percentage": 100
           },
           {
             "id": 474,
@@ -11369,8 +13049,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 353
+            "is_active": 1,
+            "rank": 353,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 475,
@@ -11396,8 +13080,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 184
+            "is_active": 1,
+            "rank": 184,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 476,
@@ -11423,8 +13111,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 510
+            "is_active": 1,
+            "rank": 510,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 477,
@@ -11450,8 +13142,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 582
+            "is_active": 1,
+            "rank": 582,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 478,
@@ -11477,8 +13173,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 573
+            "is_active": 1,
+            "rank": 573,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 479,
@@ -11504,8 +13204,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 217
+            "is_active": 1,
+            "rank": 217,
+            "career_price": 3,
+            "career_actual_value": 0,
+            "career_price_over_under": 3,
+            "career_price_over_under_percentage": 100
           },
           {
             "id": 480,
@@ -11531,8 +13235,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 493
+            "is_active": 1,
+            "rank": 493,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 481,
@@ -11558,8 +13266,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 193
+            "is_active": 1,
+            "rank": 193,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 482,
@@ -11585,8 +13297,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 519
+            "is_active": 1,
+            "rank": 519,
+            "career_price": 4,
+            "career_actual_value": 0,
+            "career_price_over_under": 4,
+            "career_price_over_under_percentage": 100
           },
           {
             "id": 483,
@@ -11612,8 +13328,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 285
+            "is_active": 1,
+            "rank": 285,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 484,
@@ -11639,8 +13359,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 579
+            "is_active": 1,
+            "rank": 579,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 485,
@@ -11666,8 +13390,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 377
+            "is_active": 1,
+            "rank": 377,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 486,
@@ -11693,8 +13421,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 402
+            "is_active": 1,
+            "rank": 402,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 487,
@@ -11720,8 +13452,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 543
+            "is_active": 1,
+            "rank": 543,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 489,
@@ -11747,8 +13483,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 436
+            "is_active": 1,
+            "rank": 436,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 490,
@@ -11774,8 +13514,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 409
+            "is_active": 1,
+            "rank": 409,
+            "career_price": 15,
+            "career_actual_value": 15,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": 2
           },
           {
             "id": 491,
@@ -11801,8 +13545,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 556
+            "is_active": 1,
+            "rank": 556,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 492,
@@ -11828,8 +13576,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": 6,
             "sd_team_id_2021": 2,
-            "is_active": true,
-            "rank": 344
+            "is_active": 1,
+            "rank": 344,
+            "career_price": 6,
+            "career_actual_value": 0,
+            "career_price_over_under": 6,
+            "career_price_over_under_percentage": 100
           },
           {
             "id": 493,
@@ -11855,8 +13607,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 364
+            "is_active": 1,
+            "rank": 364,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 494,
@@ -11882,8 +13638,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 142
+            "is_active": 1,
+            "rank": 142,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 495,
@@ -11909,8 +13669,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 539
+            "is_active": 1,
+            "rank": 539,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 496,
@@ -11936,8 +13700,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 562
+            "is_active": 1,
+            "rank": 562,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 497,
@@ -11963,8 +13731,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 495
+            "is_active": 1,
+            "rank": 495,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 498,
@@ -11990,8 +13762,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 419
+            "is_active": 1,
+            "rank": 419,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 499,
@@ -12017,8 +13793,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 423
+            "is_active": 1,
+            "rank": 423,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 500,
@@ -12044,8 +13824,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 432
+            "is_active": 1,
+            "rank": 432,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 501,
@@ -12071,8 +13855,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 365
+            "is_active": 1,
+            "rank": 365,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 502,
@@ -12098,8 +13886,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 577
+            "is_active": 1,
+            "rank": 577,
+            "career_price": 12,
+            "career_actual_value": 0,
+            "career_price_over_under": 12,
+            "career_price_over_under_percentage": 100
           },
           {
             "id": 503,
@@ -12125,8 +13917,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 237
+            "is_active": 1,
+            "rank": 237,
+            "career_price": 2,
+            "career_actual_value": 5,
+            "career_price_over_under": -3,
+            "career_price_over_under_percentage": -125
           },
           {
             "id": 504,
@@ -12152,8 +13948,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 343
+            "is_active": 1,
+            "rank": 343,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 505,
@@ -12179,8 +13979,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 197
+            "is_active": 1,
+            "rank": 197,
+            "career_price": 6,
+            "career_actual_value": 6,
+            "career_price_over_under": 1,
+            "career_price_over_under_percentage": 8
           },
           {
             "id": 507,
@@ -12206,8 +14010,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 306
+            "is_active": 1,
+            "rank": 306,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 508,
@@ -12233,8 +14041,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 529
+            "is_active": 1,
+            "rank": 529,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 509,
@@ -12260,8 +14072,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": 11,
             "sd_team_id_2021": 7,
-            "is_active": true,
-            "rank": 23
+            "is_active": 1,
+            "rank": 23,
+            "career_price": 13,
+            "career_actual_value": 13,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": 0
           },
           {
             "id": 510,
@@ -12287,8 +14103,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 399
+            "is_active": 1,
+            "rank": 399,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 511,
@@ -12314,8 +14134,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 560
+            "is_active": 1,
+            "rank": 560,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 512,
@@ -12341,8 +14165,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 473
+            "is_active": 1,
+            "rank": 473,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 513,
@@ -12368,8 +14196,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 349
+            "is_active": 1,
+            "rank": 349,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 514,
@@ -12395,8 +14227,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 449
+            "is_active": 1,
+            "rank": 449,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 515,
@@ -12422,8 +14258,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 450
+            "is_active": 1,
+            "rank": 450,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 517,
@@ -12449,8 +14289,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 724
+            "is_active": 1,
+            "rank": 724,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 521,
@@ -12476,8 +14320,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 722
+            "is_active": 1,
+            "rank": 722,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 522,
@@ -12503,8 +14351,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 770
+            "is_active": 1,
+            "rank": 770,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 523,
@@ -12530,8 +14382,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 574
+            "is_active": 1,
+            "rank": 574,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 525,
@@ -12557,8 +14413,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 491
+            "is_active": 1,
+            "rank": 491,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 527,
@@ -12584,8 +14444,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 538
+            "is_active": 1,
+            "rank": 538,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 528,
@@ -12611,8 +14475,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 394
+            "is_active": 1,
+            "rank": 394,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 529,
@@ -12638,8 +14506,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 434
+            "is_active": 1,
+            "rank": 434,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 530,
@@ -12665,8 +14537,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 499
+            "is_active": 1,
+            "rank": 499,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 532,
@@ -12692,8 +14568,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 314
+            "is_active": 1,
+            "rank": 314,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 533,
@@ -12719,8 +14599,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 254
+            "is_active": 1,
+            "rank": 254,
+            "career_price": 3,
+            "career_actual_value": 0,
+            "career_price_over_under": 3,
+            "career_price_over_under_percentage": 100
           },
           {
             "id": 534,
@@ -12746,8 +14630,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 85
+            "is_active": 1,
+            "rank": 85,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 535,
@@ -12773,8 +14661,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 444
+            "is_active": 1,
+            "rank": 444,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 536,
@@ -12800,8 +14692,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 412
+            "is_active": 1,
+            "rank": 412,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 538,
@@ -12827,8 +14723,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 536
+            "is_active": 1,
+            "rank": 536,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 539,
@@ -12854,8 +14754,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 514
+            "is_active": 1,
+            "rank": 514,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 540,
@@ -12881,8 +14785,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 372
+            "is_active": 1,
+            "rank": 372,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 541,
@@ -12908,8 +14816,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 549
+            "is_active": 1,
+            "rank": 549,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 542,
@@ -12935,8 +14847,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 40
+            "is_active": 1,
+            "rank": 40,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 543,
@@ -12962,8 +14878,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 418
+            "is_active": 1,
+            "rank": 418,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 545,
@@ -12989,8 +14909,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 301
+            "is_active": 1,
+            "rank": 301,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 546,
@@ -13016,8 +14940,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 685
+            "is_active": 1,
+            "rank": 685,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 547,
@@ -13043,8 +14971,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": 5,
             "sd_team_id_2021": 10,
-            "is_active": true,
-            "rank": 468
+            "is_active": 1,
+            "rank": 468,
+            "career_price": 5,
+            "career_actual_value": 0,
+            "career_price_over_under": 5,
+            "career_price_over_under_percentage": 100
           },
           {
             "id": 548,
@@ -13070,8 +15002,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 400
+            "is_active": 1,
+            "rank": 400,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 549,
@@ -13097,8 +15033,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 430
+            "is_active": 1,
+            "rank": 430,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 551,
@@ -13124,8 +15064,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 589
+            "is_active": 1,
+            "rank": 589,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 554,
@@ -13151,8 +15095,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 517
+            "is_active": 1,
+            "rank": 517,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 555,
@@ -13178,8 +15126,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 317
+            "is_active": 1,
+            "rank": 317,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 557,
@@ -13205,8 +15157,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 551
+            "is_active": 1,
+            "rank": 551,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 558,
@@ -13232,8 +15188,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 487
+            "is_active": 1,
+            "rank": 487,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 559,
@@ -13259,8 +15219,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 545
+            "is_active": 1,
+            "rank": 545,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 560,
@@ -13286,8 +15250,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 294
+            "is_active": 1,
+            "rank": 294,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 561,
@@ -13313,8 +15281,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 441
+            "is_active": 1,
+            "rank": 441,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 562,
@@ -13340,8 +15312,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 488
+            "is_active": 1,
+            "rank": 488,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 564,
@@ -13367,8 +15343,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 340
+            "is_active": 1,
+            "rank": 340,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 566,
@@ -13394,8 +15374,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 509
+            "is_active": 1,
+            "rank": 509,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 571,
@@ -13421,8 +15405,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 218
+            "is_active": 1,
+            "rank": 218,
+            "career_price": 3,
+            "career_actual_value": 2,
+            "career_price_over_under": 1,
+            "career_price_over_under_percentage": 33
           },
           {
             "id": 572,
@@ -13448,8 +15436,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 593
+            "is_active": 1,
+            "rank": 593,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 573,
@@ -13475,8 +15467,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 614
+            "is_active": 1,
+            "rank": 614,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 575,
@@ -13502,8 +15498,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 106
+            "is_active": 1,
+            "rank": 106,
+            "career_price": 11,
+            "career_actual_value": 8,
+            "career_price_over_under": 3,
+            "career_price_over_under_percentage": 24
           },
           {
             "id": 576,
@@ -13529,8 +15529,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 452
+            "is_active": 1,
+            "rank": 452,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 577,
@@ -13556,8 +15560,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 435
+            "is_active": 1,
+            "rank": 435,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 578,
@@ -13583,8 +15591,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 490
+            "is_active": 1,
+            "rank": 490,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 579,
@@ -13610,8 +15622,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 438
+            "is_active": 1,
+            "rank": 438,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 580,
@@ -13637,8 +15653,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 276
+            "is_active": 1,
+            "rank": 276,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 581,
@@ -13664,8 +15684,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 389
+            "is_active": 1,
+            "rank": 389,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 583,
@@ -13691,8 +15715,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 604
+            "is_active": 1,
+            "rank": 604,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 585,
@@ -13718,8 +15746,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 607
+            "is_active": 1,
+            "rank": 607,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 586,
@@ -13745,8 +15777,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 610
+            "is_active": 1,
+            "rank": 610,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 587,
@@ -13772,8 +15808,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 613
+            "is_active": 1,
+            "rank": 613,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 588,
@@ -13799,8 +15839,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 354
+            "is_active": 1,
+            "rank": 354,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 589,
@@ -13826,8 +15870,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 520
+            "is_active": 1,
+            "rank": 520,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 590,
@@ -13853,8 +15901,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 477
+            "is_active": 1,
+            "rank": 477,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 591,
@@ -13880,8 +15932,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 618
+            "is_active": 1,
+            "rank": 618,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 592,
@@ -13907,8 +15963,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 341
+            "is_active": 1,
+            "rank": 341,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 594,
@@ -13934,8 +15994,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 194
+            "is_active": 1,
+            "rank": 194,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 595,
@@ -13961,8 +16025,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 620
+            "is_active": 1,
+            "rank": 620,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 596,
@@ -13988,8 +16056,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 236
+            "is_active": 1,
+            "rank": 236,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 597,
@@ -14015,8 +16087,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 541
+            "is_active": 1,
+            "rank": 541,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 598,
@@ -14042,8 +16118,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 483
+            "is_active": 1,
+            "rank": 483,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 600,
@@ -14069,8 +16149,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 523
+            "is_active": 1,
+            "rank": 523,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 601,
@@ -14096,8 +16180,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 478
+            "is_active": 1,
+            "rank": 478,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 603,
@@ -14123,8 +16211,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 390
+            "is_active": 1,
+            "rank": 390,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 605,
@@ -14150,8 +16242,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 442
+            "is_active": 1,
+            "rank": 442,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 606,
@@ -14177,8 +16273,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 628
+            "is_active": 1,
+            "rank": 628,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 608,
@@ -14204,8 +16304,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 598
+            "is_active": 1,
+            "rank": 598,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 609,
@@ -14231,8 +16335,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 417
+            "is_active": 1,
+            "rank": 417,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 610,
@@ -14258,8 +16366,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 630
+            "is_active": 1,
+            "rank": 630,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 612,
@@ -14285,8 +16397,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 485
+            "is_active": 1,
+            "rank": 485,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 613,
@@ -14312,8 +16428,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 634
+            "is_active": 1,
+            "rank": 634,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 614,
@@ -14339,8 +16459,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 298
+            "is_active": 1,
+            "rank": 298,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 615,
@@ -14366,8 +16490,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 635
+            "is_active": 1,
+            "rank": 635,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 616,
@@ -14393,8 +16521,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 401
+            "is_active": 1,
+            "rank": 401,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 617,
@@ -14420,8 +16552,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 570
+            "is_active": 1,
+            "rank": 570,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 618,
@@ -14447,8 +16583,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 542
+            "is_active": 1,
+            "rank": 542,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 619,
@@ -14474,8 +16614,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 636
+            "is_active": 1,
+            "rank": 636,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 620,
@@ -14501,8 +16645,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 506
+            "is_active": 1,
+            "rank": 506,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 621,
@@ -14528,8 +16676,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 403
+            "is_active": 1,
+            "rank": 403,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 622,
@@ -14555,8 +16707,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 639
+            "is_active": 1,
+            "rank": 639,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 623,
@@ -14582,8 +16738,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 470
+            "is_active": 1,
+            "rank": 470,
+            "career_price": 8,
+            "career_actual_value": 0,
+            "career_price_over_under": 8,
+            "career_price_over_under_percentage": 100
           },
           {
             "id": 624,
@@ -14609,8 +16769,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 345
+            "is_active": 1,
+            "rank": 345,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 625,
@@ -14636,8 +16800,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 584
+            "is_active": 1,
+            "rank": 584,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 626,
@@ -14663,8 +16831,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 531
+            "is_active": 1,
+            "rank": 531,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 627,
@@ -14690,8 +16862,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 139
+            "is_active": 1,
+            "rank": 139,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 628,
@@ -14717,8 +16893,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 572
+            "is_active": 1,
+            "rank": 572,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 629,
@@ -14744,8 +16924,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 486
+            "is_active": 1,
+            "rank": 486,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 630,
@@ -14771,8 +16955,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 583
+            "is_active": 1,
+            "rank": 583,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 631,
@@ -14798,8 +16986,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 650
+            "is_active": 1,
+            "rank": 650,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 632,
@@ -14825,8 +17017,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 652
+            "is_active": 1,
+            "rank": 652,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 633,
@@ -14852,8 +17048,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 110
+            "is_active": 1,
+            "rank": 110,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 634,
@@ -14879,8 +17079,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 508
+            "is_active": 1,
+            "rank": 508,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 635,
@@ -14906,8 +17110,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 140
+            "is_active": 1,
+            "rank": 140,
+            "career_price": 31,
+            "career_actual_value": 20,
+            "career_price_over_under": 11,
+            "career_price_over_under_percentage": 36
           },
           {
             "id": 636,
@@ -14933,8 +17141,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 552
+            "is_active": 1,
+            "rank": 552,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 638,
@@ -14960,8 +17172,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 489
+            "is_active": 1,
+            "rank": 489,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 641,
@@ -14987,8 +17203,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 553
+            "is_active": 1,
+            "rank": 553,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 644,
@@ -15014,8 +17234,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 563
+            "is_active": 1,
+            "rank": 563,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 645,
@@ -15041,8 +17265,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 656
+            "is_active": 1,
+            "rank": 656,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 646,
@@ -15068,8 +17296,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 544
+            "is_active": 1,
+            "rank": 544,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 647,
@@ -15095,8 +17327,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 201
+            "is_active": 1,
+            "rank": 201,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 648,
@@ -15122,8 +17358,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 239
+            "is_active": 1,
+            "rank": 239,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 649,
@@ -15149,8 +17389,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 659
+            "is_active": 1,
+            "rank": 659,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 650,
@@ -15176,8 +17420,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 557
+            "is_active": 1,
+            "rank": 557,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 651,
@@ -15203,8 +17451,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 278
+            "is_active": 1,
+            "rank": 278,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 652,
@@ -15230,8 +17482,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 661
+            "is_active": 1,
+            "rank": 661,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 653,
@@ -15257,8 +17513,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 663
+            "is_active": 1,
+            "rank": 663,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 654,
@@ -15284,8 +17544,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 363
+            "is_active": 1,
+            "rank": 363,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 658,
@@ -15311,8 +17575,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 669
+            "is_active": 1,
+            "rank": 669,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 659,
@@ -15338,8 +17606,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 585
+            "is_active": 1,
+            "rank": 585,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 660,
@@ -15365,8 +17637,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 571
+            "is_active": 1,
+            "rank": 571,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 663,
@@ -15392,8 +17668,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 498
+            "is_active": 1,
+            "rank": 498,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 664,
@@ -15419,8 +17699,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 433
+            "is_active": 1,
+            "rank": 433,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 666,
@@ -15446,8 +17730,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 546
+            "is_active": 1,
+            "rank": 546,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 668,
@@ -15473,8 +17761,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 558
+            "is_active": 1,
+            "rank": 558,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 669,
@@ -15500,8 +17792,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 568
+            "is_active": 1,
+            "rank": 568,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 670,
@@ -15527,8 +17823,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 457
+            "is_active": 1,
+            "rank": 457,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 671,
@@ -15554,8 +17854,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 472
+            "is_active": 1,
+            "rank": 472,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 672,
@@ -15581,8 +17885,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 677
+            "is_active": 1,
+            "rank": 677,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 673,
@@ -15608,8 +17916,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 564
+            "is_active": 1,
+            "rank": 564,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 674,
@@ -15635,8 +17947,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 680
+            "is_active": 1,
+            "rank": 680,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 675,
@@ -15662,8 +17978,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 561
+            "is_active": 1,
+            "rank": 561,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 676,
@@ -15689,8 +18009,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 408
+            "is_active": 1,
+            "rank": 408,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 677,
@@ -15716,8 +18040,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 511
+            "is_active": 1,
+            "rank": 511,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 678,
@@ -15743,8 +18071,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 683
+            "is_active": 1,
+            "rank": 683,
+            "career_price": 5,
+            "career_actual_value": 0,
+            "career_price_over_under": 5,
+            "career_price_over_under_percentage": 100
           },
           {
             "id": 679,
@@ -15770,8 +18102,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 565
+            "is_active": 1,
+            "rank": 565,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 680,
@@ -15797,8 +18133,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 686
+            "is_active": 1,
+            "rank": 686,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 681,
@@ -15824,8 +18164,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 559
+            "is_active": 1,
+            "rank": 559,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 682,
@@ -15851,8 +18195,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": 15,
             "sd_team_id_2021": 1,
-            "is_active": true,
-            "rank": 459
+            "is_active": 1,
+            "rank": 459,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 683,
@@ -15878,8 +18226,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 690
+            "is_active": 1,
+            "rank": 690,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 684,
@@ -15905,8 +18257,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 691
+            "is_active": 1,
+            "rank": 691,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 685,
@@ -15932,8 +18288,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 692
+            "is_active": 1,
+            "rank": 692,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 686,
@@ -15959,8 +18319,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 312
+            "is_active": 1,
+            "rank": 312,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 687,
@@ -15986,8 +18350,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 693
+            "is_active": 1,
+            "rank": 693,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 688,
@@ -16013,8 +18381,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 694
+            "is_active": 1,
+            "rank": 694,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 689,
@@ -16040,8 +18412,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 516
+            "is_active": 1,
+            "rank": 516,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 691,
@@ -16067,8 +18443,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 696
+            "is_active": 1,
+            "rank": 696,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 692,
@@ -16094,8 +18474,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 512
+            "is_active": 1,
+            "rank": 512,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 695,
@@ -16121,8 +18505,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 500
+            "is_active": 1,
+            "rank": 500,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 696,
@@ -16148,8 +18536,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 700
+            "is_active": 1,
+            "rank": 700,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 698,
@@ -16175,8 +18567,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 526
+            "is_active": 1,
+            "rank": 526,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 699,
@@ -16202,8 +18598,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 706
+            "is_active": 1,
+            "rank": 706,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 700,
@@ -16229,8 +18629,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 709
+            "is_active": 1,
+            "rank": 709,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 701,
@@ -16256,8 +18660,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 710
+            "is_active": 1,
+            "rank": 710,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 702,
@@ -16283,8 +18691,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 711
+            "is_active": 1,
+            "rank": 711,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 704,
@@ -16310,8 +18722,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 712
+            "is_active": 1,
+            "rank": 712,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 705,
@@ -16337,8 +18753,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 713
+            "is_active": 1,
+            "rank": 713,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 707,
@@ -16364,8 +18784,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 714
+            "is_active": 1,
+            "rank": 714,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 708,
@@ -16391,8 +18815,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 716
+            "is_active": 1,
+            "rank": 716,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 710,
@@ -16418,8 +18846,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 567
+            "is_active": 1,
+            "rank": 567,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 711,
@@ -16445,8 +18877,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 720
+            "is_active": 1,
+            "rank": 720,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 712,
@@ -16472,8 +18908,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 425
+            "is_active": 1,
+            "rank": 425,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 713,
@@ -16499,8 +18939,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 591
+            "is_active": 1,
+            "rank": 591,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 715,
@@ -16526,8 +18970,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 501
+            "is_active": 1,
+            "rank": 501,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 716,
@@ -16553,8 +19001,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 462
+            "is_active": 1,
+            "rank": 462,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 717,
@@ -16580,8 +19032,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 513
+            "is_active": 1,
+            "rank": 513,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 718,
@@ -16607,8 +19063,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 370
+            "is_active": 1,
+            "rank": 370,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 719,
@@ -16634,8 +19094,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 282
+            "is_active": 1,
+            "rank": 282,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 720,
@@ -16661,8 +19125,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 527
+            "is_active": 1,
+            "rank": 527,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 721,
@@ -16688,8 +19156,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 547
+            "is_active": 1,
+            "rank": 547,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 724,
@@ -16715,8 +19187,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 159
+            "is_active": 1,
+            "rank": 159,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 725,
@@ -16742,8 +19218,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 463
+            "is_active": 1,
+            "rank": 463,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 726,
@@ -16769,8 +19249,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 587
+            "is_active": 1,
+            "rank": 587,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 727,
@@ -16796,8 +19280,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 730
+            "is_active": 1,
+            "rank": 730,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 728,
@@ -16823,8 +19311,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 580
+            "is_active": 1,
+            "rank": 580,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 729,
@@ -16850,8 +19342,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 732
+            "is_active": 1,
+            "rank": 732,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 730,
@@ -16877,8 +19373,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 395
+            "is_active": 1,
+            "rank": 395,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 731,
@@ -16904,8 +19404,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 600
+            "is_active": 1,
+            "rank": 600,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 732,
@@ -16931,8 +19435,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 733
+            "is_active": 1,
+            "rank": 733,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 733,
@@ -16958,8 +19466,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 734
+            "is_active": 1,
+            "rank": 734,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 734,
@@ -16985,8 +19497,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 502
+            "is_active": 1,
+            "rank": 502,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 735,
@@ -17012,8 +19528,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 569
+            "is_active": 1,
+            "rank": 569,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 736,
@@ -17039,8 +19559,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 736
+            "is_active": 1,
+            "rank": 736,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 737,
@@ -17066,8 +19590,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 737
+            "is_active": 1,
+            "rank": 737,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 740,
@@ -17093,8 +19621,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 742
+            "is_active": 1,
+            "rank": 742,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 741,
@@ -17120,8 +19652,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 743
+            "is_active": 1,
+            "rank": 743,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 743,
@@ -17147,8 +19683,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 596
+            "is_active": 1,
+            "rank": 596,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 744,
@@ -17174,8 +19714,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 476
+            "is_active": 1,
+            "rank": 476,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 745,
@@ -17201,8 +19745,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 533
+            "is_active": 1,
+            "rank": 533,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 746,
@@ -17228,8 +19776,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 749
+            "is_active": 1,
+            "rank": 749,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 747,
@@ -17255,8 +19807,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 750
+            "is_active": 1,
+            "rank": 750,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 748,
@@ -17282,8 +19838,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 396
+            "is_active": 1,
+            "rank": 396,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 749,
@@ -17309,8 +19869,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 534
+            "is_active": 1,
+            "rank": 534,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 750,
@@ -17336,8 +19900,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 387
+            "is_active": 1,
+            "rank": 387,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 751,
@@ -17363,8 +19931,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 308
+            "is_active": 1,
+            "rank": 308,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 753,
@@ -17390,8 +19962,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 356
+            "is_active": 1,
+            "rank": 356,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 755,
@@ -17417,8 +19993,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 752
+            "is_active": 1,
+            "rank": 752,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 758,
@@ -17444,8 +20024,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 535
+            "is_active": 1,
+            "rank": 535,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 759,
@@ -17471,8 +20055,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 753
+            "is_active": 1,
+            "rank": 753,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 760,
@@ -17498,8 +20086,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 754
+            "is_active": 1,
+            "rank": 754,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 761,
@@ -17525,8 +20117,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 503
+            "is_active": 1,
+            "rank": 503,
+            "career_price": 1,
+            "career_actual_value": 0,
+            "career_price_over_under": 1,
+            "career_price_over_under_percentage": 100
           },
           {
             "id": 763,
@@ -17552,8 +20148,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 518
+            "is_active": 1,
+            "rank": 518,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 764,
@@ -17579,8 +20179,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 758
+            "is_active": 1,
+            "rank": 758,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 765,
@@ -17606,8 +20210,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 760
+            "is_active": 1,
+            "rank": 760,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 768,
@@ -17633,8 +20241,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 550
+            "is_active": 1,
+            "rank": 550,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 769,
@@ -17660,8 +20272,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 764
+            "is_active": 1,
+            "rank": 764,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 770,
@@ -17687,8 +20303,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 467
+            "is_active": 1,
+            "rank": 467,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 771,
@@ -17714,8 +20334,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 295
+            "is_active": 1,
+            "rank": 295,
+            "career_price": 5,
+            "career_actual_value": 7,
+            "career_price_over_under": -3,
+            "career_price_over_under_percentage": -56
           },
           {
             "id": 772,
@@ -17741,8 +20365,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 768
+            "is_active": 1,
+            "rank": 768,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 773,
@@ -17768,8 +20396,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 590
+            "is_active": 1,
+            "rank": 590,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 774,
@@ -17795,8 +20427,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 581
+            "is_active": 1,
+            "rank": 581,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 775,
@@ -17822,8 +20458,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 555
+            "is_active": 1,
+            "rank": 555,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 776,
@@ -17849,8 +20489,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 578
+            "is_active": 1,
+            "rank": 578,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 777,
@@ -17876,8 +20520,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 594
+            "is_active": 1,
+            "rank": 594,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 778,
@@ -17903,8 +20551,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 167
+            "is_active": 1,
+            "rank": 167,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 779,
@@ -17930,8 +20582,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 601
+            "is_active": 1,
+            "rank": 601,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 780,
@@ -17957,8 +20613,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 602
+            "is_active": 1,
+            "rank": 602,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 781,
@@ -17984,8 +20644,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 603
+            "is_active": 1,
+            "rank": 603,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 782,
@@ -18011,8 +20675,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 605
+            "is_active": 1,
+            "rank": 605,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 783,
@@ -18038,8 +20706,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 606
+            "is_active": 1,
+            "rank": 606,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 784,
@@ -18065,8 +20737,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 609
+            "is_active": 1,
+            "rank": 609,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 785,
@@ -18092,8 +20768,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 611
+            "is_active": 1,
+            "rank": 611,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 786,
@@ -18119,8 +20799,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 612
+            "is_active": 1,
+            "rank": 612,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 787,
@@ -18146,8 +20830,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 615
+            "is_active": 1,
+            "rank": 615,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 788,
@@ -18173,8 +20861,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 616
+            "is_active": 1,
+            "rank": 616,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 789,
@@ -18200,8 +20892,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 617
+            "is_active": 1,
+            "rank": 617,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 790,
@@ -18227,8 +20923,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 619
+            "is_active": 1,
+            "rank": 619,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 791,
@@ -18254,8 +20954,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 621
+            "is_active": 1,
+            "rank": 621,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 792,
@@ -18281,8 +20985,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 623
+            "is_active": 1,
+            "rank": 623,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 793,
@@ -18308,8 +21016,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 624
+            "is_active": 1,
+            "rank": 624,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 794,
@@ -18335,8 +21047,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 625
+            "is_active": 1,
+            "rank": 625,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 795,
@@ -18362,8 +21078,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 626
+            "is_active": 1,
+            "rank": 626,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 796,
@@ -18389,8 +21109,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 627
+            "is_active": 1,
+            "rank": 627,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 797,
@@ -18416,8 +21140,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 629
+            "is_active": 1,
+            "rank": 629,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 798,
@@ -18443,8 +21171,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 631
+            "is_active": 1,
+            "rank": 631,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 799,
@@ -18470,8 +21202,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 632
+            "is_active": 1,
+            "rank": 632,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 800,
@@ -18497,8 +21233,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 633
+            "is_active": 1,
+            "rank": 633,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 801,
@@ -18524,8 +21264,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 637
+            "is_active": 1,
+            "rank": 637,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 802,
@@ -18551,8 +21295,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 640
+            "is_active": 1,
+            "rank": 640,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 803,
@@ -18578,8 +21326,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 641
+            "is_active": 1,
+            "rank": 641,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 804,
@@ -18605,8 +21357,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 642
+            "is_active": 1,
+            "rank": 642,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 805,
@@ -18632,8 +21388,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 643
+            "is_active": 1,
+            "rank": 643,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 806,
@@ -18659,8 +21419,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 644
+            "is_active": 1,
+            "rank": 644,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 807,
@@ -18686,8 +21450,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 645
+            "is_active": 1,
+            "rank": 645,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 808,
@@ -18713,8 +21481,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 646
+            "is_active": 1,
+            "rank": 646,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 809,
@@ -18740,8 +21512,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 331
+            "is_active": 1,
+            "rank": 331,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 810,
@@ -18767,8 +21543,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 647
+            "is_active": 1,
+            "rank": 647,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 811,
@@ -18794,8 +21574,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 649
+            "is_active": 1,
+            "rank": 649,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 812,
@@ -18821,8 +21605,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 651
+            "is_active": 1,
+            "rank": 651,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 813,
@@ -18848,8 +21636,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 654
+            "is_active": 1,
+            "rank": 654,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 814,
@@ -18875,8 +21667,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 655
+            "is_active": 1,
+            "rank": 655,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 815,
@@ -18902,8 +21698,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 657
+            "is_active": 1,
+            "rank": 657,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 816,
@@ -18929,8 +21729,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 658
+            "is_active": 1,
+            "rank": 658,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 817,
@@ -18956,8 +21760,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 660
+            "is_active": 1,
+            "rank": 660,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 818,
@@ -18983,8 +21791,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 662
+            "is_active": 1,
+            "rank": 662,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 819,
@@ -19010,8 +21822,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 664
+            "is_active": 1,
+            "rank": 664,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 820,
@@ -19037,8 +21853,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 665
+            "is_active": 1,
+            "rank": 665,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 821,
@@ -19064,8 +21884,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 666
+            "is_active": 1,
+            "rank": 666,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 822,
@@ -19091,8 +21915,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 668
+            "is_active": 1,
+            "rank": 668,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 823,
@@ -19118,8 +21946,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 670
+            "is_active": 1,
+            "rank": 670,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 824,
@@ -19145,8 +21977,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 671
+            "is_active": 1,
+            "rank": 671,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 825,
@@ -19172,8 +22008,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 672
+            "is_active": 1,
+            "rank": 672,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 826,
@@ -19199,8 +22039,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 289
+            "is_active": 1,
+            "rank": 289,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 827,
@@ -19226,8 +22070,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 673
+            "is_active": 1,
+            "rank": 673,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 828,
@@ -19253,8 +22101,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 674
+            "is_active": 1,
+            "rank": 674,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 829,
@@ -19280,8 +22132,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 675
+            "is_active": 1,
+            "rank": 675,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 830,
@@ -19307,8 +22163,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 676
+            "is_active": 1,
+            "rank": 676,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 831,
@@ -19334,8 +22194,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 678
+            "is_active": 1,
+            "rank": 678,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 832,
@@ -19361,8 +22225,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 679
+            "is_active": 1,
+            "rank": 679,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 833,
@@ -19388,8 +22256,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 681
+            "is_active": 1,
+            "rank": 681,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 834,
@@ -19415,8 +22287,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 682
+            "is_active": 1,
+            "rank": 682,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 835,
@@ -19442,8 +22318,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 684
+            "is_active": 1,
+            "rank": 684,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 836,
@@ -19469,8 +22349,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 687
+            "is_active": 1,
+            "rank": 687,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 837,
@@ -19496,8 +22380,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 688
+            "is_active": 1,
+            "rank": 688,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 838,
@@ -19523,8 +22411,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 689
+            "is_active": 1,
+            "rank": 689,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 839,
@@ -19550,8 +22442,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 460
+            "is_active": 1,
+            "rank": 460,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 840,
@@ -19577,8 +22473,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 599
+            "is_active": 1,
+            "rank": 599,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 841,
@@ -19604,8 +22504,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 695
+            "is_active": 1,
+            "rank": 695,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 842,
@@ -19631,8 +22535,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 699
+            "is_active": 1,
+            "rank": 699,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 843,
@@ -19658,8 +22566,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 701
+            "is_active": 1,
+            "rank": 701,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 844,
@@ -19685,8 +22597,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 702
+            "is_active": 1,
+            "rank": 702,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 845,
@@ -19712,8 +22628,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 703
+            "is_active": 1,
+            "rank": 703,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 846,
@@ -19739,8 +22659,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 704
+            "is_active": 1,
+            "rank": 704,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 847,
@@ -19766,8 +22690,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 705
+            "is_active": 1,
+            "rank": 705,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 848,
@@ -19793,8 +22721,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 411
+            "is_active": 1,
+            "rank": 411,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 849,
@@ -19820,8 +22752,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 708
+            "is_active": 1,
+            "rank": 708,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 850,
@@ -19847,8 +22783,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 461
+            "is_active": 1,
+            "rank": 461,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 851,
@@ -19874,8 +22814,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 715
+            "is_active": 1,
+            "rank": 715,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 852,
@@ -19901,8 +22845,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 717
+            "is_active": 1,
+            "rank": 717,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 853,
@@ -19928,8 +22876,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 718
+            "is_active": 1,
+            "rank": 718,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 854,
@@ -19955,8 +22907,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 347
+            "is_active": 1,
+            "rank": 347,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 855,
@@ -19982,8 +22938,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 719
+            "is_active": 1,
+            "rank": 719,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 856,
@@ -20009,8 +22969,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 540
+            "is_active": 1,
+            "rank": 540,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 857,
@@ -20036,8 +23000,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 723
+            "is_active": 1,
+            "rank": 723,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 858,
@@ -20063,8 +23031,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 726
+            "is_active": 1,
+            "rank": 726,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 859,
@@ -20090,8 +23062,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 727
+            "is_active": 1,
+            "rank": 727,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 860,
@@ -20117,8 +23093,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 728
+            "is_active": 1,
+            "rank": 728,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 861,
@@ -20144,8 +23124,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 731
+            "is_active": 1,
+            "rank": 731,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 862,
@@ -20171,8 +23155,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 735
+            "is_active": 1,
+            "rank": 735,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 863,
@@ -20198,8 +23186,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 283
+            "is_active": 1,
+            "rank": 283,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 864,
@@ -20225,8 +23217,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 738
+            "is_active": 1,
+            "rank": 738,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 865,
@@ -20252,8 +23248,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 740
+            "is_active": 1,
+            "rank": 740,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 866,
@@ -20279,8 +23279,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 741
+            "is_active": 1,
+            "rank": 741,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 867,
@@ -20306,8 +23310,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": 1,
             "sd_team_id_2021": 6,
-            "is_active": true,
-            "rank": 744
+            "is_active": 1,
+            "rank": 744,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 868,
@@ -20333,8 +23341,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 746
+            "is_active": 1,
+            "rank": 746,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 869,
@@ -20360,8 +23372,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 747
+            "is_active": 1,
+            "rank": 747,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 870,
@@ -20387,8 +23403,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 751
+            "is_active": 1,
+            "rank": 751,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 871,
@@ -20414,8 +23434,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 755
+            "is_active": 1,
+            "rank": 755,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 872,
@@ -20441,8 +23465,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 756
+            "is_active": 1,
+            "rank": 756,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 873,
@@ -20468,8 +23496,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 757
+            "is_active": 1,
+            "rank": 757,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 874,
@@ -20495,8 +23527,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 759
+            "is_active": 1,
+            "rank": 759,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 875,
@@ -20522,8 +23558,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 761
+            "is_active": 1,
+            "rank": 761,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 876,
@@ -20549,8 +23589,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 762
+            "is_active": 1,
+            "rank": 762,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 877,
@@ -20576,8 +23620,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 763
+            "is_active": 1,
+            "rank": 763,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 878,
@@ -20603,8 +23651,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 765
+            "is_active": 1,
+            "rank": 765,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 879,
@@ -20630,8 +23682,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 766
+            "is_active": 1,
+            "rank": 766,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 880,
@@ -20657,8 +23713,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 767
+            "is_active": 1,
+            "rank": 767,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 881,
@@ -20684,8 +23744,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 480
+            "is_active": 1,
+            "rank": 480,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 882,
@@ -20711,8 +23775,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 769
+            "is_active": 1,
+            "rank": 769,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 883,
@@ -20738,8 +23806,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 771
+            "is_active": 1,
+            "rank": 771,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 884,
@@ -20765,8 +23837,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 772
+            "is_active": 1,
+            "rank": 772,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 885,
@@ -20792,8 +23868,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 773
+            "is_active": 1,
+            "rank": 773,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 886,
@@ -20819,8 +23899,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 774
+            "is_active": 1,
+            "rank": 774,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 887,
@@ -20846,8 +23930,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 775
+            "is_active": 1,
+            "rank": 775,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 888,
@@ -20873,8 +23961,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 776
+            "is_active": 1,
+            "rank": 776,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 563,
@@ -20900,8 +23992,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 316
+            "is_active": 1,
+            "rank": 316,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 694,
@@ -20927,8 +24023,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": null,
             "price_2021": null,
             "sd_team_id_2021": null,
-            "is_active": true,
-            "rank": 697
+            "is_active": 1,
+            "rank": 697,
+            "career_price": 0,
+            "career_actual_value": 0,
+            "career_price_over_under": 0,
+            "career_price_over_under_percentage": null
           },
           {
             "id": 52,
@@ -20954,8 +24054,12 @@ with player_entities_import_json (import_json) as (
             "rooster_rating_2021": 4,
             "price_2021": 27,
             "sd_team_id_2021": 5,
-            "is_active": true,
-            "rank": 339
+            "is_active": 1,
+            "rank": 339,
+            "career_price": 16,
+            "career_actual_value": 12,
+            "career_price_over_under": 4,
+            "career_price_over_under_percentage": 26
           }
         ]'::json)
 )
@@ -20964,11 +24068,13 @@ with player_entities_import_json (import_json) as (
 INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_games, sc_standard_price, afl_team_id,
                           jumper_number, height, weight, rooster_rating, moneyball_price, price_2016, price_2017,
                           price_2018, price_2019, price_2020, ps_average, sc_average,
-                          rooster_rating_2021, price_2021, sd_team_id_2021, is_active, rank)
+                          rooster_rating_2021, price_2021, sd_team_id_2021, is_active, rank, career_price,
+                          career_actual_value, career_price_over_under, career_price_over_under_percentage)
 SELECT id, first_name, last_name, date_of_birth, age, career_games, sc_standard_price, afl_team_id,
        jumper_number, height, weight, rooster_rating, moneyball_price, price_2016, price_2017,
        price_2018, price_2019, price_2020, ps_average, sc_average,
-       rooster_rating_2021, price_2021, sd_team_id_2021, is_active, rank
+       rooster_rating_2021, price_2021, sd_team_id_2021, is_active, rank, career_price,
+       career_actual_value, career_price_over_under, career_price_over_under_percentage
 FROM player_entities_import_json
     CROSS JOIN LATERAL json_populate_recordset(NULL::player_entity, import_json)
 ON CONFLICT (id) DO UPDATE
@@ -20987,4 +24093,8 @@ ON CONFLICT (id) DO UPDATE
         price_2021 = excluded.price_2021,
         sd_team_id_2021 = excluded.sd_team_id_2021,
         is_active = excluded.is_active,
-        rank = excluded.rank;
+        rank = excluded.rank,
+        career_price = excluded.career_price,
+        career_actual_value = excluded.career_actual_value,
+        career_price_over_under = excluded.career_price_over_under,
+        career_price_over_under_percentage = excluded.career_price_over_under_percentage;
