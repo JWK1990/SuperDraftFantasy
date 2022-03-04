@@ -212,9 +212,18 @@ CREATE TABLE season_summary_entity (
      time_on_ground SMALLINT,
      hardness_rating SMALLINT,
      frees_ratio DECIMAL(4,1),
+     price SMALLINT,
+     sd_team_id SMALLINT,
+     primary_position_id SMALLINT,
+     secondary_position_id SMALLINT,
+     baseline_over_under SMALLINT,
+     actual_value SMALLINT,
+     price_over_under SMALLINT,
 
      CONSTRAINT fk_player_id FOREIGN KEY (player_id) REFERENCES player_entity(id),
-     CONSTRAINT fk_afl_team_id FOREIGN KEY (afl_team_id) REFERENCES afl_teams_enum(id)
+     CONSTRAINT fk_afl_team_id FOREIGN KEY (afl_team_id) REFERENCES afl_teams_enum(id),
+     CONSTRAINT fk_primary_position_id FOREIGN KEY (primary_position_id) REFERENCES position_entity(id),
+     CONSTRAINT fk_secondary_position_id FOREIGN KEY (secondary_position_id) REFERENCES position_entity(id)
 );
 
 CREATE TABLE game_entity (

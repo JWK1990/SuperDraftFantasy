@@ -105,4 +105,18 @@ public class SeasonSummaryEntity {
 
     private Double freesRatio;
 
+    private Integer price;
+
+    private Integer sdTeamId;
+
+    private Integer primaryPositionId;
+
+    private Integer secondaryPositionId;
+
+    private Integer baselineOverUnder;
+
+    private Integer actualValue;
+
+    private Integer priceOverUnder;
+
 }
