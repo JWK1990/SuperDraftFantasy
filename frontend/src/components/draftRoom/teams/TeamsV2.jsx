@@ -15,9 +15,6 @@ import TeamCardV2 from "./TeamCardV2";
 import TeamListContainer from "../myTeam/TeamListContainer";
 
 const styles = {
-    mainContainer: {
-        height: "100%",
-    },
     selectedTeamContainer: {
         height: "100%",
         minHeight: "var(--draft-room-player-list-height)",
@@ -73,9 +70,13 @@ class TeamsV2 extends React.Component {
 
     render() {
         const {classes} = this.props;
+        const teamListLength =  this.state.sortableTeamList.length;
         if(this.state.selectedTeamId === null) {
             return (
-                <Grid container item className={classes.mainContainer}>
+                <Grid
+                    container item
+                    style={{height: "calc(100vh - var(--draft-room-history-height) - " + teamListLength + "px"}}
+                >
                     {
                         this.state.sortableTeamList.map((slot, index) => {
                             return (
@@ -93,7 +94,7 @@ class TeamsV2 extends React.Component {
             );
         } else {
             return (
-                <Grid container justify="space-between" alignItems="stretch" className={classes.selectedTeamContainer}>
+                <Grid container justify="space-between" alignItems="stretch"className={classes.selectedTeamContainer}>
                     <Grid item xs={12} className={classes.gridItem}>
                         {
                             /* This div is required in order to limit the height of the TeamCard.

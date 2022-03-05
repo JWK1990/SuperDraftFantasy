@@ -12,7 +12,6 @@ import TeamsV2 from "./teams/TeamsV2";
 import UpdatedPlayerListContainer from "./statistics/players/UpdatedPlayerListContainer";
 import TeamListContainer from "./myTeam/TeamListContainer";
 import {userIdSelector} from "../../store/selectors/UserSelectors";
-import DraftHistory from "./draftDetails/DraftHistory";
 
 const theme = createMuiTheme({
     overrides: {
