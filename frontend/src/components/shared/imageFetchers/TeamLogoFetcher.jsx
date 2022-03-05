@@ -11,7 +11,7 @@ import ThePeptidePimps from "../../../images/teamLogos/ThePeptidePimps.gif";
 import Lachtioneers from "../../../images/teamLogos/Lachtioneers.gif";
 import GiftsOfGirth from "../../../images/teamLogos/GiftsOfGirth.png";
 
-export default class PurchaseReviewSymbolFetcher {
+export default class TeamLogoFetcher {
 
     static teamLogoMap = new Map([
         [1, Logo5318008],

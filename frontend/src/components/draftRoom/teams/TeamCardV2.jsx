@@ -7,6 +7,8 @@ import Button from "@material-ui/core/Button";
 import {createMuiTheme} from "@material-ui/core";
 import {connect} from "react-redux";
 import {draftTeamSelector} from "../../../store/selectors/DraftSelectors";
+import TeamLogoFetcher from "../../shared/imageFetchers/TeamLogoFetcher";
+import {leadBidderTeamIdSelector, onTheBlockTeamIdSelector} from "../../../store/selectors/BlockSelectors";
 
 const theme = createMuiTheme({
     typography: {
@@ -75,6 +77,12 @@ const useStyles = makeStyles((theme) => ({
     },
     selected: {
         backgroundColor: "rgba(102, 255, 0, 0.75)",
+    },
+    leadBidder: {
+        backgroundColor: "rgba(0, 182, 18, 0.5)",
+    },
+    onTheBlock: {
+        backgroundColor: "rgba(252, 209, 22, 0.5)",
     }
 }));
 
@@ -90,7 +98,17 @@ function TeamCardV2(props) {
     return (
         <MuiThemeProvider theme={theme}>
             <Grid item xs={12} className={classes.gridItem}>
-                <Paper elevation={3} className={[classes.root, props.isSelected ? classes.selected : ''].join(' ')}>
+                <Paper elevation={3}
+                       className={[
+                           classes.root,
+                           props.isSelected ? classes.selected : '',
+                           props.leadBidderTeamId === props.team.id
+                               ? classes.leadBidder
+                               : props.onTheBlockTeamId === props.team.id
+                                   ? classes.onTheBlock
+                                   : '',
+                       ].join(' ')}
+                >
                     <Button
                         style={{width: "100%", height: "100%", padding: "0px"}}
                         onClick={() => props.handleTeamClick(props.team.id)}
@@ -99,7 +117,7 @@ function TeamCardV2(props) {
                                 <Grid item xs={1} className={classes.teamLogo}>
                                     <img
                                         className={classes.teamLogo}
-                                        src={require("../../../images/AustralianFlagLogo.jpg")}
+                                        src={TeamLogoFetcher.getTeamLogo(props.team.id)}
                                         title={"Team Logo"}
                                         alt={"Team Logo"}
                                     />
@@ -134,6 +152,8 @@ function TeamCardV2(props) {
 const mapStateToProps = (state, props) => {
     return {
         team: draftTeamSelector(state, props.teamId),
+        leadBidderTeamId: leadBidderTeamIdSelector(state),
+        onTheBlockTeamId: onTheBlockTeamIdSelector(state),
     };
 };
 

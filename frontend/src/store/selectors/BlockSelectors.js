@@ -12,6 +12,9 @@ export const isLeadBidderSelector = state => {
     const leadBidderTeamId = state.block.data.bidderTeamId;
     return currentUserTeamId === leadBidderTeamId;
 }
+export const leadBidderTeamIdSelector = state => {
+    return state.block.data.bidderTeamId;
+}
 export const leadBidderTeamNameSelector = state => {
     let leadBidderTeamName = null;
     if(state.block.data.bidderTeamId) {
