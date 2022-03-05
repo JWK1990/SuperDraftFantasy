@@ -1,6 +1,6 @@
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
-import {IconButton} from "@material-ui/core";
+import {FormControl, IconButton, InputLabel, MenuItem, Select} from "@material-ui/core";
 import CancelIcon from "@material-ui/icons/Cancel";
 import Typography from "@material-ui/core/Typography";
 import React from "react";
@@ -23,7 +23,7 @@ const styles = {
     },
     hidden: {
         opacity: 0.01,
-    }
+    },
 }
 
 class PlayerDetailsCard extends React.Component {
@@ -59,6 +59,10 @@ class PlayerDetailsCard extends React.Component {
                     />
                 </Grid>
                 <Grid item xs={5}>
+                    <div></div>
+                </Grid>
+                {/* Row 3. */}
+                <Grid item xs={6} style={{maxHeight: "300px"}}>
                     <SeasonSummaryGraph
                         playerId={this.props.player.id}
                         primaryPosition={this.props.player.primaryPosition}
@@ -66,30 +70,13 @@ class PlayerDetailsCard extends React.Component {
                         title={"SC Scores 2021"}
                     />
                 </Grid>
-                {/* Row 3. */}
-                <Grid item xs={7}>
-                    <Typography>Add Stats Here.</Typography>
-                </Grid>
-                <Grid item xs={5}>
+                <Grid item xs={6} style={{maxHeight: "300px"}}>
                     <CareerSummaryGraph
                         playerId={this.props.player.id}
                         primaryPosition={this.props.player.primaryPosition}
                         dataKey={"average"}
                         title={"SC Average - Career"}
                         ticks={[50, 100, 150]}
-                    />
-                </Grid>
-                {/* Row 4. */}
-                <Grid item xs={7}>
-                    <Typography>Add More Stats Here.</Typography>
-                </Grid>
-                <Grid item xs={5}>
-                    <CareerSummaryGraph
-                        playerId={this.props.player.id}
-                        primaryPosition={this.props.player.primaryPosition}
-                        dataKey={"price"}
-                        title={"$ - Career"}
-                        ticks={[0, 20, 40, 60]}
                     />
                 </Grid>
             </Grid>
