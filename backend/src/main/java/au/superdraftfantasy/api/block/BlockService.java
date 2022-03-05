@@ -49,8 +49,8 @@ public class BlockService {
         Long onTheBlockTeamId = getOnTheBlockTeamId(blockDto.getDraftId(), otbUpdateRequired);
         blockDto.setOnTheBlockTeamId(onTheBlockTeamId);
 
-        Long userEndTime = Instant.now().plusSeconds(blockDto.getOnTheBlockTimer() - 1).toEpochMilli();
-        Long endTime = Instant.now().plusSeconds(blockDto.getOnTheBlockTimer()).toEpochMilli();
+        Long userEndTime = Instant.now().plusSeconds(blockDto.getOnTheBlockTimer()).toEpochMilli();
+        Long endTime = Instant.now().plusSeconds(blockDto.getOnTheBlockTimer() + 2).toEpochMilli();
         blockDto.setEndTime(endTime);
         blockDto.setUserEndTime(userEndTime);
 
@@ -60,6 +60,8 @@ public class BlockService {
 
         // After sending to FE without a bidder, set bidder in case of AutoAddToBlock.
         blockDto.setBidderTeamId(onTheBlockTeamId);
+        System.out.println("User End Time: " + userEndTime);
+        System.out.println("End Time: " + endTime);
 
         // Start automated AddToBlock.
         futuresScheduler.startScheduledFuture(
@@ -89,8 +91,8 @@ public class BlockService {
         futuresScheduler.stopScheduledFutures(blockDto.getDraftId());
 
         // Set end time for current Bid.
-        Long userEndTime = Instant.now().plusSeconds(blockDto.getBidTimer() - 1).toEpochMilli();
-        Long endTime = Instant.now().plusSeconds(blockDto.getBidTimer()).toEpochMilli();
+        Long userEndTime = Instant.now().plusSeconds(blockDto.getBidTimer()).toEpochMilli();
+        Long endTime = Instant.now().plusSeconds(blockDto.getBidTimer() + 2).toEpochMilli();
         blockDto.setEndTime(endTime);
         blockDto.setUserEndTime(userEndTime);
 

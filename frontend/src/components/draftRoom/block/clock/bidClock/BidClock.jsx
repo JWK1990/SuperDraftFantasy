@@ -1,6 +1,7 @@
 import React from "react";
 import {CountdownCircleTimer} from 'react-countdown-circle-timer'
 import withStyles from "@material-ui/core/styles/withStyles";
+import {CircularProgress} from "@material-ui/core";
 
 const styles = {
     rootDiv: {
@@ -40,9 +41,9 @@ function BidClock(props) {
     const renderTime = ({ remainingTime }) => {
         if (remainingTime === 0) {
             return (
-                <div className={props.isLeadBidder ? classes.winningBidText : classes.losingBidText}>
-                    <p>Sold for ${props.currentPrice}</p>
-                </div>
+                props.isLeadBidder
+                    ? <CircularProgress style={{color: "green"}}/>
+                    : <CircularProgress color={"primary"}/>
             )
         }
 

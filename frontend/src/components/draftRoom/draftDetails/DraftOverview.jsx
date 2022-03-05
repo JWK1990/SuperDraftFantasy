@@ -8,7 +8,7 @@ import withStyles from "@material-ui/core/styles/withStyles";
 const styles = {
     draftOverviewRootDiv:
         {
-            height: "100%",
+            height: "var(--draft-room-history-height)",
         }
 }
 

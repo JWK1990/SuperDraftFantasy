@@ -19,6 +19,7 @@ public class FuturesScheduler {
     ) {
         String key = getKey(readDto.getDraftId(), type);
         long delayInMilliseconds = Duration.between(Instant.now(), Instant.ofEpochMilli(endTime)).toMillis();
+        System.out.println("Delay:" + delayInMilliseconds);
         ScheduledFuture<?> future = scheduler.schedule(
                 () -> scheduledFutureInterface.createScheduledFuture(readDto),
                 delayInMilliseconds,
