@@ -35,6 +35,13 @@
     --team-eight: #3a6b66;
     --team-nine: #cae117;
     --team-ten: #139cad;
+
+    /* Graph Colors. */
+    --great: green;
+    --good: blue;
+    --average: yellow;
+    --poor: orange;
+    --terrible: red;
 }
 
 html, body, #root, .App {

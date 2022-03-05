@@ -120,11 +120,11 @@ export default function CareerSummaryGraph(props) {
                         >
                             {seasonSummaryList.map((entry, index) => (
                                 <Cell key={index} fill={
-                                    entry.average >= 150 ? 'gold'
-                                        : entry.average >= 100 ? 'green'
-                                            : entry.average >= 80 ? 'lightblue'
-                                                : entry.average >= 50 ? 'yellow'
-                                                    : 'red'
+                                    entry.average >= 150 ? 'var(--great)'
+                                        : entry.average >= 100 ? 'var(--good)'
+                                            : entry.average >= 80 ? 'var(--average)'
+                                                : entry.average >= 50 ? 'var(--poor)'
+                                                    : 'var(--terrible)'
 
                                 }/>
                             ))}

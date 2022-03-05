@@ -35,6 +35,14 @@ export default function PlayerDetailsYearStats(props) {
                 : null
             }
             <CircularStatIcon
+                statName="$'21"
+                statValue= {props.player.price2021 ? props.player.price2021 : 0}
+                maxStatValue={30}
+                showHeader={false}
+                showFooter={true}
+                prefix={"$"}
+            />
+            <CircularStatIcon
                 statName="RR"
                 statValue= {props.player.roosterRating}
                 maxStatValue= {10}
