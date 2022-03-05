@@ -87,7 +87,7 @@ class PlayerDetailsCard extends React.Component {
                             <div style={{height:"50%"}} className={classes.centeredDiv}>
                                 <div style={{height:"50%"}}>
                                     <Typography align={"center"} color={"primary"} variant={"subtitle2"}>
-                                        $ - Career
+                                        Price Career
                                     </Typography>
                                     <Typography align={"center"} variant={"h4"}>
                                         {this.props.player.careerPrice != null ? "$" + this.props.player.careerPrice : "-"}
