@@ -39,10 +39,9 @@ function getPositionAverage(position, dataKey) {
 }
 
 const CustomTooltip = ({ active, payload, label, tooltipText }) => {
-    console.log(tooltipText);
     if (active && payload && payload.length) {
         return (
-            <Paper style={{width: "160px", textAlign: "center"}}>
+            <Paper style={{width: "220px", textAlign: "center"}}>
                 <Typography variant={"subtitle2"}>{`Round ${label} - ${payload[0].value} ${tooltipText.toString()}`}</Typography>
             </Paper>
         );
@@ -133,10 +132,20 @@ function SeasonSummaryGraph(props) {
                 thresholds = [10, 8, 4, 2];
                 tooltipText = "Clearances";
                 break;
+            case "centerClearances":
+                ticks = [2, 4, 6]
+                thresholds = [8, 6, 4, 2];
+                tooltipText = "Center Clearances";
+                break;
             case "goals":
                 ticks = [2, 4, 6]
                 thresholds = [5, 3, 2, 1];
                 tooltipText = "Goals";
+                break;
+            case "hitouts":
+                ticks = [15, 30, 45]
+                thresholds = [35, 20, 10, 5];
+                tooltipText = "Hitouts";
                 break;
             case "hardnessRating":
                 ticks = [30, 60, 90]
@@ -167,7 +176,9 @@ function SeasonSummaryGraph(props) {
                         <MenuItem value={"average"}>Average - 2021</MenuItem>
                         <MenuItem value={"disposals"}>Disposals - 2021</MenuItem>
                         <MenuItem value={"clearances"}>Clearances - 2021</MenuItem>
+                        <MenuItem value={"centerClearances"}>Center Clearances - 2021</MenuItem>
                         <MenuItem value={"goals"}>Goals - 2021</MenuItem>
+                        <MenuItem value={"hitouts"}>Hitouts - 2021</MenuItem>
                         <MenuItem value={"hardnessRating"}>Hardness - 2021</MenuItem>
                     </Select>
                 </FormControl>
