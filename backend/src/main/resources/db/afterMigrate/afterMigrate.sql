@@ -209,36 +209,36 @@ ON CONFLICT DO NOTHING;
 /* INSERT KEEPERS. */
 INSERT INTO team_player_join_entity
 (id, team_id, player_id, price, my_team_position_id, purchase_review_rating, price_difference, slot_id)
-VALUES(1, 7, 141, 13, 4, NULL, NULL, 'FWD0')
+VALUES(1, 7, 141, 13, 4, 6, -20, 'FWD0')
 ON CONFLICT DO NOTHING;
 INSERT INTO team_player_join_entity
 (id, team_id, player_id, price, my_team_position_id, purchase_review_rating, price_difference, slot_id)
-VALUES(2, 3, 108, 6, 2, NULL, NULL, 'MID0')
+VALUES(2, 3, 108, 6, 2, 6, -16, 'MID0')
 ON CONFLICT DO NOTHING;
 INSERT INTO team_player_join_entity
 (id, team_id, player_id, price, my_team_position_id, purchase_review_rating, price_difference, slot_id)
-VALUES(3, 2, 175, 1, 1, NULL, NULL, 'DEF0')
+VALUES(3, 2, 175, 1, 1, 3, 1, 'DEF0')
 ON CONFLICT DO NOTHING;
 INSERT INTO team_player_join_entity
 (id, team_id, player_id, price, my_team_position_id, purchase_review_rating, price_difference, slot_id)
-VALUES(4, 4, 231, 3, 2, NULL, 3, 'MID0')
+VALUES(4, 4, 231, 3, 2, 2, 3, 'MID0')
 ON CONFLICT DO NOTHING;
 
 INSERT INTO team_player_join_entity
 (id, team_id, player_id, price, my_team_position_id, purchase_review_rating, price_difference, slot_id)
-VALUES(5, 19, 141, 13, 4, NULL, NULL, 'FWD0')
+VALUES(5, 19, 141, 13, 4, 6, -20, 'FWD0')
 ON CONFLICT DO NOTHING;
 INSERT INTO team_player_join_entity
 (id, team_id, player_id, price, my_team_position_id, purchase_review_rating, price_difference, slot_id)
-VALUES(6, 15, 108, 6, 2, NULL, NULL, 'MID0')
+VALUES(6, 15, 108, 6, 2, 6, -16, 'MID0')
 ON CONFLICT DO NOTHING;
 INSERT INTO team_player_join_entity
 (id, team_id, player_id, price, my_team_position_id, purchase_review_rating, price_difference, slot_id)
-VALUES(7, 14, 175, 1, 1, NULL, NULL, 'DEF0')
+VALUES(7, 14, 175, 1, 1, 3, 1, 'DEF0')
 ON CONFLICT DO NOTHING;
 INSERT INTO team_player_join_entity
 (id, team_id, player_id, price, my_team_position_id, purchase_review_rating, price_difference, slot_id)
-VALUES(8, 16, 231, 3, 2, NULL, 3, 'MID0')
+VALUES(8, 16, 231, 3, 2, 2, 3, 'MID0')
 ON CONFLICT DO NOTHING;
 
 /* UPDATE THE SEQUENCES. */
