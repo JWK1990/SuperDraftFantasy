@@ -116,7 +116,7 @@ export default function SCAverageGraph(props) {
                         >
                             {games.map((entry, index) => (
                                 <Cell key={index} fill={
-                                    entry.average >= 150 ? 'var(--great)'
+                                    entry.average >= 120 ? 'var(--great)'
                                         : entry.average >= 100 ? 'var(--good)'
                                             : entry.average >= 80 ? 'var(--average)'
                                                 : entry.average >= 50 ? 'var(--poor)'
