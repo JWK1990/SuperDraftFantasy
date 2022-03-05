@@ -208,7 +208,7 @@ class DraftRoomBlock extends React.Component {
     // Then when a relevant team update is received, we should increment the bidClockKey to refresh the timer.
     getIsBidDisabledTuple = (bidderId, price, player) => {
         if(this.props.currentTeam.teamPlayerJoins.length >= this.props.numOfPlayerRequired) {
-            return [true, "Your team is full. Kein Glück!"]
+            return [true, "Your team is full. Glückwunsch!"]
         }
 
         if(bidderId === this.props.currentTeam.id) {

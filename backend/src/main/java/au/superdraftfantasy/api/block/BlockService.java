@@ -45,6 +45,7 @@ public class BlockService {
 
     public void startNextRound(BlockDto blockDto, boolean otbUpdateRequired) {
         System.out.println("Start Next Round.");
+        futuresScheduler.stopScheduledFutures(blockDto.getDraftId());
 
         Long onTheBlockTeamId = getOnTheBlockTeamId(blockDto.getDraftId(), otbUpdateRequired);
         blockDto.setOnTheBlockTeamId(onTheBlockTeamId);

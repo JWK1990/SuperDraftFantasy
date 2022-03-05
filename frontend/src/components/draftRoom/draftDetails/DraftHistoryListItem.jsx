@@ -29,7 +29,7 @@ export default function DraftHistoryListItem(props) {
                                 color="textPrimary"
                                 display={"inline"}
                             >
-                                {props.draftedPlayer.player.firstName.substring(0,1)}. {props.draftedPlayer.player.lastName}
+                                {props.draftedPlayer.player.firstName.substring(0,1)} {props.draftedPlayer.player.lastName}
                             </Typography>
                             <Typography variant="subtitle2" color="textSecondary" display="inline">
                                 &nbsp;-&nbsp;{props.draftedPlayer.player.primaryPosition.substring(0,1)}{props.draftedPlayer.player.secondaryPosition !== null ? "/" + props.draftedPlayer.player.secondaryPosition.substring(0,1) : ""} -&nbsp;

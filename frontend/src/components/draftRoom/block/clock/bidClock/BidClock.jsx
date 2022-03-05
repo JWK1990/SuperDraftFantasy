@@ -1,10 +1,12 @@
-import React from "react";
+import React, {useState} from "react";
 import {CountdownCircleTimer} from 'react-countdown-circle-timer'
 import withStyles from "@material-ui/core/styles/withStyles";
-import {CircularProgress} from "@material-ui/core";
+import {CircularProgress, Tooltip} from "@material-ui/core";
+import Grid from "@material-ui/core/Grid";
+import Button from "@material-ui/core/Button";
 
 const styles = {
-    rootDiv: {
+    clockGridItem: {
         display: "grid",
         justifyContent: "center",
         height: "100%",
@@ -37,9 +39,13 @@ const styles = {
 function BidClock(props) {
 
    const {classes} = props;
+   const [isTimerFinished, setIsTimerFinished] = useState(false);
+
+
 
     const renderTime = ({ remainingTime }) => {
-        if (remainingTime === 0) {
+        if (remainingTime < 1) {
+            setIsTimerFinished(true);
             return (
                 props.isLeadBidder
                     ? <CircularProgress style={{color: "green"}}/>
@@ -59,17 +65,51 @@ function BidClock(props) {
     };
 
     return (
-        <div className={classes.rootDiv}>
-            <CountdownCircleTimer
-                isPlaying
-                duration={props.duration}
-                initialRemainingTime={props.initialRemainingTime}
-                colors={props.clockColors}
-                size={110}
-            >
-                {renderTime}
-            </CountdownCircleTimer>
-        </div>
+        <Grid container className={classes.rootContainer} spacing={1} direction="row" justify="space-between" alignItems="stretch">
+            <Grid item xs={12} className={classes.clockGridItem}>
+                <CountdownCircleTimer
+                    isPlaying
+                    duration={props.duration}
+                    initialRemainingTime={props.initialRemainingTime}
+                    colors={props.clockColors}
+                    size={110}
+                >
+                    {renderTime}
+                </CountdownCircleTimer>
+            </Grid>
+            <Grid item xs={12}>
+                {
+                    props.isLeadBidder
+                        ? (
+                            <Tooltip title={<p>{props.tooltipText}</p>} placement="left">
+                                            <span>
+                                                <Button
+                                                    variant="contained"
+                                                    color="primary"
+                                                    disabled={true}
+                                                >
+                                                    <span style={{color: "green"}}>You Lead!</span>
+                                                </Button>
+                                            </span>
+                            </Tooltip>
+                        )
+                        : (
+                            <Tooltip title={<p>{props.tooltipText}</p>} placement="left">
+                                            <span>
+                                                <Button
+                                                    variant="contained"
+                                                    color="primary"
+                                                    onClick={props.sendBid}
+                                                    disabled={props.isDisabled || isTimerFinished}
+                                                >
+                                                    Bid ${props.currentPrice + 1}
+                                                </Button>
+                                            </span>
+                            </Tooltip>
+                        )
+                }
+            </Grid>
+        </Grid>
     )
 }
 
