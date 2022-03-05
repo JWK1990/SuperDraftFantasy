@@ -34,6 +34,16 @@ export default function PlayerDetailsYearStats(props) {
                     />
                 : null
             }
+            {props.player.price == null
+                ? <CircularStatIcon
+                    statName="DISP"
+                    statValue= {props.player.disposals}
+                    maxStatValue= {30}
+                    showHeader={false}
+                    showFooter={true}
+                />
+                : null
+            }
             <CircularStatIcon
                 statName="$'21"
                 statValue= {props.player.price2021 ? props.player.price2021 : 0}

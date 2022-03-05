@@ -41,6 +41,7 @@ class PlayerDetailsCard extends React.Component {
             return null;
         }
 
+        console.log(this.props.player);
         return (
             <Grid container component={Paper} elevation={5} className={[classes.container, this.props.areDetailsHidden ? classes.hidden : ''].join(' ')}>
                 {/* Row 1. */}
@@ -59,7 +60,62 @@ class PlayerDetailsCard extends React.Component {
                     />
                 </Grid>
                 <Grid item xs={5}>
-                    <div></div>
+                    <Grid container alignItems={"stretch"} justify={"center"} style={{height: "100%"}}>
+                        <Grid item xs={6}>
+                            <div style={{height:"50%"}}>
+                                <Typography align={"center"} color={"primary"} variant={"subtitle2"}>
+                                    Ave - Career
+                                </Typography>
+                                <Typography align={"center"} variant={"h4"}>
+                                    {this.props.player.careerAverage != null ? this.props.player.careerAverage : "-"}
+                                </Typography>
+                            </div>
+                        </Grid>
+                        <Grid item xs={6} style={{height:"50%"}}>
+                            <div style={{height:"50%"}} className={classes.centeredDiv}>
+                                <div style={{height:"50%"}}>
+                                    <Typography align={"center"} color={"primary"} variant={"subtitle2"}>
+                                        Games - Career
+                                    </Typography>
+                                    <Typography align={"center"} variant={"h4"}>
+                                        {this.props.player.careerAverageGames != null ? this.props.player.careerAverageGames : "-"}
+                                    </Typography>
+                                </div>
+                            </div>
+                        </Grid>
+                        <Grid item xs={6} style={{height:"50%"}}>
+                            <div style={{height:"50%"}} className={classes.centeredDiv}>
+                                <div style={{height:"50%"}}>
+                                    <Typography align={"center"} color={"primary"} variant={"subtitle2"}>
+                                        $ - Career
+                                    </Typography>
+                                    <Typography align={"center"} variant={"h4"}>
+                                        {this.props.player.careerPrice != null ? "$" + this.props.player.careerPrice : "-"}
+                                    </Typography>
+                                </div>
+                            </div>
+                        </Grid>
+                        <Grid item xs={6} style={{height:"50%"}}>
+                            <div style={{height:"50%"}} className={classes.centeredDiv}>
+                                <div style={{height:"50%"}}>
+                                    <Typography align={"center"} color={"primary"} variant={"subtitle2"}>
+                                        $ Over/Under - Career
+                                    </Typography>
+                                    <Typography align={"center"} variant={"h4"}>
+                                        {
+                                            this.props.player.careerPriceOverUnder != null
+                                                ? this.props.player.careerPriceOverUnder > 0
+                                                    ? <span style={{color: "var(--terrible)"}}>${this.props.player.careerPriceOverUnder}</span>
+                                                    : this.props.player.careerPriceOverUnder < 0
+                                                        ? <span style={{color: "var(--great)"}}>-${this.props.player.careerPriceOverUnder * -1}</span>
+                                                        : <span style={{color: "var(--average)"}}>-${this.props.player.careerPriceOverUnder}</span>
+                                            : "-"
+                                        }
+                                    </Typography>
+                                </div>
+                            </div>
+                        </Grid>
+                    </Grid>
                 </Grid>
                 {/* Row 3. */}
                 <Grid item xs={6} style={{maxHeight: "300px"}}>

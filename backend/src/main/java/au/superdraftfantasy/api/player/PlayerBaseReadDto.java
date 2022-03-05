@@ -22,21 +22,19 @@ public class PlayerBaseReadDto {
         this.lastName = playerBase.getLastName();
         this.fullName = playerBase.getFirstName() + " " + playerBase.getLastName();
         this.age = playerBase.getAge();
-        this.careerGames = playerBase.getCareerGames();
         this.aflTeam = playerBase.getAflTeam();
-        this.jumperNumber = playerBase.getJumperNumber();
         this.primaryPosition = playerBase.getPrimaryPosition();
         this.secondaryPosition = playerBase.getSecondaryPosition();
         this.fullPosition = getFullPosition(this.primaryPosition, this.secondaryPosition);
         this.roosterRating = playerBase.getRoosterRating();
         this.moneyballPrice = playerBase.getMoneyballPrice();
-        this.psAverage = playerBase.getPsAverage();
         this.price2021 = playerBase.getPrice2021();
         this.rank = playerBase.getRank();
         this.careerPrice = playerBase.getCareerPrice();
+        this.careerAverage = playerBase.getCareerAverage();
+        this.careerAverageGames = playerBase.getCareerAverageGames();
         this.careerActualValue = playerBase.getCareerActualValue();
         this.careerPriceOverUnder = playerBase.getCareerPriceOverUnder();
-        this.careerPriceOverUnderPercentage = playerBase.getCareerPriceOverUnderPercentage();
         if(seasonSummaryBase != null) {
             this.games = seasonSummaryBase.getGames();
             this.average = seasonSummaryBase.getAverage();
@@ -64,17 +62,11 @@ public class PlayerBaseReadDto {
 
     Integer age;
 
-    Integer careerGames;
-
     String aflTeam;
-
-    Integer jumperNumber;
 
     Integer roosterRating;
 
     Integer moneyballPrice;
-
-    Integer psAverage;
 
     Integer price2021;
 
@@ -86,7 +78,9 @@ public class PlayerBaseReadDto {
 
     Integer careerPriceOverUnder;
 
-    Integer careerPriceOverUnderPercentage;
+    Integer careerAverage;
+
+    Integer careerAverageGames;
 
     String primaryPosition;
 

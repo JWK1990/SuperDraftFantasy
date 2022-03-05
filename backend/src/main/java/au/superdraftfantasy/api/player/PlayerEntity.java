@@ -90,6 +90,10 @@ public class PlayerEntity {
 
     private Integer careerPriceOverUnderPercentage;
 
+    private Integer careerAverage;
+
+    private Integer careerAverageGames;
+
     @ManyToMany
     @JoinTable(
             name = "player_position_join",

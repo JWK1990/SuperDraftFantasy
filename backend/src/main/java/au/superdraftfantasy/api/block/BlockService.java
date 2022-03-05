@@ -61,8 +61,6 @@ public class BlockService {
 
         // After sending to FE without a bidder, set bidder in case of AutoAddToBlock.
         blockDto.setBidderTeamId(onTheBlockTeamId);
-        System.out.println("User End Time: " + userEndTime);
-        System.out.println("End Time: " + endTime);
 
         // Start automated AddToBlock.
         futuresScheduler.startScheduledFuture(

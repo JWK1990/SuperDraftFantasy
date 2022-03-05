@@ -135,6 +135,8 @@ CREATE TABLE player_entity (
     career_actual_value SMALLINT,
     career_price_over_under SMALLINT,
     career_price_over_under_percentage SMALLINT,
+    career_average SMALLINT,
+    career_average_games SMALLINT,
 
     CONSTRAINT fk_afl_team_id FOREIGN KEY (afl_team_id) REFERENCES afl_teams_enum(id)
 );

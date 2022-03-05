@@ -34,7 +34,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 44,
             "career_actual_value": 42,
             "career_price_over_under": 2,
-            "career_price_over_under_percentage": 4
+            "career_price_over_under_percentage": 4,
+            "career_average": 101,
+            "career_average_games": 16
           },
           {
             "id": 2,
@@ -65,7 +67,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 38,
             "career_actual_value": 39,
             "career_price_over_under": -1,
-            "career_price_over_under_percentage": -3
+            "career_price_over_under_percentage": -3,
+            "career_average": 100,
+            "career_average_games": 20
           },
           {
             "id": 3,
@@ -96,7 +100,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 37,
             "career_actual_value": 37,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": 1
+            "career_price_over_under_percentage": 1,
+            "career_average": 94,
+            "career_average_games": 22
           },
           {
             "id": 4,
@@ -127,7 +133,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 39,
             "career_actual_value": 45,
             "career_price_over_under": -6,
-            "career_price_over_under_percentage": -16
+            "career_price_over_under_percentage": -16,
+            "career_average": 109,
+            "career_average_games": 21
           },
           {
             "id": 5,
@@ -158,7 +166,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 20,
             "career_actual_value": 17,
             "career_price_over_under": 4,
-            "career_price_over_under_percentage": 17
+            "career_price_over_under_percentage": 17,
+            "career_average": 85,
+            "career_average_games": 18
           },
           {
             "id": 6,
@@ -189,7 +199,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 18,
             "career_actual_value": 31,
             "career_price_over_under": -13,
-            "career_price_over_under_percentage": -73
+            "career_price_over_under_percentage": -73,
+            "career_average": 94,
+            "career_average_games": 17
           },
           {
             "id": 7,
@@ -220,7 +232,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 34,
             "career_actual_value": 41,
             "career_price_over_under": -7,
-            "career_price_over_under_percentage": -20
+            "career_price_over_under_percentage": -20,
+            "career_average": 107,
+            "career_average_games": 21
           },
           {
             "id": 8,
@@ -251,7 +265,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 30,
             "career_actual_value": 29,
             "career_price_over_under": 1,
-            "career_price_over_under_percentage": 2
+            "career_price_over_under_percentage": 2,
+            "career_average": 102,
+            "career_average_games": 19
           },
           {
             "id": 9,
@@ -282,7 +298,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 23,
             "career_actual_value": 21,
             "career_price_over_under": 2,
-            "career_price_over_under_percentage": 10
+            "career_price_over_under_percentage": 10,
+            "career_average": 91,
+            "career_average_games": 21
           },
           {
             "id": 10,
@@ -313,7 +331,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 32,
             "career_actual_value": 37,
             "career_price_over_under": -5,
-            "career_price_over_under_percentage": -14
+            "career_price_over_under_percentage": -14,
+            "career_average": 101,
+            "career_average_games": 21
           },
           {
             "id": 11,
@@ -344,7 +364,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 30,
             "career_actual_value": 34,
             "career_price_over_under": -4,
-            "career_price_over_under_percentage": -13
+            "career_price_over_under_percentage": -13,
+            "career_average": 98,
+            "career_average_games": 19
           },
           {
             "id": 12,
@@ -375,7 +397,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 34,
             "career_actual_value": 37,
             "career_price_over_under": -3,
-            "career_price_over_under_percentage": -8
+            "career_price_over_under_percentage": -8,
+            "career_average": 106,
+            "career_average_games": 19
           },
           {
             "id": 13,
@@ -406,7 +430,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 36,
             "career_actual_value": 35,
             "career_price_over_under": 1,
-            "career_price_over_under_percentage": 4
+            "career_price_over_under_percentage": 4,
+            "career_average": 106,
+            "career_average_games": 21
           },
           {
             "id": 14,
@@ -437,7 +463,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 51,
             "career_actual_value": 49,
             "career_price_over_under": 2,
-            "career_price_over_under_percentage": 3
+            "career_price_over_under_percentage": 3,
+            "career_average": 100,
+            "career_average_games": 20
           },
           {
             "id": 15,
@@ -468,7 +496,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 43,
             "career_actual_value": 38,
             "career_price_over_under": 5,
-            "career_price_over_under_percentage": 11
+            "career_price_over_under_percentage": 11,
+            "career_average": 107,
+            "career_average_games": 17
           },
           {
             "id": 16,
@@ -499,7 +529,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 31,
             "career_actual_value": 28,
             "career_price_over_under": 3,
-            "career_price_over_under_percentage": 11
+            "career_price_over_under_percentage": 11,
+            "career_average": 96,
+            "career_average_games": 20
           },
           {
             "id": 17,
@@ -530,7 +562,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 19,
             "career_actual_value": 15,
             "career_price_over_under": 4,
-            "career_price_over_under_percentage": 22
+            "career_price_over_under_percentage": 22,
+            "career_average": 85,
+            "career_average_games": 18
           },
           {
             "id": 18,
@@ -561,7 +595,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 25,
             "career_actual_value": 29,
             "career_price_over_under": -3,
-            "career_price_over_under_percentage": -13
+            "career_price_over_under_percentage": -13,
+            "career_average": 92,
+            "career_average_games": 18
           },
           {
             "id": 19,
@@ -592,7 +628,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 15,
             "career_actual_value": 26,
             "career_price_over_under": -11,
-            "career_price_over_under_percentage": -72
+            "career_price_over_under_percentage": -72,
+            "career_average": 80,
+            "career_average_games": 16
           },
           {
             "id": 20,
@@ -623,7 +661,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 11,
             "career_actual_value": 20,
             "career_price_over_under": -9,
-            "career_price_over_under_percentage": -76
+            "career_price_over_under_percentage": -76,
+            "career_average": 95,
+            "career_average_games": 17
           },
           {
             "id": 21,
@@ -654,7 +694,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 20,
             "career_actual_value": 25,
             "career_price_over_under": -5,
-            "career_price_over_under_percentage": -23
+            "career_price_over_under_percentage": -23,
+            "career_average": 93,
+            "career_average_games": 17
           },
           {
             "id": 22,
@@ -685,7 +727,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 18,
             "career_actual_value": 26,
             "career_price_over_under": -8,
-            "career_price_over_under_percentage": -44
+            "career_price_over_under_percentage": -44,
+            "career_average": 91,
+            "career_average_games": 20
           },
           {
             "id": 23,
@@ -716,7 +760,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 25,
             "career_actual_value": 26,
             "career_price_over_under": -1,
-            "career_price_over_under_percentage": -5
+            "career_price_over_under_percentage": -5,
+            "career_average": 97,
+            "career_average_games": 20
           },
           {
             "id": 24,
@@ -747,7 +793,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 17,
             "career_actual_value": 22,
             "career_price_over_under": -5,
-            "career_price_over_under_percentage": -28
+            "career_price_over_under_percentage": -28,
+            "career_average": 93,
+            "career_average_games": 20
           },
           {
             "id": 25,
@@ -778,7 +826,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 12,
             "career_actual_value": 18,
             "career_price_over_under": -6,
-            "career_price_over_under_percentage": -50
+            "career_price_over_under_percentage": -50,
+            "career_average": 81,
+            "career_average_games": 20
           },
           {
             "id": 26,
@@ -809,7 +859,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 19,
             "career_actual_value": 20,
             "career_price_over_under": -1,
-            "career_price_over_under_percentage": -4
+            "career_price_over_under_percentage": -4,
+            "career_average": 95,
+            "career_average_games": 18
           },
           {
             "id": 28,
@@ -840,7 +892,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 25,
             "career_actual_value": 25,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": 0
+            "career_price_over_under_percentage": 0,
+            "career_average": 94,
+            "career_average_games": 17
           },
           {
             "id": 29,
@@ -871,7 +925,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 20,
             "career_actual_value": 23,
             "career_price_over_under": -2,
-            "career_price_over_under_percentage": -12
+            "career_price_over_under_percentage": -12,
+            "career_average": 92,
+            "career_average_games": 21
           },
           {
             "id": 30,
@@ -902,7 +958,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 7,
             "career_actual_value": 16,
             "career_price_over_under": -9,
-            "career_price_over_under_percentage": -117
+            "career_price_over_under_percentage": -117,
+            "career_average": 90,
+            "career_average_games": 17
           },
           {
             "id": 31,
@@ -933,7 +991,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 8,
             "career_actual_value": 18,
             "career_price_over_under": -10,
-            "career_price_over_under_percentage": -122
+            "career_price_over_under_percentage": -122,
+            "career_average": 90,
+            "career_average_games": 20
           },
           {
             "id": 32,
@@ -964,7 +1024,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 7,
             "career_actual_value": 11,
             "career_price_over_under": -4,
-            "career_price_over_under_percentage": -57
+            "career_price_over_under_percentage": -57,
+            "career_average": 90,
+            "career_average_games": 14
           },
           {
             "id": 33,
@@ -995,7 +1057,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 24,
             "career_actual_value": 31,
             "career_price_over_under": -7,
-            "career_price_over_under_percentage": -28
+            "career_price_over_under_percentage": -28,
+            "career_average": 94,
+            "career_average_games": 21
           },
           {
             "id": 34,
@@ -1026,7 +1090,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 7,
             "career_actual_value": 13,
             "career_price_over_under": -7,
-            "career_price_over_under_percentage": -100
+            "career_price_over_under_percentage": -100,
+            "career_average": 68,
+            "career_average_games": 11
           },
           {
             "id": 35,
@@ -1057,7 +1123,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 36,
             "career_actual_value": 34,
             "career_price_over_under": 1,
-            "career_price_over_under_percentage": 3
+            "career_price_over_under_percentage": 3,
+            "career_average": 94,
+            "career_average_games": 20
           },
           {
             "id": 36,
@@ -1088,7 +1156,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 20,
             "career_actual_value": 12,
             "career_price_over_under": 8,
-            "career_price_over_under_percentage": 41
+            "career_price_over_under_percentage": 41,
+            "career_average": 85,
+            "career_average_games": 17
           },
           {
             "id": 37,
@@ -1119,7 +1189,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 43,
             "career_actual_value": 34,
             "career_price_over_under": 9,
-            "career_price_over_under_percentage": 22
+            "career_price_over_under_percentage": 22,
+            "career_average": 100,
+            "career_average_games": 22
           },
           {
             "id": 38,
@@ -1150,7 +1222,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 39,
             "career_actual_value": 34,
             "career_price_over_under": 6,
-            "career_price_over_under_percentage": 15
+            "career_price_over_under_percentage": 15,
+            "career_average": 110,
+            "career_average_games": 22
           },
           {
             "id": 39,
@@ -1181,7 +1255,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 30,
             "career_actual_value": 29,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": 1
+            "career_price_over_under_percentage": 1,
+            "career_average": 101,
+            "career_average_games": 19
           },
           {
             "id": 40,
@@ -1212,7 +1288,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 32,
             "career_actual_value": 28,
             "career_price_over_under": 4,
-            "career_price_over_under_percentage": 13
+            "career_price_over_under_percentage": 13,
+            "career_average": 91,
+            "career_average_games": 19
           },
           {
             "id": 41,
@@ -1243,7 +1321,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 22,
             "career_actual_value": 12,
             "career_price_over_under": 10,
-            "career_price_over_under_percentage": 45
+            "career_price_over_under_percentage": 45,
+            "career_average": 84,
+            "career_average_games": 19
           },
           {
             "id": 42,
@@ -1274,7 +1354,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 40,
             "career_actual_value": 36,
             "career_price_over_under": 5,
-            "career_price_over_under_percentage": 12
+            "career_price_over_under_percentage": 12,
+            "career_average": 91,
+            "career_average_games": 16
           },
           {
             "id": 43,
@@ -1305,7 +1387,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 16,
             "career_actual_value": 23,
             "career_price_over_under": -7,
-            "career_price_over_under_percentage": -40
+            "career_price_over_under_percentage": -40,
+            "career_average": 97,
+            "career_average_games": 20
           },
           {
             "id": 44,
@@ -1336,7 +1420,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 7,
             "career_actual_value": 14,
             "career_price_over_under": -7,
-            "career_price_over_under_percentage": -90
+            "career_price_over_under_percentage": -90,
+            "career_average": 75,
+            "career_average_games": 19
           },
           {
             "id": 45,
@@ -1367,7 +1453,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 29,
             "career_actual_value": 20,
             "career_price_over_under": 9,
-            "career_price_over_under_percentage": 31
+            "career_price_over_under_percentage": 31,
+            "career_average": 86,
+            "career_average_games": 13
           },
           {
             "id": 46,
@@ -1398,7 +1486,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 17,
             "career_actual_value": 21,
             "career_price_over_under": -4,
-            "career_price_over_under_percentage": -21
+            "career_price_over_under_percentage": -21,
+            "career_average": 85,
+            "career_average_games": 21
           },
           {
             "id": 47,
@@ -1429,7 +1519,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 24,
             "career_actual_value": 28,
             "career_price_over_under": -4,
-            "career_price_over_under_percentage": -15
+            "career_price_over_under_percentage": -15,
+            "career_average": 83,
+            "career_average_games": 16
           },
           {
             "id": 48,
@@ -1460,7 +1552,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 12,
             "career_actual_value": 19,
             "career_price_over_under": -7,
-            "career_price_over_under_percentage": -60
+            "career_price_over_under_percentage": -60,
+            "career_average": 87,
+            "career_average_games": 19
           },
           {
             "id": 49,
@@ -1491,7 +1585,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 11,
             "career_actual_value": 5,
             "career_price_over_under": 7,
-            "career_price_over_under_percentage": 59
+            "career_price_over_under_percentage": 59,
+            "career_average": 74,
+            "career_average_games": 14
           },
           {
             "id": 50,
@@ -1522,7 +1618,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 2,
             "career_actual_value": 0,
             "career_price_over_under": 2,
-            "career_price_over_under_percentage": 100
+            "career_price_over_under_percentage": 100,
+            "career_average": 66,
+            "career_average_games": 1
           },
           {
             "id": 51,
@@ -1553,7 +1651,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 23,
             "career_actual_value": 26,
             "career_price_over_under": -3,
-            "career_price_over_under_percentage": -13
+            "career_price_over_under_percentage": -13,
+            "career_average": 81,
+            "career_average_games": 12
           },
           {
             "id": 53,
@@ -1584,7 +1684,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 18,
             "career_actual_value": 18,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": -2
+            "career_price_over_under_percentage": -2,
+            "career_average": 90,
+            "career_average_games": 18
           },
           {
             "id": 54,
@@ -1615,7 +1717,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 17,
             "career_actual_value": 21,
             "career_price_over_under": -4,
-            "career_price_over_under_percentage": -24
+            "career_price_over_under_percentage": -24,
+            "career_average": 85,
+            "career_average_games": 19
           },
           {
             "id": 55,
@@ -1646,7 +1750,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 7,
             "career_actual_value": 0,
             "career_price_over_under": 7,
-            "career_price_over_under_percentage": 100
+            "career_price_over_under_percentage": 100,
+            "career_average": 75,
+            "career_average_games": 16
           },
           {
             "id": 56,
@@ -1677,7 +1783,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 19,
             "career_actual_value": 15,
             "career_price_over_under": 4,
-            "career_price_over_under_percentage": 19
+            "career_price_over_under_percentage": 19,
+            "career_average": 87,
+            "career_average_games": 18
           },
           {
             "id": 57,
@@ -1708,7 +1816,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 23,
             "career_actual_value": 29,
             "career_price_over_under": -6,
-            "career_price_over_under_percentage": -28
+            "career_price_over_under_percentage": -28,
+            "career_average": 92,
+            "career_average_games": 21
           },
           {
             "id": 58,
@@ -1739,7 +1849,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 12,
             "career_actual_value": 25,
             "career_price_over_under": -13,
-            "career_price_over_under_percentage": -108
+            "career_price_over_under_percentage": -108,
+            "career_average": 102,
+            "career_average_games": 20
           },
           {
             "id": 59,
@@ -1770,7 +1882,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 67,
+            "career_average_games": 8
           },
           {
             "id": 60,
@@ -1801,7 +1915,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 13,
             "career_actual_value": 12,
             "career_price_over_under": 2,
-            "career_price_over_under_percentage": 13
+            "career_price_over_under_percentage": 13,
+            "career_average": 87,
+            "career_average_games": 17
           },
           {
             "id": 61,
@@ -1832,7 +1948,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 15,
             "career_actual_value": 12,
             "career_price_over_under": 3,
-            "career_price_over_under_percentage": 17
+            "career_price_over_under_percentage": 17,
+            "career_average": 78,
+            "career_average_games": 14
           },
           {
             "id": 62,
@@ -1863,7 +1981,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 26,
             "career_actual_value": 19,
             "career_price_over_under": 7,
-            "career_price_over_under_percentage": 26
+            "career_price_over_under_percentage": 26,
+            "career_average": 90,
+            "career_average_games": 16
           },
           {
             "id": 63,
@@ -1894,7 +2014,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 15,
             "career_actual_value": 18,
             "career_price_over_under": -3,
-            "career_price_over_under_percentage": -16
+            "career_price_over_under_percentage": -16,
+            "career_average": 83,
+            "career_average_games": 18
           },
           {
             "id": 64,
@@ -1925,7 +2047,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 10,
             "career_actual_value": 4,
             "career_price_over_under": 6,
-            "career_price_over_under_percentage": 57
+            "career_price_over_under_percentage": 57,
+            "career_average": 74,
+            "career_average_games": 17
           },
           {
             "id": 65,
@@ -1956,7 +2080,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 10,
             "career_actual_value": 16,
             "career_price_over_under": -6,
-            "career_price_over_under_percentage": -64
+            "career_price_over_under_percentage": -64,
+            "career_average": 88,
+            "career_average_games": 19
           },
           {
             "id": 66,
@@ -1987,7 +2113,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 8,
             "career_actual_value": 7,
             "career_price_over_under": 1,
-            "career_price_over_under_percentage": 13
+            "career_price_over_under_percentage": 13,
+            "career_average": 80,
+            "career_average_games": 19
           },
           {
             "id": 67,
@@ -2018,7 +2146,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 18,
             "career_actual_value": 15,
             "career_price_over_under": 3,
-            "career_price_over_under_percentage": 15
+            "career_price_over_under_percentage": 15,
+            "career_average": 78,
+            "career_average_games": 19
           },
           {
             "id": 68,
@@ -2049,7 +2179,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 1,
             "career_actual_value": 2,
             "career_price_over_under": -1,
-            "career_price_over_under_percentage": -67
+            "career_price_over_under_percentage": -67,
+            "career_average": 70,
+            "career_average_games": 14
           },
           {
             "id": 69,
@@ -2080,7 +2212,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 36,
             "career_actual_value": 28,
             "career_price_over_under": 8,
-            "career_price_over_under_percentage": 22
+            "career_price_over_under_percentage": 22,
+            "career_average": 95,
+            "career_average_games": 17
           },
           {
             "id": 70,
@@ -2111,7 +2245,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 2,
             "career_actual_value": 0,
             "career_price_over_under": 2,
-            "career_price_over_under_percentage": 100
+            "career_price_over_under_percentage": 100,
+            "career_average": 71,
+            "career_average_games": 10
           },
           {
             "id": 71,
@@ -2142,7 +2278,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 11,
             "career_actual_value": 12,
             "career_price_over_under": -1,
-            "career_price_over_under_percentage": -9
+            "career_price_over_under_percentage": -9,
+            "career_average": 78,
+            "career_average_games": 20
           },
           {
             "id": 72,
@@ -2173,7 +2311,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 9,
             "career_actual_value": 8,
             "career_price_over_under": 2,
-            "career_price_over_under_percentage": 20
+            "career_price_over_under_percentage": 20,
+            "career_average": 83,
+            "career_average_games": 23
           },
           {
             "id": 73,
@@ -2204,7 +2344,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 32,
             "career_actual_value": 19,
             "career_price_over_under": 13,
-            "career_price_over_under_percentage": 42
+            "career_price_over_under_percentage": 42,
+            "career_average": 94,
+            "career_average_games": 21
           },
           {
             "id": 74,
@@ -2235,7 +2377,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 26,
             "career_actual_value": 27,
             "career_price_over_under": -1,
-            "career_price_over_under_percentage": -5
+            "career_price_over_under_percentage": -5,
+            "career_average": 98,
+            "career_average_games": 20
           },
           {
             "id": 75,
@@ -2266,7 +2410,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 29,
             "career_actual_value": 31,
             "career_price_over_under": -2,
-            "career_price_over_under_percentage": -8
+            "career_price_over_under_percentage": -8,
+            "career_average": 101,
+            "career_average_games": 21
           },
           {
             "id": 76,
@@ -2297,7 +2443,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 7,
             "career_actual_value": 12,
             "career_price_over_under": -6,
-            "career_price_over_under_percentage": -87
+            "career_price_over_under_percentage": -87,
+            "career_average": 86,
+            "career_average_games": 19
           },
           {
             "id": 77,
@@ -2328,7 +2476,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 12,
             "career_actual_value": 13,
             "career_price_over_under": -1,
-            "career_price_over_under_percentage": -9
+            "career_price_over_under_percentage": -9,
+            "career_average": 80,
+            "career_average_games": 17
           },
           {
             "id": 78,
@@ -2359,7 +2509,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 9,
             "career_actual_value": 7,
             "career_price_over_under": 1,
-            "career_price_over_under_percentage": 16
+            "career_price_over_under_percentage": 16,
+            "career_average": 76,
+            "career_average_games": 12
           },
           {
             "id": 79,
@@ -2390,7 +2542,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 9,
             "career_actual_value": 9,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": -2
+            "career_price_over_under_percentage": -2,
+            "career_average": 76,
+            "career_average_games": 16
           },
           {
             "id": 80,
@@ -2421,7 +2575,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 17,
             "career_actual_value": 0,
             "career_price_over_under": 17,
-            "career_price_over_under_percentage": 100
+            "career_price_over_under_percentage": 100,
+            "career_average": 69,
+            "career_average_games": 17
           },
           {
             "id": 81,
@@ -2452,7 +2608,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 3,
             "career_actual_value": 5,
             "career_price_over_under": -2,
-            "career_price_over_under_percentage": -58
+            "career_price_over_under_percentage": -58,
+            "career_average": 79,
+            "career_average_games": 19
           },
           {
             "id": 82,
@@ -2483,7 +2641,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 23,
             "career_actual_value": 19,
             "career_price_over_under": 4,
-            "career_price_over_under_percentage": 17
+            "career_price_over_under_percentage": 17,
+            "career_average": 88,
+            "career_average_games": 18
           },
           {
             "id": 83,
@@ -2514,7 +2674,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 8,
             "career_actual_value": 8,
             "career_price_over_under": 1,
-            "career_price_over_under_percentage": 9
+            "career_price_over_under_percentage": 9,
+            "career_average": 80,
+            "career_average_games": 14
           },
           {
             "id": 84,
@@ -2545,7 +2707,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 2,
             "career_actual_value": 11,
             "career_price_over_under": -9,
-            "career_price_over_under_percentage": -450
+            "career_price_over_under_percentage": -450,
+            "career_average": 74,
+            "career_average_games": 14
           },
           {
             "id": 85,
@@ -2576,7 +2740,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 11,
             "career_actual_value": 7,
             "career_price_over_under": 4,
-            "career_price_over_under_percentage": 34
+            "career_price_over_under_percentage": 34,
+            "career_average": 85,
+            "career_average_games": 14
           },
           {
             "id": 86,
@@ -2607,7 +2773,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 17,
             "career_actual_value": 10,
             "career_price_over_under": 7,
-            "career_price_over_under_percentage": 39
+            "career_price_over_under_percentage": 39,
+            "career_average": 83,
+            "career_average_games": 18
           },
           {
             "id": 87,
@@ -2638,7 +2806,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 14,
             "career_actual_value": 20,
             "career_price_over_under": -6,
-            "career_price_over_under_percentage": -43
+            "career_price_over_under_percentage": -43,
+            "career_average": 94,
+            "career_average_games": 21
           },
           {
             "id": 88,
@@ -2669,7 +2839,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 12,
             "career_actual_value": 17,
             "career_price_over_under": -5,
-            "career_price_over_under_percentage": -45
+            "career_price_over_under_percentage": -45,
+            "career_average": 88,
+            "career_average_games": 19
           },
           {
             "id": 89,
@@ -2700,7 +2872,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 16,
             "career_actual_value": 19,
             "career_price_over_under": -3,
-            "career_price_over_under_percentage": -20
+            "career_price_over_under_percentage": -20,
+            "career_average": 95,
+            "career_average_games": 18
           },
           {
             "id": 90,
@@ -2731,7 +2905,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 8,
             "career_actual_value": 20,
             "career_price_over_under": -13,
-            "career_price_over_under_percentage": -167
+            "career_price_over_under_percentage": -167,
+            "career_average": 75,
+            "career_average_games": 19
           },
           {
             "id": 91,
@@ -2762,7 +2938,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 8,
             "career_actual_value": 5,
             "career_price_over_under": 4,
-            "career_price_over_under_percentage": 45
+            "career_price_over_under_percentage": 45,
+            "career_average": 80,
+            "career_average_games": 14
           },
           {
             "id": 92,
@@ -2793,7 +2971,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 22,
             "career_actual_value": 31,
             "career_price_over_under": -8,
-            "career_price_over_under_percentage": -38
+            "career_price_over_under_percentage": -38,
+            "career_average": 90,
+            "career_average_games": 17
           },
           {
             "id": 93,
@@ -2824,7 +3004,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 3,
             "career_actual_value": 7,
             "career_price_over_under": -4,
-            "career_price_over_under_percentage": -125
+            "career_price_over_under_percentage": -125,
+            "career_average": 83,
+            "career_average_games": 15
           },
           {
             "id": 94,
@@ -2855,7 +3037,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 30,
             "career_actual_value": 12,
             "career_price_over_under": 18,
-            "career_price_over_under_percentage": 61
+            "career_price_over_under_percentage": 61,
+            "career_average": 83,
+            "career_average_games": 20
           },
           {
             "id": 95,
@@ -2886,7 +3070,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 10,
             "career_actual_value": 11,
             "career_price_over_under": -1,
-            "career_price_over_under_percentage": -12
+            "career_price_over_under_percentage": -12,
+            "career_average": 81,
+            "career_average_games": 21
           },
           {
             "id": 96,
@@ -2917,7 +3103,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 1,
             "career_actual_value": 15,
             "career_price_over_under": -14,
-            "career_price_over_under_percentage": -1350
+            "career_price_over_under_percentage": -1350,
+            "career_average": 86,
+            "career_average_games": 22
           },
           {
             "id": 97,
@@ -2948,7 +3136,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 9,
             "career_actual_value": 5,
             "career_price_over_under": 4,
-            "career_price_over_under_percentage": 43
+            "career_price_over_under_percentage": 43,
+            "career_average": 74,
+            "career_average_games": 17
           },
           {
             "id": 99,
@@ -2979,7 +3169,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 9,
             "career_actual_value": 10,
             "career_price_over_under": -1,
-            "career_price_over_under_percentage": -9
+            "career_price_over_under_percentage": -9,
+            "career_average": 83,
+            "career_average_games": 18
           },
           {
             "id": 100,
@@ -3010,7 +3202,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 2,
             "career_actual_value": 6,
             "career_price_over_under": -4,
-            "career_price_over_under_percentage": -171
+            "career_price_over_under_percentage": -171,
+            "career_average": 74,
+            "career_average_games": 16
           },
           {
             "id": 101,
@@ -3041,7 +3235,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 13,
             "career_actual_value": 13,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": 1
+            "career_price_over_under_percentage": 1,
+            "career_average": 89,
+            "career_average_games": 17
           },
           {
             "id": 102,
@@ -3072,7 +3268,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 9,
             "career_actual_value": 12,
             "career_price_over_under": -3,
-            "career_price_over_under_percentage": -28
+            "career_price_over_under_percentage": -28,
+            "career_average": 76,
+            "career_average_games": 19
           },
           {
             "id": 103,
@@ -3103,7 +3301,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 24,
             "career_actual_value": 23,
             "career_price_over_under": 1,
-            "career_price_over_under_percentage": 4
+            "career_price_over_under_percentage": 4,
+            "career_average": 87,
+            "career_average_games": 17
           },
           {
             "id": 104,
@@ -3134,7 +3334,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 14,
             "career_actual_value": 17,
             "career_price_over_under": -3,
-            "career_price_over_under_percentage": -20
+            "career_price_over_under_percentage": -20,
+            "career_average": 85,
+            "career_average_games": 20
           },
           {
             "id": 105,
@@ -3165,7 +3367,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 12,
             "career_actual_value": 14,
             "career_price_over_under": -3,
-            "career_price_over_under_percentage": -23
+            "career_price_over_under_percentage": -23,
+            "career_average": 87,
+            "career_average_games": 19
           },
           {
             "id": 106,
@@ -3196,7 +3400,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 2,
             "career_actual_value": 0,
             "career_price_over_under": 2,
-            "career_price_over_under_percentage": 100
+            "career_price_over_under_percentage": 100,
+            "career_average": 65,
+            "career_average_games": 11
           },
           {
             "id": 108,
@@ -3227,7 +3433,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 23,
             "career_actual_value": 21,
             "career_price_over_under": 3,
-            "career_price_over_under_percentage": 11
+            "career_price_over_under_percentage": 11,
+            "career_average": 83,
+            "career_average_games": 18
           },
           {
             "id": 109,
@@ -3258,7 +3466,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 3,
             "career_actual_value": 6,
             "career_price_over_under": -3,
-            "career_price_over_under_percentage": -84
+            "career_price_over_under_percentage": -84,
+            "career_average": 70,
+            "career_average_games": 13
           },
           {
             "id": 110,
@@ -3289,7 +3499,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 27,
             "career_actual_value": 26,
             "career_price_over_under": 1,
-            "career_price_over_under_percentage": 4
+            "career_price_over_under_percentage": 4,
+            "career_average": 105,
+            "career_average_games": 22
           },
           {
             "id": 111,
@@ -3320,7 +3532,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 9,
             "career_actual_value": 8,
             "career_price_over_under": 1,
-            "career_price_over_under_percentage": 9
+            "career_price_over_under_percentage": 9,
+            "career_average": 78,
+            "career_average_games": 19
           },
           {
             "id": 112,
@@ -3351,7 +3565,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 12,
             "career_actual_value": 4,
             "career_price_over_under": 8,
-            "career_price_over_under_percentage": 67
+            "career_price_over_under_percentage": 67,
+            "career_average": 74,
+            "career_average_games": 16
           },
           {
             "id": 113,
@@ -3382,7 +3598,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 6,
             "career_actual_value": 8,
             "career_price_over_under": -2,
-            "career_price_over_under_percentage": -28
+            "career_price_over_under_percentage": -28,
+            "career_average": 71,
+            "career_average_games": 15
           },
           {
             "id": 114,
@@ -3413,7 +3631,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 29,
             "career_actual_value": 27,
             "career_price_over_under": 2,
-            "career_price_over_under_percentage": 8
+            "career_price_over_under_percentage": 8,
+            "career_average": 95,
+            "career_average_games": 18
           },
           {
             "id": 115,
@@ -3444,7 +3664,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 5,
             "career_actual_value": 11,
             "career_price_over_under": -6,
-            "career_price_over_under_percentage": -113
+            "career_price_over_under_percentage": -113,
+            "career_average": 82,
+            "career_average_games": 17
           },
           {
             "id": 116,
@@ -3475,7 +3697,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 10,
             "career_actual_value": 18,
             "career_price_over_under": -9,
-            "career_price_over_under_percentage": -89
+            "career_price_over_under_percentage": -89,
+            "career_average": 86,
+            "career_average_games": 19
           },
           {
             "id": 117,
@@ -3506,7 +3730,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 14,
             "career_actual_value": 15,
             "career_price_over_under": -1,
-            "career_price_over_under_percentage": -8
+            "career_price_over_under_percentage": -8,
+            "career_average": 90,
+            "career_average_games": 16
           },
           {
             "id": 118,
@@ -3537,7 +3763,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 9,
             "career_actual_value": 11,
             "career_price_over_under": -2,
-            "career_price_over_under_percentage": -21
+            "career_price_over_under_percentage": -21,
+            "career_average": 77,
+            "career_average_games": 16
           },
           {
             "id": 119,
@@ -3568,7 +3796,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 6,
             "career_actual_value": 5,
             "career_price_over_under": 2,
-            "career_price_over_under_percentage": 26
+            "career_price_over_under_percentage": 26,
+            "career_average": 73,
+            "career_average_games": 18
           },
           {
             "id": 120,
@@ -3599,7 +3829,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 20,
             "career_actual_value": 11,
             "career_price_over_under": 9,
-            "career_price_over_under_percentage": 45
+            "career_price_over_under_percentage": 45,
+            "career_average": 63,
+            "career_average_games": 13
           },
           {
             "id": 121,
@@ -3630,7 +3862,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 19,
             "career_actual_value": 6,
             "career_price_over_under": 13,
-            "career_price_over_under_percentage": 68
+            "career_price_over_under_percentage": 68,
+            "career_average": 76,
+            "career_average_games": 16
           },
           {
             "id": 122,
@@ -3661,7 +3895,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 7,
             "career_actual_value": 7,
             "career_price_over_under": -1,
-            "career_price_over_under_percentage": -9
+            "career_price_over_under_percentage": -9,
+            "career_average": 74,
+            "career_average_games": 19
           },
           {
             "id": 124,
@@ -3692,7 +3928,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 2,
             "career_actual_value": 3,
             "career_price_over_under": -1,
-            "career_price_over_under_percentage": -33
+            "career_price_over_under_percentage": -33,
+            "career_average": 64,
+            "career_average_games": 15
           },
           {
             "id": 125,
@@ -3723,7 +3961,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 6,
             "career_actual_value": 6,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": -7
+            "career_price_over_under_percentage": -7,
+            "career_average": 80,
+            "career_average_games": 19
           },
           {
             "id": 127,
@@ -3754,7 +3994,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 8,
             "career_actual_value": 17,
             "career_price_over_under": -9,
-            "career_price_over_under_percentage": -106
+            "career_price_over_under_percentage": -106,
+            "career_average": 73,
+            "career_average_games": 13
           },
           {
             "id": 128,
@@ -3785,7 +4027,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 6,
             "career_actual_value": 5,
             "career_price_over_under": 1,
-            "career_price_over_under_percentage": 12
+            "career_price_over_under_percentage": 12,
+            "career_average": 77,
+            "career_average_games": 13
           },
           {
             "id": 129,
@@ -3816,7 +4060,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 2,
             "career_actual_value": 0,
             "career_price_over_under": 2,
-            "career_price_over_under_percentage": 100
+            "career_price_over_under_percentage": 100,
+            "career_average": 70,
+            "career_average_games": 18
           },
           {
             "id": 131,
@@ -3847,7 +4093,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 11,
             "career_actual_value": 9,
             "career_price_over_under": 2,
-            "career_price_over_under_percentage": 18
+            "career_price_over_under_percentage": 18,
+            "career_average": 81,
+            "career_average_games": 17
           },
           {
             "id": 132,
@@ -3878,7 +4126,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 2,
             "career_actual_value": 5,
             "career_price_over_under": -2,
-            "career_price_over_under_percentage": -100
+            "career_price_over_under_percentage": -100,
+            "career_average": 75,
+            "career_average_games": 19
           },
           {
             "id": 133,
@@ -3909,7 +4159,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 17,
             "career_actual_value": 8,
             "career_price_over_under": 8,
-            "career_price_over_under_percentage": 50
+            "career_price_over_under_percentage": 50,
+            "career_average": 79,
+            "career_average_games": 17
           },
           {
             "id": 134,
@@ -3940,7 +4192,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 5,
             "career_actual_value": 4,
             "career_price_over_under": 2,
-            "career_price_over_under_percentage": 30
+            "career_price_over_under_percentage": 30,
+            "career_average": 67,
+            "career_average_games": 15
           },
           {
             "id": 135,
@@ -3971,7 +4225,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 22,
             "career_actual_value": 17,
             "career_price_over_under": 4,
-            "career_price_over_under_percentage": 19
+            "career_price_over_under_percentage": 19,
+            "career_average": 82,
+            "career_average_games": 14
           },
           {
             "id": 136,
@@ -4002,7 +4258,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 5,
             "career_actual_value": 6,
             "career_price_over_under": -1,
-            "career_price_over_under_percentage": -22
+            "career_price_over_under_percentage": -22,
+            "career_average": 70,
+            "career_average_games": 13
           },
           {
             "id": 137,
@@ -4033,7 +4291,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 3,
             "career_actual_value": 5,
             "career_price_over_under": -2,
-            "career_price_over_under_percentage": -67
+            "career_price_over_under_percentage": -67,
+            "career_average": 71,
+            "career_average_games": 16
           },
           {
             "id": 138,
@@ -4064,7 +4324,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 13,
             "career_actual_value": 12,
             "career_price_over_under": 1,
-            "career_price_over_under_percentage": 9
+            "career_price_over_under_percentage": 9,
+            "career_average": 91,
+            "career_average_games": 16
           },
           {
             "id": 139,
@@ -4095,7 +4357,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 6,
             "career_actual_value": 11,
             "career_price_over_under": -5,
-            "career_price_over_under_percentage": -73
+            "career_price_over_under_percentage": -73,
+            "career_average": 83,
+            "career_average_games": 21
           },
           {
             "id": 141,
@@ -4126,7 +4390,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 15,
             "career_actual_value": 16,
             "career_price_over_under": -2,
-            "career_price_over_under_percentage": -10
+            "career_price_over_under_percentage": -10,
+            "career_average": 88,
+            "career_average_games": 20
           },
           {
             "id": 142,
@@ -4157,7 +4423,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 20,
             "career_actual_value": 12,
             "career_price_over_under": 8,
-            "career_price_over_under_percentage": 39
+            "career_price_over_under_percentage": 39,
+            "career_average": 84,
+            "career_average_games": 19
           },
           {
             "id": 143,
@@ -4188,7 +4456,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 7,
             "career_actual_value": 3,
             "career_price_over_under": 5,
-            "career_price_over_under_percentage": 64
+            "career_price_over_under_percentage": 64,
+            "career_average": 65,
+            "career_average_games": 17
           },
           {
             "id": 144,
@@ -4219,7 +4489,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 23,
             "career_actual_value": 14,
             "career_price_over_under": 9,
-            "career_price_over_under_percentage": 39
+            "career_price_over_under_percentage": 39,
+            "career_average": 88,
+            "career_average_games": 18
           },
           {
             "id": 145,
@@ -4250,7 +4522,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 14,
             "career_actual_value": 10,
             "career_price_over_under": 4,
-            "career_price_over_under_percentage": 30
+            "career_price_over_under_percentage": 30,
+            "career_average": 75,
+            "career_average_games": 17
           },
           {
             "id": 146,
@@ -4281,7 +4555,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 11,
             "career_actual_value": 9,
             "career_price_over_under": 2,
-            "career_price_over_under_percentage": 20
+            "career_price_over_under_percentage": 20,
+            "career_average": 79,
+            "career_average_games": 18
           },
           {
             "id": 147,
@@ -4312,7 +4588,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 4,
             "career_actual_value": 3,
             "career_price_over_under": 1,
-            "career_price_over_under_percentage": 14
+            "career_price_over_under_percentage": 14,
+            "career_average": 74,
+            "career_average_games": 15
           },
           {
             "id": 148,
@@ -4343,7 +4621,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 1,
             "career_actual_value": 6,
             "career_price_over_under": -5,
-            "career_price_over_under_percentage": -500
+            "career_price_over_under_percentage": -500,
+            "career_average": 76,
+            "career_average_games": 20
           },
           {
             "id": 149,
@@ -4374,7 +4654,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 14,
             "career_actual_value": 3,
             "career_price_over_under": 12,
-            "career_price_over_under_percentage": 82
+            "career_price_over_under_percentage": 82,
+            "career_average": 70,
+            "career_average_games": 12
           },
           {
             "id": 151,
@@ -4405,7 +4687,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 7,
             "career_actual_value": 5,
             "career_price_over_under": 1,
-            "career_price_over_under_percentage": 22
+            "career_price_over_under_percentage": 22,
+            "career_average": 80,
+            "career_average_games": 22
           },
           {
             "id": 152,
@@ -4436,7 +4720,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 20,
             "career_actual_value": 15,
             "career_price_over_under": 5,
-            "career_price_over_under_percentage": 24
+            "career_price_over_under_percentage": 24,
+            "career_average": 90,
+            "career_average_games": 19
           },
           {
             "id": 153,
@@ -4467,7 +4753,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 7,
             "career_actual_value": 5,
             "career_price_over_under": 2,
-            "career_price_over_under_percentage": 22
+            "career_price_over_under_percentage": 22,
+            "career_average": 78,
+            "career_average_games": 21
           },
           {
             "id": 154,
@@ -4498,7 +4786,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 1,
             "career_actual_value": 0,
             "career_price_over_under": 1,
-            "career_price_over_under_percentage": 100
+            "career_price_over_under_percentage": 100,
+            "career_average": 77,
+            "career_average_games": 15
           },
           {
             "id": 155,
@@ -4529,7 +4819,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 5,
             "career_actual_value": 4,
             "career_price_over_under": 2,
-            "career_price_over_under_percentage": 30
+            "career_price_over_under_percentage": 30,
+            "career_average": 74,
+            "career_average_games": 16
           },
           {
             "id": 156,
@@ -4560,7 +4852,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 16,
             "career_actual_value": 15,
             "career_price_over_under": 1,
-            "career_price_over_under_percentage": 8
+            "career_price_over_under_percentage": 8,
+            "career_average": 76,
+            "career_average_games": 17
           },
           {
             "id": 157,
@@ -4591,7 +4885,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 2,
             "career_actual_value": 0,
             "career_price_over_under": 2,
-            "career_price_over_under_percentage": 100
+            "career_price_over_under_percentage": 100,
+            "career_average": 77,
+            "career_average_games": 11
           },
           {
             "id": 158,
@@ -4622,7 +4918,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 11,
             "career_actual_value": 8,
             "career_price_over_under": 4,
-            "career_price_over_under_percentage": 32
+            "career_price_over_under_percentage": 32,
+            "career_average": 79,
+            "career_average_games": 19
           },
           {
             "id": 159,
@@ -4653,7 +4951,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 11,
             "career_actual_value": 13,
             "career_price_over_under": -2,
-            "career_price_over_under_percentage": -16
+            "career_price_over_under_percentage": -16,
+            "career_average": 86,
+            "career_average_games": 18
           },
           {
             "id": 160,
@@ -4684,7 +4984,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 1,
             "career_actual_value": 1,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": 0
+            "career_price_over_under_percentage": 0,
+            "career_average": 73,
+            "career_average_games": 14
           },
           {
             "id": 161,
@@ -4715,7 +5017,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 10,
             "career_actual_value": 5,
             "career_price_over_under": 5,
-            "career_price_over_under_percentage": 47
+            "career_price_over_under_percentage": 47,
+            "career_average": 76,
+            "career_average_games": 17
           },
           {
             "id": 162,
@@ -4746,7 +5050,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 4,
             "career_actual_value": 1,
             "career_price_over_under": 3,
-            "career_price_over_under_percentage": 71
+            "career_price_over_under_percentage": 71,
+            "career_average": 78,
+            "career_average_games": 22
           },
           {
             "id": 163,
@@ -4777,7 +5083,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 11,
             "career_actual_value": 1,
             "career_price_over_under": 11,
-            "career_price_over_under_percentage": 94
+            "career_price_over_under_percentage": 94,
+            "career_average": 71,
+            "career_average_games": 15
           },
           {
             "id": 164,
@@ -4808,7 +5116,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 65,
+            "career_average_games": 12
           },
           {
             "id": 165,
@@ -4839,7 +5149,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 12,
             "career_actual_value": 4,
             "career_price_over_under": 8,
-            "career_price_over_under_percentage": 67
+            "career_price_over_under_percentage": 67,
+            "career_average": 83,
+            "career_average_games": 15
           },
           {
             "id": 166,
@@ -4870,7 +5182,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 76,
+            "career_average_games": 4
           },
           {
             "id": 167,
@@ -4901,7 +5215,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 1,
             "career_actual_value": 26,
             "career_price_over_under": -25,
-            "career_price_over_under_percentage": -2500
+            "career_price_over_under_percentage": -2500,
+            "career_average": 73,
+            "career_average_games": 11
           },
           {
             "id": 168,
@@ -4932,7 +5248,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 66,
+            "career_average_games": 10
           },
           {
             "id": 169,
@@ -4963,7 +5281,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 2,
             "career_actual_value": 11,
             "career_price_over_under": -9,
-            "career_price_over_under_percentage": -450
+            "career_price_over_under_percentage": -450,
+            "career_average": 68,
+            "career_average_games": 14
           },
           {
             "id": 170,
@@ -4994,7 +5314,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 6,
             "career_actual_value": 1,
             "career_price_over_under": 5,
-            "career_price_over_under_percentage": 83
+            "career_price_over_under_percentage": 83,
+            "career_average": 82,
+            "career_average_games": 18
           },
           {
             "id": 171,
@@ -5025,7 +5347,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 8,
             "career_actual_value": 4,
             "career_price_over_under": 4,
-            "career_price_over_under_percentage": 52
+            "career_price_over_under_percentage": 52,
+            "career_average": 70,
+            "career_average_games": 17
           },
           {
             "id": 172,
@@ -5056,7 +5380,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 1,
             "career_actual_value": 0,
             "career_price_over_under": 1,
-            "career_price_over_under_percentage": 100
+            "career_price_over_under_percentage": 100,
+            "career_average": 63,
+            "career_average_games": 13
           },
           {
             "id": 173,
@@ -5087,7 +5413,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 4,
             "career_actual_value": 0,
             "career_price_over_under": 4,
-            "career_price_over_under_percentage": 100
+            "career_price_over_under_percentage": 100,
+            "career_average": 62,
+            "career_average_games": 10
           },
           {
             "id": 174,
@@ -5118,7 +5446,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 17,
             "career_actual_value": 15,
             "career_price_over_under": 2,
-            "career_price_over_under_percentage": 10
+            "career_price_over_under_percentage": 10,
+            "career_average": 83,
+            "career_average_games": 18
           },
           {
             "id": 175,
@@ -5149,7 +5479,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 2,
             "career_actual_value": 3,
             "career_price_over_under": -1,
-            "career_price_over_under_percentage": -50
+            "career_price_over_under_percentage": -50,
+            "career_average": 71,
+            "career_average_games": 20
           },
           {
             "id": 176,
@@ -5180,7 +5512,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 6,
             "career_actual_value": 2,
             "career_price_over_under": 4,
-            "career_price_over_under_percentage": 63
+            "career_price_over_under_percentage": 63,
+            "career_average": 74,
+            "career_average_games": 20
           },
           {
             "id": 177,
@@ -5211,7 +5545,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 3,
             "career_actual_value": 2,
             "career_price_over_under": 1,
-            "career_price_over_under_percentage": 30
+            "career_price_over_under_percentage": 30,
+            "career_average": 73,
+            "career_average_games": 13
           },
           {
             "id": 178,
@@ -5242,7 +5578,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 69,
+            "career_average_games": 15
           },
           {
             "id": 179,
@@ -5273,7 +5611,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 69,
+            "career_average_games": 12
           },
           {
             "id": 181,
@@ -5304,7 +5644,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 14,
             "career_actual_value": 18,
             "career_price_over_under": -4,
-            "career_price_over_under_percentage": -28
+            "career_price_over_under_percentage": -28,
+            "career_average": 78,
+            "career_average_games": 16
           },
           {
             "id": 182,
@@ -5335,7 +5677,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 1,
             "career_actual_value": 0,
             "career_price_over_under": 1,
-            "career_price_over_under_percentage": 100
+            "career_price_over_under_percentage": 100,
+            "career_average": 66,
+            "career_average_games": 15
           },
           {
             "id": 183,
@@ -5366,7 +5710,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 3,
             "career_actual_value": 0,
             "career_price_over_under": 3,
-            "career_price_over_under_percentage": 100
+            "career_price_over_under_percentage": 100,
+            "career_average": 63,
+            "career_average_games": 13
           },
           {
             "id": 184,
@@ -5397,7 +5743,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 1,
             "career_actual_value": 0,
             "career_price_over_under": 1,
-            "career_price_over_under_percentage": 100
+            "career_price_over_under_percentage": 100,
+            "career_average": 85,
+            "career_average_games": 12
           },
           {
             "id": 185,
@@ -5428,7 +5776,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 9,
             "career_actual_value": 6,
             "career_price_over_under": 3,
-            "career_price_over_under_percentage": 31
+            "career_price_over_under_percentage": 31,
+            "career_average": 78,
+            "career_average_games": 17
           },
           {
             "id": 186,
@@ -5459,7 +5809,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 2,
             "career_actual_value": 0,
             "career_price_over_under": 2,
-            "career_price_over_under_percentage": 100
+            "career_price_over_under_percentage": 100,
+            "career_average": 75,
+            "career_average_games": 20
           },
           {
             "id": 187,
@@ -5490,7 +5842,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 9,
             "career_actual_value": 1,
             "career_price_over_under": 8,
-            "career_price_over_under_percentage": 88
+            "career_price_over_under_percentage": 88,
+            "career_average": 74,
+            "career_average_games": 16
           },
           {
             "id": 188,
@@ -5521,7 +5875,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 8,
             "career_actual_value": 7,
             "career_price_over_under": 2,
-            "career_price_over_under_percentage": 19
+            "career_price_over_under_percentage": 19,
+            "career_average": 74,
+            "career_average_games": 17
           },
           {
             "id": 189,
@@ -5552,7 +5908,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 1,
             "career_actual_value": 7,
             "career_price_over_under": -6,
-            "career_price_over_under_percentage": -600
+            "career_price_over_under_percentage": -600,
+            "career_average": 67,
+            "career_average_games": 15
           },
           {
             "id": 191,
@@ -5583,7 +5941,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 66,
+            "career_average_games": 7
           },
           {
             "id": 192,
@@ -5614,7 +5974,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 1,
             "career_actual_value": 0,
             "career_price_over_under": 1,
-            "career_price_over_under_percentage": 100
+            "career_price_over_under_percentage": 100,
+            "career_average": 66,
+            "career_average_games": 17
           },
           {
             "id": 193,
@@ -5645,7 +6007,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 3,
             "career_actual_value": 2,
             "career_price_over_under": 1,
-            "career_price_over_under_percentage": 18
+            "career_price_over_under_percentage": 18,
+            "career_average": 76,
+            "career_average_games": 19
           },
           {
             "id": 194,
@@ -5676,7 +6040,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 1,
             "career_actual_value": 3,
             "career_price_over_under": -2,
-            "career_price_over_under_percentage": -200
+            "career_price_over_under_percentage": -200,
+            "career_average": 81,
+            "career_average_games": 19
           },
           {
             "id": 195,
@@ -5707,7 +6073,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 1,
             "career_actual_value": 0,
             "career_price_over_under": 1,
-            "career_price_over_under_percentage": 100
+            "career_price_over_under_percentage": 100,
+            "career_average": 59,
+            "career_average_games": 17
           },
           {
             "id": 196,
@@ -5738,7 +6106,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 6,
             "career_actual_value": 2,
             "career_price_over_under": 4,
-            "career_price_over_under_percentage": 67
+            "career_price_over_under_percentage": 67,
+            "career_average": 67,
+            "career_average_games": 11
           },
           {
             "id": 197,
@@ -5769,7 +6139,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 5,
             "career_actual_value": 3,
             "career_price_over_under": 2,
-            "career_price_over_under_percentage": 44
+            "career_price_over_under_percentage": 44,
+            "career_average": 71,
+            "career_average_games": 15
           },
           {
             "id": 198,
@@ -5800,7 +6172,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 5,
             "career_actual_value": 0,
             "career_price_over_under": 5,
-            "career_price_over_under_percentage": 100
+            "career_price_over_under_percentage": 100,
+            "career_average": 73,
+            "career_average_games": 13
           },
           {
             "id": 199,
@@ -5831,7 +6205,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 7,
             "career_actual_value": 3,
             "career_price_over_under": 4,
-            "career_price_over_under_percentage": 62
+            "career_price_over_under_percentage": 62,
+            "career_average": 73,
+            "career_average_games": 17
           },
           {
             "id": 200,
@@ -5862,7 +6238,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 1,
             "career_actual_value": 0,
             "career_price_over_under": 1,
-            "career_price_over_under_percentage": 100
+            "career_price_over_under_percentage": 100,
+            "career_average": 64,
+            "career_average_games": 15
           },
           {
             "id": 201,
@@ -5893,7 +6271,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 11,
             "career_actual_value": 10,
             "career_price_over_under": 1,
-            "career_price_over_under_percentage": 9
+            "career_price_over_under_percentage": 9,
+            "career_average": 64,
+            "career_average_games": 18
           },
           {
             "id": 202,
@@ -5924,7 +6304,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 1,
             "career_actual_value": 3,
             "career_price_over_under": -2,
-            "career_price_over_under_percentage": -150
+            "career_price_over_under_percentage": -150,
+            "career_average": 67,
+            "career_average_games": 16
           },
           {
             "id": 203,
@@ -5955,7 +6337,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 1,
             "career_actual_value": 0,
             "career_price_over_under": 1,
-            "career_price_over_under_percentage": 100
+            "career_price_over_under_percentage": 100,
+            "career_average": 56,
+            "career_average_games": 11
           },
           {
             "id": 204,
@@ -5986,7 +6370,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 1,
             "career_actual_value": 0,
             "career_price_over_under": 1,
-            "career_price_over_under_percentage": 100
+            "career_price_over_under_percentage": 100,
+            "career_average": 66,
+            "career_average_games": 19
           },
           {
             "id": 205,
@@ -6017,7 +6403,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 7,
             "career_actual_value": 7,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": -3
+            "career_price_over_under_percentage": -3,
+            "career_average": 68,
+            "career_average_games": 14
           },
           {
             "id": 206,
@@ -6048,7 +6436,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 9,
             "career_actual_value": 13,
             "career_price_over_under": -4,
-            "career_price_over_under_percentage": -42
+            "career_price_over_under_percentage": -42,
+            "career_average": 81,
+            "career_average_games": 18
           },
           {
             "id": 207,
@@ -6079,7 +6469,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 71,
+            "career_average_games": 15
           },
           {
             "id": 208,
@@ -6110,7 +6502,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 19,
             "career_actual_value": 20,
             "career_price_over_under": -1,
-            "career_price_over_under_percentage": -6
+            "career_price_over_under_percentage": -6,
+            "career_average": 83,
+            "career_average_games": 18
           },
           {
             "id": 209,
@@ -6141,7 +6535,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 1,
             "career_actual_value": 0,
             "career_price_over_under": 1,
-            "career_price_over_under_percentage": 100
+            "career_price_over_under_percentage": 100,
+            "career_average": 64,
+            "career_average_games": 15
           },
           {
             "id": 211,
@@ -6172,7 +6568,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 1,
             "career_actual_value": 0,
             "career_price_over_under": 1,
-            "career_price_over_under_percentage": 100
+            "career_price_over_under_percentage": 100,
+            "career_average": 59,
+            "career_average_games": 15
           },
           {
             "id": 214,
@@ -6203,7 +6601,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 8,
             "career_actual_value": 6,
             "career_price_over_under": 2,
-            "career_price_over_under_percentage": 26
+            "career_price_over_under_percentage": 26,
+            "career_average": 74,
+            "career_average_games": 19
           },
           {
             "id": 215,
@@ -6234,7 +6634,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 1,
             "career_actual_value": 0,
             "career_price_over_under": 1,
-            "career_price_over_under_percentage": 100
+            "career_price_over_under_percentage": 100,
+            "career_average": 69,
+            "career_average_games": 15
           },
           {
             "id": 216,
@@ -6265,7 +6667,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 8,
             "career_actual_value": 1,
             "career_price_over_under": 7,
-            "career_price_over_under_percentage": 83
+            "career_price_over_under_percentage": 83,
+            "career_average": 77,
+            "career_average_games": 19
           },
           {
             "id": 217,
@@ -6296,7 +6700,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 1,
             "career_actual_value": 0,
             "career_price_over_under": 1,
-            "career_price_over_under_percentage": 100
+            "career_price_over_under_percentage": 100,
+            "career_average": 69,
+            "career_average_games": 18
           },
           {
             "id": 218,
@@ -6327,7 +6733,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 69,
+            "career_average_games": 9
           },
           {
             "id": 219,
@@ -6358,7 +6766,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 1,
             "career_actual_value": 0,
             "career_price_over_under": 1,
-            "career_price_over_under_percentage": 100
+            "career_price_over_under_percentage": 100,
+            "career_average": 59,
+            "career_average_games": 11
           },
           {
             "id": 220,
@@ -6389,7 +6799,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 13,
             "career_actual_value": 8,
             "career_price_over_under": 5,
-            "career_price_over_under_percentage": 39
+            "career_price_over_under_percentage": 39,
+            "career_average": 73,
+            "career_average_games": 21
           },
           {
             "id": 221,
@@ -6420,7 +6832,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 5,
             "career_actual_value": 0,
             "career_price_over_under": 5,
-            "career_price_over_under_percentage": 100
+            "career_price_over_under_percentage": 100,
+            "career_average": 73,
+            "career_average_games": 19
           },
           {
             "id": 222,
@@ -6451,7 +6865,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 1,
             "career_actual_value": 0,
             "career_price_over_under": 1,
-            "career_price_over_under_percentage": 100
+            "career_price_over_under_percentage": 100,
+            "career_average": 68,
+            "career_average_games": 19
           },
           {
             "id": 223,
@@ -6482,7 +6898,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 74,
+            "career_average_games": 15
           },
           {
             "id": 225,
@@ -6513,7 +6931,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 1,
             "career_actual_value": 6,
             "career_price_over_under": -5,
-            "career_price_over_under_percentage": -500
+            "career_price_over_under_percentage": -500,
+            "career_average": 67,
+            "career_average_games": 12
           },
           {
             "id": 226,
@@ -6544,7 +6964,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 51,
+            "career_average_games": 5
           },
           {
             "id": 227,
@@ -6575,7 +6997,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 4,
             "career_actual_value": 7,
             "career_price_over_under": -3,
-            "career_price_over_under_percentage": -87
+            "career_price_over_under_percentage": -87,
+            "career_average": 82,
+            "career_average_games": 21
           },
           {
             "id": 228,
@@ -6606,7 +7030,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 4,
             "career_actual_value": 3,
             "career_price_over_under": 1,
-            "career_price_over_under_percentage": 25
+            "career_price_over_under_percentage": 25,
+            "career_average": 60,
+            "career_average_games": 15
           },
           {
             "id": 229,
@@ -6637,7 +7063,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 1,
             "career_actual_value": 1,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": -33
+            "career_price_over_under_percentage": -33,
+            "career_average": 64,
+            "career_average_games": 18
           },
           {
             "id": 230,
@@ -6668,7 +7096,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 5,
             "career_actual_value": 0,
             "career_price_over_under": 5,
-            "career_price_over_under_percentage": 100
+            "career_price_over_under_percentage": 100,
+            "career_average": 65,
+            "career_average_games": 15
           },
           {
             "id": 231,
@@ -6699,7 +7129,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 3,
             "career_actual_value": 0,
             "career_price_over_under": 3,
-            "career_price_over_under_percentage": 100
+            "career_price_over_under_percentage": 100,
+            "career_average": 75,
+            "career_average_games": 12
           },
           {
             "id": 232,
@@ -6730,7 +7162,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 13,
             "career_actual_value": 8,
             "career_price_over_under": 5,
-            "career_price_over_under_percentage": 35
+            "career_price_over_under_percentage": 35,
+            "career_average": 78,
+            "career_average_games": 14
           },
           {
             "id": 233,
@@ -6761,7 +7195,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 6,
             "career_actual_value": 0,
             "career_price_over_under": 6,
-            "career_price_over_under_percentage": 100
+            "career_price_over_under_percentage": 100,
+            "career_average": 65,
+            "career_average_games": 17
           },
           {
             "id": 235,
@@ -6792,7 +7228,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 1,
             "career_actual_value": 0,
             "career_price_over_under": 1,
-            "career_price_over_under_percentage": 100
+            "career_price_over_under_percentage": 100,
+            "career_average": 65,
+            "career_average_games": 6
           },
           {
             "id": 236,
@@ -6823,7 +7261,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 3,
             "career_actual_value": 0,
             "career_price_over_under": 3,
-            "career_price_over_under_percentage": 100
+            "career_price_over_under_percentage": 100,
+            "career_average": 69,
+            "career_average_games": 12
           },
           {
             "id": 238,
@@ -6854,7 +7294,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 72,
+            "career_average_games": 21
           },
           {
             "id": 240,
@@ -6885,7 +7327,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 7,
             "career_actual_value": 4,
             "career_price_over_under": 3,
-            "career_price_over_under_percentage": 41
+            "career_price_over_under_percentage": 41,
+            "career_average": 75,
+            "career_average_games": 19
           },
           {
             "id": 241,
@@ -6916,7 +7360,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 7,
             "career_actual_value": 0,
             "career_price_over_under": 7,
-            "career_price_over_under_percentage": 100
+            "career_price_over_under_percentage": 100,
+            "career_average": 72,
+            "career_average_games": 13
           },
           {
             "id": 242,
@@ -6947,7 +7393,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 1,
             "career_actual_value": 0,
             "career_price_over_under": 1,
-            "career_price_over_under_percentage": 100
+            "career_price_over_under_percentage": 100,
+            "career_average": 76,
+            "career_average_games": 8
           },
           {
             "id": 243,
@@ -6978,7 +7426,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 59,
+            "career_average_games": 11
           },
           {
             "id": 245,
@@ -7009,7 +7459,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 66,
+            "career_average_games": 14
           },
           {
             "id": 246,
@@ -7040,7 +7492,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 56,
+            "career_average_games": 10
           },
           {
             "id": 247,
@@ -7071,7 +7525,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 50,
+            "career_average_games": 13
           },
           {
             "id": 248,
@@ -7102,7 +7558,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 60,
+            "career_average_games": 21
           },
           {
             "id": 250,
@@ -7133,7 +7591,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 56,
+            "career_average_games": 11
           },
           {
             "id": 251,
@@ -7164,7 +7624,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 1,
             "career_actual_value": 0,
             "career_price_over_under": 1,
-            "career_price_over_under_percentage": 100
+            "career_price_over_under_percentage": 100,
+            "career_average": 65,
+            "career_average_games": 11
           },
           {
             "id": 252,
@@ -7195,7 +7657,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 64,
+            "career_average_games": 15
           },
           {
             "id": 253,
@@ -7226,7 +7690,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 66,
+            "career_average_games": 18
           },
           {
             "id": 254,
@@ -7257,7 +7723,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 10,
             "career_actual_value": 4,
             "career_price_over_under": 6,
-            "career_price_over_under_percentage": 57
+            "career_price_over_under_percentage": 57,
+            "career_average": 72,
+            "career_average_games": 13
           },
           {
             "id": 255,
@@ -7288,7 +7756,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 2,
             "career_actual_value": 2,
             "career_price_over_under": 1,
-            "career_price_over_under_percentage": 29
+            "career_price_over_under_percentage": 29,
+            "career_average": 69,
+            "career_average_games": 16
           },
           {
             "id": 256,
@@ -7319,7 +7789,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 67,
+            "career_average_games": 20
           },
           {
             "id": 260,
@@ -7350,7 +7822,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 22,
             "career_actual_value": 14,
             "career_price_over_under": 8,
-            "career_price_over_under_percentage": 35
+            "career_price_over_under_percentage": 35,
+            "career_average": 82,
+            "career_average_games": 20
           },
           {
             "id": 261,
@@ -7381,7 +7855,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 1,
             "career_actual_value": 0,
             "career_price_over_under": 1,
-            "career_price_over_under_percentage": 100
+            "career_price_over_under_percentage": 100,
+            "career_average": 73,
+            "career_average_games": 11
           },
           {
             "id": 262,
@@ -7412,7 +7888,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 58,
+            "career_average_games": 16
           },
           {
             "id": 263,
@@ -7443,7 +7921,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 22,
             "career_actual_value": 15,
             "career_price_over_under": 7,
-            "career_price_over_under_percentage": 33
+            "career_price_over_under_percentage": 33,
+            "career_average": 78,
+            "career_average_games": 17
           },
           {
             "id": 264,
@@ -7474,7 +7954,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 59,
+            "career_average_games": 11
           },
           {
             "id": 265,
@@ -7505,7 +7987,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 1,
             "career_actual_value": 0,
             "career_price_over_under": 1,
-            "career_price_over_under_percentage": 100
+            "career_price_over_under_percentage": 100,
+            "career_average": 52,
+            "career_average_games": 12
           },
           {
             "id": 267,
@@ -7536,7 +8020,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 66,
+            "career_average_games": 20
           },
           {
             "id": 268,
@@ -7567,7 +8053,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 68,
+            "career_average_games": 10
           },
           {
             "id": 269,
@@ -7598,7 +8086,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 56,
+            "career_average_games": 6
           },
           {
             "id": 270,
@@ -7629,7 +8119,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 57,
+            "career_average_games": 14
           },
           {
             "id": 271,
@@ -7660,7 +8152,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 5,
             "career_actual_value": 0,
             "career_price_over_under": 5,
-            "career_price_over_under_percentage": 100
+            "career_price_over_under_percentage": 100,
+            "career_average": 74,
+            "career_average_games": 20
           },
           {
             "id": 273,
@@ -7691,7 +8185,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 25,
             "career_actual_value": 17,
             "career_price_over_under": 8,
-            "career_price_over_under_percentage": 32
+            "career_price_over_under_percentage": 32,
+            "career_average": 85,
+            "career_average_games": 17
           },
           {
             "id": 274,
@@ -7722,7 +8218,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 68,
+            "career_average_games": 17
           },
           {
             "id": 275,
@@ -7753,7 +8251,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 55,
+            "career_average_games": 18
           },
           {
             "id": 277,
@@ -7784,7 +8284,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 69,
+            "career_average_games": 14
           },
           {
             "id": 278,
@@ -7815,7 +8317,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 56,
+            "career_average_games": 10
           },
           {
             "id": 279,
@@ -7846,7 +8350,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 55,
+            "career_average_games": 12
           },
           {
             "id": 280,
@@ -7877,7 +8383,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 66,
+            "career_average_games": 19
           },
           {
             "id": 281,
@@ -7908,7 +8416,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 63,
+            "career_average_games": 13
           },
           {
             "id": 282,
@@ -7939,7 +8449,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 64,
+            "career_average_games": 15
           },
           {
             "id": 283,
@@ -7970,7 +8482,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 59,
+            "career_average_games": 13
           },
           {
             "id": 284,
@@ -8001,7 +8515,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 1,
             "career_actual_value": 0,
             "career_price_over_under": 1,
-            "career_price_over_under_percentage": 100
+            "career_price_over_under_percentage": 100,
+            "career_average": 62,
+            "career_average_games": 15
           },
           {
             "id": 285,
@@ -8032,7 +8548,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 60,
+            "career_average_games": 14
           },
           {
             "id": 286,
@@ -8063,7 +8581,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 10,
             "career_actual_value": 13,
             "career_price_over_under": -3,
-            "career_price_over_under_percentage": -31
+            "career_price_over_under_percentage": -31,
+            "career_average": 87,
+            "career_average_games": 19
           },
           {
             "id": 287,
@@ -8094,7 +8614,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 2,
             "career_actual_value": 0,
             "career_price_over_under": 2,
-            "career_price_over_under_percentage": 100
+            "career_price_over_under_percentage": 100,
+            "career_average": 73,
+            "career_average_games": 11
           },
           {
             "id": 288,
@@ -8125,7 +8647,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 8,
             "career_actual_value": 9,
             "career_price_over_under": -1,
-            "career_price_over_under_percentage": -10
+            "career_price_over_under_percentage": -10,
+            "career_average": 76,
+            "career_average_games": 14
           },
           {
             "id": 290,
@@ -8156,7 +8680,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 59,
+            "career_average_games": 18
           },
           {
             "id": 291,
@@ -8187,7 +8713,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 2,
             "career_actual_value": 0,
             "career_price_over_under": 2,
-            "career_price_over_under_percentage": 100
+            "career_price_over_under_percentage": 100,
+            "career_average": 67,
+            "career_average_games": 11
           },
           {
             "id": 292,
@@ -8218,7 +8746,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 61,
+            "career_average_games": 10
           },
           {
             "id": 294,
@@ -8249,7 +8779,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 13,
             "career_actual_value": 8,
             "career_price_over_under": 5,
-            "career_price_over_under_percentage": 39
+            "career_price_over_under_percentage": 39,
+            "career_average": 74,
+            "career_average_games": 13
           },
           {
             "id": 295,
@@ -8280,7 +8812,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 7,
             "career_actual_value": 0,
             "career_price_over_under": 7,
-            "career_price_over_under_percentage": 100
+            "career_price_over_under_percentage": 100,
+            "career_average": 77,
+            "career_average_games": 13
           },
           {
             "id": 296,
@@ -8311,7 +8845,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 60,
+            "career_average_games": 15
           },
           {
             "id": 297,
@@ -8342,7 +8878,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 1,
             "career_actual_value": 0,
             "career_price_over_under": 1,
-            "career_price_over_under_percentage": 100
+            "career_price_over_under_percentage": 100,
+            "career_average": 52,
+            "career_average_games": 11
           },
           {
             "id": 298,
@@ -8373,7 +8911,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 1,
             "career_actual_value": 14,
             "career_price_over_under": -13,
-            "career_price_over_under_percentage": -1300
+            "career_price_over_under_percentage": -1300,
+            "career_average": 63,
+            "career_average_games": 9
           },
           {
             "id": 299,
@@ -8404,7 +8944,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 3,
             "career_actual_value": 2,
             "career_price_over_under": 2,
-            "career_price_over_under_percentage": 50
+            "career_price_over_under_percentage": 50,
+            "career_average": 72,
+            "career_average_games": 17
           },
           {
             "id": 300,
@@ -8435,7 +8977,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 2,
             "career_actual_value": 0,
             "career_price_over_under": 2,
-            "career_price_over_under_percentage": 100
+            "career_price_over_under_percentage": 100,
+            "career_average": 72,
+            "career_average_games": 21
           },
           {
             "id": 301,
@@ -8466,7 +9010,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 58,
+            "career_average_games": 17
           },
           {
             "id": 302,
@@ -8497,7 +9043,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 60,
+            "career_average_games": 7
           },
           {
             "id": 303,
@@ -8528,7 +9076,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 66,
+            "career_average_games": 11
           },
           {
             "id": 304,
@@ -8559,7 +9109,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 62,
+            "career_average_games": 14
           },
           {
             "id": 305,
@@ -8590,7 +9142,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 66,
+            "career_average_games": 13
           },
           {
             "id": 306,
@@ -8621,7 +9175,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 54,
+            "career_average_games": 13
           },
           {
             "id": 307,
@@ -8652,7 +9208,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 60,
+            "career_average_games": 16
           },
           {
             "id": 309,
@@ -8683,7 +9241,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 62,
+            "career_average_games": 10
           },
           {
             "id": 310,
@@ -8714,7 +9274,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 15,
             "career_actual_value": 21,
             "career_price_over_under": -6,
-            "career_price_over_under_percentage": -37
+            "career_price_over_under_percentage": -37,
+            "career_average": 93,
+            "career_average_games": 19
           },
           {
             "id": 311,
@@ -8745,7 +9307,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 65,
+            "career_average_games": 18
           },
           {
             "id": 312,
@@ -8776,7 +9340,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 14,
             "career_actual_value": 9,
             "career_price_over_under": 5,
-            "career_price_over_under_percentage": 36
+            "career_price_over_under_percentage": 36,
+            "career_average": 74,
+            "career_average_games": 18
           },
           {
             "id": 313,
@@ -8807,7 +9373,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 60,
+            "career_average_games": 14
           },
           {
             "id": 314,
@@ -8838,7 +9406,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 59,
+            "career_average_games": 14
           },
           {
             "id": 315,
@@ -8869,7 +9439,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 61,
+            "career_average_games": 19
           },
           {
             "id": 317,
@@ -8900,7 +9472,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 61,
+            "career_average_games": 14
           },
           {
             "id": 318,
@@ -8931,7 +9505,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 60,
+            "career_average_games": 12
           },
           {
             "id": 319,
@@ -8962,7 +9538,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 8,
             "career_actual_value": 0,
             "career_price_over_under": 8,
-            "career_price_over_under_percentage": 100
+            "career_price_over_under_percentage": 100,
+            "career_average": 61,
+            "career_average_games": 5
           },
           {
             "id": 320,
@@ -8993,7 +9571,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 61,
+            "career_average_games": 15
           },
           {
             "id": 322,
@@ -9024,7 +9604,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 1,
             "career_actual_value": 0,
             "career_price_over_under": 1,
-            "career_price_over_under_percentage": 100
+            "career_price_over_under_percentage": 100,
+            "career_average": 60,
+            "career_average_games": 13
           },
           {
             "id": 323,
@@ -9055,7 +9637,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 1,
             "career_actual_value": 0,
             "career_price_over_under": 1,
-            "career_price_over_under_percentage": 100
+            "career_price_over_under_percentage": 100,
+            "career_average": 59,
+            "career_average_games": 8
           },
           {
             "id": 324,
@@ -9086,7 +9670,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 65,
+            "career_average_games": 17
           },
           {
             "id": 325,
@@ -9117,7 +9703,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 3,
             "career_actual_value": 0,
             "career_price_over_under": 3,
-            "career_price_over_under_percentage": 100
+            "career_price_over_under_percentage": 100,
+            "career_average": 61,
+            "career_average_games": 16
           },
           {
             "id": 328,
@@ -9148,7 +9736,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 61,
+            "career_average_games": 14
           },
           {
             "id": 329,
@@ -9179,7 +9769,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 1,
             "career_actual_value": 10,
             "career_price_over_under": -9,
-            "career_price_over_under_percentage": -850
+            "career_price_over_under_percentage": -850,
+            "career_average": 75,
+            "career_average_games": 17
           },
           {
             "id": 330,
@@ -9210,7 +9802,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 1,
             "career_actual_value": 0,
             "career_price_over_under": 1,
-            "career_price_over_under_percentage": 100
+            "career_price_over_under_percentage": 100,
+            "career_average": 56,
+            "career_average_games": 5
           },
           {
             "id": 331,
@@ -9241,7 +9835,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 66,
+            "career_average_games": 23
           },
           {
             "id": 332,
@@ -9272,7 +9868,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 58,
+            "career_average_games": 11
           },
           {
             "id": 333,
@@ -9303,7 +9901,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 1,
             "career_actual_value": 0,
             "career_price_over_under": 1,
-            "career_price_over_under_percentage": 100
+            "career_price_over_under_percentage": 100,
+            "career_average": 63,
+            "career_average_games": 8
           },
           {
             "id": 334,
@@ -9334,7 +9934,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 1,
             "career_actual_value": 0,
             "career_price_over_under": 1,
-            "career_price_over_under_percentage": 100
+            "career_price_over_under_percentage": 100,
+            "career_average": 65,
+            "career_average_games": 13
           },
           {
             "id": 335,
@@ -9365,7 +9967,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 58,
+            "career_average_games": 20
           },
           {
             "id": 336,
@@ -9396,7 +10000,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 58,
+            "career_average_games": 7
           },
           {
             "id": 337,
@@ -9427,7 +10033,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 1,
             "career_actual_value": 0,
             "career_price_over_under": 1,
-            "career_price_over_under_percentage": 100
+            "career_price_over_under_percentage": 100,
+            "career_average": 67,
+            "career_average_games": 16
           },
           {
             "id": 338,
@@ -9458,7 +10066,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 5,
             "career_actual_value": 2,
             "career_price_over_under": 4,
-            "career_price_over_under_percentage": 70
+            "career_price_over_under_percentage": 70,
+            "career_average": 65,
+            "career_average_games": 15
           },
           {
             "id": 339,
@@ -9489,7 +10099,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 2,
             "career_actual_value": 1,
             "career_price_over_under": 1,
-            "career_price_over_under_percentage": 38
+            "career_price_over_under_percentage": 38,
+            "career_average": 69,
+            "career_average_games": 19
           },
           {
             "id": 342,
@@ -9520,7 +10132,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 64,
+            "career_average_games": 6
           },
           {
             "id": 343,
@@ -9551,7 +10165,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 55,
+            "career_average_games": 8
           },
           {
             "id": 344,
@@ -9582,7 +10198,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 47,
+            "career_average_games": 7
           },
           {
             "id": 345,
@@ -9613,7 +10231,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 57,
+            "career_average_games": 13
           },
           {
             "id": 346,
@@ -9644,7 +10264,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 7,
             "career_actual_value": 5,
             "career_price_over_under": 3,
-            "career_price_over_under_percentage": 35
+            "career_price_over_under_percentage": 35,
+            "career_average": 74,
+            "career_average_games": 16
           },
           {
             "id": 347,
@@ -9675,7 +10297,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 64,
+            "career_average_games": 4
           },
           {
             "id": 348,
@@ -9706,7 +10330,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 4,
             "career_actual_value": 7,
             "career_price_over_under": -3,
-            "career_price_over_under_percentage": -89
+            "career_price_over_under_percentage": -89,
+            "career_average": 81,
+            "career_average_games": 10
           },
           {
             "id": 349,
@@ -9737,7 +10363,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 71,
+            "career_average_games": 14
           },
           {
             "id": 350,
@@ -9768,7 +10396,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 58,
+            "career_average_games": 13
           },
           {
             "id": 351,
@@ -9799,7 +10429,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 50,
+            "career_average_games": 9
           },
           {
             "id": 352,
@@ -9830,7 +10462,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 7,
             "career_actual_value": 8,
             "career_price_over_under": -1,
-            "career_price_over_under_percentage": -15
+            "career_price_over_under_percentage": -15,
+            "career_average": 65,
+            "career_average_games": 17
           },
           {
             "id": 353,
@@ -9861,7 +10495,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 58,
+            "career_average_games": 12
           },
           {
             "id": 354,
@@ -9892,7 +10528,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 11,
             "career_actual_value": 9,
             "career_price_over_under": 2,
-            "career_price_over_under_percentage": 20
+            "career_price_over_under_percentage": 20,
+            "career_average": 77,
+            "career_average_games": 20
           },
           {
             "id": 355,
@@ -9923,7 +10561,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 60,
+            "career_average_games": 8
           },
           {
             "id": 356,
@@ -9954,7 +10594,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 66,
+            "career_average_games": 11
           },
           {
             "id": 357,
@@ -9985,7 +10627,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 57,
+            "career_average_games": 11
           },
           {
             "id": 358,
@@ -10016,7 +10660,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 6,
             "career_actual_value": 2,
             "career_price_over_under": 4,
-            "career_price_over_under_percentage": 64
+            "career_price_over_under_percentage": 64,
+            "career_average": 71,
+            "career_average_games": 18
           },
           {
             "id": 359,
@@ -10047,7 +10693,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 43,
+            "career_average_games": 2
           },
           {
             "id": 360,
@@ -10078,7 +10726,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 59,
+            "career_average_games": 17
           },
           {
             "id": 361,
@@ -10109,7 +10759,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 51,
+            "career_average_games": 16
           },
           {
             "id": 362,
@@ -10140,7 +10792,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 7,
             "career_actual_value": 2,
             "career_price_over_under": 5,
-            "career_price_over_under_percentage": 68
+            "career_price_over_under_percentage": 68,
+            "career_average": 67,
+            "career_average_games": 11
           },
           {
             "id": 363,
@@ -10171,7 +10825,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 58,
+            "career_average_games": 14
           },
           {
             "id": 364,
@@ -10202,7 +10858,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 61,
+            "career_average_games": 9
           },
           {
             "id": 365,
@@ -10233,7 +10891,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 59,
+            "career_average_games": 18
           },
           {
             "id": 366,
@@ -10264,7 +10924,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 53,
+            "career_average_games": 12
           },
           {
             "id": 367,
@@ -10295,7 +10957,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 65,
+            "career_average_games": 19
           },
           {
             "id": 368,
@@ -10326,7 +10990,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 62,
+            "career_average_games": 19
           },
           {
             "id": 369,
@@ -10357,7 +11023,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 55,
+            "career_average_games": 15
           },
           {
             "id": 370,
@@ -10388,7 +11056,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 58,
+            "career_average_games": 8
           },
           {
             "id": 371,
@@ -10419,7 +11089,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 59,
+            "career_average_games": 8
           },
           {
             "id": 372,
@@ -10450,7 +11122,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 64,
+            "career_average_games": 12
           },
           {
             "id": 373,
@@ -10481,7 +11155,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 1,
             "career_actual_value": 0,
             "career_price_over_under": 1,
-            "career_price_over_under_percentage": 100
+            "career_price_over_under_percentage": 100,
+            "career_average": 71,
+            "career_average_games": 15
           },
           {
             "id": 374,
@@ -10512,7 +11188,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 52,
+            "career_average_games": 15
           },
           {
             "id": 375,
@@ -10543,7 +11221,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 56,
+            "career_average_games": 12
           },
           {
             "id": 376,
@@ -10574,7 +11254,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 1,
             "career_actual_value": 0,
             "career_price_over_under": 1,
-            "career_price_over_under_percentage": 100
+            "career_price_over_under_percentage": 100,
+            "career_average": 71,
+            "career_average_games": 15
           },
           {
             "id": 377,
@@ -10605,7 +11287,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 69,
+            "career_average_games": 17
           },
           {
             "id": 378,
@@ -10636,7 +11320,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 58,
+            "career_average_games": 4
           },
           {
             "id": 379,
@@ -10667,7 +11353,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 57,
+            "career_average_games": 10
           },
           {
             "id": 380,
@@ -10698,7 +11386,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 61,
+            "career_average_games": 9
           },
           {
             "id": 381,
@@ -10729,7 +11419,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 49,
+            "career_average_games": 8
           },
           {
             "id": 382,
@@ -10760,7 +11452,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 1,
             "career_actual_value": 0,
             "career_price_over_under": 1,
-            "career_price_over_under_percentage": 100
+            "career_price_over_under_percentage": 100,
+            "career_average": 62,
+            "career_average_games": 8
           },
           {
             "id": 384,
@@ -10791,7 +11485,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 59,
+            "career_average_games": 15
           },
           {
             "id": 385,
@@ -10822,7 +11518,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 67,
+            "career_average_games": 14
           },
           {
             "id": 386,
@@ -10853,7 +11551,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 59,
+            "career_average_games": 19
           },
           {
             "id": 388,
@@ -10884,7 +11584,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 11,
             "career_actual_value": 13,
             "career_price_over_under": -1,
-            "career_price_over_under_percentage": -11
+            "career_price_over_under_percentage": -11,
+            "career_average": 79,
+            "career_average_games": 18
           },
           {
             "id": 389,
@@ -10915,7 +11617,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 64,
+            "career_average_games": 13
           },
           {
             "id": 390,
@@ -10946,7 +11650,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 61,
+            "career_average_games": 10
           },
           {
             "id": 391,
@@ -10977,7 +11683,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 1,
             "career_actual_value": 0,
             "career_price_over_under": 1,
-            "career_price_over_under_percentage": 100
+            "career_price_over_under_percentage": 100,
+            "career_average": 64,
+            "career_average_games": 20
           },
           {
             "id": 392,
@@ -11008,7 +11716,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 49,
+            "career_average_games": 6
           },
           {
             "id": 393,
@@ -11039,7 +11749,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 1,
             "career_actual_value": 0,
             "career_price_over_under": 1,
-            "career_price_over_under_percentage": 100
+            "career_price_over_under_percentage": 100,
+            "career_average": 62,
+            "career_average_games": 16
           },
           {
             "id": 394,
@@ -11070,7 +11782,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 58,
+            "career_average_games": 13
           },
           {
             "id": 395,
@@ -11101,7 +11815,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 58,
+            "career_average_games": 17
           },
           {
             "id": 396,
@@ -11132,7 +11848,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 3,
             "career_actual_value": 0,
             "career_price_over_under": 3,
-            "career_price_over_under_percentage": 100
+            "career_price_over_under_percentage": 100,
+            "career_average": 69,
+            "career_average_games": 11
           },
           {
             "id": 397,
@@ -11163,7 +11881,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 59,
+            "career_average_games": 14
           },
           {
             "id": 398,
@@ -11194,7 +11914,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 54,
+            "career_average_games": 15
           },
           {
             "id": 399,
@@ -11225,7 +11947,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 54,
+            "career_average_games": 10
           },
           {
             "id": 400,
@@ -11256,7 +11980,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 58,
+            "career_average_games": 11
           },
           {
             "id": 401,
@@ -11287,7 +12013,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 60,
+            "career_average_games": 7
           },
           {
             "id": 402,
@@ -11318,7 +12046,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 66,
+            "career_average_games": 15
           },
           {
             "id": 403,
@@ -11349,7 +12079,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 44,
+            "career_average_games": 10
           },
           {
             "id": 404,
@@ -11380,7 +12112,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 59,
+            "career_average_games": 15
           },
           {
             "id": 405,
@@ -11411,7 +12145,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 55,
+            "career_average_games": 8
           },
           {
             "id": 406,
@@ -11442,7 +12178,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 53,
+            "career_average_games": 8
           },
           {
             "id": 407,
@@ -11473,7 +12211,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 50,
+            "career_average_games": 8
           },
           {
             "id": 409,
@@ -11504,7 +12244,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 6,
             "career_actual_value": 5,
             "career_price_over_under": 1,
-            "career_price_over_under_percentage": 22
+            "career_price_over_under_percentage": 22,
+            "career_average": 73,
+            "career_average_games": 14
           },
           {
             "id": 410,
@@ -11535,7 +12277,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 67,
+            "career_average_games": 12
           },
           {
             "id": 411,
@@ -11566,7 +12310,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 65,
+            "career_average_games": 15
           },
           {
             "id": 412,
@@ -11597,7 +12343,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 64,
+            "career_average_games": 18
           },
           {
             "id": 413,
@@ -11628,7 +12376,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 57,
+            "career_average_games": 18
           },
           {
             "id": 414,
@@ -11659,7 +12409,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 58,
+            "career_average_games": 17
           },
           {
             "id": 415,
@@ -11690,7 +12442,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 1,
             "career_actual_value": 1,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": 0
+            "career_price_over_under_percentage": 0,
+            "career_average": 67,
+            "career_average_games": 16
           },
           {
             "id": 416,
@@ -11721,7 +12475,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 57,
+            "career_average_games": 16
           },
           {
             "id": 417,
@@ -11752,7 +12508,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 42,
+            "career_average_games": 3
           },
           {
             "id": 418,
@@ -11783,7 +12541,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 48,
+            "career_average_games": 11
           },
           {
             "id": 420,
@@ -11814,7 +12574,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 59,
+            "career_average_games": 14
           },
           {
             "id": 421,
@@ -11845,7 +12607,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 58,
+            "career_average_games": 17
           },
           {
             "id": 424,
@@ -11876,7 +12640,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 57,
+            "career_average_games": 13
           },
           {
             "id": 425,
@@ -11907,7 +12673,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 52,
+            "career_average_games": 7
           },
           {
             "id": 426,
@@ -11938,7 +12706,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 58,
+            "career_average_games": 13
           },
           {
             "id": 428,
@@ -11969,7 +12739,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 60,
+            "career_average_games": 10
           },
           {
             "id": 429,
@@ -12000,7 +12772,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 17,
             "career_actual_value": 0,
             "career_price_over_under": 17,
-            "career_price_over_under_percentage": 100
+            "career_price_over_under_percentage": 100,
+            "career_average": 60,
+            "career_average_games": 10
           },
           {
             "id": 430,
@@ -12031,7 +12805,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 46,
+            "career_average_games": 9
           },
           {
             "id": 431,
@@ -12062,7 +12838,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 50,
+            "career_average_games": 12
           },
           {
             "id": 432,
@@ -12093,7 +12871,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 53,
+            "career_average_games": 5
           },
           {
             "id": 434,
@@ -12124,7 +12904,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 48,
+            "career_average_games": 8
           },
           {
             "id": 435,
@@ -12155,7 +12937,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 63,
+            "career_average_games": 19
           },
           {
             "id": 436,
@@ -12186,7 +12970,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 7,
             "career_actual_value": 0,
             "career_price_over_under": 7,
-            "career_price_over_under_percentage": 100
+            "career_price_over_under_percentage": 100,
+            "career_average": 67,
+            "career_average_games": 16
           },
           {
             "id": 437,
@@ -12217,7 +13003,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 51,
+            "career_average_games": 15
           },
           {
             "id": 438,
@@ -12248,7 +13036,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 1,
             "career_actual_value": 21,
             "career_price_over_under": -20,
-            "career_price_over_under_percentage": -2000
+            "career_price_over_under_percentage": -2000,
+            "career_average": 60,
+            "career_average_games": 12
           },
           {
             "id": 439,
@@ -12279,7 +13069,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 55,
+            "career_average_games": 14
           },
           {
             "id": 440,
@@ -12310,7 +13102,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 2,
             "career_actual_value": 0,
             "career_price_over_under": 2,
-            "career_price_over_under_percentage": 100
+            "career_price_over_under_percentage": 100,
+            "career_average": 62,
+            "career_average_games": 12
           },
           {
             "id": 441,
@@ -12341,7 +13135,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 7,
             "career_actual_value": 0,
             "career_price_over_under": 7,
-            "career_price_over_under_percentage": 100
+            "career_price_over_under_percentage": 100,
+            "career_average": 59,
+            "career_average_games": 13
           },
           {
             "id": 442,
@@ -12372,7 +13168,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 50,
+            "career_average_games": 18
           },
           {
             "id": 443,
@@ -12403,7 +13201,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 64,
+            "career_average_games": 17
           },
           {
             "id": 444,
@@ -12434,7 +13234,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 54,
+            "career_average_games": 15
           },
           {
             "id": 446,
@@ -12465,7 +13267,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 4,
             "career_actual_value": 6,
             "career_price_over_under": -3,
-            "career_price_over_under_percentage": -71
+            "career_price_over_under_percentage": -71,
+            "career_average": 72,
+            "career_average_games": 17
           },
           {
             "id": 447,
@@ -12496,7 +13300,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 44,
+            "career_average_games": 6
           },
           {
             "id": 449,
@@ -12527,7 +13333,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 52,
+            "career_average_games": 10
           },
           {
             "id": 452,
@@ -12558,7 +13366,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 1,
             "career_actual_value": 0,
             "career_price_over_under": 1,
-            "career_price_over_under_percentage": 100
+            "career_price_over_under_percentage": 100,
+            "career_average": 62,
+            "career_average_games": 18
           },
           {
             "id": 454,
@@ -12589,7 +13399,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 56,
+            "career_average_games": 14
           },
           {
             "id": 455,
@@ -12620,7 +13432,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 53,
+            "career_average_games": 15
           },
           {
             "id": 456,
@@ -12651,7 +13465,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 44,
+            "career_average_games": 9
           },
           {
             "id": 458,
@@ -12682,7 +13498,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 1,
             "career_actual_value": 0,
             "career_price_over_under": 1,
-            "career_price_over_under_percentage": 100
+            "career_price_over_under_percentage": 100,
+            "career_average": 64,
+            "career_average_games": 16
           },
           {
             "id": 459,
@@ -12713,7 +13531,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 9,
             "career_actual_value": 10,
             "career_price_over_under": -1,
-            "career_price_over_under_percentage": -12
+            "career_price_over_under_percentage": -12,
+            "career_average": 74,
+            "career_average_games": 11
           },
           {
             "id": 463,
@@ -12744,7 +13564,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 67,
+            "career_average_games": 16
           },
           {
             "id": 465,
@@ -12775,7 +13597,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 52,
+            "career_average_games": 10
           },
           {
             "id": 466,
@@ -12806,7 +13630,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 60,
+            "career_average_games": 15
           },
           {
             "id": 467,
@@ -12837,7 +13663,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 53,
+            "career_average_games": 11
           },
           {
             "id": 468,
@@ -12868,7 +13696,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 54,
+            "career_average_games": 10
           },
           {
             "id": 469,
@@ -12899,7 +13729,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 47,
+            "career_average_games": 5
           },
           {
             "id": 470,
@@ -12930,7 +13762,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 51,
+            "career_average_games": 7
           },
           {
             "id": 471,
@@ -12961,7 +13795,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 52,
+            "career_average_games": 13
           },
           {
             "id": 472,
@@ -12992,7 +13828,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 1,
             "career_actual_value": 0,
             "career_price_over_under": 1,
-            "career_price_over_under_percentage": 100
+            "career_price_over_under_percentage": 100,
+            "career_average": 59,
+            "career_average_games": 14
           },
           {
             "id": 473,
@@ -13023,7 +13861,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 6,
             "career_actual_value": 0,
             "career_price_over_under": 6,
-            "career_price_over_under_percentage": 100
+            "career_price_over_under_percentage": 100,
+            "career_average": 68,
+            "career_average_games": 17
           },
           {
             "id": 474,
@@ -13054,7 +13894,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 57,
+            "career_average_games": 4
           },
           {
             "id": 475,
@@ -13085,7 +13927,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 65,
+            "career_average_games": 3
           },
           {
             "id": 476,
@@ -13116,7 +13960,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 49,
+            "career_average_games": 11
           },
           {
             "id": 477,
@@ -13147,7 +13993,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 37,
+            "career_average_games": 4
           },
           {
             "id": 478,
@@ -13178,7 +14026,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 43,
+            "career_average_games": 2
           },
           {
             "id": 479,
@@ -13209,7 +14059,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 3,
             "career_actual_value": 0,
             "career_price_over_under": 3,
-            "career_price_over_under_percentage": 100
+            "career_price_over_under_percentage": 100,
+            "career_average": 69,
+            "career_average_games": 11
           },
           {
             "id": 480,
@@ -13240,7 +14092,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 51,
+            "career_average_games": 11
           },
           {
             "id": 481,
@@ -13271,7 +14125,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 65,
+            "career_average_games": 7
           },
           {
             "id": 482,
@@ -13302,7 +14158,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 4,
             "career_actual_value": 0,
             "career_price_over_under": 4,
-            "career_price_over_under_percentage": 100
+            "career_price_over_under_percentage": 100,
+            "career_average": 65,
+            "career_average_games": 16
           },
           {
             "id": 483,
@@ -13333,7 +14191,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 61,
+            "career_average_games": 15
           },
           {
             "id": 484,
@@ -13364,7 +14224,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 41,
+            "career_average_games": 2
           },
           {
             "id": 485,
@@ -13395,7 +14257,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 59,
+            "career_average_games": 12
           },
           {
             "id": 486,
@@ -13426,7 +14290,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 50,
+            "career_average_games": 10
           },
           {
             "id": 487,
@@ -13457,7 +14323,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 38,
+            "career_average_games": 2
           },
           {
             "id": 489,
@@ -13488,7 +14356,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 53,
+            "career_average_games": 15
           },
           {
             "id": 490,
@@ -13519,7 +14389,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 15,
             "career_actual_value": 15,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": 2
+            "career_price_over_under_percentage": 2,
+            "career_average": 77,
+            "career_average_games": 14
           },
           {
             "id": 491,
@@ -13550,7 +14422,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 39,
+            "career_average_games": 6
           },
           {
             "id": 492,
@@ -13581,7 +14455,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 6,
             "career_actual_value": 0,
             "career_price_over_under": 6,
-            "career_price_over_under_percentage": 100
+            "career_price_over_under_percentage": 100,
+            "career_average": 58,
+            "career_average_games": 10
           },
           {
             "id": 493,
@@ -13612,7 +14488,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 48,
+            "career_average_games": 9
           },
           {
             "id": 494,
@@ -13643,7 +14521,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 67,
+            "career_average_games": 8
           },
           {
             "id": 495,
@@ -13674,7 +14554,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 55,
+            "career_average_games": 7
           },
           {
             "id": 496,
@@ -13705,7 +14587,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 44,
+            "career_average_games": 6
           },
           {
             "id": 497,
@@ -13736,7 +14620,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 49,
+            "career_average_games": 9
           },
           {
             "id": 498,
@@ -13767,7 +14653,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 53,
+            "career_average_games": 6
           },
           {
             "id": 499,
@@ -13798,7 +14686,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 57,
+            "career_average_games": 16
           },
           {
             "id": 500,
@@ -13829,7 +14719,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 49,
+            "career_average_games": 7
           },
           {
             "id": 501,
@@ -13860,7 +14752,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 45,
+            "career_average_games": 13
           },
           {
             "id": 502,
@@ -13891,7 +14785,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 12,
             "career_actual_value": 0,
             "career_price_over_under": 12,
-            "career_price_over_under_percentage": 100
+            "career_price_over_under_percentage": 100,
+            "career_average": 62,
+            "career_average_games": 15
           },
           {
             "id": 503,
@@ -13922,7 +14818,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 2,
             "career_actual_value": 5,
             "career_price_over_under": -3,
-            "career_price_over_under_percentage": -125
+            "career_price_over_under_percentage": -125,
+            "career_average": 71,
+            "career_average_games": 18
           },
           {
             "id": 504,
@@ -13953,7 +14851,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 55,
+            "career_average_games": 9
           },
           {
             "id": 505,
@@ -13984,7 +14884,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 6,
             "career_actual_value": 6,
             "career_price_over_under": 1,
-            "career_price_over_under_percentage": 8
+            "career_price_over_under_percentage": 8,
+            "career_average": 64,
+            "career_average_games": 15
           },
           {
             "id": 507,
@@ -14015,7 +14917,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 57,
+            "career_average_games": 20
           },
           {
             "id": 508,
@@ -14046,7 +14950,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 47,
+            "career_average_games": 8
           },
           {
             "id": 509,
@@ -14077,7 +14983,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 13,
             "career_actual_value": 13,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": 0
+            "career_price_over_under_percentage": 0,
+            "career_average": 82,
+            "career_average_games": 18
           },
           {
             "id": 510,
@@ -14108,7 +15016,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 52,
+            "career_average_games": 12
           },
           {
             "id": 511,
@@ -14139,7 +15049,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 39,
+            "career_average_games": 7
           },
           {
             "id": 512,
@@ -14170,7 +15082,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 47,
+            "career_average_games": 14
           },
           {
             "id": 513,
@@ -14201,7 +15115,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 55,
+            "career_average_games": 9
           },
           {
             "id": 514,
@@ -14232,7 +15148,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 49,
+            "career_average_games": 7
           },
           {
             "id": 515,
@@ -14263,7 +15181,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 50,
+            "career_average_games": 6
           },
           {
             "id": 517,
@@ -14294,7 +15214,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 46,
+            "career_average_games": 2
           },
           {
             "id": 521,
@@ -14325,7 +15247,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 45,
+            "career_average_games": 3
           },
           {
             "id": 522,
@@ -14356,7 +15280,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 45,
+            "career_average_games": 3
           },
           {
             "id": 523,
@@ -14387,7 +15313,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 38,
+            "career_average_games": 6
           },
           {
             "id": 525,
@@ -14418,7 +15346,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 48,
+            "career_average_games": 12
           },
           {
             "id": 527,
@@ -14449,7 +15379,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 43,
+            "career_average_games": 6
           },
           {
             "id": 528,
@@ -14480,7 +15412,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 48,
+            "career_average_games": 6
           },
           {
             "id": 529,
@@ -14511,7 +15445,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 49,
+            "career_average_games": 3
           },
           {
             "id": 530,
@@ -14542,7 +15478,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 48,
+            "career_average_games": 12
           },
           {
             "id": 532,
@@ -14573,7 +15511,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 50,
+            "career_average_games": 10
           },
           {
             "id": 533,
@@ -14604,7 +15544,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 3,
             "career_actual_value": 0,
             "career_price_over_under": 3,
-            "career_price_over_under_percentage": 100
+            "career_price_over_under_percentage": 100,
+            "career_average": 64,
+            "career_average_games": 9
           },
           {
             "id": 534,
@@ -14635,7 +15577,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 62,
+            "career_average_games": 17
           },
           {
             "id": 535,
@@ -14666,7 +15610,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 47,
+            "career_average_games": 15
           },
           {
             "id": 536,
@@ -14697,7 +15643,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 49,
+            "career_average_games": 7
           },
           {
             "id": 538,
@@ -14728,7 +15676,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 41,
+            "career_average_games": 13
           },
           {
             "id": 539,
@@ -14759,7 +15709,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 44,
+            "career_average_games": 7
           },
           {
             "id": 540,
@@ -14790,7 +15742,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 50,
+            "career_average_games": 11
           },
           {
             "id": 541,
@@ -14821,7 +15775,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 43,
+            "career_average_games": 5
           },
           {
             "id": 542,
@@ -14852,7 +15808,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 70,
+            "career_average_games": 2
           },
           {
             "id": 543,
@@ -14883,7 +15841,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 52,
+            "career_average_games": 15
           },
           {
             "id": 545,
@@ -14914,7 +15874,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 51,
+            "career_average_games": 9
           },
           {
             "id": 546,
@@ -14945,7 +15907,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 37,
+            "career_average_games": 10
           },
           {
             "id": 547,
@@ -14976,7 +15940,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 5,
             "career_actual_value": 0,
             "career_price_over_under": 5,
-            "career_price_over_under_percentage": 100
+            "career_price_over_under_percentage": 100,
+            "career_average": 56,
+            "career_average_games": 5
           },
           {
             "id": 548,
@@ -15007,7 +15973,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 56,
+            "career_average_games": 6
           },
           {
             "id": 549,
@@ -15038,7 +16006,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 46,
+            "career_average_games": 10
           },
           {
             "id": 551,
@@ -15069,7 +16039,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 29,
+            "career_average_games": 2
           },
           {
             "id": 554,
@@ -15100,7 +16072,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 39,
+            "career_average_games": 12
           },
           {
             "id": 555,
@@ -15131,7 +16105,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 52,
+            "career_average_games": 13
           },
           {
             "id": 557,
@@ -15162,7 +16138,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 38,
+            "career_average_games": 4
           },
           {
             "id": 558,
@@ -15193,7 +16171,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 42,
+            "career_average_games": 4
           },
           {
             "id": 559,
@@ -15224,7 +16204,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 38,
+            "career_average_games": 10
           },
           {
             "id": 560,
@@ -15255,7 +16237,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 51,
+            "career_average_games": 8
           },
           {
             "id": 561,
@@ -15286,7 +16270,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 44,
+            "career_average_games": 5
           },
           {
             "id": 562,
@@ -15317,7 +16303,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 42,
+            "career_average_games": 9
           },
           {
             "id": 564,
@@ -15348,7 +16336,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 48,
+            "career_average_games": 10
           },
           {
             "id": 566,
@@ -15379,7 +16369,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 39,
+            "career_average_games": 7
           },
           {
             "id": 571,
@@ -15410,7 +16402,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 3,
             "career_actual_value": 2,
             "career_price_over_under": 1,
-            "career_price_over_under_percentage": 33
+            "career_price_over_under_percentage": 33,
+            "career_average": 65,
+            "career_average_games": 9
           },
           {
             "id": 572,
@@ -15441,7 +16435,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 23,
+            "career_average_games": 3
           },
           {
             "id": 573,
@@ -15472,7 +16468,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 26,
+            "career_average_games": 2
           },
           {
             "id": 575,
@@ -15503,7 +16501,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 11,
             "career_actual_value": 8,
             "career_price_over_under": 3,
-            "career_price_over_under_percentage": 24
+            "career_price_over_under_percentage": 24,
+            "career_average": 72,
+            "career_average_games": 13
           },
           {
             "id": 576,
@@ -15534,7 +16534,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 38,
+            "career_average_games": 9
           },
           {
             "id": 577,
@@ -15565,7 +16567,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 39,
+            "career_average_games": 2
           },
           {
             "id": 578,
@@ -15596,7 +16600,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 33,
+            "career_average_games": 3
           },
           {
             "id": 579,
@@ -15627,7 +16633,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 35,
+            "career_average_games": 7
           },
           {
             "id": 580,
@@ -15658,7 +16666,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 39,
+            "career_average_games": 6
           },
           {
             "id": 581,
@@ -15689,7 +16699,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 46,
+            "career_average_games": 5
           },
           {
             "id": 583,
@@ -15720,7 +16732,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 585,
@@ -15751,7 +16765,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 586,
@@ -15782,7 +16798,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 587,
@@ -15813,7 +16831,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 588,
@@ -15844,7 +16864,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 61,
+            "career_average_games": 21
           },
           {
             "id": 589,
@@ -15875,7 +16897,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 46,
+            "career_average_games": 17
           },
           {
             "id": 590,
@@ -15906,7 +16930,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 51,
+            "career_average_games": 11
           },
           {
             "id": 591,
@@ -15937,7 +16963,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 592,
@@ -15968,7 +16996,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 62,
+            "career_average_games": 7
           },
           {
             "id": 594,
@@ -15999,7 +17029,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 76,
+            "career_average_games": 10
           },
           {
             "id": 595,
@@ -16030,7 +17062,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 596,
@@ -16061,7 +17095,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 72,
+            "career_average_games": 5
           },
           {
             "id": 597,
@@ -16092,7 +17128,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 42,
+            "career_average_games": 11
           },
           {
             "id": 598,
@@ -16123,7 +17161,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 50,
+            "career_average_games": 15
           },
           {
             "id": 600,
@@ -16154,7 +17194,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 45,
+            "career_average_games": 13
           },
           {
             "id": 601,
@@ -16185,7 +17227,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 51,
+            "career_average_games": 1
           },
           {
             "id": 603,
@@ -16216,7 +17260,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 54,
+            "career_average_games": 17
           },
           {
             "id": 605,
@@ -16247,7 +17293,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 54,
+            "career_average_games": 8
           },
           {
             "id": 606,
@@ -16278,7 +17326,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 608,
@@ -16309,7 +17359,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 34,
+            "career_average_games": 1
           },
           {
             "id": 609,
@@ -16340,7 +17392,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 56,
+            "career_average_games": 6
           },
           {
             "id": 610,
@@ -16371,7 +17425,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 612,
@@ -16402,7 +17458,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 48,
+            "career_average_games": 8
           },
           {
             "id": 613,
@@ -16433,7 +17491,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 614,
@@ -16464,7 +17524,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 66,
+            "career_average_games": 8
           },
           {
             "id": 615,
@@ -16495,7 +17557,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 616,
@@ -16526,7 +17590,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 57,
+            "career_average_games": 9
           },
           {
             "id": 617,
@@ -16557,7 +17623,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 35,
+            "career_average_games": 1
           },
           {
             "id": 618,
@@ -16588,7 +17656,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 42,
+            "career_average_games": 7
           },
           {
             "id": 619,
@@ -16619,7 +17689,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 620,
@@ -16650,7 +17722,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 48,
+            "career_average_games": 3
           },
           {
             "id": 621,
@@ -16681,7 +17755,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 57,
+            "career_average_games": 20
           },
           {
             "id": 622,
@@ -16712,7 +17788,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 623,
@@ -16743,7 +17821,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 8,
             "career_actual_value": 0,
             "career_price_over_under": 8,
-            "career_price_over_under_percentage": 100
+            "career_price_over_under_percentage": 100,
+            "career_average": 64,
+            "career_average_games": 12
           },
           {
             "id": 624,
@@ -16774,7 +17854,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 62,
+            "career_average_games": 1
           },
           {
             "id": 625,
@@ -16805,7 +17887,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 27,
+            "career_average_games": 1
           },
           {
             "id": 626,
@@ -16836,7 +17920,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 44,
+            "career_average_games": 1
           },
           {
             "id": 627,
@@ -16867,7 +17953,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 78,
+            "career_average_games": 17
           },
           {
             "id": 628,
@@ -16898,7 +17986,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 33,
+            "career_average_games": 2
           },
           {
             "id": 629,
@@ -16929,7 +18019,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 50,
+            "career_average_games": 7
           },
           {
             "id": 630,
@@ -16960,7 +18052,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 28,
+            "career_average_games": 2
           },
           {
             "id": 631,
@@ -16991,7 +18085,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 632,
@@ -17022,7 +18118,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 633,
@@ -17053,7 +18151,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 87,
+            "career_average_games": 12
           },
           {
             "id": 634,
@@ -17084,7 +18184,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 48,
+            "career_average_games": 4
           },
           {
             "id": 635,
@@ -17115,7 +18217,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 31,
             "career_actual_value": 20,
             "career_price_over_under": 11,
-            "career_price_over_under_percentage": 36
+            "career_price_over_under_percentage": 36,
+            "career_average": 95,
+            "career_average_games": 20
           },
           {
             "id": 636,
@@ -17146,7 +18250,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 41,
+            "career_average_games": 8
           },
           {
             "id": 638,
@@ -17177,7 +18283,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 50,
+            "career_average_games": 9
           },
           {
             "id": 641,
@@ -17208,7 +18316,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 41,
+            "career_average_games": 5
           },
           {
             "id": 644,
@@ -17239,7 +18349,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 37,
+            "career_average_games": 1
           },
           {
             "id": 645,
@@ -17270,7 +18382,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 646,
@@ -17301,7 +18415,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 42,
+            "career_average_games": 5
           },
           {
             "id": 647,
@@ -17332,7 +18448,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 76,
+            "career_average_games": 18
           },
           {
             "id": 648,
@@ -17363,7 +18481,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 63,
+            "career_average_games": 14
           },
           {
             "id": 649,
@@ -17394,7 +18514,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 650,
@@ -17425,7 +18547,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 40,
+            "career_average_games": 10
           },
           {
             "id": 651,
@@ -17456,7 +18580,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 68,
+            "career_average_games": 12
           },
           {
             "id": 652,
@@ -17487,7 +18613,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 653,
@@ -17518,7 +18646,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 654,
@@ -17549,7 +18679,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 60,
+            "career_average_games": 9
           },
           {
             "id": 658,
@@ -17580,7 +18712,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 659,
@@ -17611,7 +18745,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 26,
+            "career_average_games": 4
           },
           {
             "id": 660,
@@ -17642,7 +18778,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 35,
+            "career_average_games": 4
           },
           {
             "id": 663,
@@ -17673,7 +18811,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 49,
+            "career_average_games": 16
           },
           {
             "id": 664,
@@ -17704,7 +18844,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 55,
+            "career_average_games": 6
           },
           {
             "id": 666,
@@ -17735,7 +18877,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 37,
+            "career_average_games": 3
           },
           {
             "id": 668,
@@ -17766,7 +18910,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 39,
+            "career_average_games": 1
           },
           {
             "id": 669,
@@ -17797,7 +18943,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 36,
+            "career_average_games": 2
           },
           {
             "id": 670,
@@ -17828,7 +18976,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 53,
+            "career_average_games": 20
           },
           {
             "id": 671,
@@ -17859,7 +19009,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 52,
+            "career_average_games": 2
           },
           {
             "id": 672,
@@ -17890,7 +19042,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 673,
@@ -17921,7 +19075,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 37,
+            "career_average_games": 10
           },
           {
             "id": 674,
@@ -17952,7 +19108,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 675,
@@ -17983,7 +19141,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 38,
+            "career_average_games": 9
           },
           {
             "id": 676,
@@ -18014,7 +19174,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 57,
+            "career_average_games": 9
           },
           {
             "id": 677,
@@ -18045,7 +19207,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 48,
+            "career_average_games": 13
           },
           {
             "id": 678,
@@ -18076,7 +19240,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 5,
             "career_actual_value": 0,
             "career_price_over_under": 5,
-            "career_price_over_under_percentage": 100
+            "career_price_over_under_percentage": 100,
+            "career_average": 60,
+            "career_average_games": 10
           },
           {
             "id": 679,
@@ -18107,7 +19273,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 37,
+            "career_average_games": 2
           },
           {
             "id": 680,
@@ -18138,7 +19306,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 681,
@@ -18169,7 +19339,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 39,
+            "career_average_games": 12
           },
           {
             "id": 682,
@@ -18200,7 +19372,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 53,
+            "career_average_games": 7
           },
           {
             "id": 683,
@@ -18231,7 +19405,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 684,
@@ -18262,7 +19438,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 685,
@@ -18293,7 +19471,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 686,
@@ -18324,7 +19504,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 56,
+            "career_average_games": 10
           },
           {
             "id": 687,
@@ -18355,7 +19537,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 688,
@@ -18386,7 +19570,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 689,
@@ -18417,7 +19603,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 47,
+            "career_average_games": 11
           },
           {
             "id": 691,
@@ -18448,7 +19636,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 692,
@@ -18479,7 +19669,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 48,
+            "career_average_games": 9
           },
           {
             "id": 695,
@@ -18510,7 +19702,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 49,
+            "career_average_games": 1
           },
           {
             "id": 696,
@@ -18541,7 +19735,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 698,
@@ -18572,7 +19768,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 42,
+            "career_average_games": 8
           },
           {
             "id": 699,
@@ -18603,7 +19801,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 700,
@@ -18634,7 +19834,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 701,
@@ -18665,7 +19867,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 702,
@@ -18696,7 +19900,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 704,
@@ -18727,7 +19933,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 705,
@@ -18758,7 +19966,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 707,
@@ -18789,7 +19999,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 708,
@@ -18820,7 +20032,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 710,
@@ -18851,7 +20065,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 37,
+            "career_average_games": 6
           },
           {
             "id": 711,
@@ -18882,7 +20098,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 712,
@@ -18913,7 +20131,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 54,
+            "career_average_games": 13
           },
           {
             "id": 713,
@@ -18944,7 +20164,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 20,
+            "career_average_games": 2
           },
           {
             "id": 715,
@@ -18975,7 +20197,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 49,
+            "career_average_games": 20
           },
           {
             "id": 716,
@@ -19006,7 +20230,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 48,
+            "career_average_games": 10
           },
           {
             "id": 717,
@@ -19037,7 +20263,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 48,
+            "career_average_games": 14
           },
           {
             "id": 718,
@@ -19068,7 +20296,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 60,
+            "career_average_games": 11
           },
           {
             "id": 719,
@@ -19099,7 +20329,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 68,
+            "career_average_games": 13
           },
           {
             "id": 720,
@@ -19130,7 +20362,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 45,
+            "career_average_games": 16
           },
           {
             "id": 721,
@@ -19161,7 +20395,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 42,
+            "career_average_games": 5
           },
           {
             "id": 724,
@@ -19192,7 +20428,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 82,
+            "career_average_games": 5
           },
           {
             "id": 725,
@@ -19223,7 +20461,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 53,
+            "career_average_games": 1
           },
           {
             "id": 726,
@@ -19254,7 +20494,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 23,
+            "career_average_games": 2
           },
           {
             "id": 727,
@@ -19285,7 +20527,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 66,
+            "career_average_games": 19
           },
           {
             "id": 728,
@@ -19316,7 +20560,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 30,
+            "career_average_games": 3
           },
           {
             "id": 729,
@@ -19347,7 +20593,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 730,
@@ -19378,7 +20626,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 58,
+            "career_average_games": 18
           },
           {
             "id": 731,
@@ -19409,7 +20659,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": -1,
+            "career_average_games": 1
           },
           {
             "id": 732,
@@ -19440,7 +20692,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 733,
@@ -19471,7 +20725,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 734,
@@ -19502,7 +20758,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 49,
+            "career_average_games": 19
           },
           {
             "id": 735,
@@ -19533,7 +20791,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 36,
+            "career_average_games": 2
           },
           {
             "id": 736,
@@ -19564,7 +20824,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 737,
@@ -19595,7 +20857,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 740,
@@ -19626,7 +20890,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 741,
@@ -19657,7 +20923,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 743,
@@ -19688,7 +20956,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 12,
+            "career_average_games": 1
           },
           {
             "id": 744,
@@ -19719,7 +20989,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 39,
+            "career_average_games": 6
           },
           {
             "id": 745,
@@ -19750,7 +21022,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 49,
+            "career_average_games": 6
           },
           {
             "id": 746,
@@ -19781,7 +21055,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 747,
@@ -19812,7 +21088,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 89,
+            "career_average_games": 14
           },
           {
             "id": 748,
@@ -19843,7 +21121,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 54,
+            "career_average_games": 11
           },
           {
             "id": 749,
@@ -19874,7 +21154,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 44,
+            "career_average_games": 4
           },
           {
             "id": 750,
@@ -19905,7 +21187,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 59,
+            "career_average_games": 5
           },
           {
             "id": 751,
@@ -19936,7 +21220,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 69,
+            "career_average_games": 11
           },
           {
             "id": 753,
@@ -19967,7 +21253,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 61,
+            "career_average_games": 14
           },
           {
             "id": 755,
@@ -19998,7 +21286,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 59,
+            "career_average_games": 13
           },
           {
             "id": 758,
@@ -20029,7 +21319,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 44,
+            "career_average_games": 15
           },
           {
             "id": 759,
@@ -20060,7 +21352,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 760,
@@ -20091,7 +21385,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 761,
@@ -20122,7 +21418,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 1,
             "career_actual_value": 0,
             "career_price_over_under": 1,
-            "career_price_over_under_percentage": 100
+            "career_price_over_under_percentage": 100,
+            "career_average": 53,
+            "career_average_games": 14
           },
           {
             "id": 763,
@@ -20153,7 +21451,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 47,
+            "career_average_games": 5
           },
           {
             "id": 764,
@@ -20184,7 +21484,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 765,
@@ -20215,7 +21517,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 768,
@@ -20246,7 +21550,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 42,
+            "career_average_games": 10
           },
           {
             "id": 769,
@@ -20277,7 +21583,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 770,
@@ -20308,7 +21616,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 53,
+            "career_average_games": 14
           },
           {
             "id": 771,
@@ -20339,7 +21649,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 5,
             "career_actual_value": 7,
             "career_price_over_under": -3,
-            "career_price_over_under_percentage": -56
+            "career_price_over_under_percentage": -56,
+            "career_average": 65,
+            "career_average_games": 14
           },
           {
             "id": 772,
@@ -20370,7 +21682,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 773,
@@ -20401,7 +21715,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 22,
+            "career_average_games": 4
           },
           {
             "id": 774,
@@ -20432,7 +21748,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 30,
+            "career_average_games": 1
           },
           {
             "id": 775,
@@ -20463,7 +21781,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 41,
+            "career_average_games": 4
           },
           {
             "id": 776,
@@ -20494,7 +21814,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 31,
+            "career_average_games": 1
           },
           {
             "id": 777,
@@ -20525,7 +21847,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 13,
+            "career_average_games": 1
           },
           {
             "id": 778,
@@ -20556,7 +21880,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 65,
+            "career_average_games": 15
           },
           {
             "id": 779,
@@ -20587,7 +21913,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 780,
@@ -20618,7 +21946,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 781,
@@ -20649,7 +21979,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 782,
@@ -20680,7 +22012,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 783,
@@ -20711,7 +22045,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 784,
@@ -20742,7 +22078,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 785,
@@ -20773,7 +22111,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 786,
@@ -20804,7 +22144,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 787,
@@ -20835,7 +22177,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 788,
@@ -20866,7 +22210,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 789,
@@ -20897,7 +22243,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 790,
@@ -20928,7 +22276,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 791,
@@ -20959,7 +22309,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 792,
@@ -20990,7 +22342,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 793,
@@ -21021,7 +22375,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 794,
@@ -21052,7 +22408,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 795,
@@ -21083,7 +22441,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 796,
@@ -21114,7 +22474,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 797,
@@ -21145,7 +22507,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 798,
@@ -21176,7 +22540,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 799,
@@ -21207,7 +22573,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 800,
@@ -21238,7 +22606,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 801,
@@ -21269,7 +22639,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 802,
@@ -21300,7 +22672,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 803,
@@ -21331,7 +22705,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 804,
@@ -21362,7 +22738,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 805,
@@ -21393,7 +22771,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 806,
@@ -21424,7 +22804,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 807,
@@ -21455,7 +22837,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 808,
@@ -21486,7 +22870,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 809,
@@ -21517,7 +22903,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 63,
+            "career_average_games": 7
           },
           {
             "id": 810,
@@ -21548,7 +22936,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 811,
@@ -21579,7 +22969,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 812,
@@ -21610,7 +23002,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 813,
@@ -21641,7 +23035,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 814,
@@ -21672,7 +23068,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 815,
@@ -21703,7 +23101,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 816,
@@ -21734,7 +23134,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 817,
@@ -21765,7 +23167,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 818,
@@ -21796,7 +23200,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 819,
@@ -21827,7 +23233,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 820,
@@ -21858,7 +23266,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 821,
@@ -21889,7 +23299,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 822,
@@ -21920,7 +23332,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 823,
@@ -21951,7 +23365,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 824,
@@ -21982,7 +23398,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 825,
@@ -22013,7 +23431,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 826,
@@ -22044,7 +23464,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 67,
+            "career_average_games": 22
           },
           {
             "id": 827,
@@ -22075,7 +23497,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 828,
@@ -22106,7 +23530,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 829,
@@ -22137,7 +23563,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 830,
@@ -22168,7 +23596,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 831,
@@ -22199,7 +23629,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 832,
@@ -22230,7 +23662,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 833,
@@ -22261,7 +23695,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 834,
@@ -22292,7 +23728,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 835,
@@ -22323,7 +23761,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 836,
@@ -22354,7 +23794,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 837,
@@ -22385,7 +23827,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 838,
@@ -22416,7 +23860,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 839,
@@ -22447,7 +23893,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 53,
+            "career_average_games": 1
           },
           {
             "id": 840,
@@ -22478,7 +23926,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 3,
+            "career_average_games": 1
           },
           {
             "id": 841,
@@ -22509,7 +23959,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 842,
@@ -22540,7 +23992,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 843,
@@ -22571,7 +24025,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 844,
@@ -22602,7 +24058,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 845,
@@ -22633,7 +24091,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 846,
@@ -22664,7 +24124,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 847,
@@ -22695,7 +24157,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 848,
@@ -22726,7 +24190,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 57,
+            "career_average_games": 10
           },
           {
             "id": 849,
@@ -22757,7 +24223,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 850,
@@ -22788,7 +24256,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 53,
+            "career_average_games": 6
           },
           {
             "id": 851,
@@ -22819,7 +24289,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 852,
@@ -22850,7 +24322,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 853,
@@ -22881,7 +24355,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 854,
@@ -22912,7 +24388,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 62,
+            "career_average_games": 6
           },
           {
             "id": 855,
@@ -22943,7 +24421,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 856,
@@ -22974,7 +24454,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 43,
+            "career_average_games": 4
           },
           {
             "id": 857,
@@ -23005,7 +24487,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 858,
@@ -23036,7 +24520,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 859,
@@ -23067,7 +24553,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 860,
@@ -23098,7 +24586,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 861,
@@ -23129,7 +24619,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 862,
@@ -23160,7 +24652,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 863,
@@ -23191,7 +24685,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 68,
+            "career_average_games": 4
           },
           {
             "id": 864,
@@ -23222,7 +24718,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 865,
@@ -23253,7 +24751,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 866,
@@ -23284,7 +24784,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 867,
@@ -23315,7 +24817,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 868,
@@ -23346,7 +24850,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 869,
@@ -23377,7 +24883,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 870,
@@ -23408,7 +24916,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 871,
@@ -23439,7 +24949,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 872,
@@ -23470,7 +24982,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 873,
@@ -23501,7 +25015,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 874,
@@ -23532,7 +25048,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 875,
@@ -23563,7 +25081,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 876,
@@ -23594,7 +25114,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 877,
@@ -23625,7 +25147,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 878,
@@ -23656,7 +25180,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 879,
@@ -23687,7 +25213,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 880,
@@ -23718,7 +25246,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 881,
@@ -23749,7 +25279,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 51,
+            "career_average_games": 5
           },
           {
             "id": 882,
@@ -23780,7 +25312,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 883,
@@ -23811,7 +25345,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 884,
@@ -23842,7 +25378,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 885,
@@ -23873,7 +25411,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 886,
@@ -23904,7 +25444,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 887,
@@ -23935,7 +25477,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 888,
@@ -23966,7 +25510,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 563,
@@ -23997,7 +25543,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": 49,
+            "career_average_games": 6
           },
           {
             "id": 694,
@@ -24028,7 +25576,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 0,
             "career_actual_value": 0,
             "career_price_over_under": 0,
-            "career_price_over_under_percentage": null
+            "career_price_over_under_percentage": null,
+            "career_average": null,
+            "career_average_games": null
           },
           {
             "id": 52,
@@ -24059,7 +25609,9 @@ with player_entities_import_json (import_json) as (
             "career_price": 16,
             "career_actual_value": 12,
             "career_price_over_under": 4,
-            "career_price_over_under_percentage": 26
+            "career_price_over_under_percentage": 26,
+            "career_average": 83,
+            "career_average_games": 9
           }
         ]'::json)
 )
@@ -24069,12 +25621,14 @@ INSERT INTO player_entity(id, first_name, last_name, date_of_birth, age, career_
                           jumper_number, height, weight, rooster_rating, moneyball_price, price_2016, price_2017,
                           price_2018, price_2019, price_2020, ps_average, sc_average,
                           rooster_rating_2021, price_2021, sd_team_id_2021, is_active, rank, career_price,
-                          career_actual_value, career_price_over_under, career_price_over_under_percentage)
+                          career_actual_value, career_price_over_under,
+                          career_price_over_under_percentage, career_average, career_average_games)
 SELECT id, first_name, last_name, date_of_birth, age, career_games, sc_standard_price, afl_team_id,
        jumper_number, height, weight, rooster_rating, moneyball_price, price_2016, price_2017,
        price_2018, price_2019, price_2020, ps_average, sc_average,
        rooster_rating_2021, price_2021, sd_team_id_2021, is_active, rank, career_price,
-       career_actual_value, career_price_over_under, career_price_over_under_percentage
+       career_actual_value, career_price_over_under,
+       career_price_over_under_percentage, career_average, career_average_games
 FROM player_entities_import_json
     CROSS JOIN LATERAL json_populate_recordset(NULL::player_entity, import_json)
 ON CONFLICT (id) DO UPDATE
@@ -24097,4 +25651,6 @@ ON CONFLICT (id) DO UPDATE
         career_price = excluded.career_price,
         career_actual_value = excluded.career_actual_value,
         career_price_over_under = excluded.career_price_over_under,
-        career_price_over_under_percentage = excluded.career_price_over_under_percentage;
+        career_price_over_under_percentage = excluded.career_price_over_under_percentage,
+        career_average = excluded.career_average,
+        career_average_games = excluded.career_average_games;
