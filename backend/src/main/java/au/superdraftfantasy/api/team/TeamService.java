@@ -277,17 +277,17 @@ public class TeamService {
         // If Team paid $15 and moneyballPrice is $10, priceDifference is $5.
         // PurchaseReviewRating 0 is F and 5 is A+.
         Integer purchaseReviewRating = 3;
-        if(priceDifference > 15) {
+        if(priceDifference > 10) {
             purchaseReviewRating = 0; // F.
-        } else if(priceDifference > 10) {
-            purchaseReviewRating = 1; // E.
         } else if(priceDifference > 5) {
+            purchaseReviewRating = 1; // E.
+        } else if(priceDifference > 2) {
             purchaseReviewRating = 2; // D
-        } else if(priceDifference > -5) {
+        } else if(priceDifference > -3) {
             purchaseReviewRating = 3; // C
-        } else if(priceDifference > -10) {
+        } else if(priceDifference > -6) {
             purchaseReviewRating = 4; // B
-        } else if(priceDifference > -15) {
+        } else if(priceDifference > -11) {
             purchaseReviewRating = 5;
         } else {
             purchaseReviewRating = 6;
