@@ -3,9 +3,11 @@
     --draft-room-block-height: 200px; /* Don't forget to also update hardcoded values in PlayerDetailsPopper. */
     --draft-room-player-filter-height: 40px; /* Don't forget to also update hardcoded values in PlayerDetailsPopper. */
     --draft-room-player-list-height: calc(100vh - var(--draft-room-block-height) - var(--draft-room-player-filter-height));
-    --draft-room-team-list-height: calc(100vh - var(--draft-room-block-height));
+    --draft-room-team-list-height: calc(100vh - var(--draft-room-history-height));
     --player-details-popper-padding: 200px; /* Don't forget to also update hardcoded values in PlayerDetailsPopper. */
     --player-details-popper-height: calc(var(--draft-room-player-list-height) - var(--player-details-popper-padding));
+    --draft-room-history-height: calc(var(--draft-room-block-height));
+
     /* Colours. */
     --highlight-color: greenyellow;
     --hover-color: lightblue;

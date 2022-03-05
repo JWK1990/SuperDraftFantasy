@@ -9,7 +9,6 @@ import lombok.NoArgsConstructor;
 
 import java.util.List;
 
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -33,6 +32,8 @@ public class PlayerReadDto {
     String fullPosition;
 
     Integer rank;
+
+    Integer scAverage;
 
     public String getFullName() {
         return this.firstName + " " + this.lastName;

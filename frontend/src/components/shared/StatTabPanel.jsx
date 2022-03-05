@@ -43,7 +43,7 @@ function a11yProps(index) {
 
 const useStyles = makeStyles(() => ({
     rootDiv: {
-        maxHeight: "var(--draft-room-block-height)",
+        maxHeight: "var(--draft-room-history-height)",
         overflow: "hidden",
     },
     appBar: {

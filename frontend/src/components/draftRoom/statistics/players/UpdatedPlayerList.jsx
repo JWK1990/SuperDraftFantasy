@@ -72,7 +72,9 @@ export default function UpdatedPlayerList({
 
 
     const getIsOnWatchlist = (playerId) => {
-        return watchlistPlayerIds.indexOf(playerId) > -1;
+        if(watchlistPlayerIds !== null && watchlistPlayerIds.length > 0) {
+            return watchlistPlayerIds.indexOf(playerId) > -1;
+        }
     }
 
     const handleWatchlistChange = (playerId) => {

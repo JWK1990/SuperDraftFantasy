@@ -27,6 +27,8 @@ public class TeamPlayerJoinReadDto {
         return myTeamPosition.getType().name();
     }
 
+    private Integer purchaseReviewRating;
+
     private String slotId;
 
 }
