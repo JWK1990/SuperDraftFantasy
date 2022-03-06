@@ -54,6 +54,7 @@ class UpdatedPlayerListContainer extends React.PureComponent {
                 positionFilter,
                 this.state.isHideDraftedFilterOn,
                 this.state.isShowWatchlistFilterOn,
+                this.props.teamId,
             )
                 .then(players => {
                     const playersWithMyBudgetData = this.mapInMyBudgetData(players.data.content);

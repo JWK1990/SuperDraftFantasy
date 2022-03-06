@@ -163,7 +163,8 @@ public class PlayerService {
             Integer pageSize,
             String search,
             String position,
-            Boolean isWatchlistOn
+            Boolean isWatchlistOn,
+            Long teamId
     ) {
         List<IDraftedPlayerId> draftedPlayerIdList = playerRepository.findPlayerIdByTeamPlayerJoins_Team_DraftId(draftId);
         List<Long> idList = draftedPlayerIdList.stream().map(IDraftedPlayerId::getId).collect(Collectors.toList());
@@ -193,7 +194,7 @@ public class PlayerService {
                     );
                 }
             } else {
-                Set<Long> watchlistPlayerIdSet = watchlistJoinRepository.findAllByTeamId(1L).stream()
+                Set<Long> watchlistPlayerIdSet = watchlistJoinRepository.findAllByTeamId(teamId).stream()
                         .map(WatchlistJoinDao::getPlayerId)
                         .collect(Collectors.toSet());
                 if(positionsList.size() > 0 ) {

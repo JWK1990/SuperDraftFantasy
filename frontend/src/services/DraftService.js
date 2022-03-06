@@ -30,7 +30,7 @@ class DraftService {
         return axios.get("/players/draft/" + draftId);
     }
 
-    getPlayersPageByDraft(draftId, pageNum, pageSize, lastNameSearch, positionList, isHideDraftedFilterOn, isShowWatchlistFilterOn) {
+    getPlayersPageByDraft(draftId, pageNum, pageSize, lastNameSearch, positionList, isHideDraftedFilterOn, isShowWatchlistFilterOn, teamId) {
         let basePath = "/players/draft/" + draftId + "/page";
 
         // Add Available Filter If Required.
@@ -39,7 +39,7 @@ class DraftService {
         }
 
         // Add PageNum and PageSize Filters.
-        basePath += "?pageNum=" + pageNum + "&pageSize=" + pageSize + "&isWatchlistOn=" + isShowWatchlistFilterOn;
+        basePath += "?pageNum=" + pageNum + "&pageSize=" + pageSize + "&isWatchlistOn=" + isShowWatchlistFilterOn + "&teamId=" + teamId;
 
         // Add Search and PositionList Filters.
         basePath += "&search=" + lastNameSearch;
