@@ -1,6 +1,6 @@
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
-import {FormControl, IconButton, InputLabel, MenuItem, Select} from "@material-ui/core";
+import {IconButton} from "@material-ui/core";
 import CancelIcon from "@material-ui/icons/Cancel";
 import Typography from "@material-ui/core/Typography";
 import React from "react";

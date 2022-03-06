@@ -1,9 +1,6 @@
 import React from "react";
-import Grid from "@material-ui/core/Grid";
 import BidClock from "./BidClock";
 import withStyles from "@material-ui/core/styles/withStyles";
-import Button from "@material-ui/core/Button";
-import {Tooltip} from "@material-ui/core";
 
 const styles = {
     rootContainer: {

@@ -2,7 +2,6 @@ import React, {useEffect} from 'react';
 import clsx from 'clsx';
 import {makeStyles} from '@material-ui/core/styles';
 import CircularProgress from '@material-ui/core/CircularProgress';
-import {green, orange, red, yellow} from '@material-ui/core/colors';
 import Fab from '@material-ui/core/Fab';
 import Typography from "@material-ui/core/Typography";
 import RoosterSymbol from "../../../images/purchaseReviewSymbols/RoosterSymbol.svg";

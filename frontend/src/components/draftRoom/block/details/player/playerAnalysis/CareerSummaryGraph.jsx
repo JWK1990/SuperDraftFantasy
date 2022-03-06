@@ -28,16 +28,6 @@ const styles = {
     },
 }
 
-function getPositionAverage(position, dataKey) {
-    let positionAverage = null;
-    if(dataKey === "average") {
-        positionAverage = PlayerStatFetcher.getPositionAve(position);
-    } else if(dataKey === "disposals") {
-        positionAverage = PlayerStatFetcher.getPositionDisposalsAverage(position);
-    }
-    return positionAverage;
-}
-
 const CustomTooltip = ({ active, payload, label, tooltipText, tooltipPrefix }) => {
     if (active && payload && payload.length) {
         return (
@@ -46,7 +36,6 @@ const CustomTooltip = ({ active, payload, label, tooltipText, tooltipPrefix }) =
             </Paper>
         );
     }
-
     return null;
 };
 
@@ -163,8 +152,10 @@ function CareerSummaryGraph(props) {
                     behinds: null,
                 }
             }
+            currentYear.priceTeamTuple = [currentYear.price, currentYear.team];
             fullSeasonSummaryList.push(currentYear);
         }
+        console.log(fullSeasonSummaryList);
         return fullSeasonSummaryList;
     }
 
@@ -172,14 +163,11 @@ function CareerSummaryGraph(props) {
         return null;
     }
 
-    const positionAverage = getPositionAverage(props.primaryPosition, props.dataKey);
-
     const handleChange = (event) => {
         setSelectedStat(event.target.value);
         setStatSettings(getStatSettings(event.target.value));
     }
 
-    console.log(seasonSummaryList);
     return (
         <Grid container spacing={2} style={{height: "100%"}}>
             <Grid item xs={12} className={classes.formControl}>
@@ -226,7 +214,22 @@ function CareerSummaryGraph(props) {
                         <CartesianGrid stroke="grey" strokeDasharray="2 2" vertical={false}/>
                         <XAxis dataKey="year" tick={false} height={5} />
                         <YAxis ticks={statSettings.ticks} tick={{ fontSize: "0.8vw" }}/>
-                        <Tooltip content={<CustomTooltip tooltipText={statSettings.tooltipText} tooltipPrefix={statSettings.tooltipPrefix}/>} position={{ x: 50, y: 0 }}/>
+                        <Tooltip content={
+                            selectedStat === "price"
+                                ? (
+                                    <CustomTooltip
+                                        tooltipText={statSettings.tooltipText}
+                                        tooltipPrefix={statSettings.tooltipPrefix}
+                                    />
+                                )
+                                : (
+                                    <CustomTooltip
+                                        tooltipText={statSettings.tooltipText}
+                                        tooltipPrefix={statSettings.tooltipPrefix}
+                                    />
+                                )
+
+                        } position={{ x: 50, y: 0 }}/>
                         <Bar dataKey={selectedStat}
                              barSize={10}
                              fill="#4df3cc"
@@ -256,11 +259,6 @@ function CareerSummaryGraph(props) {
                                 )
                             }
                         </Bar>
-                        {
-                            positionAverage != null
-                                ? <ReferenceLine y={positionAverage} stroke="#0066ff" strokeWidth={2}/>
-                                : null
-                        }
                     </ComposedChart>
                 </ResponsiveContainer>
             </Grid>
