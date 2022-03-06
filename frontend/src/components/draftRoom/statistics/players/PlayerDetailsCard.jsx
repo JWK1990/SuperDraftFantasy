@@ -105,10 +105,10 @@ class PlayerDetailsCard extends React.Component {
                                         {
                                             this.props.player.careerPriceOverUnder != null
                                                 ? this.props.player.careerPriceOverUnder > 0
-                                                    ? <span style={{color: "var(--terrible)"}}>${this.props.player.careerPriceOverUnder}</span>
+                                                    ? <span style={{color: "red"}}>${this.props.player.careerPriceOverUnder}</span>
                                                     : this.props.player.careerPriceOverUnder < 0
-                                                        ? <span style={{color: "var(--great)"}}>-${this.props.player.careerPriceOverUnder * -1}</span>
-                                                        : <span style={{color: "var(--average)"}}>-${this.props.player.careerPriceOverUnder}</span>
+                                                        ? <span style={{color: "green"}}>-${this.props.player.careerPriceOverUnder * -1}</span>
+                                                        : <span style={{color: "black"}}>-${this.props.player.careerPriceOverUnder}</span>
                                             : "-"
                                         }
                                     </Typography>

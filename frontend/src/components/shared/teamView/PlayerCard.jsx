@@ -28,19 +28,19 @@ const styles = {
         height: "100%",
     },
     defContainer: {
-        backgroundColor: "red",
+        backgroundColor: "rgba(90,91,159,0.5)",
     },
     midContainer: {
-        backgroundColor: "blue",
+        backgroundColor: "rgba(0,123,167,0.5)",
     },
     rucContainer: {
-        backgroundColor: "green",
+        backgroundColor: "rgba(255,111,97,0.5)",
     },
     fwdContainer: {
-        backgroundColor: "yellow",
+        backgroundColor: "rgba(0,148,115,0.5)",
     },
     benchContainer: {
-        backgroundColor: "grey",
+        backgroundColor: "rgba(217,217,214, 0.5)",
     },
     playerNameContainer: {
         display: "grid",
