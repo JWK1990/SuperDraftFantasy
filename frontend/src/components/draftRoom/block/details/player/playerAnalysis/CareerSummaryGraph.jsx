@@ -28,13 +28,67 @@ const styles = {
     },
 }
 
-const CustomTooltip = ({ active, payload, label, tooltipText, tooltipPrefix }) => {
+const getSdTeamId = (teamId) => {
+    let teamName = "-";
+    switch(teamId) {
+        case 1:
+            teamName = "5318008";
+            break;
+        case 2:
+            teamName = "Maz Misses Richo";
+            break;
+        case 3:
+            teamName = "The Back Pockets";
+            break;
+        case 4:
+            teamName = "The Situation";
+            break;
+        case 5:
+            teamName = "Silverbacks";
+            break;
+        case 6:
+            teamName = "Juddstar";
+            break;
+        case 7:
+            teamName = "Tree Of Life";
+            break;
+        case 8:
+            teamName = "Super Maalio Bros";
+            break;
+        case 9:
+            teamName = "Don The Sash";
+            break;
+        case 10:
+            teamName = "The Peptide Pimps";
+            break;
+        case 11:
+            teamName = "Lachtioneers";
+            break;
+        case 12:
+            teamName = "Gifts Of Girth";
+            break;
+        default:
+            teamName = "-";
+    }
+    return teamName;
+}
+
+const CustomTooltip = ({ active, payload, label, tooltipText, tooltipPrefix, selectedStat }) => {
     if (active && payload && payload.length) {
-        return (
-            <Paper style={{width: "220px", textAlign: "center"}}>
-                <Typography variant={"subtitle2"}>{`${label} - ${tooltipPrefix}${payload[0].value} ${tooltipText}`}</Typography>
-            </Paper>
-        );
+        console.log(payload[0].payload);
+        if(payload[0].payload.sdTeamId !== null) {
+            return (
+                <Paper style={{width: "400px", textAlign: "center"}}>
+                    <Typography variant={"subtitle2"}>{`${label} - ${tooltipPrefix}${payload[0].value} ${tooltipText} (Drafted By ${getSdTeamId(payload[0].payload.sdTeamId)} @ ${payload[0].payload.price})`}</Typography>
+                </Paper>
+            );
+        } else {
+            return (
+                <Paper style={{width: "320px", textAlign: "center"}}>
+                    <Typography variant={"subtitle2"}>{`${label} - ${tooltipPrefix}${payload[0].value} ${tooltipText} (Undrafted)`}</Typography>
+                </Paper>
+            );
+        }
     }
     return null;
 };
@@ -150,12 +204,13 @@ function CareerSummaryGraph(props) {
                     intercepts: null,
                     goals: null,
                     behinds: null,
+                    sdTeamId: null,
+                    price: null,
                 }
             }
             currentYear.priceTeamTuple = [currentYear.price, currentYear.team];
             fullSeasonSummaryList.push(currentYear);
         }
-        console.log(fullSeasonSummaryList);
         return fullSeasonSummaryList;
     }
 
@@ -215,20 +270,11 @@ function CareerSummaryGraph(props) {
                         <XAxis dataKey="year" tick={false} height={5} />
                         <YAxis ticks={statSettings.ticks} tick={{ fontSize: "0.8vw" }}/>
                         <Tooltip content={
-                            selectedStat === "price"
-                                ? (
                                     <CustomTooltip
                                         tooltipText={statSettings.tooltipText}
                                         tooltipPrefix={statSettings.tooltipPrefix}
+                                        selectedStat={selectedStat}
                                     />
-                                )
-                                : (
-                                    <CustomTooltip
-                                        tooltipText={statSettings.tooltipText}
-                                        tooltipPrefix={statSettings.tooltipPrefix}
-                                    />
-                                )
-
                         } position={{ x: 50, y: 0 }}/>
                         <Bar dataKey={selectedStat}
                              barSize={10}
