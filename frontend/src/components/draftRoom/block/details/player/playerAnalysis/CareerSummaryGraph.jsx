@@ -4,7 +4,6 @@ import {
     CartesianGrid,
     Cell,
     ComposedChart,
-    ReferenceLine,
     ResponsiveContainer,
     Tooltip,
     XAxis,
@@ -13,7 +12,6 @@ import {
 import {FormControl, MenuItem, Paper, Select} from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
-import PlayerStatFetcher from "../../../../../shared/statFetchers/PlayerStatFetcher";
 import DraftService from "../../../../../../services/DraftService";
 import withStyles from "@material-ui/core/styles/withStyles";
 

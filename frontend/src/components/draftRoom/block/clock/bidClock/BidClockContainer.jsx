@@ -30,7 +30,6 @@ const inactiveClockColors = [
 ]
 
 function BidClockContainer(props) {
-    const {classes} = props;
 
     return(
                     <BidClock

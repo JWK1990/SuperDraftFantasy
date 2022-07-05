@@ -12,11 +12,9 @@ function DraftDetailsContainer(props) {
         {label: "History", component: <DraftHistory />},
     ]
 
-    {
-        return props.isUserCommissioner
-            ? <StatTabPanel tabList={tabList}/>
-            : <DraftHistory/>
-    }
+    return props.isUserCommissioner
+        ? <StatTabPanel tabList={tabList}/>
+        : <DraftHistory/>
 
 }
 
