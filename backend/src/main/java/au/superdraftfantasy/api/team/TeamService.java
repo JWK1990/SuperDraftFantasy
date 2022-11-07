@@ -13,7 +13,6 @@ import au.superdraftfantasy.api.teamPlayerJoin.*;
 import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
-import org.springframework.security.web.firewall.RequestRejectedException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.server.ResponseStatusException;
@@ -88,9 +87,9 @@ public class TeamService {
 
         // Update Team.
         // TODO: Update Average PurchaseReviewRating.
-        addPlayer(team, player, readDto.getPrice());
-        team.setBudget(team.getBudget() - readDto.getPrice());
         RosterEntity roster = team.getDraft().getRoster();
+        addPlayer(team, player, readDto.getPrice(), roster);
+        team.setBudget(team.getBudget() - readDto.getPrice());
         long totalRosterSlots = roster.getDef() + roster.getMid() + roster.getRuc() + roster.getFwd() + roster.getBench();
         if(team.getTeamPlayerJoins().size() >= totalRosterSlots) {
             team.setStatus(TeamStatusEnum.READY);
@@ -113,7 +112,7 @@ public class TeamService {
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Team with ID '" + teamId + "' Not Found."));
 
         List<TeamPlayerJoinEntity> teamPlayerJoins = team.getTeamPlayerJoins();
-        MyTeamPositionReadDto readDto = new MyTeamPositionReadDto(teamId, new ArrayList<>());
+        List<TeamPlayerJoinReadDto> updatedTeamPlayerJoins = new ArrayList<>();
 
         writeDto.forEach(myTeamPositionUpdate -> {
             TeamPlayerJoinEntity teamPlayerJoinToUpdate = teamPlayerJoins.stream()
@@ -122,12 +121,14 @@ public class TeamService {
             PositionEntity position = positionRepository.findByType(myTeamPositionUpdate.getMyTeamPosition())
                     .orElseThrow(() ->new NoSuchElementException(myTeamPositionUpdate.getMyTeamPosition() + " position not found."));
             teamPlayerJoinToUpdate.setMyTeamPosition(position);
-            readDto.getMyTeamPositions().add(myTeamPositionUpdate);
+            teamPlayerJoinToUpdate.setSlotId(myTeamPositionUpdate.getSlotId());
+            updatedTeamPlayerJoins.add(modelMapper.map(teamPlayerJoinToUpdate, TeamPlayerJoinReadDto.class));
         });
         teamRepository.save(team);
 
-        this.simpMessagingTemplate.convertAndSend("/draft/updateMyTeamPositions", readDto);
-        return readDto;
+        MyTeamPositionReadDto myTeamPositionReadDto = new MyTeamPositionReadDto(teamId, updatedTeamPlayerJoins);
+        this.simpMessagingTemplate.convertAndSend("/draft/updateMyTeamPositions", myTeamPositionReadDto);
+        return myTeamPositionReadDto;
     }
 
     /**
@@ -214,7 +215,7 @@ public class TeamService {
         return totalSlotsForPosition;
     }
 
-    private void addPlayer(TeamEntity team, PlayerEntity player, Long price) {
+    private void addPlayer(TeamEntity team, PlayerEntity player, Long price, RosterEntity roster) {
         PositionEntity myTeamPosition = getMyTeamPosition(team, player);
 
         Integer purchaseReviewRating = null;
@@ -224,20 +225,20 @@ public class TeamService {
             priceDifference = (int) (price - player.getMoneyballPrice());
             purchaseReviewRating = getPurchaseReviewRating(priceDifference, player);
         }
-        if(myTeamPosition != null) {
-            TeamPlayerJoinEntity teamPlayerJoin = new TeamPlayerJoinEntity(
-                    null,
-                    team,
-                    player,
-                    price,
-                    myTeamPosition,
-                    purchaseReviewRating,
-                    priceDifference
-            );
-            team.getTeamPlayerJoins().add(teamPlayerJoin);
-        } else {
-            throw new RequestRejectedException("There is no space for the selected player in the given team.");
-        }
+
+        String slotId = generateSlotId(team, roster, myTeamPosition);
+
+        TeamPlayerJoinEntity teamPlayerJoin = new TeamPlayerJoinEntity(
+                null,
+                team,
+                player,
+                price,
+                myTeamPosition,
+                purchaseReviewRating,
+                priceDifference,
+                slotId
+        );
+        team.getTeamPlayerJoins().add(teamPlayerJoin);
     }
 
     private PositionEntity getMyTeamPosition(TeamEntity team, PlayerEntity player) {
@@ -276,17 +277,17 @@ public class TeamService {
         // If Team paid $15 and moneyballPrice is $10, priceDifference is $5.
         // PurchaseReviewRating 0 is F and 5 is A+.
         Integer purchaseReviewRating = 3;
-        if(priceDifference > 15) {
+        if(priceDifference > 10) {
             purchaseReviewRating = 0; // F.
-        } else if(priceDifference > 10) {
-            purchaseReviewRating = 1; // E.
         } else if(priceDifference > 5) {
+            purchaseReviewRating = 1; // E.
+        } else if(priceDifference > 2) {
             purchaseReviewRating = 2; // D
-        } else if(priceDifference > -5) {
+        } else if(priceDifference > -3) {
             purchaseReviewRating = 3; // C
-        } else if(priceDifference > -10) {
+        } else if(priceDifference > -6) {
             purchaseReviewRating = 4; // B
-        } else if(priceDifference > -15) {
+        } else if(priceDifference > -11) {
             purchaseReviewRating = 5;
         } else {
             purchaseReviewRating = 6;
@@ -295,6 +296,14 @@ public class TeamService {
     }
 
     private boolean isSlotAvailableForPosition(TeamEntity team, PositionTypeEnum position) {
+        Long totalSlotsForPosition = getTotalSlotsForPosition(position, team);
+        long filledSlotsForPosition = team.getTeamPlayerJoins().stream().filter(
+                teamPlayerJoin -> teamPlayerJoin.getMyTeamPosition().getType().equals(position)
+        ).count();
+        return filledSlotsForPosition < totalSlotsForPosition;
+    }
+
+    private Long getTotalSlotsForPosition(PositionTypeEnum position, TeamEntity team) {
         Long totalSlotsForPosition = 0L;
         switch (position) {
             case DEF: totalSlotsForPosition = team.getDraft().getRoster().getDef(); break;
@@ -304,10 +313,7 @@ public class TeamService {
             case BENCH: totalSlotsForPosition = team.getDraft().getRoster().getBench(); break;
             default: break;
         }
-        long filledSlotsForPosition = team.getTeamPlayerJoins().stream().filter(
-                teamPlayerJoin -> teamPlayerJoin.getMyTeamPosition().getType().equals(position)
-        ).count();
-        return filledSlotsForPosition < totalSlotsForPosition;
+        return totalSlotsForPosition;
     }
 
     private void checkIfPlayerAlreadyDrafted(TeamEntity team, Long playerID) {
@@ -323,6 +329,25 @@ public class TeamService {
 
     private List<PlayerEntity> getPlayers(List<TeamPlayerJoinEntity> teamPlayerJoins) {
         return teamPlayerJoins.stream().map(TeamPlayerJoinEntity::getPlayer).collect(Collectors.toList());
+    }
+
+    private String generateSlotId(TeamEntity team, RosterEntity roster, PositionEntity myTeamPosition) {
+        PositionTypeEnum positionType = myTeamPosition.getType();
+        Long numOfSlotsForPosition = getTotalSlotsForPosition(positionType, team);
+        // Get the full list of potential slot ids (e.g. DEF0, DEF1, DEF2, DEF3, DEF4).
+        List<String> potentialSlotIdList = new ArrayList<>();
+        for(int i = 0; i < numOfSlotsForPosition; i++) {
+            potentialSlotIdList.add(positionType.toString() + i);
+        }
+        // Get the list of taken slot ids.
+        List<String> takenSlotIds = team.getTeamPlayerJoins().stream()
+                .map(TeamPlayerJoinEntity::getSlotId)
+                .collect(Collectors.toList());
+        // Find and return the first potential slot id that isn't taken or default to the last slot id.
+        Optional<String> slotId = potentialSlotIdList.stream()
+                .filter(potentialSlot -> !takenSlotIds.contains(potentialSlot))
+                .findFirst();
+        return slotId.orElseGet(() -> potentialSlotIdList.get(potentialSlotIdList.size() - 1));
     }
 
 }

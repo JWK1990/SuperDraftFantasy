@@ -13,6 +13,6 @@ public class MyTeamPositionReadDto {
 
     Long teamId;
 
-    List<MyTeamPositionWriteDto> myTeamPositions;
+    List<TeamPlayerJoinReadDto> teamPlayerJoins;
 
 }

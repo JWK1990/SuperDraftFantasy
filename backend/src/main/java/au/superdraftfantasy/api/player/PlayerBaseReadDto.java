@@ -14,7 +14,7 @@ public class PlayerBaseReadDto {
 
     public PlayerBaseReadDto(
             IPlayerBase playerBase,
-            ISeasonSummaryBase baseStats,
+            ISeasonSummaryBase seasonSummaryBase,
             ITeamPlayerJoinBase teamPlayerJoin
     ) {
         this.id = playerBase.getId();
@@ -22,21 +22,24 @@ public class PlayerBaseReadDto {
         this.lastName = playerBase.getLastName();
         this.fullName = playerBase.getFirstName() + " " + playerBase.getLastName();
         this.age = playerBase.getAge();
-        this.careerGames = playerBase.getCareerGames();
         this.aflTeam = playerBase.getAflTeam();
-        this.jumperNumber = playerBase.getJumperNumber();
         this.primaryPosition = playerBase.getPrimaryPosition();
         this.secondaryPosition = playerBase.getSecondaryPosition();
         this.fullPosition = getFullPosition(this.primaryPosition, this.secondaryPosition);
         this.roosterRating = playerBase.getRoosterRating();
         this.moneyballPrice = playerBase.getMoneyballPrice();
-        this.psAverage = playerBase.getPsAverage();
-        if(baseStats != null) {
-            this.games = baseStats.getGames();
-            this.average = baseStats.getAverage();
-            this.disposals = baseStats.getDisposals();
-            this.disposalEfficiency = baseStats.getDisposalEfficiency();
-            this.tackles = baseStats.getTackles();
+        this.price2021 = playerBase.getPrice2021();
+        this.rank = playerBase.getRank();
+        this.careerPrice = playerBase.getCareerPrice();
+        this.careerAverage = playerBase.getCareerAverage();
+        this.careerAverageGames = playerBase.getCareerAverageGames();
+        this.careerActualValue = playerBase.getCareerActualValue();
+        this.careerPriceOverUnder = playerBase.getCareerPriceOverUnder();
+        if(seasonSummaryBase != null) {
+            this.games = seasonSummaryBase.getGames();
+            this.average = seasonSummaryBase.getAverage();
+            this.disposals = seasonSummaryBase.getDisposals();
+            this.disposalEfficiency = seasonSummaryBase.getDisposalEfficiency();
         }
         if(teamPlayerJoin != null) {
             this.available = false;
@@ -59,17 +62,25 @@ public class PlayerBaseReadDto {
 
     Integer age;
 
-    Integer careerGames;
-
     String aflTeam;
-
-    Integer jumperNumber;
 
     Integer roosterRating;
 
     Integer moneyballPrice;
 
-    Integer psAverage;
+    Integer price2021;
+
+    Integer rank;
+
+    Integer careerPrice;
+
+    Integer careerActualValue;
+
+    Integer careerPriceOverUnder;
+
+    Integer careerAverage;
+
+    Integer careerAverageGames;
 
     String primaryPosition;
 
@@ -79,15 +90,13 @@ public class PlayerBaseReadDto {
 
     Integer games;
 
-    double average;
+    Integer average;
 
-    double disposals;
+    Integer disposals;
 
-    double disposalEfficiency;
+    Integer disposalEfficiency;
 
-    double tackles;
-
-    boolean available;
+    Boolean available;
 
     Long draftTeamId;
 
@@ -104,6 +113,5 @@ public class PlayerBaseReadDto {
         }
         return fullPosition;
     }
-
 
 }

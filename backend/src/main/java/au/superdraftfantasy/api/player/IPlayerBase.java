@@ -14,18 +14,26 @@ public interface IPlayerBase {
 
     Integer getAge();
 
-    Integer getCareerGames();
-
     @Value("#{@playerDataFetcher.getAflTeam(target)}")
     String getAflTeam();
-
-    Integer getJumperNumber();
 
     Integer getRoosterRating();
 
     Integer getMoneyballPrice();
 
-    Integer getPsAverage();
+    Integer getPrice2021();
+
+    Integer getRank();
+
+    Integer getCareerPrice();
+
+    Integer getCareerActualValue();
+
+    Integer getCareerPriceOverUnder();
+
+    Integer getCareerAverage();
+
+    Integer getCareerAverageGames();
 
     @Value("#{@playerDataFetcher.getPrimaryPosition(target)}")
     String getPrimaryPosition();

@@ -12,7 +12,7 @@
     <frontend-src-dir>${project.basedir}/src/main/frontend</frontend-src-dir>
     <node.version>v12.16.1</node.version>
     <frontend-maven-plugin.version>1.9.1</frontend-maven-plugin.version>
-  </properties>  
+  </properties>
   <parent> 
     <groupId>org.springframework.boot</groupId>  
     <artifactId>spring-boot-starter-parent</artifactId>  
@@ -168,6 +168,17 @@
           <skipTests>true</skipTests> 
         </configuration> 
       </plugin>
+      <!-- Flyway Plugin - Used for running flyway scripts for tasks such as cleaning the DB. -->
+      <!-- Commented out until the credentials are stored in a secure way.
+      <plugin>
+        <groupId>org.flywaydb</groupId>
+        <artifactId>flyway-maven-plugin</artifactId>
+        <version>8.5.0</version>
+        <configuration>
+          <configFiles>${project.basedir}/src/main/resources/flyway.conf</configFiles>
+        </configuration>
+      </plugin>
+      -->
       <!-- Frontend Maven Plugin Start for building the FE as part of the BE Build. -->
       <!-- See guide here https://medium.com/@itzgeoff/including-react-in-your-spring-boot-maven-build-ae3b8f8826e -->
       <!--

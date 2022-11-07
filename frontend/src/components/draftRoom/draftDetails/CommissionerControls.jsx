@@ -37,7 +37,9 @@ function CommissionerControls(props) {
     }
 
     return (
-        getButton()
+        <div align={"center"}>
+            {getButton()}
+        </div>
     )
 
 }

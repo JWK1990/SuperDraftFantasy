@@ -26,10 +26,8 @@ function ActiveAddToBlock(props) {
     const {classes} = props;
 
     return (
-        <Grid container className={classes.rootContainer} spacing={1} direction="row" justify="space-between" alignItems="stretch">
-            <Grid item xs={12}>
-                <p className={classes.upperText}>You Are On The Block</p>
-            </Grid>
+        <Grid container className={classes.rootContainer} spacing={1} direction="row"
+              justify="space-between" alignItems="center">
             <Grid item xs={12}>
                 <AddToBlockClock
                     duration={props.duration}
@@ -37,9 +35,6 @@ function ActiveAddToBlock(props) {
                     key={props.addToBlockKey}
                     clockColors={clockColours}
                 />
-            </Grid>
-            <Grid item xs={12}>
-                <p className={classes.lowerText}>Select A Player...</p>
             </Grid>
         </Grid>
     )

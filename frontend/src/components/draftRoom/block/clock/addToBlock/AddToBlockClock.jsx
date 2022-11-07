@@ -1,11 +1,13 @@
 import React from "react";
 import {CountdownCircleTimer} from 'react-countdown-circle-timer'
 import withStyles from "@material-ui/core/styles/withStyles";
+import {CircularProgress} from "@material-ui/core";
 
 const styles = {
     rootDiv: {
         display: "grid",
         justifyContent: "center",
+        height: "100%",
     },
     secondsSymbol: {
         fontSize: 16,
@@ -20,7 +22,7 @@ function AddToBlockClock(props) {
         if (remainingTime === 0) {
             return (
                 <div>
-                    <p>Auto Add</p>
+                    <CircularProgress />
                 </div>
             )
         }

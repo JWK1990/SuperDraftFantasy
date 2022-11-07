@@ -105,28 +105,32 @@ export function draftReducer(state = initialDraftState, action) {
             }
 
         case UPDATE_MY_TEAM_POSITION_SUCCESS:
+            const {teams} = state.data;
+            const updatedTeams = teams.map((team) => {
+                return team.id !== action.payload.teamId
+                    ? team
+                    : {
+                        ...team,
+                        teamPlayerJoins: team.teamPlayerJoins.map(currentTpj => {
+                            const updatedTpj = action.payload.teamPlayerJoins
+                                .find(updatedTpj => updatedTpj.player.id === currentTpj.player.id);
+                            return (
+                                // Try and find playerId in List of updated playerIds.
+                                !updatedTpj
+                                    ? currentTpj
+                                    : updatedTpj
+                            )
+                        })
+                    }
+            });
+
             return {
                 ...state,
                 loading: false,
                 error: null,
                 data: {
                     ...state.data,
-                    // Map is used to ensure immutable update.
-                    teams: state.data.teams.map((team) => (
-                        team.id !== action.payload.teamId
-                            ? team
-                        : {...team, teamPlayerJoins: team.teamPlayerJoins.map(teamPlayerJoin => (
-                            // Try and find playerId in List of updated playerIds.
-                            action.payload.myTeamPositions.findIndex(myTeamPosition => myTeamPosition.playerId === teamPlayerJoin.player.id) === -1
-                                ? teamPlayerJoin
-                                : {...teamPlayerJoin,
-                                    myTeamPositionType:
-                                        action.payload.myTeamPositions[
-                                            action.payload.myTeamPositions.findIndex(player => player.playerId === teamPlayerJoin.player.id)
-                                            ].myTeamPosition
-                            }))
-                        }
-                    ))
+                    teams: updatedTeams,
                 }
             }
 

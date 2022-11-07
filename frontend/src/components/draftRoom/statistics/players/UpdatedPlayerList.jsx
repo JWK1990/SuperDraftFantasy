@@ -1,14 +1,33 @@
-import React from "react";
-import {VariableSizeList} from "react-window";
+import React, {useEffect} from "react";
+import {FixedSizeList} from "react-window";
 import AutoSizer from "react-virtualized-auto-sizer";
 import InfiniteLoader from "react-window-infinite-loader";
-import {Accordion, AccordionDetails, AccordionSummary} from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import PlayerAnalysisTableRow from "./PlayerAnalysisTableRow";
-import ExpandedPlayerContainer from "./ExpandedPlayerContainer";
-import DraftRoomPlayersSelected from "./selected/Selected";
-import PlayerAnalysisTableHeader from "./PlayerAnalysisTableHeader";
+import Paper from "@material-ui/core/Paper";
+import Grid from "@material-ui/core/Grid";
+import makeStyles from "@material-ui/core/styles/makeStyles";
+import PlayerRow from "./PlayerRow";
+import draftService from "../../../../services/DraftService";
+import PlayerDetailsPopper from "./PlayerDetailsPopper";
+
+const useStyles = makeStyles((theme) => ({
+    header: {
+        fontWeight: "bold",
+    },
+    centerAlign: {
+        display: "grid",
+        alignItems: "center",
+        justifyContent: "center",
+    },
+    leftAlign: {
+        display: "grid",
+        alignItems: "center",
+        justifyContent: "left",
+    },
+    greyedOut: {
+        opacity: 0.4,
+    }
+}));
 
 export default function UpdatedPlayerList({
     // Are there more items to load?
@@ -21,10 +40,8 @@ export default function UpdatedPlayerList({
     items,
     // Callback function responsible for loading the next page of items.
     loadNextPage,
-    // Update the expandedPanelIndex index.
-    expandedPanelIndex,
-    // Handle click of panel.
-    handleChange,
+    // Team Id for the current team which is used for fetching the Watchlist Player Ids.
+    teamId,
 }) {
     // If there are more items to be loaded then add an extra row to hold a loading indicator.
     const itemCount = hasNextPage ? items.length + 1 : items.length;
@@ -36,76 +53,116 @@ export default function UpdatedPlayerList({
     // Every row is loaded except for our loading indicator row.
     const isItemLoaded = index => !hasNextPage || index < items.length;
 
-    const getItemSize = index => {
-        // Expanded row height is var(--player-card-height) + 50px (non-expanded row) + 42px (additional padding).
-        return (items.length > 0 && index === expandedPanelIndex) ? 332 : 50;
+    const classes = useStyles();
+    const rowHeight = 50;
+    const containerRef = React.useRef(null);
+
+    const [watchlistPlayerIds, setWatchlistPlayerIds] = React.useState(null);
+    const [selectedPlayer, setSelectedPlayer] = React.useState(null);
+    const [anchorElement, setAnchorElement] = React.useState(null);
+
+    // A good explanation of how useEffect works can be found here https://medium.com/@timtan93/states-and-componentdidmount-in-functional-components-with-hooks-cac5484d22ad.
+    useEffect(() => {
+        draftService.getWatchlistForTeamId(teamId)
+            .then(response => {
+                setWatchlistPlayerIds(response.data);
+            });
+    }, [teamId]);
+
+
+
+    const getIsOnWatchlist = (playerId) => {
+        if(watchlistPlayerIds !== null && watchlistPlayerIds.length > 0) {
+            return watchlistPlayerIds.indexOf(playerId) > -1;
+        }
     }
 
-    // Render an item or a loading indicator.
-    // TODO: Work out how to better handle slotAvailability to allow AddToBlock for each row.
-    const PlayerRow = ({ index, style }) => {
+    const handleWatchlistChange = (playerId) => {
+        if(getIsOnWatchlist(playerId)) {
+            draftService.removePlayerFromWatchlistForTeamId(playerId, teamId)
+                .then(response => setWatchlistPlayerIds(response.data));
+        } else {
+            draftService.addPlayerToWatchlistForTeamId(playerId, teamId)
+                .then(response => setWatchlistPlayerIds(response.data));
+        }
+    }
+
+    const handleOpenPlayerDetails = (player) => {
+        setSelectedPlayer(player);
+        // Set the AnchorElement to be the Grid Container, even though the click originated in the PlayerRow.
+        setAnchorElement(containerRef.current);
+    };
+
+    const handleClosePlayerDetails = () => {
+            setSelectedPlayer(null);
+            setAnchorElement(null);
+    };
+
+    const PlayerRowContainer = ({ index, style }) => {
+        const player = items[index];
         return (
-                <Accordion
-                    style={style} key={index}
-                    expanded={expandedPanelIndex === index}
-                    onChange={handleChange(index, listRef)}
-                    TransitionProps={{unmountOnExit: true}}
-                >
-                    <AccordionSummary
-                        expandIcon={<ExpandMoreIcon />}
-                        aria-controls="player-content"
-                        id="player-header"
-                    >
-                        {
-                            !isItemLoaded(index)
-                                ? <Typography>Loading Players...</Typography>
-                                : <PlayerAnalysisTableRow player={items[index]} />
-                        }
-                    </AccordionSummary>
-                    <AccordionDetails>
-                        <ExpandedPlayerContainer component={DraftRoomPlayersSelected} player={items[index]}/>
-                    </AccordionDetails>
-                </Accordion>
+            !isItemLoaded(index)
+                ? <Typography>Loading Players...</Typography>
+                : <PlayerRow
+                    sizingStyle={style}
+                    player={player}
+                    isOnWatchlist={getIsOnWatchlist(player.id)}
+                    triggerWatchlistChange={handleWatchlistChange}
+                    triggerOpenPlayerDetails={handleOpenPlayerDetails}
+                />
         )
     };
 
-
-    const listRef = React.createRef();
-
     return (
-        <div className="playerSearch">
-            <PlayerAnalysisTableHeader />
-            <InfiniteLoader
-                isItemLoaded={isItemLoaded}
-                itemCount={itemCount}
-                loadMoreItems={loadMoreItems}
-            >
-                {({ onItemsRendered, ref }) => (
-                    <AutoSizer>
-                        {({height, width}) => (
-                            <VariableSizeList
-                                className="playerList"
-                                height={height}
-                                width={width}
-                                itemCount={itemCount}
-                                itemSize={getItemSize}
-                                onItemsRendered={onItemsRendered}
-                                ref={list => {
-                                    /* The below code is required to be able to access the listRef externally
-                                        for calling resetAfterIndex to recalculate the row heights when they are expanded.
-                                        See comment from bvaughn here
-                                        https://github.com/bvaughn/react-window/issues/324#issuecomment-528887341.
-                                    */
-                                    ref(list); // Give InfiniteLoader a reference to the list
-                                    listRef.current = list; // Set our own ref to it as well.
-                                }}
-                            >
-                                {PlayerRow}
-                            </VariableSizeList>
+        <>
+            <div className={anchorElement !== null ? classes.greyedOut : ''}>
+                <Grid container component={Paper} direction={"column"}
+                      style={{height: "var(--draft-room-player-list-height)"}}
+                      ref={containerRef}
+                >
+                    <Grid container item style={{paddingRight: "15.33px", height: rowHeight}}>
+                        <Grid item xs={1} className={[classes.centerAlign, classes.header].join(' ')}>&nbsp;</Grid>
+                        <Grid item xs={3} className={[classes.leftAlign, classes.header].join(' ')}>Name</Grid>
+                        <Grid item xs={1} className={[classes.leftAlign, classes.header].join(' ')}>Team</Grid>
+                        <Grid item xs={1} className={[classes.leftAlign, classes.header].join(' ')}>Pos</Grid>
+                        <Grid item xs={1} className={[classes.centerAlign, classes.header].join(' ')}>SC</Grid>
+                        <Grid item xs={1} className={[classes.centerAlign, classes.header].join(' ')}>Disp (DE)</Grid>
+                        <Grid item xs={1} className={[classes.centerAlign, classes.header].join(' ')}>Age</Grid>
+                        <Grid item xs={1} className={[classes.centerAlign, classes.header].join(' ')}>$ ('21)</Grid>
+                        <Grid item xs={1} className={[classes.centerAlign, classes.header].join(' ')}>$ ('22)</Grid>
+                        <Grid item xs={1} className={[classes.centerAlign, classes.header].join(' ')}>Budget</Grid>
+                    </Grid>
+                    <InfiniteLoader
+                        isItemLoaded={isItemLoaded}
+                        itemCount={itemCount}
+                        loadMoreItems={loadMoreItems}
+                    >
+                        {({ onItemsRendered, ref }) => (
+                            <AutoSizer>
+                                {({height, width}) => (
+                                    <FixedSizeList
+                                        height={height - rowHeight} // Minus rowHeight to cater for header row.
+                                        width={width}
+                                        itemCount={itemCount}
+                                        itemSize={rowHeight}
+                                        onItemsRendered={onItemsRendered}
+                                        ref={ref}
+                                    >
+                                        {PlayerRowContainer}
+                                    </FixedSizeList>
+                                )}
+                            </AutoSizer>
                         )}
-                    </AutoSizer>
-                )}
-            </InfiniteLoader>
-        </div>
+                    </InfiniteLoader>
+                </Grid>
+            </div>
+            <div>
+                <PlayerDetailsPopper
+                    player={selectedPlayer}
+                    triggerClosePlayerDetails={handleClosePlayerDetails}
+                    anchorElement={anchorElement}
+                />
+            </div>
+        </>
     )
 };

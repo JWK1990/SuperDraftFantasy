@@ -8,7 +8,7 @@ import {connect} from "react-redux";
 const styles = {
     draftHistoryRootDiv: {
         width: "100%",
-        height: "100%",
+        height: "var(--draft-room-history-height)",
         overflow: "auto",
         '& .MuiListItemIcon-root': {
             minWidth: 40,
@@ -29,7 +29,10 @@ class DraftHistory extends React.Component {
             <div className={classes.draftHistoryRootDiv}>
                 <List dense>
                     {this.props.draftedPlayersList.map((draftedPlayer, index) => (
-                        <DraftHistoryListItem draftedPlayer={draftedPlayer} key={draftedPlayer.player.id + "-" + index}/>
+                        <DraftHistoryListItem
+                            draftedPlayer={draftedPlayer} key={draftedPlayer.player.id + "-" + index}
+                            draftedPlayerIndex={this.props.draftedPlayersList.length - index}
+                        />
                     ))}
                 </List>
             </div>

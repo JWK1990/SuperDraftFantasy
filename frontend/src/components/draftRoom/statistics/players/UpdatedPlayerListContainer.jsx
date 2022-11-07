@@ -1,61 +1,47 @@
 import React from "react";
 import DraftService from "../../../../services/DraftService";
-import UpdatedPlayerList from "./UpdatedPlayerList";
 import {draftIdSelector} from "../../../../store/selectors/DraftSelectors";
 import {connect} from "react-redux";
-import {Checkbox, FormControlLabel, Switch, TextField} from "@material-ui/core";
-import withStyles from "@material-ui/core/styles/withStyles";
 import Grid from "@material-ui/core/Grid";
-
-const styles = {
-    filterDiv: {
-        paddingTop: 10,
-    },
-    checkboxDef: {
-        color: "var(--def-color-primary) !important",
-    },
-    checkboxMid: {
-        color: "var(--mid-color-primary)!important",
-    },
-    checkboxRuc: {
-        color: "#FFA500",
-    },
-    checkboxFwd: {
-        color: "var(--fwd-color-primary) !important",
-    },
-    labelDef: {
-        color: "var(--def-color-primary)",
-        paddingRight: 20,
-    },
-    labelMid: {
-        color: "var(--mid-color-primary)",
-        paddingRight: 20,
-    },
-    labelRuc: {
-        color: "#FFA500",
-        paddingRight: 20,
-    },
-    labelFwd: {
-        color: "var(--fwd-color-primary)",
-        paddingRight: 20,
-    },
-}
+import PlayerFilter from "./PlayerFilter";
+import UpdatedPlayerList from "./UpdatedPlayerList";
+import {stompClientSelector} from "../../../../store/selectors/WebSocketSelectors";
+import ImportedPlayerListUtils from "../../../../utils/ImportedPlayerListUtils";
 
 class UpdatedPlayerListContainer extends React.PureComponent {
-    state = {
-        hasNextPage: true,
-        isNextPageLoading: false,
-        items: [],
-        expandedPanelIndex: false,
-        lastNameSearch: '',
-        positionFilter: '',
-        isHideDraftedFilterOn: true,
-        typingTimer: null,
-        checkedDEF: false,
-        checkedMID: false,
-        checkedRUC: false,
-        checkedFWD: false,
-    };
+
+    constructor(props){
+        super(props);
+        this.state = {
+            hasNextPage: true,
+            isNextPageLoading: false,
+            items: [],
+            expandedPanelIndex: false,
+            lastNameSearch: '',
+            positionFilter: '',
+            isHideDraftedFilterOn: true,
+            typingTimer: null,
+            checkedDEF: false,
+            checkedMID: false,
+            checkedRUC: false,
+            checkedFWD: false,
+            isShowWatchlistFilterOn: false,
+        };
+    }
+
+    componentDidMount() {
+        this.props.stompClient.subscribe('/draft/purchaseReviews', this.receivePurchaseReview);
+    }
+
+    receivePurchaseReview = (payload) => {
+        // We manually remove the most recently drafted player from the list if isHideDraftedFilterOn is true.
+        if(this.state.isHideDraftedFilterOn) {
+            const purchaseReviewPlayer = JSON.parse(payload.body);
+            const {items} = this.state;
+            const updatedItems = items.filter(item => item.id !== purchaseReviewPlayer.id);
+            this.setState({items: updatedItems})
+        }
+    }
 
     _loadNextPage = () => {
         this.setState({isNextPageLoading: true}, () => {
@@ -67,15 +53,18 @@ class UpdatedPlayerListContainer extends React.PureComponent {
                 this.state.lastNameSearch,
                 positionFilter,
                 this.state.isHideDraftedFilterOn,
+                this.state.isShowWatchlistFilterOn,
+                this.props.teamId,
             )
                 .then(players => {
+                    const playersWithMyBudgetData = this.mapInMyBudgetData(players.data.content);
                     this.setState(state => ({
                             /* Players are loaded in batches of 25 and therefore hasNextPage is calculated in batches of 25.
                                If the last batch contained the last player, then hasNextPage is false (hence the 778-25).
                             */
                             hasNextPage: state.items.length < (players.data.totalElements - 25),
                             isNextPageLoading: false,
-                            items: [...state.items].concat(players.data.content),
+                            items: [...state.items].concat(playersWithMyBudgetData),
                         }));
                     }
                 );
@@ -99,20 +88,31 @@ class UpdatedPlayerListContainer extends React.PureComponent {
         return positionFilter;
     }
 
-    handleExpandedPanelChange = (panelId, listRef) => (event, isExpanded) => {
-        const previouslyExpandedPanelIndex = this.state.expandedPanelIndex;
-        this.setState({expandedPanelIndex: isExpanded ? panelId : false})
-        // Required to recalculate the rowHeights when rows are expanded.
-        if(listRef.current) {
-            // Recalculate rowHeights from the first row that was affected by the expansion change.
-            const startIndex = previouslyExpandedPanelIndex < panelId ? previouslyExpandedPanelIndex : panelId;
-            listRef.current.resetAfterIndex(startIndex);
+    mapInMyBudgetData(playerList) {
+        const updatedPlayerList = [...playerList];
+        const myBudgetDataList = ImportedPlayerListUtils.getMyBudgets();
+        if(myBudgetDataList && myBudgetDataList.length > 0) {
+            myBudgetDataList.forEach(myBudgetData => {
+                const playerIndex = playerList.findIndex(player => player.id === myBudgetData.id);
+                if(playerIndex > - 1) {
+                    updatedPlayerList[playerIndex].budget = myBudgetData.myBudget;
+                }
+            })
         }
-    };
+        return updatedPlayerList;
+    }
 
-    handleSwitchChange = (event) => {
+    handleHideDraftedSwitchChange = (event) => {
         this.setState({
             isHideDraftedFilterOn: event.target.checked,
+            items: [],
+        });
+        this._loadNextPage();
+    }
+
+    handleShowWatchlistSwitchChange = (event) => {
+        this.setState({
+            isShowWatchlistFilterOn: event.target.checked,
             items: [],
         });
         this._loadNextPage();
@@ -140,96 +140,37 @@ class UpdatedPlayerListContainer extends React.PureComponent {
     }
 
     render() {
-        const { hasNextPage, isNextPageLoading, items, expandedPanelIndex, isHideDraftedFilterOn } = this.state;
-        const {classes} = this.props;
+        const { hasNextPage, isNextPageLoading, items, isHideDraftedFilterOn } = this.state;
 
         return(
-            <>
-                <Grid container className={classes.filterDiv}>
-                    <Grid item xs={5}>
-                        <TextField
-                            id="outlined-basic"
-                            label="Search Name"
-                            variant="outlined"
-                            value={this.state.lastNameSearch}
-                            onChange={this.handleSearchChange}
-                        />
-                    </Grid>
-                    <Grid item xs={5}>
-                        <FormControlLabel
-                                control={
-                                    <Checkbox
-                                        className={classes.checkboxDef}
-                                        checked={this.state.checkedDEF}
-                                        onChange={this.handlePositionFilterChange}
-                                        name="checkedDEF"
-                                    />
-                                }
-                                className={classes.labelDef}
-                                label="DEF"
-                            />
-                            <FormControlLabel
-                                control={
-                                    <Checkbox
-                                        className={classes.checkboxMid}
-                                        checked={this.state.checkedMID}
-                                        onChange={this.handlePositionFilterChange}
-                                        name="checkedMID"
-                                    />
-                                }
-                                className={classes.labelMid}
-                                label="MID"
-                            />
-                            <FormControlLabel
-                                control={
-                                    <Checkbox
-                                        className={classes.checkboxRuc}
-                                        checked={this.state.checkedRUC}
-                                        onChange={this.handlePositionFilterChange}
-                                        name="checkedRUC"
-                                    />
-                                }
-                                className={classes.labelRuc}
-                                label="RUC"
-                            />
-                            <FormControlLabel
-                                control={
-                                    <Checkbox
-                                        className={classes.checkboxFwd}
-                                        checked={this.state.checkedFWD}
-                                        onChange={this.handlePositionFilterChange}
-                                        name="checkedFWD"
-                                    />
-                                }
-                                className={classes.labelFwd}
-                                label="FWD"
-                            />
-                    </Grid>
-                    <Grid item xs={2}>
-                        <FormControlLabel
-                            control={
-                                <Switch
-                                    checked={this.state.isHideDraftedFilterOn}
-                                    onChange={this.handleSwitchChange}
-                                    name="hideDraftedFilter"
-                                    color="primary"
-                                />
-                            }
-                            label="Hide Drafted"
-                            labelPlacement="start"
-                        />
-                    </Grid>
+            <Grid container>
+                <Grid item xs={12}>
+                    <PlayerFilter
+                        lastNameSearch={this.state.lastNameSearch}
+                        checkedDEF={this.state.checkedDEF}
+                        checkedMID={this.state.checkedMID}
+                        checkedRUC={this.state.checkedRUC}
+                        checkedFWD={this.state.checkedFWD}
+                        isHideDraftedFilterOn={this.state.isHideDraftedFilterOn}
+                        isShowWatchlistFilterOn={this.state.isShowWatchlistFilterOn}
+                        triggerPositionFilterChange={this.handlePositionFilterChange}
+                        triggerSearchChange={this.handleSearchChange}
+                        triggerHideDraftedSwitchChange={this.handleHideDraftedSwitchChange}
+                        triggerShowWatchlistSwitchChange={this.handleShowWatchlistSwitchChange}
+                    />
                 </Grid>
-                <UpdatedPlayerList
-                    hasNextPage={hasNextPage}
-                    isNextPageLoading={isNextPageLoading}
-                    items={items}
-                    loadNextPage={this._loadNextPage}
-                    expandedPanelIndex={expandedPanelIndex}
-                    handleChange={this.handleExpandedPanelChange}
-                    isHideDraftedFilterOn={isHideDraftedFilterOn}
-                />
-            </>
+                <Grid item xs={12}>
+                    <UpdatedPlayerList
+                        hasNextPage={hasNextPage}
+                        isNextPageLoading={isNextPageLoading}
+                        items={items}
+                        loadNextPage={this._loadNextPage}
+                        isHideDraftedFilterOn={isHideDraftedFilterOn}
+                        isShowWatchlistFilterOn={this.state.isShowWatchlistFilterOn}
+                        teamId={this.props.teamId}
+                    />
+                </Grid>
+            </Grid>
         )
     }
 }
@@ -237,7 +178,8 @@ class UpdatedPlayerListContainer extends React.PureComponent {
 const mapStateToProps = state => {
     return {
         draftId: draftIdSelector(state),
+        stompClient: stompClientSelector(state),
     }
 }
 
-export default connect(mapStateToProps)(withStyles(styles)(UpdatedPlayerListContainer));
+export default connect(mapStateToProps)(UpdatedPlayerListContainer);

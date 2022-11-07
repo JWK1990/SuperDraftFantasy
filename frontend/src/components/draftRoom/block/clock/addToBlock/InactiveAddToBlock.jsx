@@ -20,10 +20,9 @@ function InactiveAddToBlock(props) {
     const {classes} = props;
 
     return (
-        <Grid container className={classes.rootContainer} spacing={1} direction="row" justify="space-between" alignItems="stretch">
-            <Grid item xs={12}>
-                <p className={classes.upperText}>{props.onTheBlockTeamName} Is On The Block</p>
-            </Grid>
+        <Grid container className={classes.rootContainer} spacing={1} direction="row"
+              justify="space-between" alignItems="center"
+        >
             <Grid item xs={12}>
                 <AddToBlockClock
                     duration={props.duration}
@@ -31,9 +30,6 @@ function InactiveAddToBlock(props) {
                     key={props.addToBlockKey}
                     clockColors={clockColors}
                 />
-            </Grid>
-            <Grid item xs={12}>
-                <p className={classes.upperText}>Awaiting Selection...</p>
             </Grid>
         </Grid>
     )

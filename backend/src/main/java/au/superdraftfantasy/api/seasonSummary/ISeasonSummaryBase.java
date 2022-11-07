@@ -18,4 +18,18 @@ public interface ISeasonSummaryBase {
 
     Integer getHardnessRating();
 
+    Integer getPrice();
+
+    Integer getSdTeamId();
+
+    Integer getPrimaryPositionId();
+
+    Integer getSecondaryPositionId();
+
+    Integer getBaselineOverUnder();
+
+    Integer getActualValue();
+
+    Integer getPriceOverUnder();
+
 }

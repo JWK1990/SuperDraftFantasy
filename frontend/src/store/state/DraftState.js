@@ -14,7 +14,8 @@ const initialTeamPlayerJoinsState = [
     {
         player: null,
         price: null,
-        myTeamPositionType: null
+        myTeamPositionType: null,
+        slotId: null,
     }
 ]
 

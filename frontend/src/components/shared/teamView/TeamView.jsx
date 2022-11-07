@@ -202,7 +202,7 @@ class TeamView extends React.Component {
             const destinationPosition = this.droppableList[destination.droppableId];
             const destinationPlayerList = this.getPlayersByPosition(destinationPosition);
             const destinationPlayer = destinationPlayerList[destination.index].dynamicSlotData.player;
-            // If destination is vacant or is filled with a player that can be switched with the source player.
+            // If destination is isVacant or is filled with a player that can be switched with the source player.
             if(!destinationPlayer
                 || sourcePosition === "BENCH"
                 || destinationPlayer.primaryPosition === sourcePosition

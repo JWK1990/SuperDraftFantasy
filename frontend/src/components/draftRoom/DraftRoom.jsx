@@ -3,18 +3,36 @@ import DraftRoomBlock from "./block/Block";
 import {connectWebSocketAction, getDraftAction} from "../../store/actions";
 import {connect} from "react-redux";
 import {draftSelector} from "../../store/selectors/DraftSelectors"
-import DraftRoomTeams from "./teams/Teams";
 import Grid from "@material-ui/core/Grid";
 import {stompClientSelector} from "../../store/selectors/WebSocketSelectors";
 import ConfigurationUtils from "../../utils/ConfigurationUtils";
-import {withStyles} from "@material-ui/core";
-import TeamViewList from "./myTeam/TeamViewList";
-import StatisticsContainer from "./statistics/StatisticsContainer";
+import {createMuiTheme, MuiThemeProvider, withStyles} from "@material-ui/core";
 import DraftDetailsContainer from "./draftDetails/DraftDetailsContainer";
+import TeamsV2 from "./teams/TeamsV2";
+import UpdatedPlayerListContainer from "./statistics/players/UpdatedPlayerListContainer";
+import TeamListContainer from "./myTeam/TeamListContainer";
+import {userIdSelector} from "../../store/selectors/UserSelectors";
+
+const theme = createMuiTheme({
+    overrides: {
+        MuiButtonBase: {
+            root: {
+                //cursor: "url(Insert url to 32px x 32px icon here.), auto"
+            },
+        },
+    },
+    typography: {
+        button: {
+            textTransform: "none",
+        }
+    }
+})
 
 const styles = {
     rootContainer: {
         height: "100%",
+        width: "100%",
+        overflow: "hidden",
     },
 };
 
@@ -29,6 +47,7 @@ class DraftRoom extends React.Component {
             isStompClientConnected: false,
             isPlayerDataLoaded: false,
             isDraftDataLoaded: false,
+            currentTeamId: null,
         };
     }
 
@@ -38,8 +57,10 @@ class DraftRoom extends React.Component {
     }
 
     async componentDidUpdate(prevProps, prevState, snapshot) {
-        if(this.props.draft !== prevProps.draft) {
+        if(this.props.draft !== prevProps.draft && this.props.userId !== null) {
             this.setState({isDraftDataLoaded: true});
+            const currentTeam = this.props.draft.teams.find(team => team.user.id === this.props.userId);
+            this.setState({currentTeamId: currentTeam.id})
         }
         if(this.props.stompClient != null && this.props.stompClient !== prevProps.stompClient) {
             if(this.props.stompClient.connected) {
@@ -58,41 +79,36 @@ class DraftRoom extends React.Component {
     render() {
         const {classes} = this.props;
 
-        if (!this.state.isStompClientConnected || !this.state.isDraftDataLoaded) {
+        if (!this.state.isStompClientConnected || !this.state.isDraftDataLoaded || !this.state.currentTeamId) {
             return <div />
         }
 
         return (
-            <>
-                <Grid container spacing={1} direction="row" justify="space-between" alignItems="stretch"
-                      className={classes.rootContainer}>
-                    <Grid item xs={2}>
-                        <Grid container spacing={1}>
-                            <Grid item xs={12}>
-                                <DraftDetailsContainer/>
-                            </Grid>
-                            <Grid item xs={12}>
-                                <DraftRoomTeams/>
-                            </Grid>
-                        </Grid>
-                    </Grid>
-                    <Grid item xs={8}>
-                        <Grid container spacing={1}>
-                            <Grid item xs={12}>
-                                <DraftRoomBlock/>
-                            </Grid>
-                            <Grid item xs={12}>
-                                <StatisticsContainer/>
-                            </Grid>
-                        </Grid>
-                    </Grid>
-                    <Grid item xs={2}>
+            <MuiThemeProvider theme={theme}>
+                <Grid container spacing={1} className={classes.rootContainer}>
+                    <Grid container item xs={2} style={{height: "100%", maxHeight: "100vh", overflow: "auto"}}>
                         <Grid item xs={12}>
-                            <TeamViewList/>
+                            <DraftDetailsContainer />
+                        </Grid>
+                        <Grid item xs={12}>
+                            <TeamsV2/>
+                        </Grid>
+                    </Grid>
+                    <Grid container item xs={8} style={{height: "100%", maxHeight: "100vh"}}>
+                        <Grid item xs={12}>
+                            <DraftRoomBlock/>
+                        </Grid>
+                        <Grid item xs={12}>
+                            <UpdatedPlayerListContainer teamId={this.state.currentTeamId}/>
+                        </Grid>
+                    </Grid>
+                    <Grid container item xs={2} style={{height: "100%", maxHeight: "100vh", overflow: "auto"}}>
+                        <Grid item xs={12}>
+                            <TeamListContainer teamId={this.state.currentTeamId} isDisabled={false}/>
                         </Grid>
                     </Grid>
                 </Grid>
-            </>
+            </MuiThemeProvider>
         )
     }
 
@@ -102,6 +118,7 @@ const mapStateToProps = state => {
     return {
         draft: draftSelector(state),
         stompClient: stompClientSelector(state),
+        userId: userIdSelector(state),
     };
 };
 

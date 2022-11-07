@@ -12,10 +12,6 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-function getPositionMaxAve(position) {
-    return PlayerStatFetcher.getPositionMaxAve(position)
-}
-
 export default function BlockPlayerYearStats(props) {
     const classes = useStyles();
 
@@ -24,7 +20,7 @@ export default function BlockPlayerYearStats(props) {
             <CircularStatIcon
                 statName="AVE"
                 statValue= {props.player.average}
-                maxStatValue= {getPositionMaxAve(props.player.primaryPosition)}
+                maxStatValue= {PlayerStatFetcher.getPositionMaxAve(props.player.primaryPosition)}
                 showHeader={false}
                 showFooter={true}
             />
@@ -39,12 +35,24 @@ export default function BlockPlayerYearStats(props) {
                 : null
             }
             <CircularStatIcon
-                statName="PS"
-                statValue= {props.player.psAverage}
-                maxStatValue= {getPositionMaxAve(props.player.primaryPosition)}
+                statName="DISP"
+                statValue= {props.player.disposals}
+                maxStatValue= {PlayerStatFetcher.getPositionDisposalsAverage(props.player.primaryPosition)}
                 showHeader={false}
                 showFooter={true}
             />
+            {props.player.price == null
+                ? (
+                    <CircularStatIcon
+                        statName="DE"
+                        statValue= {props.player.disposalEfficiency != null ? props.player.disposalEfficiency : "-"}
+                        maxStatValue= {100}
+                        showHeader={false}
+                        showFooter={true}
+                    />
+                )
+                : null
+            }
             <CircularStatIcon
                 statName="RR"
                 statValue= {props.player.roosterRating}
@@ -53,16 +61,6 @@ export default function BlockPlayerYearStats(props) {
                 showFooter={false}
                 showIconFooter={true}
             />
-            {props.player.price != null
-            ? (<CircularStatIcon
-                    statName="Price"
-                    statValue= {props.player.price}
-                    maxStatValue= {PlayerStatFetcher.maxPrice}
-                    showHeader={false}
-                    showFooter={true}
-                />)
-            : null
-            }
         </div>
     )
 

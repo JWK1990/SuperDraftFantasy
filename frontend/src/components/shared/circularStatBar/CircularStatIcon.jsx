@@ -2,36 +2,38 @@ import React, {useEffect} from 'react';
 import clsx from 'clsx';
 import {makeStyles} from '@material-ui/core/styles';
 import CircularProgress from '@material-ui/core/CircularProgress';
-import {green, orange, red, yellow} from '@material-ui/core/colors';
 import Fab from '@material-ui/core/Fab';
 import Typography from "@material-ui/core/Typography";
 import RoosterSymbol from "../../../images/purchaseReviewSymbols/RoosterSymbol.svg";
 
 const useStyles = makeStyles((theme) => ({
     wrapper: {
-        margin: theme.spacing(2),
+        margin: theme.spacing(1),
         position: 'relative',
     },
     fabProgress: {
         position: 'absolute',
-        top:-5,
+        top:-4,
         left: -3 ,
         zIndex: 1,
     },
-    greenBar: {
-        color: green[500],
+    greatBar: {
+        color: 'var(--great)',
     },
-    yellowBar: {
-        color: yellow[500],
+    goodBar: {
+        color: 'var(--good)',
     },
-    orangeBar: {
-        color: orange[500],
+    averageBar: {
+        color: 'var(--average)',
     },
-    redBar: {
-        color: red[500],
+    poorBar: {
+        color: 'var(--poor)',
+    },
+    terribleBar: {
+        color: 'var(--terrible)',
     },
     title: {
-        fontSize: 16,
+        fontSize: 14,
         fontWeight: "bold",
     },
     statButton: {
@@ -57,10 +59,11 @@ export default function CircularStatIcon(props) {
     // TODO: Could update this to represent how high in the rankings they are.
     const statRanking = props.statValue/props.maxStatValue;
     const barColour = clsx({
-        [classes.greenBar] : statRanking >= 0.80,
-        [classes.yellowBar] : (0.80 > statRanking) && (statRanking >= 0.65),
-        [classes.orangeBar] : (0.65 > statRanking) && (statRanking >= 0.5),
-        [classes.redBar] : 0.5 > statRanking,
+        [classes.greatBar] : statRanking >= 0.85,
+        [classes.goodBar] : (0.85 > statRanking) && (statRanking >= 0.6),
+        [classes.averageBar] : (0.6 > statRanking) && (statRanking >= 0.3),
+        [classes.poorBar] : 0.3 > statRanking,
+        [classes.terribleBar] : 0.15 > statRanking,
     })
 
     useEffect(() => {
@@ -92,7 +95,7 @@ export default function CircularStatIcon(props) {
                     size="medium"
                 >
                     <Typography>
-                        {loading ? "..." : props.statValue}
+                        {loading ? "..." : (props.prefix ? props.prefix + props.statValue : props.statValue)}
                     </Typography>
                 </Fab>
                 {loading

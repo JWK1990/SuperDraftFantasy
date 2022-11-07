@@ -69,3 +69,6 @@ client.iml
 
 # Docker
 .env
+
+# Player Import JSON.
+backend/src/main/resources/db/resources

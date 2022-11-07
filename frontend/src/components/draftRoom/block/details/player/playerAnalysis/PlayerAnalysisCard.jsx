@@ -3,6 +3,9 @@ import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import {makeStyles} from "@material-ui/core/styles";
 import PlayerAnalysisTabPanel from "./PlayerAnalysisTabPanel";
+import PlayerAnalysisGraphsContainer from "./graphs/PlayerAnalysisGraphsContainer";
+import GamesGraph from "./graphs/GamesGraph";
+import SCAverageGraph from "./graphs/SCAverageGraph";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -35,14 +38,10 @@ export default function PlayerAnalysisCard(props) {
 
     return (
         <Card className={classes.root} elevation={4}>
-            <div className={classes.details}>
-                <CardContent className={classes.content}>
-                    <PlayerAnalysisTabPanel
-                        playerId={props.player.id}
-                        primaryPosition={props.player.primaryPosition}
-                    />
-                </CardContent>
-            </div>
+            <SCAverageGraph
+                playerId={props.player.id}
+                primaryPosition={props.player.primaryPosition}
+            />
         </Card>
     )
 

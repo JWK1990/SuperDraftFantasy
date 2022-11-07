@@ -12,26 +12,31 @@ const styles = {
 };
 
 function BlockDetailsContainer(props) {
-    const {classes} = props;
 
     return(
-        <div className={classes.rootDiv}>
-            {props.showAddToBlockClock ?
-                <PurchaseReview
-                    onTheBlockTeamName={props.onTheBlockTeamName}
-                    isOnTheBlock={props.isOnTheBlock}
-                    purchaseReviewPlayer={props.purchaseReviewPlayer}
-                />
-                : props.showBidClock ?
-                    <BlockPlayer
-                        player={props.onTheBlockPlayer}
-                    />
-                    :
-                    <PausedDraft
-                        commissionerTeamName={props.commissionerTeamName}
-                    />
+        <>
+            {
+                props.showAddToBlockClock
+                    ? (
+                        <PurchaseReview
+                            onTheBlockTeamName={props.onTheBlockTeamName}
+                            isOnTheBlock={props.isOnTheBlock}
+                            purchaseReviewPlayer={props.purchaseReviewPlayer}
+                        />
+                    )
+                    : props.showBidClock
+                        ? (
+                            <BlockPlayer
+                                player={props.onTheBlockPlayer}
+                            />
+                        )
+                        : (
+                            <PausedDraft
+                                commissionerTeamName={props.commissionerTeamName}
+                            />
+                        )
             }
-        </div>
+        </>
     )
 
 }

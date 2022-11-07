@@ -1,17 +1,12 @@
 :root {
     /* Grid Heights. */
-    --draft-room-first-row-height: 260px;
-    --draft-room-second-row-height: calc(100vh - var(--draft-room-first-row-height) - 80px);
-    --draft-room-tab-panel-height: 40px;
-    --draft-room-players-search-height: 0px;
-    --draft-room-players-list-height: calc(var(--draft-room-second-row-height) - var(--draft-room-tab-panel-height) - var(--draft-room-players-search-height));
-    --draft-room-right-column-height: calc(var(--draft-room-first-row-height) + var(--draft-room-second-row-height));
-
-    /* Tab Panel Heights. */
-    --tab-panel-secondary-height: 20px;
-
-    /* Component Heights. */
-    --player-card-height: calc(var(--draft-room-first-row-height) - 20px);
+    --draft-room-block-height: 200px; /* Don't forget to also update hardcoded values in PlayerDetailsPopper. */
+    --draft-room-player-filter-height: 40px; /* Don't forget to also update hardcoded values in PlayerDetailsPopper. */
+    --draft-room-player-list-height: calc(100vh - var(--draft-room-block-height) - var(--draft-room-player-filter-height));
+    --draft-room-team-list-height: calc(100vh - var(--draft-room-history-height));
+    --player-details-popper-padding: 200px; /* Don't forget to also update hardcoded values in PlayerDetailsPopper. */
+    --player-details-popper-height: calc(var(--draft-room-player-list-height) - var(--player-details-popper-padding));
+    --draft-room-history-height: calc(var(--draft-room-block-height));
 
     /* Colours. */
     --highlight-color: greenyellow;
@@ -40,35 +35,21 @@
     --team-eight: #3a6b66;
     --team-nine: #cae117;
     --team-ten: #139cad;
+
+    /* Graph Colors. */
+    --great: #90ee90;
+    --good: lightblue;
+    --average: #FFFFA8;
+    --poor: rgb(252,210,153);
+    --terrible: #ff0800;
 }
 
-.commissionerControls {
-    height: var(--draft-room-first-row-height);
-}
-.teamList {
-    height: var(--draft-room-second-row-height);
-}
-.block {
-    height: var(--draft-room-first-row-height);
-}
-.statistics {
-    height: var(--draft-room-second-row-height);
+html, body, #root, .App {
+    height: 100%;
 }
 
 .statistics tr:hover {
     background: var(--hover-color) !important;
-}
-
-.playerSearch {
-    height: var(--draft-room-second-row-height);
-}
-
-.teamAnalysis {
-    height: var(--draft-room-second-row-height);
-}
-
-.myTeam {
-    height: var(--draft-room-right-column-height);
 }
 
 .centered-div {
@@ -102,3 +83,8 @@
     min-width: 250px;
 }
 
+/* Removes CartesianGrid lines from the top and bottom of Recharts graphs. */
+.recharts-wrapper .recharts-cartesian-grid-horizontal line:nth-last-child(2),
+.recharts-wrapper .recharts-cartesian-grid-horizontal line:last-child {
+    stroke-opacity: 0;
+}

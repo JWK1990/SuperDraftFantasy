@@ -18,9 +18,25 @@ export default class PurchaseReviewSymbolFetcher {
         ["6", OaklandAsSymbol],
     ]);
 
+    static purchaseReviewTextMap = new Map([
+        [0, "F"],
+        [1, "E"],
+        [2, "D"],
+        [3, "C"],
+        [4, "B"],
+        [5, "A"],
+        [6, "A+"],
+    ]);
+
     static getPurchaseReviewSymbol(rating) {
         if(rating != null) {
             return this.purchaseReviewSymbolMap.get(rating);
+        }
+    }
+
+    static getPurchaseReviewText(rating) {
+        if(rating != null) {
+            return this.purchaseReviewTextMap.get(rating);
         }
     }
 

@@ -14,8 +14,7 @@ import javax.persistence.*;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class
-TeamPlayerJoinEntity {
+public class TeamPlayerJoinEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -40,5 +39,7 @@ TeamPlayerJoinEntity {
     private Integer purchaseReviewRating;
 
     private Integer priceDifference;
+
+    private String slotId;
 
 }

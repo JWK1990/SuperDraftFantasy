@@ -3,6 +3,7 @@ package au.superdraftfantasy.api.team;
 import au.superdraftfantasy.api.draft.DraftEntity;
 import au.superdraftfantasy.api.teamPlayerJoin.TeamPlayerJoinEntity;
 import au.superdraftfantasy.api.user.UserEntity;
+import au.superdraftfantasy.api.watchlistJoin.WatchlistJoinEntity;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
@@ -68,5 +69,9 @@ public class TeamEntity {
 
     @UpdateTimestamp
     private LocalDateTime updatedOn;
+
+    @OneToMany(mappedBy="team", cascade = CascadeType.ALL)
+    @JsonManagedReference(value="team-watchlistJoin")
+    private List<WatchlistJoinEntity> watchlistJoins;
 
 }

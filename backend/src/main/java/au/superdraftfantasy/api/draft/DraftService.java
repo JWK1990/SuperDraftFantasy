@@ -221,7 +221,8 @@ public class DraftService {
                 draft,
                 TeamStatusEnum.IN_SETUP,
                 null,
-                null
+                null,
+                Collections.emptyList()
         );
     }
 

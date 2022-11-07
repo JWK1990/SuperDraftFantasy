@@ -4,7 +4,6 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
-import BlockPlayerStatTabPanel from "./stats/BlockPlayerStatTabPanel";
 import PlayerPictureFetcher from "../../../../../shared/imageFetchers/PlayerPictureFetcher";
 
 const useStyles = makeStyles((theme) => ({
@@ -15,12 +14,13 @@ const useStyles = makeStyles((theme) => ({
     details: {
         display: 'flex',
         flexDirection: 'column',
+        width: "100%",
     },
     content: {
         flex: '1 0 auto',
     },
     playerImage: {
-        width: 170,
+        width: 188,
     },
     controls: {
         alignItems: 'flex-start',
@@ -46,11 +46,11 @@ export default function BlockPlayerCard(props) {
     }
 
     return (
-        <Card className={classes.root} elevation={2}>
+        <Card className={classes.root} elevation={0}>
             <CardMedia
                 className={classes.playerImage}
                 image={getPlayerPicture(props.player.id)}
-                title="Purchase Review Player Image."
+                title={props.player.firstName + " " + props.player.lastName}
             />
             <div className={classes.details}>
                 <CardContent className={classes.content}>
@@ -68,7 +68,7 @@ export default function BlockPlayerCard(props) {
                     </Typography>
                 </CardContent>
                 <div className={classes.controls}>
-                    <BlockPlayerStatTabPanel player={props.player}/>
+                    {props.statsComponent}
                 </div>
             </div>
         </Card>

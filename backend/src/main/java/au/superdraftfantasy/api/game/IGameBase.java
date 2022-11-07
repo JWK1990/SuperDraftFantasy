@@ -10,16 +10,12 @@ public interface IGameBase {
 
     Integer getHitouts();
 
-    Integer getTackles();
-
     Integer getClearances();
 
     Integer getAverage();
 
-    Integer getDisposalEfficiency();
-
-    Integer getMetersGained();
-
     Integer getHardnessRating();
+
+    Integer getCenterClearances();
 
 }

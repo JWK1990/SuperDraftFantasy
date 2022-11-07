@@ -69,6 +69,31 @@ public class PlayerEntity {
 
     private Integer scAverage;
 
+    @Column(name="rooster_rating_2021")
+    private Integer roosterRating2021;
+
+    @Column(name="price_2021")
+    private Integer price2021;
+
+    @Column(name="sd_team_id_2021")
+    private Integer sdTeamId2021;
+
+    private Boolean isActive;
+
+    private Integer rank;
+
+    private Integer careerPrice;
+
+    private Integer careerActualValue;
+
+    private Integer careerPriceOverUnder;
+
+    private Integer careerPriceOverUnderPercentage;
+
+    private Integer careerAverage;
+
+    private Integer careerAverageGames;
+
     @ManyToMany
     @JoinTable(
             name = "player_position_join",

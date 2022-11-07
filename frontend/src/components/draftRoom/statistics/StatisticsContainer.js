@@ -9,6 +9,7 @@ import Box from '@material-ui/core/Box';
 import TeamAnalysisContainer from "./teams/TeamAnalysisContainer";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import UpdatedPlayerListContainer from "./players/UpdatedPlayerListContainer";
+import Grid from "@material-ui/core/Grid";
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -45,17 +46,12 @@ function a11yProps(index) {
 }
 
 const useStyles = makeStyles(() => ({
+    rootContainer: {
+        height: "100%",
+    },
     appBar: {
         width: "100%",
         boxShadow: "none",
-    },
-    tabs: {
-        minHeight: "var(--draft-room-tab-panel-height)",
-        maxHeight: "var(--draft-room-tab-panel-height)",
-    },
-    tab: {
-        minHeight: "var(--draft-room-tab-panel-height)",
-        maxHeight: "var(--draft-room-tab-panel-height)",
     },
 }));
 
@@ -72,32 +68,6 @@ export default function StatisticsContainer() {
     };
 
     return (
-        <div className="statistics">
-            <AppBar position="static" color="default">
-                <Tabs
-                    value={value}
-                    className={classes.tabs}
-                    onChange={handleChange}
-                    indicatorColor="primary"
-                    textColor="primary"
-                    variant="fullWidth"
-                    aria-label="Draft Room Statistics Tabs"
-                >
-                    <Tab label="Players" className={classes.tab} {...a11yProps(0)} />
-                    <Tab label="Teams" className={classes.tab} {...a11yProps(1)} />
-                </Tabs>
-            </AppBar>
-            <SwipeableViews
-                index={value}
-                onChangeIndex={handleChangeIndex}
-            >
-                <TabPanel value={value} index={0}>
-                    <UpdatedPlayerListContainer />
-                </TabPanel>
-                <TabPanel value={value} index={1}>
-                    <TeamAnalysisContainer />
-                </TabPanel>
-            </SwipeableViews>
-        </div>
+        <UpdatedPlayerListContainer />
     );
 }

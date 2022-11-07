@@ -1,9 +1,10 @@
 package au.superdraftfantasy.api.player;
 
-import au.superdraftfantasy.api.position.PositionRepository;
 import au.superdraftfantasy.api.position.PositionTypeEnum;
 import au.superdraftfantasy.api.seasonSummary.ISeasonSummaryBase;
 import au.superdraftfantasy.api.teamPlayerJoin.ITeamPlayerJoinBase;
+import au.superdraftfantasy.api.watchlistJoin.WatchlistJoinDao;
+import au.superdraftfantasy.api.watchlistJoin.WatchlistJoinRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -14,6 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.Set;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
@@ -21,14 +23,14 @@ import java.util.stream.Collectors;
 public class PlayerService {
 
     private final PlayerRepository playerRepository;
-    private final PositionRepository positionRepository;
+    private final WatchlistJoinRepository watchlistJoinRepository;
 
     public PlayerService(
             PlayerRepository playerRepository,
-            PositionRepository positionRepository
+            WatchlistJoinRepository watchlistJoinRepository
     ) {
         this.playerRepository = playerRepository;
-        this.positionRepository = positionRepository;
+        this.watchlistJoinRepository = watchlistJoinRepository;
     }
 
     /**
@@ -36,7 +38,7 @@ public class PlayerService {
      * @return
      */
     public List<IPlayerBase> getAllPlayers() {
-        return playerRepository.findAllBaseBy();
+        return playerRepository.findAllBaseByIsActiveIsTrueOrderByRank();
     }
 
     /**
@@ -45,12 +47,12 @@ public class PlayerService {
      */
     @Transactional
     public List<PlayerBaseReadDto> getAllPlayersByDraft(Long draftId) {
-        List<IPlayerBase> playerList = playerRepository.findAllBaseBy();
+        List<IPlayerBase> playerList = playerRepository.findAllBaseByIsActiveIsTrueOrderByRank();
         List<PlayerBaseReadDto> readDtoList = new ArrayList<>();
         playerList.forEach((player) -> {
             PlayerBaseReadDto readDto = new PlayerBaseReadDto(
                     player,
-                    player.getSeasonSummary(2020),
+                    player.getSeasonSummary(2021), // TODO - Change hardcoding for 2021 to be dynamic.
                     player.getTeamPlayerJoin(draftId)
             );
             readDtoList.add(readDto);
@@ -68,7 +70,8 @@ public class PlayerService {
             Integer pageNum,
             Integer pageSize,
             String search,
-            String position
+            String position,
+            Boolean isWatchlistOn
     ) {
         Pageable pageable = PageRequest.of(pageNum, pageSize, Sort.by("id"));
         List<PositionTypeEnum> positionsList = getPositionsFilterList(position);
@@ -76,20 +79,41 @@ public class PlayerService {
 
         // TODO: Try and get working with FirstName search as well.
         // Maybe try and use @Query.
-        if(positionsList.size() > 0 ) {
-            playerPage = playerRepository.findAllBasePageByPositions_TypeInAndLastNameIgnoreCaseContaining(
-                    positionsList,
-                    search,
-                    pageable
-            );
+        if(!isWatchlistOn) {
+            if(positionsList.size() > 0 ) {
+                playerPage = playerRepository.findAllBasePageByIsActiveIsTrueAndPositions_TypeInAndLastNameIgnoreCaseContainingOrderByRank(
+                        positionsList,
+                        search,
+                        pageable
+                );
+            } else {
+                playerPage = playerRepository.findAllBasePageByIsActiveIsTrueAndLastNameIgnoreCaseContainingOrderByRank(
+                        search,
+                        pageable
+                );
+            }
         } else {
-            playerPage = playerRepository.findAllBasePageByLastNameIgnoreCaseContaining(
-                    search,
-                    pageable
-            );
+            Set<Long> watchlistPlayerIdSet = watchlistJoinRepository.findAllByTeamId(1L).stream()
+                    .map(WatchlistJoinDao::getPlayerId)
+                    .collect(Collectors.toSet());
+            if(positionsList.size() > 0 ) {
+                playerPage = playerRepository.findAllBasePageByIsActiveIsTrueAndPositions_TypeInAndLastNameIgnoreCaseContainingAndIdInOrderByRank(
+                        positionsList,
+                        search,
+                        pageable,
+                        watchlistPlayerIdSet
+                );
+            } else {
+                playerPage = playerRepository.findAllBasePageByIsActiveIsTrueAndLastNameIgnoreCaseContainingAndIdInOrderByRank(
+                        search,
+                        pageable,
+                        watchlistPlayerIdSet
+                );
+            }
         }
 
-        return mapToReadDtoPage(playerPage, 2020, draftId);
+        // TODO - Change hardcoding for 2021 to be dynamic.
+        return mapToReadDtoPage(playerPage, 2021, draftId);
     }
 
     /**
@@ -124,8 +148,8 @@ public class PlayerService {
                     pageable
             );
         }
-
-        return mapToReadDtoPage(draftedPlayerPage, 2020, draftId);
+        // TODO - Change hardcoding for 2021 to be dynamic.
+        return mapToReadDtoPage(draftedPlayerPage, 2021, draftId);
     }
 
     /**
@@ -138,37 +162,61 @@ public class PlayerService {
             Integer pageNum,
             Integer pageSize,
             String search,
-            String position
+            String position,
+            Boolean isWatchlistOn,
+            Long teamId
     ) {
         List<IDraftedPlayerId> draftedPlayerIdList = playerRepository.findPlayerIdByTeamPlayerJoins_Team_DraftId(draftId);
         List<Long> idList = draftedPlayerIdList.stream().map(IDraftedPlayerId::getId).collect(Collectors.toList());
 
-
         // If no DraftedPlayers then return full DraftPlayersPage.
         // Else get AvailablePlayer Page.
         if(idList.size() < 1) {
-            return getPlayersPageByDraftId(draftId, pageNum, pageSize, search, position);
+            return getPlayersPageByDraftId(draftId, pageNum, pageSize, search, position, isWatchlistOn);
         } else {
             Pageable pageable = PageRequest.of(pageNum, pageSize, Sort.by("id"));
             List<PositionTypeEnum> positionsList = getPositionsFilterList(position);
-
             Page<IPlayerBase> availablePlayersPage;
-            if(positionsList.size() > 0 ) {
-                availablePlayersPage = playerRepository.findByIdNotInAndPositions_TypeInAndLastNameIgnoreCaseContaining(
-                        idList,
-                        positionsList,
-                        search,
-                        pageable
-                );
+
+            if(!isWatchlistOn) {
+                if(positionsList.size() > 0 ) {
+                    availablePlayersPage = playerRepository.findByIsActiveIsTrueAndIdNotInAndPositions_TypeInAndLastNameIgnoreCaseContainingOrderByRank(
+                            idList,
+                            positionsList,
+                            search,
+                            pageable
+                    );
+                } else {
+                    availablePlayersPage = playerRepository.findByIsActiveIsTrueAndIdNotInAndLastNameIgnoreCaseContainingOrderByRank(
+                            idList,
+                            search,
+                            pageable
+                    );
+                }
             } else {
-                availablePlayersPage = playerRepository.findByIdNotInAndLastNameIgnoreCaseContaining(
-                        idList,
-                        search,
-                        pageable
-                );
+                Set<Long> watchlistPlayerIdSet = watchlistJoinRepository.findAllByTeamId(teamId).stream()
+                        .map(WatchlistJoinDao::getPlayerId)
+                        .collect(Collectors.toSet());
+                if(positionsList.size() > 0 ) {
+                    availablePlayersPage = playerRepository.findByIsActiveIsTrueAndIdNotInAndPositions_TypeInAndLastNameIgnoreCaseContainingAndIdInOrderByRank(
+                            idList,
+                            positionsList,
+                            search,
+                            pageable,
+                            watchlistPlayerIdSet
+                    );
+                } else {
+                    availablePlayersPage = playerRepository.findByIsActiveIsTrueAndIdNotInAndLastNameIgnoreCaseContainingAndIdInOrderByRank(
+                            idList,
+                            search,
+                            pageable,
+                            watchlistPlayerIdSet
+                    );
+                }
             }
 
-            return mapToReadDtoPage(availablePlayersPage, 2020, draftId);
+            // TODO - Change hardcoding for 2021 to be dynamic.
+            return mapToReadDtoPage(availablePlayersPage, 2021, draftId);
         }
 
     }
@@ -181,7 +229,7 @@ public class PlayerService {
     public PlayerBaseReadDto getPlayerBaseById(Long playerId, Long draftId) {
         IPlayerBase playerBase = playerRepository.findPlayerBaseById(playerId)
                 .orElseThrow(() -> new NoSuchElementException("Player with id " + playerId + " not found."));
-        ISeasonSummaryBase baseStats = playerBase.getSeasonSummary(2020);
+        ISeasonSummaryBase baseStats = playerBase.getSeasonSummary(2021); // TODO - Change hardcoding for 2021 to be dynamic.
         ITeamPlayerJoinBase teamPlayerJoin = playerBase.getTeamPlayerJoin(draftId);
         return new PlayerBaseReadDto(playerBase, baseStats, teamPlayerJoin);
     }
@@ -194,7 +242,7 @@ public class PlayerService {
     public PlayerDetailsReadDto getPlayerDetailsById(Long playerId, Long draftId) {
         IPlayerDetails playerDetails = playerRepository.findPlayerDetailsById(playerId)
                 .orElseThrow(() -> new NoSuchElementException("Player with id " + playerId + " not found."));
-        return new PlayerDetailsReadDto(playerDetails, 2020, draftId);
+        return new PlayerDetailsReadDto(playerDetails, 2021, draftId); // TODO - Change hardcoding for 2021 to be dynamic.
     }
 
     /**

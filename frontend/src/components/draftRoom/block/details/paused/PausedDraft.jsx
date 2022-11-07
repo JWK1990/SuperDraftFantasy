@@ -16,7 +16,7 @@ function PausedBlock(props) {
     return (
         <div className={classes.pausedBlockRootDiv}>
             <Typography variant="h5" align="center" color="textPrimary">
-                {props.commissionerTeamName} has paused the Draft.
+                {props.commissionerTeamName} have paused the Draft.
             </Typography>
             <Typography variant="subtitle1" align="center" color="textSecondary">
                 Waiting for them to restart....

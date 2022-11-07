@@ -45,12 +45,13 @@ public class BlockService {
 
     public void startNextRound(BlockDto blockDto, boolean otbUpdateRequired) {
         System.out.println("Start Next Round.");
+        futuresScheduler.stopScheduledFutures(blockDto.getDraftId());
 
         Long onTheBlockTeamId = getOnTheBlockTeamId(blockDto.getDraftId(), otbUpdateRequired);
         blockDto.setOnTheBlockTeamId(onTheBlockTeamId);
 
-        Long userEndTime = Instant.now().plusSeconds(blockDto.getOnTheBlockTimer() - 1).toEpochMilli();
-        Long endTime = Instant.now().plusSeconds(blockDto.getOnTheBlockTimer()).toEpochMilli();
+        Long userEndTime = Instant.now().plusSeconds(blockDto.getOnTheBlockTimer()).toEpochMilli();
+        Long endTime = Instant.now().plusSeconds(blockDto.getOnTheBlockTimer() + 2).toEpochMilli();
         blockDto.setEndTime(endTime);
         blockDto.setUserEndTime(userEndTime);
 
@@ -89,8 +90,8 @@ public class BlockService {
         futuresScheduler.stopScheduledFutures(blockDto.getDraftId());
 
         // Set end time for current Bid.
-        Long userEndTime = Instant.now().plusSeconds(blockDto.getBidTimer() - 1).toEpochMilli();
-        Long endTime = Instant.now().plusSeconds(blockDto.getBidTimer()).toEpochMilli();
+        Long userEndTime = Instant.now().plusSeconds(blockDto.getBidTimer()).toEpochMilli();
+        Long endTime = Instant.now().plusSeconds(blockDto.getBidTimer() + 2).toEpochMilli();
         blockDto.setEndTime(endTime);
         blockDto.setUserEndTime(userEndTime);
 
