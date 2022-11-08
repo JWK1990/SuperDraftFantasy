@@ -23,11 +23,13 @@ const styles = () => ({
         display: "grid",
         alignItems: "center",
         justifyContent: "center",
+        borderBottom: "solid 1px lightgrey"
     },
     leftAlign: {
         display: "grid",
         alignItems: "center",
         justifyContent: "left",
+        borderBottom: "solid 1px lightgrey"
     },
     isDrafted: {
         backgroundColor: "rgba(220, 220, 220, 0.75)",
@@ -118,7 +120,7 @@ class PlayerRow extends React.Component {
               key={this.props.player.id}
               style={this.props.sizingStyle}
               className={[this.props.player.price ? classes.isDrafted : '', classes.playerContainer].join(' ')}>
-                <Grid item xs={1} >
+                <Grid item xs={1} style={{borderBottom: "solid 1px lightgrey"}}>
                     <Checkbox
                         color={"primary"}
                         onChange={(event) => this.props.triggerWatchlistChange(this.props.player.id)}

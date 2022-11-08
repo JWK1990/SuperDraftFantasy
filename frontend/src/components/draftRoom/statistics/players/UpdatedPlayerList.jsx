@@ -120,7 +120,12 @@ export default function UpdatedPlayerList({
                       style={{height: "var(--draft-room-player-list-height)"}}
                       ref={containerRef}
                 >
-                    <Grid container item style={{paddingRight: "15.33px", height: rowHeight}}>
+                    <Grid container item style={{
+                        paddingRight: "15.33px",
+                        height: rowHeight,
+                        borderBottom: "solid 1px grey",
+                        borderTop: "solid 1px grey"
+                    }}>
                         <Grid item xs={1} className={[classes.centerAlign, classes.header].join(' ')}>&nbsp;</Grid>
                         <Grid item xs={3} className={[classes.leftAlign, classes.header].join(' ')}>Name</Grid>
                         <Grid item xs={1} className={[classes.leftAlign, classes.header].join(' ')}>Team</Grid>
