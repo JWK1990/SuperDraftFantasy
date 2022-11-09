@@ -11,11 +11,20 @@ import {changeCurrentTabAction} from "../../store/actions/NavigationActions";
 import {connect} from "react-redux";
 import JoinDraft from "../joinDraft/JoinDraft";
 import {Redirect} from 'react-router-dom';
+import About from "../about/About";
+import SDBackground from "../../images/SDBackground.png";
 
 const styles = theme => ({
-  root: {
-    backgroundColor: theme.palette.background.paper,
-  },
+    root: {
+        backgroundColor: theme.palette.background.paper,
+        height: "100%",
+    },
+    navbar: {
+        backgroundColor: "rgb(237, 114, 219)",
+    },
+    logoBar: {
+        textAlign: "center"
+    },
 });
 
 class AuthenticatedNavbar extends React.Component {
@@ -28,7 +37,7 @@ class AuthenticatedNavbar extends React.Component {
         }
     }
 
-    tabs = ["Create Draft", "Join Draft", "My Drafts"];
+    tabs = ["About", "Create Draft", "Join Draft", "My Drafts", "Logout"];
 
     componentDidMount() {
         this.props.changeCurrentTab(this.tabs[this.state.currentIndex]);
@@ -44,7 +53,7 @@ class AuthenticatedNavbar extends React.Component {
     }
 
     handleChange = (event, newValue) => {
-        if(newValue === 3) {
+        if(newValue === 4) {
             event.preventDefault();
             this.setState({redirectPath: `/logout`})
         } else {
@@ -78,23 +87,33 @@ class AuthenticatedNavbar extends React.Component {
                 <Tabs
                     value={this.state.currentIndex}
                     onChange={this.handleChange}
+                    className={classes.navbar}
                     indicatorColor="primary"
                     textColor="primary"
                     centered
                 >
-                    <Tab label="Create Draft"/>
-                    <Tab label="Join Draft"/>
-                    <Tab label="My Drafts"/>
-                    <Tab label="Logout" style={{fontWeight: "bold"}}/>
+                    <Tab label="About" style={{color: "#154670"}}/>
+                    <Tab label="Create Draft" style={{color: "#154670"}}/>
+                    <Tab label="Join Draft" style={{color: "#154670"}}/>
+                    <Tab label="My Drafts" style={{color: "#154670"}}/>
+                    <Tab label="Logout" style={{position: "absolute", right: 0, color: "#154670"}}/>
                 </Tabs>
+                <div className={classes.logoBar}>
+                    <img
+                        src={SDBackground}
+                        alt={"SDBackground"}
+                        style={{maxWidth: "100%", maxHeight: "100%"}}
+                    ></img>
+                </div>
                 <SwipeableViews
                     axis={classes.direction === 'rtl' ? 'x-reverse' : 'x'}
                     index={this.state.currentIndex}
                     onChangeIndex={this.handleChangeIndex}
                 >
-                    <CreateDraft value={this.state.currentIndex} index={0} dir={classes.direction}/>
-                    <JoinDraft value={this.state.currentIndex} index={1} dir={classes.direction}/>
-                    <MyDrafts value={this.state.currentIndex} index={2} dir={classes.direction}/>
+                    <About value={this.state.currentIndex} index={0} dir={classes.direction} />
+                    <CreateDraft value={this.state.currentIndex} index={1} dir={classes.direction}/>
+                    <JoinDraft value={this.state.currentIndex} index={2} dir={classes.direction}/>
+                    <MyDrafts value={this.state.currentIndex} index={3} dir={classes.direction}/>
                     <></>
                 </SwipeableViews>
             </Paper>
