@@ -1,12 +1,9 @@
 import React from 'react'
-import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
-import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import {MenuItem, Slider} from "@material-ui/core";
@@ -86,6 +83,8 @@ class Form extends React.Component {
             }
             if(FieldComponentType === Slider) {
                 field.properties['onChange'] = (e, value, id) => this.onSliderChange(e, value, field.properties.id);
+                field.properties['valueLabelDisplay'] = "auto";
+                field.properties['valueLabelFormat'] = (value) => value + "s";
             }
             return fields.push(
                 <Grid item xs={field.width} key={field.properties.id}>
@@ -118,35 +117,36 @@ class Form extends React.Component {
         })
 
         return (
-            <Container component="main" maxWidth="xs">
+            <Container component="main" maxWidth="xs" style={{paddingTop: 20}}>
                 <CssBaseline />
                 <div className="paper">
-                    <Avatar className="avatar">
-                        <LockOutlinedIcon />
-                    </Avatar>
                     <Typography component="h1" variant="h5">
                         {this.state.formDetails.title}
                     </Typography>
-                    <form className="form">
+                    <form className="form" style={{paddingTop: 20}}>
                         <Grid container spacing={2}>
                             {fields}
                         </Grid>
-                        <Button
-                            type="submit"
-                            variant="contained"
-                            color="primary"
-                            className="submit"
-                            fullWidth
-                            onClick={this.onSubmit}
-                            disabled={!this.state.formDetails.isValidForSubmit}
-                        >
-                            {this.state.formDetails.submitText}
-                        </Button>
+                        <Grid container style={{paddingTop: 20}}>
+                            <Button
+                                type="submit"
+                                variant="contained"
+                                color="primary"
+                                className="submit"
+                                fullWidth
+                                onClick={this.onSubmit}
+                                disabled={!this.state.formDetails.isValidForSubmit}
+                            >
+                                {this.state.formDetails.submitText}
+                            </Button>
+                        </Grid>
                         <Grid container justify="flex-end">
                             <Grid item>
+                                {/*
                                 <Link href={this.state.formDetails.additionalTextLink} variant="body2">
                                     {this.state.formDetails.additionalText}
                                 </Link>
+                                */}
                             </Grid>
                         </Grid>
                     </form>
