@@ -10,8 +10,8 @@ class Login extends React.Component {
   formDetails = {
     title: "Login",
     submitText: "Login",
-    additionalText: "Already have an account? Sign in.",
-    additionalTextLink: "/draftRoom",
+    additionalText: "Don't have an account? Click here to register.",
+    additionalTextLink: "/signup",
     isValidForSubmit: false,
     fields: [
       {
@@ -31,6 +31,7 @@ class Login extends React.Component {
           label: "Password",
           required: true,
           value: "",
+          type:"password"
         },
         width: 12,
       },
@@ -46,10 +47,7 @@ class Login extends React.Component {
   }
 
   render() {
-    return <Form
-        formDetails={this.formDetails}
-        onSubmit={this.login}
-    />
+    return <Form formDetails={this.formDetails} onSubmit={this.login}/>
   }
 
 }
