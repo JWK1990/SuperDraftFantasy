@@ -24,6 +24,7 @@ const useStyles = makeStyles((theme) => ({
         // This reduces the empty vertical space between the cards.
         display: 'flex',
         height: "100%",
+        backgroundColor: "rgba(109, 130, 153, 0.2)"
     },
     // TODO: Work out how to have images stretch to 100% of the Grid Item height whilst inside the Button.
     teamLogo: {
@@ -98,7 +99,7 @@ function TeamCardV2(props) {
     return (
         <MuiThemeProvider theme={theme}>
             <Grid item xs={12} className={classes.gridItem}>
-                <Paper elevation={3}
+                <Paper elevation={1}
                        className={[
                            classes.root,
                            props.isSelected ? classes.selected : '',

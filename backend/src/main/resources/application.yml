@@ -1,6 +1,6 @@
 spring:
   profiles:
-    active: @activatedProperties@
+    active: dev
   flyway:
     locations: classpath:/db/migration,classpath:/db/afterMigrate,classpath:/db/migrationTestData
   jpa:

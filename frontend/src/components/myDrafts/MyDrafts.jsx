@@ -99,7 +99,7 @@ class MyDrafts extends React.Component {
         }
 
         return (
-            <Container component="main">
+            <Container component="main" style={{paddingTop: 20}}>
                 <TableContainer component={Paper}>
                     <Table aria-label="My Drafts Table">
                         <TableHead>

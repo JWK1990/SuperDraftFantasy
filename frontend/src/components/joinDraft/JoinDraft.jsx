@@ -25,6 +25,7 @@ class JoinDraft extends React.Component {
                 },
                 width: 12,
             },
+            /*
             {
                 componentType: TextField,
                 properties: {
@@ -32,9 +33,11 @@ class JoinDraft extends React.Component {
                     label: "Draft Password",
                     required: false,
                     value: "",
+                    type: "password"
                 },
                 width: 12,
             },
+            */
             {
                 componentType: TextField,
                 properties: {
@@ -57,10 +60,7 @@ class JoinDraft extends React.Component {
     }
 
     render() {
-        return <Form
-            formDetails={this.formDetails}
-            onSubmit={this.joinDraft}
-        />
+        return <Form formDetails={this.formDetails} onSubmit={this.joinDraft}/>
     }
 
 }

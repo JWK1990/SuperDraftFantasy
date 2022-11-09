@@ -12,14 +12,14 @@
     --highlight-color: greenyellow;
     --hover-color: lightblue;
     --disabled-color: #EEE;
-    --def-color-primary: rgb(255, 0, 0); /* Red. */
-    --def-color-secondary: rgb(255, 207, 187); /* Light Salmon. */
-    --mid-color-primary: rgb(0, 0, 255); /* Blue. */
-    --mid-color-secondary: rgb(173, 216, 230); /* Light Blue. */
-    --ruc-color-primary: rgb(255, 255, 0); /* Yellow. */
-    --ruc-color-secondary: rgb(255, 255, 224); /* Light Yellow. */
-    --fwd-color-primary: rgb(0, 128, 0); /* Green. */
-    --fwd-color-secondary: rgb(144, 238, 144); /* Light Green. */
+    --def-color-primary: rgba(90,91,159, 1);
+    --def-color-secondary: rgb(255, 207, 187);
+    --mid-color-primary: rgba(0,123,167, 1);
+    --mid-color-secondary: rgb(173, 216, 230);
+    --ruc-color-primary: rgba(255,111,97, 1);
+    --ruc-color-secondary: rgb(255, 255, 224);
+    --fwd-color-primary: rgba(0,148,115, 1);
+    --fwd-color-secondary: rgb(144, 238, 144);
 
     /* Text Colors. */
     --text-black: rgba(0, 0, 0, 0.87);

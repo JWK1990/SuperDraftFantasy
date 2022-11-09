@@ -86,7 +86,12 @@ class DraftRoom extends React.Component {
         return (
             <MuiThemeProvider theme={theme}>
                 <Grid container spacing={1} className={classes.rootContainer}>
-                    <Grid container item xs={2} style={{height: "100%", maxHeight: "100vh", overflow: "auto"}}>
+                    <Grid container item xs={2} style={{
+                        height: "100%",
+                        maxHeight: "100vh",
+                        overflow: "auto",
+                        backgroundColor: "rgba(109, 130, 153, 0.2)"
+                    }}>
                         <Grid item xs={12}>
                             <DraftDetailsContainer />
                         </Grid>

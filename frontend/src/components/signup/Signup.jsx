@@ -8,10 +8,10 @@ import FormUtils from "../../utils/FormUtils";
 class Signup extends React.Component {
 
     formDetails = {
-        title: "Signup",
-        submitText: "Signup",
-        additionalText: "Already have an account? Sign in",
-        additionalTextLink: "/draftRoom",
+        title: "Registration",
+        submitText: "Register",
+        additionalText: "Already have an account? Click here to log in.",
+        additionalTextLink: "/login",
         isValidForSubmit: false,
         fields: [
             {
@@ -79,10 +79,7 @@ class Signup extends React.Component {
   }
 
   render() {
-    return <Form
-        formDetails={this.formDetails}
-        onSubmit={this.saveUser}
-    />
+    return <Form formDetails={this.formDetails} onSubmit={this.saveUser}/>
   }
 
 }
