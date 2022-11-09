@@ -10,6 +10,7 @@ import {currentTabSelector} from "../../store/selectors/NavigationSelectors";
 import {changeCurrentTabAction} from "../../store/actions/NavigationActions";
 import {connect} from "react-redux";
 import JoinDraft from "../joinDraft/JoinDraft";
+import {Redirect} from 'react-router-dom';
 
 const styles = theme => ({
   root: {
@@ -23,6 +24,7 @@ class AuthenticatedNavbar extends React.Component {
         super(props);
         this.state = {
             currentIndex: 0,
+            redirectPath: null,
         }
     }
 
@@ -42,9 +44,14 @@ class AuthenticatedNavbar extends React.Component {
     }
 
     handleChange = (event, newValue) => {
-        this.setState({currentIndex: newValue});
-        if(newValue !== this.state.currentIndex) {
-            this.props.changeCurrentTab(this.tabs[newValue]);
+        if(newValue === 3) {
+            event.preventDefault();
+            this.setState({redirectPath: `/logout`})
+        } else {
+            this.setState({currentIndex: newValue});
+            if(newValue !== this.state.currentIndex) {
+                this.props.changeCurrentTab(this.tabs[newValue]);
+            }
         }
     };
 
@@ -55,7 +62,16 @@ class AuthenticatedNavbar extends React.Component {
         }
     };
 
+    logout = () => {
+        return <Redirect  to="/logout" />;
+    }
+
   render() {
+
+      if(this.state.redirectPath) {
+          return <Redirect to={this.state.redirectPath}  />
+      }
+
       const {classes} = this.props;
         return (
             <Paper className={classes.root}>
@@ -69,6 +85,7 @@ class AuthenticatedNavbar extends React.Component {
                     <Tab label="Create Draft"/>
                     <Tab label="Join Draft"/>
                     <Tab label="My Drafts"/>
+                    <Tab label="Logout" style={{fontWeight: "bold"}}/>
                 </Tabs>
                 <SwipeableViews
                     axis={classes.direction === 'rtl' ? 'x-reverse' : 'x'}
@@ -78,6 +95,7 @@ class AuthenticatedNavbar extends React.Component {
                     <CreateDraft value={this.state.currentIndex} index={0} dir={classes.direction}/>
                     <JoinDraft value={this.state.currentIndex} index={1} dir={classes.direction}/>
                     <MyDrafts value={this.state.currentIndex} index={2} dir={classes.direction}/>
+                    <></>
                 </SwipeableViews>
             </Paper>
         );
