@@ -24,6 +24,10 @@
     /* Text Colors. */
     --text-black: rgba(0, 0, 0, 0.87);
 
+    /* Navbar Colors. */
+    --navbar-pink: rgb(237, 114, 219);
+    --navbar-blue: rgb(63, 81, 181);
+
     /* Team Colours. */
     --team-one: #6217f4;
     --team-two: #316bbd;
