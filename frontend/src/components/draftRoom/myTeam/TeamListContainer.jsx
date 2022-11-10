@@ -1,6 +1,6 @@
 import React from "react";
 import withStyles from "@material-ui/core/styles/withStyles";
-import {draftTeamSelector} from "../../../store/selectors/DraftSelectors";
+import {draftRosterSelector, draftTeamSelector} from "../../../store/selectors/DraftSelectors";
 import {stompClientSelector} from "../../../store/selectors/WebSocketSelectors";
 import {connect} from "react-redux";
 import MyTeamList from "./MyTeamList";
@@ -11,9 +11,9 @@ const styles = {
     },
 }
 
-const buildFieldLayout = () => {
+const buildFieldLayout = (defSlots, midSlots, rucSlots, fwdSlots, benchSlots) => {
     let fieldLayout = [];
-    for(let i= 0; i < 5; i++) {
+    for(let i= 0; i < defSlots; i++) {
         let defSlot = {
             id: "DEF" + i,
             player: null,
@@ -23,7 +23,7 @@ const buildFieldLayout = () => {
         }
         fieldLayout.push(defSlot);
     }
-    for(let i= 0; i < 7; i++) {
+    for(let i= 0; i < midSlots; i++) {
         let midSlot = {
             id: "MID" + i,
             player: null,
@@ -33,7 +33,7 @@ const buildFieldLayout = () => {
         }
         fieldLayout.push(midSlot);
     }
-    for(let i= 0; i < 1; i++) {
+    for(let i= 0; i < rucSlots; i++) {
         let rucSlot = {
             id: "RUC" + i,
             player: null,
@@ -43,7 +43,7 @@ const buildFieldLayout = () => {
         }
         fieldLayout.push(rucSlot);
     }
-    for(let i= 0; i < 5; i++) {
+    for(let i= 0; i < fwdSlots; i++) {
         let fwdSlot = {
             id: "FWD" + i,
             player: null,
@@ -53,7 +53,7 @@ const buildFieldLayout = () => {
         }
         fieldLayout.push(fwdSlot);
     }
-    for(let i= 0; i < 4; i++) {
+    for(let i= 0; i < benchSlots; i++) {
         let benchSlot = {
             id: "BENCH" + i,
             player: null,
@@ -67,8 +67,6 @@ const buildFieldLayout = () => {
 }
 
 class TeamListContainer extends React.Component {
-
-    fieldLayout = buildFieldLayout();
 
     constructor(props) {
         super(props);
@@ -90,7 +88,13 @@ class TeamListContainer extends React.Component {
     };
 
     buildMyTeamList = (teamPlayerJoins) => {
-        const fieldLayout = buildFieldLayout();
+        const fieldLayout = buildFieldLayout(
+            this.props.roster.def,
+            this.props.roster.mid,
+            this.props.roster.ruc,
+            this.props.roster.fwd,
+            this.props.roster.bench,
+        );
         teamPlayerJoins.forEach(teamPlayerJoin => {
             this.addPlayerToMyTeamList(
                 fieldLayout,
@@ -126,6 +130,7 @@ const mapStateToProps = (state, props) => {
     return {
         stompClient: stompClientSelector(state),
         team: draftTeamSelector(state, props.teamId),
+        roster: draftRosterSelector(state),
     };
 };
 
