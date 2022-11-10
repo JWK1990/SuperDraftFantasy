@@ -17,7 +17,7 @@ export const createDraftAction = (draft) => {
                 dispatch(createDraftSuccessAction(res.data));
                 dispatch(getMyDraftsAction());
                 dispatch(changeCurrentTabAction(
-                    NavigationUtils.navigationTabs.authenticatedNavbar.myDrafts
+                    NavigationUtils.navigationTabs.myDrafts
                 ));
             })
             .catch(err => {
@@ -91,7 +91,7 @@ export const joinDraftAction = (draftId, joinDraftWriteDto) => {
                 dispatch(joinDraftSuccessAction(res.data))
                 dispatch(getMyDraftsAction());
                 dispatch(changeCurrentTabAction(
-                    NavigationUtils.navigationTabs.authenticatedNavbar.myDrafts
+                    NavigationUtils.navigationTabs.myDrafts
                 ));
             })
             .catch(err => {

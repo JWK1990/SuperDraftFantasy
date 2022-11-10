@@ -5,6 +5,8 @@ import Form from "../form/Form";
 import TextField from "@material-ui/core/TextField";
 import {Slider} from "@material-ui/core";
 import FormUtils from "../../utils/FormUtils";
+import {currentTabSelector} from "../../store/selectors/NavigationSelectors";
+import {Redirect} from "react-router-dom";
 
 class CreateDraft extends React.Component {
 
@@ -142,16 +144,22 @@ class CreateDraft extends React.Component {
     }
 
     render() {
-        return <Form
-            formDetails={this.formDetails}
-            onSubmit={this.createDraft}
-        />
+        if(this.props.currentRoute === "/myDrafts") {
+            return <Redirect to={"/myDrafts"} />
+        }
+        return <Form formDetails={this.formDetails} onSubmit={this.createDraft}/>
     }
 
 }
+
+const mapStateToProps = state => {
+    return {
+        currentRoute: currentTabSelector(state),
+    };
+};
 
 const mapDispatchToProps = dispatch => ({
     createDraft: (draft) => dispatch(createDraftAction(draft))
 });
 
-export default connect(null, mapDispatchToProps)(CreateDraft);
+export default connect(mapStateToProps, mapDispatchToProps)(CreateDraft);
