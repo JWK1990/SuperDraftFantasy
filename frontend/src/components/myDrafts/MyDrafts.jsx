@@ -3,7 +3,6 @@ import Container from "@material-ui/core/Container";
 import {connect} from "react-redux";
 import {myDraftsSelector} from "../../store/selectors/DraftSelectors";
 import {getMyDraftsAction} from "../../store/actions";
-import {Redirect} from "react-router-dom";
 import CsvParserUtils from "../../utils/CsvParserUtils";
 import Button from "@material-ui/core/Button";
 import ImportedPlayerListUtils from "../../utils/ImportedPlayerListUtils";
@@ -18,7 +17,6 @@ class MyDrafts extends React.Component {
         super(props);
         this.state = {
             selectedDraft: '',
-            redirectPath: null,
             isUploading: false,
         };
     }
@@ -86,14 +84,10 @@ class MyDrafts extends React.Component {
     }
 
     openDraft(draftId) {
-        this.setState({redirectPath: `/draftRoom?id=${draftId}`})
+        window.open(`/draftRoom?id=${draftId}`);
     }
 
     render() {
-        if(this.state.redirectPath) {
-            return <Redirect to={this.state.redirectPath}  />
-        }
-
         if(!this.props.myDrafts) {
             return null;
         }
