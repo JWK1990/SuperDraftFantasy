@@ -9,6 +9,7 @@ import {connect} from "react-redux";
 import {draftTeamSelector} from "../../../store/selectors/DraftSelectors";
 import TeamLogoFetcher from "../../shared/imageFetchers/TeamLogoFetcher";
 import {leadBidderTeamIdSelector, onTheBlockTeamIdSelector} from "../../../store/selectors/BlockSelectors";
+import Box from "@material-ui/core/Box";
 
 const theme = createMuiTheme({
     typography: {
@@ -24,7 +25,13 @@ const useStyles = makeStyles((theme) => ({
         // This reduces the empty vertical space between the cards.
         display: 'flex',
         height: "100%",
-        backgroundColor: "rgba(109, 130, 153, 0.1)"
+        backgroundColor: "rgba(109, 130, 153, 0.2)"
+    },
+    emptySlot: {
+        display: 'flex',
+        width: "100%",
+        backgroundColor: "lightgrey",
+        border: "dashed 1px grey"
     },
     // TODO: Work out how to have images stretch to 100% of the Grid Item height whilst inside the Button.
     teamLogo: {
@@ -84,15 +91,17 @@ const useStyles = makeStyles((theme) => ({
     },
     onTheBlock: {
         backgroundColor: "rgba(252, 209, 22, 0.5)",
-    }
+    },
 }));
 
 function TeamCardV2(props) {
 
     const classes = useStyles();
 
-    if(props.team === "VACANT") {
-        return <Paper elevation={3} className={classes.root}> &nbsp; </Paper>
+    if(props.team == null) {
+        return <Paper elevation={3} className={classes.emptySlot}>
+            <Box margin={"auto"}>VACANT</Box>
+        </Paper>
     }
 
     const teamLogo = TeamLogoFetcher.getTeamLogo(props.team.id);
@@ -118,14 +127,17 @@ function TeamCardV2(props) {
                     >
                         <Grid container spacing={1} alignItems={"center"}>
                                 <Grid item xs={1} className={classes.teamLogo}>
-                                    {teamLogo == null
-                                        ? <></>
-                                        : <img
-                                            className={classes.teamLogo}
-                                            src={teamLogo}
-                                            title={"Team Logo"}
-                                            alt={"Team Logo"}
-                                        />
+                                    {
+                                        teamLogo == null
+                                            ? <></>
+                                            : (
+                                                <img
+                                                    className={classes.teamLogo}
+                                                    src={TeamLogoFetcher.getTeamLogo(props.team.id)}
+                                                    title={"Team Logo"}
+                                                    alt={"Team Logo"}
+                                                />
+                                            )
                                     }
                                 </Grid>
                                 <Grid item xs={8}>
