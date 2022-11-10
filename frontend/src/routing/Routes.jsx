@@ -31,7 +31,11 @@ class Routes extends React.Component {
     render() {
         return (
             <Router>
-                <Navbar links={this.props.isAuthenticated ? this.authenticatedLinks : this.unauthenticatedLinks} />
+                <Navbar
+                    links={this.props.isAuthenticated ? this.authenticatedLinks : this.unauthenticatedLinks}
+                    textColor={this.props.isAuthenticated ? "var(--navbar-blue)" : "var(--navbar-pink)"}
+                    backgroundColor={this.props.isAuthenticated ? "var(--navbar-pink)" : "var(--navbar-blue)"}
+                />
                 <Route exact path="/" component={Home} />
                 <Route path="/register" component={Signup} />
                 <Route path="/login" component={Login} />

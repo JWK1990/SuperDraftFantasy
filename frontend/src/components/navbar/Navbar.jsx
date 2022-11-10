@@ -12,17 +12,14 @@ const useStyles = makeStyles((theme) => ({
     logo: {
         flexGrow: "1",
         cursor: "pointer",
-        color: "var(--navbar-pink)",
         fontWeight: "bold",
     },
     link: {
         textDecoration: "none",
-        color: "var(--navbar-pink)",
         fontSize: "20px",
         marginLeft: theme.spacing(20),
         "&:hover": {
-            color: "yellow",
-            borderBottom: "1px solid white",
+            borderBottom: "2px solid white",
         },
     },
     logoBar: {
@@ -41,10 +38,14 @@ export default function Navbar(props) {
     }
 
     return (
-        <AppBar position="static">
+        <AppBar position="static" style={{backgroundColor: `${props.backgroundColor}`}}>
             <CssBaseline />
             <Toolbar>
-                <Typography variant="h5" className={classes.logo}>
+                <Typography
+                    variant="h5"
+                    className={classes.logo}
+                    style={{color: `${props.textColor}`}}
+                >
                     SUPERDRAFT
                 </Typography>
                 {isMobile ? (
@@ -53,7 +54,14 @@ export default function Navbar(props) {
                     <div className={classes.navlinks}>
                         {
                             props.links.map((link, index) => {
-                                return <Link to={link.to} className={classes.link} key={index}>{link.text}</Link>
+                                return <Link
+                                    to={link.to}
+                                    className={classes.link}
+                                    key={index}
+                                    style={{color: `${props.textColor}`}}
+                                >
+                                    {link.text}
+                                </Link>
                             })
                         }
                     </div>
