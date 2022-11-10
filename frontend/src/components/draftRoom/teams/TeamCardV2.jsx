@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
         // This reduces the empty vertical space between the cards.
         display: 'flex',
         height: "100%",
-        backgroundColor: "rgba(109, 130, 153, 0.2)"
+        backgroundColor: "rgba(109, 130, 153, 0.1)"
     },
     // TODO: Work out how to have images stretch to 100% of the Grid Item height whilst inside the Button.
     teamLogo: {
@@ -95,6 +95,8 @@ function TeamCardV2(props) {
         return <Paper elevation={3} className={classes.root}> &nbsp; </Paper>
     }
 
+    const teamLogo = TeamLogoFetcher.getTeamLogo(props.team.id);
+
     // TODO: Add ellipsis to text that goes too wide.
     return (
         <MuiThemeProvider theme={theme}>
@@ -116,12 +118,15 @@ function TeamCardV2(props) {
                     >
                         <Grid container spacing={1} alignItems={"center"}>
                                 <Grid item xs={1} className={classes.teamLogo}>
-                                    <img
-                                        className={classes.teamLogo}
-                                        src={TeamLogoFetcher.getTeamLogo(props.team.id)}
-                                        title={"Team Logo"}
-                                        alt={"Team Logo"}
-                                    />
+                                    {teamLogo == null
+                                        ? <></>
+                                        : <img
+                                            className={classes.teamLogo}
+                                            src={teamLogo}
+                                            title={"Team Logo"}
+                                            alt={"Team Logo"}
+                                        />
+                                    }
                                 </Grid>
                                 <Grid item xs={8}>
                                     <Typography className={classes.teamName}>
