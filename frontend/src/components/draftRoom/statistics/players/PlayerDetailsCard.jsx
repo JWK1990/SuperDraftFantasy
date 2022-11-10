@@ -41,7 +41,6 @@ class PlayerDetailsCard extends React.Component {
             return null;
         }
 
-        console.log(this.props.player);
         return (
             <Grid container component={Paper} elevation={5} className={[classes.container, this.props.areDetailsHidden ? classes.hidden : ''].join(' ')}>
                 {/* Row 1. */}
