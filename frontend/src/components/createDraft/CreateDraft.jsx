@@ -70,12 +70,14 @@ class CreateDraft extends React.Component {
                     id: "rosterType",
                     label: "Roster Type",
                     required: true,
-                    value: "57154",
+                    value: "5D - 7M - 1R - 5F - 4B",
                     select: true,
                     options: [
-                        {key: "5-7-1-5-4", value: "57154"},
-                        {key: "1-1-1-1-1", value: "11111"},
-                        {key: "2-2-2-2-2", value: "22222"},
+                        {key: "5-7-1-5-4", value: "5D - 7M - 1R - 5F - 4B"},
+                        {key: "4-6-1-4-4", value: "4D - 6M - 1R - 4F - 4B"},
+                        {key: "3-5-1-3-2", value: "3D - 5M - 1R - 3F - 2B"},
+                        {key: "2-3-1-2-2", value: "2D - 3M - 1R - 2F - 2B"},
+                        {key: "1-1-1-1-4", value: "1D - 1M - 1R - 1F - 4B"},
                     ]
                 },
                 width: 12,
