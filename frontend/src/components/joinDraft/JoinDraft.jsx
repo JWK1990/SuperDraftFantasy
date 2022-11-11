@@ -4,6 +4,8 @@ import {joinDraftAction} from "../../store/actions";
 import Form from "../form/Form";
 import TextField from "@material-ui/core/TextField";
 import FormUtils from "../../utils/FormUtils";
+import {currentTabSelector} from "../../store/selectors/NavigationSelectors";
+import {Redirect} from "react-router-dom";
 
 class JoinDraft extends React.Component {
 
@@ -60,13 +62,22 @@ class JoinDraft extends React.Component {
     }
 
     render() {
+        if(this.props.currentRoute === "/myDrafts") {
+            return <Redirect to={"/myDrafts"} />
+        }
         return <Form formDetails={this.formDetails} onSubmit={this.joinDraft}/>
     }
 
 }
 
+const mapStateToProps = state => {
+    return {
+        currentRoute: currentTabSelector(state),
+    };
+};
+
 const mapDispatchToProps = dispatch => ({
     joinDraft: (draftId, joinDraftWriteDto) => dispatch(joinDraftAction(draftId, joinDraftWriteDto))
 });
 
-export default connect(null, mapDispatchToProps)(JoinDraft);
+export default connect(mapStateToProps, mapDispatchToProps)(JoinDraft);
