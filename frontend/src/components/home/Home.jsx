@@ -2,6 +2,7 @@ import React from "react";
 import Typography from "@material-ui/core/Typography";
 import CardContent from "@material-ui/core/CardContent";
 import Card from "@material-ui/core/Card";
+import {CardActions} from "@material-ui/core";
 
 export default function Home() {
 
@@ -15,15 +16,13 @@ export default function Home() {
                         Create your draft, invite your league, buy your team!
                     </Typography>
                 </CardContent>
-            {/*
-            <CardActions style={{justifyContent: "center"}}>
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/H5v3kku4y6Q?controls=0"
-                        title="YouTube video player" frameBorder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen
-                />
-            </CardActions>
-            */}
+                <CardActions style={{justifyContent: "center"}}>
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/tleOC3_IDjs?controls=0"
+                            title="YouTube video player" frameBorder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowFullScreen
+                    />
+                </CardActions>
         </Card>
     )
 
