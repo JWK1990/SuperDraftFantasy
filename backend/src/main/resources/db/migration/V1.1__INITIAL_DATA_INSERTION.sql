@@ -12,8 +12,11 @@ INSERT INTO role_privilege_join(role_id, privilege_id)
             (2, 2);
 
 INSERT INTO roster_entity(id, type, def, mid, ruc, fwd, bench)
-    VALUES (1, '57154', 5, 7, 1, 5, 4),
-           (2, '22222', 2, 2, 2, 2, 2);
+    VALUES (1, '5D - 7M - 1R - 5F - 4B', 5, 7, 1, 5, 4),
+           (2, '4D - 6M - 1R - 4F - 4B', 4, 6, 1, 4, 4),
+           (3, '3D - 5M - 1R - 3F - 2B', 3, 5, 1, 3, 2),
+           (4, '2D - 3M - 1R - 2F - 2B', 2, 3, 1, 2, 2),
+           (5, '1D - 1M - 1R - 1F - 4B', 1, 1, 1, 1, 4);
 
 INSERT INTO draft_status_enum(id, status)
     VALUES (0, 'IN_SETUP'),

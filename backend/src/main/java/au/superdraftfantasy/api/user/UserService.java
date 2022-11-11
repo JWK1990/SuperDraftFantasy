@@ -1,6 +1,7 @@
 package au.superdraftfantasy.api.user;
 
 import au.superdraftfantasy.api.configuration.security.AuthenticatedUserReadDto;
+import au.superdraftfantasy.api.draft.DraftService;
 import au.superdraftfantasy.api.role.RoleEntity;
 import au.superdraftfantasy.api.role.RoleRepository;
 import au.superdraftfantasy.api.role.RoleTypeEnum;
@@ -24,12 +25,20 @@ public class UserService {
     private final ModelMapper modelMapper;
     private final UserRepository userRepository;
     private final RoleRepository roleRepository;
+    private final DraftService draftService;
 
-    public UserService(BCryptPasswordEncoder bCryptPasswordEncoder, ModelMapper modelMapper, UserRepository userRepository, RoleRepository roleRepository) {
+    public UserService(
+            BCryptPasswordEncoder bCryptPasswordEncoder,
+            ModelMapper modelMapper,
+            UserRepository userRepository,
+            RoleRepository roleRepository,
+            DraftService draftService
+    ) {
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
         this.modelMapper = modelMapper;
         this.userRepository = userRepository;
         this.roleRepository = roleRepository;
+        this.draftService = draftService;
     }
 
     /**
@@ -41,6 +50,8 @@ public class UserService {
         UserEntity user = convertToEntity(userWriteDto);
         checkUserValidity(user);
         userRepository.save(user);
+        // Create an initial preview draft for the new user.
+        draftService.createPreviewDraft(user);
         return modelMapper.map(user, UserReadDto.class);
     }
 

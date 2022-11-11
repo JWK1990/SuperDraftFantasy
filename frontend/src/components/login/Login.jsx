@@ -4,6 +4,8 @@ import {loginAction} from "../../store/actions";
 import Form from "../form/Form";
 import TextField from "@material-ui/core/TextField";
 import FormUtils from "../../utils/FormUtils";
+import {userAuthenticatedSelector} from "../../store/selectors/UserSelectors";
+import {Redirect} from "react-router-dom";
 
 class Login extends React.Component {
 
@@ -47,13 +49,22 @@ class Login extends React.Component {
   }
 
   render() {
+    if(this.props.isAuthenticated) {
+      return <Redirect to={"/myDrafts"} />
+    }
     return <Form formDetails={this.formDetails} onSubmit={this.login}/>
   }
 
 }
 
+const mapStateToProps = state => {
+  return {
+    isAuthenticated: userAuthenticatedSelector(state)
+  };
+};
+
 const mapDispatchToProps = dispatch => ({
   login: (credentials) => dispatch(loginAction(credentials))
 });
 
-export default connect(null, mapDispatchToProps)(Login);
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

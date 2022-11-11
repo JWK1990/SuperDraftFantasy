@@ -19,9 +19,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 import javax.transaction.Transactional;
 import javax.validation.constraints.NotBlank;
-import java.util.Collections;
-import java.util.List;
-import java.util.NoSuchElementException;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
@@ -57,9 +55,37 @@ public class DraftService {
             @NotBlank final Authentication authentication
     ) {
         DraftEntity draft = convertToEntity(writeDto);
-        checkDraftValidity(draft);
         UserEntity user = getCurrentUser(authentication);
         TeamEntity commissionersTeam = createTeam(draft, user, true, writeDto.getTeamName());
+        draft.getTeams().add(commissionersTeam);
+        return draftRepository.save(draft).getId();
+    }
+
+    public Long createPreviewDraft(UserEntity user) {
+        String rosterType = "1D - 1M - 1R - 1F - 4B";
+        RosterEntity roster = rosterRepository.findByType(rosterType)
+                .orElseThrow(() -> new ResponseStatusException(
+                        HttpStatus.NOT_FOUND, "RosterType '" + rosterType + "' not found.")
+                );
+        DraftEntity draft = new DraftEntity(
+                null,
+                "Preview Draft",
+                1L,
+                roster,
+                8L,
+                30L,
+                20L,
+                new ArrayList<>(),
+                DraftStatusEnum.READY,
+                null,
+                null
+        );
+        TeamEntity commissionersTeam = createTeam(
+                draft,
+                user,
+                true,
+                user.getFirstName() + "'s First Team"
+        );
         draft.getTeams().add(commissionersTeam);
         return draftRepository.save(draft).getId();
     }
@@ -255,17 +281,13 @@ public class DraftService {
 
     private DraftEntity convertToEntity(DraftWriteDto draftWriteDto) {
         DraftEntity draft = modelMapper.map(draftWriteDto, DraftEntity.class);
-        RosterEntity roster = rosterRepository.findByType(draftWriteDto.getRosterType()).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "RosterType '" + draftWriteDto.getRosterType() + "' not found."));
+        RosterEntity roster = rosterRepository.findByType(draftWriteDto.getRosterType())
+                .orElseThrow(() -> new ResponseStatusException(
+                        HttpStatus.NOT_FOUND, "RosterType '" + draftWriteDto.getRosterType() + "' not found.")
+                );
         draft.setRoster(roster);
         draft.setStatus(DraftStatusEnum.IN_SETUP);
         return draft;
-    }
-
-    private void checkDraftValidity(DraftEntity draft) {
-        final String draftName = draft.getName();
-        if(draftRepository.existsByName(draftName)) {
-            throw new ResponseStatusException(HttpStatus.CONFLICT, "A draft with the name '" + draftName + "' already exists.");
-        }
     }
 
     private void checkIfCommissioner(UserEntity user, DraftEntity draft) {

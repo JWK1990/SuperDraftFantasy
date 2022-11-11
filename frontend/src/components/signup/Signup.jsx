@@ -4,6 +4,8 @@ import {signUpAction} from "../../store/actions";
 import {connect} from "react-redux";
 import Form from "../form/Form";
 import FormUtils from "../../utils/FormUtils";
+import {userAuthenticatedSelector} from "../../store/selectors/UserSelectors";
+import {Redirect} from "react-router-dom";
 
 class Signup extends React.Component {
 
@@ -61,6 +63,7 @@ class Signup extends React.Component {
                     label: "Password",
                     required: true,
                     value: "",
+                    type: "password",
                 },
                 width: 12,
             },
@@ -79,13 +82,22 @@ class Signup extends React.Component {
   }
 
   render() {
+      if(this.props.isAuthenticated) {
+          return <Redirect to={"/myDrafts"} />
+      }
     return <Form formDetails={this.formDetails} onSubmit={this.saveUser}/>
   }
 
 }
 
+const mapStateToProps = state => {
+    return {
+        isAuthenticated: userAuthenticatedSelector(state)
+    };
+};
+
 const mapDispatchToProps = dispatch => ({
     signUp: (user) => dispatch(signUpAction(user))
 });
 
-export default connect(null, mapDispatchToProps)(Signup);
+export default connect(mapStateToProps, mapDispatchToProps)(Signup);

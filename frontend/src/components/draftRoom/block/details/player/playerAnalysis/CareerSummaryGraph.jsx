@@ -73,7 +73,6 @@ const getSdTeamId = (teamId) => {
 
 const CustomTooltip = ({ active, payload, label, tooltipText, tooltipPrefix, selectedStat }) => {
     if (active && payload && payload.length) {
-        console.log(payload[0].payload);
         if(payload[0].payload.sdTeamId !== null) {
             return (
                 <Paper style={{width: "400px", textAlign: "center"}}>
