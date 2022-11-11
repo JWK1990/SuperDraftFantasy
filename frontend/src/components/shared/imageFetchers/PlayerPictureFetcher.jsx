@@ -1,3 +1,5 @@
+import PlaceholderPlayerImage from "../../../images/PlaceholderPlayerImage.jpg";
+
 export default class PlayerPictureFetcher {
 
     static playerPictureMap = new Map([
@@ -363,12 +365,15 @@ export default class PlayerPictureFetcher {
     ]);
 
     static getPlayerPicture(id) {
+        /*
         const placeholderImage = "https://uploads-ssl.webflow.com/5f331d85e8e7462d21736679/5ff8ce36ac01aec9ae653cb7_depositphotos_121233262-stock-illustration-male-default-placeholder-avatar-profile.jpg";
         if(id != null) {
             const playerImage = this.playerPictureMap.get(id);
             return playerImage != null ? playerImage : placeholderImage;
         }
         return placeholderImage;
+        */
+        return PlaceholderPlayerImage;
     }
 
 }
