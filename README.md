@@ -14,5 +14,6 @@ Please follow the below steps to run the application locally:
 1. Navigate to the /docker directory and run ```docker-compose up -d``` to start the PostgreSQL DB Docker Container.
 2. Navigate to the /backend directory and run ```mvn clean install``` to install the Backend application.
 3. From the /backend directory, run ```mvn spring-boot:run``` to start the Backend application.
-4. Navigate to the /frontend directory and run ```npm start``` to start the React application.
-5. Once started, the application should open in your browser on localhost:3000.
+4. Navigate to the /frontend directory and run ```npm install``` to install frontend dependencies.
+5. From the /frontend directory, run ```npm start``` to start the React application.
+6. Once started, the application should open in your browser on localhost:3000.
