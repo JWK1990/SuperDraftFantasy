@@ -7,7 +7,6 @@ import Button from "@material-ui/core/Button";
 import {createMuiTheme} from "@material-ui/core";
 import {connect} from "react-redux";
 import {draftTeamSelector} from "../../../store/selectors/DraftSelectors";
-import TeamLogoFetcher from "../../shared/imageFetchers/TeamLogoFetcher";
 import {leadBidderTeamIdSelector, onTheBlockTeamIdSelector} from "../../../store/selectors/BlockSelectors";
 import Box from "@material-ui/core/Box";
 
@@ -57,17 +56,17 @@ const useStyles = makeStyles((theme) => ({
     teamName: {
         fontSize: "1vw",
         fontWeight: "bold",
-        padding: "0 5px 0 5px",
+        padding: "0 5px 0 10px",
         textAlign: "left",
     },
     userName: {
         fontSize: "0.8vw",
-        padding: "0 5px 5px 5px",
+        padding: "0 5px 5px 10px",
         textAlign: "left",
     },
     teamDetails: {
         fontSize: "0.8vw",
-        padding: "0 5px 0 5px",
+        padding: "0 5px 0 10px",
         textAlign: "left",
     },
     maxBidHeading: {
@@ -104,7 +103,7 @@ function TeamCardV2(props) {
         </Paper>
     }
 
-    const teamLogo = TeamLogoFetcher.getTeamLogo(props.team.id);
+    // const teamLogo = TeamLogoFetcher.getTeamLogo(props.team.id);
 
     // TODO: Add ellipsis to text that goes too wide.
     return (
@@ -126,6 +125,7 @@ function TeamCardV2(props) {
                         onClick={() => props.handleTeamClick(props.team.id)}
                     >
                         <Grid container spacing={1} alignItems={"center"}>
+                            {/*
                                 <Grid item xs={1} className={classes.teamLogo}>
                                     {
                                         teamLogo == null
@@ -140,7 +140,8 @@ function TeamCardV2(props) {
                                             )
                                     }
                                 </Grid>
-                                <Grid item xs={8}>
+                               */}
+                                <Grid item xs={9}>
                                     <Typography className={classes.teamName}>
                                         {props.team.name}
                                     </Typography>
